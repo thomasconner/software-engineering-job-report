@@ -1,9 +1,10 @@
 // Directive renderers: line, bar, stacked-area, small-multiples, slope, dot.
 import d3 from './d3.js';
 import {
-  AuthoringError, WINDOWS, addMonths, monthDate, monthLabel, makeFormat, delta, tone, TONE_WORD, tickFormat,
+  AuthoringError, WINDOWS, addMonths, monthDate, monthLabel, makeFormat, change, needsModelNote, tickFormat,
   resolveSeries, pointAt, valueAt, sourceLine, pastMonth, isCatchAll,
 } from './data.js';
+import { modelNote } from './compare.js';
 
 const MAX_BANDS = 6; // a stack keeps its five largest categories and folds the rest into "Everything else"
 const MARKER_LIMIT = 36; // fewer points than this get a dot on every month
@@ -57,6 +58,8 @@ function figureShell(mount, attrs, series) {
   const foot = el('div', 'chart-foot');
   const presets = el('div', 'presets');
   const source = el('p', 'chart-source', sourceLine(series));
+  if (needsModelNote(series, attrs.note)) source.append(' ', modelNote());
+  if (series.some((s) => s.confidence === 'rough')) source.append(' ', el('span', 'chart-note', 'A rough measure: read it as a broad picture.'));
   if (attrs.note) source.append(' ', el('span', 'chart-note', attrs.note));
   const toggle = el('button', 'table-toggle', 'Show the numbers');
   toggle.type = 'button';
@@ -261,18 +264,49 @@ function parseAnnotations(text) {
     .map((s) => ({ month: s.slice(0, 7), label: s.slice(8).trim() }));
 }
 
-// Annotation labels sit above the plot; a label that would run into the previous one drops to the next row.
-function layoutAnnotations(annotations, x, start, end, right) {
-  let lastRight = -Infinity;
-  let row = 0;
-  return annotations.filter((a) => monthDate(a.month) >= start && monthDate(a.month) <= end).map((a) => {
-    const ax = x(monthDate(a.month));
-    const estimate = a.label.length * 6.4;
-    const anchorEnd = ax + estimate > right;
-    row = (anchorEnd ? ax - estimate : ax) < lastRight + 8 ? row + 1 : 0;
-    lastRight = anchorEnd ? ax : ax + estimate;
-    return { ...a, ax, anchorEnd, row };
+// Annotation labels sit in rows above the plot, each beside its own rule. A label may not cross another
+// annotation's rule, so the rule it would cross starts on a lower row; when that can't be arranged the label is
+// shortened instead. Row 0 is the top row.
+function layoutAnnotations(annotations, x, start, end, left, right, measure) {
+  const inRange = annotations.filter((a) => monthDate(a.month) >= start && monthDate(a.month) <= end);
+  const rules = inRange.map((a) => x(monthDate(a.month)));
+  const items = inRange.map((a, k) => {
+    const ax = rules[k];
+    const w = measure(a.label);
+    // Each label goes on whichever side of its rule fits and crosses fewer other rules; right side on a tie.
+    const sides = [
+      { anchorEnd: false, span: [ax, ax + 4 + w], fits: ax + 4 + w <= right },
+      { anchorEnd: true, span: [ax - 4 - w, ax], fits: ax - 4 - w >= left - 8 },
+    ].map((o) => ({ ...o, crossed: rules.filter((r, j) => j !== k && r > o.span[0] - 3 && r < o.span[1] + 3).length }));
+    const usable = sides.filter((o) => o.fits);
+    const side = (usable.length ? usable : sides).sort((a1, b1) => a1.crossed - b1.crossed)[0];
+    return { ...a, text: a.label, ax, anchorEnd: side.anchorEnd, span: side.span, row: 0 };
   });
+  const crosses = (a, b) => b.ax > a.span[0] - 3 && b.ax < a.span[1] + 3;
+  for (let pass = 0; pass <= items.length; pass++) {
+    let moved = false;
+    for (const a of items) {
+      for (const b of items) {
+        if (a === b) continue;
+        const clash = crosses(a, b) || (a.row === b.row && a.span[0] < b.span[1] + 6 && b.span[0] < a.span[1] + 6 && a.ax < b.ax);
+        if (clash && b.row <= a.row && !crosses(b, a)) {
+          b.row = a.row + 1;
+          moved = true;
+        }
+      }
+    }
+    if (!moved) break;
+  }
+  // Two labels that each cross the other's rule: shorten the one on the left to stop before the next rule.
+  for (const a of items) {
+    const blocker = items.find((b) => b !== a && crosses(a, b) && b.row <= a.row);
+    if (!blocker) continue;
+    const room = a.anchorEnd ? a.ax - blocker.ax - 10 : blocker.ax - a.ax - 10;
+    let text = a.label;
+    while (text.length > 1 && measure(`${text}…`) > room) text = text.slice(0, -1);
+    a.text = `${text.trimEnd()}…`;
+  }
+  return items;
 }
 
 function drawAnnotations(g, placed, top, bottom) {
@@ -281,8 +315,9 @@ function drawAnnotations(g, placed, top, bottom) {
     const ty = top - 10 - (rows - p.row) * 14;
     const ag = g.append('g').attr('class', 'annotation');
     ag.append('line').attr('x1', p.ax).attr('x2', p.ax).attr('y1', ty + 4).attr('y2', bottom);
-    ag.append('text').attr('x', p.anchorEnd ? p.ax - 4 : p.ax + 4).attr('y', ty)
-      .attr('text-anchor', p.anchorEnd ? 'end' : 'start').text(p.label);
+    const t = ag.append('text').attr('x', p.anchorEnd ? p.ax - 4 : p.ax + 4).attr('y', ty)
+      .attr('text-anchor', p.anchorEnd ? 'end' : 'start').text(p.text);
+    if (p.text !== p.label) t.append('title').text(p.label);
   }
 }
 
@@ -313,15 +348,14 @@ const pinCatchAllLast = (items, keyOf = (s) => s.key) => [
 // The months this chart's "then" markers point at: 5 years, 1 year and 3 months before its last month.
 const referenceMonths = (to) => Object.entries(WINDOWS).reverse().map(([key, n]) => ({ key, month: addMonths(to, -n) }));
 
+// The end-label badge compares with a year earlier, the style guide's cleanest window, falling back to 5y then 3m.
 function endDelta(s, to) {
-  const now = valueAt(s, to);
   for (const key of ['1y', '5y', '3m']) {
-    const d = delta(now, valueAt(s, addMonths(to, -WINDOWS[key])), s.unit);
-    if (d) return { ...d, key, tone: tone(d.sign, s.polarity) };
+    const c = change(s, addMonths(to, -WINDOWS[key]), to);
+    if (c) return { ...c, key };
   }
   return null;
 }
-const ARROW = (sign) => (sign > 0 ? '▲' : sign < 0 ? '▼' : '');
 
 // ---------- time series: line, stacked-area, bar over time ----------
 
@@ -362,7 +396,7 @@ function timeChart(fig, series, attrs, until, data, mode) {
   const first = d3.min(series, (s) => s.points[0]?.month);
   const annotations = parseAnnotations(attrs.annotate);
   const tooltip = makeTooltip(fig.plot);
-  seriesTable(fig, series, makeFormat(unit, series.flatMap((s) => s.points.map((p) => p.value))));
+  seriesTable(fig, series, makeFormat(unit, { precise: true }));
 
   let from = rangePresets(fig.presets, first, to, attrs.from ?? (mode === 'bar' ? addMonths(to, -23) : null), (f) => {
     from = f;
@@ -379,7 +413,8 @@ function timeChart(fig, series, attrs, until, data, mode) {
     const startM = months[0];
     const endM = months.at(-1);
     fig.setSubtitle(`${subjectOf(series)}, ${monthLabel(startM, 'long')} to ${monthLabel(endM, 'long')}`);
-    const fmt = makeFormat(unit, visible.flatMap((s) => s.points.map((p) => p.value)));
+    const fmt = makeFormat(unit);
+    const tipFmt = makeFormat(unit, { precise: true });
     const phone = isPhone(width);
     const height = mode === 'bar' ? (phone ? 220 : 260) : phone ? 250 : 320;
     const start = monthDate(startM);
@@ -401,9 +436,6 @@ function timeChart(fig, series, attrs, until, data, mode) {
     }
     const y = d3.scaleLinear().domain(yDomain).nice();
     const margin = { top: 22, bottom: 28, right: 12, left: textWidth(svg, y.ticks(5).map(tickFormat(unit)), 'tick') + 10 };
-    const draft = layoutAnnotations(annotations, d3.scaleUtc().domain([start, end]).range([margin.left, width - 12]), start, end, width - 12);
-    if (draft.length) margin.top = 34 + (d3.max(draft, (p) => p.row) + 1) * 14;
-    y.range([height - margin.bottom, margin.top]);
 
     // Direct labels at the right edge, spread apart with leader lines when lines end close together.
     const yEnd = (s, i) => (mode === 'area' ? y((stacked[i].at(-1)[0] + stacked[i].at(-1)[1]) / 2) : y(s.points.at(-1)?.value));
@@ -412,9 +444,9 @@ function timeChart(fig, series, attrs, until, data, mode) {
       if (!s.points.length || s.points.at(-1).month !== endM) return null;
       const d = single ? endDelta(s, endM) : null;
       const lines = [{ text: fmt(s.points.at(-1).value), cls: 'end-value' }];
-      if (d) lines.push({ text: `${ARROW(d.sign)} ${d.text.replace(/^[+−]/, '')} vs ${d.key}`, cls: `end-delta d-${d.tone}` });
+      if (d) lines.push({ text: `${d.mark} ${d.text.replace(/^[+−]/, '')} vs ${d.key}`, cls: `end-delta d-${d.tone}`, title: d.word });
       if (!single) lines.push({ text: s.label, cls: 'end-name' });
-      return { s, i, y: yEnd(s, i), lines };
+      return { s, i, lines };
     }).filter(Boolean);
     const labelWidth = (ls) => textWidth(svg, ls.flatMap((l) => l.lines.map((x) => x.text)), 'end-label');
     let right = labels.length ? labelWidth(labels) + 22 : 12;
@@ -430,6 +462,11 @@ function timeChart(fig, series, attrs, until, data, mode) {
     const x = d3.scaleUtc().domain([start, end]).range([margin.left, width - margin.right]);
     const band = d3.scaleBand().domain(months).range([margin.left, width - margin.right]).paddingInner(0.2);
     if (mode === 'bar') x.range([margin.left + band.bandwidth() / 2, width - margin.right - band.bandwidth() / 2]);
+    const placedNotes = layoutAnnotations(annotations, x, start, end, margin.left, width - margin.right,
+      (text) => textWidth(svg, [text], 'annotation-label'));
+    if (placedNotes.length) margin.top = 34 + (d3.max(placedNotes, (p) => p.row) + 1) * 14;
+    y.range([height - margin.bottom, margin.top]);
+    for (const l of labels) l.y = yEnd(l.s, l.i);
 
     drawYAxis(g, y, margin.left, width - margin.right, unit);
     drawXAxis(g, x, height - margin.bottom, width, start, end);
@@ -446,9 +483,12 @@ function timeChart(fig, series, attrs, until, data, mode) {
       marks.selectAll('path').data(visible[0].points).join('path')
         .attr('class', (p) => (p.month === endM ? 'bar' : 'bar bar-context'))
         .attr('d', (p) => roundedBar(band(p.month) + (band.bandwidth() - bw) / 2, y(p.value), bw, y(0) - y(p.value), bw > 6 ? 4 : 0));
-      const last = visible[0].points.at(-1);
+      const pts = visible[0].points;
+      const last = pts.at(-1);
       if (last.month === endM) {
-        marks.append('text').attr('class', 'bar-value').attr('x', x(last.date)).attr('y', y(last.value) - 6)
+        // Sit above the taller of this bar and its neighbors so the label never overlaps one of them.
+        const top = d3.max(pts.slice(-3), (p) => p.value);
+        marks.append('text').attr('class', 'bar-value').attr('x', x(last.date)).attr('y', y(top) - 6)
           .attr('text-anchor', 'middle').text(fmt(last.value));
       }
     } else {
@@ -467,7 +507,7 @@ function timeChart(fig, series, attrs, until, data, mode) {
       }
     }
 
-    drawAnnotations(g, layoutAnnotations(annotations, x, start, end, width - margin.right), margin.top, height - margin.bottom);
+    drawAnnotations(g, placedNotes, margin.top, height - margin.bottom);
     drawReferences(g, svg, visible, mode, { x, y, stacked, colorOf, endM, startM, top: margin.top });
 
     if (labels.length) {
@@ -481,21 +521,24 @@ function timeChart(fig, series, attrs, until, data, mode) {
         if (Math.abs(l.ty - l.y) > 2) lg.append('path').attr('class', 'leader').attr('d', `M${ex + 5},${l.y}L${lx - 3},${l.ty}`);
         const top = l.ty - ((l.lines.length - 1) * lineH) / 2;
         const t = lg.append('text').attr('x', lx).attr('y', top).attr('dy', '0.32em');
-        l.lines.forEach((ln, k) => t.append('tspan').attr('x', lx).attr('dy', k ? lineH : '0.32em').attr('class', ln.cls).text(ln.text));
+        l.lines.forEach((ln, k) => {
+          const span = t.append('tspan').attr('x', lx).attr('dy', k ? lineH : '0.32em').attr('class', ln.cls).text(ln.text);
+          if (ln.title) span.append('title').text(ln.title);
+        });
       }
     }
 
     const head = visible[0];
     const lastValue = valueAt(head, endM);
     const d1 = endDelta(head, endM);
-    fig.setSummary(`${head.label}: ${fmt(lastValue)} in ${monthLabel(endM, 'long')}${d1 ? `, ${d1.text} against ${d1.key} earlier` : ''}. Use the left and right arrow keys to read each month.`);
+    fig.setSummary(`${head.label}: ${fmt(lastValue)} in ${monthLabel(endM, 'long')}${d1 ? `, ${d1.text} against ${d1.key} earlier (${d1.word || 'no verdict'})` : ''}. Use the left and right arrow keys to read each month.`);
 
     // Hover / keyboard layer: the crosshair snaps to the nearest month.
     const cross = g.append('g').attr('class', 'crosshair').style('display', 'none');
     cross.append('line').attr('y1', margin.top).attr('y2', height - margin.bottom);
     const dots = cross.selectAll('circle').data(visible).join('circle').attr('r', 4).attr('fill', (s, i) => colorOf(s, i));
     const readout = (m) => {
-      const rows = visible.map((s, i) => ({ color: colorOf(s, i), value: fmt(valueAt(s, m)), label: visible.length > 1 ? s.label : '', v: valueAt(s, m) ?? -1 }));
+      const rows = visible.map((s, i) => ({ color: colorOf(s, i), value: tipFmt(valueAt(s, m)), label: visible.length > 1 ? s.label : '', v: valueAt(s, m) ?? -1 }));
       if (mode === 'area') rows.reverse();
       else rows.sort((a, b) => b.v - a.v);
       // A post count is redundant beside a count metric, but tells the reader how solid a share or median is.
@@ -579,7 +622,7 @@ function smallMultiples(fig, series, attrs, until) {
   const sharedY = new Set(series.map((s) => s.unit)).size === 1;
   const first = d3.min(series, (s) => s.points[0]?.month);
   const annotations = parseAnnotations(attrs.annotate);
-  seriesTable(fig, series, makeFormat(series[0].unit, series.flatMap((s) => s.points.map((p) => p.value))));
+  seriesTable(fig, series, makeFormat(series[0].unit, { precise: true }));
   const grid = el('div', 'multiples');
   grid.tabIndex = 0;
   grid.setAttribute('role', 'group');
@@ -597,7 +640,7 @@ function smallMultiples(fig, series, attrs, until) {
       return;
     }
     fig.setSubtitle(`${subjectOf(series)}, ${monthLabel(months[0], 'long')} to ${monthLabel(months.at(-1), 'long')}`);
-    const fmtFor = (s) => makeFormat(s.unit, (sharedY ? visible : [s]).flatMap((v) => v.points.map((p) => p.value)));
+    const fmtFor = (s) => makeFormat(s.unit);
     const cols = width < 420 ? 2 : width < 640 ? 3 : 4;
     const gap = 16;
     const pw = Math.floor((width - gap * (cols - 1)) / cols);
@@ -672,7 +715,7 @@ function smallMultiples(fig, series, attrs, until) {
         const host = fig.plot.getBoundingClientRect();
         const n = pointAt(hovered.s, m)?.n;
         tooltip.show(box.left - host.left + cx, box.top - host.top + 24, monthLabel(m, 'long'),
-          [{ color: colorOf(hovered.s), value: hovered.fmt(valueAt(hovered.s, m)), label: hovered.s.label }],
+          [{ color: colorOf(hovered.s), value: makeFormat(hovered.s.unit, { precise: true })(valueAt(hovered.s, m)), label: hovered.s.label }],
           n ? `Based on ${n.toLocaleString('en-US')} posts` : '');
       }
       return `${monthLabel(m, 'long')}: ${panels.map((p) => `${p.s.label} ${p.fmt(valueAt(p.s, m))}`).join(', ')}`;
@@ -702,10 +745,14 @@ function comparisonRows(series, from, to) {
   return series.map((s, i) => {
     const a = valueAt(s, from);
     const b = valueAt(s, to);
-    const d = delta(b, a, s.unit);
-    return { s, i, a, b, d, tone: d ? tone(d.sign, s.polarity) : 'flat' };
+    const d = change(s, from, to);
+    return { s, i, a, b, d, tone: d?.tone ?? 'flat' };
   }).filter((r) => r.a != null && r.b != null);
 }
+
+const changeRow = (c) => ({
+  value: c ? `${c.mark} ${c.text}`.trim() : 'n/a', label: c?.word || 'change', tone: c?.tone,
+});
 
 function comparisonTable(fig, rows, from, to, fmt) {
   fig.table(() => ({
@@ -751,10 +798,11 @@ function slopeChart(fig, series, attrs, until) {
   if (to > until) throw new AuthoringError(`months="${attrs.months}" goes past this issue (${until})`);
   const rows = comparisonRows(series, from, to);
   checkComparable(rows, from, to);
-  const fmt = makeFormat(series[0].unit, rows.flatMap((r) => [r.a, r.b]));
+  const fmt = makeFormat(series[0].unit);
+  const tipFmt = makeFormat(series[0].unit, { precise: true });
   const highlight = list(attrs.highlight) ?? [d3.greatest(rows, (r) => Math.abs(r.b - r.a)).s.key];
   const colorOf = (r) => (highlight.includes(r.s.key) ? color(highlight.indexOf(r.s.key)) : DEEMPH);
-  comparisonTable(fig, rows, from, to, fmt);
+  comparisonTable(fig, rows, from, to, tipFmt);
   fig.setSubtitle(`${subjectOf(series)}, ${monthLabel(from, 'long')} and ${monthLabel(to, 'long')}`);
   fig.setSummary(rows.map((r) => `${r.s.label}: ${fmt(r.a)} to ${fmt(r.b)}`).join('; '));
   const tooltip = makeTooltip(fig.plot);
@@ -805,9 +853,9 @@ function slopeChart(fig, series, attrs, until) {
     }, (r) => ({
       x: (x0 + x1) / 2, y: (y(r.a) + y(r.b)) / 2 + 12, header: r.s.label,
       rows: [
-        { value: fmt(r.a), label: monthLabel(from) },
-        { value: fmt(r.b), label: monthLabel(to) },
-        { value: `${r.d?.text ?? 'n/a'} ${TONE_WORD[r.tone]}`.trim(), label: 'change', tone: r.tone },
+        { value: tipFmt(r.a), label: monthLabel(from) },
+        { value: tipFmt(r.b), label: monthLabel(to) },
+        changeRow(r.d),
       ],
     }), tooltip);
   });
@@ -818,8 +866,9 @@ function dotChart(fig, series, attrs, until) {
   const to = until;
   const rows = pinCatchAllLast(comparisonRows(series, from, to).sort((a, b) => b.b - a.b), (r) => r.s.key);
   checkComparable(rows, from, to);
-  const fmt = makeFormat(series[0].unit, rows.flatMap((r) => [r.a, r.b]));
-  comparisonTable(fig, rows, from, to, fmt);
+  const fmt = makeFormat(series[0].unit);
+  const tipFmt = makeFormat(series[0].unit, { precise: true });
+  comparisonTable(fig, rows, from, to, tipFmt);
   fig.setSubtitle(`${subjectOf(series)}, ${monthLabel(to, 'long')} compared with ${monthLabel(from, 'long')}`);
   fig.setSummary(rows.map((r) => `${r.s.label}: ${fmt(r.b)}, ${r.d?.text ?? 'no change'} since ${monthLabel(from)}`).join('; '));
   const tooltip = makeTooltip(fig.plot);
@@ -872,9 +921,9 @@ function dotChart(fig, series, attrs, until) {
     bindItems(fig, svg, row, rows, (px, py) => Math.floor((py - m.top) / rowH), (r) => ({
       x: x(Math.max(r.a, r.b)), y: m.top + rows.indexOf(r) * rowH + rowH, header: r.s.label,
       rows: [
-        { color: color(0), value: fmt(r.b), label: monthLabel(to) },
-        { color: 'var(--then)', value: fmt(r.a), label: monthLabel(from) },
-        { value: `${r.d?.text ?? 'n/a'} ${TONE_WORD[r.tone]}`.trim(), label: 'change', tone: r.tone },
+        { color: color(0), value: tipFmt(r.b), label: monthLabel(to) },
+        { color: 'var(--then)', value: tipFmt(r.a), label: monthLabel(from) },
+        changeRow(r.d),
       ],
     }), tooltip);
   });
@@ -886,8 +935,9 @@ function barChart(fig, series, attrs, until, data) {
   const month = attrs.to && attrs.to < until ? attrs.to : until;
   const rows = pinCatchAllLast(series.map((s) => ({ s, v: valueAt(s, month) })).filter((r) => r.v != null).sort((a, b) => b.v - a.v), (r) => r.s.key);
   if (!rows.length) throw new AuthoringError(`No data for ${monthLabel(month)}`);
-  const fmt = makeFormat('share', rows.map((r) => r.v));
-  fig.table(() => ({ columns: ['', monthLabel(month)], rows: rows.map((r) => [r.s.label, fmt(r.v)]) }));
+  const fmt = makeFormat('share');
+  const tipFmt = makeFormat('share', { precise: true });
+  fig.table(() => ({ columns: ['', monthLabel(month)], rows: rows.map((r) => [r.s.label, tipFmt(r.v)]) }));
   fig.setSubtitle(`${subjectOf(series)}, ${monthLabel(month, 'long')}`);
   fig.setSummary(rows.map((r) => `${r.s.label} ${fmt(r.v)}`).join(', '));
   const tooltip = makeTooltip(fig.plot);
@@ -905,7 +955,7 @@ function barChart(fig, series, attrs, until, data) {
     svg.append('line').attr('class', 'axis-rule').attr('x1', m.left).attr('x2', m.left).attr('y1', 0).attr('y2', height);
     bindItems(fig, svg, row, rows, (px, py) => Math.floor((py - m.top) / rowH), (r) => ({
       x: x(r.v), y: m.top + rows.indexOf(r) * rowH + rowH, header: r.s.label,
-      rows: [{ value: fmt(r.v), label: monthLabel(month) }],
+      rows: [{ value: tipFmt(r.v), label: monthLabel(month) }],
     }), tooltip);
   });
 }

@@ -112,8 +112,7 @@ function renderRibbon(data, until) {
   const caption = $('#ribbon-caption');
   if (!metric) return;
   const pts = metric.series.filter((p) => p.month <= until && !data.pending.has(p.month));
-  const marks = new Map(Object.entries(WINDOWS).map(([k, n]) => [addMonths(until, -n), `${k} ago`]));
-  marks.set(until, monthLabel(until));
+  const marks = new Map(Object.entries(WINDOWS).map(([k, n]) => [addMonths(until, -n), k]));
   const fmt = makeFormat('count');
   const defaultCaption = `${metric.label} each month since ${monthLabel(pts[0].month)}. Marked bars show 5 years, 1 year and 3 months before ${monthLabel(until)}.`;
   caption.textContent = defaultCaption;
@@ -137,9 +136,10 @@ function renderRibbon(data, until) {
   const draw = () => {
     const width = wrap.clientWidth;
     if (!width) return;
-    const barsH = width < 520 ? 44 : 56;
+    const phone = width < 520;
+    const barsH = phone ? 50 : 62;
     x = d3.scaleBand().domain(pts.map((p) => p.month)).range([0, width]).paddingInner(width / pts.length > 4 ? 0.25 : 0.1);
-    const y = d3.scaleLinear().domain([0, d3.max(pts, (p) => p.value)]).range([barsH, 2]);
+    const y = d3.scaleLinear().domain([0, d3.max(pts, (p) => p.value)]).range([barsH, 4]);
     const svg = d3.create('svg').attr('width', width).attr('aria-hidden', 'true');
     svg.selectAll('rect.bar').data(pts).join('rect')
       .attr('class', (p) => (p.month === until ? 'bar now' : marks.has(p.month) ? 'bar mark' : 'bar'))
@@ -147,13 +147,17 @@ function renderRibbon(data, until) {
       .attr('y', (p) => y(p.value)).attr('height', (p) => y(0) - y(p.value));
     svg.append('rect').attr('class', 'cursor').attr('y', 0).attr('height', barsH).attr('width', Math.max(2, x.bandwidth())).attr('hidden', '');
     wrap.replaceChildren(svg.node());
-    // Labels go on the first row that has room; the strip grows another row rather than dropping one.
+    // The issue month is named above its own bar, so it never competes with the window labels underneath.
+    const now = pts.at(-1);
+    svg.append('text').attr('class', 'now').attr('x', width).attr('y', Math.max(10, y(now.value) - 5))
+      .attr('text-anchor', 'end').text(monthLabel(until));
+    // Window labels go on the first row that has room; the strip grows another row rather than dropping one.
     const rows = [];
-    for (const [m, text] of [...marks].reverse()) {
+    for (const [m, key] of [...marks].reverse()) {
       if (x(m) == null) continue;
       const cx = x(m) + x.bandwidth() / 2;
       svg.append('line').attr('class', 'tick').attr('x1', cx).attr('x2', cx).attr('y1', barsH + 1).attr('y2', barsH + 5);
-      const t = svg.append('text').attr('class', m === until ? 'now' : null).text(text);
+      const t = svg.append('text').text(phone ? key : `${key} ago`);
       const w = t.node().getComputedTextLength();
       const left = Math.min(width - w, Math.max(0, cx - w / 2));
       let r = rows.findIndex((row) => !row.some(([a, b]) => left < b + 6 && left + w > a - 6));
@@ -215,13 +219,73 @@ function renderBody(article, data, until) {
   }
 }
 
+// Plain names for the Jev questions scored in validation.json, and the measures they feed.
+const QUESTIONS = [
+  ['work_mode', 'Remote, hybrid or onsite', 'work_mode'],
+  ['seniority', 'Seniority of the roles', 'seniority'],
+  ['industry', 'What the company makes', 'industry'],
+  ['funding_stage', 'Funding stage', 'funding_stage'],
+  ['ai_native', 'Describes an AI product', 'ai_native_share.hiring'],
+  ['new_grad', 'Open to new grads', 'new_grad_share.hiring'],
+  ['eng_leadership', 'Hiring engineering leads', 'eng_leadership_share.hiring'],
+  ['seeker_mood', 'Job-seeker mood', 'seeker_mood.seeking'],
+];
+
+async function renderValidation(data) {
+  const res = await fetch('data/validation.json');
+  if (!res.ok) return;
+  const v = await res.json();
+  const pct = (x) => `${Math.round(x * 100)}%`;
+  const table = document.createElement('table');
+  table.className = 'validation-table';
+  const head = table.createTHead().insertRow();
+  for (const h of ['Question', 'Right on held-out posts', 'Posts checked']) {
+    const th = document.createElement('th');
+    th.textContent = h;
+    head.append(th);
+  }
+  const body = table.createTBody();
+  for (const [q, name, key] of QUESTIONS) {
+    const held = v.holdout?.questions?.[q]?.overall;
+    const ref = v.reference?.questions?.[q]?.overall;
+    if (!held && !ref) continue;
+    const row = body.insertRow();
+    const th = document.createElement('th');
+    th.scope = 'row';
+    th.textContent = name;
+    const measure = data.metrics[key] ?? data.breakdowns[key];
+    if (measure?.confidence === 'rough') {
+      const badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = 'rough';
+      th.append(' ', badge);
+    }
+    const acc = row.insertCell();
+    const n = row.insertCell();
+    if (held?.n) {
+      acc.textContent = pct(held.accuracy);
+      n.textContent = held.n;
+    } else {
+      // No held-out labels yet: show the score on the posts used to write the question, and say so.
+      acc.textContent = `${pct(ref.accuracy)}*`;
+      n.textContent = `${ref.n}*`;
+    }
+    row.prepend(th);
+  }
+  const notes = document.createElement('p');
+  notes.className = 'validation-note';
+  notes.textContent = `Held-out posts are ${v.holdout?.n_labels ?? 'a set of'} hiring posts never used to write or tune the questions. "Right" means the model's top answer matched the label both annotators agreed on. "Rough" marks a measure to read as a broad picture, not a precise share.${body.textContent.includes('*') ? ' * Scored only on the posts used to write the question, so likely optimistic.' : ''}`;
+  $('#validation').replaceChildren(table, notes);
+}
+
 function renderMethodology(data, until) {
+  renderValidation(data).catch(() => { /* the table is optional; the prose still explains the checks */ });
   const removed = ['removed_share.hiring', 'removed_share.seeking'].filter((k) => data.metrics[k]);
   if (removed.length) {
     mountDirective($('#removed-chart'), 'chart', {
       type: 'line',
       metric: removed.join(','),
-      title: 'A growing share of posts is deleted within the first week',
+      title: 'Share of posts deleted or removed before our snapshot',
       note: 'Removed posts are counted here but not added back into post counts.',
     }, data, until);
   }
