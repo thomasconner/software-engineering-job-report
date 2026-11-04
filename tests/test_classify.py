@@ -171,7 +171,7 @@ def test_golden_request_hash(tmp_path: Path):
     # change was deliberate, update the hash: every post of that kind will re-run.
     path = jev.cache_path(tmp_path, jev.build_request("hiring", HIRING_TEXT))
     assert path.relative_to(tmp_path).as_posix() == (
-        "ff/ffcdb2be05c088cb765a7506add66df1d52502da9a99669d7bd6e3e9e408d2fd.json"
+        "d4/d4dc5fc46c4be0c353303462f76c2da0582f26ff77010667381cbbfc137918a7.json"
     )
 
 

@@ -208,8 +208,10 @@ HIRING: dict[str, Question] = {
             "assistant or agent, an ML platform, or a product whose main feature is "
             "computer vision, speech, recommendations or prediction.",
             false="The post does not mention AI or ML, or uses it for a side feature or "
-            "an internal tool, or hires one data scientist. Words like 'data-driven', "
-            "'analytics', 'big data' or 'automation' are not AI or ML on their own.",
+            "an internal tool, or hires one data scientist, or is hiring for an ML, "
+            "research or data-science team at a company whose product the post does "
+            "not present as AI. Words like 'data-driven', 'analytics', 'big data' or "
+            "'automation' are not AI or ML on their own.",
         ),
     ),
     "new_grad": Noul(
