@@ -1,0 +1,46 @@
+{
+  "as_of": "2013-05-09",
+  "fetched_at": "2026-11-04T17:41:59Z",
+  "month": "2013-05",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2013-03-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1288776/",
+      "value": 53891,
+      "vintage_date": "2013-05-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2013-03-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 91300,
+      "vintage_date": "2013-05-09"
+    },
+    "sec_headcount_panel.US": {
+      "n": 48,
+      "ref_period": "2013-03",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0771,
+      "vintage_date": "2013-05-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2013-04",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 1,
+      "vintage_date": "2013-05-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2013-04",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 1,
+      "vintage_date": "2013-05-09"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 18,
+      "ref_period": "2012-Q4",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 470463000,
+      "vintage_date": "2013-05-09"
+    }
+  }
+}

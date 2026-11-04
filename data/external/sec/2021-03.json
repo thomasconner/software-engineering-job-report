@@ -1,0 +1,52 @@
+{
+  "as_of": "2021-03-09",
+  "fetched_at": "2026-11-04T17:44:17Z",
+  "month": "2021-03",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2020-12-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 135301,
+      "vintage_date": "2021-03-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2020-12-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 1298000,
+      "vintage_date": "2021-03-09"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2020-12-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 58604,
+      "vintage_date": "2021-03-09"
+    },
+    "sec_headcount_panel.US": {
+      "n": 48,
+      "ref_period": "2021-01",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.214,
+      "vintage_date": "2021-03-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2021-02",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2021-03-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2021-02",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 3,
+      "vintage_date": "2021-03-09"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 20,
+      "ref_period": "2020-Q3",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 1267662000,
+      "vintage_date": "2021-03-09"
+    }
+  }
+}

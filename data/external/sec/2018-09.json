@@ -1,0 +1,52 @@
+{
+  "as_of": "2018-09-11",
+  "fetched_at": "2026-11-04T17:43:22Z",
+  "month": "2018-09",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2018-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 89058,
+      "vintage_date": "2018-09-11"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2018-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 575700,
+      "vintage_date": "2018-09-11"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2018-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 30275,
+      "vintage_date": "2018-09-11"
+    },
+    "sec_headcount_panel.US": {
+      "n": 46,
+      "ref_period": "2018-07",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0559,
+      "vintage_date": "2018-09-11"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2018-08",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2018-09-11"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2018-08",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 0,
+      "vintage_date": "2018-09-11"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 18,
+      "ref_period": "2018-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 385636000,
+      "vintage_date": "2018-09-11"
+    }
+  }
+}
