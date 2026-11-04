@@ -2,7 +2,7 @@
 month: 2026-10
 headline: "There are two job seekers for every company hiring, and the gap is still growing"
 dek: "Sample issue on mock data. Hiring posts have drifted down for three years while the line of people looking keeps getting longer."
-byline: "Software Engineering Job Report"
+byline: "Software Engineering Jobs Report"
 ---
 
 This is a sample issue. The numbers come from synthetic data and the prose is placeholder copy, written to show how an article reads with every chart type in place. Fewer companies posted in October's "Who is hiring?" thread than a year earlier, and people looking for work outnumbered them about two to one.

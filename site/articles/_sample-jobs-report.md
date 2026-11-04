@@ -2,7 +2,7 @@
 month: 2026-10
 headline: "Software job postings rose this year, but employment slipped"
 dek: "Indeed's index of US software job postings rose 23% in a year, while the BLS counted 2% fewer people working at computer systems design firms."
-byline: "Software Engineering Job Report"
+byline: "Software Engineering Jobs Report"
 ---
 
 Ads for software work are coming back. Indeed's index of US software development job postings rose 23% over the year to early October. The government's counts of people employed and hired have not followed. Employment at computer systems design firms was 2% lower in September than a year earlier, by the Bureau of Labor Statistics' count.

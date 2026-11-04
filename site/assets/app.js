@@ -96,14 +96,14 @@ function renderHeader(meta, until, data) {
   const headline = meta.headline ?? 'Untitled issue';
   $('#headline').textContent = headline;
   $('#dek').textContent = meta.dek ?? '';
-  $('#byline').textContent = `By ${meta.byline ?? 'Software Engineering Job Report'}`;
+  $('#byline').textContent = `By ${meta.byline ?? 'Software Engineering Jobs Report'}`;
   const time = $('#dateline');
   time.dateTime = until;
   time.textContent = `${monthLabel(until, 'long')} issue`;
   $('#data-stamp').textContent = data.mock
     ? 'Mock data for layout testing'
     : `Data updated ${new Date(data.generated_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}`;
-  document.title = `${headline} | Software Engineering Job Report`;
+  document.title = `${headline} | Software Engineering Jobs Report`;
 }
 
 // Masthead strip: every complete month of hiring posts up to this issue, with the comparison months marked.

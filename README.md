@@ -1,4 +1,4 @@
-# Software Engineering Job Report
+# Software Engineering Jobs Report
 
 A monthly Software Engineering Jobs Report on the US software engineering job market, built from public sources: Indeed Hiring Lab job postings, BLS job openings and employment (JOLTS, CES), and Hacker News "Ask HN: Who is hiring?" and "Who wants to be hired?" threads back to 2011. Each month gets a short data column with the charts behind it.
 

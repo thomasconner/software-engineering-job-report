@@ -286,7 +286,7 @@ Markdown with front matter and chart directives. The site renders the newest art
 month: 2026-11
 headline: "Remote work is losing, but not where you'd think"
 dek: "One-sentence standfirst under the headline."
-byline: "Software Engineering Job Report"
+byline: "Software Engineering Jobs Report"
 ---
 
 Body paragraphs…

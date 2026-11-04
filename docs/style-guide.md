@@ -73,7 +73,7 @@ The "what this data can't tell us" paragraph (section 2) is about the source's l
 
 ### Person
 
-- "We" is the report. Use it for what we did and what we think: "we count top-level posts", "we read this as a recovery in ads, not yet in payrolls". The byline is "Software Engineering Job Report", so there is no "I".
+- "We" is the report. Use it for what we did and what we think: "we count top-level posts", "we read this as a recovery in ads, not yet in payrolls". The byline is "Software Engineering Jobs Report", so there is no "I".
 - "You" is fine when the sentence is about the reader's own situation ("if you're a junior engineer"). Use it sparingly, and never for "you might be wondering".
 - Opinion comes through the claim and the verbs more than through "we believe" or "in our view".
 
@@ -494,7 +494,7 @@ The published October 2026 column (`site/articles/2026-10.md`) was written befor
 month: 2026-10
 headline: "Software job postings rose this year, but employment slipped"
 dek: "Indeed's index of US software job postings rose 23% in a year, while the BLS counted 2% fewer people working at computer systems design firms."
-byline: "Software Engineering Job Report"
+byline: "Software Engineering Jobs Report"
 ---
 
 Ads for software work are coming back. Indeed's index of US software development job postings rose 23% over the year to early October. The government's counts of people employed and hired have not followed. Employment at computer systems design firms was 2% lower in September than a year earlier, by the Bureau of Labor Statistics' count.
