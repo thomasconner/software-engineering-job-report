@@ -1,17 +1,17 @@
 {
   "as_of": "2022-12-09",
-  "fetched_at": "2026-11-04T15:44:32Z",
+  "fetched_at": "2026-11-04T16:02:49Z",
   "month": "2022-12",
   "values": {
     "indeed_software_postings.GB": {
       "ref_period": "2022-11-25",
-      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/b2da28210eea735a702fd5199cfb58554197665c/GB/job_postings_by_sector_GB.csv",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/a7f2057a0002ff05b096ab7cc112f2697509db01/GB/job_postings_by_sector_GB.csv",
       "value": 111.87,
       "vintage_date": "2022-12-01"
     },
     "indeed_software_postings.US": {
       "ref_period": "2022-11-25",
-      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/b2da28210eea735a702fd5199cfb58554197665c/US/job_postings_by_sector_US.csv",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/a7f2057a0002ff05b096ab7cc112f2697509db01/US/job_postings_by_sector_US.csv",
       "value": 144.4,
       "vintage_date": "2022-12-01"
     }

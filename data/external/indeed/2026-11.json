@@ -1,23 +1,23 @@
 {
   "as_of": "2026-11-10",
-  "fetched_at": "2026-11-04T15:44:59Z",
+  "fetched_at": "2026-11-04T16:03:15Z",
   "month": "2026-11",
   "values": {
     "indeed_software_pay_transparency.US": {
       "ref_period": "2026-09",
-      "source_url": "https://raw.githubusercontent.com/hiring-lab/pay-transparency/8be39d6d88cb5a8feb2aa5743fc2f225b4bad09e/pay-transparency-sector.csv",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/pay-transparency/e57b2abc472cbc0b00fa2d75ed009c9cdb764b6f/pay-transparency-sector.csv",
       "value": 0.4908,
-      "vintage_date": "2026-10-16"
+      "vintage_date": "2026-11-03"
     },
     "indeed_software_postings.GB": {
       "ref_period": "2026-10-23",
-      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/755c1acc2fe2ea49d4beb34040d570708e7a1c38/GB/job_postings_by_sector_GB.csv",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/d71b8dd5e4d60c0d10c743385741f2d372bc60f0/GB/job_postings_by_sector_GB.csv",
       "value": 61.57,
       "vintage_date": "2026-10-28"
     },
     "indeed_software_postings.US": {
       "ref_period": "2026-10-23",
-      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/755c1acc2fe2ea49d4beb34040d570708e7a1c38/US/job_postings_by_sector_US.csv",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/d71b8dd5e4d60c0d10c743385741f2d372bc60f0/US/job_postings_by_sector_US.csv",
       "value": 80.79,
       "vintage_date": "2026-10-28"
     },
