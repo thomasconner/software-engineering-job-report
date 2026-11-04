@@ -240,6 +240,7 @@ def test_export_follows_contract(db):
         "method",
         "description",
         "polarity",
+        "sources",
         "series",
     }
     assert posts["unit"] == "count" and posts["method"] == "count"
@@ -250,7 +251,14 @@ def test_export_follows_contract(db):
         assert metric["method"] in {"count", "regex", "join", "jev"}
 
     work_mode = data["breakdowns"]["work_mode"]
-    assert set(work_mode) == {"label", "method", "categories", "polarity", "series"}
+    assert set(work_mode) == {
+        "label",
+        "method",
+        "categories",
+        "polarity",
+        "sources",
+        "series",
+    }
     assert work_mode["categories"] == ["remote", "hybrid", "onsite", "unclear"]
     assert [p["month"] for p in work_mode["series"]] == [
         "2024-01",
@@ -291,3 +299,44 @@ def test_removed_share(db):
         assert (kind, "removed_share", "") not in _metrics(
             aggregate.compute_month(db, month)
         )
+
+
+def test_samples_are_deterministic_and_complete_only(db):
+    features.build(db)
+    samples = export.build_samples(db)
+    assert samples == export.build_samples(db)
+    assert {p["kind"] for p in samples[f"{PENDING:%Y-%m}"]["posts"]} == {"hiring"}
+    post = samples["2024-01"]["posts"][0]
+    assert set(post) == {"id", "kind", "url", "header", "text", "answers"}
+    assert post["url"] == f"https://news.ycombinator.com/item?id={post['id']}"
+    assert len(post["text"]) <= 600
+    assert post["answers"]["work_mode"] in {"remote", "hybrid", "onsite", "unclear"}
+    in_snapshot = {
+        post_id
+        for (post_id,) in db.execute(
+            "SELECT post_id FROM posts WHERE in_snapshot"
+        ).fetchall()
+    }
+    assert all(p["id"] in in_snapshot for s in samples.values() for p in s["posts"])
+
+
+def test_seeking_samples_drop_contact_details():
+    text = (
+        "Email: jane.doe@example.com\nRésumé: https://jane.dev\nPhone +1 (415) 555-0100"
+    )
+    cleaned = export.CONTACT.sub("[removed]", text)
+    assert "@" not in cleaned
+    assert "jane.dev" not in cleaned
+    assert "555" not in cleaned
+
+
+def test_sources(db):
+    features.build(db)
+    aggregate.run(db, Namespace(month=None, dry_run=False, limit=None))
+    data = export.build(db)
+    assert data["metrics"]["seekers_per_post.hiring"]["sources"] == [
+        "hiring",
+        "seeking",
+    ]
+    assert data["metrics"]["seeker_mood.seeking"]["sources"] == ["seeking"]
+    assert data["breakdowns"]["stack"]["sources"] == ["hiring"]

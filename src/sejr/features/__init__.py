@@ -136,7 +136,9 @@ def build(con: duckdb.DuckDBPyConnection, month: date | None = None) -> int:
     _delete(con, month)
     if rows:
         # One statement over column lists: executemany is ~50x slower at 600k rows.
-        con.execute(INSERT_COLUMNS, [list(column) for column in zip(*rows, strict=True)])
+        con.execute(
+            INSERT_COLUMNS, [list(column) for column in zip(*rows, strict=True)]
+        )
     con.execute(f"INSERT INTO answers {JOIN_SQL}", {"version": VERSION, "month": month})
     con.commit()
     return len(rows)

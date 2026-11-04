@@ -2,13 +2,16 @@
 
 import argparse
 import json
+import re
 from datetime import UTC, datetime
 from pathlib import Path
 
 import duckdb
 
 from sejr.aggregate import BREAKDOWNS, COMPLETE, COUNT_METRICS, INDUSTRY_KNOWN, SCALARS
-from sejr.config import SITE_DATA_DIR
+from sejr.config import JEV_MODEL, SITE_DATA_DIR
+from sejr.features import VERSION as FEATURES_VERSION
+from sejr.features.tokens import header_line
 
 # key → (label, unit, description). Descriptions are written for a newspaper reader.
 SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
@@ -185,6 +188,11 @@ def _method(key: str) -> str:
     )
 
 
+def _sources(key: str) -> list[str]:
+    metric, kind = key.split(".")
+    return ["hiring", "seeking"] if metric == "seekers_per_post" else [kind]
+
+
 def _month(d) -> str:
     return d.strftime("%Y-%m")
 
@@ -210,12 +218,12 @@ def build(con: duckdb.DuckDBPyConnection, generated_at: datetime | None = None) 
 
     metrics = {
         key: {"label": label, "unit": unit, "method": _method(key), "description": description,
-              "polarity": POLARITY.get(key, 0), "series": []}
+              "polarity": POLARITY.get(key, 0), "sources": _sources(key), "series": []}
         for key, (label, unit, description) in SCALAR_TEXT.items()
     }  # fmt: skip
     breakdowns = {
         b.metric: {"label": BREAKDOWN_LABELS[b.metric], "method": b.method,
-                   "categories": list(b.categories), "polarity": 0, "series": []}
+                   "categories": list(b.categories), "polarity": 0, "sources": [b.kind], "series": []}
         for b in [*BREAKDOWNS, INDUSTRY_KNOWN]
     }  # fmt: skip
     points: dict[tuple[str, str], dict] = {}
@@ -247,6 +255,74 @@ def build(con: duckdb.DuckDBPyConnection, generated_at: datetime | None = None) 
     }
 
 
+SAMPLE_SIZES = {"hiring": 30, "seeking": 20}
+SAMPLE_CHARS = 600
+# Seeking posts are personal; strip contact details before anything quotes them.
+CONTACT = re.compile(
+    r"\S+@\S+|\b\S+\s*(?:\[at\]|\(at\))\s*\S+|https?://\S+|www\.\S+|\+?\d[\d\s().-]{7,}\d",
+    re.IGNORECASE,
+)
+
+
+def _answers(con: duckdb.DuckDBPyConnection, post_id: int) -> dict:
+    rows = con.execute(
+        """
+        SELECT question, value, label, probabilities FROM answers
+        WHERE post_id = $post AND question NOT IN ('salary_currency', 'company')
+          AND ((method = 'jev' AND version = $jev) OR (method <> 'jev' AND version = $features))
+        ORDER BY question
+        """,
+        {"post": post_id, "jev": JEV_MODEL, "features": FEATURES_VERSION},
+    ).fetchall()
+    return {
+        question: sorted(json.loads(probs)) if question == "stack" else (
+            label if label is not None else value
+        )
+        for question, value, label, probs in rows
+    }  # fmt: skip
+
+
+def build_samples(con: duckdb.DuckDBPyConnection) -> dict[str, dict]:
+    """Up to 30 hiring and 20 seeking in-snapshot posts per complete month, seeded by month."""
+    rows = con.execute(
+        f"""
+        SELECT strftime(t.month, '%Y-%m') AS month, t.kind, p.post_id, p.text
+        FROM posts p JOIN threads t USING (thread_id)
+        WHERE p.in_snapshot AND t.{COMPLETE}
+        QUALIFY row_number() OVER (
+          PARTITION BY t.month, t.kind ORDER BY md5(strftime(t.month, '%Y-%m') || p.post_id)
+        ) <= CASE t.kind WHEN 'hiring' THEN $hiring ELSE $seeking END
+        ORDER BY month, t.kind, md5(strftime(t.month, '%Y-%m') || p.post_id)
+        """,
+        SAMPLE_SIZES,
+    ).fetchall()
+    samples: dict[str, dict] = {}
+    for month, kind, post_id, text in rows:
+        if kind == "seeking":
+            text = CONTACT.sub("[removed]", text)
+        samples.setdefault(month, {"month": month, "posts": []})["posts"].append(
+            {
+                "id": post_id,
+                "kind": kind,
+                "url": f"https://news.ycombinator.com/item?id={post_id}",
+                "header": header_line(text),
+                "text": text[:SAMPLE_CHARS],
+                "answers": _answers(con, post_id),
+            }
+        )
+    return samples
+
+
+def write_samples(
+    samples: dict[str, dict], directory: Path = SITE_DATA_DIR / "samples"
+) -> None:
+    directory.mkdir(parents=True, exist_ok=True)
+    for month, sample in samples.items():
+        (directory / f"{month}.json").write_text(
+            json.dumps(sample, indent=2, ensure_ascii=False) + "\n"
+        )
+
+
 def write(data: dict, path: Path = SITE_DATA_DIR / "metrics.json") -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
@@ -259,4 +335,6 @@ def run(con: duckdb.DuckDBPyConnection, args: argparse.Namespace) -> None:
         print(json.dumps(data, indent=2, ensure_ascii=False)[:5000])
         return
     path = write(data)
-    print(f"export: {len(data['months'])} months → {path}")
+    samples = build_samples(con)
+    write_samples(samples)
+    print(f"export: {len(data['months'])} months → {path}, {len(samples)} sample files")
