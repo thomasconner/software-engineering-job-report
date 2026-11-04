@@ -239,6 +239,54 @@ function renderBody(article, data, until) {
     if (error) showDirectiveError(mount, error);
     else mountDirective(mount, name, attrs, data, until);
   }
+  arrangeFigures(body, article.directives);
+}
+
+// On wide screens regular charts float beside the text, alternating right and left; the strip, small multiples
+// and `layout="wide"` charts span the page. Keep the breakpoint in step with style.css.
+const FLOAT_QUERY = matchMedia('(min-width: 80rem)');
+const MIN_PROSE = 500; // characters, about ten lines beside a float
+const isProse = (node) => ['P', 'UL', 'OL', 'BLOCKQUOTE'].includes(node?.tagName);
+
+function arrangeFigures(body, directives) {
+  const hoisted = [];
+  let floats = 0;
+  for (const mount of body.querySelectorAll('.directive')) {
+    const { name, attrs } = directives[mount.dataset.directive];
+    if (!mount.querySelector('.chart, .compare')) continue; // errors stay in the column
+    if (name === 'compare' || attrs.type === 'small-multiples' || attrs.layout === 'wide') {
+      mount.dataset.layout = 'wide';
+      continue;
+    }
+    // Articles put a chart after the paragraphs it backs. A float only wraps the text that follows it, so on
+    // wide screens the chart moves up to the start of that run of paragraphs and goes back on narrow ones.
+    // A sentence or two beside a chart leaves a hole under it, so a short run stays in the column.
+    let start = mount;
+    let text = 0;
+    while (isProse(start.previousElementSibling)) {
+      start = start.previousElementSibling;
+      text += start.textContent.length;
+    }
+    for (let next = mount.nextElementSibling; start === mount && isProse(next); next = next.nextElementSibling) {
+      text += next.textContent.length;
+    }
+    if (text < MIN_PROSE) continue;
+    mount.dataset.layout = 'float';
+    mount.dataset.side = floats++ % 2 ? 'left' : 'right';
+    if (start === mount) continue;
+    const anchor = document.createComment('chart');
+    mount.before(anchor);
+    hoisted.push({ mount, start, anchor });
+  }
+  if (!hoisted.length) return;
+  const place = () => {
+    for (const { mount, start, anchor } of hoisted) {
+      if (FLOAT_QUERY.matches) start.before(mount);
+      else anchor.after(mount);
+    }
+  };
+  FLOAT_QUERY.addEventListener('change', place);
+  place();
 }
 
 // Plain names for the Jev questions scored in validation.json, and the measures they feed.

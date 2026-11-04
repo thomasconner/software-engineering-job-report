@@ -11,13 +11,14 @@ const ATTR = /([\w-]+)\s*=\s*(?:"((?:\\.|[^"\\])*)"|'((?:\\.|[^'\\])*)'|\u201C([
 // Which attributes each directive accepts (docs/architecture.md, "Directive attributes").
 const COMMON = ['title', 'subtitle', 'note'];
 const TIME = ['from', 'to', 'annotate'];
+// Small multiples and ::compare always span the page, so they don't take `layout`.
 const ALLOWED = {
-  line: ['metric', 'highlight', 'external', 'base', ...TIME],
-  'stacked-area': ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
+  line: ['metric', 'highlight', 'external', 'base', 'layout', ...TIME],
+  'stacked-area': ['metric', 'breakdown', 'categories', 'highlight', 'layout', ...TIME],
   'small-multiples': ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
-  slope: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'months'],
-  dot: ['metric', 'breakdown', 'categories', 'highlight', 'vs'],
-  bar: ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
+  slope: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'months', 'layout'],
+  dot: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'layout'],
+  bar: ['metric', 'breakdown', 'categories', 'highlight', 'layout', ...TIME],
   compare: ['metrics', 'against'],
 };
 
@@ -65,6 +66,9 @@ function checkDirective(name, attrs) {
     const bad = (attrs.against ?? '').split(',').map((s) => s.trim()).filter((a) => a && !WINDOWS[a]);
     if (bad.length) throw new AuthoringError(`against takes 3m, 1y, 5y, not ${bad.join(', ')}`);
     return;
+  }
+  if (attrs.layout && !['float', 'wide'].includes(attrs.layout)) {
+    throw new AuthoringError(`layout="${attrs.layout}" must be float or wide`);
   }
   // A line can draw an outside series on its own (raw values) or paired with one HN metric (both indexed to base).
   const externalOnly = attrs.external && !attrs.metric && !attrs.breakdown;

@@ -154,3 +154,10 @@ assert.equal(data.tickFormat('thousands')(150), '150K');
 // The source line has no HN clause when no series comes from HN.
 assert.equal(data.sourceLine(only), '');
 assert.match(data.sourceLine(rows), /Who is hiring\?/);
+
+// layout: float or wide on regular charts; the strip and small multiples are always wide and don't take it.
+assert.equal(error('::chart{type="line" metric="posts.hiring" title="t" layout="wide"}'), null);
+assert.equal(error('::chart{type="dot" breakdown="industry" title="t" layout="float"}'), null);
+assert.match(error('::chart{type="line" metric="posts.hiring" title="t" layout="left"}'), /float or wide/);
+assert.match(error('::chart{type="small-multiples" breakdown="stack" title="t" layout="float"}'), /does not take "layout"/);
+assert.match(error('::compare{title="t" metrics="posts.hiring" layout="wide"}'), /does not take "layout"/);
