@@ -87,3 +87,13 @@ def test_bootstrap_variance_is_seeded_and_shrinks_with_n():
         small, "k:2026-10"
     )
     assert noise.log_median_variance(large, "s") < noise.log_median_variance(small, "s")
+
+
+def test_mood_bars_never_go_below_the_floor():
+    pts = [
+        {"month": m, "value": 2.0 + 0.001 * i, "n": 500}
+        for i, m in enumerate(_months(30))
+    ]
+    extras = {p["month"]: 0.8 / 500 for p in pts}
+    bars = noise.series_bars("seeker_mood.seeking", "score", pts, extras)
+    assert bars[-1]["1y"] == noise.SCORE_FLOOR

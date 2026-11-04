@@ -29,6 +29,9 @@ MIN_HISTORY = 12
 FALLBACK_DISPERSION = 10.0
 MEDIAN_CHI2_1 = 0.4549
 BOOTSTRAP_DRAWS = 400
+# Mood bars come out near 0.02, but they leave out classifier error, so they never go
+# below the 0.2 convention the style guide used before.
+SCORE_FLOOR = 0.2
 # Never compared across months, so it gets no bar.
 SKIP = {"removed_share.hiring", "removed_share.seeking"}
 
@@ -128,7 +131,8 @@ def bar(
         ]
     if None in vs:
         return None
-    return Z * math.sqrt(d * sum(vs))
+    half_width = Z * math.sqrt(d * sum(vs))
+    return max(half_width, SCORE_FLOOR) if unit == "score" else half_width
 
 
 def series_bars(

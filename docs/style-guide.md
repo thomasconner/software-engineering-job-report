@@ -312,6 +312,7 @@ Rules that stay:
 
 - **Salary medians.** Use a median only when at least 30 posts disclosed pay in each month compared. Months under 30 have no bar and the page shows "too few posts".
 - **Other month pairs.** A comparison that isn't 3 months, 1 year or 5 years (a chart with explicit `months`) has no exported bar. The page then falls back to the sampling-only floors (Poisson, binomial, 5% for salaries, 0.2 for mood); treat those as too narrow and hedge anything close.
+- **Mood.** `seeker_mood` bars never go below 0.2 points. Its sampling and dispersion bar is only about 0.02 to 0.04, but it leaves out classifier error, which dominates a Jev score.
 - `removed_share` has no bar: it is never compared across months.
 
 **Many comparisons.** Each article looks at dozens of numbers across three windows, so some will clear the bar by chance. Prefer moves that persist: the 1y window, or a three-month average against the same three months a year earlier. Treat a 3m move that the 1y window doesn't confirm as suspect. Counting directions is allowed and often more honest than one comparison: "the share has risen in 10 of the last 12 months".

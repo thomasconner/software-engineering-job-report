@@ -457,7 +457,8 @@ def write_samples(
 
 def write(data: dict, path: Path = SITE_DATA_DIR / "metrics.json") -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    # Compact: the per-point noise bars nearly triple the file when indented.
+    path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
     return path
 
 
