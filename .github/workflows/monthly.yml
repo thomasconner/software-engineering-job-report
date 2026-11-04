@@ -1,11 +1,11 @@
 name: Monthly refresh
 
 on:
-  # Daily is cheap: fetch only touches threads still inside their 7-day window, so most
-  # days nothing changes and nothing is committed. A month publishes on the first run
-  # after its snapshot completes.
+  # The thread posts on the 1st and its 7-day snapshot completes around the 8th–9th.
+  # Fetch only touches threads still inside that window, so runs on days 1–12 cover
+  # publication (with slack for a late thread) and the rest of the month is idle.
   schedule:
-    - cron: "0 17 * * *"
+    - cron: "0 17 1-12 * *"
   workflow_dispatch:
 
 permissions:
@@ -19,57 +19,69 @@ concurrency:
 
 jobs:
   refresh:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10.3.3
-      - run: uv sync --frozen
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - run: uv sync --locked
+      - run: uv run pytest -q
+
+      - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: data/cache/jev
+          key: jev-${{ github.run_id }}
+          restore-keys: jev-
 
       - run: uv run sejr fetch
       - run: uv run sejr normalize
       - run: uv run sejr features
-      # Never --backfill here: classify refuses a run over 500 uncached calls, which
-      # guards against reclassifying history by accident.
-      - run: uv run sejr classify
+
+      # A newly complete month is over classify's 500-call unscoped guard, so each
+      # complete month with unanswered posts runs scoped. More than a few such months
+      # means a question or model change, which is a backfill to run by hand.
+      - name: Classify
+        id: classify
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          out=$(uv run sejr unanswered)
+          mapfile -t months < <(grep . <<< "$out" || true)
+          if [ ${#months[@]} -gt 3 ]; then
+            echo "::error::${#months[@]} months need classifying (${months[0]} to ${months[-1]}); run the backfill locally"
+            exit 1
+          fi
+          for month in "${months[@]}"; do
+            uv run sejr classify --month "$month"
+          done
+          uv run sejr classify
+
+      # Paid Jev work is kept even when a later step (or classify itself) fails.
+      - uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        if: always() && steps.classify.outcome != 'skipped'
+        with:
+          path: data/cache/jev
+          key: jev-${{ github.run_id }}
+      - name: Commit answers
+        if: always() && steps.classify.outcome != 'skipped'
+        run: .github/scripts/commit-data.sh data/answers
+
       - run: uv run sejr aggregate
       - run: uv run sejr export
-      - run: uv run pytest -q
 
-      - name: Commit data changes
+      - name: Commit data
         id: commit
-        run: |
-          paths=()
-          for p in data/raw data/answers site/data; do
-            [ -e "$p" ] && paths+=("$p")
-          done
-          git add -A -- "${paths[@]}"
-          if git diff --cached --quiet; then
-            echo "no data changes"
-            exit 0
-          fi
-          month=$(git diff --cached --name-only -- data/raw \
-            | sed -nE 's#^data/raw/[^/]+/([0-9]{4}-[0-9]{2})/.*#\1#p' | sort | tail -n 1)
-          [ -n "$month" ] || month=$(jq -r '.latest_month // empty' site/data/metrics.json 2>/dev/null || true)
-          [ -n "$month" ] || month=$(date -u +%Y-%m)
-          if git diff --cached --quiet -- site; then site=false; else site=true; fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "data: refresh $month"
-          git pull --rebase origin "$GITHUB_REF_NAME"
-          git push origin "HEAD:$GITHUB_REF_NAME"
-          echo "site_changed=$site" >> "$GITHUB_OUTPUT"
+        run: .github/scripts/commit-data.sh data/raw data/answers site/data
 
       - name: Deploy the site
-        if: steps.commit.outputs.site_changed == 'true' && github.ref == 'refs/heads/main'
+        # A push made with GITHUB_TOKEN never triggers other workflows, so dispatch it.
+        if: steps.commit.outputs.site_changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run pages.yml --ref main
 
       - name: Open an issue for the new column
-        if: github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
