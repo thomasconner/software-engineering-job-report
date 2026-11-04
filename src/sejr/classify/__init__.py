@@ -59,7 +59,10 @@ class Outcome:
 
 
 def select_posts(
-    con: duckdb.DuckDBPyConnection, month: str | None, limit: int | None
+    con: duckdb.DuckDBPyConnection,
+    month: str | None,
+    limit: int | None,
+    post_ids: list[int] | None = None,
 ) -> list[Post]:
     sql = """
         SELECT p.post_id, t.kind, strftime(t.month, '%Y-%m'), p.text
@@ -70,6 +73,9 @@ def select_posts(
     if month:
         sql += " AND t.month = CAST(? AS DATE)"
         params.append(f"{month}-01")
+    if post_ids is not None:
+        sql += " AND p.post_id IN (SELECT unnest(?::BIGINT[]))"
+        params.append(post_ids)
     sql += " ORDER BY p.post_id"
     if limit is not None:
         sql += " LIMIT ?"
@@ -146,15 +152,15 @@ def run(
     client: AsyncTypeSafeClient | None = None,
     cache_dir: Path = JEV_CACHE_DIR,
     answers_dir: Path = ANSWERS_DIR,
+    post_ids: list[int] | None = None,
 ) -> None:
     qsets = store.read_qsets(con, answers_dir)
-    selected = select_posts(con, args.month, args.limit)
+    selected = select_posts(con, args.month, args.limit, post_ids)
     posts = [p for p in selected if qsets.get(p.post_id) != question_set_hash(p.kind)]
     skipped = len(selected) - len(posts)
     uncached = [p for p in posts if not cache_path(cache_dir, p.request).exists()]
-    too_many = (
-        not args.month and not args.backfill and len(uncached) > MAX_UNSCOPED_CALLS
-    )
+    scoped = args.month or args.backfill or post_ids is not None
+    too_many = not scoped and len(uncached) > MAX_UNSCOPED_CALLS
     if args.dry_run:
         print_estimate(posts, skipped, uncached)
         if too_many:

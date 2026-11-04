@@ -12,6 +12,15 @@ Every question Jev answers for the report. The source of truth is `src/sejr/clas
 - **Model pinned** to `config.JEV_MODEL` (`jev-1.14.0`). The model id in each response is stored as `answers.version`, and the run fails if it differs from the pin.
 - **Question-set hash.** Each kind's questions plus the model pin hash to one value. It is stored with every answer in `data/answers/<model>/<YYYY-MM>.parquet`, so an edit to any question re-runs that kind's posts, and nothing else does.
 
+## What gets stored
+
+- **Answer rows.** One `answers` row per question per post, `method = 'jev'`, `version` = the model id from the response. Choice: `label`, `probabilities`, `confidence`. Score: `value` (expected score), `probabilities` keyed `"0"`–`"4"`, `confidence`. Noul: `value` only; Jev returns no confidence for a Noul.
+- **Extra answers beyond the metric ids.** `industry_stated` and `industry_fits` (the companion Nouls behind the `industry` fold) and `eng_leadership` (feeds `eng_leadership_share`).
+- **The industry fold assumes independence.** P(other) and P(unstated) multiply the two Nouls as if they were independent. `industry_fits` is asked unconditionally ("says what it does *and* fits a sector"), so the products are an approximation, not an exact decomposition.
+- **One Jev version per post.** A run deletes every earlier Jev row of the posts it classifies, including questions that no longer exist.
+- **Durable copy.** `data/answers/<model>/<YYYY-MM>.parquet` holds the `answers` columns plus `qset`, the question-set hash of the post's kind at the time it was answered. A post is skipped only when its stored `qset` equals the current one.
+- **Fatal errors.** These stop the run and write nothing: `JevVersionMismatch` (the response model differs from the pin), `TypeSafeAuthenticationError` (401) and `TypeSafePermissionDeniedError` (403). Any other error is logged with the post id, the remaining posts are still written, and the run exits non-zero.
+
 ## Hiring posts ("Who is hiring?")
 
 ### `work_mode` (Choice)
@@ -92,7 +101,7 @@ Why: this is the question most exposed to look-ahead, because Jev knows which 20
 
 > Does the job post describe the company's product as built on AI or machine learning?
 
-`true`: the post presents AI or ML as the core of the product (a model, an AI assistant or agent, an ML platform, or a product whose main feature is vision, speech, recommendations or prediction). `false`: no AI or ML, or AI for a side feature, an internal tool, or one data scientist. "Data-driven", "analytics", "big data" and "automation" are not AI or ML on their own.
+`true`: the post presents AI or ML as the core of the product (a model, an AI assistant or agent, an ML platform, or a product whose main feature is vision, speech, recommendations or prediction). `false`: no AI or ML, or AI for a side feature, an internal tool, or one data scientist, or hiring for an ML, research or data-science team at a company whose product the post doesn't present as AI. "Data-driven", "analytics", "big data" and "automation" are not AI or ML on their own.
 
 Why: "uses AI" would be true of nearly every 2025 post, and "data-driven" of every 2012 one. The question is whether the post presents the product *as* AI, which is what `ai_native_share` charts.
 

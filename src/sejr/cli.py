@@ -4,7 +4,15 @@ import importlib
 from sejr.db import connect
 
 # Each step lives in sejr.<module> and exposes run(con, args).
-STEPS = ["fetch", "normalize", "features", "classify", "aggregate", "export"]
+STEPS = [
+    "fetch",
+    "normalize",
+    "features",
+    "classify",
+    "aggregate",
+    "export",
+    "validate",
+]
 
 
 def main() -> None:
