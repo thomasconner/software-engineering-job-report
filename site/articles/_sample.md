@@ -1,6 +1,6 @@
 ---
 month: 2026-10
-headline: "Software hiring has drifted down for three years while job seekers keep coming"
+headline: "Hiring posts on Hacker News have drifted down for three years while job seekers keep coming"
 dek: "Sample issue on mock data. On Hacker News, employer posts have drifted down for three years while the line of people looking keeps getting longer."
 byline: "Software Engineering Jobs Report"
 ---

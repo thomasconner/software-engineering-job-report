@@ -108,7 +108,7 @@ Sentence case, no period, no em dash, no colon-subtitle ("AI hiring: what it mea
 
 ### Dek
 
-The line under the headline. It gives the reader the one or two numbers that justify the headline, each with its source. "Indeed's index of US software job postings rose 23% in a year, while the BLS counted 2% fewer people working at computer systems design firms."
+The line under the headline. It gives the reader the one or two numbers that justify the headline, each with its source. "Indeed's index of US software job postings rose 22% in a year, while the BLS counted 1% fewer people working at computer systems design firms."
 
 ### Lede
 
@@ -228,7 +228,7 @@ The subtitle names the measure and the period: "Share of 'Who is hiring?' posts 
 - that a share is a Jev expected value ("Shares are expected values from a model's reading of each post");
 - a skipped or unusual month;
 - a definition the subtitle can't hold, quoted from the classifier's question text rather than paraphrased from memory;
-- for an outside series, that values are as first published, and any visible break that comes from the publisher rather than the market (CES shows its yearly benchmark revision as a step in early-year months).
+- for an outside series drawn on its own, "The change is computed within one release; the line shows values as first published." Add any visible break that comes from the publisher rather than the market (CES shows its yearly benchmark revision as a step in early-year months).
 
 Don't repeat the methodology footer in every note. Don't put an argument in a note.
 
@@ -266,7 +266,7 @@ Pick the type from the shape of the claim. The attributes column lists what each
 | The claim is about | Type | Attributes | Example |
 |---|---|---|---|
 | One measure moving over time | `line` | `metric`, `from`, `to`, `annotate` | "Hiring posts are just over a third of the 2021 peak" |
-| One outside series over time, in its own unit | `line` | `external` (no `metric`, no `base`), `from`, `to`, `annotate` | "Indeed's US software postings rose 23% in a year but are a third of their 2022 peak" |
+| One outside series over time, in its own unit | `line` | `external` (no `metric`, no `base`), `from`, `to`, `annotate` | "Indeed's US software postings rose 22% in a year but are a third of their 2022 peak" |
 | An HN measure against an outside series | `line` | `metric`, `external`, `base`, `from`, `to` | "Indeed's US software postings rose 23% this year; HN's hiring thread did not" |
 | Parts of a whole shifting over time (categories that sum to 1) | `stacked-area` | `breakdown`, `from`, `to`, `annotate` | "Hybrid has taken share from remote since 2022" (`work_mode`, `seniority`, `funding_stage`) |
 | Several categories, each with its own trend | `small-multiples` | `breakdown`, `categories`, `from`, `to`, `annotate` | "Rust and Go rose while Ruby faded" (`stack`, `industry`) |
@@ -284,6 +284,7 @@ Rules that follow from the data:
 - Bars start at zero. Lines can start above zero, but the renderer's y-axis rules decide that, not the writer.
 - Pick `from` to fit the claim, not to exaggerate it. A "lowest since" claim shows enough history to see the earlier low. A short-term claim can start in 2019, which keeps COVID and the 2021 peak in view. Starting a line in mid-2022 to make a drop look steeper is not allowed.
 - One chart per section. If a section needs two charts, it's two findings, so it's two sections.
+- An outside chart's title states the same-release change its end badge shows (1y, else 5y, else 3m), never a change read off the drawn line, which mixes releases. The note says the change is computed within one release.
 - JOLTS is flagged `smooth_12m`, so every chart draws it as a 12-month trailing average, and the subtitle says so. A chart title about JOLTS describes the average, not the latest month; the prose can cite the latest month as long as it says which.
 - An outside series starts where its point-in-time history starts (Indeed postings June 2021). Don't set `from` earlier and imply the gap is zero.
 
@@ -305,8 +306,8 @@ Each source sees a different part of the market. Know what it counts before you 
 
 Rules:
 
-- **Every claim names its source.** "Indeed's index of US software job postings rose 23%", "the BLS counted 2% fewer people", "employer posts in Hacker News's monthly hiring thread". A number without a source is not checkable, so it isn't printed.
-- **No single source stands in for the market.** Not Indeed ("software hiring rose 23%" when ads rose), not JOLTS, and above all not Hacker News. Market-level claims ("the software job market", "demand", "hiring") are syntheses: they say which sources back them, and they hold only as far as those sources agree.
+- **Every claim names its source.** "Indeed's index of US software job postings rose 22%", "the BLS counted 1% fewer people", "employer posts in Hacker News's monthly hiring thread". A number without a source is not checkable, so it isn't printed.
+- **No single source stands in for the market.** Not Indeed ("software hiring rose 22%" when ads rose), not JOLTS, and above all not Hacker News. Market-level claims ("the software job market", "demand", "hiring") are syntheses: they say which sources back them, and they hold only as far as those sources agree.
 - **When sources disagree, say so and explain what each measures.** Postings are ads, openings are employers' reported vacancies, hires and layoffs are flows of people, employment is a stock of people on payrolls, filings are what public companies tell the SEC, and HN posts are what startups and job seekers choose to write. Ads can rise while hires fall. That gap is the story, not a problem to smooth over.
 - **Industries aren't occupations.** JOLTS and CES count every job at employers in an industry, software or not, and miss software engineers in other industries. Say "openings in the information sector", never "software openings".
 - **Postings aren't jobs.** Indeed counts ads, and one HN post can list many roles. Neither is a count of people hired.
@@ -324,11 +325,12 @@ Rules:
 
 HN series carry an exported noise bar (below). Outside series don't: their publishers' sampling errors aren't in `metrics.json`, and we don't estimate them.
 
-- Describe an outside change in plain language with its number, computed within one release (above): "Indeed's index rose 23%", "employment was 2% lower". Never call it "about the same" or "within the noise" (we haven't measured that), and never call it "clearing the bar".
+- Describe an outside change in plain language with its number, computed within one release (above): "Indeed's index rose 22%", "employment was 1% lower". Never call it "about the same" or "within the noise" (we haven't measured that), and never call it "clearing the bar".
 - Reserve the stronger size verbs (jumped, plunged) for large moves over a year or more, stated with the number. A one-month change in a single outside reading is a reading, not a trend.
-- **Unadjusted series swing with the seasons.** JOLTS and Indeed's remote and pay shares are not seasonally adjusted. Compare a month with the same month a year earlier, or use the 12-month average the charts draw, and don't describe a month-to-month move in them as a rise or fall. JOLTS for one industry swings widely even year on year; a single-month JOLTS change leads a section only when the 12-month average moves the same way.
+- **Unadjusted series swing with the seasons.** JOLTS and Indeed's remote and pay shares are not seasonally adjusted. Compare a month with the same month a year earlier, use the 12-month average the charts draw for the shape, and don't describe a month-to-month move in them as a rise or fall. JOLTS for one industry swings widely even year on year; a single-month JOLTS change leads a section only when the 12-month average moves the same way.
 - Counting directions is still allowed, as readings: "the index rose in 10 of the 12 monthly readings since October 2025". Those readings come from different releases, so count them only for series without big revisions (Indeed's postings index), and say "readings".
 - A JOLTS 12-month average is the mean of the distinct reference months published by the issue's date, at least 10 of the last 12; the tooltip says how many. Write "averaged over the 12 months to August" (or "over 11 monthly readings" when one is missing), never "12 readings" or "12 issues".
+- A 12-month average is described as a level or a shape ("openings, averaged over the year, have fallen since spring"), never as the source of a stated change. Any change with a number comes from `compare`, within one release, because the average strings together values from different releases.
 
 ### No fabrication
 
@@ -433,7 +435,7 @@ rounding: shares to whole %, point gaps from printed shares, % change from unrou
 289 hiring posts            posts.hiring 2026-10 = 289
 about the same as a year ago posts.hiring 2025-10 = 351; ln(289/351) = -0.194; bar 1y = 0.338; inside
 685 people looking for work posts.seeking 2026-10 = 685
-Indeed rose 23%             external indeed_software_postings.US 2026-10 = 78.33 (ref 2026-10-02); compare.1y = 63.6 (ref 2025-10-02, same release); no bar
+Indeed rose 22%             external indeed_software_postings.US 2026-10 = 78.33 (ref 2026-10-02); compare.1y = 64.3 (ref 2025-10-02, same release); no bar
 128,000 openings in August  external jolts_openings_information.US 2026-10 = 128 (ref 2026-08)
 up 70% from a year ago      posts.seeking 2025-10 = 404; 685/404 = 1.696; ln = 0.528; bar 1y = 0.299; outside
 most on record              posts.seeking max(2014-05..2026-09) < 685
@@ -515,15 +517,15 @@ The longer view is less bright. In October 2021, during the pandemic-era hiring 
 
 To be sure, the BLS count of job openings points the other way. Employers in the information sector reported 128,000 open jobs in August, against 141,000 in August 2025 in the same release, 9% fewer. The two sources count different things. Indeed counts ads for software development work at employers in every industry. JOLTS counts every opening, software or not, at publishers, broadcasters, telecom carriers and data processors. JOLTS is also not seasonally adjusted, which is why this comparison sets August against August. Indeed's rise held for most of the year, but it is a rise in ads for software work, and the industry count of openings has not confirmed it.
 
-::chart{type="line" external="indeed_software_postings.US" from="2021-06" title="Indeed's US software postings rose 22% in a year but are a third of their 2022 peak"}
+::chart{type="line" external="indeed_software_postings.US" from="2021-06" title="Indeed's US software postings rose 22% in a year but are a third of their 2022 peak" note="The change is computed within one release; the line shows values as first published."}
 
 ## Employment at computer systems design firms slipped
 
 The BLS counted 2.36 million people working at computer systems design firms in September, 1% fewer than the 2.39 million it now estimates for September 2025. Five years ago, in September 2021, the count was 2.35 million, about the same as today.
 
-Our chart strings together each month's first estimate, so it shows a larger fall since 2024 than that. Part of it is a step in early 2025, when the BLS revised the whole series. Compared within one release, the past year's drop is about 32,000 people.
+Our chart strings together each month's first estimate. Its drop from the 2024 high includes two steps where the BLS revised the whole series: one in early 2025 and one in early 2026, first seen in the March 2026 issue. Those steps are revisions, not people losing jobs. Compared within one release, the past year's drop is about 32,000 people.
 
-::chart{type="line" external="ces_computer_systems_design.US" from="2019-01" title="Employment at computer systems design firms is below its 2024 level" note="Values as first published. BLS's yearly benchmark revision shows as a step in early-year months, including February 2025."}
+::chart{type="line" external="ces_computer_systems_design.US" from="2019-01" title="Employment at computer systems design firms fell 1% in a year" note="The change is computed within one release; the line shows values as first published. BLS's yearly benchmark revisions show as steps in the February 2025 and March 2026 issues."}
 
 ## On Hacker News, job seekers per hiring post doubled
 
@@ -539,7 +541,7 @@ Forty-nine percent of Indeed's US software postings stated pay in August, up 9 p
 
 The two sources measure the same thing in different places. Indeed's share is taken across Indeed's US postings, and the Hacker News share covers startup posts written in free text.
 
-::chart{type="line" external="indeed_software_pay_transparency.US" title="Indeed's share of software postings that state pay rose 9 points in a year"}
+::chart{type="line" external="indeed_software_pay_transparency.US" title="Indeed's share of software postings that state pay rose 9 points in a year" note="The change is computed within one release; the line shows values as first published."}
 
 ## What this data can't tell us
 
@@ -571,6 +573,8 @@ An independent review of that draft then caught the errors below. The first was 
 | Headline "Software job postings rose this year, but employment slipped" | "Employment" read as all software employment; CES counts one industry | "Software job ads rose, but computer systems design employment slipped" |
 | "rose in 10 of the last 12 months" | Those are first-published readings from different releases | "rose in 10 of the 12 monthly readings" |
 | "Indeed's share covers ads across the whole US market" | Indeed is one job site, not the market | "Indeed's share is taken across Indeed's US postings" |
+| "it shows a larger fall since 2024 than that. Part of it is a step in early 2025" | Named one of two revision steps and set a mixed-release fall against a same-release one | Names both steps (early 2025, and early 2026 in the March 2026 issue) and states the change only within one release |
+| CES chart title "below its 2024 level" | An outside chart title should state the same-release change its end badge shows | "fell 1% in a year", with a note that the change is computed within one release |
 
 ### The ledger, in part
 

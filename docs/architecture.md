@@ -279,7 +279,7 @@ Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`:
 ]
 ```
 
-`coverage_start` and `coverage_end` are issue (HN) months: the first and last with a value in any of the source's series. `latest_ref_period` is the newest period any of its series describes in the `coverage_end` issue (the issue month for HN). The page shows back issues only the sources that existed by then, and the newest period each carried. `series` lists its `metrics` or `external` keys. `credit` is the series' own credit when they share one, else the publisher; `license` comes from the series.
+`coverage_start` and `coverage_end` are issue (HN) months: the first and last with a value in any of the source's series. The page reads the newest period each source carried in an issue from that source's series in `external`, so a back issue shows only the sources that existed by then and what they carried. `series` lists its `metrics` or `external` keys. `credit` is the series' own credit when they share one, else the publisher; `license` comes from the series.
 
 ## Articles: `site/articles/YYYY-MM.md`
 

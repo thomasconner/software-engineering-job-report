@@ -114,8 +114,7 @@ def _hn_row(metrics: dict) -> dict | None:
         return None
     starts = {k: s[0]["month"] for k, s in live.items()}
     end = max(s[-1]["month"] for s in live.values())
-    # HN describes the issue month itself.
-    return _row(HN, TEXT[HN], list(live), starts, end) | {"latest_ref_period": end}
+    return _row(HN, TEXT[HN], list(live), starts, end)
 
 
 def _row(
@@ -170,11 +169,5 @@ def build(metrics: dict, external: dict) -> list[dict]:
         row["license"] = first["license"]
         row["license_url"] = first["license_url"]
         row["url"] = text.url or first["source_url"]
-        # The newest period any of its series describes in the latest issue.
-        row["latest_ref_period"] = max(
-            e["series"][-1]["ref_period"]
-            for _, e in members
-            if e["series"][-1]["month"] == row["coverage_end"]
-        )
         rows.append(row)
     return rows

@@ -20,15 +20,15 @@ The longer view is less bright. In October 2021, during the pandemic-era hiring 
 
 To be sure, the BLS count of job openings points the other way. Employers in the information sector reported 128,000 open jobs in August, against 141,000 in August 2025 in the same release, 9% fewer. The two sources count different things. Indeed counts ads for software development work at employers in every industry. JOLTS counts every opening, software or not, at publishers, broadcasters, telecom carriers and data processors. JOLTS is also not seasonally adjusted, which is why this comparison sets August against August. Indeed's rise held for most of the year, but it is a rise in ads for software work, and the industry count of openings has not confirmed it.
 
-::chart{type="line" external="indeed_software_postings.US" from="2021-06" title="Indeed's US software postings rose 22% in a year but are a third of their 2022 peak"}
+::chart{type="line" external="indeed_software_postings.US" from="2021-06" title="Indeed's US software postings rose 22% in a year but are a third of their 2022 peak" note="The change is computed within one release; the line shows values as first published."}
 
 ## Employment at computer systems design firms slipped
 
 The BLS counted 2.36 million people working at computer systems design firms in September, 1% fewer than the 2.39 million it now estimates for September 2025. Five years ago, in September 2021, the count was 2.35 million, about the same as today.
 
-Our chart strings together each month's first estimate, so it shows a larger fall since 2024 than that. Part of it is a step in early 2025, when the BLS revised the whole series. Compared within one release, the past year's drop is about 32,000 people.
+Our chart strings together each month's first estimate. Its drop from the 2024 high includes two steps where the BLS revised the whole series: one in early 2025 and one in early 2026, first seen in the March 2026 issue. Those steps are revisions, not people losing jobs. Compared within one release, the past year's drop is about 32,000 people.
 
-::chart{type="line" external="ces_computer_systems_design.US" from="2019-01" title="Employment at computer systems design firms is below its 2024 level" note="Values as first published. BLS's yearly benchmark revision shows as a step in early-year months, including February 2025."}
+::chart{type="line" external="ces_computer_systems_design.US" from="2019-01" title="Employment at computer systems design firms fell 1% in a year" note="The change is computed within one release; the line shows values as first published. BLS's yearly benchmark revisions show as steps in the February 2025 and March 2026 issues."}
 
 ## On Hacker News, job seekers per hiring post doubled
 
@@ -44,7 +44,7 @@ Forty-nine percent of Indeed's US software postings stated pay in August, up 9 p
 
 The two sources measure the same thing in different places. Indeed's share is taken across Indeed's US postings, and the Hacker News share covers startup posts written in free text.
 
-::chart{type="line" external="indeed_software_pay_transparency.US" title="Indeed's share of software postings that state pay rose 9 points in a year"}
+::chart{type="line" external="indeed_software_pay_transparency.US" title="Indeed's share of software postings that state pay rose 9 points in a year" note="The change is computed within one release; the line shows values as first published."}
 
 ## What this data can't tell us
 
@@ -83,9 +83,10 @@ chart from 2021-06                first Indeed value (point-in-time start), arch
 2.36 million in September         CES 2026-10 = 2355.4 (ref 2026-09)
 2.39 million for September 2025   CES compare.1y = 2387.6 (ref 2025-09), same release
 2.35 million September 2021       CES compare.5y = 2348.9 (ref 2021-09); 2355.4/2348.9 = 1.003, about the same
-larger fall as first published    CES issue values: 2024-10 = 2554.5 (max), 2026-10 = 2355.4
+2024 high, as first published    CES issue values max = 2554.5 at HN 2024-10 (ref 2024-09); 2026-10 = 2355.4
 step in early 2025                CES HN 2025-01 = 2545.4 (ref 2024-12) -> 2025-02 = 2457.9 (ref 2025-01), BLS annual benchmark
-chart title below 2024 level      CES HN months 2024-01..2024-12 min 2531.5, max 2554.5; 2026-10 = 2355.4 (as drawn, first published)
+step in early 2026, March issue   CES HN 2026-02 = 2399.3 (ref 2025-12) -> 2026-03 = 2382.1 (ref 2026-02), BLS annual benchmark
+chart title fell 1% in a year     compare.1y = 2387.6 (ref 2025-09) -> 2355.4; end badge shows the same (same-release)
 289 vs 351, within swings         posts.hiring 2026-10 = 289, 2025-10 = 351; ln -0.194 vs bar 1y 0.338; inside
 rose 70% to 685                   posts.seeking 2025-10 = 404, 2026-10 = 685; 1.696; ln 0.528 vs bar 1y 0.299; outside
 2.4 vs 1.2                        seekers_per_post.hiring 2026-10 = 2.3702, 2025-10 = 1.1510; ln 0.722 vs bar 1y 0.308; outside

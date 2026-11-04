@@ -44,8 +44,6 @@ def test_one_row_per_source_with_coverage_computed():
     assert indeed["license"] == "CC BY 4.0"
     assert jolts["credit"] == "JOLTS"
     assert jolts["coverage_end"] == "2026-10"
-    assert jolts["latest_ref_period"] == "2026-10"
-    assert hn["latest_ref_period"] == "2026-10"
     assert ces["series"] == ["ces_computer_systems_design.US"]
     for row in rows:
         for field in ("name", "measures", "lag", "caveat", "coverage_start", "url"):
@@ -93,7 +91,5 @@ def test_sources_from_the_real_external_section():
     }
     assert list(rows) == ["hn", "indeed", "bls_jolts", "bls_ces"]
     assert rows["indeed"]["coverage_start"] == "2021-06"
-    assert rows["indeed"]["latest_ref_period"] == "2026-10-02"
-    assert rows["bls_jolts"]["latest_ref_period"] == "2026-08"
-    assert rows["bls_ces"]["latest_ref_period"] == "2026-09"
+    assert rows["bls_jolts"]["coverage_end"] == "2026-10"
     assert rows["bls_ces"]["license"] == "public domain"
