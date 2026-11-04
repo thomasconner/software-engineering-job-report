@@ -37,7 +37,7 @@ A monthly heartbeat on US startup and engineering hiring, built from Hacker News
 | Judgment, fixed answers | Remote policy, seniority, industry, funding stage, AI-native | Jev `Choice` |
 | Judgment, ordered scale | Applicant mood in "Who wants to be hired?", frustration in replies, hiring urgency | Jev `Score` |
 | Judgment, yes/no but fuzzy | "Hires new grads?", "Mentions layoffs?" | Jev `Noul` |
-| Free-text extraction | Salary min/max, normalized company name, role titles | Claude Haiku |
+| Free-text extraction | Salary min/max, company name from the header line | Python (regex). No LLM extraction: HN headers are regular enough, and it keeps Jev as the only model |
 
 Monthly aggregates sum probabilities (expected counts) instead of counting top answers.
 
@@ -50,7 +50,7 @@ A hand-labeled reference set of about 200 posts, sampled across years. Each meth
 1. **Fixed snapshot age.** Each month uses only posts and replies whose `created_at` is within **7 days** of the thread's creation. Every month, past or current, is measured at the same age.
 2. **Cross-month features use only the past.** "New vs returning company", first appearance, rolling baselines, percentiles and z-scores are computed from months `<= as_of`. A test checks that computing month *t* from the full dataset gives the same output as computing it from data cut off at *t*.
 3. **Classifiers see only the post text.** No dates, no company outcomes, no other months. Questions ask what the text says, not what the model knows about the company.
-4. **Pinned model versions.** Jev and Haiku versions are pinned (for example `jev-1.13.0`, not `jev-latest`) and stored on every answer. An upgrade reclassifies the full history, so one series never mixes versions.
+4. **Pinned model versions.** Jev versions are pinned (for example `jev-1.13.0`, not `jev-latest`) and stored on every answer. An upgrade reclassifies the full history, so one series never mixes versions.
 5. **Fixed vocabularies apply to all months.** Adding a term (for example "agents") reruns every month. A zero in 2015 is a real zero.
 
 ### Known biases (stated on the report)
@@ -77,10 +77,22 @@ A hand-labeled reference set of about 200 posts, sampled across years. Each meth
 
 ## Stack
 
-- Python 3.12, uv, DuckDB, `typesafe-sdk`, `anthropic`.
+- Python 3.12, uv, DuckDB, `typesafe-sdk`, httpx. Contracts in `docs/architecture.md`.
 - Static page reading exported JSON. The charting library is chosen during the design ticket.
 - GitHub Actions: a monthly job runs on day 8 after each thread (the day-7 snapshot is then complete), plus a manual trigger for backfills.
 
 ## Backfill
 
 All months from April 2011, for both threads. This gives a 5-year comparison with deeper context (2020, the 2022–23 layoffs).
+
+## The article
+
+Each month is one article in `site/articles/YYYY-MM.md`, written like a newspaper data column: a headline that makes a claim, a dek, an argued lede, and sections where every claim sits next to the chart that backs it. Voice: a FiveThirtyEight-style analyst writing an opinion column, plain and confident, with honest uncertainty. The style guide is `docs/style-guide.md`.
+
+Articles are written by an agent from the exported numbers, then fact-checked by a second agent. Every number in the text must match `site/data/metrics.json`.
+
+## Decisions log
+
+- 2026-11-04: Public repo `thomasconner/software-engineering-job-report`. Linear project P-CON-53 in Conner Technology.
+- 2026-11-04: No Haiku. Salary and company name come from regex. Jev is the only model.
+- 2026-11-04: Backfill from April 2011, both thread kinds. Snapshot age 7 days.
