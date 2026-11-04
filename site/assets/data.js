@@ -196,6 +196,38 @@ export function resolveSeries(data, { metric, metrics, breakdown, categories }, 
 export const pointAt = (series, ym) => series.points.find((p) => p.month === ym);
 export const valueAt = (series, ym) => pointAt(series, ym)?.value ?? null;
 
+/**
+ * An outside benchmark from metrics.json's `external` section, shaped like an HN series.
+ * `month` is the HN month; `ref_period` is the period the publisher's number describes.
+ */
+export function resolveExternal(data, key, until) {
+  const e = data.external?.[key];
+  if (!e) throw new AuthoringError(`Unknown external series "${key}"`);
+  return {
+    key, label: e.label, group: e.label, unit: e.unit, method: 'external', description: e.description,
+    polarity: 0, sources: [], credit: e.credit, url: e.source_url, external: true, noise: () => 'clear',
+    points: e.series.filter((p) => p.month <= until && !data.pending.has(p.month))
+      .map((p) => ({ ...p, date: monthDate(p.month) })),
+  };
+}
+
+// Rebase a series so `base` = 100, letting lines in different units share one axis.
+export function indexTo(series, base) {
+  const at = valueAt(series, base);
+  if (!at) throw new AuthoringError(`${series.label} has no value in ${monthLabel(base)} to index to`);
+  const original = new Map(series.points.map((p) => [p.month, p]));
+  return {
+    ...series, unit: 'index',
+    points: series.points.map((p) => ({ ...p, value: (p.value / at) * 100 })),
+    // The noise bar is judged on the real values, not the rebased ones.
+    noise: (then, now) => series.noise(original.get(then.month), original.get(now.month)),
+  };
+}
+
+const dayFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+// A publisher's reference period: a month ("2026-09") or a day ("2026-10-02").
+export const periodLabel = (ref) => (ref.length > 7 ? dayFmt.format(new Date(`${ref}T00:00:00Z`)) : monthLabel(ref));
+
 export function sourceLine(series) {
   const kinds = ['hiring', 'seeking'].filter((k) => series.some((s) => s.sources.includes(k)));
   return `Source: HN ${kinds.map((k) => THREAD_NAME[k]).join(' and ')} threads, first 7 days.`;

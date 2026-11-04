@@ -96,18 +96,25 @@ def now() -> str:
 class Client:
     """httpx wrapper that stays under 2 requests/sec and retries transient failures."""
 
-    def __init__(self) -> None:
+    def __init__(self, min_interval: float = MIN_INTERVAL) -> None:
         self.http = httpx.Client(headers={"User-Agent": USER_AGENT}, timeout=60)
+        self.min_interval = min_interval
         self.last_request = 0.0
 
     def get(self, url: str, params: dict | None = None) -> httpx.Response:
+        return self.request("GET", url, params=params)
+
+    def post(self, url: str, json: dict) -> httpx.Response:
+        return self.request("POST", url, json=json)
+
+    def request(self, method: str, url: str, **kwargs) -> httpx.Response:
         for attempt in range(MAX_ATTEMPTS):
-            wait = self.last_request + MIN_INTERVAL - time.monotonic()
+            wait = self.last_request + self.min_interval - time.monotonic()
             if wait > 0:
                 time.sleep(wait)
             self.last_request = time.monotonic()
             try:
-                response = self.http.get(url, params=params)
+                response = self.http.request(method, url, **kwargs)
                 if response.status_code != 429 and response.status_code < 500:
                     response.raise_for_status()
                     return response

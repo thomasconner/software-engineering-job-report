@@ -41,7 +41,7 @@ Pull Indeed from its GitHub repos (CC BY 4.0), not FRED: FRED's copies need Inde
 3. BLS CES employment for computer systems design (`CES6054150001`) and software publishers (`CEU5051320001`).
 4. Later: Census high-propensity business applications (context for new companies), SEC Form D (free funding proxy), DOL H-1B LCA data (visa share and wage levels).
 
-Point-in-time rule: month *t* uses only the outside values that had been published by its as-of date (thread date + 8 days), stored with `ref_period` and `vintage_date`. Backfill BLS from ALFRED vintages, keeping one value per month. Backfill Indeed from the repo's git history (from 2020-05). From now on, store each pull under `data/external/<source>/<run-date>.json`.
+Point-in-time rule: month *t* uses only the outside values that had been published by its as-of date (thread date + 8 days), stored with `ref_period` and `vintage_date`. Backfill BLS from ALFRED vintages, keeping one value per month. Backfill Indeed from the repo's git history (from 2020-05). Done in CON-167: `sejr external` stores one file per source and HN month under `data/external/<source>/<YYYY-MM>.json`; see architecture.md, "External benchmarks".
 
 ## Prior work
 

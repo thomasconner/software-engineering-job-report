@@ -68,11 +68,14 @@ jobs:
         run: .github/scripts/commit-data.sh data/answers
 
       - run: uv run sejr aggregate
+      - run: uv run sejr external
+        env:
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
       - run: uv run sejr export
 
       - name: Commit data
         id: commit
-        run: .github/scripts/commit-data.sh data/raw data/answers site/data
+        run: .github/scripts/commit-data.sh data/raw data/answers data/external site/data
 
       - name: Deploy the site
         # A push made with GITHUB_TOKEN never triggers other workflows, so dispatch it.

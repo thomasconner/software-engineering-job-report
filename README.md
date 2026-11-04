@@ -23,6 +23,7 @@ uv run sejr normalize    # data/raw -> data/sejr.duckdb
 uv run sejr features     # regex and vocabulary answers
 uv run --env-file .env sejr classify   # Jev answers for posts not yet answered
 uv run sejr aggregate    # monthly metrics, each month as it looked at the time
+uv run sejr external     # Indeed and BLS benchmarks -> data/external, as published at the time
 uv run sejr export       # site/data/*.json
 uv run pytest
 ```
@@ -31,6 +32,7 @@ Flags:
 
 - `fetch`, `normalize`: `--month YYYY-MM`, `--limit N`, `--dry-run`.
 - `classify`: the same, plus `--backfill`. It only answers posts from complete threads (past their 7-day snapshot) and skips posts whose stored answers match the current questions and text. Without `--month` or `--backfill` it refuses a run of more than 500 API calls. `--dry-run` prints the call count and estimated cost.
+- `external`: `--month`, `--limit`, `--dry-run`, `--backfill`. Without `--backfill` or `--month` it refuses to pull more than three months. It clones the Indeed Hiring Lab repos (blobless) into `data/cache/external/`, and reads `BLS_API_KEY` from the environment if set (the keyless BLS API allows 25 queries a day).
 - `uv run sejr unanswered` prints the complete months that still have posts to classify.
 - `uv run --env-file .env sejr validate` scores Jev against the hand-labeled reference set (`data/labels/`) and writes `site/data/validation.json`. `--dry-run` shows what it would classify first.
 
@@ -46,7 +48,7 @@ To view the site, serve `site/` (for example `python -m http.server -d site`).
 2. fetches, normalizes and computes features;
 3. classifies each complete month that has unanswered posts (`--month`), then runs a guarded unscoped classify. If more than three months need classifying, it stops: that is a question or model change, and the backfill is run by hand;
 4. commits `data/answers` straight away, even if a later step fails, so paid answers aren't lost;
-5. aggregates, exports, and commits `data/raw`, `data/answers` and `site/data` as `data: refresh YYYY-MM`;
+5. aggregates, pulls the outside benchmarks, exports, and commits `data/raw`, `data/answers`, `data/external` and `site/data` as `data: refresh YYYY-MM`;
 6. redeploys the site when `site/` changed.
 
 Expect a commit on most of days 1–12 while the current thread fills in, and none for the rest of the month.

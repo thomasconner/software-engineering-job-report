@@ -12,7 +12,7 @@ const ATTR = /([\w-]+)\s*=\s*(?:"((?:\\.|[^"\\])*)"|'((?:\\.|[^'\\])*)'|\u201C([
 const COMMON = ['title', 'subtitle', 'note'];
 const TIME = ['from', 'to', 'annotate'];
 const ALLOWED = {
-  line: ['metric', 'highlight', ...TIME],
+  line: ['metric', 'highlight', 'external', 'base', ...TIME],
   'stacked-area': ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
   'small-multiples': ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
   slope: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'months'],
@@ -61,6 +61,10 @@ function checkDirective(name, attrs) {
     return;
   }
   if (!attrs.metric === !attrs.breakdown) throw new AuthoringError(`${type} needs either metric or breakdown`);
+  if (attrs.external || attrs.base) {
+    if (!attrs.external || !isMonth(attrs.base)) throw new AuthoringError('external needs base="YYYY-MM", the month both lines are indexed to 100');
+    if (!attrs.metric || attrs.metric.includes(',')) throw new AuthoringError('external pairs with exactly one metric');
+  }
   for (const key of ['from', 'to']) {
     if (attrs[key] && !isMonth(attrs[key])) throw new AuthoringError(`${key}="${attrs[key]}" must be YYYY-MM`);
   }

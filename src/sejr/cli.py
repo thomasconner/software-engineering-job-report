@@ -10,6 +10,7 @@ STEPS = [
     "features",
     "classify",
     "aggregate",
+    "external",
     "export",
     "validate",
     "unanswered",

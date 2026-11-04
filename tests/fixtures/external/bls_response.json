@@ -1,0 +1,84 @@
+{
+ "status": "REQUEST_SUCCEEDED",
+ "responseTime": 11,
+ "message": [],
+ "Results": {
+  "series": [
+   {
+    "seriesID": "JTU510000000000000JOL",
+    "data": [
+     {
+      "year": "2026",
+      "period": "M09",
+      "periodName": "September",
+      "latest": "true",
+      "value": "122",
+      "footnotes": [
+       {
+        "code": "P",
+        "text": "preliminary"
+       }
+      ]
+     },
+     {
+      "year": "2026",
+      "period": "M08",
+      "periodName": "August",
+      "value": "94",
+      "footnotes": [
+       {}
+      ]
+     },
+     {
+      "year": "2026",
+      "period": "M07",
+      "periodName": "July",
+      "value": "87",
+      "footnotes": [
+       {}
+      ]
+     }
+    ]
+   },
+   {
+    "seriesID": "CES6054150001",
+    "data": [
+     {
+      "year": "2026",
+      "period": "M09",
+      "periodName": "September",
+      "latest": "true",
+      "value": "2355.4",
+      "footnotes": [
+       {
+        "code": "P",
+        "text": "preliminary"
+       }
+      ]
+     },
+     {
+      "year": "2026",
+      "period": "M08",
+      "periodName": "August",
+      "value": "2359.8",
+      "footnotes": [
+       {
+        "code": "P",
+        "text": "preliminary"
+       }
+      ]
+     },
+     {
+      "year": "2026",
+      "period": "M07",
+      "periodName": "July",
+      "value": "2362.0",
+      "footnotes": [
+       {}
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

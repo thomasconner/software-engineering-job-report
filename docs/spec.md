@@ -20,6 +20,8 @@ A monthly heartbeat on US startup and engineering hiring, built from Hacker News
 | Algolia `search_by_date?tags=story,author_whoishiring` | Discover monthly thread IDs back to April 2011 |
 | Algolia `items/<id>` | Full comment tree per thread, with `created_at_i` per comment |
 | Greenhouse / Lever / Ashby public job-board JSON | Current month only: open-role counts for linked companies (later phase) |
+| Indeed Hiring Lab GitHub repos (CC BY 4.0) | Benchmarks: software postings index and remote share (US, GB), pay transparency (US), each as published by the month's as-of date |
+| BLS API v2 and ALFRED vintages (public domain) | Benchmarks: JOLTS openings/hires/layoffs (information; professional and business services) and CES computer systems design employment, US |
 
 ## Pipeline
 
@@ -27,7 +29,8 @@ A monthly heartbeat on US startup and engineering hiring, built from Hacker News
 2. **Normalize:** DuckDB tables `threads`, `posts` (top-level comments), `replies`.
 3. **Derive:** table `answers(post_id, question, method, version, value, probabilities, confidence)`.
 4. **Aggregate:** monthly series, computed with `as_of = month`.
-5. **Publish:** export series to JSON, build the static page, deploy to GitHub Pages.
+5. **External:** one value per outside series per month, as published by the month's as-of date (thread + 8 days), under `data/external/`.
+6. **Publish:** export series to JSON, build the static page, deploy to GitHub Pages.
 
 ## Methods by question type
 
@@ -105,3 +108,4 @@ Articles are written by an agent from the exported numbers, then fact-checked by
 - 2026-11-04: The column is drafted by a scheduled Claude Code routine ("SEJR monthly column writer", trig_012tg7HejoUkmenRt2Q4sh3E, Opus) at 18:00 UTC on days 10–14. It exits unless the latest exported month has no article and no open PR. It writes, runs independent fact-check and reader-review subagents, and opens a PR on `column/<YYYY-MM>`; a human merges. The prompt lives in the routine (claude.ai/code/routines), not the repo.
 - 2026-11-04: Column cadence is a setting, not code: `site/articles/schedule.json` lists the calendar months that get a column (all twelve for now). Data refreshes monthly regardless; the routine still fires days 10–14 every month and exits in unscheduled months.
 - 2026-11-04: Adversarial research findings and the fix list live in docs/research.md. Columns describe HN's threads, not the US market, until outside benchmarks and a US-only ratio exist.
+- 2026-11-04: Outside benchmarks (CON-167): Indeed Hiring Lab from its GitHub repos, BLS from the API with ALFRED vintages for history. Month t uses only values published by thread + 8 days. Indeed months before a file's first commit get no value rather than a revised one, so the postings benchmark starts June 2021. Daily Indeed series take the 7-day trailing average dated at (or just before) the thread's window end. JOLTS uses the unadjusted JTU series because ALFRED has no adjusted vintages for these industries. Every series carries a country for the planned US vs UK comparison.
