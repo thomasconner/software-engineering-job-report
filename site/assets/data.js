@@ -214,12 +214,26 @@ export const valueAt = (series, ym) => pointAt(series, ym)?.value ?? null;
 export function resolveExternal(data, key, until) {
   const e = data.external?.[key];
   if (!e) throw new AuthoringError(`Unknown external series "${key}"`);
+  const points = e.series.filter((p) => p.month <= until && !data.pending.has(p.month))
+    .map((p) => ({ ...p, date: monthDate(p.month) }));
   return {
     key, label: e.label, group: e.label, unit: e.unit, method: 'external', description: e.description,
-    polarity: 0, sources: [], credit: e.credit, url: e.source_url, external: true, noise: () => 'clear',
-    points: e.series.filter((p) => p.month <= until && !data.pending.has(p.month))
-      .map((p) => ({ ...p, date: monthDate(p.month) })),
+    polarity: 0, sources: [], credit: e.credit, url: e.source_url, license: e.license, licenseUrl: e.license_url,
+    external: true, noise: () => 'clear',
+    // An unadjusted series would show its seasons as trend on an indexed line, so it is drawn as a
+    // 12-month trailing average instead.
+    smoothed: e.seasonally_adjusted === false,
+    points: e.seasonally_adjusted === false ? trailingYear(points) : points,
   };
+}
+
+// Mean of each month and the 11 before it; months without 12 consecutive values are dropped.
+export function trailingYear(points) {
+  const byMonth = new Map(points.map((p) => [p.month, p.value]));
+  return points.flatMap((p) => {
+    const window = Array.from({ length: 12 }, (_, k) => byMonth.get(addMonths(p.month, -k)));
+    return window.some((v) => v == null) ? [] : [{ ...p, value: sum(window) / 12 }];
+  });
 }
 
 // Rebase a series so `base` = 100, letting lines in different units share one axis.

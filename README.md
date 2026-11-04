@@ -6,6 +6,10 @@ Read it at https://thomasconner.github.io/software-engineering-job-report/.
 
 The design is in [docs/spec.md](docs/spec.md) and the data contracts are in [docs/architecture.md](docs/architecture.md).
 
+## Data credits
+
+Benchmark lines use data from [Indeed Hiring Lab](https://github.com/hiring-lab) (job postings, remote and pay transparency trackers), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); this report indexes it to a base month and averages unadjusted series over 12 months. BLS JOLTS and CES data are public domain, with past vintages read from ALFRED (Federal Reserve Bank of St. Louis).
+
 ## Run it locally
 
 You need [uv](https://docs.astral.sh/uv/). Classification calls the Typesafe API, so put your key in `.env` (gitignored):

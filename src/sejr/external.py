@@ -46,6 +46,17 @@ RAW_GITHUB = "https://raw.githubusercontent.com/hiring-lab"
 
 INDEED = "Indeed Hiring Lab"
 BLS = "U.S. Bureau of Labor Statistics"
+CC_BY = ("CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/")
+PUBLIC_DOMAIN = ("public domain", "https://www.bls.gov/opub/copyright-information.htm")
+FIRST_PUBLISHED = (
+    "Each month shows the value as first published by that month's as-of date; later "
+    "revisions are not applied."
+)
+# Every BLS series here has ALFRED vintages from before the first HN month (checked
+# 2026-11-04). A 404 for a vintage before this date means "no value yet"; after it, an error.
+BLS_FIRST_VINTAGE = date(2011, 4, 9)
+# Hiring Lab files have named the sector both ways, and switched back and forth.
+SOFTWARE_SECTOR = {"Software Development", "techsoftware"}
 
 
 @dataclass(frozen=True)
@@ -60,6 +71,7 @@ class Series:
     repo: str = ""
     path: str = ""
     reader: str = ""  # 'postings' | 'remote' | 'pay'
+    seasonally_adjusted: bool = True
     bls_id: str = ""
     fred_id: str = ""
 
@@ -70,6 +82,10 @@ class Series:
     @property
     def publisher(self) -> str:
         return INDEED if self.source == "indeed" else BLS
+
+    @property
+    def license(self) -> tuple[str, str]:
+        return CC_BY if self.source == "indeed" else PUBLIC_DOMAIN
 
     @property
     def url(self) -> str:
@@ -92,7 +108,7 @@ def _postings(country: str) -> Series:
             "Seasonally adjusted Software Development postings on Indeed, 7-day trailing "
             "average, indexed to February 1, 2020 = 100."
         ),
-        credit="Indeed Hiring Lab, job postings tracker (CC BY 4.0).",
+        credit="Indeed Hiring Lab, job postings tracker",
         repo="job_postings_tracker",
         path=f"{country}/job_postings_by_sector_{country}.csv",
         reader="postings",
@@ -110,7 +126,8 @@ def _remote(country: str) -> Series:
             "Share of Indeed software development postings that mention remote or hybrid "
             "work, 7-day trailing average."
         ),
-        credit="Indeed Hiring Lab, remote tracker (CC BY 4.0).",
+        credit="Indeed Hiring Lab, remote tracker",
+        seasonally_adjusted=False,
         repo="remote-tracker",
         path="remote_postings_sector.csv",
         reader="remote",
@@ -130,7 +147,8 @@ def _jolts(name: str, bls_id: str, fred_id: str, label: str) -> Series:
             f"{label}, thousands, not seasonally adjusted. The newest month BLS had "
             "published by the as-of date, usually two months before the HN month."
         ),
-        credit="U.S. Bureau of Labor Statistics, JOLTS; vintages via ALFRED.",
+        credit="U.S. Bureau of Labor Statistics, JOLTS; vintages via ALFRED",
+        seasonally_adjusted=False,
         bls_id=bls_id,
         fred_id=fred_id,
     )
@@ -151,7 +169,8 @@ SERIES: list[Series] = [
             "Share of Indeed software development postings with explicit pay, by month "
             "posted. Indeed publishes it for the US only."
         ),
-        credit="Indeed Hiring Lab, pay transparency tracker (CC BY 4.0).",
+        credit="Indeed Hiring Lab, pay transparency tracker",
+        seasonally_adjusted=False,
         repo="pay-transparency",
         path="pay-transparency-sector.csv",
         reader="pay",
@@ -173,7 +192,7 @@ SERIES: list[Series] = [
             "thousands, seasonally adjusted. The newest month BLS had published by the "
             "as-of date, usually the month before the HN month."
         ),
-        credit="U.S. Bureau of Labor Statistics, Current Employment Statistics; vintages via ALFRED.",
+        credit="U.S. Bureau of Labor Statistics, Current Employment Statistics; vintages via ALFRED",
         bls_id="CES6054150001",
         fred_id="CES6054150001",
     ),
@@ -208,19 +227,31 @@ def _first(row: dict, *names: str) -> str | None:
     return next((row[n] for n in names if n in row), None)
 
 
-def read_indeed(reader: str, text: str) -> Observations:
+def warn(message: str) -> None:
+    """A GitHub Actions warning annotation; plain text anywhere else."""
+    print(f"::warning::{message}", flush=True)
+
+
+SECTOR_COLUMNS = {
+    "postings": ("display_name",),
+    "remote": ("normtitlecategory_consistent", "sector"),
+    "pay": ("sector",),
+}
+
+
+def read_indeed(reader: str, text: str, label: str = "") -> Observations:
     """Parse one Hiring Lab file into software-development observations per country.
 
     Column names changed over the years; each reader accepts every variant seen in the repo
     history. A version missing the country column (remote tracker, 2024-11-11) yields nothing.
     """
     out: Observations = {}
+    matched = 0
     for row in csv.DictReader(io.StringIO(text)):
-        country = _first(row, "jobcountry", "country_code", "country")
+        if _first(row, *SECTOR_COLUMNS[reader]) not in SOFTWARE_SECTOR:
+            continue
         if reader == "postings":
             if row.get("variable") != "total postings":
-                continue
-            if row.get("display_name") != "Software Development":
                 continue
             if "indeed_job_postings_index" in row:
                 value = float(row["indeed_job_postings_index"])
@@ -228,22 +259,16 @@ def read_indeed(reader: str, text: str) -> Observations:
                 value = 100 + float(row["pct_chng_feb_1"])
             key, value = row["date"], round(value, 2)
         elif reader == "remote":
-            sector = _first(row, "normtitlecategory_consistent", "sector")
-            if sector not in ("techsoftware", "Software Development"):
-                continue
-            key, value = (
-                row["date"],
-                round(float(row["remote_share_postings"]) / 100, 4),
-            )
+            key = row["date"]
+            value = round(float(row["remote_share_postings"]) / 100, 4)
         else:
-            if row.get("sector") != "Software Development":
-                continue
-            key, value = (
-                row["date"][:7],
-                round(float(row["pay_transparency_pct"]) / 100, 4),
-            )
-        if country:
+            key = row["date"][:7]
+            value = round(float(row["pay_transparency_pct"]) / 100, 4)
+        matched += 1
+        if country := _first(row, "jobcountry", "country_code", "country"):
             out.setdefault(country, []).append((key, value))
+    if not matched:
+        warn(f"external: no software development rows in {label or reader}")
     for points in out.values():
         points.sort()
     return out
@@ -278,8 +303,11 @@ def pick_observation(
 class IndeedRepos:
     """Blobless mirrors of the hiring-lab repos: full commit history, file contents on demand."""
 
-    def __init__(self, cache_dir: Path = EXTERNAL_CACHE_DIR) -> None:
+    def __init__(
+        self, cache_dir: Path = EXTERNAL_CACHE_DIR, remote: str = GITHUB
+    ) -> None:
         self.cache_dir = cache_dir
+        self.remote = remote
         self.synced: set[str] = set()
         self.history: dict[tuple[str, str], list[tuple[str, date]]] = {}
         self.parsed: dict[tuple[str, str, str], Observations] = {}
@@ -298,17 +326,23 @@ class IndeedRepos:
                 path.parent.mkdir(parents=True, exist_ok=True)
                 self._git(
                     "clone", "--quiet", "--mirror", "--filter=blob:none",
-                    f"{GITHUB}/{repo}.git", str(path),
+                    f"{self.remote}/{repo}.git", str(path),
                 )  # fmt: skip
             self.synced.add(repo)
         return path
 
     def commits(self, repo: str, path: str) -> list[tuple[str, date]]:
-        """Commits that added or changed `path`, newest first, with their UTC commit date."""
+        """Commits on the default branch's first-parent line that added or changed `path`,
+        newest first, with their UTC commit date.
+
+        Hiring Lab often lands data through pull requests. A branch commit's date is when it
+        was written, not when it reached the default branch; the merge commit's date is. So
+        only first-parent commits count, and the file is read at that commit.
+        """
         if (repo, path) not in self.history:
             out = self._git(
-                "-C", str(self._repo_dir(repo)), "log", "--format=%H %ct",
-                "--diff-filter=AM", "HEAD", "--", path,
+                "-C", str(self._repo_dir(repo)), "log", "--first-parent",
+                "--format=%H %ct", "--diff-filter=AM", "HEAD", "--", path,
             )  # fmt: skip
             self.history[(repo, path)] = [
                 (sha, datetime.fromtimestamp(int(ts), UTC).date())
@@ -325,7 +359,9 @@ class IndeedRepos:
         key = (series.repo, sha, series.path)
         if key not in self.parsed:
             self.parsed[key] = read_indeed(
-                series.reader, self.text(series.repo, sha, series.path)
+                series.reader,
+                self.text(series.repo, sha, series.path),
+                f"{series.repo}@{sha[:7]}:{series.path}",
             )
         return self.parsed[key]
 
@@ -407,8 +443,9 @@ def alfred_value(client, series: Series, as_of: date) -> tuple[str, float] | Non
             ALFRED_CSV, {"id": series.fred_id, "vintage_date": as_of.isoformat()}
         )
     except httpx.HTTPStatusError as e:
-        # ALFRED answers 404 for a vintage date before the series existed.
-        if e.response.status_code == 404:
+        # ALFRED answers 404 for a vintage date before the series existed. Any other 404
+        # is a broken id or URL, and must not pass as "no value".
+        if e.response.status_code == 404 and as_of < BLS_FIRST_VINTAGE:
             return None
         raise
     return read_alfred(response.text)
@@ -456,8 +493,12 @@ def load(source: str, month: str, directory: Path = EXTERNAL_DIR) -> dict | None
 
 
 def is_frozen(stored: dict | None) -> bool:
-    """A month pulled after its as-of date is final: later releases can never reach it."""
-    if stored is None:
+    """A month pulled after its as-of date is final: later releases can never reach it.
+
+    A month still missing an expected series stays open, so the next run retries it. ALFRED
+    at vintage = as-of date returns the same answer whenever it is asked, so a retry is safe.
+    """
+    if stored is None or stored.get("missing"):
         return False
     return date.fromisoformat(stored["fetched_at"][:10]) > date.fromisoformat(
         stored["as_of"]
@@ -465,7 +506,7 @@ def is_frozen(stored: dict | None) -> bool:
 
 
 def save(source: str, month: str, as_of: date, values: dict, fetched_at: str,
-         directory: Path = EXTERNAL_DIR) -> str:  # fmt: skip
+         directory: Path = EXTERNAL_DIR, missing: list[str] | None = None) -> str:  # fmt: skip
     """Write unless nothing changed. A pull that would freeze the month is always written."""
     stored = load(source, month, directory)
     record = {
@@ -474,6 +515,8 @@ def save(source: str, month: str, as_of: date, values: dict, fetched_at: str,
         "fetched_at": fetched_at,
         "values": values,
     }
+    if missing:
+        record["missing"] = missing
     if stored and stored["values"] == values and not is_frozen(record):
         return "unchanged"
     path = month_path(source, month, directory)
@@ -544,14 +587,52 @@ def run(con: duckdb.DuckDBPyConnection, args: argparse.Namespace) -> None:
     client = Client(min_interval=BACKFILL_INTERVAL)
     repos = IndeedRepos()
     api_key = os.environ.get("BLS_API_KEY") or None
+    failed: set[str] = set()
     for source, month in todo:
+        if source in failed:
+            continue
+        created_at = threads[month]
         fetched_at = now()
-        values = pull(
-            source, month, threads[month], client=client, repos=repos,
-            today=date.fromisoformat(fetched_at[:10]), api_key=api_key,
-        )  # fmt: skip
-        status = save(source, month, as_of_date(threads[month]), values, fetched_at)
+        try:
+            values = pull(
+                source, month, created_at, client=client, repos=repos,
+                today=date.fromisoformat(fetched_at[:10]), api_key=api_key,
+            )  # fmt: skip
+        except Exception as e:  # noqa: BLE001
+            # An outside source being down must not block the HN refresh. The month stays
+            # unfrozen and the next run tries again.
+            warn(f"external: {source} failed at {month}, skipping it this run: {e!r}")
+            failed.add(source)
+            continue
+        missing = expected_missing(source, as_of_date(created_at), values)
+        for key in missing:
+            warn(f"external: {month} has no {key} yet; the month stays open")
+        for key in dropped(source, month, values):
+            warn(f"external: {key} had a value last month but none in {month}")
+        status = save(
+            source, month, as_of_date(created_at), values, fetched_at, missing=missing
+        )
         print(f"  {month} {source}: {len(values)} values, {status}", flush=True)
+
+
+def expected_missing(source: str, as_of: date, values: dict) -> list[str]:
+    """BLS series that should have a value but don't. Indeed gaps come from git history and
+    can't change on a retry, so they are warned about (see `dropped`) but never block."""
+    if source != "bls" or as_of < BLS_FIRST_VINTAGE:
+        return []
+    return sorted(s.key for s in SERIES if s.source == "bls" and s.key not in values)
+
+
+def previous_month(month: str) -> str:
+    year, m = map(int, month.split("-"))
+    return f"{year - 1}-12" if m == 1 else f"{year}-{m - 1:02d}"
+
+
+def dropped(
+    source: str, month: str, values: dict, directory: Path = EXTERNAL_DIR
+) -> list[str]:
+    before = load(source, previous_month(month), directory)
+    return sorted(set(before["values"]) - set(values)) if before else []
 
 
 # ---------- export ----------
@@ -587,8 +668,11 @@ def build_section(months: list[str], directory: Path = EXTERNAL_DIR) -> dict:
             "country": s.country,
             "publisher": s.publisher,
             "credit": s.credit,
+            "license": s.license[0],
+            "license_url": s.license[1],
             "unit": s.unit,
-            "description": s.description,
+            "seasonally_adjusted": s.seasonally_adjusted,
+            "description": f"{s.description} {FIRST_PUBLISHED}",
             "source_url": s.url,
             "series": points,
         }

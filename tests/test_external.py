@@ -1,8 +1,11 @@
 import json
+import os
+import subprocess
 from argparse import Namespace
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
+import httpx
 import pytest
 
 from sejr import export, external
@@ -181,21 +184,29 @@ def test_indeed_skips_a_version_without_the_country():
     assert value["ref_period"] == "2024-08-31"
 
 
-@pytest.mark.parametrize("day", range(1, 31))
-def test_no_indeed_value_has_a_vintage_after_the_as_of_date(day):
-    # A new version every three days through October; the thread date moves through the month.
+def test_no_indeed_value_has_a_vintage_after_the_as_of_date():
+    # A new version every three days from Sep 25 through October; the thread date moves
+    # through September and October.
     commits = [(f"c{d}", date(2026, 10, d)) for d in range(30, 0, -3)] + [
         ("c0", date(2026, 9, 25))
     ]
     repos = postings_repos(*commits)
-    created = datetime(2026, 9, day, 15, tzinfo=UTC)
-    as_of = as_of_date(created)
-    value = indeed_value(
-        repos, POSTINGS_US, "2026-09", as_of, external.window_end(created)
-    )
-    if value is not None:
+    found = []
+    for created in (
+        datetime(2026, 9, 15, 15, tzinfo=UTC) + timedelta(days=d) for d in range(40)
+    ):
+        as_of, end = as_of_date(created), external.window_end(created)
+        value = indeed_value(repos, POSTINGS_US, f"{created:%Y-%m}", as_of, end)
+        if value is None:
+            # No value only before the first version (Sep 25) or before its first reading.
+            assert min(as_of, end) < date(2026, 9, 25), created
+            continue
+        found.append(value)
         assert value["vintage_date"] <= as_of.isoformat()
-        assert value["ref_period"] <= external.window_end(created).isoformat()
+        assert value["ref_period"] <= end.isoformat()
+        newest = max(d for _, d in commits if d <= as_of)
+        assert value["vintage_date"] == newest.isoformat()
+    assert len(found) >= 25
 
 
 def test_bls_before_the_as_of_date_comes_from_the_api():
@@ -296,7 +307,11 @@ def test_export_section_shape_and_point_in_time_guard(tmp_path):
         "publisher": "Indeed Hiring Lab",
         "unit": "index",
     }
-    assert "CC BY 4.0" in postings["credit"]
+    assert postings["license"] == "CC BY 4.0"
+    assert postings["license_url"].startswith("https://creativecommons.org/")
+    assert postings["seasonally_adjusted"] is True
+    assert "revisions are not applied" in postings["description"]
+    assert section["jolts_hires_information.US"]["seasonally_adjusted"] is False
     # September's value was published after its as-of date, and November isn't a listed month.
     assert postings["series"] == [
         {
@@ -333,3 +348,132 @@ def test_every_series_names_its_country_and_credit():
     # One BLS API request covers every BLS series (the keyless limit is 25 per request).
     assert sum(s.source == "bls" for s in SERIES) <= 25
     assert timedelta(days=external.AS_OF_DAYS) > timedelta(days=external.WINDOW_DAYS)
+
+
+def git(repo: Path, *args: str, when: str | None = None) -> None:
+    env = {
+        "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@example.com",
+        "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@example.com",
+        "GIT_CONFIG_GLOBAL": "/dev/null", "GIT_CONFIG_NOSYSTEM": "1",
+        "PATH": os.environ["PATH"],
+    }  # fmt: skip
+    if when:
+        env |= {"GIT_AUTHOR_DATE": when, "GIT_COMMITTER_DATE": when}
+    subprocess.run(
+        ["git", "-C", str(repo), *args], check=True, env=env, capture_output=True
+    )
+
+
+def test_indeed_dates_a_version_by_when_it_reached_the_default_branch(tmp_path):
+    """A branch commit written on the 2nd but merged on the 5th counts from the 5th."""
+    upstream = tmp_path / "upstream" / "job_postings_tracker.git"
+    upstream.mkdir(parents=True)
+    git(upstream, "init", "-q", "-b", "main")
+    old = fixture("job_postings_by_sector_US_2021.csv")
+    new = fixture("job_postings_by_sector_US.csv")
+    target = upstream / POSTINGS_US.path
+    target.parent.mkdir()
+    target.write_text(old)
+    git(upstream, "add", ".")
+    git(upstream, "commit", "-qm", "old data", when="2026-10-01T12:00:00Z")
+    git(upstream, "checkout", "-qb", "update")
+    target.write_text(new)
+    git(upstream, "commit", "-qam", "new data", when="2026-10-02T12:00:00Z")
+    git(upstream, "checkout", "-q", "main")
+    git(
+        upstream,
+        "merge",
+        "-q",
+        "--no-ff",
+        "-m",
+        "merge",
+        "update",
+        when="2026-10-05T12:00:00Z",
+    )
+
+    repos = external.IndeedRepos(tmp_path / "cache", remote=f"file://{upstream.parent}")
+    commits = repos.commits(POSTINGS_US.repo, POSTINGS_US.path)
+    assert [d.isoformat() for _, d in commits] == ["2026-10-05", "2026-10-01"]
+    # Before the merge only the old file was on main, and its readings are too stale to use.
+    early = indeed_value(
+        repos, POSTINGS_US, "2026-10", date(2026, 10, 3), date(2026, 10, 2)
+    )
+    assert early is None
+    merged = indeed_value(
+        repos, POSTINGS_US, "2026-10", date(2026, 10, 6), date(2026, 10, 6)
+    )
+    assert merged["vintage_date"] == "2026-10-05"
+    assert merged["ref_period"] == "2026-10-06"
+
+
+def test_sector_name_variants_and_a_file_without_software_rows(capsys):
+    text = (
+        "date,jobcountry,sector,remote_share_postings\n2025-03-31,US,techsoftware,30\n"
+    )
+    text += "2025-03-31,GB,Software Development,40\n"
+    assert read_indeed("remote", text) == {
+        "US": [("2025-03-31", 0.3)],
+        "GB": [("2025-03-31", 0.4)],
+    }
+    assert capsys.readouterr().out == ""
+    assert (
+        read_indeed(
+            "remote",
+            text.replace("techsoftware", "x").replace("Software Development", "y"),
+            "f",
+        )
+        == {}
+    )
+    assert "::warning::" in capsys.readouterr().out
+
+
+def test_alfred_404_is_no_value_only_before_the_first_vintage():
+    class NotFound:
+        def get(self, url, params=None):
+            request = httpx.Request("GET", url)
+            raise httpx.HTTPStatusError(
+                "404", request=request, response=httpx.Response(404, request=request)
+            )
+
+    bls = next(s for s in SERIES if s.source == "bls")
+    assert external.alfred_value(NotFound(), bls, date(2010, 1, 9)) is None
+    with pytest.raises(httpx.HTTPStatusError):
+        external.alfred_value(NotFound(), bls, date(2025, 10, 9))
+
+
+def test_a_month_missing_a_bls_series_stays_open(tmp_path):
+    some = {"x.US": {"value": 1, "ref_period": "2025-08", "vintage_date": "2025-10-09"}}
+    missing = external.expected_missing("bls", date(2025, 10, 9), some)
+    assert len(missing) == sum(s.source == "bls" for s in SERIES)
+    save(
+        "bls",
+        "2025-10",
+        date(2025, 10, 9),
+        some,
+        "2026-11-04T00:00:00Z",
+        tmp_path,
+        missing,
+    )
+    assert not is_frozen(load("bls", "2025-10", tmp_path))
+    assert external.expected_missing("indeed", date(2025, 10, 9), {}) == []
+
+
+def test_a_failing_source_warns_and_leaves_the_month_open(
+    db, tmp_path, monkeypatch, capsys
+):
+    monkeypatch.setattr(external, "load", lambda *a, **k: None)
+    saved = []
+    monkeypatch.setattr(
+        external, "save", lambda *a, **k: saved.append(a[:2]) or "saved"
+    )
+
+    def pull(source, month, *args, **kwargs):
+        if source == "bls":
+            raise RuntimeError("BLS is down")
+        return {}
+
+    monkeypatch.setattr(external, "pull", pull)
+    external.run(db, Namespace(month=None, limit=None, dry_run=False, backfill=True))
+    out = capsys.readouterr().out
+    assert out.count("::warning::external: bls failed") == 1
+    assert saved and all(source == "indeed" for source, _ in saved)

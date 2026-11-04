@@ -120,19 +120,19 @@ Outside series sit next to HN series so a column can say whether HN's thread mov
 | key | publisher | source | unit |
 |---|---|---|---|
 | `indeed_software_postings.US`, `.GB` | Indeed Hiring Lab (CC BY 4.0) | `hiring-lab/job_postings_tracker` `<CC>/job_postings_by_sector_<CC>.csv`, Software Development, `total postings` | index, Feb 1 2020 = 100 |
-| `indeed_software_remote_share.US`, `.GB` | Indeed Hiring Lab | `hiring-lab/remote-tracker` `remote_postings_sector.csv`, `techsoftware` (earlier files: `Software Development`) | share |
+| `indeed_software_remote_share.US`, `.GB` | Indeed Hiring Lab | `hiring-lab/remote-tracker` `remote_postings_sector.csv`, software sector | share |
 | `indeed_software_pay_transparency.US` | Indeed Hiring Lab | `hiring-lab/pay-transparency` `pay-transparency-sector.csv`, Software Development. US only: the file has no GB rows | share |
 | `jolts_{openings,hires,layoffs}_information.US` | BLS (public domain) | `JTU510000000000000JOL/HIL/LDL`; ALFRED `JTU5100JOL/HIL/LDL` | thousands |
 | `jolts_{openings,hires,layoffs}_professional.US` | BLS | `JTU540099000000000JOL/HIL/LDL`; ALFRED `JTU540099JOL/HIL/LDL` | thousands |
 | `ces_computer_systems_design.US` | BLS | `CES6054150001` (same id on ALFRED) | thousands |
 
-Indeed comes from its GitHub repos, never FRED: FRED's copies of Indeed need Indeed's pre-approval, and FRED's terms forbid archiving. JOLTS uses the unadjusted (`JTU`) series because ALFRED has no seasonally adjusted vintages for information or for professional-services layoffs; current pulls and vintages must be the same series.
+Indeed comes from its GitHub repos, never FRED: FRED's copies of Indeed need Indeed's pre-approval, and FRED's terms forbid archiving. Hiring Lab files name the software sector either `Software Development` or `techsoftware`, and versions alternate between the two (the remote tracker went `Software Development` → `techsoftware` → `Software Development` → `techsoftware` between 2024 and 2025), so every reader accepts both; a version with no matching rows prints a warning. Pay transparency, the remote share and JOLTS are not seasonally adjusted (`seasonally_adjusted: false`); the postings index and CES are. JOLTS uses the unadjusted (`JTU`) series because ALFRED has no seasonally adjusted vintages for information or for professional-services layoffs; current pulls and vintages must be the same series.
 
 **As-of date.** Month *t* may use only values published by its as-of date: the hiring thread's `created_at` + 8 days, as a UTC date. Every stored value has `vintage_date <= as_of`; export drops any that doesn't, and `tests/test_external.py` checks it.
 
 **Vintages.**
 
-- Indeed: the file at the newest commit (UTC commit date) on or before the as-of date that has a reading for the country. Git history is the vintage record. Months whose as-of date precedes the first commit of a file get no value, never a revised one: the postings series starts June 2021 (sector files were first committed 2021-05-27), remote September 2024 (with no January 2025 value: the November 2024 file had no country column and the older one is too stale), pay transparency September 2025. Commit dates stand in for publication dates; a push made days after its commit would leak, which Hiring Lab's commit-and-push habit makes unlikely.
+- Indeed: the file at the newest commit on the default branch's first-parent line (`git log --first-parent`, UTC committer date) on or before the as-of date that has a reading for the country. Hiring Lab lands many updates through pull requests, and a branch commit is dated when it was written, not when it reached the default branch; the merge commit's date is when it was published, so the file is read at that first-parent commit. (Using branch commit dates leaked six values, in 2022-09, 2024-09 and 2026-06, by one to three days.) Git history is the vintage record. Months whose as-of date precedes a file's first commit on the default branch get no value, never a revised one: the postings series starts June 2021 (sector files reached main 2021-05-27), remote October 2024 (the first file reached main 2024-09-12), pay transparency September 2025. January 2025 has no remote value: the November 2024 file had no country column and the older one is too stale.
 - BLS: while today is on or before the as-of date, the BLS API v2 (one POST for all seven series; `BLS_API_KEY` raises the keyless 25 queries/day limit), with `vintage_date` = the pull date. After it, the ALFRED vintage in effect on the as-of date (`alfredgraph.csv?id=<FRED id>&vintage_date=<as_of>`), with `vintage_date` = the as-of date. Only the one value per month is stored.
 
 **One value per month.** Indeed's postings and remote series are daily 7-day trailing averages. Month *t* takes the reading dated on or before the thread's window end (`created_at` + 7 days); when the file reaches that day, the reading is exactly the mean over the thread's 7 days, so the benchmark covers the same week as the posts. Usually the file lags a few days (postings) or to the previous month end (remote), and `ref_period` says which day was used. Readings more than 31 days (postings) or 75 days (remote) older than the window end mean the file stopped updating, and the month gets no value. Pay transparency is monthly: the newest month on or before *t*. BLS: the newest month in the vintage, usually *t*−1 (CES) or *t*−2 (JOLTS). The value is plotted at HN month *t*, as known then.
@@ -145,7 +145,7 @@ Indeed comes from its GitHub repos, never FRED: FRED's copies of Indeed need Ind
    "vintage_date": "2026-10-06", "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/<sha>/US/job_postings_by_sector_US.csv"}}}
 ```
 
-A file pulled after its as-of date is frozen and never pulled again. Before that, each run rewrites it only when a value changed. `sejr external` refuses to pull more than three months unless `--backfill` (or `--month`) is given; the backfill is resumable (it skips frozen months) and sends at most one request a second with the project's User-Agent.
+A file pulled after its as-of date is frozen and never pulled again, unless it records `missing`: BLS series with no value although the as-of date is past the first ALFRED vintage (2011-04-09). Those months stay open and the next run retries; asking ALFRED for the same vintage date is idempotent. A 404 from ALFRED counts as "no value" only before that first vintage; after it, it is an error. Indeed gaps come from git history and can't change on a retry, so they don't keep a month open, but a series that had a value the month before and has none now prints a warning. If a source fails outright (network, API error), `sejr external` prints a `::warning::`, skips that source for the rest of the run and leaves its months unfrozen; the step never blocks the HN refresh. Before the as-of date, each run rewrites a file only when a value changed. `sejr external` refuses to pull more than three months unless `--backfill` (or `--month`) is given; the backfill is resumable (it skips frozen months) and sends at most one request a second with the project's User-Agent.
 
 ## Metric ids
 
@@ -222,14 +222,15 @@ Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`:
 "external": {
   "indeed_software_postings.US": {
     "id": "indeed_software_postings.US", "label": "Indeed US software development job postings",
-    "country": "US", "publisher": "Indeed Hiring Lab", "credit": "Indeed Hiring Lab, job postings tracker (CC BY 4.0).",
+    "country": "US", "publisher": "Indeed Hiring Lab", "credit": "Indeed Hiring Lab, job postings tracker",
+    "license": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/", "seasonally_adjusted": true,
     "unit": "index", "description": "…", "source_url": "https://github.com/hiring-lab/job_postings_tracker",
     "series": [{"month": "2026-10", "value": 78.33, "ref_period": "2026-10-02", "vintage_date": "2026-10-06"}]
   }
 }
 ```
 
-`month` is the HN month (complete months only); `ref_period` is the day (`YYYY-MM-DD`) or month (`YYYY-MM`) the publisher's number describes. External units are `index`, `share` (0–1) or `thousands`.
+`month` is the HN month (complete months only); `ref_period` is the day (`YYYY-MM-DD`) or month (`YYYY-MM`) the publisher's number describes. External units are `index`, `share` (0–1) or `thousands`. Every description ends by saying values are as first published and later revisions are not applied, so a chart note can repeat it.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
@@ -270,7 +271,7 @@ Directive attributes:
 | `against` | ::compare | comma list of windows, default `3m,1y,5y` |
 | `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
 | `external` | line | one key from metrics.json `external`, paired with the chart's single `metric`. Needs `base` |
-| `base` | line with `external` | `YYYY-MM`; both lines are indexed to 100 at this month. The publisher's credit and license are added to the source line |
+| `base` | line with `external` | `YYYY-MM`; both lines are indexed to 100 at this month. A benchmark with `seasonally_adjusted: false` is drawn as a 12-month trailing average (months without 12 consecutive values drop out), and the subtitle says so. The source line adds the publisher's credit, a link to its license, and what this report changed ("indexed to Jan 2022 = 100 by this report") |
 | `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |

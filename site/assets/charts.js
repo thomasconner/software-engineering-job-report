@@ -67,11 +67,20 @@ function figureShell(mount, attrs, series) {
   if (needsModelNote(series, attrs.note)) source.append(' ', modelNote());
   if (series.some((s) => s.confidence === 'rough')) source.append(' ', el('span', 'chart-note', 'A rough measure: read it as a broad picture.'));
   if (attrs.note) source.append(' ', el('span', 'chart-note', attrs.note));
-  // Outside benchmarks are credited by name and license, with a link to the publisher's data.
-  for (const [credit, url] of new Map(series.filter((x) => x.credit).map((x) => [x.credit, x.url]))) {
-    const link = el('a', null, credit);
-    link.href = url;
-    source.append(' ', el('span', 'chart-credit', 'Benchmark: '), link);
+  // Outside benchmarks are credited by name and license, with what this report changed (CC BY asks for both).
+  for (const s of series.filter((x) => x.credit)) {
+    const credit = el('span', 'chart-credit', 'Benchmark: ');
+    const link = (text, href) => {
+      const a = el('a', null, text);
+      a.href = href;
+      return a;
+    };
+    credit.append(link(s.credit, s.url));
+    if (s.license) credit.append(' (', s.licenseUrl ? link(s.license, s.licenseUrl) : s.license, ')');
+    const changes = [attrs.base && `indexed to ${monthLabel(attrs.base)} = 100`, s.smoothed && '12-month average']
+      .filter(Boolean).join(', ');
+    credit.append(changes ? `; ${changes} by this report.` : '.');
+    source.append(' ', credit);
   }
   const toggle = el('button', 'table-toggle', 'Show the numbers');
   toggle.type = 'button';
@@ -424,7 +433,8 @@ function timeChart(fig, series, attrs, until, data, mode) {
     }
     const startM = months[0];
     const endM = months.at(-1);
-    const indexed = attrs.base ? `, indexed to ${monthLabel(attrs.base)} = 100` : '';
+    const smoothed = series.some((s) => s.smoothed) ? '; the benchmark is a 12-month average, as it is not seasonally adjusted' : '';
+    const indexed = attrs.base ? `, indexed to ${monthLabel(attrs.base)} = 100${smoothed}` : '';
     fig.setSubtitle(`${subjectOf(series)}${indexed}, ${monthLabel(startM, 'long')} to ${monthLabel(endM, 'long')}`);
     const fmt = makeFormat(unit);
     const tipFmt = makeFormat(unit, { precise: true });
