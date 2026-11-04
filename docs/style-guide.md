@@ -1,10 +1,12 @@
-# Style guide: the monthly column
+# Style guide: the monthly report
 
-This guide is for the agent that writes `site/articles/YYYY-MM.md` and for the agent that fact-checks it. The spec (`docs/spec.md`) says what the column measures. The architecture (`docs/architecture.md`) says where the numbers live and how directives are written. This file says how the column sounds, how it is put together, and what it is not allowed to claim.
+This guide is for the agent that writes `site/articles/YYYY-MM.md` and for the agent that fact-checks it. The spec (`docs/spec.md`) says what the report measures. The architecture (`docs/architecture.md`) says where the numbers live and how directives are written. This file says how the report sounds, how it is put together, and what it is not allowed to claim.
+
+The report is a monthly Software Engineering Jobs Report on the US software engineering job market. It is written from several public sources: Indeed Hiring Lab job postings, the Bureau of Labor Statistics' JOLTS and CES surveys, Hacker News's monthly hiring and job-seeker threads, and, as they arrive, company job boards, SEC filings and WARN notices. Hacker News is one of those sources, not the subject. Section 4, "Sources", says what each one measures. The October 2026 column predates this framing and stays as an archived edition; don't copy its HN-centered framing.
 
 ## 1. Voice
 
-We write like a columnist who has done the math. Every article makes one argument about the month and defends it with numbers a reader can check. The reader is smart, busy and not a statistician: an engineer deciding whether to job-hunt, a founder deciding whether to hire, a reporter who wants to know if startup hiring is picking up. We are plain, confident and specific. We have opinions, and we show the chart that earned them. When the data is noisy we say so once, in the sentence where it matters, and then we move on. We don't cheerlead a recovery or mourn an industry. A month that looks like the month before is a fine result, and we can say so.
+We write like a columnist who has done the math. Every article makes one argument about the month in the software engineering job market and defends it with numbers a reader can check. The argument is a synthesis: it says what the sources show together, where they agree and where they don't. The reader is smart, busy and not a statistician: an engineer deciding whether to job-hunt, a founder deciding whether to hire, a reporter who wants to know if software hiring is picking up. We are plain, confident and specific. We have opinions, and we show the chart that earned them. When the data is noisy we say so once, in the sentence where it matters, and then we move on. We don't cheerlead a recovery or mourn an industry. A month that looks like the month before is a fine result, and we can say so.
 
 ### Sentences
 
@@ -24,6 +26,8 @@ We write like a columnist who has done the math. Every article makes one argumen
 - Shares change in points. A relative change on a share ("fell by more than half") is allowed only for a move that clears the noise bar and is large next to the share itself. Print both endpoints in the same or the previous sentence, and compute the relative change from the unrounded values. "Rust mentions jumped 50%" for a move from 2% to 3% is never allowed.
 - Dollars: "$185,000", "$1.2 million". No "$185K" and no "185k" in prose. Salaries are nominal. When comparing across more than one year, say "not adjusted for inflation" once in the article.
 - Commas in numbers of 1,000 and up: 1,018.
+- BLS counts come in thousands. Write them out as whole numbers ("128,000 openings") or, from a million up, in millions to two decimals ("2.36 million people"). Never "128K".
+- Indexes get one decimal and their base on first mention: "78.3, where February 2020 equals 100".
 - Ratios get one decimal and a plain-English unit: "2.4 people posting in 'Who wants to be hired?' for every hiring post".
 - Scores get one decimal and their scale, every time: "a mood score of 1.7 on our 0-to-4 scale".
 - Months: spell them out in prose ("October 2021", "last October"). No "Oct. '21", no "10/2021", no "Q4" unless quoting.
@@ -40,6 +44,9 @@ We write like a columnist who has done the math. Every article makes one argumen
 | Medians in dollars | `usd` | Nearest $1,000. |
 | Ratios | `ratio` | One decimal. |
 | Scores | `score` | One decimal, with the scale. |
+| Outside indexes | `index` (external) | One decimal. Changes in percent, from the unrounded values. |
+| Outside counts | `thousands` (external) | Whole numbers, or millions to two decimals. Changes in percent. |
+| Outside shares | `share` (external) | Whole percent; changes in points, like HN shares. |
 
 Fractions are fine for big moves when they're accurate: "just over a third of the 2021 peak" for 36%, "fell by about two-thirds" for a 65% drop. The exact number goes in the same paragraph or the chart.
 
@@ -51,7 +58,8 @@ The pattern is: current value, direction, reference value, reference period.
 - "The remote share was 37%, down from 41% three months ago and 63% five years ago."
 - Name the context when the reference month is unusual: "five years ago, in October 2021, during the pandemic-era hiring boom".
 - "A year ago" means the same month last year. "Three months ago" means the thread three months back, not an average. Say "the three months through September" if you mean an average.
-- Superlatives ("highest since", "lowest on record", "first time") need a check against the full series, and the check goes in the ledger (section 4). The series don't all start at the same time. Hiring metrics start in April 2011 and have no gaps. Seeking metrics, including `seekers_per_post` and `seeker_mood`, start in May 2014. "On record" means since the start of that metric's series, and the first use in an article says which: "the most since the hiring thread began in April 2011".
+- Superlatives ("highest since", "lowest on record", "first time") need a check against the full series, and the check goes in the ledger (section 4). The series don't all start at the same time. HN hiring metrics start in April 2011 and have no gaps. Seeking metrics, including `seekers_per_post` and `seeker_mood`, start in May 2014. Indeed's postings index starts in the June 2021 issue, its remote share in October 2024 and its pay share in September 2025, because earlier values were never published in a form we can date. JOLTS and CES start in April 2011. "On record" means since the start of that series, and the first use in an article says which: "the most since the hiring thread began in April 2011", "the highest since Indeed's series starts here, in June 2021".
+- An outside value names its reference period, not the issue month: "Indeed's index stood at 78.3 in the week to October 2", "employers reported 128,000 openings in August". See "Reference periods and lags" in section 4.
 
 ### Hedge once, where the doubt lives
 
@@ -65,7 +73,7 @@ The "what this data can't tell us" paragraph (section 2) is about the source's l
 
 ### Person
 
-- "We" is the column. Use it for what we did and what we think: "we count top-level posts", "we read this as a top-down recovery". The byline is "Software Engineering Job Report", so there is no "I".
+- "We" is the report. Use it for what we did and what we think: "we count top-level posts", "we read this as a recovery in ads, not yet in payrolls". The byline is "Software Engineering Job Report", so there is no "I".
 - "You" is fine when the sentence is about the reader's own situation ("if you're a junior engineer"). Use it sparingly, and never for "you might be wondering".
 - Opinion comes through the claim and the verbs more than through "we believe" or "in our view".
 
@@ -81,16 +89,17 @@ The lengths below are targets for the editor, not pass/fail rules. A normal mont
 | Nut graf | 60 to 110 words | The argument in plain terms, and the numbers that carry it. |
 | Compare strip | One `::compare` | The data turn: here are the numbers. |
 | Sections | 3 to 5, each 90 to 200 words | Each leads with a finding and has one chart. |
-| What this data can't tell us | 60 to 130 words | The source's limits, as they apply to this month's argument. |
+| What this data can't tell us | 60 to 130 words | The sources' limits, as they apply to this month's argument. |
 | Kicker | 1 to 3 sentences, about 50 words | Takes the argument one step further. Never a summary. |
 
 ### Headline
 
-A claim, not a label. It should be checkable against the data and narrow enough to be wrong.
+A claim about the software engineering job market, not a label. It should be checkable against the data and narrow enough to be wrong. It comes from the sources together, so it never takes one source as its frame.
 
-- Good: "HN's hiring thread is growing again, but not for junior engineers"
+- Good: "Software job postings rose this year, but employment slipped"
 - Good: "Remote work is losing, but not where you'd think"
 - Good, for a quiet month: "Nothing moved in October, and that is the story"
+- Bad (one source as the frame): "HN has 2.4 job seekers for every hiring post"
 - Bad (a label): "October 2026 job market report"
 - Bad (a question): "Is the tech hiring freeze over?"
 - Bad (hype): "The AI hiring boom is here"
@@ -99,11 +108,11 @@ Sentence case, no period, no em dash, no colon-subtitle ("AI hiring: what it mea
 
 ### Dek
 
-The line under the headline. It gives the reader the one or two numbers that justify the headline. "October's thread had the most hiring posts since July 2024, but only 6% were for junior engineers, down from 17% five years ago."
+The line under the headline. It gives the reader the one or two numbers that justify the headline, each with its source. "Indeed's index of US software job postings rose 23% in a year, while the BLS counted 2% fewer people working at computer systems design firms."
 
 ### Lede
 
-Open on the tension, not on the method. Don't start with "Every month, we analyze..." or with a number the reader has no context for. The tension comes from the numbers: a contrast between two groups in the data, a surprise against last year, or a flat statement of what changed. A real post from the month's sample file can also open the piece (section 4 says how to quote one). Never open on an invented scene, person or quote. The lede can be argued. It can't be unsupported: whatever it asserts, a section backs up.
+Open on the tension, not on the method. Don't start with "Every month, we analyze..." or with a number the reader has no context for. The tension comes from the numbers: two sources moving apart, a contrast between two groups in the data, a surprise against last year, or a flat statement of what changed. The lede is about the market. A Hacker News number can carry it only as one source among others ("On Hacker News, job seekers per hiring post doubled"), never as the frame ("HN has..."). A real post from the month's sample file can also open the piece (section 4 says how to quote one). Never open on an invented scene, person or quote. The lede can be argued. It can't be unsupported: whatever it asserts, a section backs up.
 
 ### Nut graf
 
@@ -111,20 +120,30 @@ The paragraph that tells the reader what the whole article argues and why they s
 
 ### The data turn
 
-Right after the nut graf comes the `::compare` strip. It has a fixed core so readers can compare months at a glance:
+Right after the nut graf comes the `::compare` strip. It has a fixed core so readers can compare months at a glance. The core mixes sources, outside series first:
 
 ```markdown
-::compare{title="The thread grew this year, but not for juniors" metrics="posts.hiring,seekers_per_post.hiring,new_grad_share.hiring,ai_native_share.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
+::compare{title="Postings rose on Indeed while BLS employment and openings fell" metrics="external:indeed_software_postings.US,external:jolts_openings_information.US,external:ces_computer_systems_design.US,posts.hiring,seekers_per_post.hiring,seekers_per_post_us.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
 ```
 
-Add one or two extra metrics at the end when the argument uses them. Don't drop a core metric because it's dull this month. The strip is the "here's the data" moment. Don't restate every cell of it in prose. The prose picks the cells that matter.
+| Row | What it adds |
+|---|---|
+| `external:indeed_software_postings.US` | Software development job ads across the US, the widest view of demand |
+| `external:jolts_openings_information.US` | Openings at information-sector employers, an industry check on the ads (unadjusted) |
+| `external:ces_computer_systems_design.US` | People employed at computer systems design firms, the closest payroll count |
+| `posts.hiring` | Employer posts in Hacker News's hiring thread, the startup-leaning panel |
+| `seekers_per_post.hiring` | Job seekers per hiring post on HN, the only supply-side measure |
+| `seekers_per_post_us.hiring` | The same ratio for US job seekers and US-open posts, the check on the one above |
+| `salary_disclosed_share.hiring` | HN hiring posts that state pay |
+
+Outside rows show the period their number describes ("Aug 2026 data") and a plain change with no noise verdict. Add one or two extra rows at the end when the argument uses them (for example `external:indeed_software_pay_transparency.US` beside the HN pay share, or `new_grad_share.hiring`). When a new source reaches `metrics.json` (SEC filings, job-board snapshots), propose its core row in the PR that first uses it. Don't drop a core row because it's dull this month. The strip is the "here's the data" moment. Don't restate every cell of it in prose. The prose picks the cells that matter.
 
 ### Sections
 
 Each section is:
 
-1. An `##` heading that states the finding, in sentence case. "AI companies now write more than a third of the posts", not "AI share".
-2. The finding in the first sentence, with its number.
+1. An `##` heading that states the finding, in sentence case. "Employment at computer systems design firms slipped", not "Employment".
+2. The finding in the first sentence, with its number and its source.
 3. Context: the comparison windows, what the reference months were like, the strongest other reading.
 4. One `::chart` directive that backs the heading. Place it after the prose, as the evidence for what was just said.
 
@@ -136,6 +155,8 @@ Every article has one "to be sure" paragraph, inside the section whose finding i
 
 The strongest objections for this data are usually one of these:
 
+- **Another source disagrees.** Indeed's ads rise while JOLTS openings fall, or HN's hiring thread shrinks while Indeed grows. Name both, say what each counts (section 4, "Sources"), and say which reading survives. A disagreement explained is a finding; a disagreement left out is a hole.
+- **Industry isn't occupation.** JOLTS and CES count employers in an industry, every job in it, and miss software engineers in other industries. A move there may not be a move in software work.
 - **Title inflation.** Companies relabel the same role as "senior", so the seniority mix shifts while hiring doesn't. Test it with `new_grad_share`, which asks a question titles don't answer.
 - **A change in who posts.** The mix of companies on HN shifts (more AI startups, fewer agencies, more remote-first firms), so a share moves without any one company changing its behavior.
 - **A change in how posts are written.** Companies describe the same product differently over the years. See the drift rule in section 4.
@@ -143,7 +164,7 @@ The strongest objections for this data are usually one of these:
 
 ### What this data can't tell us
 
-A fixed `##` heading, every month, just before the kicker. Pick the two to four limits from section 4 that bear on *this* month's argument and say them plainly, in prose, not as a bullet list. Close any gap the argument invites but the data can't fill: "We don't split seniority by AI status, so we can't test whether the change in who posts explains the shift." This paragraph builds trust. Write it like you mean it, not like a disclaimer.
+A fixed `##` heading, every month, just before the kicker. Pick the two to four limits from section 4 (the sources' caveats and the HN rules) that bear on *this* month's argument and say them plainly, in prose, not as a bullet list. Close any gap the argument invites but the data can't fill: "We don't split seniority by AI status, so we can't test whether the change in who posts explains the shift." This paragraph builds trust. Write it like you mean it, not like a disclaimer.
 
 ### Kicker
 
@@ -172,6 +193,8 @@ Every headline measure is placed against three reference points, in this order:
 | 1 year ago | `1y` | The cleanest comparison: same month, so seasonal effects mostly cancel. | Lead with this one when only one comparison fits. |
 | 5 years ago | `5y` | Where the market sits in the long cycle. | From 2026, five years back lands in the 2021 boom. Name the base month's context so the drop isn't read as a collapse. |
 
+Windows are counted in issue months. For an outside series, each issue carries the newest value published by its date, so the 1y cell compares this issue's value with the one a year of issues back, and the two may describe different reference months (the October and November 2025 issues both carry August 2025 for CES, when BLS releases were delayed). The strip prints both reference periods; the prose names them when they differ. For a not seasonally adjusted series (JOLTS, Indeed's remote and pay shares), only the 1y and 5y windows compare like seasons; a 3m move there is seasonal until shown otherwise.
+
 Skip a window, and say why in the chart note or a clause, when:
 
 - the metric has no value for that month (`series` omits it, for example seeking metrics before May 2014);
@@ -196,7 +219,7 @@ The title must be true of the chart as drawn. If the line is flat for the last s
 
 ### Subtitle states the measure
 
-The subtitle names the measure and the period: "Share of 'Who is hiring?' posts from AI-native companies, January 2019 to October 2026." The renderer builds it from the metric's or breakdown's `label` in `metrics.json` plus the chart's date range, so the writer doesn't type it. The writer checks that it reads correctly. If it doesn't, fix the label in the export, not in the article.
+The subtitle names the measure and the period: "Share of 'Who is hiring?' posts from AI-native companies, January 2019 to October 2026." The renderer builds it from the metric's, breakdown's or outside series' `label` in `metrics.json` plus the chart's date range, so the writer doesn't type it. An outside series drawn on its own adds "as published by each issue's date", because each point is the value known when that issue came out. The writer checks that it reads correctly. If it doesn't, fix the label in the export, not in the article.
 
 ### Notes
 
@@ -204,7 +227,8 @@ The subtitle names the measure and the period: "Share of 'Who is hiring?' posts 
 
 - that a share is a Jev expected value ("Shares are expected values from a model's reading of each post");
 - a skipped or unusual month;
-- a definition the subtitle can't hold, quoted from the classifier's question text rather than paraphrased from memory.
+- a definition the subtitle can't hold, quoted from the classifier's question text rather than paraphrased from memory;
+- for an outside series, that values are as first published, and any visible break that comes from the publisher rather than the market (CES shows its yearly benchmark revision as a step in early-year months).
 
 Don't repeat the methodology footer in every note. Don't put an argument in a note.
 
@@ -242,6 +266,8 @@ Pick the type from the shape of the claim. The attributes column lists what each
 | The claim is about | Type | Attributes | Example |
 |---|---|---|---|
 | One measure moving over time | `line` | `metric`, `from`, `to`, `annotate` | "Hiring posts are just over a third of the 2021 peak" |
+| One outside series over time, in its own unit | `line` | `external` (no `metric`, no `base`), `from`, `to`, `annotate` | "Indeed's US software postings rose 23% in a year but are a third of their 2022 peak" |
+| An HN measure against an outside series | `line` | `metric`, `external`, `base`, `from`, `to` | "Indeed's US software postings rose 23% this year; HN's hiring thread did not" |
 | Parts of a whole shifting over time (categories that sum to 1) | `stacked-area` | `breakdown`, `from`, `to`, `annotate` | "Hybrid has taken share from remote since 2022" (`work_mode`, `seniority`, `funding_stage`) |
 | Several categories, each with its own trend | `small-multiples` | `breakdown`, `categories`, `from`, `to`, `annotate` | "Rust and Go rose while Ruby faded" (`stack`, `industry`) |
 | The same categories at two dates | `slope` | `breakdown`, `months`, `categories` | "Senior and staff posts gained 18 points as junior posts lost 11" |
@@ -258,10 +284,48 @@ Rules that follow from the data:
 - Bars start at zero. Lines can start above zero, but the renderer's y-axis rules decide that, not the writer.
 - Pick `from` to fit the claim, not to exaggerate it. A "lowest since" claim shows enough history to see the earlier low. A short-term claim can start in 2019, which keeps COVID and the 2021 peak in view. Starting a line in mid-2022 to make a drop look steeper is not allowed.
 - One chart per section. If a section needs two charts, it's two findings, so it's two sections.
+- JOLTS is flagged `smooth_12m`, so every chart draws it as a 12-month trailing average, and the subtitle says so. A chart title about JOLTS describes the average, not the latest month; the prose can cite the latest month as long as it says which.
+- An outside series starts where its point-in-time history starts (Indeed postings June 2021). Don't set `from` earlier and imply the gap is zero.
 
 ## 4. Honesty rules for this data
 
 These apply to every sentence. The fact-checker enforces them.
+
+### Sources
+
+Each source sees a different part of the market. Know what it counts before you write a sentence about it.
+
+| Source | `metrics.json` | Counts | Reference period and lag | Adjusted | Noise bar |
+|---|---|---|---|---|---|
+| Indeed Hiring Lab | `external` `indeed_*` | Software development job ads on Indeed (index, Feb 2020 = 100); shares of those ads offering remote work or stating pay | Postings: a 7-day average ending days before the issue's window ends. Remote: previous month end. Pay: about two months back | Postings yes; remote and pay no | None |
+| BLS JOLTS | `external` `jolts_*` | Job openings, hires, layoffs and discharges at employers in the information sector and in professional and business services, all occupations | About two months behind the issue | No | None |
+| BLS CES | `external` `ces_computer_systems_design.US` | People employed at computer systems design and related services firms | About one month behind | Yes | None |
+| Hacker News | `metrics` | Employer posts in "Who is hiring?" and posts from people looking for work in "Who wants to be hired?", first 7 days | None: the issue month itself | No | Exported `bar` |
+| Company job boards, SEC filings, WARN notices | not exported yet | Open roles on company boards; company headcount, restructuring and layoff filings; state layoff notices | Added here when each reaches `metrics.json` | | |
+
+Rules:
+
+- **Every claim names its source.** "Indeed's index of US software job postings rose 23%", "the BLS counted 2% fewer people", "employer posts in Hacker News's monthly hiring thread". A number without a source is not checkable, so it isn't printed.
+- **No single source stands in for the market.** Not Indeed ("software hiring rose 23%" when ads rose), not JOLTS, and above all not Hacker News. Market-level claims ("the software job market", "demand", "hiring") are syntheses: they say which sources back them, and they hold only as far as those sources agree.
+- **When sources disagree, say so and explain what each measures.** Postings are ads, openings are employers' reported vacancies, hires and layoffs are flows of people, employment is a stock of people on payrolls, filings are what public companies tell the SEC, and HN posts are what startups and job seekers choose to write. Ads can rise while hires fall. That gap is the story, not a problem to smooth over.
+- **Industries aren't occupations.** JOLTS and CES count every job at employers in an industry, software or not, and miss software engineers in other industries. Say "openings in the information sector", never "software openings".
+- **Postings aren't jobs.** Indeed counts ads, and one HN post can list many roles. Neither is a count of people hired.
+- **Values are as first published.** Outside series are read as published by each issue's date and never revised later. BLS revises its numbers, and CES re-benchmarks every year, which shows as a step in early-year months. Don't read a revision step as a move in the market, and say "as first published" when a reader might compare with today's BLS figures.
+
+### Reference periods and lags
+
+- **State the reference period whenever it differs from the issue month.** JOLTS runs about two months behind, CES about one, Indeed's pay share about two. "In August, employers in the information sector reported 128,000 openings", not "in October".
+- **No silent mixing.** A sentence that sets an August JOLTS figure against an October HN figure says both months. A year-on-year change compares the same reference month when the data allow it; when the strip's 1y cell compares different reference months (the issue a year back carried an older value), the prose uses the same-month pair and the ledger names both.
+- **Lagged sources describe the past.** A September CES count can't confirm or refute an October HN move; say they cover different months.
+
+### Outside series have no noise bar
+
+HN series carry an exported noise bar (below). Outside series don't: their publishers' sampling errors aren't in `metrics.json`, and we don't estimate them.
+
+- Describe an outside change in plain language with its number: "Indeed's index rose 23%", "employment was 2% lower". Never call it "about the same" or "within the noise" (we haven't measured that), and never call it "clearing the bar".
+- Reserve the stronger size verbs (jumped, plunged) for large moves over a year or more, stated with the number. A one-month change in a single outside reading is a reading, not a trend.
+- **Unadjusted series swing with the seasons.** JOLTS and Indeed's remote and pay shares are not seasonally adjusted. Compare a month with the same month a year earlier, or use the 12-month average the charts draw, and don't describe a month-to-month move in them as a rise or fall. JOLTS for one industry swings widely even year on year; a single-month JOLTS change leads a section only when the 12-month average moves the same way.
+- Counting directions is still allowed ("the index rose in 10 of the last 12 months").
 
 ### No fabrication
 
@@ -269,12 +333,13 @@ These apply to every sentence. The fact-checker enforces them.
 - Color comes from the numbers, or from quoting a real post. Real posts come only from the month's sample file, `site/data/samples/YYYY-MM.json`, which the export writes. Quote the post's text, not the username, keep it to a sentence or two, and put its HN item id in the ledger. The sample files hold hiring posts only; never quote or paraphrase an individual job seeker.
 - A quoted post illustrates a finding. It never stands in for one: "one company wrote X" can't support a claim about the thread.
 
-### What a post is
+### Hacker News: what a post is
 
+- **HN is one source.** Cite HN figures as one source among several: "employer posts in Hacker News's monthly hiring thread", "people posting in Hacker News's 'Who wants to be hired?' thread". The threads are a startup-leaning panel of employers and self-selected job seekers. HN numbers can lead a section about HN, but the headline, dek and lede are about the market, and an HN move is set beside what the other sources show.
 - **Posts aren't jobs.** One "Who is hiring?" post can list one role or 20. Write "hiring posts" or "companies posting". Never write "jobs", "openings" or "roles" for a post count. A role level can describe which posts ("posts for senior engineers").
 - **Seeking posts aren't all job seekers.** "Who wants to be hired?" posts come from people who chose to post on Hacker News. On first mention write "people posting in 'Who wants to be hired?'". After that, "job seekers posting" or "job seekers" is fine.
-- **Hacker News isn't the job market.** The threads skew toward venture-backed startups, engineering roles and the Bay Area. Say "on Hacker News", "in the thread" or "among companies posting on HN". Never "tech hiring rose" or "the job market recovered". When you want to say something wider, say that HN agrees or disagrees with a named outside measure, and cite it in the ledger.
-- **The threads aren't the US market either.** In 2026 only about a third to two fifths of the people posting in "Who wants to be hired?" gave a US location, and hiring posts include European, Canadian and remote-anywhere companies. The column describes HN's threads. "US" claims rest on `seeker_us_share`, `seekers_per_post_us` or the `region` breakdowns, never on the whole-thread numbers.
+- **Hacker News isn't the job market.** The threads skew toward venture-backed startups, engineering roles and the Bay Area. Say "on Hacker News", "in the thread" or "among companies posting on HN". Never "tech hiring rose" or "the job market recovered" on HN numbers alone. When HN and another source agree, say both; when they diverge, say that and say what each counts.
+- **The threads aren't the US market either.** In 2026 only about a third to two fifths of the people posting in "Who wants to be hired?" gave a US location, and hiring posts include European, Canadian and remote-anywhere companies. "US" claims rest on `seeker_us_share`, `seekers_per_post_us` or the `region` breakdowns, never on the whole-thread numbers.
 - **The snapshot is seven days.** Every month counts posts in the first seven days of its thread. Late posts don't count, past or present. Don't compare our counts to someone else's thread totals.
 - **Survivorship.** Deleted posts are missing and edited posts show their latest text. Older months have had more time to lose posts, so counts from earlier years are a floor.
 - **Series starts.** The hiring series runs from April 2011 with no gaps (July and December 2011 use replacement threads). The seeking series starts in May 2014. The first seeking thread was posted by the user jader201, and the whoishiring account took it over in July 2014.
@@ -284,6 +349,7 @@ These apply to every sentence. The fact-checker enforces them.
 - **Jev estimates, shares:** `ai_native_share`, `new_grad_share`, `work_mode`, `seniority`, `industry`, `funding_stage`. These are expected values: the sum of the model's probabilities divided by the number of posts. Say "by our classifier's estimate" or similar once per article, the first time one appears.
 - **Jev estimate, score:** `seeker_mood` is a mean score from 0 (discouraged) to 4 (upbeat). It isn't a share and doesn't take points-of-share language.
 - **Counts:** `posts`, `seekers_per_post`, `replies_per_post`.
+- **Outside:** every key under `external`. Published values, read as of each issue's date; see "Sources" above for what each counts.
 - **Regex:** `salary_disclosed_share`, `salary_min_median_usd`, `salary_max_median_usd`, `remote_token_share`, `onsite_token_share`, `visa_share`, `seeker_us_share`, `seekers_per_post_us`, `region`, `seeker_region`. These are exact counts of what the text says, but regex can miss unusual formats. Region comes from the seeker's `Location:` line and the hiring post's first line; posts that name no place are `unknown`. `seekers_per_post_us` is `seekers_per_post` scaled by the US shares of live posts, so both ratios count submitted posts and can be compared directly. It assumes deleted posts, seekers with no recognized location and hiring posts that name no place and don't say remote split the same way as the rest.
 - **Join:** `new_company_share`, `returning_company_share`. These depend on company names pulled from the header line by regex, so a renamed company or a typo counts as new. They also need history: in 2011 every company is "new". Don't use their 2011 values.
 - **Vocab:** `stack`. This is the share of posts mentioning each term from a fixed list. Terms overlap and don't sum to 1.
@@ -297,7 +363,7 @@ These apply to every sentence. The fact-checker enforces them.
 
 ### The noise bar
 
-Every point in `metrics.json` carries `bar`: the noise bar for the change into that month from 3 months, 1 year and 5 years earlier (`{"3m": 0.342, "1y": 0.338, "5y": 0.329}` for hiring posts in October 2026). Breakdown points carry one per category (`bar["1y"]["remote"]`). Read the bar from the later month's point and put it in the ledger. Its scale follows the unit:
+Every HN point in `metrics.json` (under `metrics` and `breakdowns`) carries `bar`: the noise bar for the change into that month from 3 months, 1 year and 5 years earlier (`{"3m": 0.342, "1y": 0.338, "5y": 0.329}` for hiring posts in October 2026). Breakdown points carry one per category (`bar["1y"]["remote"]`). Read the bar from the later month's point and put it in the ledger. Its scale follows the unit:
 
 | Unit | Bar is on | A move is inside the bar when |
 |---|---|---|
@@ -319,7 +385,7 @@ Rules that stay:
 
 **Many comparisons.** Each article looks at dozens of numbers across three windows, so some will clear the bar by chance. Prefer moves that persist: the 1y window, or a three-month average against the same three months a year earlier. Treat a 3m move that the 1y window doesn't confirm as suspect. Counting directions is allowed and often more honest than one comparison: "the share has risen in 10 of the last 12 months".
 
-Below the bar: say the measure was about the same, or leave it out. Don't build a section on it. Near the bar: state it with the one hedge. Above it: state it flat.
+Below the bar: say the measure was about the same, or leave it out. Don't build a section on it. Near the bar: state it with the one hedge. Above it: state it flat. All of this is for HN series; outside series follow "Outside series have no noise bar" above.
 
 ### Words of size
 
@@ -327,7 +393,8 @@ Match the verb to the move.
 
 | Move | Verbs |
 |---|---|
-| Below the noise bar | was about the same, held steady, roughly flat |
+| Below the noise bar (HN series) | was about the same, held steady, roughly flat |
+| Outside series, any size | rose, fell, was up or down, with the number; see "Outside series have no noise bar" |
 | Above the bar | rose, fell, grew, shrank, slipped, climbed |
 | Largest move in at least 12 months | jumped, dropped, surged, sank, and say "the largest in X months" |
 | Record or multi-year extreme | Only with a ledger check: "lowest since March 2013", "the most since the hiring thread began in April 2011" |
@@ -340,16 +407,17 @@ The data shows when things moved, not why. Annotated events are context.
 
 - Banned with a measure as the subject or object: "caused", "drove", "led to", "fueled", "triggered", "because of", "due to", "thanks to", "as a result of", "killed", "sparked".
 - Allowed: "after", "since", "coincided with", "began rising a few months after", "followed".
+- No causes across sources either. "Employment fell because postings were down" and "the ads haven't turned into hires" both assert a mechanism; "ads rose while employment fell" is the finding.
 - No motives. The data doesn't say what companies want, prefer or fear. "Companies are skipping juniors to save on training" is a motive. "Fewer posts say they'll consider new grads" is a finding.
 - When a cause is the natural question, name it as a question the data can't answer, in the "can't tell us" paragraph. You can say which explanation fits the timing better. You can't say it's proven, and you don't cast suspects.
 
 ### Every number is checkable
 
-- Every number in the prose, headline, dek, chart titles and notes comes from `site/data/metrics.json` for a named key and month, or is computed from those values with the rounding rules in section 1.
+- Every number in the prose, headline, dek, chart titles and notes comes from `site/data/metrics.json` for a named key and month, or is computed from those values with the rounding rules in section 1. Outside values are cited by their `external` key, issue month and `ref_period`.
 - Derived numbers (percent changes, point differences, expected counts, "a third of", "fourth straight month") get a ledger line showing the inputs.
 - Shape words count as claims: "last year's low", "the 2021 peak", "the height of the boom", "started climbing in early 2023". Each gets a ledger line pointing at the series.
-- Outside facts (event dates, laws, company layoffs) come only from the event table in section 3 or carry a source in the ledger.
-- No numbers from memory, other articles or other datasets in the prose.
+- Outside facts (event dates, laws, company layoffs, what an industry includes) come only from the event table in section 3 or carry a source in the ledger.
+- No numbers from memory, other articles or datasets that aren't in `metrics.json`.
 - Don't compare a metric before its series starts (see "Series starts" above).
 
 ### The numbers ledger
@@ -362,6 +430,8 @@ rounding: shares to whole %, point gaps from printed shares, % change from unrou
 289 hiring posts            posts.hiring 2026-10 = 289
 about the same as a year ago posts.hiring 2025-10 = 351; ln(289/351) = -0.194; bar 1y = 0.338; inside
 685 people looking for work posts.seeking 2026-10 = 685
+Indeed rose 23%             external indeed_software_postings.US 2026-10 = 78.33 (ref 2026-10-02), 2025-10 = 63.57 (ref 2025-10-03); no bar
+128,000 openings in August  external jolts_openings_information.US 2026-10 = 128 (ref 2026-08)
 up 70% from a year ago      posts.seeking 2025-10 = 404; 685/404 = 1.696; ln = 0.528; bar 1y = 0.299; outside
 most on record              posts.seeking max(2014-05..2026-09) < 685
 ChatGPT launches            event table, 2022-11
@@ -413,131 +483,102 @@ Clean but voiceless is its own tell. A month of flat numbers read out in order s
 
 ## 6. Worked example
 
-**This is an example. The month is hypothetical and every number is invented.** The same article is saved as `site/articles/_style-example.md` for renderer testing, and the two must stay identical. It has four sections and runs about 760 words of prose.
+This example uses real numbers: the October 2026 export (`generated_at` 2026-11-04T12:07:47Z). It is saved as `site/articles/_sample-jobs-report.md`, which is a sample, not a published issue: files starting with `_` load only in authoring mode (`?issue=_sample-jobs-report` on a local server, or with `?mock=1`). The article below and that file must stay identical, except that the full ledger lives only in the file. It has four sections and runs about 790 words of prose.
+
+The published October 2026 column (`site/articles/2026-10.md`) was written before this framing, with Hacker News as its subject. It stays as an archived edition with its correction. Compare the two to see the difference: the same HN numbers appear here, but as one source in the third section, beside what Indeed and the BLS show.
 
 ### The article
 
 ```markdown
 ---
 month: 2026-10
-headline: "HN's hiring thread is growing again, but not for junior engineers"
-dek: "October's thread had the most hiring posts since July 2024, but only 6% were for junior engineers, down from 17% five years ago."
+headline: "Software job postings rose this year, but employment slipped"
+dek: "Indeed's index of US software job postings rose 23% in a year, while the BLS counted 2% fewer people working at computer systems design firms."
 byline: "Software Engineering Job Report"
 ---
 
-Hacker News' October hiring thread drew more posts than any month since July 2024. All of the growth over the past year came from posts for senior and staff engineers. For junior engineers, the thread looks about the same as it did a year ago, and far thinner than in 2021.
+Ads for software work are coming back. Indeed's index of US software development job postings rose 23% over the year to early October. The government's counts of people employed and hired have not followed. Employment at computer systems design firms was 2% lower in September than a year earlier, by the Bureau of Labor Statistics' count.
 
-The thread drew 362 hiring posts, up 22% from a year ago. By our classifier's estimate, posts for senior and staff engineers rose by about 67 over the same year, a bit more than the thread's whole gain of 66. Posts for junior engineers made up 6% of the thread, against 17% in October 2021. Hiring on HN is recovering from the top down. So far, the recovery hasn't reached junior engineers.
+So far the rise is in ads. Payroll counts moved the other way. Indeed's index reached 78.3 in the week to October 2, up from 63.6 a year earlier, and it rose in 10 of the last 12 months. Over roughly the same year, BLS counted about 55,000 fewer people working at computer systems design firms, and the information sector reported fewer job openings. On Hacker News, people posting that they want work grew much faster than the companies posting that they are hiring.
 
-::compare{title="The thread grew this year, but not for juniors" metrics="posts.hiring,seekers_per_post.hiring,new_grad_share.hiring,ai_native_share.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
+::compare{title="Postings rose on Indeed while BLS employment and openings fell" metrics="external:indeed_software_postings.US,external:jolts_openings_information.US,external:ces_computer_systems_design.US,posts.hiring,seekers_per_post.hiring,seekers_per_post_us.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
 
-## Demand is climbing out of last year's low
+## Software job postings on Indeed rose for most of the year
 
-October's 362 posts were up 20% from 301 in July. It was the fourth straight month above 300, and the rise shows up in both the three-month and one-year windows. Last year's low came in December 2025, when 262 companies posted.
+Indeed's index of US software development postings stood at 78.3 in the week to October 2, where February 2020 equals 100. A year earlier it was 63.6, so the index rose 23%. It went up in 10 of the 12 months since then.
 
-The competition for those posts eased too. There were 2.4 people posting in "Who wants to be hired?" for every hiring post, down from 3.1 a year ago. In October 2021 the ratio was 0.6, and companies outnumbered the job seekers posting.
+The longer view is less bright. In October 2021, during the pandemic-era hiring boom, the index was 178.0, and the latest reading is 56% below it. The index peaked at 231.6 in March 2022. Today's level is about a third of that.
 
-That month, 1,018 companies posted, the most since the hiring thread began in April 2011. It was the height of the pandemic-era hiring boom, so the 64% drop since then says as much about 2021 as about today.
+To be sure, the BLS count of job openings points the other way. Employers in the information sector reported 128,000 open jobs in August, against 169,000 in August 2025. The two sources count different things. Indeed counts ads for software development work at employers in every industry. JOLTS counts every opening, software or not, at publishers, broadcasters, telecom carriers and data processors. JOLTS is also not seasonally adjusted and swings a lot from month to month. Averaged over its last 12 readings, information-sector openings were 105,000, against 164,000 a year earlier. Indeed's rise held for most of the year, but it is a rise in ads for software work, and the industry count of openings has not confirmed it.
 
-::chart{type="line" metric="posts.hiring" from="2019-01" title="Hiring posts are up from last year's low but just over a third of the 2021 peak" annotate="2022-03:First rate hike;2023-01:Big Tech layoffs"}
+::chart{type="line" external="indeed_software_postings.US" from="2021-06" title="Indeed's US software postings rose 23% in a year but are a third of their 2022 peak"}
 
-## AI companies now write more than a third of the posts
+## Employment at computer systems design firms slipped
 
-Thirty-eight percent of October's posts described a product built on AI. A year ago the figure was 29%, and in October 2021 it was 8%. The share held between 9% and 11% through 2022 and started climbing in February 2023, three months after ChatGPT's public release. It has risen in 10 of the last 12 months.
+The BLS counted 2.36 million people working at computer systems design firms in September, 2% fewer than the 2.41 million of September 2025. Five years ago, in September 2021, the count was 2.28 million, so the industry is still 3% larger than it was during the boom.
 
-Part of that rise could be vocabulary. Our classifier reads only what a post says, so a company that started calling itself an AI company looks the same to it as one that started building AI products. Read the 38% as the share of posts that pitch an AI product. That is still a large change in what the thread is selling.
+Hiring in the information sector was also lower. Averaged over 12 readings, JOLTS counted 78,000 hires a month in the information sector, 7% fewer than the 83,000 of a year earlier.
 
-::chart{type="line" metric="ai_native_share.hiring" from="2019-01" title="Posts describing AI products went from 8% to 38% in five years" annotate="2022-11:ChatGPT launches" note="Shares are expected values from a model's reading of each post."}
+::chart{type="line" external="ces_computer_systems_design.US" from="2019-01" title="Employment at computer systems design firms is below its 2024 level" note="Values as first published. BLS's yearly benchmark revision shows as a step in early-year months, including February 2025."}
 
-## Fewer than half as many posts are open to new grads as in 2021
+## On Hacker News, job seekers per hiring post doubled
 
-Eleven percent of October's posts said they would consider new grads, down from 27% in October 2021. In counts, that is about 40 posts this October against about 275 five years ago. Over five years, a drop that size is far outside the noise.
+Employer posts in Hacker News's monthly hiring thread held about steady: 289 in October, against 351 a year earlier, a gap within ordinary swings for a thread this size. People posting in "Who wants to be hired?" rose 70%, to 685. That left 2.4 job seekers for every hiring post, up from 1.2.
 
-The past year is less clear. Posts open to new grads went from 14% to 11%, a gap that sits inside the noise for months this size. The five-year decline is solid. Whether it continued this year, the data can't yet say.
+Most of that rise came from people outside the US. Counting only US job seekers against hiring posts open to US workers, the ratio went from 0.7 to 1.0, a change within ordinary swings. The thread leans toward startups, so it is a narrow view, but on it the job seekers' side did the moving while Indeed's postings rose.
 
-::chart{type="line" metric="new_grad_share.hiring" from="2019-01" title="Posts open to new grads fell from 27% to 11% in five years" note="Shares are expected values from a model's reading of each post."}
+::chart{type="line" metric="seekers_per_post.hiring" from="2014-05" title="Job seekers per hiring post on Hacker News doubled in a year, to 2.4" annotate="2020-03:COVID shutdowns;2023-01:Big Tech layoffs"}
 
-## The seniority mix has moved up a rung
+## More software job ads state pay, on Indeed and on Hacker News
 
-Posts for junior engineers fell from 17% of the thread in October 2021 to 6% this October. Posts for senior and staff engineers rose from 39% to 57% over the same years.
+Forty-nine percent of Indeed's US software postings stated pay in August, up 10 percentage points from 39% in August 2025. Hacker News agrees on direction. Thirty-one percent of October's hiring posts gave a yearly salary, against 22% a year earlier, a gap just past ordinary swings.
 
-To be sure, a shift like this can come from titles rather than hiring. If companies started calling mid-level roles "senior", the senior share would climb without any change in who gets hired. The new-grad measure is the check on that reading, because it asks whether a post will consider someone straight out of school, and a title change doesn't alter the answer. It fell over the same five years. Title inflation may account for some of the senior gain. It can't account for the drop at the bottom.
+The two sources measure the same thing in different places. Indeed's share covers ads across the whole US market, and the Hacker News share covers startup posts written in free text.
 
-::chart{type="slope" breakdown="seniority" months="2021-10,2026-10" title="Senior and staff posts gained 18 points as junior posts lost 11" note="Shares are expected values from a model's reading of each post."}
+::chart{type="line" external="indeed_software_pay_transparency.US" title="Indeed's share of software postings that state pay rose 10 points in a year"}
 
 ## What this data can't tell us
 
-Hacker News is not the job market. Its hiring thread leans toward venture-backed startups and the Bay Area, and one post can advertise one role or 20, so more posts means more companies willing to post, not more jobs. The mix of companies that post also changes. If the companies posting today are different kinds of companies than in 2021, the seniority shift could come from that change in mix rather than from any one company changing how it hires. We don't split seniority by AI status, so we can't test that. The shares here are a model's estimates, and posts from 2021 and 2026 are written in different styles. Deleted posts are missing, which matters more for 2021 than for this month.
+None of these sources counts software engineers directly. Indeed counts ads, not hires. The BLS series count industries, not occupations, so they include jobs that aren't software work and miss software engineers employed in other industries. They also run behind: September is the newest employment month here and August the newest for openings and hires. The employment figures are as first published, and BLS revises them. Hacker News posts aren't jobs, and the people who post there are not a sample of anyone in particular. Nor can any of these numbers say why ads rose while employment fell.
 
-The thread is growing again. Its door for junior engineers isn't.
-
-<!-- ledger
-...
--->
+For now the recovery is in the ads. The BLS counts run one to two months behind, so they are the ones to watch next.
 ```
 
-### The humanizer pass
+### The humanizer and honesty pass
 
-Two drafts went through the `humanizer` checklist and a fact-check before this version. What they caught, and the fix:
+The draft went through the `humanizer` checklist and the rules in section 4 before this version. What they caught, and the fix:
 
 | Draft | Problem | Fix |
 |---|---|---|
-| "For a senior engineer, that is the best news this column has had to report in two years." | Unverifiable; the column didn't exist two years ago | Cut. The lede contrasts the two groups with numbers. |
-| "That is a real rise, not a wobble." | Negative parallelism | Cut. "The rise shows up in both the three-month and one-year windows" makes the point with a check. |
-| "No other category we track has moved this far this fast." | Unchecked superlative | "It has risen in 10 of the last 12 months", which goes in the ledger. |
-| "...a few months after ChatGPT's launch, underscoring how quickly the market adapted." | Trailing -ing analysis, causal hint | Cut the clause. The annotation carries the timing. |
-| "It's a squeeze that is real, significant and accelerating." | Rule of three; "accelerating" isn't shown | "Over five years, a drop that size is far outside the noise." |
-| "...so far the bottom hasn't been invited." | Clever turn, implies intent | "So far, the recovery hasn't reached junior engineers." |
-| "Maybe. Our numbers can't say, and we come back to that below." | One-word hedge plus signposting | Cut. The limit lives in the "can't tell us" paragraph. |
-| "The size of this year's step is the part to hold loosely." | Vague hedge stacked on a hedge | "Whether it continued this year, the data can't yet say." |
-| "They're the obvious suspect. This data can't convict them." | Casts a cause; clever turn | "We don't split seniority by AI status, so we can't test that." |
-| "Companies are hiring again. They'd just prefer that someone else did the training." | Motive the data can't show | "The thread is growing again. Its door for junior engineers isn't." |
-| "entry-level", "beginners", "first job", "junior" | Synonym cycling | "Junior" throughout; `new_grad_share` named as "posts open to new grads". |
-| "Senior and staff-level roles made up 57% of posts" | Posts called roles | "Posts for senior and staff engineers" |
-| "Job seekers got a little breathing room too" | Skipped the required first-mention phrasing | "people posting in 'Who wants to be hired?'" on first mention |
-| Headline "Startups are hiring again, but the entry-level door keeps narrowing" | Speaks for all startups, not the thread | Names the thread. |
+| "So far the recovery is in the ads, not in the payrolls." | Negative parallelism | "So far the rise is in ads. Payroll counts moved the other way." |
+| "Payroll counts have not caught up." | Implies they will, and that ads lead payrolls: a mechanism the data can't show | "Payroll counts moved the other way." |
+| "The Indeed rise is real" | Outside series have no noise bar, so "real" claims a test we didn't run | "Indeed's rise held for most of the year", which counts directions instead |
+| "Indeed counts ads, which can be reposted, left up or never filled." | An outside claim with no source | "Indeed counts ads, not hires." |
+| "miss software engineers at banks, retailers and carmakers" | Examples from memory, no source | "miss software engineers employed in other industries" |
+| "BLS counts, which trail the ads by one to two months" | The lag is behind the issue month, not behind the ads | "The BLS counts run one to two months behind" |
 
-The draft also failed the noise bar. Its 16% one-year rise in posts and 17% drop in the seeker ratio both sat under the Poisson bar (about 17% and 18%), so the example's numbers were changed to ones that clear it rather than describing noise as a rise. In a real month the fix would go the other way: the prose would call those moves flat. The worked example predates the exported `bar` and uses the sampling-only formulas in its ledger. With the exported bars of late 2026 (a rise under about 40% is noise for hiring posts), its 22% and 20% rises would also be flat; a real ledger cites `bar` instead, as in section 4.
+One check was built in from the start rather than caught: the strip's 1y cell for CES compares the October 2026 issue (September data) with the October 2025 issue, which still carried August 2025. The prose uses the same reference month instead, September 2025 from the December 2025 issue, and the ledger names both.
 
-### The ledger for the example
+### The ledger, in part
+
+Every line names an `external` key with its `ref_period`, or an HN metric with its exported bar. The full ledger is at the end of the file.
 
 ```markdown
-<!-- ledger (example, invented values)
-rounding: shares to whole %, point gaps from printed shares, % change from unrounded values
-most since July 2024            posts.hiring max(2024-08..2026-09) = 331; 2024-07 = 371
-362 hiring posts                posts.hiring 2026-10 = 362
-up 22% from a year ago          posts.hiring 2025-10 = 296; 362/296 = 1.223; bar 1.96*sqrt(296+362)/296 = 17%
-senior+staff up about 67        seniority 2026-10 (0.45+0.12)*362 = 206.3; 2025-10 (0.38+0.09)*296 = 139.1; diff 67.2
-whole gain of 66                362 - 296
-6% junior                       seniority 2026-10 junior 0.06
-17% in October 2021             seniority 2021-10 junior 0.17
-up 20% from 301 in July         posts.hiring 2026-07 = 301; 362/301 = 1.203; bar 1.96*sqrt(301+362)/301 = 17%
-fourth straight month above 300 posts.hiring 2026-07 = 301, 2026-08 = 318, 2026-09 = 327, 2026-10 = 362; 2026-06 = 288
-last year's low                 posts.hiring min(2025-01..2025-12) = 262 at 2025-12
-2.4 vs 3.1                      seekers_per_post.hiring 2026-10 = 2.4, 2025-10 = 3.1; change -23%; relative bar 18%
-ratio 0.6 in October 2021       seekers_per_post.hiring 2021-10 = 0.6
-1,018 in October 2021           posts.hiring 2021-10 = 1018
-most since April 2011           posts.hiring max(2011-04..2026-10) = 1018 at 2021-10
-2021 peak / height of the boom  same check as above
-64% drop                        362/1018 = 0.356
-just over a third               0.356
-38%, 29%, 8%                    ai_native_share.hiring 2026-10 = 0.38, 2025-10 = 0.29, 2021-10 = 0.08; 1y gap 9 vs bar 7.2
-held 9% to 11% through 2022     ai_native_share.hiring min/max(2022-01..2022-12) = 0.09/0.11
-started climbing February 2023  ai_native_share.hiring 2023-01 = 0.11, rises every month 2023-02..2023-07
-three months after ChatGPT      event table 2022-11; 2023-02 is three threads later
-risen in 10 of last 12 months   ai_native_share.hiring month-over-month, 2025-11..2026-10: 10 up, 2 down
-ChatGPT public release          event table, 2022-11
-11% vs 27% new grads            new_grad_share.hiring 2026-10 = 0.11, 2021-10 = 0.27; gap 16 vs bar 4.7 (n 362, 1018)
-fewer than half as many         0.11/0.27 = 0.41
-about 40 vs about 275           0.11*362 = 39.8; 0.27*1018 = 274.9
-14% to 11% is noise             new_grad_share.hiring 2025-10 = 0.14 (n 296); gap 3 vs bar 5.1
-39% to 57% senior and staff     seniority 2021-10 senior 0.33 + staff_plus 0.06; 2026-10 0.45 + 0.12; gap 18 vs bar 6.0
-junior 17% to 6%                gap 11 vs bar 3.8
-18 points, 11 points            57 - 39; 17 - 6
+<!-- ledger (excerpt)
+rounding: shares to whole %, point gaps from printed shares, % change from unrounded values, ratios one decimal, outside thousands as whole numbers or millions to two decimals
+metrics.json generated_at 2026-11-04T12:07:47Z; outside values are as published by each HN month's as-of date; ref periods named below
+headline/dek postings rose 23%    external indeed_software_postings.US 2026-10 = 78.33 (ref 2026-10-02), 2025-10 = 63.57 (ref 2025-10-03); 78.33/63.57 = 1.232; no bar for outside series
+headline/dek employment slipped 2% external ces_computer_systems_design.US HN 2026-10 = 2355.4 (ref 2026-09); HN 2025-12 = 2410.6 (ref 2025-09, same reference month a year earlier); 2355.4/2410.6 = 0.977
+rose in 10 of last 12 months      indeed HN months 2025-10..2026-10: up 10, down 2 (2026-05 72.15 < 72.44; 2026-07 72.51 < 72.57)
+128,000 in August                 jolts_openings_information.US 2026-10 = 128 (ref 2026-08)
+12-reading average 105,000        trailing 12 HN months 2025-11..2026-10 mean = 105.08 (refs 2025-08..2026-08; some repeat)
+information sector examples     NAICS 51 definition, BLS Industries at a Glance https://www.bls.gov/iag/tgs/iag51.htm
+2.41 million September 2025       CES HN 2025-12 = 2410.6 (ref 2025-09); the strip's 1y cell compares HN 2025-10 = 2415.4 (ref 2025-08), also -2% (0.975); prose uses the same-month pair
+289 vs 351, within swings         posts.hiring 2026-10 = 289, 2025-10 = 351; ln -0.194 vs bar 1y 0.338; inside
+US-only 0.7 to 1.0, in swings     seekers_per_post_us.hiring 2025-10 = 0.7343, 2026-10 = 1.0363; ln 0.344 vs bar 1y 0.358; inside
+31% vs 22%, just past swings      salary_disclosed_share.hiring 2026-10 = 0.3133 (n 233), 2025-10 = 0.2166 (n 314); printed gap 9; unrounded 0.0967 vs bar 1y 0.095; just outside (hedged)
 -->
 ```
-
-The ledger caught one real error along the way. A draft said "third straight month above 300", counting August through October and forgetting that July was also above 300. Writing the ledger line against the series caught it. A writer working from memory wouldn't have.
 
 ## 7. Fact-check checklist
 
@@ -548,16 +589,25 @@ The reviewing agent works through this list before an article is published. It r
 Numbers and ledger
 
 - [ ] Every number and shape claim in the headline, dek, prose, chart titles and notes has a ledger line.
-- [ ] Each ledger line names a `metrics.json` key and month, and the value matches the file for the current `generated_at`.
+- [ ] Each ledger line names a `metrics.json` key and month, and the value matches the file for the current `generated_at`. Outside values also name their `ref_period`.
 - [ ] Derived numbers recompute from the ledger inputs: percent changes from unrounded values, point differences from the printed shares.
 - [ ] Rounding follows the table in section 1.
 - [ ] Every superlative ("highest since", "first time", "on record", "straight months", "peak", "low") is checked against the full series, from the right series start.
 - [ ] "A year ago", "three months ago" and "five years ago" point at the right months.
 - [ ] Outside facts come from the event table or have a cited source in the ledger.
 
+Sources
+
+- [ ] Every claim names its source, and the headline, dek and lede are about the software engineering job market, synthesized across sources. None is framed as "HN has..." or rests on Hacker News alone.
+- [ ] No single source stands in for the market. Market-level words ("demand", "hiring", "the market") name the sources behind them.
+- [ ] Where sources disagree, the text says so and says what each measures (postings, openings, hires, layoffs, employment, filings, self-posts).
+- [ ] Every outside value whose reference period differs from the issue month states it ("in August"). No sentence sets different reference periods against each other without naming both; year-on-year outside changes use the same reference month, or say they don't.
+- [ ] JOLTS and CES are described as industries ("the information sector", "computer systems design firms"), never as software jobs.
+
 Noise and claims
 
-- [ ] Every move described as a change clears the noise bar for its `n` (section 4). Moves below it are called flat or left out.
+- [ ] Every HN move described as a change clears the noise bar for its `n` (section 4). Moves below it are called flat or left out.
+- [ ] Outside changes are stated in plain language with their number. None is called "about the same", "within the noise" or "real", and no month-to-month move in a not seasonally adjusted series is called a rise or fall.
 - [ ] Verbs of size match the table in section 4.
 - [ ] Relative changes on shares only for large moves, with both endpoints printed.
 - [ ] Before a change in `seekers_per_post` is called "doubled", a surge or any large move, the checker compares `seekers_per_post_us` over the same months. If the US ratio moved much less, the text says so (for example, "most of the rise came from people outside the US"), and the ledger carries both ratios.
@@ -566,20 +616,22 @@ Noise and claims
 Vocabulary of the data
 
 - [ ] No "jobs", "openings" or "roles" for post counts.
-- [ ] HN is never called "the job market" or "tech hiring".
+- [ ] HN is never called "the job market" or "tech hiring". HN figures are cited as one source, for example "employer posts in Hacker News's monthly hiring thread".
 - [ ] First mention of seeking posts says "people posting in 'Who wants to be hired?'".
+- [ ] No "jobs" for Indeed postings: they are ads ("postings"), not jobs or hires.
 - [ ] Jev-based measures are flagged as estimates at first mention, and each is named for what it measures.
 
 Comparisons
 
-- [ ] The `::compare` strip has the five core metrics and `against="3m,1y,5y"`, or a stated reason for a skipped window.
+- [ ] The `::compare` strip has the seven core rows (section 2, "The data turn") and `against="3m,1y,5y"`, or a stated reason for a skipped window.
 - [ ] Unusual base months (2020 shutdowns, the 2021 boom) are named as such where they are used.
 - [ ] Salary comparisons across more than a year say "not adjusted for inflation" once.
 
 Charts
 
 - [ ] Every chart's type fits its claim (section 3), and `stack` is never stacked-area.
-- [ ] Every directive uses metric and breakdown ids that exist in `metrics.json`, and attributes that its type accepts.
+- [ ] Every directive uses metric, breakdown and external ids that exist in `metrics.json`, and attributes that its type accepts.
+- [ ] A chart of JOLTS is read as the 12-month average it draws, and an outside chart's `from` doesn't start before the series' point-in-time history.
 - [ ] Each `title` states a finding that is true of the chart as drawn.
 - [ ] `from` doesn't crop history to exaggerate a move.
 - [ ] Annotations come from the event table, two per chart at most.
@@ -652,4 +704,4 @@ AI tells
 
 ## Changes within noise on the page
 
-The renderer reads the exported `bar` (section 4, "The noise bar"), so the page and the ledger use the same number. A move inside the bar is shown gray with "≈" and read as "about the same"; salary medians with fewer than 30 posts show "too few posts". The prose must agree with the page: never call a ≈ move a rise or fall.
+The renderer reads the exported `bar` (section 4, "The noise bar"), so the page and the ledger use the same number. A move inside the bar is shown gray with "≈" and read as "about the same"; salary medians with fewer than 30 posts show "too few posts". The prose must agree with the page: never call a ≈ move a rise or fall. Outside rows in the strip have no bar: they show a plain gray change with an arrow, the reference period of each value, and "Not seasonally adjusted" when that applies.

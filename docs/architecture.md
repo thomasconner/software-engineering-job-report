@@ -147,7 +147,7 @@ Raw files freeze once complete: fetch re-fetches a thread only while its stored 
 
 ## External benchmarks
 
-Outside series sit next to HN series so a column can say whether HN's thread moves with the wider market. Every series carries a `country` (ISO 3166 alpha-2: `US`, `GB`, …), so a US vs UK comparison needs no new contract. Keys are `<name>.<country>`.
+Outside series are sources of the report on the same footing as the HN series: the column synthesizes them, and HN is one panel among them. Every series carries a `country` (ISO 3166 alpha-2: `US`, `GB`, …), so a US vs UK comparison needs no new contract. Keys are `<name>.<country>`.
 
 | key | publisher | source | unit |
 |---|---|---|---|
@@ -262,7 +262,20 @@ Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`:
 }
 ```
 
-`month` is the HN month (complete months only); `ref_period` is the day (`YYYY-MM-DD`) or month (`YYYY-MM`) the publisher's number describes. External units are `index`, `share` (0–1) or `thousands`. Every description ends by saying values are as first published and later revisions are not applied, so a chart note can repeat it.
+`month` is the HN month (complete months only); `ref_period` is the day (`YYYY-MM-DD`) or month (`YYYY-MM`) the publisher's number describes. External units are `index`, `share` (0–1) or `thousands`. Every description ends by saying values are as first published and later revisions are not applied, so a chart note can repeat it. A new outside source (SEC EDGAR, WARN, ONS) adds keys here with its own `publisher`; the renderer, the compare strip and the Sources block need no changes.
+
+`sources` (additive) lists the report's data sources in reading order for the page's Sources block: Hacker News first, then one row per outside source that has at least one value. BLS splits into JOLTS (`jolts_*` keys) and CES (`ces_*`); every other source is its `publisher`. Text is static in `src/sejr/sources.py`; coverage is computed from the exported series. A publisher with no text there still gets a row named after it, described by its series labels.
+
+```json
+"sources": [
+  {"id": "bls_jolts", "name": "BLS Job Openings and Labor Turnover Survey (JOLTS)", "measures": "…", "lag": "About two months…",
+   "caveat": "Industries, not occupations…", "credit": "U.S. Bureau of Labor Statistics, JOLTS; vintages via ALFRED",
+   "license": "public domain", "license_url": "…", "url": "https://www.bls.gov/jlt/",
+   "coverage_start": "2011-04", "coverage_end": "2026-10", "series": ["jolts_hires_information.US", "…"]}
+]
+```
+
+`coverage_start` and `coverage_end` are issue (HN) months: the first and last with a value in any of the source's series. `series` lists its `metrics` or `external` keys. `credit` is the series' own credit when they share one, else the publisher; `license` comes from the series.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
@@ -282,9 +295,11 @@ Body paragraphs…
 
 ::chart{type="stacked-area" breakdown="work_mode" from="2020-01"}
 
-::compare{metrics="posts.hiring,seekers_per_post.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
+::compare{metrics="external:indeed_software_postings.US,posts.hiring,seekers_per_post.hiring" against="3m,1y,5y"}
 
 ::chart{type="line" metric="posts.hiring" external="indeed_software_postings.US" base="2022-01" from="2022-01"}
+
+::chart{type="line" external="ces_computer_systems_design.US" from="2019-01"}
 ```
 
 Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category).
@@ -300,10 +315,11 @@ Directive attributes:
 | `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
 | `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM`; default 5y on slope, 1y on dot |
 | `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
+| `metrics` | ::compare | comma list of rows, in order: metric keys (`posts.hiring`) and outside series written `external:<key>` (`external:indeed_software_postings.US`). An external row shows the published value (never smoothed or indexed), the period it describes ("Aug 2026 data"), "Not seasonally adjusted" when that applies, and its change against the values stored for the 3m/1y/5y issue months, each with its own reference period. External rows have no noise bar, so their change is a plain gray change with an arrow, never "≈" or better/worse. The source line credits each publisher with its license |
 | `against` | ::compare | comma list of windows, default `3m,1y,5y` |
 | `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
-| `external` | line | one key from metrics.json `external`, paired with the chart's single `metric`. Needs `base` |
-| `base` | line with `external` | `YYYY-MM`; both lines are indexed to 100 at this month. A benchmark with `smooth_12m: true` (JOLTS) is drawn as a 12-month trailing average (months without 12 consecutive values drop out), and the subtitle says so. The average runs over 12 HN months, not 12 reference months: each HN month carries the newest value published by its as-of date, so a reference month can appear twice or not at all (over JOLTS' 188 months, 33 repeat and 34 are skipped). The tooltip shows "12 months to <ref_period>" for a smoothed point. The source line adds the publisher's credit, a link to its license, and what this report changed ("indexed to Jan 2022 = 100 by this report") |
+| `external` | line | one key from metrics.json `external`. With a single `metric` it needs `base` and both lines are indexed. Without `metric` (and without `base`) the chart draws the outside series alone in its own unit (`index`, `share`, or `thousands` printed as whole numbers with K/M ticks), subtitled "as published by each issue's date"; the tooltip and table name each value's reference period |
+| `base` | line with `external` and `metric` | `YYYY-MM`; both lines are indexed to 100 at this month. On any chart, a series with `smooth_12m: true` (JOLTS) is drawn as a 12-month trailing average (months without 12 consecutive values drop out), and the subtitle says so. The average runs over 12 HN months, not 12 reference months: each HN month carries the newest value published by its as-of date, so a reference month can appear twice or not at all (over JOLTS' 188 months, 33 repeat and 34 are skipped). The tooltip shows "12 months to <ref_period>" for a smoothed point. The source line adds the publisher's credit, a link to its license, and what this report changed ("indexed to Jan 2022 = 100 by this report") |
 | `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
@@ -362,7 +378,7 @@ Completeness is per thread: a month whose hiring thread is complete publishes hi
 
 Samples contain hiring posts only. Seeking posts are never exported.
 
-Authoring mode (`?mock=1`, localhost) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only with `?mock=1&issue=_name`.
+Authoring mode (`?mock=1`, or a server on localhost/127.0.0.1) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only in authoring mode with `?issue=_name`; with `?mock=1` they read the mock data, on a local server the real export (`_sample-jobs-report` is the multi-source sample on the October 2026 data).
 
 `removed_share` depends on fetch age (history was fetched years later; new months at about day 8), so it is shown in the methodology only and never compared across months in an article. Shares (regex and Jev) are computed over live posts.
 
