@@ -336,7 +336,9 @@ BREAKDOWN_DESCRIPTIONS = {
         "equity”, “we can’t sponsor visas”) don’t count. Vague "
         "phrases (“great benefits”, “generous PTO”) don’t count "
         "either. Paid time off, days stated means a number of days or weeks. Visa uses the same "
-        "rule as visa_share. Each category is its own share."
+        "rule as visa_share. Each category is its own share. Equity's rise since 2021 is mostly "
+        "disclosure: among posts that state pay, equity mentions held at 40–59%; most of the "
+        "rise comes from more posts stating pay (“$X + equity”)."
     ),
     "years_required": (
         "Among posts that state years of experience, the share whose smallest stated number "
