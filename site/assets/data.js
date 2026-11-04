@@ -244,7 +244,7 @@ export const EXTERNAL_PREFIX = 'external:';
  */
 export function resolveCompareRows(data, metrics, until) {
   return metrics.split(',').map((s) => s.trim()).filter(Boolean).map((key) => (key.startsWith(EXTERNAL_PREFIX)
-    ? resolveExternal(data, key.slice(EXTERNAL_PREFIX.length), until, { smooth: false })
+    ? resolveExternal(data, key.slice(EXTERNAL_PREFIX.length).trim(), until, { smooth: false })
     : resolveSeries(data, { metric: key }, until)[0]));
 }
 
@@ -253,6 +253,13 @@ export function resolveCompareRows(data, metrics, until) {
  * a line with only `external` draws the outside series in its own unit.
  */
 export function resolveChartSeries(data, attrs, until) {
+  if (attrs.external) {
+    // Before its first value an outside series has no history we can date; starting there implies a gap.
+    const first = data.external?.[attrs.external]?.series[0]?.month;
+    if (attrs.from && first && attrs.from < first) {
+      throw new AuthoringError(`from="${attrs.from}" is before ${attrs.external} starts (${first}); start at ${first} or later`);
+    }
+  }
   if (attrs.external && !attrs.metric) return [resolveExternal(data, attrs.external, until)];
   const series = resolveSeries(data, attrs, until);
   if (!attrs.external) return series;
@@ -260,13 +267,23 @@ export function resolveChartSeries(data, attrs, until) {
   return [...series, resolveExternal(data, attrs.external, until)].map((s) => indexTo(s, attrs.base));
 }
 
-// Mean of each HN month and the 11 before it; months without 12 consecutive values are dropped.
-// The window is 12 HN months, so the publisher months behind it can repeat or skip one.
+// A smoothed point averages the distinct reference months in the 12 calendar months ending at its
+// own ref_period, each at the newest value known by that issue (later issues never leak back).
+// Issues repeat or skip reference months, so averaging 12 issues would double-count some months;
+// a window needs at least 10 of its 12 months, so one or two skipped releases don't blank a year.
+export const YEAR_MIN_READINGS = 10;
 export function trailingYear(points) {
-  const byMonth = new Map(points.map((p) => [p.month, p.value]));
-  return points.flatMap((p) => {
-    const window = Array.from({ length: 12 }, (_, k) => byMonth.get(addMonths(p.month, -k)));
-    return window.some((v) => v == null) ? [] : [{ ...p, value: sum(window) / 12 }];
+  const refOf = (p) => (p.ref_period ?? p.month).slice(0, 7);
+  return points.flatMap((p, i) => {
+    const end = refOf(p);
+    const start = addMonths(end, -11);
+    const known = new Map();
+    for (const q of points.slice(0, i + 1)) {
+      const ref = refOf(q);
+      if (ref >= start && ref <= end) known.set(ref, q.value);
+    }
+    if (known.size < YEAR_MIN_READINGS) return [];
+    return [{ ...p, value: sum([...known.values()]) / known.size, readings: known.size, refStart: [...known.keys()].sort()[0] }];
   });
 }
 
@@ -276,7 +293,7 @@ export function indexTo(series, base) {
   if (!at) throw new AuthoringError(`${series.label} has no value in ${monthLabel(base)} to index to`);
   const original = new Map(series.points.map((p) => [p.month, p]));
   return {
-    ...series, unit: 'index',
+    ...series, unit: 'index', indexed: true,
     points: series.points.map((p) => ({ ...p, value: (p.value / at) * 100 })),
     // The noise bar is judged on the real values, not the rebased ones.
     noise: (then, now) => series.noise(original.get(then.month), original.get(now.month)),
@@ -301,20 +318,43 @@ export const needsModelNote = (series, note) => series.some((s) => s.method === 
 /**
  * One row of a ::compare strip, ready to print. An outside series names the reference period
  * behind each value ("Aug 2026 data"), since it usually trails the HN month it is filed under.
+ * Its changes use the readings stored with the issue's own value (`compare`), which come from
+ * the same vintage, so a publisher's revision never reads as a market move. A not seasonally
+ * adjusted series whose two periods fall in different calendar months shows "seasonal" instead.
  */
 export function compareCells(series, until, windows) {
   const fmt = makeFormat(series.unit);
   const ref = (p) => (series.external && p?.ref_period ? `${periodLabel(p.ref_period)} data` : null);
   const now = pointAt(series, until);
+  const calendarMonth = (r) => r.slice(5, 7);
   return {
     value: fmt(now?.value ?? null),
     ref: ref(now),
     deltas: windows.map((window) => {
       const month = addMonths(until, -WINDOWS[window]);
-      const c = change(series, month, until);
-      const then = pointAt(series, month);
-      const was = c ? [`from ${fmt(then.value)}`, ref(then)].filter(Boolean).join(', ') : null;
-      return { window, month, change: c, was };
+      if (!series.external) {
+        const c = change(series, month, until);
+        return { window, month, change: c, was: c ? `from ${fmt(pointAt(series, month).value)}` : null };
+      }
+      const then = now?.compare?.[window];
+      if (!now) return { window, month, change: null, was: null, missing: 'No data' };
+      if (!then) return { window, month, change: null, was: null, missing: 'No same-month value' };
+      const was = `from ${fmt(then.value)}, ${ref(then)}`;
+      if (!series.seasonallyAdjusted && calendarMonth(then.ref_period) !== calendarMonth(now.ref_period)) {
+        return { window, month, change: null, was, seasonal: true };
+      }
+      const d = deltaText(now.value, then.value, series.unit);
+      if (!d) return { window, month, change: null, was: null, missing: 'No data' };
+      return { window, month, was, change: { ...d, mark: d.sign > 0 ? '▲' : d.sign < 0 ? '▼' : '', tone: 'flat', word: '' } };
     }),
   };
+}
+
+// The masthead ribbon's series: front matter `ribbon` (a metric id or external:<key>). Without one,
+// issues before November 2026 keep the HN hiring posts they were published with; later issues
+// show Indeed's US software postings.
+export const RIBBON_SWITCH = '2026-11';
+export function ribbonKey(meta) {
+  if (meta.ribbon) return meta.ribbon.trim();
+  return meta.month && meta.month < RIBBON_SWITCH ? 'posts.hiring' : `${EXTERNAL_PREFIX}indeed_software_postings.US`;
 }

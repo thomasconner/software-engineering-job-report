@@ -57,8 +57,11 @@ function checkDirective(name, attrs) {
   if (name === 'compare') {
     if (!attrs.metrics) throw new AuthoringError('compare needs metrics');
     const ids = attrs.metrics.split(',').map((s) => s.trim());
-    const empty = ids.filter((id) => !id || id === EXTERNAL_PREFIX);
-    if (empty.length) throw new AuthoringError(`metrics="${attrs.metrics}" has an empty id; outside series are written external:<key>`);
+    for (const id of ids) {
+      const outside = id.startsWith(EXTERNAL_PREFIX) ? id.slice(EXTERNAL_PREFIX.length).trim() : null;
+      if (!id || outside === '') throw new AuthoringError(`metrics="${attrs.metrics}" has an empty id; outside series are written external:<key>`);
+      if (outside == null && /^external\s*:/i.test(id)) throw new AuthoringError(`"${id}": write the prefix as lowercase external: followed by the key`);
+    }
     const bad = (attrs.against ?? '').split(',').map((s) => s.trim()).filter((a) => a && !WINDOWS[a]);
     if (bad.length) throw new AuthoringError(`against takes 3m, 1y, 5y, not ${bad.join(', ')}`);
     return;
@@ -66,6 +69,7 @@ function checkDirective(name, attrs) {
   // A line can draw an outside series on its own (raw values) or paired with one HN metric (both indexed to base).
   const externalOnly = attrs.external && !attrs.metric && !attrs.breakdown;
   if (!externalOnly && !attrs.metric === !attrs.breakdown) throw new AuthoringError(`${type} needs either metric or breakdown`);
+  if (attrs.external?.includes(',')) throw new AuthoringError('external takes one key; draw a second outside series in its own chart');
   if (externalOnly) {
     if (attrs.base) throw new AuthoringError('base indexes an external series against a metric; drop base to draw the external series on its own, in its own unit');
   } else if (attrs.external || attrs.base) {

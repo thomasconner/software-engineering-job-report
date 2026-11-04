@@ -37,7 +37,7 @@ export function renderCompare(mount, attrs, data, until) {
   const head = el('figcaption', 'chart-head');
   head.append(el('h3', 'chart-title', attrs.title));
   const span = windows.map((a) => WINDOW_LABEL[a]).join(', ').replace(/, ([^,]*)$/, ' and $1');
-  const outsideNote = outside ? ' Outside sources show the period their number describes and have no noise bar, so their changes carry no verdict.' : '';
+  const outsideNote = outside ? ' Outside sources show the period their number describes and have no noise bar, so their changes carry no verdict; each change compares readings from the same release.' : '';
   head.append(el('p', 'chart-sub', attrs.subtitle ?? `${monthLabel(until, 'long')} against ${span} earlier. Better and worse are from the point of view of people looking for work; moves within the noise are gray and marked \u2248 (about the same).${outsideNote}`));
 
   const table = el('table', 'compare-table');
@@ -58,11 +58,16 @@ export function renderCompare(mount, attrs, data, until) {
     nowCell.dataset.label = cells.ref ?? monthLabel(until);
     if (cells.ref) nowCell.append(el('span', 'c-ref', cells.ref));
     tr.append(measure, trend, nowCell);
-    for (const { window, change: c, was } of cells.deltas) {
+    for (const { window, change: c, was, missing, seasonal } of cells.deltas) {
       const td = el('td', 'c-delta');
       td.dataset.label = window;
-      if (!c) {
-        td.append(el('span', 'd-none', 'No data'));
+      if (seasonal) {
+        // Different calendar months of an unadjusted series: the gap is mostly the season.
+        const chip = el('span', 'd d-flat d-seasonal', 'seasonal');
+        chip.title = 'Not seasonally adjusted, and these two months fall in different seasons';
+        td.append(chip, el('span', 'd-was', was));
+      } else if (!c) {
+        td.append(el('span', 'd-none', missing ?? 'No data'));
       } else {
         const chip = el('span', `d d-${c.tone}`);
         const mark = el('span', 'd-arrow', c.mark);

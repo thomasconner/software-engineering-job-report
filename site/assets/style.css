@@ -290,6 +290,7 @@ td.c-now { font: 680 1.375rem/1 var(--sans); letter-spacing: -0.01em; }
 .d-was { display: block; margin-top: 3px; font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .d-word { font-size: 0.75em; font-weight: 600; }
 .d-none { color: var(--muted); font-size: 0.8125rem; }
+.d-seasonal { font-style: italic; font-weight: 400; }
 
 /* ---------- methodology ---------- */
 .methodology { margin-top: 40px; padding-bottom: 24px; font-size: 1.0625rem; line-height: 1.6; }

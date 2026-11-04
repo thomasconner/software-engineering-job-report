@@ -2,7 +2,7 @@
 import d3 from './d3.js';
 import {
   AuthoringError, WINDOWS, addMonths, monthDate, monthLabel, makeFormat, change, tickFormat,
-  resolveSeries, resolveChartSeries, pointAt, valueAt, pastMonth, isCatchAll, periodLabel,
+  resolveSeries, resolveChartSeries, compareCells, pointAt, valueAt, pastMonth, isCatchAll, periodLabel,
 } from './data.js';
 import { sourceNode } from './compare.js';
 
@@ -352,9 +352,12 @@ const pinCatchAllLast = (items, keyOf = (s) => s.key) => [
 const referenceMonths = (to) => Object.entries(WINDOWS).reverse().map(([key, n]) => ({ key, month: addMonths(to, -n) }));
 
 // The end-label badge compares with a year earlier, the style guide's cleanest window, falling back to 5y then 3m.
+// An outside series as published uses its same-release readings, like the compare strip.
 function endDelta(s, to) {
   for (const key of ['1y', '5y', '3m']) {
-    const c = change(s, addMonths(to, -WINDOWS[key]), to);
+    const c = s.external && !s.smoothed && !s.indexed
+      ? compareCells(s, to, [key]).deltas[0].change
+      : change(s, addMonths(to, -WINDOWS[key]), to);
     if (c) return { ...c, key };
   }
   return null;
@@ -549,7 +552,8 @@ function timeChart(fig, series, attrs, until, data, mode) {
       const labelOf = (s) => {
         const ref = s.external && pointAt(s, m)?.ref_period;
         if (!ref) return s.label;
-        return s.smoothed ? `${s.label} (12 months to ${periodLabel(ref)})` : `${s.label} (${periodLabel(ref)} data)`;
+        const p = pointAt(s, m);
+        return s.smoothed ? `${s.label} (average of ${p.readings} monthly readings, ${periodLabel(p.refStart)} to ${periodLabel(ref.slice(0, 7))})` : `${s.label} (${periodLabel(ref)} data)`;
       };
       const rows = visible.map((s, i) => ({ color: colorOf(s, i), value: tipFmt(valueAt(s, m)), label: visible.length > 1 || s.external ? labelOf(s) : '', v: valueAt(s, m) ?? -1 }));
       if (mode === 'area') rows.reverse();
