@@ -9,17 +9,22 @@
       "text": "MixRank (YC S11) | Software Engineers | 100% REMOTE (Global) | Full-Time\n\nMixRank processes petabytes of data every month from web crawling. We have hundreds of customers using our data products including Google, Amazon, Facebook, Intel, and Adobe, across industries including Finance, Recruiting, Sales, Marketing, and Security.\n\nWe’re a fully-remote company with a global footprint in over 20 countries. We're growing, profitable, employee-owned, no dependence on outside funding. Applicants from all geographies and backgrounds are welcome.\n\nWe are looking for passionate individuals for whom prog",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "bootstrapped",
         "industry": "devtools_infra",
         "industry_fits": 0.64,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 4764.0,
         "region": [
           "unknown"
         ],
@@ -29,14 +34,17 @@
         "stack": [
           "Android",
           "JavaScript",
+          "Linux",
           "Machine learning",
           "Postgres",
           "Python",
           "Rust",
+          "SQL",
           "TypeScript",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -47,17 +55,24 @@
       "text": "Hadrius | UI/UX Design | NYC (FiDi) | ONSITE | Full-time | $90k–$170k + Equity | https://www.ycombinator.com/companies/hadrius/jobs/ObynDF9-founding-ui-ux-designer\n\nHadrius is a B2B SaaS app for legal and compliance teams in the finance space. We help our users save time and automate the tedious and predictable aspects of compliance. We're breathing life into an overlooked space and design is a big part of that - we're looking to bring someone on who will lead the team in design and lay the foundation for a strong design org in the future.",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 545.0,
         "region": [
           "us"
         ],
@@ -67,7 +82,8 @@
         "salary_min_usd": 90000.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -78,17 +94,24 @@
       "text": "Accretional | Founding Software Engineer | San Francisco, ONSITE | Full-Time | $100k-200k + 1-2+% equity\n\nCome work with us on Brilliant, the most capable agentic AI code editor to date. We're putting the finishing touches on it - join us and help us ship!\n\nWe're looking for someone with frontend / fullstack skills, with at least 3 and preferably 5 or more years of experience. It would be beneficial to have additional experience with any of the following: IDE and IDE extension development, cloud development environments, platform engineering, AWS/GCP/K8s/containers, devops, WASM, \"prompt engin",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.95,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": 4.0,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1972.0,
         "region": [
           "us"
         ],
@@ -104,7 +127,8 @@
           "Kubernetes",
           "LLM"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -115,17 +139,22 @@
       "text": "Semilattice | Founding Software Engineer | HYBRID & ON-SITE (London, UK) | https://semilattice.ai/about\n\nWe're obsessed with the emergent complexity of human systems like organisations, markets, communities, and countries, and the uncertainty that complexity generates. We believe that uncertainty is a core reason why building things is so hard: 90% of startups fail, 80% of government change efforts fail, and 90% of infrastructure projects go over budget. We believe far better ways of managing and governing exist in the search space, but we need new computational tools to carry out the search.\n",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "other",
         "industry_fits": 0.12,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1047.0,
         "region": [
           "uk"
         ],
@@ -135,7 +164,8 @@
         "stack": [
           "LLM"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -146,16 +176,21 @@
       "text": "Dave Brennan here at LindenLab (Second Life)\nWe're looking for a fantastic SSE who's a great teammate! | Full-time | HYBRID | San Francisco\n\nRole Overview\n\nThis is a hybrid role, assigned to our San Francisco worksite, and candidates must be available to work on-site a few days per week and be flexible for ad hoc in-office meetings as needed.\n\nWe are looking for a Senior Software Engineer (Server) to join Second Life's Server team and help develop mobile backend applications and the persistent real time simulation software behind one of the world's most long-lived and rich virtual worlds.\n\nThi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.96,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": 3.0,
         "onsite_token": 0.0,
+        "post_length": 1707.0,
         "region": [
           "unknown"
         ],
@@ -163,7 +198,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -174,17 +210,22 @@
       "text": "fleming.de | Full Stack Engineer | Magdeburg, Berlin, Hybrid (Germany) | Full Time | German required\n\nFleming (www.fleming.de) is digitalizing financing for health professionals.\nWe are building and maintaining a React-Native / Nestjs based bank account frontend and a Salesforce base loan sales platform with a Ruby on Rails frontend.\nWe are looking for a well-rounded engineer. You don't have to know the technologies we are using if you bring the conceptual knowledge and the drive to learn.\n\nSome German language knowledge is required since you are going to build German UIs\n\nmore info: https://f",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 640.0,
         "region": [
           "europe"
         ],
@@ -194,9 +235,11 @@
         "stack": [
           "Rails",
           "React",
+          "React Native",
           "Ruby"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -207,17 +250,22 @@
       "text": "Resemble AI | San Francisco Bay Area (office in Mountain View, CA) | Full-Time | Full-Stack Engineer\n\nWe're creating state of the art Generative Voice AI models. Looking for full stack, frontend and machine learning engineers that would love to create prototypes directly with the founders. Recently, we open sourced a state of the art speech enhancement model: https://github.com/resemble-ai/resemble-enhance\n\nHere's what we're looking for:\n\nFull Stack Engineer - We are seeking a skilled Full Stack Engineer with experience with both Javascript and Python to join us. The ideal candidate will have ",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1244.0,
         "region": [
           "us"
         ],
@@ -232,7 +280,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -243,17 +292,22 @@
       "text": "MyAlloy | Remote (NYC based) | Full-time (US) or Contract (international, +-3 CST)\n\nMyAlloy is on a mission to revolutionize menopause healthcare for women over 40. Recognizing the lack of effective solutions for the 47 million women entering menopause annually, MyAlloy provides evidence-based solutions and expertise to help women feel fantastic during this phase of life.\n\nOur small, in-house development team builds and maintains a marketing site, customer portal, internal apps, and backend systems to connect to our doctor portal, payment systems, and pharmacy fulfillment. You'll receive quite",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.98,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2297.0,
         "region": [
           "us"
         ],
@@ -269,7 +323,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -280,17 +335,22 @@
       "text": "PlantingSpace | Full-time | Remote (EU time zone) with quarterly gatherings | https://planting.space\n\nWe’re building an AI system for analysts and scientists, based on a fundamentally new approach to reasoning and knowledge representation. We go beyond state-of-the-art LLMs by combining algorithms in symbolic ways, to provide novel capabilities like performing multi-step analysis, displaying a verifiable reasoning path, and assessing uncertainty. We envision applications supporting and automating analysis and research in domains such as Finance, Strategy Consulting, Engineering, Material Scien",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.57,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1558.0,
         "region": [
           "unknown"
         ],
@@ -300,7 +360,8 @@
         "stack": [
           "LLM"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -311,17 +372,22 @@
       "text": "Collaborative Drug Discovery | Ruby on Rails, Cloud Platform Engineering | Remote (US, Canada) | Full-time\n\nWe provide a hosted scientific data management system that helps researchers discover new medicines faster. Our customers include pharmas, biotechs, and academic labs. We are loved by our customers[1], and growing.\n\nExperience in biology or chemistry is a plus but by no means required. Our team is small enough that you will have a big impact, but established enough to foster strong engineering practices. We are hiring remote candidates from the US and Canada.\n\n[1] https://www.capterra.co",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 800.0,
         "region": [
           "canada",
           "us"
@@ -333,7 +399,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -344,17 +411,22 @@
       "text": "Sphinx Defense | Engineering, DevOps, & Product | Remote (US Only), DC, Colorado Springs, LA | https://www.sphinxdefense.com\n\nSphinx Defense builds software to solve complex national security problems for America and its allies. Founded by engineers and technologists with deep experience across commercial and defense technology, we're building a vehicle-agnostic communication infrastructure to enable satellite operators to securely utilize antenna networks and maneuver satellites in real-time. We're bootstrapped, profitable, and growing aggressively.\n\nTo learn more about who we are, our engine",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "bootstrapped",
         "industry": "other",
         "industry_fits": 0.54,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1367.0,
         "region": [
           "us"
         ],
@@ -362,7 +434,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -373,25 +446,32 @@
       "text": "C++ Software Developers | Full-Time, Hybrid (Germany, Poland, Lithuania) or Remote (EU)\n\nThe ideal candidate has experience with modern C++ and with R&D projects. It would be nice if you known any of the following technologies: Modern C++, cross-platform development (arm/x86, Windows/Macos/Linux and its system APIs), code optimization, debuging (gdb, lldb, windbg, wireshark), testing (gTest, gMock) and profiling tools (perf, Instruments, etc). Efficient use of shared memory, pipes, and other IPC resources. Familiarity with GUI frameworks or custom UI toolkit design is helpful.\n\nInterested? Sen",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.05,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 664.0,
         "region": [
           "europe"
         ],
         "remote_token": 1.0,
         "seniority": "unspecified",
         "stack": [
-          "C++"
+          "C++",
+          "Linux"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -402,17 +482,24 @@
       "text": "Blackshark AI | Software Engineer & Senior DevOps Engineers | Full-time | Austria or Remote EU | VISA sponsorship available\n\nSatellite and drone imagery access is on the rise, and traditional image processing methods are struggling to keep up. Our scalable AI quickly extracts global features, providing real-time, on-demand geospatial insights with impressive speed and accuracy. We are turning months of manual work into mere minutes, and with much better results. We work with customers from various domains, from intelligence and defence, local and federal governments, to small and large enterpr",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "series_a",
         "industry": "other",
         "industry_fits": 0.53,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1359.0,
         "region": [
           "europe"
         ],
@@ -421,15 +508,22 @@
         "seniority": "senior",
         "stack": [
           "AWS",
+          "ArgoCD",
           "Azure",
           "Docker",
+          "Elasticsearch",
+          "Grafana",
+          "Helm",
           "Kubernetes",
+          "Linux",
           "Postgres",
+          "Prometheus",
           "Python",
           "Redis",
           "Terraform"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -440,17 +534,24 @@
       "text": "Beautiful.ai | Full-Time | Remote in US & CAN | 150k - 200k Base Salary + Equity\nSaaS B2B Presentation Software | Series B | 16M Funding | AI Industry\n\nLead Software Engineer\n\nhttps://boards.greenhouse.io/beautifulai/jobs/4231312007",
       "answers": {
         "ai_native": 0.36,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.81,
         "funding_stage": "series_b",
         "industry": "enterprise_saas",
         "industry_fits": 0.94,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 232.0,
         "region": [
           "canada",
           "us"
@@ -459,7 +560,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -470,25 +572,33 @@
       "text": "Canonical | https://canonical.com/ | REMOTE | Software-Defined Networking Engineer\n\nWe are particularly interested in candidates with deep understanding of Open vSwitch (OVS) and Open Virtual Network (OVN).\n\nhttps://canonical.com/careers/5163397\n\nIf you have a passion for networking technologies, deep familiarity with Linux networking and awareness of open source community best practices, then you will enjoy our software-defined networking role at Canonical. We look for excellent academic results and a commitment to quality, resilience, documentation and performance in your work.\n\nhttps://cano",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.06,
         "industry_stated": 0.07,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 625.0,
         "region": [
           "unknown"
         ],
         "remote_token": 1.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "remote"
+        "stack": [
+          "Linux"
+        ],
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -499,17 +609,22 @@
       "text": "Primitive Instruments | https://primitive.tech | NYC or Remote | Full Time or Contract | $150k+\n\nHey HN, we’re looking for full stack engineers and generalists over at Primitive Instruments Corporation. At Primitive, we make tools that help hardware engineers ship faster. We work with companies building next-gen silicon to startups building small fleets of various devices.\n\nWe’ve built a ton already and have customers running their entire CI/CD stack through our platform. This includes things like per commit / nightly simulation jobs, data retention, hardware observability, and more.\n\nIf you’r",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1122.0,
         "region": [
           "us"
         ],
@@ -524,12 +639,14 @@
           "Kubernetes",
           "Next.js",
           "Postgres",
+          "Prometheus",
           "Python",
           "React",
           "Redis",
           "Rust"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -540,17 +657,22 @@
       "text": "Spacelift | Remote | Europe | Full-time | Senior Software Engineer | $80k-$120k\n\nWe're a VC-funded startup building an automation platform for Infrastructure-as-Code, adding a Policy-as-Code layer above it, in order to make IaC usable in bigger companies, where you have to take care of state consistency, selective permissions, a usable git flow, etc.\n\nOn the backend we're using 100% Go with AWS primitives. We're looking for backend developers who like doing DevOps'y stuff sometimes (because in a way it's the spirit of our company), or have experience with the cloud native ecosystem. Ideally yo",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1486.0,
         "region": [
           "europe"
         ],
@@ -559,10 +681,13 @@
         "seniority": "senior",
         "stack": [
           "AWS",
+          "Ansible",
           "Kubernetes",
+          "Pulumi",
           "Terraform"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -573,17 +698,22 @@
       "text": "FutureSearch | Software Engineer, Research Engineer, Research Scientist | Full Remote (global) | Full-time\n\nFutureSearch (https://futuresearch.ai) is a seed-stage startup building AI systems that reason about the future reliably.\n\nWe're an elite 7 person team, who all worked together prior to FutureSearch. My co-founder is the former Head of AI at Metaculus, and I'm the former CTO of Metaculus & creator of Google's currently running internal prediction market.\n\nWe're backed by top AI investors, and we're building systems evaluated by the hardest, truest eval possible: predicting the future. We",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "ai_ml",
         "industry_fits": 0.8,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 876.0,
         "region": [
           "unknown"
         ],
@@ -593,7 +723,8 @@
         "stack": [
           "LLM"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -604,17 +735,22 @@
       "text": "Primate Labs | Software Developers | Full-Time, Hybrid (Toronto) or Remote (Canada) | Toronto, Ontario | https://www.primatelabs.com/\n\nWe develop Geekbench, the popular cross-platform benchmark, and we're looking for developers to help us build future versions of Geekbench and Geekbench AI. You will help develop and characterize benchmarks for future versions of Geekbench. This is a great position for developers interested in computer performance, high-level and low-level software optimization, and cross-platform development.\n\nThe ideal candidate has experience with C++ and experience working ",
       "answers": {
         "ai_native": 0.14,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.63,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 912.0,
         "region": [
           "canada"
         ],
@@ -624,7 +760,8 @@
         "stack": [
           "C++"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -635,17 +772,24 @@
       "text": "Duranta | https://www.getduranta.com/ | Seattle, WA | HYBRID | VISA | Full-time\nRole: Senior Graphics Engineer\n\nWe are building software to help landscapers design, sell and maintain beautiful spaces. Millions of acres a year are converted into urban dwelling spaces, and we want to help make them as beautiful and as ecologically friendly as possible.\n\nDuranta as a company was founded early 2024. We are well funded and are expanding our team. We are looking for a talented & experienced graphics engineer. You will be the 2nd graphics engineer on the team and have the opportunity to shape the gra",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.78,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 916.0,
         "region": [
           "us"
         ],
@@ -656,7 +800,8 @@
           "Swift",
           "TypeScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -667,17 +812,22 @@
       "text": "AE Studio | LA Office | Multiple Roles | Full-Time | Remote | ae.studio\n\nWe are a development, data science and design studio that works closely with founders and executives to create custom software and machine learning solutions.\nWe are hiring top notch professionals passionate about software development, data science, design or product management to work with our amazing team creating human agency increasing software!\n\nFull descriptions: https://ae.studio/join-us",
       "answers": {
         "ai_native": 0.23,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 470.0,
         "region": [
           "us"
         ],
@@ -687,7 +837,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -698,17 +849,22 @@
       "text": "Abnormal Security | REMOTE (US, Canada) with optional offices in SF & NYC | https://grnh.se/58df4b753us\n\nI am an Engineering Manager in the Message Security Division. My team, Detection Signals and Serving, builds the platform for inbound email security, fighting cybercrime every day at a massive scale!\n\nI'm looking for exceptional backend software and distributed systems engineers to join my team at Abnormal Security. We have multiple open positions in our division, working in Python, Golang, Spark and Kafka among other leading edge technologies. Abnormal Security recently secured our series ",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "series_c_plus",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1090.0,
         "region": [
           "canada",
           "us"
@@ -722,7 +878,8 @@
           "Python",
           "Spark"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -733,17 +890,22 @@
       "text": "Charge Robotics | (Entry Level - Senior) Mechanical Engineer | Full-time | Onsite | SF Bay Area\n\nHi HN! We’re a YC-backed, Series-A startup building robots that build large-scale solar farms.\n\nCheck out a video of our system here! https://youtu.be/ZZ2fP1Y5Z2E\n\nIt turns out that construction companies literally can't build solar fast enough, so what we're doing is a crucial part of switching the grid over to renewable generation. We're looking to bring another talented mechanical engineer onto our small team.\n\nYou’ll be a key contributor, helping bring our next generation of mobile solar factor",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "hardware_robotics",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.96,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 871.0,
         "region": [
           "us"
         ],
@@ -751,7 +913,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -762,17 +925,22 @@
       "text": "Eve | https://eve.legal | Product, Platform, ML engineers | San Mateo, CA (Hybrid)\n\nEve is building an AI workspace for law firms to do their best work. Our team is small and we're looking for engineers who are ready to tackle problems end to end. This is an opportunity to leverage LLMs to make a big impact on the workflow of legal professionals to better understand and take action on their cases. The role is hybrid with 3 days in San Mateo.\n\nApply here: https://jobs.lever.co/Eve\nReach out to me a torehan.sharman [at] eve.legal if you have any questions.",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": 3.0,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 560.0,
         "region": [
           "us"
         ],
@@ -783,7 +951,8 @@
           "LLM",
           "Machine learning"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -794,17 +963,22 @@
       "text": "DeepL | New York, NY | ONSITE / HYBRID DeepL is a global communications platform powered by Language AI. Questions? steven [dot] syrek [at] deepl [dot] com\nApply on LinkedIn:\n\nSenior Full Stack Software Engineer - API: https://www.linkedin.com/jobs/view/4012331894\n\nSenior Backend Engineer - API and Client Libraries: https://www.linkedin.com/jobs/view/4012333853\n\nSoftware Engineer - API and Client Libraries: https://www.linkedin.com/jobs/view/4072467424",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.86,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 456.0,
         "region": [
           "us"
         ],
@@ -812,7 +986,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -823,17 +998,22 @@
       "text": "Lily AI | Remote, +/- 3hrs PST (US, Canada, South America) | Staff ML Engineer, Staff Software Engineer | https://www.lily.ai\n\nWe are a well-funded startup driving the next wave of innovation in product discovery and personalization. Our work spans exciting use cases such as deep product attribution, automated copy generation, streamlined item setup, and enhancing search and recommendation systems, among others. Our team of scientists and engineers specializes in Computer Vision and Natural Language Processing (NLP), tackling a diverse array of challenging and impactful problems. We take pride",
       "answers": {
         "ai_native": 0.89,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.08,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.65,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1692.0,
         "region": [
           "canada",
           "latam",
@@ -845,7 +1025,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -856,17 +1037,24 @@
       "text": "QumisAI | https://www.qumis.ai/ | Founding Full Stack/AI Engineers | Hybrid Chicago | Full-Time | $125k–$200k • 0.50%–1.50% Equity\n\nTech Stack: TypeScript | Rails | Postgres | Docker | React | LLM\n\nAbout QumisAI:\nQumisAI is the only lawyer-built AI platform transforming insurance knowledge work. Our mission is to provide the most accurate AI solutions for the insurance industry. We are already trusted by five of the 15 largest U.S. insurance brokers, leading specialty carriers, and top law firms.\n\nWhat We’re Building:\nQumisAI leverages cutting-edge technology to tackle complex challenges in in",
       "answers": {
         "ai_native": 1.0,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1636.0,
         "region": [
           "us"
         ],
@@ -883,7 +1071,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -894,17 +1083,22 @@
       "text": "Medusa (https://medusajs.com)| Remote | Full-time| Europe + US East Coast #1 open-source ecommerce project on GitHub; https://github.com/medusajs/medusa\nWe are building the world’s most flexible commerce platform. Built for developers with a focus on strong commerce primitives and a framework for customization.\n\nWe are a small seed-funded ($8M) team of 16 people looking for key hires who want to work closely with our founding team to build the next generation of commerce infrastructure.\n\nWe are looking for engineers motivated to tackle complex problems and who care about crafting great product",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "commerce",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 864.0,
         "region": [
           "europe",
           "us"
@@ -917,7 +1111,8 @@
           "Postgres",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -928,17 +1123,22 @@
       "text": "Vero Scribe is hiring an Applied AI Engineer (Remote, Full-time, Toronto) | https://veroscribe.com\n\nWe’re a fast-growing startup building an AI-powered medical scribe to streamline clinical documentation and reduce administrative burden for healthcare providers. If you’re passionate about applying cutting-edge AI to make a real-world impact, we’d love to hear from you.\n\nWhat we’re looking for:\n\n- Experience with NLP, LLMs, or other AI-driven technologies\n\n- Proficiency in Python and ML frameworks (e.g., TensorFlow, PyTorch)\n\n- Strong problem-solving skills and a product-driven mindset\n\n- Previ",
       "answers": {
         "ai_native": 1.0,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 721.0,
         "region": [
           "canada"
         ],
@@ -952,7 +1152,8 @@
           "Python",
           "TensorFlow"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -963,17 +1164,22 @@
       "text": "EF World Journeys | Lead Software Engineer, Mobile | Full-time | ONSITE or REMOTE (US or Canada) | https://www.efworldjourneys.com/\n\nEF World Journeys is a leader in experiential travel. We are seeking a Lead Software Engineer to head our Customer Experience Mobile Team and shape the future of travel.\n\nWe are a remote-first organization but offer onsite opportunities in Cambridge, MA. Our team is distributed across the US, Canada, and Switzerland.\n\nTech Stack: React Native, Expo, TypeScript, GraphQL, Node.js\n\nFor full details, visit: https://careers.ef.com/job/31617/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.97,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.92,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 573.0,
         "region": [
           "canada",
           "us"
@@ -985,9 +1191,11 @@
           "GraphQL",
           "Node.js",
           "React",
+          "React Native",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     }
   ]

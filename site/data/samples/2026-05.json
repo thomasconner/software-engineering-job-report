@@ -9,17 +9,22 @@
       "text": "N26 SE | SREs, EMs, Lead Backend Engineer | Berlin, Barcelona| https://www.n26.com | Full-time\n\nN26 has reimagined banking for today’s digital world. Technology and design empower everything we do and it’s how we are building the global banking platform the world loves to use.\n\nWe've eliminated physical branches, paperwork, and hidden fees for an elegant digital experience and supreme savings. Giving people the power to live and bank their way is what gets us out of bed in the morning and inspires the work that we do.\n\nWe are headquartered in Berlin with offices in multiple cities across Europ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.98,
         "funding_stage": "public_or_large",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 813.0,
         "region": [
           "europe"
         ],
@@ -27,7 +32,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -38,17 +44,24 @@
       "text": "Sheer Health (https://www.sheerhealth.com) | New York, NY | Full-Time | ONSITE\nIf you or a loved one has ever suffered from confusing/egregious medical bills or insurance communications, this is your chance to give the power back to others in a similar situation.\n\nOur mission is to demystify health insurance, healthcare and medical billing. By utilizing cutting-edge technology and advanced data analytics, we deliver personalized recommendations on how to save money, maximize use of plan benefits, stay on top of reimbursements and avoid erroneous or inflated medical bills.\n\nCurrently open roles",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [
+          "health_insurance"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 902.0,
         "region": [
           "us"
         ],
@@ -56,7 +69,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -67,17 +81,22 @@
       "text": "Maiven | Full-Stack Engineer, UX/UI Designer, Energy Modeling Engineer | REMOTE (US) | Full-Time\n\nAt Maiven Energy, we're working on real-world problems at the intersection of responsible AI and residential energy. Our aim is to make energy upgrades smarter, faster, and more accessible, while helping reduce carbon emissions. We're a small, mission-driven team punching way above our weight: we have large utility customers, contracts in multiple states, and a growing pipeline of programs launching later this year. We're venture backed and moving fast.\n\nWe're hiring for three positions (US only):",
       "answers": {
         "ai_native": 0.32,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "climate_energy",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1277.0,
         "region": [
           "us"
         ],
@@ -90,9 +109,11 @@
           "Postgres",
           "Python",
           "React",
+          "Tailwind",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -103,17 +124,22 @@
       "text": "Borrowell | Development Roles | Remote across Canada with office in Toronto | Full Time, Permanent, Benefits from Day 1\n\nBorrowell pioneered free credit scores for all Canadians in 2017 and now we’re focusing on building net new products that will be the first of their kind in Canada. With more than 3 million members, Borrowell is one of the largest fintech companies in Canada.\nOur team is diverse, inclusive, and driven by a shared passion for making a meaningful difference in the lives of Canadians. We pride ourselves on fostering a culture of collaboration, humility, and innovation. If you’r",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 887.0,
         "region": [
           "canada"
         ],
@@ -121,7 +147,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -132,17 +159,25 @@
       "text": "Flow Traders | Research Engineer | Hong Kong/ London (onsite) | Full Time | Visa | Relocation\n\nFlow Traders is a leading proprietary trading firm with an entrepreneurial and innovative Tech culture at the heart of its business. We are looking for Research Engineers in our Hong Kong office.\n\nJoin us build and scale the research framework behind our systematic trading models. You’ll work closely with Quantitative Researchers, drive end‑to‑end ML pipelines, and shape global standards for data‑driven model development. Research Engineers have joint responsibility for conducting research and delive",
       "answers": {
         "ai_native": 0.3,
+        "benefits": [
+          "relocation",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1081.0,
         "region": [
           "asia_pacific",
           "uk"
@@ -155,7 +190,8 @@
           "PyTorch",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "8_plus"
       }
     },
     {
@@ -166,17 +202,22 @@
       "text": "FUTO | https://futo.tech | Austin, TX | Remote or Onsite | Full Time\n\nFUTO is an organization dedicated to developing, both through in-house engineering and investment, technologies that frustrate centralization and industry consolidation. Our work consists of a combination of in-house engineering projects, targeted investments, generous grants, and multi-media public education efforts. We are hiring for a few of our software projects, and our stealth hardware project.\n\nWe are hiring for:\n\nMobile Developer - Immich : https://futo.tech/jobs/mobile-developer-immich\n\nRust Developer - Polycentric:",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.46,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.55,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1316.0,
         "region": [
           "us"
         ],
@@ -186,7 +227,8 @@
         "stack": [
           "Rust"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -197,29 +239,38 @@
       "text": "Location: Rawalpindi, Pakistan\nRemote: Yes\nWilling to relocate: No\nTechnologies: React, TypeScript, Node.js, Express.js, PostgreSQL, MongoDB, Flutter, OpenCV, Tailwind CSS, Bootstrap\nPortfolio: https://fatima-usman-dev-aovrrer.gamma.site/\nEmail: fatimaausman8@gmail.com\n\nFrontend/Full-Stack Engineer with 2 years experience building consumer-facing applications. Led a 4-person team to 2nd place at EXPO'24 (COMSATS) for an AI-powered fashion platform with computer vision. Delivered full-stack features for retail tech and data analytics projects. Seeking remote frontend or full-stack roles with gr",
       "answers": {
         "ai_native": 0.36,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.05,
         "industry_stated": 0.05,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.15,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 619.0,
         "region": [
           "asia_pacific"
         ],
         "remote_token": 0.0,
         "seniority": "junior",
         "stack": [
+          "Express",
+          "Flutter",
           "MongoDB",
           "Node.js",
           "Postgres",
           "React",
+          "Tailwind",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -230,25 +281,33 @@
       "text": "Two Six Technologies | Technical Lead, Principal, and Senior Principal Vulnerability Researcher | Arlington, VA | ONSITE | Full Time | https://job-boards.greenhouse.io/twosixtechnologies/jobs/5892477004 Two Six Technologies is seeking highly experienced Technical Leads, Principals, and Senior Principal Vulnerability Researchers to drive our in-depth reverse engineering and exploit development efforts. In these advanced roles, you will own the technical direction of critical projects and transition research findings into operational capabilities.\nWe are looking for elite embedded security resea",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.97,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.35,
         "industry_stated": 0.41,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1108.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "staff_plus",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          "Linux"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -259,17 +318,22 @@
       "text": "Fastly | Software Engineers (Senior, Staff, Principal) | REMOTE (US, UK, EU) or ONSITE | Full-time\n\nWhen you look at the headers of major websites, you’ll see us. If it has to be performant, secure, scaled worldwide, and always-on, it uses Fastly.\n\nWe're a globally edge cloud platform for performance and security, emphasizing open standards, sustainable engineering, and resilience-by-design.\nWe're hiring across compute, security, platform engineering, network and edge protocols, release engineering, network architecture, client services engineering, and more.\n\nRather than building walled garde",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1077.0,
         "region": [
           "europe",
           "uk",
@@ -283,12 +347,14 @@
           "C++",
           "Go",
           "JavaScript",
+          "Linux",
           "Python",
           "Ruby",
           "Rust",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -299,17 +365,24 @@
       "text": "Kanary | Full Stack Engineer | Remote (US) | Competitive Salary + Equity | Python / React\n\nKanary is a personal security platform that monitors the web to identify and reduce risk based on an individual's threat model. An executive has different exposure than a gamer, and our system classifies each person's risk across 55,000+ sources. We've been building since 2020, started in campaign security, data science, and government agencies, backed by Mozilla and Y Combinator. We have 200+ organizations on the platform and are fully funded by our customers.\n\nAttackers have never had better tools. LLM",
       "answers": {
         "ai_native": 0.82,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1669.0,
         "region": [
           "us"
         ],
@@ -320,10 +393,12 @@
           "AI agents",
           "JavaScript",
           "LLM",
+          "OpenAI",
           "Python",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -334,17 +409,22 @@
       "text": "Project Debug | General Engineer | Singapore (HYBRID) | Full-time | debug.com\n\nProject Debug raises, sorts by sex, and releases millions of (non-biting) male mosquitoes in Singapore to reduce the local mosquito population and prevent the spread of dengue and other mosquito-borne illnesses. Our trial in Fresno, CA showed a 95% reduction in female mosquitoes during the seasonal peak.\n\nOur engineering team is pretty small and we need a solid generalist engineer who is interested in becoming a domain expert in our factory, where we do automated rearing and sex sorting. If you run a homelab, have t",
       "answers": {
         "ai_native": 0.11,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.92,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.17,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 836.0,
         "region": [
           "asia_pacific"
         ],
@@ -358,7 +438,8 @@
           "React",
           "TensorFlow"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -369,17 +450,22 @@
       "text": "Longshot Systems | Multiple Senior Eng | London, UK, hybrid | Full time\n\nLongshot is at the cutting edge of sports betting modelling R&D and has been producing market beating models for a decade.\n\nWe need senior engineers across platform and strategy. Excellent pay and benefits, flexible hybrid working, office in central London.\n\nVery high performance environment with high trust. Team small but growing. Sports knowledge optional, passion and deep technical experience mandatory. Come and join the fun in the new world of sports betting markets.\n\nPlease check out our recruitment link here: https:",
       "answers": {
         "ai_native": 0.6,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.01,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 642.0,
         "region": [
           "uk"
         ],
@@ -387,7 +473,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -398,17 +485,22 @@
       "text": "fal | San Francisco, CA / Remote | Full-time\n\nWe are on a mission to build world’s first generative media platform for developers. We are running inference on tens of thousands of GPUs, and looking for people (in all functions) to help us scale it to hundreds of thousands.\n\nFeatured Roles:\n\n- Distributed Systems Engineer, https://fal.ai/careers/4009192009\n\n- Virtualization Engineer, https://fal.ai/careers/4146037009\n\n- ML Performance & Systems Engineer, https://fal.ai/careers/4009191009\n\nRemaining: https://fal.ai/careers",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.95,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 526.0,
         "region": [
           "us"
         ],
@@ -418,7 +510,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -429,17 +522,22 @@
       "text": "Octozi | Founding Engineer | NYC (Hybrid) | Full-time | https://www.octozi.com/\n\nOctozi is a revenue-generating seed-stage company building AI agents for clinical development workflows. Bringing a drug to market can take a decade and cost up to $2B, keeping treatments expensive and delaying life-saving therapies for the patients who need them. We're cutting the cost and time of these workflows while improving the science and analysis of clinical data.\n\nWe already have commercial contracts with multiple pharma companies and are scaling the team to meet demand. The interesting problems span agen",
       "answers": {
         "ai_native": 1.0,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1026.0,
         "region": [
           "us"
         ],
@@ -453,7 +551,8 @@
           "Python",
           "TypeScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -464,22 +563,30 @@
       "text": "Sumble is the newco from the founders of Kaggle. We are hiring full stack engineers, ai/ml engineers and growth/marketing. Can view our roles and apply here: https://sumble-inc.workable.com/\nWe are building a knowledge graph from web data with a first focus on data for go-to-market teams.\n\nWe use web data to identify things like org structure, tech stack, and key projects (e.g., GenAI initiatives, cloud migrations). Our product already has strong product-market fit, early revenue, and happy customers — and now we’re ready to accelerate.\n\nOur long-term vision is to become the world's best data ",
       "answers": {
         "ai_native": 0.22,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.9,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 952.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "unclear"
+        "stack": [
+          "Snowflake"
+        ],
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -490,17 +597,24 @@
       "text": "Canopi| REMOTE (US-Based Preferred) | Senior Software Engineer | Contract | canopi.work\n\nHey this is Dixon from Canopi, a workforce risk intelligence platform built for ground transportation operators. Our AI engine continuously monitors driver eligibility signals and surfaces real-time alerts before a carrier loses a driver, gets fined, or faces a liability event. We are not a compliance tool. We are the autonomous brain that makes driver risk intelligence possible at scale.\n\nCanopi is a Microsoft for Startups company building entirely on Azure, and is hiring engineers who want to build somet",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "seed",
         "industry": "enterprise_saas",
         "industry_fits": 0.93,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 779.0,
         "region": [
           "us"
         ],
@@ -510,7 +624,8 @@
         "stack": [
           "Azure"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -521,17 +636,22 @@
       "text": "MintMCP | Founding Engineer / Founding GTM | SF Bay Area (ONSITE)\n\nMintMCP helps enterprises safely roll out agents to the entire organization (e.g, governance around MCP tools and agents like Claude Code / Codex / Cowork). We're building an MCP gateway with abstractions useful for 1) preventing agents from doing the unintentionally bad things you hear about every week without constraining them to be useless, 2) getting the rest of your teams and organizations to adopt them with minimal friction.\n\nWe're a small team of humans with dozens of agents: our company operates on the infrastructure we",
       "answers": {
         "ai_native": 0.96,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1053.0,
         "region": [
           "us"
         ],
@@ -539,7 +659,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -550,17 +671,22 @@
       "text": "BillionToOne (YC S17, NASDAQ: BLLN) | Menlo Park, CA | Onsite\n\nWe're a molecular diagnostics company. YC made a video of us recently: https://www.youtube.com/watch?v=kkv5rZhrLkc.\n\nOur software team creates products that help detect prenatal genetic conditions non-invasively and uncover 50%+ more cancer treatment options. Your code reaches patients and the providers making decisions for them.\n\nStack: Python, React, TypeScript, AWS, Postgres. We believe in small teams with high ownership.\n\nWe're hiring:\n\n- Senior Software Engineer (Prenatal, Oncology, Digital Experiences)\n\n- Senior AI Engineer\n\n",
       "answers": {
         "ai_native": 0.1,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "public_or_large",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 820.0,
         "region": [
           "us"
         ],
@@ -574,7 +700,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -585,17 +712,25 @@
       "text": "Prior Labs | Berlin / Freiburg / NYC | ONSITE | Full-time | Multiple Roles\n\nTables power every financial model, clinical trial, and scientific experiment, but deep learning has mostly ignored them. No natural sequence, no spatial structure, no shared vocabulary across datasets. LLM architectures don't transfer. We built TabPFN, the first foundation model that actually understands tabular data (published in Nature, 3M+ downloads, new SOTA for tabular ML). The hardest problems are still open.\n\nThe model is half the product. The other half - training infrastructure, real-time serving, developer p",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [
+          "equity",
+          "relocation"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "seed",
         "industry": "ai_ml",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2640.0,
         "region": [
           "europe",
           "us"
@@ -604,6 +739,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "mid",
         "stack": [
+          "FastAPI",
+          "Hugging Face",
           "LLM",
           "Machine learning",
           "Postgres",
@@ -611,7 +748,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "3_4"
       }
     },
     {
@@ -622,17 +760,24 @@
       "text": "Loophole Labs | Senior Systems Engineer | REMOTE (Americas & Europe) | $150k–195k USD + equity | Go, Zig, Rust, C, eBPF, CRIU, Kubernetes\n\nWe make Architect: a Kubernetes runtime that hibernates idle pods in place and wakes them in 50ms with TCP connections intact. Five engineers. You'd be the 6th.\n\nIf tracing an x86 instruction in the morning and hunting a control-plane race in the afternoon both sound fun, and you insist on measuring rather than guessing, this is the job.\n\nCustomers run Architect for workloads where cold starts hurt: real-time voice & video AI agents, long-warming JVM apps, ",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "seed",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1704.0,
         "region": [
           "canada",
           "europe",
@@ -649,9 +794,12 @@
           "C",
           "Go",
           "Kubernetes",
-          "Rust"
+          "Linux",
+          "Rust",
+          "Zig"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -662,17 +810,22 @@
       "text": "Foxglove | Onsite (San Francisco) + Remote | Full Time | https://foxglove.dev/\n\nFoxglove is the leading data infrastructure & observability platform for robotics & physical AI.\n\nPrior experience in the autonomous vehicle or robotics industry is a bonus, but not required.\n\nMany open roles:\n\n- Senior Rust Engineer\n\n- Senior ML Engineer\n\n- Senior Frontend Engineer (Visualization, WebGL, WASM)\n\n- Solutions Engineer, Data Infrastructure\n\n- Product Manager, Data + ML\n\n- Head of Product Marketing\n\n- Account Executive\n\nEmail in profile.\n\nhttps://foxglove.dev/careers",
       "answers": {
         "ai_native": 0.37,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 564.0,
         "region": [
           "us"
         ],
@@ -683,7 +836,8 @@
           "Machine learning",
           "Rust"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -694,17 +848,24 @@
       "text": "Y Combinator | Product Engineers on YC's own team | San Francisco | Full Time | $185K-$485K\n\nI'm Ryan, an EM and engineer here at YC. We have a small, 18-person software team with no PMs -- engineers own everything end-to-end.\n\nWe build the software behind YC's $6B in investments: tools that help partners evaluate thousands of startups per batch, AI-powered apps that founders use every day, and platforms like Work at a Startup that connect candidates with YC companies. Engineers get unlimited AI tokens -- both for development and to build AI-powered products. What wouldn't you build to help fo",
       "answers": {
         "ai_native": 0.44,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.45,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1876.0,
         "region": [
           "us"
         ],
@@ -717,7 +878,8 @@
           "Rails",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -728,17 +890,22 @@
       "text": "CoPlane (https://coplane.com/) | Product Engineer | NYC (preferred) or Remote (North America) | Full Time\n\nThe world doesn't need another ERP. CoPlane is building the Agentic Orchestration platform that enables enterprises to orchestrate intelligent processes across their existing systems. Founded by ex-Stripe/Segment product and tech leads, we're changing how businesses operate their backoffice - helping them scale intelligence not headcount.\n\nWe're looking for an exceptional product engineer to grow our small team of engineers that include ex-founders, open source contributors (authors of ne",
       "answers": {
         "ai_native": 0.91,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.93,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1239.0,
         "region": [
           "canada",
           "us"
@@ -752,7 +919,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -763,17 +931,26 @@
       "text": "Join (https://join.build) | Staff Software Engineer | Remote | $175K–$205K + equity\nJoin builds collaboration software for the construction industry — helping contractors, owners, and architects coordinate on high-value projects. React, Golang, Postgres. We deploy to AWS via Terraform.\n\nWe're hiring multiple staff engineers across a range of profiles: frontend-heavy, fullstack, and backend-heavy. We're especially looking for 1–2 engineers with architect-level frontend chops (React, TypeScript, state management, perf) who can own UI quality and level up the team. But we're also very interested ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity",
+          "learning_budget",
+          "retirement"
+        ],
+        "degree": "none",
         "eng_leadership": 0.84,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1396.0,
         "region": [
           "unknown"
         ],
@@ -791,7 +968,8 @@
           "Terraform",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -802,17 +980,22 @@
       "text": "IBM Research | Boston, MA, USA (hybrid - 3 days in office; location flexibility - Boston preferred but NYC/SF possible) | Research Scientists and Research Engineers\n\nOur team thinks there's a lot of value in co-design of software harnesses and LLMs, particularly for small/medium models, particularly in the open model space.\n\nOur colleagues across the isle do an awesome job at training the Granite model series, so we (physically and organizationally) sit in a uniquely good place to do impactful work in this space.\n\nI am currently looking for early career scientists and engineers who are interes",
       "answers": {
         "ai_native": 0.54,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.12,
         "industry_stated": 0.5,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.83,
+        "office_days": 3.0,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 897.0,
         "region": [
           "us"
         ],
@@ -823,7 +1006,8 @@
           "LLM",
           "Rust"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -834,16 +1018,21 @@
       "text": "Fuck mosquitoes, go get em",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.12,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.07,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.08,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 26.0,
         "region": [
           "unknown"
         ],
@@ -851,7 +1040,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -862,17 +1052,22 @@
       "text": "Lago (YCS21) | Hiring for Multiple roles in Product and Engineering across EUROPE and USA (https://jobs.ashbyhq.com/lago)\n\nLago is the leading open-source billing platform for usage-based pricing. We power billing for companies like PayPal, CoreWeave, Mistral AI, and Synthesia — handling real-time metering, hybrid pricing models, credit wallets, and multi-entity invoicing. We raised $22M (Series A led by FirstMark, seed backed by Y Combinator) and are growing fast across AI/ML, developer infrastructure, and enterprise segments.\n\n- Infrastructure Engineer (Europe) - https://jobs.ashbyhq.com/lag",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "series_a",
         "industry": "fintech",
         "industry_fits": 0.93,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 921.0,
         "region": [
           "europe",
           "us"
@@ -883,7 +1078,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -894,17 +1090,22 @@
       "text": "Baton | San Francisco, CA (Hybrid) and Remote | Full-Time\n\nBaton (baton.io) is Ryder's in-house product development group focused on harnessing emerging technologies to redefine transportation and logistics. With $10B in freight under management, our technology reaches every part of the U.S. economy.\n\nWe design and ship category-defining software that enables Ryder and its 50,000+ customers—including some of the world's most well-known brands—to plan and execute freight intelligently, efficiently, and cost-effectively. Our work includes everything from customer-facing software to the data plat",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.96,
         "funding_stage": "public_or_large",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1688.0,
         "region": [
           "us"
         ],
@@ -914,7 +1115,8 @@
         "salary_min_usd": 162000.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -925,17 +1127,22 @@
       "text": "The Allen Institute for AI (Ai2) | 3 open Senior Software Engineer roles| Seattle, WA | Full-time | allenai.org\n\nAi2 is a Seattle based non-profit AI research institute founded in 2014 by the late Paul Allen. Our mission is building breakthrough AI to solve the world’s biggest problems.\n\nWe are hiring 3 Senior Software Engineers to join the Agentic Applications team. This team builds open, production-grade AI systems that power scientific discovery.\n\nTo Apply:\n\nSenior Software Engineer, Data: https://job-boards.greenhouse.io/thealleninstitute/jobs/7872631\n\nSenior Software Engineer, Full Stack:",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.06,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 765.0,
         "region": [
           "us"
         ],
@@ -945,7 +1152,8 @@
         "stack": [
           "AI agents"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -956,16 +1164,21 @@
       "text": "Senior ML Engineer | Ping Data Intelligence | REMOTE or ONSITE (Miami, FL) | Full-Time | https://www.pingintel.com\nPing Data Intelligence is a dynamic startup based in Miami, FL, revolutionizing the property insurance sector with cutting-edge web technologies and ML-powered tools. Despite rapid growth, we retain the stability of a self-funded, profitable company.\nRole Overview: As a Senior ML Engineer at Ping, you will sit at the intersection of research and data engineering — designing, training, and deploying machine learning models that power our property attribute classification, document ",
       "answers": {
         "ai_native": 0.97,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.02,
         "funding_stage": "bootstrapped",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 3266.0,
         "region": [
           "us"
         ],
@@ -973,14 +1186,17 @@
         "seniority": "senior",
         "stack": [
           "Django",
+          "Hugging Face",
           "LLM",
           "Machine learning",
           "PyTorch",
           "Python",
           "React",
+          "SQL",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     }
   ]

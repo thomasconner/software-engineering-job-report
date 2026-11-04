@@ -9,17 +9,24 @@
       "text": "Blue Apron (New York, NY): Rails Developer\n\nBlue Apron (http://www.blueapron.com) is a NY start-up that delivers original recipes and all the fresh ingredients you need to make them in exactly the right proportions. We've raised $8M from First Round Capital, Bessemer Venture Partners, and Dave Tisch [1] and have been featured in the New York Times [2].\n\nWe are experiencing explosive growth and ship more than 250,000 meals a month (up from 100k just over a few months ago), and now deliver nationwide. We're looking to add a full stack developer to our core team to get in on the ground floor and ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1614.0,
         "region": [
           "us"
         ],
@@ -30,7 +37,8 @@
           "Postgres",
           "Rails"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -41,16 +49,21 @@
       "text": "Burlington, MA http:/www.veracode.com\n\nWe are a security company looking for AWS Cloud engineers. We are also looking for Python developers looking to work on Mobile security challenging problems. Feel free to reach out for more details. mpreshman@veracode.com",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.97,
         "industry_stated": 0.91,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 260.0,
         "region": [
           "us"
         ],
@@ -60,7 +73,8 @@
           "AWS",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -71,17 +85,22 @@
       "text": "Colle+McVoy - Minneapolis, MN\n\nCome play w/ us as a Sr. Front-end Developer.\nhttp://www.collemcvoy.com/careers/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.01,
         "industry_stated": 0.05,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 111.0,
         "region": [
           "us"
         ],
@@ -89,7 +108,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -100,16 +120,21 @@
       "text": "Disqus (http://disqus.com/) needs some people to help break computers.\n\nhttp://boards.greenhouse.io/disqus?t=58y0kn#.UpuMT2RDsoM\n\nLet me know if something doesn't stand out. We're looking specifically for some ops people (possible with an interest in Go) and Django.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.06,
         "industry_stated": 0.13,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 266.0,
         "region": [
           "unknown"
         ],
@@ -120,7 +145,8 @@
           "Django",
           "Go"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -131,17 +157,25 @@
       "text": "Tidal Labs is hiring a full stack web developer. NYC preferred but REMOTE OK.\n\nUs\n\nWe build beautiful and powerful tools for real time collaboration and content creation, used by over 25,000 bloggers and dozens of big name brands and publishers. We're a ten-person team local to NYC that values education, personal growth, and work-life balance.\n\nYou\n\nYou're a highly motivated individual with proven and demonstrable skills in web application development and maintenance. You can build a full web app, set up a server, launch into a production environment and maintain the whole thing comfortably. Y",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "health_insurance",
+          "learning_budget"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.8,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1515.0,
         "region": [
           "us"
         ],
@@ -150,11 +184,13 @@
         "seniority": "unspecified",
         "stack": [
           "JavaScript",
+          "Linux",
           "MongoDB",
           "Node.js",
           "PHP"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -165,17 +201,24 @@
       "text": "Localytics - Boston, MA - FULL-TIME, INTERN, H1B\n\nLocalytics offers a powerful real-time, cloud-based app analytics and marketing platform. We’re proud to help some of the world's most well-known brands like The New York Times, Microsoft, Salesforce and eBay create great mobile experiences for their customers.\n\nLocalytics was recently named one of the best places to work by The Boston Globe. We are expanding our engineering team and have openings across all areas of our technology stack. If you are interested in working with any of the following technologies or enjoy challenges working with bi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.79,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.91,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 912.0,
         "region": [
           "us"
         ],
@@ -189,7 +232,8 @@
           "Rails",
           "Scala"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -200,17 +244,24 @@
       "text": "Columbia, MD – H1B, FULL-TIME, INTERN\n\nWe're a small company in the Maryland suburbs revolutionizing how states manage Medicaid information. This is an exploding niche, we're growing like a Chia pet on steroids, and we have a bright future ahead of us but we need your help to build it!\n\nWe're looking for .NET software engineers with 'SOLID' C# skills and experience with MVC, NoSQL, HTML5, and JavaScript frameworks such as Knockout or Angular. Knowledge of domain-driven design (DDD), service-oriented architecture (SOA) and other enterprise crap is a plus. Experience with RavenDB is a huge plus.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.78,
         "industry_stated": 0.97,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.95,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 978.0,
         "region": [
           "us"
         ],
@@ -218,11 +269,13 @@
         "returned_from_last_month": 0.0,
         "seniority": "junior",
         "stack": [
+          ".NET",
           "Angular",
           "C#",
           "JavaScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -233,16 +286,21 @@
       "text": "Pune, India - Fulltime.\n\nCo-Founder of Styloot.com here.\n\nStyloot.com, is a visual search engine for fashion. At 1.2 Million SKUs and 4000+ brands, we carry slightly more women apparel than Amazon and twice as many shoes as Zappos. Our patented technology already powers some of the largest media and commerce companies of the world.\n\nWe are looking to hire Python, Javascript and Front End developers.\n\nYou will be working directly with the product and will be making decisions that directly influence the site.\n\nYou must love coding and should be at home with fellow hackers - everything else we ca",
       "answers": {
         "ai_native": 0.45,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.93,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 713.0,
         "region": [
           "india"
         ],
@@ -252,7 +310,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -263,17 +322,22 @@
       "text": "Snapchat (Venice, CA)\n\nFeel free to drop me a line at sheldon-at-snapchat-dot-com. We're mainly looking to hire full time engineers with experience / expertise in any of the following:\n\n- Mobile client development (iOS & Android)\n\n- Backend / infrastructure\n\n- Statistics / machine learning / massive data sets\n\nNew college grads welcome. Sorry no H1Bs or remote",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.07,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 362.0,
         "region": [
           "us"
         ],
@@ -285,7 +349,8 @@
           "Machine learning",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -296,17 +361,24 @@
       "text": "Quid (quid.com) - San Francisco - H1B welcome\n\nThis place has so much potential and great momentum with huge clients like Microsoft, Samsung, Visa, etc...\n\nOur product combines advanced data visualizations, mathematical models, and data processing techniques to generate valuable insight for our customers. With only 12 developers, every developer's contributions matter a lot (seriously).\n\nCheck out one of our network visualizations (a news network about Lady Gaga =p): https://quid.box.com/s/kxc7hskuzokmd3f38c0w\n\nWe are looking for a variety of developers including:\n\n* Data science developer to ",
       "answers": {
         "ai_native": 0.07,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.77,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 996.0,
         "region": [
           "us"
         ],
@@ -316,7 +388,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -327,16 +400,21 @@
       "text": "Intercom (https://www.intercom.io/).\n\nIntercom helps internet businesses communicate with their customers. Our mission is to make web business personal. We believe that the future of customer communication requires not increasingly complex, impersonal point solutions, but rather a simple, seamless platform that feels a lot more like Facebook than Salesforce. People love the product:\n\nhttps://twitter.com/intercom/favorites\n\nThe company is just over 2 years old. It has raised $7.75MM to-date from Social+Capital Partnership—their LPs include Facebook, Reid Hoffman, Sean Parker, Peter Thiel. Manag",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.92,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.93,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1771.0,
         "region": [
           "unknown"
         ],
@@ -346,7 +424,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -357,17 +436,24 @@
       "text": "tl;dr: first hire. iOS engineer. Tab (simple payments for restaurants). Toronto, ON. Founders have successful exits previously. 60-80K + 1-4% depending on experience and passion. no remote at this time. fahd@tabpayments.co\n\n--\n\nWe are building Tab, a simpler way to pay when dining at a restaurant. We have built startups before, and have had successful exits.\n\nAs the first engineering hire on the team, you will have a great impact on the product vision and direction. You will be wearing many hats from iOS engineer, to marketing, biz dev, product, and more. This is a perfect role to see what a s",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.08,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 882.0,
         "region": [
           "canada"
         ],
@@ -377,7 +463,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -388,17 +475,22 @@
       "text": "CircleCI (https://circleci.com/jobs) - SF or REMOTE fulltime (in the US)\n\nAt CircleCI we're building the next generation of developer automation: amazing Continuous Integration and Deployment. We have traction and revenue and funding and great customers. Our customers love us, because we move quickly, build great things, and provide amazing support. Everyone talks to customers a lot.\n\nWe're still a small team, so you'll have a large impact on company culture. We're highly influenced by Valve's Employee handbook, and have as flat a structure as we can.\n\nWe're looking for frontend engineers (JS)",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.9,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1281.0,
         "region": [
           "us"
         ],
@@ -406,9 +498,11 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [
+          "Clojure",
           "JavaScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -419,16 +513,21 @@
       "text": "Sustainable Engineering Lab, Columbia University -- New York City -- Full time -- http://modi.mech.columbia.edu\n\nCurrently looking for an Android Developer to join the team.\nhttps://github.com/modilabs/jobs\n\nWe are a university lab under The Earth Institute at Columbia University. We are building open source software to help development in various countries in the world with a kick of technology.\n\nCurrently we are involved in a data collection / analysis project in Nigeria, an infrastructure planning project for Myanmar and remote islands in Indonesia, and many more. Our stacks includes but no",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 936.0,
         "region": [
           "us"
         ],
@@ -441,7 +540,8 @@
           "Node.js",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -452,17 +552,22 @@
       "text": "Stackdriver - Boston, MA\n\nStackdriver is building a monitoring product focused on cloud based systems and distributed applications. We are looking to hire engineers of all stripes to work on all parts of our application stack and also an evangelist to help get the word out speaking about us.\n\nFor the engineering positions, our stack is python on the backend with a lot of angularjs and d3.js on the frontend as well. Heavy use of cassandra, (multiple) queues, and AWS throughout.\n\nMore information is available at http://www.stackdriver.com/jobs/ or you can email me directly at jeremy+hnjob AT sta",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 617.0,
         "region": [
           "us"
         ],
@@ -474,7 +579,8 @@
           "Angular",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -485,17 +591,24 @@
       "text": "Chewse (www.chewse.com) - San Francisco, CA\n\nFULL STACK ENGINEER\n\nWho are you?\n\nYou love solving real problems with computers. Programming challenges are fun, but you want to make a real dent in the world, and code is your tool of choice.\n\nYou're fluent in MVC frameworks and web programming because you understand the power of the Internet. You're scrappy, not dogmatic, and tackle new features knowing perfect is the enemy of good.\n\nYou get users, and feel their pain. Code is not a world to itself; it's a powerful and elegant means of solving complicated problems for users and bringing simplicit",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3713.0,
         "region": [
           "us"
         ],
@@ -508,7 +621,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -519,16 +633,21 @@
       "text": "42Floors (http://42floors.com/)\n\nSan Francisco, CA\n\nWe're looking for extremely talented people to help us bring the commercial real estate industry into the 21st century.\n\nHiring experienced full stack engineers, back-end engineers, inside salespeople, and account managers. (Apply: http://42floors.com/jobs)\n\nAll positions are full time, SF-based.\n\nYC W12, 17 full time employees, $18m in funding from NEA, Bessemer, Thrive, SV Angel, etc. (http://42floors.com/investors)\n\nLearn more about us here: http://42floors.com/press or email me with any questions!",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.77,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 558.0,
         "region": [
           "unknown"
         ],
@@ -536,7 +655,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -547,16 +667,21 @@
       "text": "Factual is currently hiring engineers and data lovers of all levels in the SF Bay Area, Los Angeles, and Shanghai.\n\nFactual’s location platform enriches mobile location signals with definitive global data, enabling personalized and contextually relevant mobile experiences. Built from billions of inputs, the data is constantly updated by Factual’s real-time data stack. We were recently named one of \"50 Disruptive Companies in 2013\" by MIT Technology Review. We have a terrific team that is still fairly small and an incredible CEO who was previously the co-founder of Applied Semantics (which was ",
       "answers": {
         "ai_native": 0.07,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.29,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.47,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1638.0,
         "region": [
           "asia_pacific",
           "us"
@@ -564,9 +689,12 @@
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Clojure",
+          "Hadoop",
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -577,17 +705,22 @@
       "text": "Enthought, Inc, https://enthought.com/company/careers/ Full Time in Austin, TX\n\nEnthought is looking to hire for two different roles: DevOps and Scientific Developer. We mostly develop in Python, but will consider candidates with a strong C/C++ background.\n\nSenior Software Developer\n\n-----------\n\nWe are seeking exceptional senior software engineers to join the product development team in our Austin, Texas headquarters. The product is a hybrid desktop / web services platform for building advanced technical computing and visualization applications. The successful candidate will help guide the ar",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.11,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.69,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3434.0,
         "region": [
           "us"
         ],
@@ -599,7 +732,8 @@
           "C++",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -610,17 +744,22 @@
       "text": "hopOn - San Francisco, CA (SOMA) - Full Time - Mobile & Web developers\n\nhopOn (hopon.com) is a brand new startup in the social travel booking space.\n\nWe've just raised a seed round from top-tier investors. The founders have an excellent track record of building great companies, and we’re now looking to round out our core product team. Our headquarters is in SoMa in San Francisco.\n\nWe’re looking for 2 senior/lead engineers who are ready to make a name for themselves by driving the development of the next Uber/HotelTonight/Airbnb type of experience on iOS & Web. We’re looking for people who are ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.81,
         "funding_stage": "seed",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 973.0,
         "region": [
           "us"
         ],
@@ -630,7 +769,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -641,16 +781,21 @@
       "text": "Continuuity is hiring: http://continuuity.com/careers/\n\nWe are hiring software engineers, tools engineer, devops engineer, front end engineer etc. in engineering roles. We are also looking for a project manager, graphics designer and PR Manager.\n\nWe are a small team of 20+ based out of Palo Alto, CA. Our goal is to make it easy for Java developers to build Big Data/Hadoop apps. We are looking for people who have worked on hard Big Data/Hadoop problems. We are well funded (seed $2.5M + Series A $10M) and backed by AZ16, Ignition Ventures, Battery Ventures etc. Check out our careers page.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "series_a",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 593.0,
         "region": [
           "unknown"
         ],
@@ -658,9 +803,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Hadoop",
           "Java"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -671,17 +818,22 @@
       "text": "EasyPost - https://www.easypost.com - San Francisco, CA\n\nCome build something customers can't live without. (Hint: it's not advertising.)\n\nhttps://www.easypost.com/jobs",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.08,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.15,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 168.0,
         "region": [
           "us"
         ],
@@ -689,7 +841,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -700,17 +853,22 @@
       "text": "Kloudless (https://kloudless.com) - SF Bay Area (Berkeley)\n\nFront-End Developer - Full Time\n\nTO APPLY: email work@kloudless.com\n\nKloudless is hiring! We are a well-funded ($1M+) startup located in Berkeley, helping people work across cloud services easier. We launched earlier in May on the stage of TC Disrupt NYC and have ramped up with 20% growth month-over-month. We're backed by leading Silicon Valley angel investors such as David Sacks of Yammer and Tim Draper from DFJ.\n\nWith our latest round of funding, we are looking for a passionate and experienced Front-End Developer to lead our client-",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.12,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.9,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3028.0,
         "region": [
           "us"
         ],
@@ -720,15 +878,18 @@
         "stack": [
           "Angular",
           "Django",
+          "Elasticsearch",
           "Java",
           "JavaScript",
+          "Lua",
           "Machine learning",
           "MongoDB",
           "Postgres",
           "Python",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -739,17 +900,24 @@
       "text": "The Climate Corporation (San Francisco, Seattle) - http://climate.com/careers\n\nThe Climate Corporation's mission is to help all the world's people and\nbusinesses manage and adapt to climate change. We use a combination of weather\nmonitoring, agronomic modeling, and weather simulation to provide real-time\npricing and purchasing of customizable weather insurance to farmers in the\nUnited States.\n\nClimate's technical staff numbers around 80, and we're hiring full-time\nemployees and interns across many teams as we expand efforts on a new class of\ndecision support tools for growers (see http://goo.g",
       "answers": {
         "ai_native": 0.26,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.97,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2315.0,
         "region": [
           "us"
         ],
@@ -757,13 +925,15 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Clojure",
           "JavaScript",
           "Machine learning",
           "Python",
           "Rails",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -774,17 +944,22 @@
       "text": "Venmo - New York, NY - Full Time\n\nVenmo (https://venmo.com) is the leading way to make and share payments. We have an openings for an Android engineer, iOS engineer, backend engineers, and in our devops team. We offer competitive salaries, terrific benefits, and the chance to change the way the world interacts with money.\n\nTo apply, email me personally at ron+dec13@venmo.com (-Ron, Android Engineer)",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 402.0,
         "region": [
           "us"
         ],
@@ -795,7 +970,8 @@
           "Android",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -806,17 +982,25 @@
       "text": "LiveRamp | Multiple Engineering Positions Available | www.LiveRamp.com/careers | San Francisco, CA | H1B, INTERN\n\nAbout us: LiveRamp’s leading data onboarding solution empowers marketers to activate their CRM data in their choice of online advertising platform for targeting, attribution, content optimization and more. We see relevancy as the world's largest optimization problem, and are excited to contribute to building a future where marketing is predominantly informative, engaging, and even appreciated for their usefulness to consumers through the use of data. Imagine that!\n\nWe're well funde",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "unlimited_pto",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1754.0,
         "region": [
           "us"
         ],
@@ -824,7 +1008,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -835,17 +1020,22 @@
       "text": "Kumu Networks - Santa Clara, CA - http://kumunetworks.com/\n\nKumu Networks is revolutionizing the way wireless systems are built using an innovative full-duplex wireless design that its founders developed as a research project at Stanford. Wireless full-duplex allows a radio to transmit and receive signals at the same time using a single frequency channel. Kumu's patent pending full-duplex technology changes the basic assumptions on which current wireless radios are built, allowing for improved performance and reduced complexity across a variety of wireless devices and markets.\n\nWe're looking f",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1290.0,
         "region": [
           "us"
         ],
@@ -854,9 +1044,11 @@
         "seniority": "unspecified",
         "stack": [
           "C",
+          "Linux",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -867,16 +1059,21 @@
       "text": "Dash / Android Developer / NYC / Full-time\n\nhttp://dashwith.me/\n\n----\nAre you looking to join a small team that wakes up every day working to innovate the way we transact at restaurants and bars? Are you passionate about building killer software and doing whatever it takes to deliver amazing experiences to our users? We work really hard, and have a lot of fun while we're doing it. If you're not a software hustler, turn back now.\n\nYou will play an instrumental role in our dev culture, establish best practices for our team, work hand-in-hand with both product and code, as well as help create a K",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.11,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.97,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1647.0,
         "region": [
           "us"
         ],
@@ -885,10 +1082,12 @@
         "stack": [
           "Android",
           "Java",
+          "Linux",
           "MongoDB",
           "MySQL"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -899,17 +1098,26 @@
       "text": "Trulia - San Francisco, Full time, (H1B transfers)\n\nInnovation happens every day. http://youtu.be/YJHsr2ep1cw.\n\nTrulia is one of the largest real estate search platforms in the United States with over 40 million visitors across our platform every month. We're solving interesting problems and building cool things in nearly every software engineering discipline.\n\nWe've got lots of interesting and large scale projects to tackle including:\nBuilding our next generation of APIs (for both internal and external consumption)\nCreating new mapping and data visualization experiences\nImproving our web expe",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "health_insurance",
+          "unlimited_pto",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1815.0,
         "region": [
           "us"
         ],
@@ -917,11 +1125,13 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Hadoop",
           "Java",
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -932,17 +1142,24 @@
       "text": "Likely - Shoreditch, London, UK. Full Time & Contract.\n\nClojure + Hadoop + Cascalog + Clojurescript + Redshift + Lambda Architecture http://likely.co/\nFounded in 2011, Likely is at the forefront of social media data collection and analysis having helped companies such as Coca-Cola and the British Government develop highly engaging, relevant presences online.\n\nWe analyse billions of social interactions – such as follows, shares and comments – to better understand how people cluster around things they are passionate about. By looking at brands as a collection of “passion points”, we have found t",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "pto_days"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.18,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 2195.0,
         "region": [
           "uk"
         ],
@@ -950,9 +1167,13 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
-          "AWS"
+          "AWS",
+          "Clojure",
+          "Hadoop",
+          "Redshift"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

@@ -9,17 +9,22 @@
       "text": "Centralway Numbrs AG | https://www.centralway.com/en/ | Software Engineer, Backend (Go / Golang) | Zurich, Switzerland | Onsite | Full-time\n\nCentralway’s is shaping the future of mobile banking.\n\nYour responsibilities as a Software Engineer Backend will include the continuous development and improvement of the current backend and service architecture of Centralway Numbrs. You will administer and support our backend API, databases and other components. Researching and remaining up-to-date with the latest technologies will help you to implement scalability and redundancy in all parts of the appl",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": 1.0,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1390.0,
         "region": [
           "europe"
         ],
@@ -30,7 +35,8 @@
           "AWS",
           "Go"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -41,17 +47,22 @@
       "text": "Human API | Redwood City, CA | Full-time | Onsite | https://humanapi.co/ | jobs@humanapi.co\n\n== About us ==\n\nWe're a small, product-centric team focused on opening the world of health data. We're solving a hard but interesting problem: health data exchange. We ingest health data from thousands of sources and transform that data into an API that developers can build apps on. This allows thousands of developers to create apps that improve peoples' lives. Our investors include a16z, Eric Schmidt, Blue Run Ventures, Max Levchin, Scott Banister, and Alex Payne.\n\n== What you'll help build ==\n\nHuman ",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "health",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2207.0,
         "region": [
           "us"
         ],
@@ -59,7 +70,10 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Ansible",
+          "Cassandra",
           "Docker",
+          "Elasticsearch",
           "Java",
           "Kafka",
           "Machine learning",
@@ -70,7 +84,8 @@
           "Redis",
           "Terraform"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -81,17 +96,25 @@
       "text": "HERE | Senior Software Engineer | 60-75k EUR | Berlin, Germany | Full-Time | ONSITE | VISA\n\nMy team, HERE Datalens is looking for great backend engineers to help us crunch and visualize big geospatial datasets. More about our product here: https://goo.gl/gcj8h3. About HERE in general: http://here.com/\n\nWe are looking for strong backend engineers, ideally with experience in crunching big datasets. Exposure to GIS/Maps is a big plus. We mostly use python in our stack, but depending on the task may switch to Java or C++, so we don’t expect python expertise, but you should be proficient in at leas",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "relocation",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.41,
         "industry_stated": 0.84,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1077.0,
         "region": [
           "europe"
         ],
@@ -103,7 +126,8 @@
           "Java",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -114,17 +138,22 @@
       "text": "MediaAlpha | Frontend Engineer | Redmond (WA), Los Angeles (CA) | ONSITE | Full-time\n\nMediaAlpha innovates at the intersection of programmatic technologies and vertical search media, bringing unparalleled transparency and efficiency to both buyers and sellers. Our demand side platform empowers advertisers to engage transactional-intent consumers programmatically to increase campaign ROI. Through our publisher ad serving and supply side platform, publishers gain complete control over how they manage their inventory and demand sources to maximize overall yield. The MediaAlpha team is comprised o",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1339.0,
         "region": [
           "us"
         ],
@@ -134,7 +163,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -145,17 +175,22 @@
       "text": "Smarkets | Full Time | ONSITE (London, UK)\n\nWe're a modern betting exchange, going technology first to enable proper price competition in a field of fat commissions. Join a small, agile, and fast-growing team, in our beautiful office in St. Katharine Docks.\n\nSmarkets develops a reliable, low-latency, highly concurrent betting exchange based on trading exchange designs. We're also building a fast, modern web interface to allow for a smoother experience. Servicing our users is top priority.\n\nThe Smarkets platform is written predominantly on Python and Erlang, and relies heavily on asynchronous p",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.91,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.94,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1437.0,
         "region": [
           "uk"
         ],
@@ -163,9 +198,11 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Erlang",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -176,17 +213,24 @@
       "text": "Firepoint | Full Stack Rails Developer | Denver, CO | $80,000 - $120,000 with equity, http://firepoint.net\n\nWe're looking for a talented developer who shares a passion for writing quality software to join us in taking Firepoint to the next level. You'll be leveraging the latest technologies while working with a tight-knit team on a modern Ruby on Rails application. You'll be touching all aspects of the tech stack and will have ample opportunities to learn new skills and grow professionally while actively shaping our company's future.\n\nPlease apply at http://stackoverflow.com/jobs/130065/full-s",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.04,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 692.0,
         "region": [
           "us"
         ],
@@ -199,7 +243,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -210,17 +255,24 @@
       "text": "UserGems [YC S14] | Full-Stack Developer | Salzburg or Vienna, Austria, Europe | Onsite, Visa\n\n== COMPANY ==\n\nhttps://www.usergems.com - Identify your most influential customers and turn them into advocates\n\nVision: Bring detailed user information into every company department (Marketing, Sales, Support, HR)\n\nFunding: YCombinator funded, recently raised Seed round, profitable\n\nStack: PHP with Laravel, MySQL, Javascript with AngularJS, currently evaluating: Hadoop & Cassandra\n\n== TEAM ==\n\nCo-Founders with experience at Google, Microsoft & PwC. Both Programmers and BizDev\n\nYou'd be one of the fi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "seed",
         "industry": "enterprise_saas",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 737.0,
         "region": [
           "europe"
         ],
@@ -229,11 +281,15 @@
         "seniority": "unspecified",
         "stack": [
           "Angular",
+          "Cassandra",
+          "Hadoop",
           "JavaScript",
+          "Laravel",
           "MySQL",
           "PHP"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -244,17 +300,22 @@
       "text": "Horizons School of Technology | Architect in Residence | San Francisco, CA | Onsite Full-time or Contract | $120k-180k http://www.joinhorizons.com/\n\nWe are looking for a Architect in Residence who is a seasoned software engineer with 5+ years of experience and deep technical and professional insights.\n\nAs an Architect in Residence you will spend 3-9 months at Horizons. During this time you will mentor students one-on-one, teach advanced subjects in a classroom and oversee ambitious student projects.\n\nWe are a group of entrepreneurs and former engineers in technology who are passionate about br",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.01,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1227.0,
         "region": [
           "us"
         ],
@@ -264,7 +325,8 @@
         "salary_min_usd": 120000.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "5_7"
       }
     },
     {
@@ -275,17 +337,22 @@
       "text": "Seneca Systems (YC S16) is hiring! | Redwood City, CA (ONSITE) | Ruby, Elixir, Postgres, GIS, mobile engineers | http://seneca.systems/careers\n\nWe build technology to help local government employees provide outstanding service to citizens.\n\nBasically we're fixing cities.\n\nMature, values-oriented team (http://seneca.systems/values). We love what we do and are building products that matter!\n\nEmail chris@seneca.systems (no recruiters, outsourcing/freelance/consultancies, or sales)",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.06,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 482.0,
         "region": [
           "us"
         ],
@@ -297,7 +364,8 @@
           "Postgres",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -308,16 +376,21 @@
       "text": "Research Centre for Pharmaceutical Engineering | Software Engineer - Optical Coherence Tomography | Graz, Austria | Onsite | Full Time\n\nDuties and Responsibilities:\n\n* Lead a small software development team working on development of an Optical Coherence Tomography (OCT) tool\n\n* Write image processing and mathematical algorithms to evaluate raw data obtained from an OCT probe\n\n* Define and enhance software scope, architecture and test suite\n\n* Manage software release process, working with the business to ensure customer requirements and timelines are adhered to\n\n* Work with the business to accu",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.96,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.16,
         "industry_stated": 0.46,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1306.0,
         "region": [
           "europe"
         ],
@@ -325,9 +398,11 @@
         "seniority": "unspecified",
         "stack": [
           "C",
-          "C++"
+          "C++",
+          "CUDA"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -338,17 +413,22 @@
       "text": "IBM Design | Front End Developers | Boeblingen (near Stuttgart, Germany) | ONSITE, FULLTIME\n\nWe are looking for front end developers in our Design Studio. We're building the next generation of products for our Analytics brand.\n\nYou'll be working with designers and other front end developers to build prototypes of designs, work on component libraries, websites, web apps, animations... You'll also have the ability to do side activities like filming, or photography.\n\nWe expect skills in git, JavaScript (vanilla if possible), Node.js and CSS. Additional front end skills like SVG are a plus, and an",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "public_or_large",
         "industry": "enterprise_saas",
         "industry_fits": 0.64,
         "industry_stated": 0.78,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.62,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1103.0,
         "region": [
           "europe"
         ],
@@ -359,7 +439,8 @@
           "JavaScript",
           "Node.js"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -370,16 +451,21 @@
       "text": "REMOTE ONLY GitLab -\nWe're hiring production engineers, developers, build engineers, CI/CD Developers, and more, see https://about.gitlab.com/jobs/ We're a remote only company so everyone can participate and contribute equally. GitLab Community Edition is an open-source Ruby on Rails project with over 1000 contributors.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.59,
         "industry_stated": 0.62,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 321.0,
         "region": [
           "unknown"
         ],
@@ -389,7 +475,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -400,17 +487,24 @@
       "text": "Binti | San Francisco, CA | Software Engineer | Full-time, onsite, will transfer H-1B | $100K – $140K, 0.25% – 1.0%\n\nBinti makes software for foster care and adoption agency staff to improve their daily workflow so they can make better-informed decisions and spend more of their time actually helping people. Our mission is to find a safe, loving, and stable family for every child.\n\nBinti's software is used by private adoption agencies in 30 states. We're in the midst of expanding into serving government foster care agencies and are close to reaching two-thirds of the foster care families in the",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "seed",
         "industry": "enterprise_saas",
         "industry_fits": 0.77,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1471.0,
         "region": [
           "us"
         ],
@@ -426,7 +520,8 @@
           "Postgres",
           "Rails"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -437,17 +532,22 @@
       "text": "Temboo | New York, NY | Full-Time | On Site\n\nAt Temboo, we're building a software platform that connects embedded hardware to the internet, enabling people to develop any type of physical computing system. Our software ships on hardware from Samsung, Texas Instruments, Arduino and more, and has been used to build everything from offshore shrimp farming monitors to metal detection systems in industrial bakeries. You can learn about some of our customers here:\n\nhttps://temboo.com/case-studies\n\nAnd you can find our open positions here:\n\nhttps://temboo.com/jobs",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 563.0,
         "region": [
           "us"
         ],
@@ -455,7 +555,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -466,17 +567,22 @@
       "text": "ActiveSphere | Bangalore | ONSITE | Full Time | Full Stack\n\nWe are a consulting company. But thats not the end of it. One of us has written Emacs mode (https://github.com/ananthakumaran/tide) which is now linked directly from official TypeScript website. Another one of us, has written tunnelling solution, and used it to create a remote debugging (debug another browser session over the internet), as POC. We have done high pace React re-writes for clients. Picked up tech, when needed (React, Angular 2, Go, Erlang, Laravel/PHP, GStreamer). Switched to Erlang for messaging system. Helped clients w",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1132.0,
         "region": [
           "india"
         ],
@@ -485,12 +591,15 @@
         "seniority": "unspecified",
         "stack": [
           "Angular",
+          "Erlang",
           "Go",
+          "Laravel",
           "PHP",
           "React",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -501,17 +610,22 @@
       "text": "farewill | JS Engineer | London | Full-time | Onsite | farewill.com\n\nWe’re on a mission to change the way the world deals with death. We’re looking for a software engineer with experience working on an e-commerce platform at scale, to help us architect, build and operate the services and interface that powers the Farewill product. You will be a key player in a team who redefines how people deal with the one thing we all experience.\n\nYou'll work closely with our cofounder and CTO, Tom, together responsible for delivering a service that is transforming tens of thousands, then hopefully millions ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.63,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1517.0,
         "region": [
           "uk"
         ],
@@ -522,7 +636,8 @@
           "C",
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -533,17 +648,22 @@
       "text": "Rome2rio | Software Engineers | Melbourne, Australia | Full Time | ONSITE | http://www.rome2rio.com\n\nRome2rio is looking for smart, talented people to help build our world-class travel search engine and booking service that attracts 10 million visitors per month and is one of the top online travel resources used globally.\n\nWe're hiring for quite a few different development roles:\n\n- Full Stack Web Engineer\n\n- Mobile App Developer\n\n- Front End Developer\n\n- Data Scientist / Software Engineer\n\nFind out more / apply here https://www.rome2rio.com/careers/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 556.0,
         "region": [
           "asia_pacific"
         ],
@@ -551,7 +671,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -562,17 +683,22 @@
       "text": "HealthEquity | Software Engineer | Draper, UT",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.06,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.07,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 45.0,
         "region": [
           "us"
         ],
@@ -580,7 +706,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -591,17 +718,22 @@
       "text": "Sailthru | http://www.sailthru.com/ | New York, NY\n\nOpen Engineering Positions:\nLead Data Platforms Engineer | New York, NY | http://grnh.se/rx3ovf1\nSenior Scrum Master | New York, NY | http://grnh.se/kpg32i1\nSenior Site Reliability Engineer | New York, NY | http://grnh.se/x2mu0b1\n\nThe Sailthru Customer Retention Cloud℠ helps modern marketers at leading retail and media companies build deeper, longer-lasting relationships with their customers. Sailthru personalizes individual customer experiences across digital communication channels—in email, on a brand’s website and in their mobile applicati",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.66,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.52,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1069.0,
         "region": [
           "us"
         ],
@@ -609,7 +741,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -620,17 +753,24 @@
       "text": "Scribd | San Francisco, CA | Senior Backend Engineer | VISA | ONSITE\n\nScribd is a reading subscription that gives you access to the best books, audiobooks, magazines, and more. Our mission is to re-imagine the way the world reads!\n\nMy team is looking for smart engineers to work on recommendations, search, and payments (no experience in these areas required). We are a small team which means you can have a ton of impact and bring in your own ideas. We work on an ambitious project to organize all the books in the world and use it to take book discovery to the next level.\n\nScribd has a very friend",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.3,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1438.0,
         "region": [
           "us"
         ],
@@ -647,7 +787,8 @@
           "Scala",
           "Spark"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -658,17 +799,24 @@
       "text": "GiveCampus | Full Stack Engineer | Washington, DC | onsite | full-time | $80,000 - $120,000 + Equity\n\nGiveCampus builds fundraising software for educational institutions, and are looking for great engineers who want to build out the next suite of tools all schools will use. We're growing at an awesome pace, and now need more motivated engineers to help us build out the features and products schools want!\n\nWho we are looking for:\nA Ruby and Rails expert, who comfortable working on the front-end and back-end. You should enjoy building new features, from thinking up the idea, to supporting it in ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.45,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 807.0,
         "region": [
           "us"
         ],
@@ -681,7 +829,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -692,17 +841,22 @@
       "text": "Neumitra - digital medicine into daily life - Boston, MA\n\nWe're hiring data-driven engineers including:\n\n- Embedded developers for real-time biofeedback and sensor fusion\n\n- Mobile developers for hooks into apps for daily life management\n\n- Front-end developers to show how stress impacts large groups\n\n- Algorithms engineers for extracting insights from data streams\n\n- QA including device, mobile, and platform applications\n\nOur stack runs from sensors to servers. We use machine learning and statistical learning techniques to build personalized and population health technologies for daily life d",
       "answers": {
         "ai_native": 0.67,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1153.0,
         "region": [
           "us"
         ],
@@ -712,7 +866,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -723,16 +878,23 @@
       "text": "Senior Software Engineer (Amazon Web Services RDS) | Vancouver, Canada; Seattle, WA | Full-time | ONSITE, VISA |\n\nRDS is looking for a Senior Software Engineer to join our team working on AWS scale big-data analytics problems. RDS Performance Insights team is working on a new and as yet unreleased service which will reshape the way that customers use databases and redefine industry expectations of what a modern, enterprise grade cloud-native database provides. Leveraging a number of AWS services including Kinesis and EMR/Spark, our mandate is to provide actionable insights into underlying data",
       "answers": {
         "ai_native": 0.07,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.71,
         "funding_stage": "public_or_large",
         "industry": "devtools_infra",
         "industry_fits": 0.97,
         "industry_stated": 0.92,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2557.0,
         "region": [
           "canada",
           "us"
@@ -744,7 +906,8 @@
           "Machine learning",
           "Spark"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "8_plus"
       }
     },
     {
@@ -755,17 +918,22 @@
       "text": "ezhome | Silicon Valley | Full-time | REMOTE | Founder is former oDesk founder | Software Engineer - Frontend, Backend, Fullstack, Android, and iOS\n\nAt ezhome we've transformed the ease with which customers care for their homes. Whether it's our subscription based lawn care service or one of our many other home service products, we're providing homeowners with clear pricing, continuos communication, on demand availability, and amazing service and support.\n\nWe're founded by two previously successful entrepreneurs - one who co-founded oDesk, and we're a remote-first company. Our goal is to hire ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.96,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.7,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1208.0,
         "region": [
           "us"
         ],
@@ -776,7 +944,8 @@
           "Android",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -787,17 +956,22 @@
       "text": "Close.io | REMOTE\n\nWANTED:\n\n- Product Designer (be the first!)\n\n- Senior Frontend Engineer (React.js & Backbone.js)\n\n- Full Stack Python/JS Engineers who sweat Product Details\n\nWHO ARE WE:\n\nAt Close.io we’re building the sales communication platform of the future. We’ve built a next-generation CRM that eliminates manual data entry and helps sales teams close more deals. We are hiring product-focused engineers to help us unify the world's sales calls and emails into one beautiful workflow.\n\nhttps://close.io\n\nLearn more or apply: https://jobs.lever.co/close.io/?lever-source=HNDec06",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 586.0,
         "region": [
           "unknown"
         ],
@@ -809,7 +983,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -820,17 +995,22 @@
       "text": "Repl.it | Software Engineer | San Francisco, CA | onsite https://repl.it/site/jobs\n\nWe're building a platform for teachers to teach programming, for students to practice programming, and for programmers to run and share code on the go.\n\nSince our Classroom product (https://repl.it/classroom) launch we've been growing exponentially and as a team of 3 we can barely keep up with the growth. We are still at the seed stage so it's a great time to join the company and have a big impact.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "other",
         "industry_fits": 0.08,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 485.0,
         "region": [
           "us"
         ],
@@ -838,7 +1018,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -849,17 +1030,22 @@
       "text": "Minimax Labs | London, UK | ONSITE | Java (essential), Python, Machine Learning, Optimisation, Operations Research, AWS, HPC\n\nWe optimise complex global operations for billion dollar businesses, creating massive value out of thin air and a little cloud. Our systems harness serious computing power and are used by our enterprise clients daily.\n\nWe are looking for strong engineers who love to work on extremely challenging problems and develop cutting edge technology to grow our small, dedicated team of PhDs and engineers at our central London office. Work on our next generation system features: f",
       "answers": {
         "ai_native": 0.14,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.47,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 766.0,
         "region": [
           "uk"
         ],
@@ -872,7 +1058,8 @@
           "Machine learning",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -883,16 +1070,21 @@
       "text": "Coboc | Embedded Software Engineer C/IoT/E-Bikes | Heidelberg | ONSITE, FULL-TIME\n\nWe are developing, producing and selling electric bikes of a new kind. They stand out by a award winning design, light weight, unique usability and a fully integrated drive system that we develop completely in house including motor control, battery management and bluetooth connectivity. We are selling these for the fourth year now and need support to expand our technological lead.\n\nAt coboc you will:\n* Architect, implement embedded software in C for our integrated drive system\n* Develop new features in short dev",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
+        "post_length": 1361.0,
         "region": [
           "unknown"
         ],
@@ -902,9 +1094,11 @@
         "stack": [
           "C",
           "C++",
+          "Linux",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "3_4"
       }
     },
     {
@@ -915,17 +1109,22 @@
       "text": "ZeroCater - San Francisco - ONSITE\nhttps://zerocater.com/careers\n\nHelp bring people and ideas together through food. Our engineers appreciate good design, whether it’s clean API or good UI. Enjoy working with Python or Ruby and have worked with Django or Rails. Here are our technical roles we currently looking for:\n\nFull-Stack Engineers + Head of Product\n\nThe work we do is bringing tens of thousands of people together every day. Shared meals are a fundamental human experience. To us, food fosters relationships and new ideas. We’re obsessed with improving our customers’ lives by making every me",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.8,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 672.0,
         "region": [
           "us"
         ],
@@ -938,7 +1137,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -949,17 +1149,25 @@
       "text": "commercetools | Scala Backend Engineer | Berlin, Germany | ONSITE, VISA https://commercetools.com\n\nOur team of five experienced Scala Devs is building the API of commercetools. Our customer base is growing fast (our API calls grew by a factor of 5 this year). We work a lot on scaling the platform. Because our product is for developers, we work closely with our Product Owners and contribute to the documentation.\n\nWe're looking for strong Backend Engineers with a love for functional programming. We're hiring for both a senior and a junior position.\n\nStack: Scala, MongoDB, ElasticSearch, Cassandr",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "parental_leave",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.88,
         "industry_stated": 0.84,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1309.0,
         "region": [
           "europe"
         ],
@@ -967,10 +1175,13 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
+          "Cassandra",
+          "Elasticsearch",
           "MongoDB",
           "Scala"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

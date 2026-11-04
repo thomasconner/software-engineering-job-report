@@ -9,16 +9,21 @@
       "text": "Austin, TX (or anywhere for the right person) -- Ruby + Front-End\n\nSmall team (3). Bootstrapped. Profitable. 1.5 years old. High Traffic. High Visibility. Good Times.\n\nDoStuff Media runs:\n* The social and artist discovery portions of many large music festival websites: Lollapalooza, Austin City Limits, Jazz Fest, and many more\n* Local Entertainment guides in 3 cities (more launching soon): Do512.com (austin), Do312.com (chicago), Do713.com (Houston)\n\nWe've got a nice piece of local pretty figured out and are growing (revenue/footprint not team) quickly. Need someone that is fast/good/gets desi",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "bootstrapped",
         "industry": "media_consumer",
         "industry_fits": 0.81,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 769.0,
         "region": [
           "us"
         ],
@@ -27,7 +32,8 @@
         "stack": [
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -38,16 +44,21 @@
       "text": "Los Angeles, CA in the Downtown Culver City area.\n\nWe are looking for an on-site back and/or front end software developer with experience in Java/Groovy, javascript, AWS, mysql&|nosql which isn't afraid of numerical analysis or statistical modeling. We are working on a web analytics optimization platform in an early stage startup. The esoteric job descriptions are listed here: http://www.jumptime.com/jobs\n\nYou can shoot me an email at tom@jump-time.com if it sounds like something you'd be interested in.",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.68,
         "industry_stated": 0.93,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 508.0,
         "region": [
           "us"
         ],
@@ -59,7 +70,8 @@
           "JavaScript",
           "MySQL"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -70,16 +82,21 @@
       "text": "Washington DC - EverFi\n\nWe're looking for Rails and Flash Developers.\n\nemail me - ben at everfi dot com",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.01,
         "industry_stated": 0.04,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 103.0,
         "region": [
           "us"
         ],
@@ -88,7 +105,8 @@
         "stack": [
           "Rails"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -99,16 +117,21 @@
       "text": "Quebec City, Canada\n\nWe're looking for mobile (iOS and Android) developers as well as Web (Ruby, Rails, Sinatra) developers.\n\nhttp://www.mirego.com\n\nAlso, we have a nice little \"life @ Mirego\" website we built to explain why you should work with us :) → http://vie.mirego.com",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.07,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 275.0,
         "region": [
           "canada"
         ],
@@ -120,7 +143,8 @@
           "Ruby",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -131,25 +155,35 @@
       "text": "San Francisco, CA\n\nVigLink - Senior Java Developer - http://www.viglink.com/jobs#/senior-java-dev\n\nVigLink monetizes outbound traffic using affiliate programs and links already present in content. We are embarking on a very ambitious optimization strategy that will remind you of AdWords both in initial simplicity and potential economic scale. Technologies you will get to work with: Hadoop, Lucene, Cassandra & Nutch.\n\nWhile the company is not funded by Y Combinator, it has a similar feel - we were part of the Lightspeed Summer Grants program in 2009 and are staffed by small team of young energe",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_grad": 0.94,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 976.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "senior",
         "stack": [
+          "Cassandra",
+          "Hadoop",
           "Java"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -160,15 +194,20 @@
       "text": "Java Development opportunities for Agile Enthusiasts. Only those with a passion for creativity and innovation as well as a drive for excellence need apply.\n\nPillar Technology is rapidly increasing its team in the Detroit Metro area. We have multiple projects that need strong agile developers who feel comfortable coaching others on practices like tdd, continuous integration, and pair programming. We are entering an age where our clients are embracing full Agile transformations and Pillar is at the heart of it. If you want to be part of these exciting opportunities, please send resumes to rhowar",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.92,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1631.0,
         "region": [
           "unknown"
         ],
@@ -177,7 +216,8 @@
         "stack": [
           "Java"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "3_4"
       }
     },
     {
@@ -188,26 +228,33 @@
       "text": "Groupon is hiring all kinds of computery people in Chicago and Palo Alto - programmers, designers, operations, testing, support, Big Data, performance, managers, etc.\n\nFull listings at http://groupon.com/techjobs\n\nMost jobs are in both locations, and there's the ability to move or travel as desired.\n\nA couple months ago on this thread, I said Groupon was planning on hiring 100 engineers this year, and we're on pace to hit that goal. The people we hired are so great that instead of work halting to train them, we have increased the rate that we release new features and products and our software ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.83,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.78,
         "industry_stated": 0.93,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1572.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Jenkins",
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -218,16 +265,23 @@
       "text": "San Francisco - Samasource is hiring developers and designer\n\nSamasource is a distributed work system similar to Mechanical Turk, but aimed at eradicating global poverty by providing work to the people on the lowest rungs of the economic ladder; those who lost \"the birth lottery.\" See the TEDx talk our founder gave: http://vimeo.com/9305118.\n\nWe're hiring Rails developers and a designer, and we'll relocate promising candidates to the Bay Area!\n\nhttp://www.samasource.org/about/samacareers",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "relocation"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 492.0,
         "region": [
           "us"
         ],
@@ -236,7 +290,8 @@
         "stack": [
           "Rails"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -247,16 +302,21 @@
       "text": "Santa Monica / Los Angeles, CA: VOKLE, Inc. ( http://www.vokle.com )\n\nFull Time: Flash/Flex developer. If you think dealing with tricky issues with live streaming video is fun, this might be the job for you. We've got massive growth and we deal with that on a large scale. Ideally you're the sort of developer who does more than just flash/flex, and would welcome stepping into other roles (rails dev, ops.) as well.\n\nPaid Intern: We're looking to hire a paid intern to hack on our Ruby/Rails site. We're committed to code quality, and believe strongly in testing.\n\nAbout VOKLE:\n\nWe were started a ye",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.14,
         "industry_stated": 0.31,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 977.0,
         "region": [
           "us"
         ],
@@ -266,7 +326,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -277,15 +338,20 @@
       "text": "Phonebooth.com is a hosted phone service. We are hiring UX and Erlang developers.\n\nFulll listings at http://bandwidth.com/about/join/careers.html\n\nWe use Erlang, PHP, jQuery, git, Selenium, Jenkins, iOS and Android, and more.\n\nApply online at the links above to find out more.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.32,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 276.0,
         "region": [
           "unknown"
         ],
@@ -293,10 +359,13 @@
         "seniority": "unspecified",
         "stack": [
           "Android",
+          "Erlang",
+          "Jenkins",
           "PHP",
           "iOS"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -307,23 +376,29 @@
       "text": "I'm hiring a software developer for my group at Janelia Farm Research Campus, in Ashburn, VA. The goal will be to develop workflow for extracting wiring diagrams of neuronal circuits from large-scale serial electron microscopy of brain tissue. You can read about what I'm doing at http://www.hhmi.org/research/fellows/bock.html, and browse data at http://bit.ly/ga3Cfk. A detailed writeup of the approach was published a few weeks ago in an article at Nature.\n\nI think the ideal candidate could come from a variety of backgrounds -- someone who had previously written or contributed significantly to ",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.05,
         "industry_stated": 0.69,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 787.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -334,16 +409,21 @@
       "text": "Bay Area/SLC, Ut - INTERN, FULLTIME\n\nFusion-IO - Tools Engineer\n\nWe are growing fast and shipping lots o product. Python is used all over the place where lower level languages aren't necessary.\n\nTools: Python/Django/JQuery/Postgres/Couchdb/emacs|vim/etc\n\nEmail: mharrison at fusionio.com (job isn't posted on website)",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.14,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.96,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 317.0,
         "region": [
           "us"
         ],
@@ -354,7 +434,8 @@
           "Postgres",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -365,16 +446,21 @@
       "text": "Berlin, Germany & San Francisco, California\n\nSoundCloud - http://soundcloud.com/jobs\n\nSoundCloud is hiring! Back-end Developers, Front-End Developers, API Developers, VP Eng, Developer Evangelist, Partner Integration Manager, Systems Administrator, and Music Information Retrieval Developer.\n\nFounded in late 2007, SoundCloud is an international start-up headquartered in Berlin with smaller satellite offices in London and San Francisco. With the 50+ people onboard, we’ve got 11+ nationalities covered and a range of interests so diverse that you’ll fit in all over the place!",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.98,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.13,
         "industry_stated": 0.15,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 578.0,
         "region": [
           "europe",
           "us"
@@ -382,7 +468,8 @@
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -393,16 +480,21 @@
       "text": "Polyconseil - Paris, France - Django developer\n\nWe are a small strategy consulting company focused on exploring new fields of activity. We have launched several spin-offs in the past years.\n\nWe are creating a large scale car sharing service (several thousand electric vehicles), launching in Q4. We are looking for highly productive and motivated developers to join our backend development team.\n\nInterns with strong programming skills and learning abilities are welcome.\n\nDrop me a line (aymeric.augustin@<company>.fr) or apply online at http://www.polyconseil.fr/careers/",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.38,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 573.0,
         "region": [
           "europe"
         ],
@@ -411,7 +503,8 @@
         "stack": [
           "Django"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -422,16 +515,21 @@
       "text": "San Francisco.\n\nCloudkick @ Rackspace. We really need some more front-end engineers. If you're good with JavaScript please give us a call. http://cloudkick.com/careers\n\nWe're about to move into a brand new office, so it should be fun. Offer a lot of freedom and challenging responsibilities.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.11,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 291.0,
         "region": [
           "us"
         ],
@@ -440,7 +538,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -451,16 +550,21 @@
       "text": "Songkick (YC'07, London) is hiring again. We're a\nsmall company (about 20 people) that's working to improve the live music\nscene for everyone involved. We help fans track their favourite artists so\nthey never miss them live, and we help artists get the word out about\nupcoming shows.\n\nIn the last year we've seen tremendous growth in our user base and with our\ncommercial partnerships, including integrations with YouTube and Yahoo!\nSearch. We just launched our first major label integration with EMI and are\nworking on plenty more. There's a lot of work to do scaling our team and our\ntechnology sta",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.9,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1085.0,
         "region": [
           "uk"
         ],
@@ -469,7 +573,8 @@
         "stack": [
           "Ruby"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -480,22 +585,30 @@
       "text": "Etsy, the global marketplace for buying, selling and discovering handmade goods, is hiring across the board in Engineering and Product.\n\nWe value iterative development, minimal design aesthetics and deep passion for creating the things you care about (whether it's an oak table or a Hadoop cluster).\n\nCheck us out at www.etsy.com/jobs\n(All positions are local in Brooklyn, New York unless otherwise marked)",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.12,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 406.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          "Hadoop"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -506,16 +619,21 @@
       "text": "NewsCred is hiring in New York City.\n\nLots of positions, but our main focus is to find engineers who are passionate about information retrieval and big data. So any interest or experience in Solr, Lucene, NLP, Machine Learning, etc would be a great fit for the types of problems we're working on.\n\nAnd we have unlimited vacations!\n\nFull listing at http://platform.newscred.com/jobs",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.13,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 381.0,
         "region": [
           "us"
         ],
@@ -524,7 +642,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -535,16 +654,21 @@
       "text": "San Francisco, CA\n\nSongbird is hiring full time developers for Android, desktop (C++), web services, and build/release. We're also looking for a good technical product manager.\n\nOpen positions are at http://getsongbird.com/jobs/, and feel free to contact me directly via the email in my profile with any questions.\n\nWe're currently shipping media players on Windows, Mac, and Android, and we're looking for people who want to help build out a seamless media experience across platforms and devices.\n\nThe positions are in SF, but we'll definitely figure out how to help get you here if you're looking ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.98,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 612.0,
         "region": [
           "us"
         ],
@@ -554,7 +678,8 @@
           "Android",
           "C++"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -565,16 +690,21 @@
       "text": "7digital (London UK) is hiring developers\n\nhttp://about.7digital.net/Careers/DevelopmentTeam/Developer\n\nCompany:\n7digital is a leading digital B2B media delivery company based in London and operating globally. We provide Cloud-based services, MP3 music, ebooks and video services to a wide and diverse range of partners around the world.\n\nStack:\nC#, Ruby, JavaScript, ASP.Net MVC, NHibernate, Windsor, StructureMap, OpenRasta, NUnit, RhinoMocks, ReSharper, NDepend, Cucumber, RSpec, Rake, Selenium, Watir, Git, Subversion, SQL, Solr/Lucene, MogileFS\n\nTeam:\nYou’ll be joining a team of extremely enthu",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1423.0,
         "region": [
           "uk"
         ],
@@ -583,9 +713,11 @@
         "stack": [
           "C#",
           "JavaScript",
-          "Ruby"
+          "Ruby",
+          "SQL"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -596,23 +728,31 @@
       "text": "New York City, NY\n\nFront End engineer @ Profitably\n\nWe just raised $1.1M, and we are looking to hire our 6th person. Our 3rd co-founder was UX & Visual Design. We couldn't take design more seriously, and we've got cash and equity for you if you're the one.\n\nProfitably is business analytics, simplified. More at Profitably.com\n\nMore on the job at: http://jobs.37signals.com/jobs/8551",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 383.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -623,16 +763,21 @@
       "text": "Kreuzberg, Berlin, Germany - Python (Django) developer - http://www.jonasundderwolf.de\n\nWe're a small web development agency taking on bigger projects. We use Django, FeinCMS, git, PostgreSQL, Fabric to build faster, prettier, and more usable sites for our clients. Looking to start on a product of our own later this year as well.\n\nOn-site only at this point - Berlin is a great site to be, though!",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 399.0,
         "region": [
           "europe"
         ],
@@ -643,7 +788,8 @@
           "Postgres",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -654,16 +800,21 @@
       "text": "Boulder, CO - Gnip (http://gnip.com) - Two engineering positions, multiple sales/marketing positions:\nhttp://gnip.com/careers\n\nAbout Gnip:\nGnip's software collects, processes and delivers hundreds of millions of activities a day from a wide variety of social media APIs. Using an agile process with weekly iterations and bi-weekly deployments, we take a pragmatic approach to building our software which requires a broad palette of language experience, framework understanding, and software environments.\n\nTechnology we use:\nRuby/JRuby/Rails,\nJava,\nAmazon Web Services (EC2/S3/RDS),\nMySQL,\nGit/GitHub",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 756.0,
         "region": [
           "us"
         ],
@@ -676,7 +827,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -687,16 +839,21 @@
       "text": "New York, NY - No remote possible, sorry\n\nCellDivision is an established MedEd agency. We are 50 people strong, have an easy going culture and interesting projects going on. To get more information about us as a company, please visit http://www.celldivision.com\n\nTechnologies we currently leverage:\n\nPHP, Perl, Node.JS, haXe, JavaScript, jQuery, NSIS, MySQL, MongoDB, Nginx, Varnish, RabbitMQ, HTML5 Canvas, Mobile Development (iPhone, iPad, Android).\n\nWe are looking for experienced and enthusiastic developers who can come up with the best way to get something done (whether using our current techn",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.8,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 725.0,
         "region": [
           "us"
         ],
@@ -708,9 +865,11 @@
           "MongoDB",
           "MySQL",
           "Node.js",
-          "PHP"
+          "PHP",
+          "Perl"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -721,16 +880,21 @@
       "text": "REMOTE - (1) iOS/Mac Developer (2) Java / Android Developer (3) HTML/CSS/JS Developer\n\nHighly Profitable Mac/iOS Startup Hiring ($300 to $500/day, or monthly/yearly equivalent)\n\nWe are one of the leading developers on the iOS and Mac platforms with dozens of successful apps, adding around one million new users per month and doubling our revenues every quarter.\n\nYou need to be:\n\n1. Passionate\n\n2. Dedicated\n\n3. Awesome at what you do\n\nIf you have strong experience and a portfolio to back yourself up, then please email us at: throwawayappdev@gmail.com\n\nImmediate start available.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.25,
         "industry_stated": 0.89,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 582.0,
         "region": [
           "unknown"
         ],
@@ -742,7 +906,8 @@
           "JavaScript",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -753,16 +918,21 @@
       "text": "Vancouver, BC, Canada\n\nTelecommuting is an option.\n\nClio (http://www.goclio.com) is hiring talented Ruby on Rails developers. We are a fast-growing provider of practice management software for lawyers in small firms. Think of Clio as a mashup of Highrise, FreshBooks, Basecamp, and Harvest tailored to the specific project management needs of lawyers that practice as solos or in small firms (which is, by the way, 80% of lawyers in North America).\nWe're a small, fun-loving and tight-knit team with team members spread across North America. We're looking for team players that also know how to work ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 823.0,
         "region": [
           "canada"
         ],
@@ -772,7 +942,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -783,16 +954,23 @@
       "text": "SAN FRANCISCO, CA - (on-site only, we can help relocate)\n\nQuizlet (http://quizlet.com/) - creating a better way to study, over 1 million users, great JavaScript games, voice recognition, text-to-speech audio\n\nCheck out jobs page for real-time stream of what people are studying: http://quizlet.com/jobs/\n\nLooking for: great back-end (PHP5, Memcached, MySQL, etc.) and front-end (JavaScript/Ajax) developers who want to work on products to help making studying better for 3 million people/month.",
       "answers": {
         "ai_native": 0.08,
+        "benefits": [
+          "relocation"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 494.0,
         "region": [
           "us"
         ],
@@ -802,7 +980,8 @@
           "JavaScript",
           "MySQL"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -813,26 +992,33 @@
       "text": "Pittsburgh PA: invivodata\n\nhttp://www.invivodata.com/aboutus/careers/product-development-software-developer/\n\nThe Products group is small (just three devs in PGH, plus four in Santa Cruz), and we do a mix of web and device/mobile work. We are mostly a .NET/C# shop, but my current project is heavy on the Javascript.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.26,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.06,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 316.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [
+          ".NET",
           "C#",
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -843,15 +1029,20 @@
       "text": "I am a data mining engineer at polyvore and we are looking for frontend/backend/generalist/data mining engineers.\n\nBelow is our official pitch :), I am regular lurker here at HN, you can email me at bhaskar@polyvore.com if you want to know more, or just apply to the jobs link below.\n\nCheers!\n\nPolyvore is looking for stellar software engineers to join our team. If you're at all interested, I'd love to grab coffee or have you stop by our office to meet the team.\n\nA little background on the company -- Polyvore is a social shopping platform. Our user community curates and merchandises products fro",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.95,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 2162.0,
         "region": [
           "unknown"
         ],
@@ -860,7 +1051,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -871,23 +1063,29 @@
       "text": "UrbanDaddy is hiring two Senior LAMP Engineers in Union Square, NYC.\n\nHere's a recent job description: https://gist.github.com/9d91abc30fdb07f7da45\n\nUrbanDaddy is a leading, exclusive email magazine that covers the latest in restaurants, nightlife, fashion, experiences and products for hip, trend-seeking professionals. We are looking for a full-time Senior LAMP Engineer to help develop our products in web, email and mobile and channels.\n\nFeel free to send an email with your resume and any introduction: hn-engineerjob@urbandaddy.com",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.86,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 537.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

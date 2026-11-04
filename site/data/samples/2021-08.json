@@ -9,17 +9,22 @@
       "text": "Modern Treasury (https://moderntreasury.com) | San Francisco | Full-Time | REMOTE\n\nWe're hiring full time software engineers to help us build a reliable and scalable payment operations hub. Our tools automate the full cycle of money movement—from payment initiation, through approvals, to reconciliation—and are accessible through web application or API. Businesses in all kinds of industries use Modern Treasury to programmatically power their mission-critical payments and the subsequent reconciliation to their transaction history. We work with customers on over a dozen banks today supporting a w",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 719.0,
         "region": [
           "us"
         ],
@@ -27,7 +32,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -38,17 +44,22 @@
       "text": "CollegePlannerPro | Head of Engineering | Remote | Full-time (W2) US-based\n\nCollegePlannerPro (www.collegeplannerpro.com) is the market-leading practice management software for independent college counselors. Our robust SaaS platform provides a CRM and suite of complimentary tools (scheduling, invoicing, college data, etc.) that allow counselors to efficiently manage the college admissions process for their student clients. We are seeking a talented Head of Engineering who will be responsible for architecture, development, quality assurance, and maintenance on our existing platform, as well as",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.88,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1070.0,
         "region": [
           "us"
         ],
@@ -59,12 +70,14 @@
           "AWS",
           "Docker",
           "JavaScript",
+          "Linux",
           "MySQL",
           "Node.js",
           "React",
           "Redis"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -75,17 +88,24 @@
       "text": "PredictionHealth | Senior Engineer | Remote (US based) | Full-time | https://predictionhealth.com\n\nOur service helps doctors provide better care to their patients every day. Candidates will get to work at a mission-driven startup where the primary goal is to help bring doctors and AI together for better, more efficient patient care. We are a 10-person funded startup full of friendly, collaborative, and positive people working remotely. This position will report directly to one of the MD/PhD co-founders and include many opportunities for fast-paced experiences with the potential for rapid advan",
       "answers": {
         "ai_native": 0.97,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1921.0,
         "region": [
           "us"
         ],
@@ -98,7 +118,8 @@
           "Kubernetes",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -109,17 +130,22 @@
       "text": "aware3.com | Kansas City, MO | REMOTE, Onsite | Full-time\nWe help non-profits (churches, schools, etc) engage and grow their communities.\n\nSeeking JS Engineers & PHP Engineers\nRemote | KC - Apply: https://aware3.com/careers\n\nRead about our great Engineering team's values here:\nhttps://medium.com/@aware3/tapas-teamwork-850b0b06f43d",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.47,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 332.0,
         "region": [
           "us"
         ],
@@ -130,7 +156,8 @@
           "JavaScript",
           "PHP"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -141,17 +168,22 @@
       "text": "West Monroe | Los Angeles | Full-time\n\nWest Monroe is looking for a Technology Consultant to join our team of experts supporting M&A transactions. This role allows you to work side-by-side with our team of resident experts (including former CTOs) to assess risks and opportunities within custom software applications across a wide range technology stacks and industries. Additionally, with our flexible career model, you are able to participate in projects within our technology practice to continually expand your skillset while working with cutting edge tools, platforms, and frameworks. This is an",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.73,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1159.0,
         "region": [
           "us"
         ],
@@ -163,7 +195,8 @@
           "Java",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -174,17 +207,24 @@
       "text": "UserLeap | Full-Stack/Front-End/Backend/DevOps/and more | Bay Area, LA, or Austin | Full-time | Generous comp, equity, benefits | www.userleap.com\n\nUserLeap is the first continuous research platform that allows companies to know in real-time why customers sign-up, engage, and remain loyal to their products. We recently raised our Series B led by a16z and are also backed by Accel and First Round Capital.\n\nWe've been named a startup to breakout in 2021, our founder has five previous exits, and we were recently named a top SF startup and a certified Great Place to Work. This is your chance to joi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "series_b",
         "industry": "enterprise_saas",
         "industry_fits": 0.84,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 844.0,
         "region": [
           "us"
         ],
@@ -192,7 +232,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -203,17 +244,22 @@
       "text": "Wealthfront | Backend Engineer and Senior Backend Engineer | Palo Alto, Boston, US-remote OK | https://www.wealthfront.com\n\nBuild the backend systems that our clients trust to automatically manage and trade more than $20B in assets using advanced tax-optimized investing strategies. Projects range from scaling and optimizing the performance of our current investing, trading, and brokerage systems to building new systems to facilitate new investment products and strategies.\n\n- Mostly Java. Scala nice to have.\n\n- On-call rotation\n\n- Good balance of opportunities for growth as an engineer without ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 891.0,
         "region": [
           "us"
         ],
@@ -224,7 +270,8 @@
           "Java",
           "Scala"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -235,17 +282,24 @@
       "text": "Happy Money | Sofware engineers all levels | Full-time | Remote, Visa | https://happymoney.com/careers\n\nHappy money is changing Americans relationship to debt by helping them create good financial habits. We are trying for an IPO in a couple of years.\n\nI am the engineering manager and love the working atmosphere.\n\nTech stack: Python, Java, Salesforce\n\nYou can apply directly or drop me an email leisenming AT protonmail DOT com\n\nOnly looking for folks physically in the USA.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.09,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.38,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 476.0,
         "region": [
           "unknown"
         ],
@@ -256,7 +310,8 @@
           "Java",
           "Python"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -267,25 +322,33 @@
       "text": "Codecov | REMOTE | https://angel.co/codecov\n\n## Account Executive | Full-time | REMOTE only\n## Product Support Specialist | Full-time | REMOTE only\n## Infrastructure Security Engineer | Full-time | REMOTE only\n## Product Security Engineer | Full-time | REMOTE only\n## Data Engineer | Full-time | REMOTE only\n\nCodecov is the world’s leading code coverage tool. We are used by over a million software developers around the world, from marquee open source projects to the largest global companies. Our team is lean (~20 people). We are a remote-first, globally distributed company, with team members loc",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.13,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3488.0,
         "region": [
           "unknown"
         ],
         "remote_token": 1.0,
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "remote"
+        "stack": [
+          "Datadog"
+        ],
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -296,17 +359,22 @@
       "text": "Cooklist | Backend Django & Data Engineer | Austin, TX / Remote | https://cooklist.co\n\nCooklist is an all-in-one grocery app that works with 80+ retailers and is used by hundreds of thousands of people. Think Pinterest + Instacart + Mint.com combined into one.\n\nWhat enables this that's different than anything before is the AI models and backend infrastructure we've built to connect households, retailers and recipes together.\n\nWe're on a mission to connect the grocery industry, build healthy humans and end food waste. We just raised a $2.4M seed led by Mercury Fund and are looking to hire excep",
       "answers": {
         "ai_native": 0.89,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "seed",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 747.0,
         "region": [
           "us"
         ],
@@ -316,7 +384,8 @@
         "stack": [
           "Django"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -327,17 +396,24 @@
       "text": "Jinso | Sr. Software Engineer | Remote | Full-time\n\nJinso is a pre-seed startup with aims of shaking up educational institutions and open access to the publishing world. Right now, we are focusing on making a tool that aims to make research collaboration much more effective. The grand aim is to enable researchers to find \"diamonds in the rough\" in the form of students and to open up access to higher forms of advising students would otherwise not be able to get.\n\nwww.jinso.com\n\nRight now, we are looking to hire our first engineer who will report directly to the CTO. As the first engineer, you w",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1099.0,
         "region": [
           "unknown"
         ],
@@ -347,7 +423,8 @@
         "stack": [
           "Elixir"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -358,17 +435,22 @@
       "text": "StackSource | Software Engineer | Remote | Full-Time | https://www.stacksource.com/\n\nWe're a small team looking to add a new mid level engineer. We went through the Techstars/Barclays accelerator in 2016. Our current product team is 5 people, with approximately 20 people working in sales. We are looking for to hire a key engineering role, someone capable of working across the full stack, with more a focus toward back end. Please contact me at nathan@stacksource.com for more information.\n\nOur platform helps commercial real estate owners, developers, and capital advisors manage their capital for",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "optional",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.11,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1782.0,
         "region": [
           "unknown"
         ],
@@ -382,11 +464,14 @@
           "Java",
           "JavaScript",
           "Node.js",
+          "Objective-C",
           "Postgres",
           "Python",
-          "React"
+          "React",
+          "SQL"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -397,17 +482,22 @@
       "text": "eIQ Mobility | Software Engineers (all levels) | San Francisco (preferred, REMOTE TBD) | Full-time | eIQMobility.com\n\nWe're decarbonizing transportation at scale, and we need software engineers to help. [1, 2] Your first job will be to electrify thousands of school buses [3], which will help kids' health directly, reduce emissions substantially, and also improve the uptake of solar energy [4]. America needs to replace 1 billion machines [5], and you will take on a substantial chunk of this crucial work leveraging electric vehicles and clean energy to reduce climate change. I'm director of engi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "climate_energy",
         "industry_fits": 0.97,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.41,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1278.0,
         "region": [
           "us"
         ],
@@ -415,7 +505,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -426,17 +517,24 @@
       "text": "Maven | Full-stack, Front-end Engineers | Remote (US timezones) | Full time | $120-$170k + equity | https://maven.com\nMaven helps anyone build a cohort-based course and deliver an incredible student experience at scale.\n\nUnlike small workshops or on-demand online classes, we integrate both live and asynchronous components to engage students without needing to scale up instructor time or support staff.\n\nOur mission is to democratize education through online cohort-based courses. Right now, many experts and creators don't have the team, budget, or bandwidth to create a high quality cohort-based ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.01,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1716.0,
         "region": [
           "unknown"
         ],
@@ -447,12 +545,14 @@
         "seniority": "senior",
         "stack": [
           "AWS",
+          "FastAPI",
           "Next.js",
           "Python",
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -463,17 +563,22 @@
       "text": "Kano Computing | London, UK | ONSITE, partial remote\n\nKano Computing is a creative product company which has focussed on products which teach people to code, or create with technology.\n\nSeveral open roles including Senior QA Engineer (firmware & electronics), Full Stack, Backend, Product Strategist, Junior Creative\n\nhttps://apply.workable.com/kano-computing-limited/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.25,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.86,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 368.0,
         "region": [
           "uk"
         ],
@@ -481,7 +586,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -492,17 +598,22 @@
       "text": "Amazon Print On Demand | Software Development Engineer | Senior Software Development Engineer | San Luis Obispo, California ONSITE\n\nAt Print-On-Demand, we enable authors around the world to publish their books on Amazon for free, in multiple formats, in just a few minutes. We make authors content available all around the world, and when a reader places an order we print and ship the book within 48 hours.\n\nPrint-On-Demand has changed the world of publishing, where previously authors needed a large contract to get their book printed, Amazon makes this available to anyone. Our technology is drivi",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1497.0,
         "region": [
           "us"
         ],
@@ -512,7 +623,8 @@
         "stack": [
           "Angular"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -523,17 +635,22 @@
       "text": "Compare.com | Comparison Marketplace | Insurance | Virginia/Remote (USA)\n\nCompare.com is a well funded startup ($185M raised) that has changed the way consumers shop for car insurance in the United States. Our core product brings transparency to auto insurance and helps people save money by getting real-time price quotes. We intend to do the same for other online shopping verticals and are now looking to add talents as we expand into other verticals.\n\n- ML Engineer (https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=1fc7a41f-4933-478f-922e-7aac51225dac&ccId=190001",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 926.0,
         "region": [
           "us"
         ],
@@ -543,7 +660,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -554,17 +672,22 @@
       "text": "Waitwhile (https://waitwhile.com) | Backend and Frontend Developers | Stockholm, Sweden | ONSITE or REMOTE\nAt Waitwhile, we work on tools to eliminate the 1 Trillion hours that people spend waiting in lines every year. Our queue management platform is used by over 10k companies worldwide and has helped 100M people enjoy a better waiting experience.\n\nWaitwhile is looking for a Frontend and/or Backend Engineer to build features, design and implement API methods, and improve the performance and reliability of our clients and systems as we rapidly scale our product and organization. We build our a",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.92,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1069.0,
         "region": [
           "europe"
         ],
@@ -573,11 +696,14 @@
         "seniority": "unspecified",
         "stack": [
           "Angular",
+          "Firebase",
           "GCP",
+          "Linux",
           "Node.js",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -588,17 +714,22 @@
       "text": "Beige Tech | https://beige.tech | Whangarei, New Zealand | Full-time | Software Engineer | Onsite\n\nWe are seeking software engineers to join our new Whangarei office and rapidly growing global business. At Beige we have established ourselves as a trusted partner to the businesses we work with. By leveraging our experienced group of engineers and consultants we are building best-in-breed products for our platform which we call the zoo.\n\nAs part of our Whangarei office you will receive dedicated mentoring, paid training and whatever else you need to succeed and drive the business forward.\n\nSkill",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.08,
         "industry_stated": 0.86,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 985.0,
         "region": [
           "asia_pacific"
         ],
@@ -611,7 +742,8 @@
           "MySQL",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -622,26 +754,34 @@
       "text": "Citizens of the Great Barrier Reef (non-profit) | Cairns, Australia (it's REMOTE) | citizensgbr.org\n\nPart-time / casual role: guilt-free and potentially highly rewarding, yet no-doubt insanely underpaid, automation automation / backend / devops / cloud work. Potentially hyper casual over 3-6mths+ (what can you do, how long will it take) / flexible schedule to suit budget (we value skill set over availability) / no juniors, interns at this stage unfortunately.\n\nWe're a 21st century conservation organisation for the Great Barrier Reef. Or at least that's the idea. We're involved in a broad range",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.05,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 2917.0,
         "region": [
           "asia_pacific"
         ],
         "remote_token": 1.0,
         "seniority": "senior",
         "stack": [
+          "Cloudflare",
+          "Firebase",
           "Machine learning",
           "Vue"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -652,17 +792,24 @@
       "text": "Doxo.com | Engineering Opportunities - Sr. Backend, FullStack, UI, Python Dev | Remote or in Seattle | Full-time\n\ndoxo helps over 5 million people break free from the bill burden, protect financial health, and accomplish financial goals.\n\nwww.doxo.com\n\nOpen Engineering Opportunities: https://doxo.recruiterbox.com/\n\nHere is some information about us.\n-Ruby on Rails application with AWS deployment. But prior Ruby on Rails is not required.\n-Evolving to leverage Docker and Kubernetes.\n-Microservice based approach to development\n-Modern front-end development using Vuetify and MDL.\n-We are a small t",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.97,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 848.0,
         "region": [
           "us"
         ],
@@ -677,7 +824,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -688,17 +836,22 @@
       "text": "Logical Clocks | Mid/Senior Frontend Developer (React) | Europe (Stockholm or Remote) | Full-time | https://logicalclocks.com\n\nLogical Clocks is the company behind Hopsworks. Hopsworks is an open-source feature store that allows teams to organize and scale their feature engineering efforts. (https://hopsworks.ai)\nWe recently raised our series A (5M euro) and we are expanding the teams.\nWe are looking for a mid/senior frontend developer. Our frontend stack includes Typescript, React JS, Redux.\n\nYour responsibilities will be to lead the development the new Hopsworks frontend, lead the technical ",
       "answers": {
         "ai_native": 0.28,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.7,
         "funding_stage": "series_a",
         "industry": "devtools_infra",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 859.0,
         "region": [
           "europe"
         ],
@@ -710,7 +863,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -721,17 +875,24 @@
       "text": "Convoy | Software Engineers (Mid, Senior) | Atlanta, GA | https://www.convoy.com\n\nConvoy is a digital freight marketplace building up a network of shippers and carriers while reducing overall carbon emissions in the age-old trucking industry.\n\nConvoy is hiring software engineers. The base pay and benefits are competitive with generous pre-IPO equity grants. Work life balance is great, ICs have lots of autonomy and opportunity to propose projects, influence priorities, and speak directly with leadership. There's an opportunity to ask questions to the CEO and executives every week. I've never wo",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_c_plus",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": 1.0,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1509.0,
         "region": [
           "us"
         ],
@@ -746,7 +907,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -757,17 +919,22 @@
       "text": "InfoSum | Multiple Positions | London, UK & Basingstoke, UK | Full Time & Contract\n\nInfoSum (https://www.infosum.com), backed by the world's leading technology investors, is building privacy-first technology that lets businesses connect their customer records, without ever sharing the underlying data. We are rapidly growing and are hiring for roles in both North America (NY) and Europe (UK).\n\nWe’re solving fundamental issues of consumer trust and transparency. There are many applications for InfoSum’s technology.\n\nWe are hiring roles in Engineering, Product and Implementation Consulting. Our b",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "venture_unspecified",
         "industry": "security",
         "industry_fits": 0.86,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.27,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1161.0,
         "region": [
           "uk"
         ],
@@ -778,7 +945,8 @@
           "Go",
           "Postgres"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -789,17 +957,22 @@
       "text": "dutchie | Full time | REMOTE or Bend, OR | Several roles and levels, especially Product and Engineering | https://dutchie.com/careers Founded in 2017, dutchie is an all-in-one technology platform powering dispensary operations, while providing consumers with safe and easy access to cannabis. Dutchie aims to further support the positive societal change the cannabis space brings to the world through health and wellness benefits, social justice, and by empowering local communities through tax revenue.\nPowering thousands of dispensaries across 35+ markets throughout the United States and Canada, d",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.26,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.05,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1124.0,
         "region": [
           "us"
         ],
@@ -807,7 +980,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -818,17 +992,24 @@
       "text": "Scribd | Software Engineers | San Francisco, Toronto, Amsterdam | ONSITE or REMOTE | VISA\n\nScribd is a reading subscription that gives you access to the best books, audiobooks, magazines, and more. Our mission is to change how the world reads. In 2019 we hit 1M paying subscribers (https://techcrunch.com/2019/01/28/scribd-1-million-subscribers/). Last year we acquired SlideShare (https://techcrunch.com/2020/08/11/scribd-acquires-slideshare/). We are one of the oldest YC startups (YC ’06), operating one of the largest Ruby on Rails sites.\n\nScribd has a very friendly, engineering-driven company c",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 4341.0,
         "region": [
           "canada",
           "europe",
@@ -844,7 +1025,8 @@
           "Spark",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -855,17 +1037,22 @@
       "text": "balena.io | Multiple Roles | Full-Time | 100% REMOTE | https://apply.workable.com/balena/\n\nBalena is a globally distributed company that has embraced a remote-first approach since 2013. We are a diverse group of product builders collaborating across timezones and countries to achieve our mission: to enable developers to reliably build, deploy, and manage their fleets of connected devices.\n\nTo make it easy for people to succeed on the new frontier of Edge computing, we've had to build many and varying tools and services, from cloud services (balenaCloud) to desktop utilities (balenaEtcher), to ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.09,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1679.0,
         "region": [
           "unknown"
         ],
@@ -873,7 +1060,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -884,17 +1072,22 @@
       "text": "f2pool & stakefish | Remote |Full-time | https://stake.fish/en/\n\nWe are building the infrastructure backbone of the blockchain ecosystem and paving the way to a decentralized future. f2pool supports PoW blockchains while stakefish support PoS networks.\n\nOur open positions:\n\n- DevOps: https://stake.fish/en/jobs/dev-ops-engineer-recvznNe9ouN5H0JA\n\n- Back end: https://stake.fish/en/jobs/back-end-developer-recfUxT57srgvcO0e\n\n- Full stack: https://stake.fish/en/jobs/software-engineer-recdf85stJRkIMCpV\n\n- Front end: https://stake.fish/en/jobs/front-end-developer-recT6MtsZmjUfzbvl\n\n- iOS: https://sta",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 704.0,
         "region": [
           "unknown"
         ],
@@ -904,7 +1097,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -915,17 +1109,22 @@
       "text": "Kettle | Remote, Full-time | https://wearekettle.com/\n\nKettle is a growing, award-winning digital agency. We are a team of thinkers, makers, and storytellers who love working together to build ambitious, human-centric experiences. We create digital-first products, content, and campaigns through carefully crafted partnerships with the leading brands of today and tomorrow.\n\n- Senior front-end developer (native DOM, JavaScript): https://stackoverflow.com/jobs/378531/senior-front-end-web-developer-kettle\n\n- Senior back-end web developer (PHP): https://stackoverflow.com/jobs/524051/senior-back-end-",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 705.0,
         "region": [
           "unknown"
         ],
@@ -936,7 +1135,8 @@
           "JavaScript",
           "PHP"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -947,17 +1147,22 @@
       "text": "Virtual Peaker | Louisville, KY | ONSITE | Full-time | Multiple Positions\n\nWe're building software to help utilities (energy companies) balance their load and lower peak demand. This helps utilities rely on more efficient (and cleaner) sources of energy and also helps manage fluctuations in renewable energy.\n\n- Software Engineer and Senior Software Engineer\n\n- Software QA Manager\n\n- Marketing Intern\n\n- Senior Digital Marketing Specialist\n\n- Client Success Manager\n\n- Sales (roles should be posted soon, email careers@virtual-peaker.com if your interested in a sales automation or intro sales role",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "climate_energy",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.93,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 640.0,
         "region": [
           "us"
         ],
@@ -965,7 +1170,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

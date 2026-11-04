@@ -9,17 +9,22 @@
       "text": "Sphinx Defense | Engineering, DevOps, & Product | Remote (US Only), DC, Colorado Springs, LA | https://www.sphinxdefense.com\n\nSphinx Defense builds software to solve complex national security problems for America and its allies. Founded by engineers and technologists with deep experience across commercial and defense technology, we're building a vehicle-agnostic communication infrastructure to enable satellite operators to securely utilize antenna networks and maneuver satellites in real-time. We're bootstrapped, profitable, and growing aggressively.\n\nTo learn more about who we are, our engine",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "bootstrapped",
         "industry": "other",
         "industry_fits": 0.51,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1254.0,
         "region": [
           "us"
         ],
@@ -27,7 +32,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -38,17 +44,22 @@
       "text": "Konvu | https://konvu.com/ | Software Engineer | FULLTIME | ONSITE | Paris, France\n\nAt Konvu, we’re on a mission to make security invisible. As we move towards a future dominated by code automatically generated, tested, and deployed by AIs, we need a new paradigm for application security. Vulnerabilities must be automatically detected, prioritized, and remediated.\n\nBehind Konvu are founders with deep roots in the security industry. As early employees at Sqreen YC W18, a notable security startup acquired by Datadog, we have firsthand experience in driving security solutions from concept to glob",
       "answers": {
         "ai_native": 0.61,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 995.0,
         "region": [
           "europe"
         ],
@@ -58,7 +69,8 @@
         "stack": [
           "AI agents"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -69,17 +81,24 @@
       "text": "Chronograph (chronograph.pe) | DevOps Engineer | Full-Time | Remote (US) | $150-170K USD + equity\n\nChronograph was founded to bring next-generation technology to private capital markets. Through our suite of cloud-based analytics and data management solutions, we help many of the world’s largest and most sophisticated venture capital, private equity, and credit funds understand their investment performance in unprecedented detail.\n\nWe are looking for a candidate with a generalist background in software development, including 3-5+ years of experience on DevOps, Platform Engineering, Site Reliab",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1309.0,
         "region": [
           "us"
         ],
@@ -91,14 +110,18 @@
         "stack": [
           "AWS",
           "Docker",
+          "GitHub Actions",
+          "Grafana",
           "Kubernetes",
           "Node.js",
           "Postgres",
+          "Prometheus",
           "Rails",
           "Ruby",
           "Terraform"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "3_4"
       }
     },
     {
@@ -109,22 +132,30 @@
       "text": "Come build the data platform of tomorrow!\n\nCompany: Galaxy - The Cursor for SQL | NYC (IRL) | Full-time |\nRoles: Founding AI Engineer, Founding Front-end Engineer | Founding Full-Stack Developer\n\nhttps://www.getgalaxy.io\n\nWe’re building Galaxy, a next-generation SQL workspace that serves as the foundation for the data platform of tomorrow. Today it’s a lightning-fast, elegant query client — soon expanding into orchestration, reporting, and proactive intelligence so every team (not just engineering) can trust and act on data. We’re hiring early engineers in NYC to help shape this future.\n\nEmail",
       "answers": {
         "ai_native": 0.4,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 772.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          "SQL"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -135,17 +166,22 @@
       "text": "Polar Sky | Founding AI Lead | Bay Area/Seattle | Hybrid/Onsite | Full-time\n\nWe're a well-funded, pre-seed cybersecurity startup focused on data security. I'm looking for a founding AI lead with experience in fine-tuning LLMs (expertise around RL + reasoning models a big plus). This person would own the full AI stack from data to training to eval to test-time compute.\n\nWho's a good fit:\n\n* If you've always thought about starting a company, but for whatever reason (funding, life, idea), this is a great opportunity to be part of the founding team. We're 2 people right now.\n\n* You enjoy understan",
       "answers": {
         "ai_native": 0.44,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.68,
         "funding_stage": "seed",
         "industry": "security",
         "industry_fits": 0.97,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 908.0,
         "region": [
           "us"
         ],
@@ -155,7 +191,8 @@
         "stack": [
           "LLM"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -166,17 +203,25 @@
       "text": "PosterChild Inc ($2M pre-seed) | https://posterchild.ai/ | – Founding Full-Stack Engineer – Bay Area (Hybrid) |\nBuild the core of an AI platform already used by 40+ nonprofits including UC Berkeley, SMASH, and the Kapor Foundation. Several partners have boosted their fundraising campaigns by hundreds of percent with PosterChild. As our one of first engineers you’ll work across Next.js/React + Python/FastAPI, integrate cutting-edge AI workflows, and make key architecture decisions with the founding team.\nSalary: $120–150K base + $10K bonus + 0.25–1% equity (performance grants available).\nJD: ht",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [
+          "bonus",
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "other",
         "industry_fits": 0.43,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 623.0,
         "region": [
           "us"
         ],
@@ -186,11 +231,13 @@
         "salary_min_usd": 120000.0,
         "seniority": "unspecified",
         "stack": [
+          "FastAPI",
           "Next.js",
           "Python",
           "React"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -201,17 +248,22 @@
       "text": "MONUMENTAL | https://www.monumental.co/ | Amsterdam, The Netherlands | Full Time | Onsite\n\nWe make robots that autonomously construct buildings. We are currently developing and manufacturing our autonomous bricklaying system in the beautiful centre of Amsterdam. And our robots are already earning real revenue operating on construction sites all over the Netherlands.\n\nWe're looking for experienced FULL-STACK ENGINEERS who can help us solve problems like:\n\n- Data sync and analytics queries across a fleet of robots (that can be offline for hours at a time)\n\n- Rapid deployment and iteration of exp",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1237.0,
         "region": [
           "europe"
         ],
@@ -221,7 +273,8 @@
         "stack": [
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -232,15 +285,20 @@
       "text": "Hello everyone. Looking for a meaningful and intrepid change?\n\nWe’re hiring at Onja Madagascar:\nFull stack Course Designer: https://onja.org/careers/full-stack-course-designer\nFront end Course Designer: https://onja.org/careers/front-end-course-designer\nBack end Node.js Course Designer: https://onja.org/careers/back-end-node.js-course-designer",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.04,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 345.0,
         "region": [
           "unknown"
         ],
@@ -249,7 +307,8 @@
         "stack": [
           "Node.js"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -260,17 +319,22 @@
       "text": "Lara Health | https://lara.health | Several roles | USA | REMOTE | Full-time\n\nLara Health is on a mission to transform how healthcare is delivered for chronic care management. We enhance patient care, improve operational efficiency, and create new, diverse revenue streams for healthcare organizations.\n\n- Senior Back-end Engineer\n\n- Senior Front-end Engineer\n\nWe are looking for self-starters with a growth mindset, with strong accountability, and ready to take ownership. You’ll have the opportunity to work across the stack, solve complex problems, and contribute to mission-critical applications.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 630.0,
         "region": [
           "us"
         ],
@@ -278,7 +342,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -289,17 +354,22 @@
       "text": "Common Prefix | Software Engineers / Auditors | Greece | Remote | Full-time\n\nCommon Prefix is a science-first blockchain consulting company. Our vision is to make blockchains usable for mainstream users and everyday people – paying at the supermarket, remittances, moving money across borders, saving, investing – and solving the real problems of usability, scalability, and interoperability that come with it. We're a 30-person team, half scientists (cryptographer PhDs, post-docs, and professors) from renowned universities, half engineers with long web2 experience. A lot of our field is broken an",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.17,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1837.0,
         "region": [
           "europe"
         ],
@@ -309,7 +379,8 @@
         "stack": [
           "Rust"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -320,17 +391,22 @@
       "text": "Roundtable | https://roundtable.ai | On-site San Francisco, CA | Full-time\n\nRoundtable is a research and deployment company building the proof-of-human layer in digital identity. Roundtable seeks to research and build real-world Turing Tests, and to productize these developments in bot detection, fraud prevention, and continuous authentication.\n\nWe're hiring a Member of Technical Staff. This is not a typical “Founding Engineer” position. In particular, this role will involve more research than similar positions. You should be prepared to spend around half of your time on research and half on e",
       "answers": {
         "ai_native": 0.73,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.92,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1056.0,
         "region": [
           "us"
         ],
@@ -342,7 +418,8 @@
           "Node.js",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -353,17 +430,25 @@
       "text": "Picnic | Multiple roles | Amsterdam, The Netherlands | Full-time | ONSITE | Visa Sponsorship & Relocation Support\n\nTake the lead on projects that power Europe's most advanced grocery delivery tech. And without the grind of Big Tech or the chaos of early-stage startups.\n\nPicnic now delivers groceries to millions of people across three countries and is growing quickly. This includes the tech team, which is at the core of everything from product development (mobile app, store backend, internal dev platforms, etc.) to last-mile delivery optimization using machine learning.\n\nEverything is built in-",
       "answers": {
         "ai_native": 0.08,
+        "benefits": [
+          "relocation",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1498.0,
         "region": [
           "europe"
         ],
@@ -376,7 +461,8 @@
           "Machine learning",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -387,17 +473,25 @@
       "text": "Faction | Founding Engineers | ONSITE (SF) - we sponsor visas | Full-Time | $130,000 - $225,000 + equity | https://www.usefaction.com/\n\nFaction is building autonomous AI for industrial distributors and manufacturers. Our mission is to accelerate the $2T industrial commerce market, and enable physical infrastructure to move as fast as the digital economy.\n\nWe’re looking for Founding Engineers who want to build software that runs real businesses.\n\nWho we are looking for:\n\n- Strong experience with Next.js, TypeScript, Python (FastAPI), and PostgreSQL\n\n- Deep knowledge of LLM research, agents, too",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [
+          "equity",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 891.0,
         "region": [
           "us"
         ],
@@ -407,13 +501,15 @@
         "salary_min_usd": 130000.0,
         "seniority": "unspecified",
         "stack": [
+          "FastAPI",
           "LLM",
           "Next.js",
           "Postgres",
           "Python",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -424,17 +520,25 @@
       "text": "Trunk | https://trunk.io | DevRel Engineer - Remote US or Canada| Staff Full Stack Engineer | Sr Full Stack Engineer - San Francisco\n\nTrunk is an a16z funded dev tools startup, redefining software development at scale. We aim to solve problems that developers hate by bringing the tools usually built in-house at the best engineering orgs to every development team. Some of our products:\n\n  * Merge Queue: a merge queue, to ensure that PRs are tested in order before they're merged.\n\n  *Flaky Tests: Detect and eliminate Flaky Tests.\n\n  * AI DevOps Assistant: Automate Reccurring DevOps tasks in chat",
       "answers": {
         "ai_native": 0.36,
+        "benefits": [
+          "equity",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "series_a",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1122.0,
         "region": [
           "canada",
           "us"
@@ -445,13 +549,17 @@
         "stack": [
           "AWS",
           "C++",
+          "GitHub Actions",
+          "Grafana",
           "Kubernetes",
           "Next.js",
           "Node.js",
+          "Prometheus",
           "React",
           "TypeScript"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -462,17 +570,22 @@
       "text": "Modash.io | Multiple Roles | Remote (EU) | Full-time\n\n• Modash is an end-to-end influencer marketing platform for Shopify stores.\n\n• We help every creator earn a living.\n\n• Headquartered in Tallinn, Estonia, with engineering distributed across Europe.\n\n• 60 person team, raised €11M in Series A funding, ARR growing 2x YoY.\n\n—\n\nRemote, Europe\n\nSenior Product Engineers\nhttps://apply.workable.com/modash/j/C1507B65C3/ (€60k-100k)\n\nSenior Data Engineers\nhttps://www.modash.io/careers/senior-data-engineer (€60k-140k)\n\nSenior Backend Engineer\nhttps://apply.workable.com/modash/j/D4FA5BA3E6/\n\nSenior Prod",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "series_a",
         "industry": "other",
         "industry_fits": 0.5,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 921.0,
         "region": [
           "europe"
         ],
@@ -480,7 +593,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -491,17 +605,22 @@
       "text": "Pairtu - https://pairtu.com - SF or remote in US timezone\n\nWe just raised series seed and looking for a founding engineer. We're reshaping healthcare for the $60 billion Medicare market.\n\nEngineering culture is one that values learning, freedom to write code instead of overhead, fast pace, and using AI tooling both in engineering and inside our product. If you've wanted to build with an AI API or toolset this is the place to do it.\n\nJob description: https://pairtu.notion.site/Senior-Engineering-Lead-AI-First-Full-Stack-4b938a55b2a14f7687db447a9bba98a2\n\nPlease reach out to ian@pairtu.com and me",
       "answers": {
         "ai_native": 0.5,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.89,
         "funding_stage": "seed",
         "industry": "health",
         "industry_fits": 0.94,
         "industry_stated": 0.85,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 627.0,
         "region": [
           "us"
         ],
@@ -509,7 +628,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -520,17 +640,22 @@
       "text": "LiveKit | Remote | Livekit.io | VoiceAI | webRTC | Real-time communications\n\nLiveKit is defining a new paradigm for now applications are built by providing the framework and network infrastructure for voice, video, and physical AI.\n\nHiring:\n>Software Engineer, Agents Hosting [All Levels: Senior, Staff]: https://jobs.ashbyhq.com/livekit/f152aa9f-981c-4661-99d3-6837654b9c8b\n>> Software Engineer, Gateway [All Levels: Senior, Staff]: https://jobs.ashbyhq.com/livekit/494d4741-18ac-4fda-89e0-b07090653fac\n>>> Staff Developer Advocate: https://jobs.ashbyhq.com/livekit/030026fa-0f4c-4eb9-9dfa-c1a2d8273",
       "answers": {
         "ai_native": 0.7,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.95,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 844.0,
         "region": [
           "unknown"
         ],
@@ -538,7 +663,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -549,17 +675,22 @@
       "text": "Railway | Infra eng - Storage, Infra (Platform) eng, Product Eng (full stack)| REMOTE (Worldwide) | https://jobs.ashbyhq.com/Railway?utm_source=DayMzWzJ0P\n\nTired of trying to beat kube into shape? Does writing YAML to ship code fill you with utter dread? Dream of a future where deploying software is simple, and you don't need an army of infrastructure engineers to build that perfect janky bash script™ to make life easy?\n\nWe're Railway, and we think infrastructure can be better. So far we've built out a platform loved by hundreds of thousands of users who simply tell us \"Give me Postgres\", \"Dep",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1698.0,
         "region": [
           "unknown"
         ],
@@ -569,7 +700,8 @@
         "stack": [
           "Postgres"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -580,17 +712,22 @@
       "text": "Mintlify | Senior SWE | Onsite San Francisco\nMintlify is a developer documentation platform that helps companies and businesses build and maintain public-facing documentation (X, Coinbase, Anthropic, Scale AI, and over 20% of the last YC batch.\nThe team is full of people who are builders at heart and are genuinely passionate about elevating developer experiences. Our team is small but mighty (28 people, including 10 engineers) with over 10,000 companies using us.\nWe’re hiring all across the board - but in particular, we’re focusing on maturing our engineering organization and hiring more senio",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 722.0,
         "region": [
           "us"
         ],
@@ -598,7 +735,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -609,17 +747,22 @@
       "text": "Retirable | https://retirable.com | Senior Engineer | NYC, hybrid onsite (Flatiron)\n\nLooking for a product-driven engineer with Rails/React experience to help us bring retirement planning to everyday Americans. We just raised a series A and are building our team for the next phase of growth. Our stack is React/Typescript/GraphQL and Rails built with event sourcing, DDD and CQRS.\n\nhttps://wellfound.com/jobs/3322815-senior-software-engineer-ruby-on-rails",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "fintech",
         "industry_fits": 0.96,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 456.0,
         "region": [
           "us"
         ],
@@ -632,7 +775,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -643,17 +787,22 @@
       "text": "Abnormal AI | REMOTE (US, Canada) with optional offices in SF & NYC | https://grnh.se/y5i0cdv43us\nI am an Engineering Manager in the Message Security Division. My team builds the platform for inbound email security, fighting cybercrime every day at a massive scale!\n\nWe are looking for a Staff MLE that will serve as a technical leader and subject matter expert, providing architectural guidance and mentorship across multiple machine learning workstreams. This role is central to our mission of protecting the world’s largest enterprises. You will be responsible for reasoning about the gaps in our ",
       "answers": {
         "ai_native": 0.82,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.5,
         "funding_stage": "series_c_plus",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1513.0,
         "region": [
           "canada",
           "us"
@@ -668,7 +817,8 @@
           "Python",
           "Spark"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -679,17 +829,22 @@
       "text": "ARound (web-based augmented reality for sports) https://aroundar.com - a Stagwell company - https://www.stagwellglobal.com | Backend Engineer | Remote (Based in UTC -8/-7/-6/-5/-4 timezones only) | 20-40 hours a week TBD | Contract or contract-to-hire\n\nBackend development in support of web-based augmented reality experiences and games for mobile devices. API integration and development. Management of cloud infrastructure and services.\n\nKey technologies are Node.js, Rust, PostgreSQL, Digital Ocean. Experience with video streaming (RTMP, WebRTC). Some degree of familiarity with TypeScript, Vue.j",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.87,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 873.0,
         "region": [
           "unknown"
         ],
@@ -703,7 +858,8 @@
           "TypeScript",
           "Vue"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -714,17 +870,22 @@
       "text": "ClickHouse | Senior Software Engineer - Distributed Systems / Cloud Data Infrastructure / Kubernetes | Remote\n\n(US preferred right now, EU is technically fine but I'm looking to ramp up in US atm)\n\nClickHouse is a popular, Open-Source OLAP Database. We are ClickHouse Inc, the company behind the database aiming to build the best in class real time data warehouse.\n\nWhat we are looking for:\n\nDistributed Systems / Cloud Engineers to build the AutoScaling Systems for a Cloud Database.\n\nWe also maintain our own ClickHouse-based Data Infrastructure. Bonus points if you've worked on auto-scaling or ot",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1755.0,
         "region": [
           "unknown"
         ],
@@ -736,9 +897,11 @@
           "Go",
           "Kubernetes",
           "Machine learning",
-          "Python"
+          "Python",
+          "SQL"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -749,17 +912,22 @@
       "text": "Rayni (https://www.rayni.ai) | Chicago - Hybrid or Remote | Full-time | Founding Full Stack Engineer\n\nMission: We accelerate scientific discovery. We are starting with helping scientists operate their instruments (like Mass Spectrometers) faster with our Gen AI-powered platform.\n\nImpact: We help scientists develop new drugs faster, analyze diseased blood samples faster, study brain cancer faster, etc.\n\nFunding (> $1.5M): Funded by tier-1 VCs, including winning the biggest academic accelerator program on the planet - New Venture Challenge at the University of Chicago. Past winners include Venmo",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.26,
         "funding_stage": "venture_unspecified",
         "industry": "health",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1406.0,
         "region": [
           "us"
         ],
@@ -767,7 +935,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "mid",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "3_4"
       }
     },
     {
@@ -778,17 +947,22 @@
       "text": "Zed Industries | North America, South America, Europe REMOTE | https://zed.dev/\nZed is a company for developers, by developers. All 3 of our founders have spent years in the trenches writing software and still do it almost every single day. We know the only way to build the world's best code editor is by equipping every single member of the team to do the best work of their career.\n\nWe've raised $42M to support our ultimate vision, a new way to collaborate on software, where conversations about code remain connected to the code itself, instead of being tied to aging snapshots or scattered acro",
       "answers": {
         "ai_native": 0.1,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1349.0,
         "region": [
           "canada",
           "europe",
@@ -799,9 +973,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Linux",
           "Rust"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -812,16 +988,21 @@
       "text": "Houmanoids | https://houmanoids.com | Lots of roles\n\nWe're integrating robots in and around buildings (focused in America for now). Example usecases:\n\n- security guards, doormen, receptionists (low mobility using humanoids)\n\n- security patrol around perimeter of buildings (high mobility using dogs)\n\n- moving things/packages within a building (last step package delivery)\n\nWe are building on top of Unitree's hardware and there's lots to do.\n\n- abstraction layer similar to Swift for iOS and Kotlin for Android\n\n- appstore\n\n- example reference apps (think mail, calculator, camera, maps)\n\n996 work e",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.15,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 791.0,
         "region": [
           "unknown"
         ],
@@ -834,7 +1015,8 @@
           "Swift",
           "iOS"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -845,17 +1027,24 @@
       "text": "Memorang (AI-powered EdTech stack) | Full-Time | Remote\nOur mission: Build the AI stack for education—an agentic framework to launch, monetize, and power learning apps 50× faster. We bootstrapped to profitability, were voted #1 among 1,500 in the Vercel AI Accelerator, and collectively reach tens of millions of learners.\n\n---------\n\nOpen Roles:\n\nFull-Stack Engineers: Work on mission-critical, rapid POCs to MVPs using TypeScript, React/Next.js, AWS Lambda, Postgres, and Neo4j. Help shape infrastructure and UI for bleeding-edge AI-powered features.\n\nSenior AI Agents Engineers: Own modular agent ",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [
+          "remote_stipend"
+        ],
+        "degree": "none",
         "eng_leadership": 0.31,
         "funding_stage": "bootstrapped",
         "industry": "other",
         "industry_fits": 0.06,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1907.0,
         "region": [
           "unknown"
         ],
@@ -866,14 +1055,18 @@
           "AI agents",
           "AWS",
           "LLM",
+          "LangChain",
+          "Neo4j",
           "Next.js",
           "Node.js",
           "Postgres",
           "RAG",
           "React",
-          "TypeScript"
+          "TypeScript",
+          "Vercel"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -884,17 +1077,22 @@
       "text": "CLEAR | Senior/Staff Backend Engineers | NYC Onsite (4-5 days in-office w/ free catered lunch daily) | https://www.clearme.com/\n\nCLEAR's mission is to strengthen security and create frictionless experiences. With over 33 million members and a growing network of partners across the world, CLEAR's identity platform is transforming the way people live, work, and travel. CLEAR connects you to the things that make you, you – making everyday experiences easier, more secure, and friction-free. We're committed to privacy done right which means members are always in control of their own information, an",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": 4.0,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 687.0,
         "region": [
           "us"
         ],
@@ -902,7 +1100,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "staff_plus",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -913,17 +1112,22 @@
       "text": "Vivint | Home Automation - IoT, making cool stuff | Boston, MA | onsite\n\nAt our Boston Innovation Center, we're delivering an integrated platform, award-winning products and the industry's first artificial intelligence for the smart home. Check out our openings and join the #SmartHomeRevolution\n\nWe are looking for designers and engineers across multiple functions, but here are just a few:\n\n- Android senior engineers\n\n- Backend Python/goLang engineers\n\nCheck out all of our openings here: https://careers.nrgenergy.com/SMARTHOMES/search/?location=Boston\n\nTechnologies we touch: kotlin, swift, gola",
       "answers": {
         "ai_native": 0.78,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.98,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 650.0,
         "region": [
           "us"
         ],
@@ -936,7 +1140,8 @@
           "Kotlin",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -947,17 +1152,22 @@
       "text": "Zetier | Multiple US locations (VA, PA, FL, TX, CA, NY) | ONSITE | Full-Time\n\nZetier develops real-world tools and capabilities to secure our nation in the short- and long-term. If you’re excited to delve deep into low-level systems, exploit dev, and more alongside a group of passionate hackers, then we’d love to hear from you.\n\nOpen-sourcing our work as much as possible is integral to Zetier and what we stand for. As folks who learned to hack on platforms like Linux, we aim to give back to the OSS community. Not only do we encourage our engineers to contribute, but we go a step further, addin",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.97,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.73,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1042.0,
         "region": [
           "us"
         ],
@@ -965,9 +1175,11 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
-          "Android"
+          "Android",
+          "Linux"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

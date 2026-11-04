@@ -9,16 +9,24 @@
       "text": "http://500px.com, Toronto, Fulltime\n\n500px is a photo community for premium photography (http://500px.com/popular). We value small teams, engineering-friendly culture, beautiful design and getting shit done.\n\nWho we are looking for:\n1. Senior Android Developers to help us build apps for creating and enjoying inspiring photography 2. Senior Web Developers to help us solve scalability issues, engineer microservices and implement beautiful UI/UX\n\nWhat we offer: - competitive salaries - flexible work hours - unlimited vacation - free lunches - medical insurance - computer/laptop of your choice\n\nAp",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "health_insurance",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 631.0,
         "region": [
           "canada"
         ],
@@ -27,7 +35,8 @@
         "stack": [
           "Android"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -38,16 +47,21 @@
       "text": "Sr. Android/ Wearables Engineer - New York, NY\n\nhttp://hackeriam.theresumator.com/apply/8HJrx9/Senior-Android-Wearables-Engineer.html\n\n-About The Hackerati-\n\nThe Hackerati offers Engineering as a Service—our Agile consulting model—to deliver advanced technologies to blue chip companies and startups alike.\n\nIn the last couple of years, we’ve worked on a broad range of projects, including fullstack Web (79M unique visitors per month), APIs, native mobile (iOS/Android with millions of downloads), mobile web, machine learning, natural language processing, Big Data (330+ TB/mo), realtime processing",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.67,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3987.0,
         "region": [
           "us"
         ],
@@ -59,7 +73,8 @@
           "Machine learning",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "3_4"
       }
     },
     {
@@ -70,17 +85,22 @@
       "text": "BeanGenius - Los Angeles, CA http://beangenius.com\n\n1. Marketing and Customer Manager\n2. Operations and Business Development Manager\n\nWho Are We?\n\nWe're a one-of-a-kind, specialty coffee subscription service with a unique approach to helping customers discover great coffee! We've been testing and refining our service in private beta with a handful of devoted customers who love what we do, and now we'e bringing ourselves to the masses with a re-launch. We're a small team, so we work hard, but we make up for it and have fun balancing the scales. If you're ready to be part of this amazing journey",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.1,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 5262.0,
         "region": [
           "us"
         ],
@@ -88,7 +108,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -99,16 +120,21 @@
       "text": "One of our offices: Shanghai, China\n\nWe build products at the intersection of technology around data. Lots of data visualization, big data and infrastructure.\n\nWe work with large organizations on challenging problems (the World Bank, the United Nations, CNN) OR on our own products (mostly developer tools, things like http://devo.ps or http://octokan.com).\n\nWe are a multicultural team with French, American, British, Chinese, Korean, Dutch and Finnish colleagues. We are about to settle a third office in Berlin and are looking at remote hiring in Spain and Seoul.\n\nWe work a lot with Javascript (n",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.35,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1635.0,
         "region": [
           "asia_pacific"
         ],
@@ -116,12 +142,14 @@
         "seniority": "unspecified",
         "stack": [
           "Angular",
+          "Erlang",
           "Go",
           "JavaScript",
           "Node.js",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -132,16 +160,21 @@
       "text": "Hipmunk\n\nSan Francisco, CA - close to Caltrain\n\nExperienced frontend specialists, fullstack web, and iOS are our current focuses. We're always open to good backend, Android, and DevOps engineers as well.\n\nhttp://www.hipmunk.com/jobs\n\nWe're a high-standards group with a lot of pride in our products, code, and people. We understand consumer scale and data (Reddit co-founder & engineers) and aspire to build products that customers love.\n\nWe're friends first and enable you to do your best work. Processes are light and trust is high. At 24 engineers we're not so big where you can't know everyone we",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.13,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 850.0,
         "region": [
           "unknown"
         ],
@@ -152,7 +185,8 @@
           "Android",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -163,17 +197,22 @@
       "text": "Notion - Portland, OR - Full-stack Developer http://usenotion.com\n\nNotion is a new company focused on simplifying business intelligence tools to help teams and companies make data-driven decisions.\n\nYou’re ready to be a key player at a startup using the latest in backend and front-end technologies to provide better insights for workers like us to make better data-driven decisions when building products, systems, and businesses. We think there is a huge opportunity for teams to leverage the data they already have and we’re ready to provide the fast-paced, forward-thinking environment you’ve bee",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.73,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.97,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2626.0,
         "region": [
           "us"
         ],
@@ -188,7 +227,8 @@
           "Ruby",
           "Scala"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -199,15 +239,20 @@
       "text": "Senior Ruby on Rails Engineer\n\nCOMCAST -- Reston, VA\n\n* Looking for a Rails ninja, with 5+ years experience\n\n* Be a part of building the next generation TV platform\n\n* Solve really interesting problems at 30+ million user scale\n\n* Comcast is a fast-growing company, with a startup feel, and a GREAT place to work\n\n* Competitive salary with great benefits\n\n* Join a fun team that works hard and plays hard! :)\n\ncontact jerzygangi at gmail dot com for an interview",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.84,
         "industry_stated": 0.7,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 462.0,
         "region": [
           "unknown"
         ],
@@ -217,7 +262,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "5_7"
       }
     },
     {
@@ -228,17 +274,22 @@
       "text": "Littleton, MA - CLK Design Automation (http://www.clkda.com) FULLTIME\n\nApplied Mathematician\n\nCLKDA is the technology and market leader for advanced semiconductor timing and variance analysis. We are a rapidly growing small company, whose customers include the top three semiconductor companies in the world.\n\nWe are looking for a talented software engineer with deep electrical engineering and mathematics expertise to join our team. This position is focused on improving our fast circuit simulator. You will be responsible for developing mathematical concepts and coding them into efficient and rob",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.9,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1489.0,
         "region": [
           "us"
         ],
@@ -249,7 +300,8 @@
           "C",
           "C++"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "5_7"
       }
     },
     {
@@ -260,17 +312,22 @@
       "text": "Security Compass - Toronto, Canada\n\nAre you sick and tired of hearing about security breaches that could have been prevented? Are you ready to have a material impact with a team that's actually making a big difference in helping companies build secure software? Join us at Security Compass, to help build our flagship product SD Elements. We started in 2011 and we're on track to grow over 2000% over three years.\n\nWe're looking for web developers. An interest in security is a must, and experience with Django is highly beneficial but not mandatory.\n\nLearn more here: http://www.securitycompass.com/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.93,
         "industry_stated": 0.92,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 620.0,
         "region": [
           "canada"
         ],
@@ -280,7 +337,8 @@
         "stack": [
           "Django"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -291,17 +349,27 @@
       "text": "Phoenix (Mesa), AZ - PHP Developer - Remote available\n\nSocious is looking for a full-time PHP Developer, to work in our headquarters office working on our online community software product.\n\nActual job postings and resume submission: http://socious.com/jobs\n\nAbout Socious: Founded in 2002, Socious offers the industry’s most complete online community software to large and mid-sized businesses, associations, and user groups. The Socious platform includes private social networking, customer communication tools, advanced segmentation, forums, collaboration tools, and a full mobile platform to help",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "dental_vision",
+          "health_insurance",
+          "pto_days",
+          "retirement"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.92,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1400.0,
         "region": [
           "us"
         ],
@@ -311,7 +379,8 @@
         "stack": [
           "PHP"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -322,16 +391,21 @@
       "text": "KickBack is hiring a backend engineer, frontend engineer, mobile developer and security engineer. My contact information is in my profile.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.04,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 138.0,
         "region": [
           "unknown"
         ],
@@ -339,7 +413,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -350,17 +425,22 @@
       "text": "MPA - http://www.consultmpa.com/ - Chicago, IL\n\nThis is an on-site, full-time position.\n\n== Job Description ==\n\nMPA is building a small, elite team of world-class software engineers to directly influence the quality and cost of healthcare, addressing the fundamental challenges facing the healthcare system in the United States.\n\nOur developers write software to:\n\n* support internal analyses of healthcare data\n\n* define and improve overall technical processes\n\n* compute appropriate costs for care and reconcile them to actual costs\n\n* build a suite of packaged products and services that evaluate ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.11,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2851.0,
         "region": [
           "us"
         ],
@@ -368,7 +448,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -379,17 +460,24 @@
       "text": "CypherChat - Software Engineer - REMOTE\n\n   =====================================\n   ================ Us =================\n   =====================================\n\nWe're building a completely frictionless encrypted messaging service.\n\nOur goal is to bring privacy and security to the unsophisticated masses, by targeting users who value those qualities in principle but won't compromise \"for-your-grandmother\" ease of use. Eventually, we'll be replacing conventional telephony/SMS.\n\nTeam:\n\n    * Ryan Lester (Washington, DC): Carnegie Mellon, SpaceX, Napster.fm, YC Hacks\n    * Josh Boehm (Los Angel",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.61,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2406.0,
         "region": [
           "unknown"
         ],
@@ -397,9 +485,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
-          "JavaScript"
+          "JavaScript",
+          "Linux"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -410,16 +500,26 @@
       "text": "Principal/Senior Software Engineers- Application Development C++ (New Product/Team) - Burlington, MA USA\n\nPOSITION PROFILE:\nYou will one of the founding members of the PowerFLOW Studio team. This is a high visibility product that will consolidate Exa's pre-processing, post-processing, and run submission/monitoring tools into one integrated environment with a focus on multi-run projects, multi-run analysis, and design optimization studies. PowerFLOW Studio will provide a platform for future additions to Exa’s technology portfolio.\n\nWe’re at the early stages of designing and implementing PowerFL",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "dental_vision",
+          "equity",
+          "health_insurance",
+          "retirement"
+        ],
+        "degree": "required",
         "eng_leadership": 0.75,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.25,
         "industry_stated": 0.82,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3882.0,
         "region": [
           "us"
         ],
@@ -427,9 +527,11 @@
         "seniority": "staff_plus",
         "stack": [
           "C++",
+          "Linux",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -440,16 +542,21 @@
       "text": "As always Red Hat is hiring, we have hundreds of open positions\n\nhttp://jobs.redhat.com/\n\njust the technical positions by major grouping:\n\nhttp://jobs.redhat.com/job-categories/technology/\n\n200+ listed in cloud alone to put this in perspective.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.24,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.04,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 244.0,
         "region": [
           "unknown"
         ],
@@ -457,7 +564,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -468,17 +576,22 @@
       "text": "Enchanted Labs - (San Francisco, CA) - Ex-Facebook co-founders.\n\nABOUT\n\nEnchanted Labs is a funded, early stage, travel startup co-founded by two ex-Facebookers. We’re working on an innovative trip technology and looking for a few talented designers and engineers to join our small team on the ground level. We’re seeking allstars who want to make an impact, iterate quickly, and are passionate about travel.\n\nMost importantly, you must be able to problem solve, learn rapidly, and be excited for a awesome, but also at times, challenging, startup journey with us that will revolutionize the travel i",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.79,
         "industry_stated": 0.88,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 790.0,
         "region": [
           "us"
         ],
@@ -486,7 +599,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -497,17 +611,22 @@
       "text": "London UK - Osper\n\nWe provide a real prepaid debit card for young people, aged 8 - 18, so they can make their own decisions with money: online, in shops, at cash machines and abroad. Thousands of kids have already signed up to our service.\n\nBut we not only help young people buy Legos and save for bicycles - we are building an awesome technology team that eliminates legacy code, keeps the bug rate tiny, and stays small and joyful. We are doing this by adopting and adapting techniques like pair programming, test-driven development, continuous deployment, and microservices. Read more about our pl",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 803.0,
         "region": [
           "uk"
         ],
@@ -515,7 +634,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -526,17 +646,22 @@
       "text": "OpenSignal - London, UK (Full time, permanent)\n\nAt OpenSignal we're using mobile apps to tap into the smart phones we're all carrying around with us to build up global crowdsourced sensor networks. Our first [1] is for wireless signal where we are building a global database on the coverage and performance of wireless networks (both mobile + WiFi) on a scale that has never before been possible. Our second sensor network is WeatherSignal [2], which uses the barometers, thermometers and hygrometers on smart phones to crowdsource weather data and we have already published a scientific paper [3] sh",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.63,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.24,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1311.0,
         "region": [
           "uk"
         ],
@@ -544,7 +669,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -555,17 +681,22 @@
       "text": "Bolt - San Francisco - https://bolt.co - https://angel.co/bolt - jobs@bolt.co\n\nWe need generalists to help us build a full-on replacement for carrier voice and SMS.\n\nWe’re a 3-person startup founded by two former Twilio engineers building the next generation of communications services. We aim to deliver a software service that will motivate consumers to switch (port) their phone numbers from the old stodgy telephone networks to us.\n\nThere’s a ton of work required behind the scenes to make that happen, which is why we need your help.\n\nHere are some of our current projects that need an owner:\n\n ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.69,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 878.0,
         "region": [
           "us"
         ],
@@ -577,7 +708,8 @@
           "Go",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -588,17 +720,22 @@
       "text": "Zoomer (YC S14) - REMOTE\n\nZoomer is building a new take on food delivery - a platform to handle an extraordinarily high volume of concurrent deliveries from restaurants that already deliver (i.e. pizza, wings, sandwiches, etc.). We’re bringing much needed change to local high-volume delivery restaurants that are still doing delivery the way they’ve always done it. It's a very interesting technology and logistics problem, quickly routing orders to optimal drivers in near-real-time. Our CEO has a substantial amount of experience in the space from his first startup.\n\nIn addition to Y Combinator, ",
       "answers": {
         "ai_native": 0.64,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1709.0,
         "region": [
           "unknown"
         ],
@@ -612,7 +749,8 @@
           "Ruby",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -623,17 +761,22 @@
       "text": "SF Bay Area: GenoPharmix - Genomic Data Science Focused on Human Health & Lifespan\n\nFull or part-time, Interns welcome.\n\n- Software Developer with an interest in Vector Space, advanced experimental machine learning, inductive logic programming, cognitive computing, Computational Theory of the Mind (CTM) and other biomimetic approaches to finding meaningful patterns in non-sparse large data set verticals in the Life Sciences areas.\n\nEmail: genopharmix@gmail.com\nhttp://genopharmix.com",
       "answers": {
         "ai_native": 0.11,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.6,
         "industry_stated": 0.88,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 487.0,
         "region": [
           "us"
         ],
@@ -643,7 +786,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -654,17 +798,22 @@
       "text": "VERBA - San Francisco, CA\n\nhttp://verbasoftware.com/\n\njobs@verbasoftware.com\n\n* Rails/JS Product Focus - FULL-TIME or HALF-TIME with benefits [work on your side projects!]\n\nVerba thinks that college should be more affordable, so we help bookstores get books faster, cheaper, and sell them competitively.\n\nWe guide every stage of a used book's life. We help students save money, and bookstores become and stay relevant, competitive, and transparent.\n\nNumbers: 400 colleges and universities (and more beating down our door), tracking ~200k unique ISBNs, serving millions of students (rush season means ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.84,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1986.0,
         "region": [
           "us"
         ],
@@ -673,12 +822,16 @@
         "seniority": "unspecified",
         "stack": [
           "AWS",
+          "Chef",
+          "Clojure",
+          "Hadoop",
           "JavaScript",
           "MySQL",
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -689,17 +842,22 @@
       "text": "Mozilla Research - Video Codec Engineer - Remote or one of the global offices\n\nThe Internet needs a royalty free video codec appropriate for universal deployment with no gatekeepers. Creating a better video codec is a difficult task, and creating one with unencumbered technology is even harder. We've achieved that goal for audio with Opus, but video is still dominated by royalty bearing codecs like H.264.\n\nWe're looking for a Senior Research Engineer to join us building Daala, a next-next generation video codec being developed by Mozilla Research in conjunction with the Xiph.Org Foundation. Da",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.07,
         "industry_stated": 0.77,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1028.0,
         "region": [
           "unknown"
         ],
@@ -709,7 +867,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -720,22 +879,28 @@
       "text": "Pretty much every bitcoin company out there. There's close to a quarter billion dollars of VC funding pouring in and it's very much a global phenomenon in every continent. A lot of reputable companies, two of which have had $150m valuations (the first two on the following list) earlier this year.\n\ne.g. Coinbase, Bitpay, Circle, Blockchain.info.\n\nMostly engineering, backend, frontend, web & native apps, a fair bit of security and UX, too.\n\nCheck out coinality.com for example for lots of jobs, lots of stuff on Angel List too.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.1,
         "funding_stage": "venture_unspecified",
         "industry": "unstated",
         "industry_fits": 0.29,
         "industry_stated": 0.27,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 529.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -746,17 +911,25 @@
       "text": "ROIKOI | roikoi.com | Austin, TX\n\nhttps://roikoi.com is a well-funded, 7-person startup in Austin, TX. Our team is top-notch, coming from previous Austin successes like Bazaarvoice, HomeAway, RetailMeNot, & Mutual Mobile. We've raised $1.5M of seed funding earlier this year on our prototype and are heads down building out features and our mobile applications.\n\nWe use Python (flask), DynamoDB, and Cloudsearch on top of AWS for our API, and backbone.js powers our front-end application. A Cordova mobile app is coming soon for Android and iOS. Our ideal candidate is experienced with building Pytho",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity",
+          "health_insurance"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "seed",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.09,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 942.0,
         "region": [
           "us"
         ],
@@ -766,11 +939,13 @@
         "stack": [
           "AWS",
           "Android",
+          "DynamoDB",
           "JavaScript",
           "Python",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -781,16 +956,25 @@
       "text": "New York, NY. Full time. We're looking for vp engineering, jr & sr python engineers, jr & sr frontend (js/backbone) engineers + jr. & sr. android & iOS engineers.\n\nAs you can tell from the job openings, Percolate is a very quickly growing SAAS company in NYC. We are building a platform that helps companies manage all their marketing. We recently raised a $24 million Series B lead by Sequoia.\nWe're looking for a VP to lead the team of ~30, as well as backend (all levels), frontend engineers (we run backbone.js alongside our RESTful API) and mobile (iOS + android).\n\nHere's thirteen reasons why y",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "dental_vision",
+          "equity",
+          "health_insurance"
+        ],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "series_b",
         "industry": "enterprise_saas",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1559.0,
         "region": [
           "us"
         ],
@@ -801,7 +985,8 @@
           "Python",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -812,16 +997,21 @@
       "text": "London: Farringdon. On-site only.\n\nTimetric (https://timetric.com) is looking for engineers with python/django & machine learning expertise, to help us build massive data analysis and visualization systems.\n\nWe're a small but rapidly growing team, of developers and product managers. We use git, code reviews and a one-click deploy/rollback system so that we can rapidly iterate and ship product.\n\nWe're backed by a solid sales team who know how to get users for our products (and pay the bills!)\n\nWe want smart, interesting people with a passion for making usable systems.\n\n-------------------------",
       "answers": {
         "ai_native": 0.08,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.8,
         "industry_stated": 0.9,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1168.0,
         "region": [
           "uk"
         ],
@@ -830,10 +1020,12 @@
         "stack": [
           "Django",
           "JavaScript",
+          "Linux",
           "Machine learning",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -844,17 +1036,24 @@
       "text": "SimplyInsured - San Francisco - https://www.simplyinsured.com/\n\nSimplyInsured is “Kayak for Health Insurance” - we are a 100% online platform to buy small business health insurance. We are revolutionizing the $17B health insurance brokerage market. We have dozens of delighted customers, are generating revenue, and are backed by YCombinator and some of silicon valley’s top entrepreneurs and investors.\n\nWe are looking for Full Stack Hackers.\n\nhttps://www.simplyinsured.com/jobs",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "health_insurance"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 479.0,
         "region": [
           "us"
         ],
@@ -862,7 +1061,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -873,16 +1073,21 @@
       "text": "Palo Alto, CA\n\nINFER, INC.\n\n- Team: ~20 heads, 10 engineers from MIT, Berkeley, CMU, Google/Google Research, Facebook, Y Combinator, Microsoft Research, Palantir, Jane Street, IBM Research, Yahoo! Research, ...\n\n- Investors: Red Point, a16z, SHV, Social Capital, ...\n\n- Customers: Box, Jive, Microsoft, Tableau, Zendesk, AdRoll, Nitro, and many more\n\n- Product: machine learning applications for non-technical users to help their businesses more effectively win and retain customers\n\n- Looking for: strong engineers excited to join an early-stage startup to help grow & shape the company\n\nEXAMPLES OF",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.06,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.86,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1347.0,
         "region": [
           "us"
         ],
@@ -892,7 +1097,8 @@
           "Machine learning",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -903,17 +1109,22 @@
       "text": "Gurock, www.gurock.com - remote/world-wide - HQ in Berlin, Germany\n\nAbout Us\n\n===================================\n\nWe are a small & successful bootstrapped software company from Germany and build popular web-based applications for software teams. We have been in business since 2004 and many thousands of teams, both small and large, use our products. We are hiring for different positions, but our main focus right now is on hiring a technical support engineer to help us support our TestRail customers as well as account engineers to help us demo/sell our products.\n\nThose are not typical support a",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "bootstrapped",
         "industry": "devtools_infra",
         "industry_fits": 0.94,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1168.0,
         "region": [
           "europe"
         ],
@@ -921,7 +1132,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     }
   ]

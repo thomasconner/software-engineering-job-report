@@ -9,17 +9,24 @@
       "text": "Aqora | Quantum Computing Expert | Full-time | Paris (HQ) or Remote (Europe) We're building the go-to hub for quantum computing, focused on organizing quantum hackathons and competitions globally as well as hosting quantum datasets and algorithms. We've partnered with major industry players, generating six-figure revenues, and have more exciting projects lined up.\nOur MVP is live, and we're looking for a Quantum Computing Expert to help us scale. In this role, you’ll:\n\n- Refine quantum use cases and define metrics to evaluate submissions. - Build partnerships and onboard quantum professionals.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "required",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.22,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1154.0,
         "region": [
           "europe"
         ],
@@ -27,7 +34,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -38,17 +46,25 @@
       "text": "Onos Health | Lead Engineer | Full-Time | San Francisco | 1-2x/week in office | https://onoshealth.com | $200-240k + Equity\n\nOnos is using AI and ML to transform how healthcare is delivered in the U.S. By identifying providers who deviate from an evidence-based care standards, we enable health plans to ensure that every dollar spent on healthcare goes towards the highest quality care.\n\nWe're seeking lead/senior engineers to architect and build significant components of our platform. If you're passionate about applying AI and machine learning to solve critical healthcare challenges, we want to ",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [
+          "equity",
+          "health_insurance"
+        ],
+        "degree": "none",
         "eng_leadership": 0.74,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": 1.0,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 735.0,
         "region": [
           "us"
         ],
@@ -60,7 +76,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -71,17 +88,22 @@
       "text": "Cathmere | Sr Engineer | Hybrid NYC | Full Time | https://cathmere.com We are are a seed-stage startup revolutionizing how capital flows to emerging markets through our innovative fintech platform. We're seeking an exceptional Senior Engineer to help build our end-to-end solution that connects US investors with high-impact equipment financing opportunities in emerging markets. Our challenge is to build a scalable platform that captures real-world asset performance via multiple streams of operational and financial data in a decentralized network of business counterparties.\nResponsibilities\n\n- B",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1123.0,
         "region": [
           "us"
         ],
@@ -89,7 +111,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": "5_7"
       }
     },
     {
@@ -100,17 +123,22 @@
       "text": "Gridmatic | Senior fullstack software engineer, Senior backend software engineer (ML infra) | Full-time | Hybrid (Cupertino, CA)\n\nGridmatic uses ML and weather data to forecast energy prices in the US, which can get really volatile as extreme weather becomes more common with climate change. We’ve been using those price forecasts to e.g. optimize very large batteries, which help make the grid more stable.\n\nOn the fullstack side, we're building tools to apply our forecasts to automated battery storage optimization and energy volatility risk mitigation. On the ML infra side, we're working on infr",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "climate_energy",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1163.0,
         "region": [
           "us"
         ],
@@ -118,6 +146,7 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
+          "BigQuery",
           "GCP",
           "Kubernetes",
           "Machine learning",
@@ -125,7 +154,8 @@
           "Postgres",
           "Python"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -136,17 +166,22 @@
       "text": "CredCore | Engineering | Full-time | Remote (anywhere) | www.credcore.com\n\nCredCore helps companies analyze Credit Agreements using AI. We have two roles open: (1) Engineering Lead, and (2) Front-end Lead/Architect. Both positions require at least 10 years of experience. You should be familiar with design patterns and software architecture, and TypeScript AND Python. Both are full-time, remote roles. If you’re interested, please reach out to me at jeswin@credcore.com.\n\nA cover letter is not necessary. But please share your resume and links to your GitHub/GitLab/StackOverflow/other profile, or ",
       "answers": {
         "ai_native": 0.96,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.96,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 679.0,
         "region": [
           "unknown"
         ],
@@ -157,7 +192,8 @@
           "Python",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "8_plus"
       }
     },
     {
@@ -168,16 +204,24 @@
       "text": "Head of Engineering | Finance Lobby | Miami, FL | Relocation Offered | $175k + equity\n\nWe are a Commercial Real Estate Financing marketplace that connects commercial mortgage brokers to lenders to make deals. We have over $40 billion of deals made through our platform to date.\n\nWe are a small fast moving dev team, in the process of transitioning from early stage build out to shoot-for-the-moon scalability. We are looking for a Head of Engineering to backfill our interim fractional CTO. We're looking for candidates who can hold their own architecturally and in writing code - this is likely some",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity",
+          "relocation"
+        ],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.36,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 923.0,
         "region": [
           "us"
         ],
@@ -187,9 +231,11 @@
         "seniority": "unspecified",
         "stack": [
           "AWS",
+          "Laravel",
           "Postgres"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -200,17 +246,22 @@
       "text": "SerpApi | https://serpapi.com | Junior to Senior Fullstack Engineer positions | Customer Success Engineer | Talent Acquisition Specialist | Based in Austin, TX but remote-first structure | Full-time | ONSITE or FULLY REMOTE | $150K - 180K a year 1099 for US or local avg + 20% for outside the US\n\nSerpApi is the leading API to scrape and parse search engine results. We deeply support Google, Google Maps, Google Images, Bing, Baidu, and a lot more.\n\nOur current stack is Ruby, Rails, MongoDB, and React.JS. We are looking for more Junior and Senior FullStack Engineers. We have an awesome work envir",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 943.0,
         "region": [
           "us"
         ],
@@ -226,7 +277,8 @@
           "React",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -237,17 +289,22 @@
       "text": "Gather Flora | Full Stack Software Engineer | REMOTE | Full-Time\n\nHi there, technical founder here. Gather Flora is innovating tools to drive supply chain efficiency, beginning in the highly fragmented floriculture marketplace. We’ve shipped software infrastructure for farm-to-florist supply in multiple regional markets, serving 90+ farms and driving over $1MM in sales. Now, we’re scaling past our proof of concept to build tools for a global supply network with seamless order matching, quoting + payments, logistics, and product traceability.\n\nYou’ll be engineering features like complex invento",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 875.0,
         "region": [
           "unknown"
         ],
@@ -255,7 +312,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "5_7"
       }
     },
     {
@@ -266,16 +324,21 @@
       "text": "Sent yet another application, nothing. Y’all painting the office over there?",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.13,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.01,
         "industry_stated": 0.16,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.13,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 76.0,
         "region": [
           "unknown"
         ],
@@ -283,7 +346,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -294,17 +358,22 @@
       "text": "onXmaps, Inc | Montana or REMOTE, USA only | https://www.onxmaps.com/careers\nABOUT – Are you an Engineer who loves the outdoors? Join onX! onX is a suite of digital navigation apps (Hunt, Offroad, and Backcountry) that empower millions of outdoor enthusiasts. If you’re passionate about writing great software, love playing outside, believe in protecting access to public lands, and want to dominate the off-pavement mobile GPS market – then join our team, where we empower millions of outdoor enthusiasts to explore the unknown!\n\nWe have multiple openings! View them here: https://www.onxmaps.com/jo",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.83,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 886.0,
         "region": [
           "us"
         ],
@@ -327,7 +396,8 @@
           "Vue",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -338,17 +408,22 @@
       "text": "AbbVie | AI/Software Engineer | Remote, UK/EU | Full-time\n\nAre you a great coder (Python/Typescript, but great skills are transferrable), who enjoys close collaboration with end-users in solving their hard problems?\n\nDo you have a solid foundation in the AI/LLM-world - or are you a great at the above and willing to learn?\n\nAre you well versed in data engineering concepts, and excited to work with the latest GenAI models and bring these solutions into production? Then I'd love to hear from you!\n\nWe are a small team who care deeply about our work as well as each other. We iterate fast, and err o",
       "answers": {
         "ai_native": 0.55,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.06,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.05,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1049.0,
         "region": [
           "europe",
           "uk"
@@ -361,7 +436,8 @@
           "Python",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -372,17 +448,22 @@
       "text": "Reckon Digital | Bid Manager | London, UK (preferably ONSITE) | Full-time | https://reckondigital.com/careers/\n\nWe are looking for an experienced Bid Manager that can help us:\n\n- identify relevant opportunities across a number of procurement portals\n\n- produce high-quality competitive proposals\n\n- coordinate with various teams in the company to develop technical and financial sections in full detail\n\nand more! Full job description at https://reckondigital.com/careers/.\n\nReckon Digital is a London-based software company creating state-of-the-art business software solutions and providing consult",
       "answers": {
         "ai_native": 0.13,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.31,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1030.0,
         "region": [
           "uk"
         ],
@@ -390,7 +471,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -401,17 +483,22 @@
       "text": "Kaedim | Software Engineer, Machine Learning Engineer, Customer Support Engineer, Product Manager | Onsite | Full-time | San Francisco, Singapore, London | US & UK Sponsorship Available\n\nKaedim is an AI startup building ML algorithms that turn images into digital 3d models. We are a group of ~10 looking to grow the team to help streamline 3d content creation for 3d artists and are already working with 1 of the top 10 games of all time! Using our AI and in-house art team, we have the most accurate, game-ready 2d → 3d asset generation pipeline. Currently, we are offering a 10x speed up to 3D ass",
       "answers": {
         "ai_native": 1.0,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.81,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 966.0,
         "region": [
           "asia_pacific",
           "uk",
@@ -429,7 +516,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -440,17 +528,22 @@
       "text": "legacy-use.com | Co-Founder | Munich, Germany | Remote possible | Full-Time |\n\nMost legacy software has no API and cannot be automated with Agentic AI. At our company builder (schub.tech) we had the same problem in one of our ventures and build ourselves a solution: based on computer-use, we can insert & extract information out of any software.\n\nWe believe this toolstack is useful to many others, hence we spin it out as a company. We are looking for co-founders to join us on the journey to open up backbone of German Mittelstand to AI automation.\n\nSee here my post announcing the role: https://w",
       "answers": {
         "ai_native": 0.92,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.13,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.88,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 763.0,
         "region": [
           "europe"
         ],
@@ -460,7 +553,8 @@
         "stack": [
           "AI agents"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -471,17 +565,22 @@
       "text": "⍃Kalvium | Sr. Software Engineer (GenAI), Competitive Coding Interns | Bangalore, India (ONSITE - HSR Layout) | Fulltime, Internships (DSA and coding Interns).\n\nKalvium is the B.Tech CS degree you always wanted. We redo 4000 hours of education, heavily utilizing GenAI to power self-directed education of all courses in undergraduate CS programs. This is the HEROS platform. We've grown from a team of ~30 in 2023 to ~300 today.\n\nWe recently formalized our AI Agentic workflows, vector-db/RAGs, finetuning, and building out rapid prototypes at scale. Interested in this challenge? Reach out.\n\nWe're a",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.04,
         "funding_stage": "bootstrapped",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1204.0,
         "region": [
           "india"
         ],
@@ -491,7 +590,8 @@
         "stack": [
           "AI agents"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -502,17 +602,30 @@
       "text": "Fullstory | Atlanta or Remote (US) | https://www.fullstory.com/\n\nFullstory provides privacy-preserving session replay and analytics for websites and mobile apps. Our session replays are nothing short of magical, and the combination with analytics creates eye-opening insights.\n\nWe have several engineering roles open:\n\n* Senior Software Engineer, iOS - $176,000 to $207,500 - https://www.fullstory.com/careers/jobs/ab3f8ecb-ee1f-4431-a05e-b333c8589a8a/?ashby_jid=ab3f8ecb-ee1f-4431-a05e-b333c8589a8a&utm_source=092xpqyAkV\n\n* Senior Software Engineer, Application Experience - $160,000 to $190,000 - h",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "bonus",
+          "equity",
+          "health_insurance",
+          "learning_budget",
+          "pto_days",
+          "retirement",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.89,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2341.0,
         "region": [
           "us"
         ],
@@ -522,11 +635,14 @@
         "salary_min_usd": 176000.0,
         "seniority": "senior",
         "stack": [
+          "BigQuery",
+          "Dart",
           "GCP",
           "Go",
           "Java",
           "Kotlin",
           "Kubernetes",
+          "Objective-C",
           "Python",
           "React",
           "Ruby",
@@ -535,7 +651,8 @@
           "TypeScript",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -546,17 +663,22 @@
       "text": "Category Labs | Compiler Engineer | NYC / Global Remote | $250k | Full-time\n\nCategory Labs is a blockchain R&D firm working on greenfield technology to accelerate the Monad blockchain network. We've got a growing team of top-tier compiler engineers working on challenging design and optimisation problems as part of this effort. Lots of opportunity for impact, great remote-friendly work environment and extremely interesting technical challenges.\n\nApply via: https://www.category.xyz/careers?ashby_jid=e5c34899-cea1-4d25-beae-56e21acef3dd, or email bcollie [at] category [dot] xyz with any questions",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.93,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 601.0,
         "region": [
           "us"
         ],
@@ -566,7 +688,8 @@
         "salary_min_usd": 250000.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -577,17 +700,22 @@
       "text": "Aleph | Senior Software Engineers (frontend, backend, fullstack) | Fully Remote (North/South America) | Full-time | https://www.getaleph.com/\n\nAleph is redefining the world of Financial Planning & Analysis (FP&A). We operate in a well-defined software category with a multi-billion TAM, yet a lack of a clear winner. We’re here to change that, and our early results speak for themselves.\n\nWe’re backed by top VCs (Bain Capital Ventures, Khosla Ventures, YC, Picus Capital), and work with customers like Eight Sleep, Webflow, Turo, Notion, Zapier and others.\n\nOur tech stack: TypeScript, React, Python",
       "answers": {
         "ai_native": 0.07,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.94,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 950.0,
         "region": [
           "latam"
         ],
@@ -601,7 +729,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -612,28 +741,35 @@
       "text": "Hello\nZfort group company is looking for :\nMiddle+ /Senior PHP Developer\nRight now Zfort Group is looking for Middle+ and Senior PHP Developers to the super-product team.\n\nWhat you will do:\n\nBecome an expert with the New e-commerce framework;\nDevelop and maintain our framework's ecosystem (with partners and agencies);\nWork on different customers' projects.\nYour background:\n\nMiddle or Senior level expertise and passion for coding with PHP;\nKnowledge of professional software engineering e.g. SOLID-principles, Clean Code, Separation of Concerns;\nWorking experience with Symfony/REST API/GraphQL,\nE",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.16,
         "industry_stated": 0.64,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1575.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "seniority": "senior",
         "stack": [
+          "Elasticsearch",
           "GraphQL",
           "JavaScript",
           "PHP",
           "Postgres",
           "Redis"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -644,17 +780,22 @@
       "text": "Exa Labs Inc. | Onsite San Francisco CA | Full time | Multiple Roles\n\nExa is a search engine built for AIs. We enable developers to filter the internet's content with complex queries in order to bring the world's knowledge into their AI apps.\n\nPlease apply here https://exa.ai/careers\n\n•Frontend Engineer\n\n•Full Stack Engineer\n\n•Backend Engineer\n\n•ML Research Engineer\n\n•Sales Engineer\n\n•Account Executive\n\n•Designer\n\n•Sales Development Representative (SDR)",
       "answers": {
         "ai_native": 0.87,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 457.0,
         "region": [
           "us"
         ],
@@ -664,7 +805,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -675,17 +817,24 @@
       "text": "Uplinq | Full-Stack SWE | US (San Francisco, Scottsdale) | Onsite/Hybrid | 120k - 200k + equity\n\nI'm the CTO of Uplinq. We're automating bookkeeping and accounting for small businesses. Our customers are real people from Main Street America — think Insurance Agents, Dentists, Restaurant Owners, and Realtors. We’re a fast-growing VC-backed startup and just closed our Series A. We're looking to add 2 SWEs to our team of 5. Last year we quadrupled ARR ($1M → $4M+) and we're on track for $9M+ this year. Your work will directly shape how we get there.\n\nWe’re hiring experienced full-stack engineers ",
       "answers": {
         "ai_native": 0.96,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1422.0,
         "region": [
           "us"
         ],
@@ -697,9 +846,11 @@
           "Next.js",
           "Postgres",
           "React",
+          "Tailwind",
           "TypeScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": "5_7"
       }
     },
     {
@@ -710,17 +861,22 @@
       "text": "Charge Robotics | Multiple Roles | Full-time | Onsite / Hybrid | SF Bay Area\n\nHi HN! We’re a YC-backed, Series-A startup building robots that build large-scale solar farms.\n\nCheck out a video of our first system here! https://youtu.be/ZZ2fP1Y5Z2E\n\nIt turns out that construction companies literally can't build solar fast enough, so what we're doing is a crucial part of switching the grid over to renewable generation.\n\nYou’ll be a key contributor, helping bring our next generation of mobile solar factory to life.\n\nCome work with us if you love:\n\n* Fast-paced prototype development with software a",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "series_a",
         "industry": "hardware_robotics",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 917.0,
         "region": [
           "us"
         ],
@@ -728,7 +884,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -739,16 +896,21 @@
       "text": "100% fake.",
       "answers": {
         "ai_native": 0.13,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.22,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.19,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.18,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 10.0,
         "region": [
           "unknown"
         ],
@@ -756,7 +918,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -767,17 +930,22 @@
       "text": "Forward | Senior Frontend Engineer | Onsite & Hybrid | Full-time | Austin, TX | https://www.getfwd.com\nForward is building the next evolution of embedded payment capabilities for SaaS companies looking to monetize their platforms. We're growing rapidly and looking to add a talented frontend or full-stack engineer to our team. Ideally we're looking for someone with NextJS and design experience to create a library of embeddable payment widgets.\n\nI'm happy to answer any questions or provide more details, please email me at amays # getfwd.com.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 545.0,
         "region": [
           "us"
         ],
@@ -787,7 +955,8 @@
         "stack": [
           "Next.js"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -798,17 +967,22 @@
       "text": "Aha! (https://www.aha.io) | Rails / React | REMOTE\n\nAha! is the #1 tool for product managers to plan strategy and roadmaps. We serve more than a million users worldwide. We are looking for:\n\n* Experienced full-stack Rails and security engineers to work on the Aha! product. Our application is built in Ruby on Rails, with React on the frontend for rich client-side experiences.\n\nAha! is profitable, you can work from anywhere in North America, South America or New Zealand, and we offer excellent benefits. We use our own product to manage our work (which is especially rewarding) and we deploy conti",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 726.0,
         "region": [
           "unknown"
         ],
@@ -820,7 +994,8 @@
           "React",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -831,17 +1006,22 @@
       "text": "Nymbus | Remote, US based only | Full Time | https://nymbus.com\n\nNymbus (https://nymbus.com/) isn't just a leader in fintech; we're a community of innovators passionate about reimagining banking. Our award-winning modern core platform and cloud-based technology serve as the backbone for financial institutions eager to modernize and excel.\n\nLead Python Developer (100% REMOTE US only) - https://nymbus.com/careers/?gh_jid=5258082004\n\nNymbus is looking for an experienced Lead Developer that can be both a player and a coach. The position of Lead Developer combines technical experience, analytical a",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.98,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1131.0,
         "region": [
           "us"
         ],
@@ -851,7 +1031,8 @@
         "stack": [
           "Python"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -862,17 +1043,24 @@
       "text": "Anvil (https://anvil.works) | Senior Developer | Cambridge, UK | ONSITE, VISA | Full-time/part-time/flexible\n\nWe make an open-source web framework, an online code editor, a GUI builder, and a PaaS hosting platform. Together, you can build and host a full-stack web application - and all you need is a little Python. (Yes, even the client-side code - we compile Python to JS and provide a GUI framework!)\n\nWe’re looking for an experienced all-rounder to work on the core Anvil platform, with a focus on the back-end. Our stack is mostly Clojure, Javascript, Python, Postgres, and container tools – but",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "bootstrapped",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": 3.0,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1535.0,
         "region": [
           "uk"
         ],
@@ -880,11 +1068,13 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
+          "Clojure",
           "JavaScript",
           "Postgres",
           "Python"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -895,17 +1085,22 @@
       "text": "Metabase | https://metabase.com/ | Remote (Global) | Full-time | Applied AI Engineers, Engineering Managers, Frontend and Backend Engineers\n\nMetabase is an open source (https://github.com/metabase/metabase) business intelligence software that lets anyone in your company rummage around in the databases you have. It connects to a number of databases / data warehouses (BigQuery, Redshift, Snowflake, Postgres, MySQL, etc).\n\nHere's a dashboard that has some interesting stats about Metabase: https://stats.metabase.com/public/dashboard/92d6b7ea-7526-487c-b183-366bf84672d7\n\nPeople rather like the prod",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1607.0,
         "region": [
           "unknown"
         ],
@@ -913,13 +1108,18 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "BigQuery",
+          "Clojure",
           "MySQL",
           "Postgres",
           "Python",
           "React",
+          "Redshift",
+          "Snowflake",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -930,17 +1130,22 @@
       "text": "Parq | https://parqhq.com | Austin, TX | Full Time | Onsite/Hybrid (Remote Possible)\n\n**Senior Software Engineer**\n\nWe’re looking for a hands-on builder excited by zero-to-one challenges. You’ll work on:\n\n- Complex, Unstructured Data: Scraping, embedding search, and transforming noisy data into meaningful insights.\n\n- Modern Tech Stack: Get in early, shape our architecture from scratch, and avoid the baggage of legacy code.\n\n- Manufacturer Product Comparison Tools: Help us build robust systems that let manufacturers showcase their performance and sustainability side by side.\n\nIf you love worki",
       "answers": {
         "ai_native": 0.12,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "climate_energy",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2073.0,
         "region": [
           "us"
         ],
@@ -948,7 +1153,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -959,17 +1165,22 @@
       "text": "Sarama | Hardware Aesthete | On-site (San Francisco, CA) | Full Time | Must have a dog | https://www.sarama.ai\n\nCompany: We’re building smart collars and other devices to translate dogs into our language—using audio and motion data. We want to know what our dogs want and are on a mission to rethink the entire healthcare & training industries as we better understand them. We are mostly software people and have built our own models for dogs (soon expanding to my new cats).\n\nRole: Hardware, firmware, and software. Moving fast will be a mix of LLM, research, hacks, and rapidly typing. Build fast, ",
       "answers": {
         "ai_native": 0.92,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2588.0,
         "region": [
           "us"
         ],
@@ -979,7 +1190,8 @@
         "stack": [
           "LLM"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

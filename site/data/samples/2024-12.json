@@ -9,22 +9,28 @@
       "text": "You guys are the best example of a ghost job... and you are shamelessly posting every month too....\n\nhttps://en.wikipedia.org/wiki/Ghost_job\n\nhttps://images.app.goo.gl/zFMba68BzDgYMvfQ7",
       "answers": {
         "ai_native": 0.1,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.23,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.23,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.2,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 185.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -35,25 +41,33 @@
       "text": "Onton | https://onton.com | Product Designers, Staff Engineers, and Staff Research Engineers | SF, CA / SLC, UT | Onsite initially\n\nJoin us in pioneering the future of e-commerce search. We're an incredibly hard-working team of four. We're well-funded and growing >30% MoM in active users.\n\nTech-wise, it's primarily Clojure, if that's interesting! We've also built our own graph db and the foundations of a neuro-symbolic AI in-house.\n\nEmail us at hello@onton.com. Happy to share more (job postings will go live tomorrow).",
       "answers": {
         "ai_native": 0.39,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.96,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 523.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "staff_plus",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          "Clojure"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -64,17 +78,22 @@
       "text": "Defense Digital Service | REMOTE (US) | Full-Time | Engineer (Software, Cloud, Data/AI, etc) | $123,041-$191,900\n\nThe Defense Digital Service (DDS) is a team of technologists hired into the Department of Defense to bring their private sector expertise to government/military problems. We are currently hiring Engineers who might be specialists in some domain, like frontend, backend, hardware, data, or machine learning, or might be generalists who have some experience in a wide variety of technologies. If you are interested in serving your country and building software that solves cool problems, ",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 639.0,
         "region": [
           "us"
         ],
@@ -86,7 +105,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -97,17 +117,22 @@
       "text": "BI Engineer @ DigitalOcean | REMOTE from Austin, Boston, Denver, San Francisco, Seattle\n\nDigitalOcean empowers developers by simplifying cloud computing, providing scalable infrastructure, and intuitive developer tools. We're looking for a BI Engineer to help us leverage data to drive key business insights and decisions. Join a team focused on delivering self-service analytics and reducing technical debt while building scalable and maintainable data systems.\n\nTech: dbt, Snowflake, Looker, SQL, Python\n\nMain requirements:\n\n4+ years of experience in BI or Data Engineering\nExpertise in data modeli",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 767.0,
         "region": [
           "us"
         ],
@@ -115,9 +140,13 @@
         "returned_from_last_month": 0.0,
         "seniority": "mid",
         "stack": [
-          "Python"
+          "Python",
+          "SQL",
+          "Snowflake",
+          "dbt"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "3_4"
       }
     },
     {
@@ -128,17 +157,24 @@
       "text": "Stream | Multiple Positions | Amsterdam (NL), Boulder, CO (US), Skopje (Macedonia), Toronto (Canada) | Remote Possible | Full-Time | Visa Sponsorship Available\n\nStream powers APIs for Chat Messaging, Activity Feeds, Auto Moderation, and Video & Audio, used by over 1 billion users. We recently reached a new industry benchmark with 5 million concurrent connections in a single chat channel and an average response time of under 10 milliseconds.\nWe are a tech-driven company with 50% of our team being engineers.\n\nOur SDKs are fully open-source: https://github.com/GetStream\n\nWe use cutting-edge techn",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.91,
         "funding_stage": "series_b",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1085.0,
         "region": [
           "canada",
           "europe",
@@ -150,7 +186,8 @@
         "stack": [
           "Go"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -161,17 +198,22 @@
       "text": "Waitwhile | Stockholm, Sweden | Onsite/hybrid | Full-time | https://waitwhile.com\n\nWaitwhile works to eliminate the 1 trillion hours that people spend waiting in lines every year. Our platform is trusted by over 10,000 companies worldwide and has helped more than 250 million people enjoy a radically better waiting experience at places like IKEA, Chanel, Costco, Tribeca Film Festival and more.\n\nHiring for multiple roles for our Stockholm office. You must have work permit and live in Stockholm. Come join our wonderful, supportive team!\n\n- Frontend Software Engineer: Junior or senior frontend foc",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.74,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.94,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 974.0,
         "region": [
           "europe"
         ],
@@ -181,7 +223,8 @@
         "stack": [
           "Angular"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -192,25 +235,33 @@
       "text": "IPinfo.io | Various Roles | Remote (Anywhere) | Fulltime / Contract | https://ipinfo.io\n\nIPinfo is a leading provider of IP address data. Our API handles over 100 billion requests a month, and we also license our data for use in many products and services you might have used. We started as a side project back in 2013, offering a free geolocation API, and we've since bootstrapped ourselves to a profitable business with a global team of over 40 people, and grown our data offerings to include geolocation, IP to company, carrier detection, and VPN detection. Our customers include T-Mobile, TransUn",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "bootstrapped",
         "industry": "devtools_infra",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.96,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2709.0,
         "region": [
           "unknown"
         ],
         "remote_token": 1.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "remote"
+        "stack": [
+          "Linux"
+        ],
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -221,17 +272,22 @@
       "text": "Konvu | https://konvu.com/ | Software Engineer | FULLTIME | ONSITE | Paris, France\n\nAt Konvu, we’re on a mission to make security invisible. As we move towards a future dominated by code automatically generated, tested, and deployed by AIs, we need a new paradigm for application security. We need vulnerabilities to be automatically detected, prioritized and remediated.\n\nBehind Konvu are founders with deep roots in the security industry. As part of the founding team at Sqreen (YC W18), a notable security startup acquired by Datadog, we have firsthand experience in driving security solutions fro",
       "answers": {
         "ai_native": 0.5,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 732.0,
         "region": [
           "europe"
         ],
@@ -239,7 +295,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -250,17 +307,22 @@
       "text": "Juniper (YC W21) | Senior Software Engineer | Full-time | HYBRID NYC | juniperplatform.com\n\nJuniper is working to improve the messy financial infrastructure for US Healthcare. We've built an automated end-to-end insurance billing system for recurring care, starting with Autism clinics. It’s a product that clinicians need and love.\n\nWe automate and abstract the tedious, manual, repetitive work that goes into the administrative duties of running a clinic, so that clinicians can do what they do best — providing care. It starts with ingesting clinic data, and then create, validates, and submits cl",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1187.0,
         "region": [
           "us"
         ],
@@ -270,7 +332,8 @@
         "stack": [
           "AWS"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -281,17 +344,24 @@
       "text": "Sudowrite | REMOTE | √ PMF | Full-Time | Hiring: AI Engineer and Head of Growth\n\nPROFITABLE, SUSTAINABLE SMALL TEAM, MAKING SOMETHING PEOPLE WANT.\n\nWe are a group of friendly, smart, low-drama people, seeking the same to help us make writing tools authors dream about.\n\nOur users have published hundreds of books using Sudowrite, and we're committed to building a sustainable company, not chasing unrealistic growth targets set by VCs.\n\nWe're on year two of profitability, and not planning to raise again. This will be the second year we've paid out a profit-sharing bonus.\n\n- Sudowrite is the best A",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [
+          "bonus"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "bootstrapped",
         "industry": "media_consumer",
         "industry_fits": 0.78,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1411.0,
         "region": [
           "unknown"
         ],
@@ -299,7 +369,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -310,17 +381,22 @@
       "text": "Blueberry Pediatrics | Full-stack Senior or Staff Engineer | REMOTE (US-only)\n\nAmerican healthcare is seldom affordable, accessible, or high-quality. We are fixing this for pediatrics. Blueberry is the most affordable option amongst our competitors. We practice the highest quality pediatric telemedicine, as evidenced by our exclusive hiring of board-certified pediatricians and the usage of at-home medical kits. And, we’re accessible 24 hours a day.\n\nOur success is shown in the lives we save, the costs we save our insurers, and our exploding B2B and D2C business.\n\nAs you can imagine, pulling of",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1159.0,
         "region": [
           "us"
         ],
@@ -330,7 +406,8 @@
         "stack": [
           "Django"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -341,16 +418,21 @@
       "text": "For the record, your website starts out \"Our website has no flashy buttons, fancy graphics, eye-catching JavaScript animations, or stock photos with grinning people, and that is by design\" and then your website goes on to have every single one of those things.",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.2,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.22,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.18,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 260.0,
         "region": [
           "unknown"
         ],
@@ -360,7 +442,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -371,17 +454,22 @@
       "text": "BITS GmbH | Munich/Germany | IT Consulting | IT Project Management | Software Architecture | Software Development | DevOps | Fulltime | Onsite/Hybrid | https://mybits.de\n\nAt BITS, we support both, corporations and startups in the digitisation of their business units and processes.\n\nWe are looking for fulltime (all genders)\n\n  - IT Project Managers\n  - IT Consultants (Digital Transformation, Cloud, Infrastructure)\n\n  - Software Architects\n  - Fullstack Developers\n\n  - IT Students\n\nto join our teams.\n\nIf you are looking for challenges and like to push issues forward, then we would be happy to he",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 950.0,
         "region": [
           "europe"
         ],
@@ -389,7 +477,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -400,15 +489,20 @@
       "text": "Looking for an entry-level founding engineer\n\nCompany: theldgr.com\n\nLocation: NYC (onsite)\n\nContact: kristina@\n\nYou will wear many hats depending on your interests & skillset. You'll be doing some combination of:\n\n  * Data engineering: figuring out how to efficiently get, clean up, cluster, and combine data.\n  * Building/fine-tuning LLMs to query data via natural language.\n  * Working on gSheets and Excel extensions.\n  * Working on front-end website and dashboards.\n  * Working on integrations with various enterprise tools.\n  * Interacting directly with customers (mostly executives at startups)",
       "answers": {
         "ai_native": 0.21,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1814.0,
         "region": [
           "unknown"
         ],
@@ -416,11 +510,13 @@
         "seniority": "junior",
         "stack": [
           "AWS",
+          "Airflow",
           "LLM",
           "MongoDB",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -431,17 +527,22 @@
       "text": "RINSE | REMOTE or San Francisco, Los Angeles, Chicago, Boston, New York, New Jersey, Seattle, Austin, Dallas, or Washington DC | Product Manager | Full-Time | https://www.rinse.com\n\nRinse provides dry cleaning and laundry delivery services to customers in nine metropolitan areas in the US. We have sophisticated logistics optimization software, a polished consumer product, and firm business fundamentals. We're now over a decade old - this is a stable, yet consistently growing and innovating, company.\n\nOur product team is distributed across the United States and internationally, and has been ent",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1520.0,
         "region": [
           "us"
         ],
@@ -449,7 +550,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -460,17 +562,22 @@
       "text": "PlantingSpace | Full-time | Remote (EU time zone) with quarterly gatherings | https://planting.space\n\nWe’re building an AI system for analysts and scientists, based on a fundamentally new approach to reasoning and knowledge representation. We go beyond state-of-the-art LLMs by combining algorithms in symbolic ways, to provide novel capabilities like performing multi-step analysis, displaying a verifiable reasoning path, and assessing uncertainty. We envision applications supporting and automating analysis and research in domains such as Finance, Strategy Consulting, Engineering, Material Scien",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.65,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1392.0,
         "region": [
           "unknown"
         ],
@@ -480,7 +587,8 @@
         "stack": [
           "LLM"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -491,17 +599,22 @@
       "text": "Datenna | DevOps Manager | Full-time | Amsterdam, Netherlands | Hybrid (2 days in the office)\n\nAt Datenna, we combine China expertise, OSINT, data and AI technologies, to create a software platform that provides the insights governments need to explore the hidden connections between China’s complete corporate, academic and technological landscape.\n\nWe are looking for a DevOps Manager who will help us shape the future of our SaaS solution. You’ll have the opportunity to make a tangible impact and improve our groundbreaking OSINT platform.\n\nhttps://jobs.datenna.com/o/devops-manager",
       "answers": {
         "ai_native": 0.25,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.49,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.49,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": 2.0,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 586.0,
         "region": [
           "europe"
         ],
@@ -509,7 +622,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -520,17 +634,24 @@
       "text": "HeavyGoods | HYBRID in Dresden, Germany | 4 day week | Senior Full Stack Developer | https://heavygoods.net/\n\nWe develop and operate the SaaS platform https://heavygoods.net/\n\nA typical use case:\nA transport company wants to move a 70-meter-long rotor blade to a wind farm. The planner needs to know whether the loaded vehicle will fit through the narrow access road.\n\nWith HeavyGoods this user builds his heavy transport vehicle in the browser and places the rotor blade on it. HeavyGoods automatically finds a safe driving maneuver through the route section - based on a precise drone aerial image ",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [
+          "four_day_week"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1067.0,
         "region": [
           "europe"
         ],
@@ -540,12 +661,14 @@
         "stack": [
           "AWS",
           "Docker",
+          "GitHub Actions",
           "Node.js",
           "Postgres",
           "React",
           "TypeScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -556,17 +679,22 @@
       "text": "Tram Case | Multiple Engineering Roles | LatAm Remote | Full-time\n\nWe're building AI-powered tools that make legal work smoother, smarter, and more accessible. As a well-funded stealth company with usage at scale, we're looking to expand our foundational team to take it to the next level. We're solving hard problems at scale using AI, building solutions that literally change people's lives (our first product helps an immigration law firm help their clients of domestic violence and humanitarian crisis survivors find steady footing).\n\nOur engineering team uses best-in-class tools and practices l",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1937.0,
         "region": [
           "latam"
         ],
@@ -581,7 +709,8 @@
           "Python",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -592,17 +721,22 @@
       "text": "Koddi | Currently seeking FT employees in the following locations: Ann Arbor, MI | Fort Worth, TX | Austin, TX | New York, NY Open roles: Senior Software Engineers (Go, Java, C, C++, PhP); ML Engineer (must have adtech experience), Platform Engineer.\n\nMust be US Citizen or Green Card holder and physically located in the US. Passionate about development in leading technologies? Looking to become a major player on a diverse team? Want to make a big impact on an engineer-driven roadmap in your next career adventure? Koddi Engineers drive innovation by embracing challenges and deploying emerging t",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1179.0,
         "region": [
           "us"
         ],
@@ -617,7 +751,8 @@
           "Machine learning",
           "PHP"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -628,17 +763,24 @@
       "text": "ID.me | Mountain View, CA or Washington DC (Tysons Corner, VA) | Full-Time | SDE V, SDE VI | Visa Sponsorship available\n\nID.me simplifies how people securely prove and share their identity online. The company empowers people to control their data through a portable and trusted login, which means they don’t need to create a new password when visiting sites that have the ID.me button.\n\nThe COVID-19 pandemic accelerated digital migration for many critical services. Those services require a trusted identity to safeguard against fraud and help ensure people are who they claim to be. With ID.me, log",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.09,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1614.0,
         "region": [
           "us"
         ],
@@ -654,7 +796,8 @@
           "Ruby",
           "Terraform"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -665,15 +808,20 @@
       "text": "Do you want to make a real difference?\nAt Archesys, we're not just building software; we're improving government services that directly impact the lives of everyday citizens. For over 20 years, we've been at the forefront of digital transformation in the public sector, partnering with agencies to modernize their technology, optimize their processes, and create lasting positive change.\nWe're a team of passionate experts in fields like cloud computing, software development, and data management, and we're always looking for talented individuals to join us. If you're driven to make a meaningful im",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.05,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1196.0,
         "region": [
           "unknown"
         ],
@@ -682,7 +830,8 @@
         "stack": [
           "AWS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -693,25 +842,33 @@
       "text": "Converge (YC S23) | Senior Full-Stack Engineer | Full-time | Onsite | NYC\n\nHey HN!\n\nWe're a team of 4 that scaled to $1M+ in ARR.\n\nOur founding engineer and I are the only ones building the product right now. There's so much to build and a lot of responsibility to take on over the end product.\n\nConverge makes it easy for marketeers to understand where their customers come from, cut unprofitable channels, and scale when things are working. By vertically integrating the modern data stack (Segment, Fivetran, BigQuery, Looker, etc.) we can offer them a 10x better product experience.\n\nJob: https://",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.83,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 675.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "senior",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          "BigQuery"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -722,17 +879,22 @@
       "text": "Beeper (Automattic) | Remote | Full-time | Reverse Engineer | $70-$170k and great benefits\n\nBeeper unifies all your chats across networks in one app. We are looking for people to join our incredible team of reverse engineers that build our integrations with chat networks. Like most software at Automattic, all of our bridge work is open source: https://github.com/mautrix (and more of our stack is open source at https://github.com/beeper)\n\nBasically, if you are someone hacks on proprietary software and protocols for fun, we want to hire you. We don't care about your degree or previous work exper",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "optional",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.67,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1289.0,
         "region": [
           "unknown"
         ],
@@ -744,7 +906,8 @@
         "stack": [
           "Go"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -755,16 +918,21 @@
       "text": "Pliant / Backend Engineer / Remote (EU) / Full-time\n\nSince 2020, Pliant has been on a mission to rethink credit cards and empower companies to grow by providing a smart way to pay that scale with their business. With our app and API-based solutions, Pliant allows companies to issue physical and virtual credit cards, automate payment processes, track spending, and seamlessly integrate these data into their finance stack.\n\nTech stack: Java/Kotlin, Spring Boot 3, Postgres, Kafka, AWS, Terraform.\n\nGetting shit done attitude, no bullshit environment, empowered product teams with competent PMs.\n\nDro",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 707.0,
         "region": [
           "europe"
         ],
@@ -776,9 +944,11 @@
           "Kafka",
           "Kotlin",
           "Postgres",
+          "Spring",
           "Terraform"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -789,17 +959,24 @@
       "text": "Lightdash | Senior Full Stack Engineer | REMOTE (Europe-based) | full-time | https://www.lightdash.com/ | £75K – £120K +options\n\nWe are Lightdash, an open source BI and analytics dashboard. We have recently closed our series A and are actively hiring for senior full-stack engineers with experience in Typescript+React+Node+SQL. Bonus points for experience in data-related companies/projects, or being a founding engineer at a startup.\n\nWe are a remote-first company, with our team members currently distributed all over Europe (we are not considering candidates in other continents at the moment).\n\n",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "enterprise_saas",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 876.0,
         "region": [
           "europe"
         ],
@@ -809,9 +986,11 @@
         "stack": [
           "Node.js",
           "React",
+          "SQL",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -822,16 +1001,21 @@
       "text": "\"Posted 30+ Days Ago\" - Do you intend to fill the positions at all?",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.15,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.17,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.11,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 67.0,
         "region": [
           "unknown"
         ],
@@ -839,7 +1023,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -850,16 +1035,21 @@
       "text": "https://cactus.is/ | Multiple Engineering Roles | REMOTE | Full-time or Contract\n\nCactus is a interdisciplinary agency of strategists, designers, and engineers who build physical and digital experiences for health and wellness companies. You can learn more about us at Cactus.is.\n\nWe're hiring for multiple engineering roles (both as W2 employees and 1099 contractors) to work across our variety of client projects, spanning from entrepreneurs building web and mobile apps, to working with national health systems across their most strategic initiatives.\n\nRoles include:\n\n- iOS Engineer (W2 or contra",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1071.0,
         "region": [
           "unknown"
         ],
@@ -868,12 +1058,14 @@
         "salary_min_usd": 100000.0,
         "seniority": "senior",
         "stack": [
+          ".NET",
           "Android",
           "JavaScript",
           "Python",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "3_4"
       }
     },
     {
@@ -884,17 +1076,28 @@
       "text": "Fullstory | Atlanta or Remote (US) | https://www.fullstory.com/\n\nFullstory provides session replay and analytics for websites and mobile apps. Our session replays are nothing short of magical, and the combination with analytics provides eye-opening insights.\n\nWe have several engineering roles open:\n\n* Senior Software Engineer, Backend - $175,000 to $205,000 - Go (Golang), Kubernetes, GCP - https://www.fullstory.com/careers/jobs/55f71333-decb-4c56-be5e-d5c02feb8c7b/?ashby_jid=55f71333-decb-4c56-be5e-d5c02feb8c7b&utm_source=092xpqyAkV\n\n* Staff Security Engineer - $180,000 to $220,000 https://www",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "bonus",
+          "equity",
+          "health_insurance",
+          "retirement",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.91,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1956.0,
         "region": [
           "us"
         ],
@@ -908,7 +1111,8 @@
           "Go",
           "Kubernetes"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -919,17 +1123,22 @@
       "text": "Browserling | Remote | Full-time | https://www.browserling.com\n\nWe're a small team working on projects targeting web browsers and native platforms, looking for an experienced versatile programmer with strong knowledge of low-level systems programming and experience with building networking programs, with focus on simplicity and performance. Great if you're familiar with low-latency real-time streaming, virtualization and reverse engineering. We use C, WebAssembly and Node.JS.\n\nSend a resume to jobs@browserling.com if interested.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.32,
         "industry_stated": 0.8,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 534.0,
         "region": [
           "unknown"
         ],
@@ -941,7 +1150,8 @@
           "JavaScript",
           "Node.js"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     }
   ]

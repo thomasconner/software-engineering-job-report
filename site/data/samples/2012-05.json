@@ -9,17 +9,25 @@
       "text": "Peek (www.peek.ly) - Manhattan, NY (interns, part-time, full-time, H1B welcome)\n\nPeek wants to make the Internet and data available globally via mobile devices. We want people in the most remote regions of the world to obtain $50 or even $25 devices to communicate and collect the data they need. This means that we need to make software that is affordable and uses as little data as possible. But is still incredibly powerful! It's a big challenge.\n\nAt Peek we are looking for software engineers who have a passion for the startup environment, and who want to develop skills on new and emerging tech",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "media_consumer",
         "industry_fits": 0.79,
         "industry_stated": 0.97,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2745.0,
         "region": [
           "us"
         ],
@@ -27,6 +35,7 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          ".NET",
           "AWS",
           "Android",
           "C",
@@ -37,7 +46,8 @@
           "Ruby",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -48,17 +58,22 @@
       "text": "Ridejoy (YC S11). San Francisco, CA. Full time.\n\nEngineer number one.\n\nInterested in getting in on the ground floor of fundamentally changing the way people travel or, as one of our users said, \"restoring people's faith in humanity\"?\n\nSee more at: http://ridejoy.com/jobs",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.5,
         "industry_stated": 0.65,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 271.0,
         "region": [
           "us"
         ],
@@ -66,7 +81,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -77,17 +93,22 @@
       "text": "Salt Lake City, Utah\n\nBlack Diamond is hiring for entry level web developers and for an enterprise systems role. This is a rare opportunity to combine a passion for outdoor sports (climbing, skiing, mountaineering, and more) while working as part of a smart, motivated software team.\n\nFor more details, see the careers section at blackdiamondequipment.com",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.38,
         "industry_stated": 0.51,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 355.0,
         "region": [
           "us"
         ],
@@ -95,7 +116,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "junior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -106,17 +128,22 @@
       "text": "Waltham, Ma (Near Boston)\n\nSavingStar is looking for Ruby experts to help us transition the world away from paper coupons, and enable a digital couponing future.\n\nIf you can intelligently discuss page vs. fragment caching, if scaling a website to millions of users sounds like fun and if you enjoy a fast paced, flexible environment with challenges to spare, we might be a good fit.\n\nWe're looking for someone to help improve our websites and services, both internal and external, and to work with partners to integrate SavingStar into their environments.\n\nWe're looking for someone who's used framew",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.46,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 778.0,
         "region": [
           "us"
         ],
@@ -129,7 +156,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -140,16 +168,21 @@
       "text": "Toronto, Canada (King St. W.) - Django Developer - http://shopcastr.com\n\nShopcastr is a social marketplace for independent retailers and local shoppers. We’re backed by Mantella Venture Partners and are seeing great early traction. We have a solid team so far and need someone to help make up the foundation of the company as we grow.\n\nWe’re looking for a developer with some Python and Django chops who isn’t afraid to pick up new skills when needed (we use CoffeeScript and SASS, for example). We’re looking for someone self-taught, though we won’t hold it against you if you’ve also been to school",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "optional",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.08,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 702.0,
         "region": [
           "canada"
         ],
@@ -159,7 +192,8 @@
           "Django",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -170,17 +204,22 @@
       "text": "New York City. SUMMER INTERNSHIPS in software (including Unity 3D), hardware, and game design at Project Grasshopper.\n\nProject Grasshopper: game lounges for grown-ups. Starting in New York City and involving interactive tabletops and innovative physical and digital media in actual locations, with the goal of using games to foster meaningful face-to-face social interaction and in-person community. Founded by former Google PM director.\n\nParticipants in test events have basically said: we love it, we want it more, and we don't know where else to get it.\n\nIf this piques your interest, email info@p",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.9,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 751.0,
         "region": [
           "us"
         ],
@@ -188,7 +227,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "junior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -199,17 +239,22 @@
       "text": "Chicago, IL - Braintree - FULL TIME Developers\n\nBraintree helps businesses process credit card payments by providing a merchant account, payment gateway, recurring billing and credit card storage. We're unlike others in the industry; we think and do things differently.\n\nOur team is talented, our practices are collaborative (pairing, agile), we work on challenging problems (high availability, quality of service, scaling, security), and our devs have 10% time to work on whatever they want. Developers use and love our product. Although we mostly work with Ruby, we also work with Python, Node.js, ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 789.0,
         "region": [
           "us"
         ],
@@ -217,13 +262,17 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          ".NET",
           "Java",
           "Node.js",
+          "Objective-C",
           "PHP",
+          "Perl",
           "Python",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -234,23 +283,31 @@
       "text": "Knoxville, TN\n\nCellularSales is a fast growing retailer of Verizon Wireless Cellular Service, and we're looking for a few good devs.\n\nOur stack is .NET and we're looking for people who love getting stuff done, and are good enough to teach the rest of us something new.\n\nIf you're in the area and are interested, shoot me an email (address is in my profile).",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.76,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 357.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          ".NET"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -261,17 +318,22 @@
       "text": "Priceonomics (YC W12) - San Francisco\n\nFront-End Engineer - Full Time\n\nPriceonomics is the price guide for everything. We're a team of three who are passionate about reinventing how people search, discover, and purchase products.\n\nWe're based in the heart of San Francisco, on the edge of SoMa/Mission. We have great investors like Y Combinator, Andreessen Horowitz, Ron Conway (SV Angel), Crunch Fund and many more.\n\nDetails (and a fun puzzle!) here:\nhttp://priceonomics.com/jobs/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.93,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 481.0,
         "region": [
           "us"
         ],
@@ -279,7 +341,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -290,16 +353,21 @@
       "text": "Oxford, UK - Django Developer -\nTorchbox.com -\nhttp://twitter.com/#!/torchbox/status/196998627883892737",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.1,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.12,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 103.0,
         "region": [
           "uk"
         ],
@@ -308,7 +376,8 @@
         "stack": [
           "Django"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -319,23 +388,29 @@
       "text": "New York, NY - Two internships: General programming or electrical engineer intern. $12/hr, ~20 hours week.\n\nwww.tractechsystems.com\nwww.colormerchants.com\n\nJob Description: Join our team if you're looking to learn a lot and make a difference in a very fast growing start-up. We're the industry leader in jewelry RFID, and believe we've only just begun to crack this market. We need bright technical people to handle a variety of programming tasks, work with our RFID technology, and support our business customers.\n\nQualifications: We're looking for an ambitious intern with programming knowledge. We",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.95,
         "industry_stated": 0.97,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 852.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "junior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -346,17 +421,25 @@
       "text": "San Francisco, CA - Scribd - Looking for creative engineers with various backgrounds\n\nScribd is one of the early YCombinator companies, and we've been growing steadily. We're now a top 100 site and one of the top 3 rails sites on the web by traffic. But we still have a very small, tight-knit team where each person plays a critical role.\n\nScribd alumni have gone on to found four other YCombinator companies, more than from any other startup. We think this says something about the kind of people that we like to hire.\n\nTechnology-wise, we mostly work with Rails, Javascript, and iOS. We also have a",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [
+          "relocation",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.09,
         "industry_stated": 0.24,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1206.0,
         "region": [
           "us"
         ],
@@ -369,7 +452,8 @@
           "Rails",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -380,17 +464,22 @@
       "text": "osmeta - Mountain View, CA - Full Time or Intern\n\nhttp://osmeta.com",
       "answers": {
         "ai_native": 0.1,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.11,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.9,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 67.0,
         "region": [
           "us"
         ],
@@ -398,7 +487,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -409,16 +499,21 @@
       "text": "NYC, NY (midtown) - Visual Revenue\n\nWe use predictive analytics to help media companies like Forbes, InStyle, and Comcast optimize their content arrangement. We built a decision support system to help the editorial team figure out what content to promote, when, and where. Here are what the press has to say about us.\n\nhttp://www.fastcompany.com/1787107/visual-revenue-dennis-r-mortensen\nhttp://thenextweb.com/media/2012/01/27/data-dollars-the-death-of-the-printing-press-doesnt-mean-the-death-of-the-press/\nhttp://www.betabeat.com/2012/01/26/is-it-possible-to-predict-pageviews-15-minutes-into-the-f",
       "answers": {
         "ai_native": 0.82,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.2,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1002.0,
         "region": [
           "us"
         ],
@@ -428,7 +523,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -439,17 +535,22 @@
       "text": "San Francisco, CA - Minted\n\nFrontend & backend developers needed!\n\nMinted is a social commerce site, crowd-sourcing graphic designs and art from around the world. Behind the scenes, we're running Python and PHP, on MySQL running in EC2 and Rackspace environments.\n\nWe provide competitive compensation, generous benefits, and a brightly lit office environment that's 5 minutes walking distance from the Ferry Building in downtown San Francisco. We're backed by Benchmark Capital & IDG Ventures, among others.\n\nSee http://www.minted.com/jobs for more, or send me an email at eric@minted.com",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 588.0,
         "region": [
           "us"
         ],
@@ -461,7 +562,8 @@
           "PHP",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -472,16 +574,21 @@
       "text": "New York, NY - 3 Developers, IT, Project Mgr - FULLTIME\n\ncharity: water is a 5 year old non-profit organization bringing clean, safe drinking water to people in developing countries. 100% of all public donations directly fund water projects.\n\nWe raise 70% of our donations online, and tie every dollar donated to mycharitywater.org to the project it funds.\nExample: http://mycharitywater.org/p/myprojectsview?project_id=ET.GOH.Q4.09.048.132\n\n// Front-end Dev\n- Looking for someone skilled in HTML5/CSS3/jQuery/Responsive design, to work on our websites, Email Campaigns, data visualizations and admin",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1158.0,
         "region": [
           "europe",
           "us"
@@ -494,7 +601,8 @@
           "PHP",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -505,17 +613,22 @@
       "text": "rewardStyle - Dallas, TX (Uptown) - Fulltime/Part-time\n\nrewardStyle is an invitation-only web tool that helps\nfashion bloggers find and monetize their content.\n\nAbout us:\n\n* Soft launched one year ago\n\n* Solving hard problems involving complex systems\n\n* Currently a small engineering team of three looking for talent\n\nWhat we're looking for:\n\n* Designers\n\n* Fullstack engineers\n\n* Front-end engineers\n\nWe currently use PHP/C, MySQL, Memcached, and iOS/Android\n\nContact me: forrest at rewardstyle.com if you are interested.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.25,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 523.0,
         "region": [
           "us"
         ],
@@ -529,7 +642,8 @@
           "PHP",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -540,17 +654,22 @@
       "text": "Two Sigma Investments – New York, NY (Full Time Positions)\n\nAt our core, we're a technology company applying our talents to the domain of finance. We've created a system that combines artificial intelligence and keen human insight—a system that's constantly improving and advancing.\n\nWe are looking for a diverse set of technologists to join our team. Our challenges require mastery of areas such as kernel level development, machine learning, and distributed systems. Our team includes a Unix Lifetime Achievement winner, Putnam medalists, ACM Programming competition finalists, and International Ma",
       "answers": {
         "ai_native": 0.81,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.9,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.1,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1171.0,
         "region": [
           "us"
         ],
@@ -561,7 +680,8 @@
           "C",
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -572,16 +692,21 @@
       "text": "Full Time Job Opportunity in: Austin, TX with RGM Advisors, LLC\nIndustry: Financial/Proprietary Trading\nPosition: Quantitative Researcher\n\nRGM Advisors, LLC is a proprietary trading firm headquartered in Austin, Texas that applies scientific methods and computing power to trading in multiple asset classes around the world. This is a unique opportunity to join a successful quantitative trading firm in a geographic location that is consistently recognized as one of the top 10 places to live, work, and play.\n\nResponsibilities:\nWe are currently seeking Quantitative Researchers at various levels wh",
       "answers": {
         "ai_native": 0.1,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.13,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2163.0,
         "region": [
           "us"
         ],
@@ -591,7 +716,8 @@
           "C++",
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -602,17 +728,22 @@
       "text": "Contextly - San Francisco - Local, Possibly Remote\n\nContextly is making online news better. We're currently in a closed beta of our related links service, a beta that includes Wired.com and other top tech blogs.\n\nWe're looking for a technical co-founder to build and architect (in the widest possible conception of that term) a better future for online news. Pardon the generalities, but we actually believe that stealth is underrated for startups.\n\nIf you are passionate about journalism and big data and want to build something that actually makes a difference, drop us a line, we'd love to talk.\n\n",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.4,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.78,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 865.0,
         "region": [
           "us"
         ],
@@ -624,7 +755,8 @@
           "Python",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -635,17 +767,22 @@
       "text": "San Francisco, CA - Do (http://do.com/jobs)\n\nDo is on a mission to build the best tools for small teams and businesses across the world.\n\nWe're hiring developers and designers for backend + frontend web, and mobile (iOS and Android).\n\nTech: Ruby. Lots of Javascript/Coffeescript. Backbone. PostgreSQL, Redis, Solr. iOS. Android.\n\nAnd we're a Salesforce company. Solid funding, great benefits, competitive comp.\n\nI'd love to chat if you're interested - gopal@do.com",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.28,
         "industry_stated": 0.9,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 464.0,
         "region": [
           "us"
         ],
@@ -660,7 +797,8 @@
           "Ruby",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -671,23 +809,29 @@
       "text": "Not a single company hiring in Tokyo?",
       "answers": {
         "ai_native": 0.07,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.13,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.11,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.15,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 37.0,
         "region": [
           "asia_pacific"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -698,17 +842,22 @@
       "text": "Philadelphia area, Full Time Junior Web Application Developer, No remote. No recruiters.\n\nAre you an energetic, smart, hard working developer looking to make a difference? We are the place for you. Our company is at the forefront of the emerging sleep industry. We are the leading Sleep EMR company and have a backlog of projects and ideas being asked for by our customers and employees.\n\nWe currently need a junior web application developer. We use PHP, JQuery and MySQL, but if you are a whiz at some other web programming language, we are willing to teach the right person to use our languages of ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1315.0,
         "region": [
           "us"
         ],
@@ -721,7 +870,8 @@
           "MySQL",
           "PHP"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -732,16 +882,24 @@
       "text": "Burnaby, BC\n\nautoTRADER.ca is Canada's leading automotive marketplace and our Burnaby dev team is hiring multiple positions, including:\n\n- Web Solutions Architect\n- Senior QA Manager\n- QA Engineers\n\nWe develop autoTRADER.ca using Microsoft.Net C#, SQL Server, and related technologies. We also develop for iPhone (#5 in category) and iPad (#1 in category) plus have just started with Android. We develop and support high volume back-end services using WCF, REST, SOAP, etc.\n\nWe have a great benefits package which includes paid home internet/mobile phone, $1000 tuition reimbursement, paid conference",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "health_insurance",
+          "learning_budget"
+        ],
+        "degree": "none",
         "eng_leadership": 0.41,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.87,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 758.0,
         "region": [
           "canada"
         ],
@@ -749,9 +907,11 @@
         "seniority": "unspecified",
         "stack": [
           "Android",
-          "C#"
+          "C#",
+          "SQL"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -762,17 +922,24 @@
       "text": "Factor Tree - New York, NY\n\nWe're an e-Learning startup that targets a very specific problem and demographic: teaching math to kids preK - 6th grade. There's a huge problem with the way kids in the US learn math: lack of basic arithmetic fundamentals. We want to fix this problem using an alternative East meets West adaptive curriculum, and we could use your help.\n\nWe're a NYC startup, a bit different from the Silicon Valley boys, more results oriented, less fluff and you can bet that everyone on your team is as talented and driven as you. We have awesome proprietary technology and architecture",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1536.0,
         "region": [
           "us"
         ],
@@ -782,10 +949,12 @@
         "stack": [
           "JavaScript",
           "MySQL",
+          "Objective-C",
           "PHP",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -796,16 +965,21 @@
       "text": "Berlin, Germany\nDevOps and Senior/Excellent Java developers\nYou can reach me at stephan.schmidt@brands4friends.de\nI'll do the interviewing (+ some developers ;-)\nVice CTO",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.07,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 170.0,
         "region": [
           "europe"
         ],
@@ -814,7 +988,8 @@
         "stack": [
           "Java"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -825,23 +1000,29 @@
       "text": "Hi! We are in Taipei and looking for a remote drupal 7 developer and designer. Must have experience. Please email us your portfolio, resume, and some current drupal based websites that you have designed/ developed to: blck.swn.99@gmail.com.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.03,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 240.0,
         "region": [
           "asia_pacific"
         ],
         "remote_token": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -852,17 +1033,22 @@
       "text": "SparkNotes is hiring a full time web developer in New York, NY.\n\nWe work mainly with PHP/symfony but are open to candidates with strong ruby/python/perl experience as long as you've worked with (or at least are open to) MVC web frameworks.\n\nFull LAMP stack, opportunity to make a big impact (5 person technical team) on a high profile site (well over 10 million uniques/month), backed by the resources of bn.com. Work out of our Chelsea office and cadge lunches off your friends at Google.\n\nhttp://www.linkedin.com/jobs?viewJob=&jobId=2924074",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.05,
         "industry_stated": 0.3,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 542.0,
         "region": [
           "us"
         ],
@@ -871,10 +1057,12 @@
         "seniority": "unspecified",
         "stack": [
           "PHP",
+          "Perl",
           "Python",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -885,16 +1073,21 @@
       "text": "Sense - http://www.senseplatform.com\n\n- Quantitatively Oriented Developer - Summer Intern\n\n- New York City / Cambridge, MA / San Francisco.\n\nWe're pre-launch startup building a next-generation platform for data and statistics. We're solving some of the most challenging problems in statistics and big data in a way that will delight both PhD statisticians and business analysts.\n\nPosition:\n\nWe're looking for a quantitatively oriented developer to join our small (3) team. We're open to summer interns. Strong knowledge of C/C++ and Javascript required. Masters/PhD in a quantitative field and strong",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.76,
         "industry_stated": 0.95,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 748.0,
         "region": [
           "unknown"
         ],
@@ -907,7 +1100,8 @@
           "JavaScript",
           "R"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -918,16 +1112,21 @@
       "text": "GetGlue - http://getglue.com/\n\nNew York, NY - Fulltime\n\nGetGlue is the leading social network for entertainment. Users check-in and share what they are watching, listening to and reading with friends; get fresh recommendations, exclusive stickers, discounts and other rewards from their favorite shows and movies.\n\nLooking for:\n\nPython Engineer http://getglue.com/jobs/python_engineer\n\nMobile Engineer http://getglue.com/jobs/mobile_engineer",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 441.0,
         "region": [
           "unknown"
         ],
@@ -937,7 +1136,8 @@
         "stack": [
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

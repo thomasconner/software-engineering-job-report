@@ -9,17 +9,22 @@
       "text": "Launch Potato | VueJS Python Django | 100% Remote (US) | Full-Time\n\nLaunch Potato builds valuable companies with smart, fun, passionate people and our proprietary technology stack. As an engineer you can look forward to:\nContributing to front-end libraries that drastically speed up building new customer experiences with reusable components utilizing VueJS.\nWorking with Python, SQL, PostgreSQL, Presto, Redshift, Spark, Hive, AWS, and Looker to build and maintain large-scale data pipelines, data warehousing, and data lakes that support a flexible business intelligence ecosystem.\nDesigning, devel",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.84,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.21,
         "industry_stated": 0.89,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 899.0,
         "region": [
           "us"
         ],
@@ -33,10 +38,13 @@
           "GraphQL",
           "Postgres",
           "Python",
+          "Redshift",
+          "SQL",
           "Spark",
           "Vue"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -47,17 +55,22 @@
       "text": "Koffie Labs | Data Engineer | NYC (remote in USA/Canada) | Full Time\n\nThis is a unique role that offers broad exposure to software engineering and data science. We are eager to find underrepresented candidates who are early in their career and don’t want to choose between engineering or data science.\n\nWorking with data science and engineering, you will be deeply enmeshed in the critical nuances of disambiguation, normalization, standardization and other ETL skills. You will also have the opportunity to work in all stages of our software process from researching data sources to developing data ",
       "answers": {
         "ai_native": 0.94,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.94,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1211.0,
         "region": [
           "canada",
           "us"
@@ -66,7 +79,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "junior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -77,17 +91,25 @@
       "text": "ChooseMyCar | PHP Developer | Manchester, UK (Remote) | Full-time\n\nA car finance startup based in Manchester are currently looking to hire a Senior PHP/Full Stack developer to work alongside the Head of Development on a Greenfield Car Finance CRM platform.\n\nAs the second development hire you'll have direct input in making new business decisions, from a strategic level to design and implementation of new features.\n\n---\n\nWhat can we expect from you?\n\n• Exceptional OO PHP7 programming skills\n\n• Strong experience with MySQL\n\n• Extensive experience with at least one major PHP framework such as Zend",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "pto_days",
+          "retirement"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.97,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1321.0,
         "region": [
           "uk"
         ],
@@ -96,10 +118,12 @@
         "seniority": "senior",
         "stack": [
           "JavaScript",
+          "Laravel",
           "MySQL",
           "PHP"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -110,16 +134,21 @@
       "text": "At Offchain Labs, we are building a platform to unlock the full potential of smart contracts, making them private, affordable, and easy for developers. Our working prototype of Arbitrum runs on top of Ethereum and interoperates with native Ethereum contracts and tokens. We make smart contracts easier to develop at scale, with production level security. Our developer tools do the heavy lifting to add a flexible second layer to decentralized application architecture so our clients can focus on business logic and user experience.\n\nWe are looking for full stack engineers that are active members of",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1194.0,
         "region": [
           "unknown"
         ],
@@ -129,9 +158,11 @@
         "stack": [
           "JavaScript",
           "React",
+          "Solidity",
           "TypeScript"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -142,17 +173,24 @@
       "text": "Calico Energy | https://calicoenergy.com/ | Remote (offices in Seattle and Chicago), must be US-based (citizen or green card)\n\nWe're creating a utility data platform to help building managers / utility admins understand their energy footprint (think data ingest + dataviz-filled dashboards + admin workflows). We're looking for a senior full-stack engineer, though the work is pretty backend-heavy. Tech stack is .NET Core / SQL Server / Azure on the backend, Typescript / React / Redux on the frontend. We're a small team, so looking for someone who can take our vision and run with it, working with",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "climate_energy",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 871.0,
         "region": [
           "us"
         ],
@@ -160,11 +198,14 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
+          ".NET",
           "Azure",
           "React",
+          "SQL",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -175,17 +216,22 @@
       "text": "Farmstead | Senior Software Engineer | Full-time | REMOTE\n\nOur mission at Farmstead is to make fresh, high-quality food accessible to everyone. We’re a new delivery-only grocer that’s re-inventing grocery from the ground up. We've recently moved in to a new hub that will let us fulfill four times as many orders in the Bay Area.\nhttps://www.grocerydive.com/news/farmstead-eyes-expansion-with-new-warehouse/582383/\n\nWe have a fully-remote engineering team of four people currently and are looking to add a couple senior full-stack engineers with experience building solutions for complex and demandin",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1031.0,
         "region": [
           "unknown"
         ],
@@ -197,7 +243,8 @@
           "Rails",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -208,17 +255,22 @@
       "text": "Second Measure (YC S15) | SF Bay Area - San Mateo, CA (downtown) | US REMOTE (see below) | https://secondmeasure.com\n\n----\n\nSecond Measure analyzes billions of anonymized credit card transactions to answer real-time questions about consumer behavior.\n\nThrough our self-service analytics platform, we help our clients—some of the world’s largest brands and investment firms—answer questions like:\n\n  - How do restaurant delivery companies perform across different US cities? [1]\n  - Where is Uber gaining or losing market share? [2]\n  - What impact has COVID-19 had on the rideshare industry? [3]\n  - ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.87,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1478.0,
         "region": [
           "us"
         ],
@@ -226,7 +278,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -237,17 +290,22 @@
       "text": "SecurityTrails.com| DevOps Engineer| remote, full-time| https://sthr.bamboohr.com/jobs/view.php?id=12| hello@securitytrails.com\n\nWe are looking for a DevOps Engineer to help us build functional systems to power our quickly growing infrastructure.DevOps Engineer responsibilities include taking charge of our multicloud infrastructure and helping drive automation, deployment, monitoring and disaster recovery processes. You should have a keen focus on detail and precision as well as experience with complex growing infrastructure.\n\nRequirements:\n- Work experience as a DevOps Engineer or similar sof",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.07,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1042.0,
         "region": [
           "unknown"
         ],
@@ -256,11 +314,16 @@
         "seniority": "unspecified",
         "stack": [
           "AWS",
+          "Airflow",
+          "Ansible",
+          "Elasticsearch",
           "GCP",
           "Kafka",
+          "Linux",
           "Spark"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -271,17 +334,22 @@
       "text": "1build (YC W20) | Full-Stack Software Engineer | REMOTE (US time-zones), SF Bay Area | Full-time\n\n1build is building the future of construction. We like to think of buildings as applications. We see the process of turning blueprints into buildings as an algorithm. It's an algorithm we seek to optimize. We're ambitious and relentlessly driven, yet humble and collaborative. You'll join 1build in our first stage of development, in which we build an application to improve the process of converting blueprints into shopping lists and cost estimates. It's a process that's critical yet currently cumbe",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1039.0,
         "region": [
           "us"
         ],
@@ -296,7 +364,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -307,23 +376,29 @@
       "text": "ONSITE on Abbot Kinney, Venice Beach, LA Los Angeles (but remote for now).\n& ONSITE or REMOTE in Florianópolis, Brazil.\n\nAE Studio is looking for a few senior full stack devs to join our team of awesome developers and data scientists. We build products for startups and large companies like Samsung, and work on cool stuff in house.\n\nWe're also looking to hire software developers with sufficient social skills to communicate with some interesting clients. This role is a hybrid individual contributor/manager role with a lot of interesting challenges involved. We've found that the people who succee",
       "answers": {
         "ai_native": 0.9,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.19,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.19,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1477.0,
         "region": [
           "us"
         ],
         "remote_token": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -334,17 +409,27 @@
       "text": "Reverie Labs (YC W18) | Cambridge/Boston, MA | Senior Data Scientist and Full-Stack Roles | Onsite (Temporarily Remote) | https://www.reverielabs.com\n\nAt Reverie Labs, we’re rethinking drug discovery by building a biotech company that looks and feels like a tech company. We are actively working on several cancer therapeutics programs (see reverielabs.com/pipeline) and building an internal platform to accelerate discovery. We’re looking for engineers across the tech stack, including data scientists, front-end engineers, and full-stack devs to expand the computational systems that generate the n",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [
+          "dental_vision",
+          "equity",
+          "health_insurance",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2031.0,
         "region": [
           "us"
         ],
@@ -356,7 +441,8 @@
           "Machine learning",
           "R"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -367,17 +453,22 @@
       "text": "98point6 | Product Security Engineer, Engineering Manager, Automation Engineer, Backend Engineer, Frontend Engineer | OnSite Seattle, WA | Full-time | https://98point6.com/careers#open-roles\n\nHi, I’m Thomas and I’m Director of Engineering at 98point6. We’re hiring for a number of roles, like Product Security Engineer, Engineering Manager, and Automation Engineer. Our goal is to make access to primary care as easy as googling something, without needing to make a financial tradeoff. We were seeing exciting growth before COVID-19 and that growth has accelerated even more as we help support the re",
       "answers": {
         "ai_native": 0.11,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1172.0,
         "region": [
           "us"
         ],
@@ -386,12 +477,14 @@
         "seniority": "unspecified",
         "stack": [
           "AWS",
+          "DynamoDB",
           "Kotlin",
           "Postgres",
           "Terraform",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -402,17 +495,22 @@
       "text": "DataGrail | Senior Software Engineer (Frontend) | Onsite in San Francisco (once opened) or Fully Remote\n\nWe're building a data privacy platform that ensures data privacy doesn't suck.\n\nAs more regions implement privacy laws, most companies are challenged to comply. Our platform streamlines this entire process while enabling companies to give their users more control and transparency over their data.\n\nWe are currently powering privacy for many well-known orgs, and have continued with very healthy growth despite the times.\n\nWe're looking for someone with 5+ years of experience to help shape our ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 815.0,
         "region": [
           "us"
         ],
@@ -425,7 +523,8 @@
           "React",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "5_7"
       }
     },
     {
@@ -436,17 +535,22 @@
       "text": "Metaview | Seed Stage | San Francisco | Full-time - Onsite or Remote | Senior Software Engineer - Full-Stack\n\nMetaview is a stealth, SF based team building the next-gen, gaming-centric video content platform founded by former Twitch and Xbox leaders. We’re funded and backed by a multi-billion dollar strategic investor and an exclusive group of executive angels from various current and former leadership ranks of AAA game publishers, talent agencies and multiple content / streaming video services.\n\nWe’re looking for a senior full-stack engineer to take lead on our content-creator tools + content",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.08,
         "funding_stage": "seed",
         "industry": "media_consumer",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1001.0,
         "region": [
           "us"
         ],
@@ -454,10 +558,13 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
+          "Express",
+          "Firebase",
           "Node.js",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -468,17 +575,27 @@
       "text": "Lyst | Data Engineer | London, England, UK | Onsite | Full-time\n\nLyst (https://lyst.com/) is a search and discovery platform that helps fashion lovers find the right item, in the right size at the right price. We connect over 100M consumers globally with over 12.000 brands and 8.5M products, giving them a simpler, more engaging and better buying experience. Lyst is 10 years old and has 135 employees, of which around 50 in engineering.\n\nIn addition to a competitive salary, these are some of our perks:\n\n* Private Healthcare by Vitality * Learning & conferences budget £1500 * 29 paid vacation day",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "health_insurance",
+          "learning_budget",
+          "parental_leave",
+          "pto_days"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1011.0,
         "region": [
           "uk"
         ],
@@ -486,7 +603,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -497,17 +615,22 @@
       "text": "BusRight | Full Time | Android Developer | Remote\n\nBusRight (https://busright.com/) is hiring a full time Android Engineer to own features from inception to launch, implement new designs, and shape the future of our Android team!\n\nWe are looking for individuals who have a:\n1) Solid foundation in software engineering\n2) Experience with Android Architecture Components (LiveData, ViewModel)\n3) Familiarity with Kotlin, RxJava, and Jetpack Navigation\n\nWhy BusRight? - Crossed 100% of our sales goal last week - 3,000 new parents will use our app this Fall - Work from anywhere, on your own time\n\nEmail",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.15,
         "industry_stated": 0.47,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 762.0,
         "region": [
           "unknown"
         ],
@@ -518,7 +641,8 @@
           "Android",
           "Kotlin"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -529,17 +653,22 @@
       "text": "Recess | Full-stack engineer | REMOTE | Full-time\n\nHiring our first full-stack engineers to join our team! Great opportunity to learn, grow and have a direct impact on people's health and lifestyle.\n\nWe use Hasura/WebRTC, Express and Svelte sprinkled with some TypeScript and the whole range of video technologies. 2+ years of experience required. Ideal candidate has experience building marketplaces and video products used by millions of user.\n\nIf you shine during challenging times, are thirsty for constructive feedback and like to get stuff done then you'll feel right at home.\n\nMore info: https",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.25,
         "industry_stated": 0.46,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 717.0,
         "region": [
           "unknown"
         ],
@@ -547,9 +676,12 @@
         "returned_from_last_month": 0.0,
         "seniority": "mid",
         "stack": [
+          "Express",
+          "Svelte",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -560,17 +692,22 @@
       "text": "Figma (https://www.figma.com) | Software Engineer | SF | Full-time Onsite\n\nFigma is a startup in San Francisco building a browser-based collaborative design tool to improve the way designers and developers work together. We are hiring talented engineers across the stack who are interested in tackling hard technical problems with smart people and building a product that startups will rely on. We push the boundaries of web technology and have redefined what applications in browsers are capable of. For examples of challenges that we solved, you may find our blog post interesting: https://www.figm",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.84,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.78,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 892.0,
         "region": [
           "us"
         ],
@@ -585,7 +722,8 @@
           "Rust",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -596,17 +734,22 @@
       "text": "Stationhead | Senior Android Engineer, Backend Engineer | REMOTE | www.stationhead.com\n\nHi, I’m Andrew DeFranco, a senior engineer at Stationhead. We’re building a music-focused social network fighting back against algorithmically generated playlists and soulless corporate radio. We’re creating a democratized platform people connect with their music, their favorite artists, and each other. One of our founders is an actual rockstar, and we have artists and industry executives lauding us as the future of music streaming.\n\nWe are a small team developers working collaboratively in a diverse and in",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "optional",
         "eng_leadership": 0.81,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2045.0,
         "region": [
           "unknown"
         ],
@@ -616,14 +759,17 @@
         "stack": [
           "Android",
           "Django",
+          "Elasticsearch",
           "Kotlin",
+          "Laravel",
           "Rails",
           "React",
           "Redis",
           "Ruby",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "3_4"
       }
     },
     {
@@ -634,17 +780,22 @@
       "text": "Datawire, Inc | REMOTE from Montreal, Boston, Portland | Senior Software Engineers | Full-Time\n\nDevelopers can change the world. Empowered developers can change the world faster.\n\nDatawire empowers developers to own the services they deliver. With service ownership, developers write, deploy, release, and run code all in a self-service manner, enabling them to receive immediate feedback and creating an accelerating loop of experimentation and improvement. Our customers code, test, and ship services at blistering fast rates compared to their competitors.\n\nBuilt for Kubernetes managed environment",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1548.0,
         "region": [
           "canada",
           "us"
@@ -657,7 +808,8 @@
           "Kubernetes",
           "Python"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "5_7"
       }
     },
     {
@@ -668,17 +820,24 @@
       "text": "Narmi (Techstars NYC '17)| New York, NY (NYC) | ONSITE (normally) | https://www.narmi.com\n\nNarmi is helping reinvent banking in the United States. We create a more accessible and useful financial ecosystem by powering the online banking, mobile banking, account opening and open banking APIs for the 10,000 credit unions and community banks in the United States.\n\nYou'll be working on production software that has a real impact on the average American's life everyday. Our software helps them save money on their bills, understand their financial story, protect their families and move money.\n\nNarmi ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [
+          "pair_programming"
+        ],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2069.0,
         "region": [
           "us"
         ],
@@ -686,12 +845,15 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
+          "Ansible",
           "Django",
           "Python",
+          "React Native",
           "Terraform",
           "Vue"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -702,17 +864,22 @@
       "text": "Summer | meetsummer.org | Software Engineer (focus on backend) | NYC (onsite) | full-time\n\nSummer was founded as a Public Benefit Corporation on the belief that all student loan borrowers have the right to financial health. Now a certified B Corporation® as well, Summer has brought online tools and live advisors to help thousands of borrowers improve their financial security, plus simplify and save on their student debt.\n\nJob description + application: https://boards.greenhouse.io/summer/jobs/4070055003\n\nContact: ruby@meetsummer.org",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.87,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.09,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 538.0,
         "region": [
           "us"
         ],
@@ -722,7 +889,8 @@
         "stack": [
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -733,17 +901,22 @@
       "text": "Select Star | Founding Engineer | Remote (US, Canada, and Europe) | Full-time\n\nSelect Star is a data catalog & management tool that solves data discovery problems inside organizations. Many data scientists and business analysts spend too much time looking for the right data, usually by asking other people. We provide a platform that anyone can use to search & understand their company’s data.\n\nWe’re looking for experienced engineers to join our founding team. We’re a small, well-funded, fully remote team working closely with our initial customers. Our stack includes React, Typescript, Python, D",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 673.0,
         "region": [
           "canada",
           "europe",
@@ -759,7 +932,8 @@
           "Rust",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -770,17 +944,22 @@
       "text": "Toffee | Back-End Laravel/PHP Developer | REMOTE | https://www.toffee.com | Part-Time\n\nHi all, Toffee founder here. Toffee is the the eBay for digital products. We want to make it as simple and seamless as possible to buy and sell any digital product imaginable, whether that's an eBook, film, music, in-game item or otherwise.\n\nYou can take a look at the marketplace here: https://www.toffee.com\n\nWe are hiring a back-end Laravel/PHP developer. For this role, you'll want to have extensive knowledge of Laravel and its extended ecosystem, have a knack for all things back-end, and ideally have some ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 792.0,
         "region": [
           "unknown"
         ],
@@ -788,9 +967,11 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Laravel",
           "PHP"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -801,17 +982,22 @@
       "text": "Cisco Systems | Software Engineers | ONSITE/REMOTE | US | Full Time\n\nAt Emerging Technologies and Incubation organisation (ET&I), we strive to identify the next wave of breakthrough emerging solutions that build new markets and businesses for Cisco. We are focussed on opportunities which are near term (i.e. 3-5 years) and some of the projects are specifically in the cloud native area, which you'll be a part of initially.\n\nWe're looking to hire experienced SW engineers to help develop these new solutions. Experience in at least one of the following areas is beneficial:\n\n• Kubernetes, Docker, co",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.58,
         "industry_stated": 0.79,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 963.0,
         "region": [
           "us"
         ],
@@ -823,7 +1009,8 @@
           "Go",
           "Kubernetes"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "3_4"
       }
     },
     {
@@ -834,17 +1021,22 @@
       "text": "CallSumo | Remote | FrontEnd, Backend, Devops & UX\n\nWe’re building the future of business communications that AI first. Lots of fun NLP and applied AI. Our tech stack is a little complex(By necessity and sometimes due to the inherent shortcomings of a fast moving startup), but a fun challenge for those looking to sink their teeth into fun technical challenges.\n\nOur team is highly motivated and while we have a presence in Silicon Valley (South Bay), we’re a remote-first company.\n\nOur Backend stack is Python, Postgres based Dokerized microservices\n\nOur FrontEnd comprises Vue.js, Angular 2+ and w",
       "answers": {
         "ai_native": 0.97,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.88,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 812.0,
         "region": [
           "unknown"
         ],
@@ -858,7 +1050,8 @@
           "Python",
           "Vue"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -869,17 +1062,22 @@
       "text": "Enveritas (YC S18, Non-Profit) | Frontend Javascript/React | New York City | Full-time | https://enveritas.org\n\n* Frontend Javascript/React Software Engineer -- apply here: https://boards.greenhouse.io/enveritas/jobs/4006577002\n\nEnveritas is a 501(c)3 non-profit and Y Combinator-backed startup that is creating a new approach to sustainability assurance. We gather survey data about smallholder coffee farmers to understand the social, environmental, and economic aspects of their lives and to create technical assistance and training programs that can address poverty issues.\n\nTech Stack: Frontend ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.06,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 983.0,
         "region": [
           "us"
         ],
@@ -894,7 +1092,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -905,17 +1104,22 @@
       "text": "Tatari | SF,LA,NY,Remote | Eng,Product,Data Science | https://tatari.tv\n\nTatari is democratizing TV advertising for disrupter companies everywhere. We apply data engineering and proprietary analytics to help companies like Calm and Daily Harvest efficiently reach new audiences on TV.\n\nWe have a great company culture (https://www.tatari.tv/insights/tatari-named-inc-maganzines-best-workplaces-2020) and the opportunity to work on all sorts of challenging problems.\n\nAbout: https://www.tatari.tv/insights/inside-tatari-engineering\n\nSr. Engineer: https://www.tatari.tv/careers/job-posting?gh_jid=44186",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 760.0,
         "region": [
           "us"
         ],
@@ -923,7 +1127,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -934,25 +1139,33 @@
       "text": "Cmd | Vancouver, BC | Onsite & Remote | Full Time | https://www.cmd.com\n\nWe're a cybersecurity company on a mission to transform the way businesses secure their cloud-first Linux environments. Our mission is to help companies reliably log, understand, predict, and control user behaviour in their Linux environment.\n\nWhat matters to us?\n\n- You're naturally curious, interested in expanding your knowledge\n\n- You're willing to step in and help a teammate\n\n- You thrive in ambiguous situations\n\n- You take the lead, gathering the information you need in order to get your job done\n\nOpen Roles:\n- “Full ",
       "answers": {
         "ai_native": 0.16,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 649.0,
         "region": [
           "canada"
         ],
         "remote_token": 1.0,
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "remote"
+        "stack": [
+          "Linux"
+        ],
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -963,17 +1176,22 @@
       "text": "NGP VAN/EveryAction | DevOps Engineer | Full-time | Boston, DC, Remote | https://everyaction.com\n\nHere's the page to apply: http://ngpvan.applytojob.com/apply/AFdPEuEYZV\n\nEveryAction, and its parent company NGP VAN, is a technology company whose team members do exciting and important work that has a significant impact on promoting civil rights, social justice, and environmental responsibility.\n\nEveryAction/NGP VAN is one of only a handful of companies to be recognized as one of the fastest growing companies in America by Inc. Magazine for 10 years. We were named one of the Coolest Companies of",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.24,
         "industry_stated": 0.84,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1562.0,
         "region": [
           "us"
         ],
@@ -981,7 +1199,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     }
   ]

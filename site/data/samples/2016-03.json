@@ -9,16 +9,21 @@
       "text": "Full time, remote within US and UK\n\nKsplice is the leading technology that allows administrators to patch the critical components of a Linux system on the fly with zero downtime and zero disruption. We're a distributed team of engineers forming part of the Linux and Virtualization group at Oracle with a passion for working on exciting technology, software craftmanship and all things Linux.\n\nWe're looking for experienced DevOps and Systems professionals to join our team.\n\nAs a DevOps engineer, you would be responsible for managing Ksplice's infrastructure for building and serving critical secur",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "public_or_large",
         "industry": "devtools_infra",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2047.0,
         "region": [
           "uk",
           "us"
@@ -26,9 +31,11 @@
         "remote_token": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Linux",
           "Python"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -39,17 +46,25 @@
       "text": "Instructure | Chicago, Salt Lake City, REMOTE, VISA\n\nWe build open-source learning management systems for schools and organizations to educate students or employees. Our headquarters is in Salt Lake City with two satellite offices in Chicago and LA and sales offices overseas. Awesome culture- very engineering driven, products- quality software, and benefits- free health insurance.\n\n#4 Best Small/Medium Company to Work For in America- 2015 on Glassdoor.com #6 Most Innovative Company- 2016 on Fast Company\n\nWe hire remote devs who are based in the US with experience in Ruby/Rails or Javascript (R",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "health_insurance",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 886.0,
         "region": [
           "us"
         ],
@@ -63,7 +78,8 @@
           "React",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -74,17 +90,22 @@
       "text": "Blend | SF | Full-time | Onsite\n\nBlend is a SF based technology company transforming the multi-trillion dollar home mortgage industry. Blend's technology delivers speed and efficiency to lenders, so they can serve the modern borrower and safely navigate the industry's changing rules and regulations. Founded in May 2012, Blend is backed by Peter Thiel, Andreessen Horowitz, Max Levchin, Hans Morris, and other leading venture investors.\n\nWe’re looking for talented software engineers to join our diverse and fast-growing engineering team. As a software engineer, you’ll work throughout the stack, fr",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "fintech",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1015.0,
         "region": [
           "us"
         ],
@@ -92,7 +113,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -103,17 +125,22 @@
       "text": "Yareto GmbH | Neuss, Germany | ONSITE | full-time\n\nWe post our job-ad in German, because it's mandatory to understand and speak German for this position.\n\nFür die Realisierung moderner Softwarelösungen im Bereich Web und Java Enterprise suchen wir per sofort für den Standort Neuss eine/n Full-Stack Softwareentwickler/in.\n\nIhr interessantes Aufgabengebiet\n- Mitarbeit in einem interdisziplinären und agilen Team\n- Gestaltung und Entwicklung von Software mit Hilfe moderner Software Technologien\n- Analyse von Anforderungen in Zusammenarbeit mit den Fachexperten und Entwicklung von Lösungskonzepten\n",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.45,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 971.0,
         "region": [
           "europe"
         ],
@@ -125,7 +152,8 @@
           "Java",
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -136,17 +164,22 @@
       "text": "Yepstr Ab | Creative front-end developer | Stockholm, Sweden | ONSITE | Full-time\nYepstr is an online marketplace that aims to bring back the neighborhood kid by connecting households and young entrepreneurs for local tasks. We are well funded (by Swedish standards) and just released the first version of our platform to app-store. Now we are looking for a creative front-end developer to join our dev. team of 4 and help us make our product really come alive (think animations, gamification, improved UI/UX, smoother rendering ...)\n\nWe are looking for someone who has...\n- Strong Javascript & CSS s",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.66,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1293.0,
         "region": [
           "europe"
         ],
@@ -157,7 +190,8 @@
           "JavaScript",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -168,17 +202,24 @@
       "text": "TradeGecko | Singapore, Toronto | Multiple Openings | ONSITE\n\nTradeGecko is a post-series A B2B SaaS company headquartered in Singapore, but serving customers globally. We're building the software platform on which commerce companies are built.\n\nWe've got a couple of openings...\nMultiple Ruby on Rails Backend Devs - looking for some mid and senior level people, also looking for strong Frontend/ Javascript Ember.js Developers.\n\nIf you're smart we don't care about qualifications, just wanted to hire people who want to get stuff done. Will assist with Visas in Singapore.\n\nCan email me directly - ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "commerce",
         "industry_fits": 0.89,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 679.0,
         "region": [
           "asia_pacific",
           "canada"
@@ -191,7 +232,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -202,17 +244,22 @@
       "text": "Kamcord - San Francisco, CA - Full Time\n\nKamcord is the #1 live streaming platform for mobile gameplay. The biggest personalities from Clash of Clans, Minecraft and other top games regularly stream on Kamcord. Users tune in to catch up on their favorite games, interact with mobile gaming celebrities and share experiences with one another. While we started out as fellow gamers who needed a place to hang out, we've since landed $25M in funding and started building the hottest destination for the world's 1 billion mobile gamers.\n\nLooking for:\n* iOS Engineer\n* Partnerships Associate/Manager\n\nFor m",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "media_consumer",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 681.0,
         "region": [
           "us"
         ],
@@ -222,7 +269,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -233,17 +281,25 @@
       "text": "Primate Labs | http://www.primatelabs.com/ | Toronto, Ontario, Canada\n\nPrimate Labs is looking for software developers to work on Geekbench, our popular cross-platform processor benchmark. You will help develop and analyze benchmark tests for future versions of Geekbench in addition to working on the application itself.\n\nWe're looking for someone with a solid C++ background. It would be nice if you had experience with any of the following technologies (but by all means these are not mandatory): C++11, GPGPU APIs (e.g., OpenCL or CUDA), and code optimization and profiling tools.\n\nBenefits inclu",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "dental_vision",
+          "health_insurance"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.74,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 800.0,
         "region": [
           "canada"
         ],
@@ -251,9 +307,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
-          "C++"
+          "C++",
+          "CUDA"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -264,16 +322,21 @@
       "text": "Software Engineer | True Link Financial | San Francisco, CA (onsite)\n\nA YC company in 2013, True Link Financial is an SF-based financial services company that believes in quality financial services for all: from protecting grandma’s money from scammers to providing supplemental financial tools that support disabled Veterans.\n\n85% of our work is in Rails, 10% is in Java, and about 5% is DevOps—AWS, multiple SSL & IPSec VPNs, encryption, security, etc.\n\nOur technology suite is complex, geographically distributed, and must be both secure and robust to protect our customers, more so than your typi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1856.0,
         "region": [
           "us"
         ],
@@ -281,12 +344,14 @@
         "seniority": "unspecified",
         "stack": [
           "AWS",
+          "Ansible",
           "Java",
           "Rails",
           "React",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -297,17 +362,22 @@
       "text": "Chain | San Francisco, CA | ONSITE\n\nChain has partnered with leaders in financial services, such as Nasdaq and First Data, to build the next generation of financial services infrastructure. We are building a digital asset platform that enables the creation & transfer of digital assets across organizational lines. Our product is inspired by blockchain technology and consequently is built upon cryptographic protocols and distributed database techniques.\n\nAre you interested in solving hard problems in cryptography, distributed systems, economics, or product design? Do all these subjects interest ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 934.0,
         "region": [
           "us"
         ],
@@ -315,7 +385,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -326,23 +397,29 @@
       "text": "My team needs an engineer/data scientist/programmer to work on the Federal Aviation Administration's Wide Area Augmentation System (WAAS). The job is in Oklahoma and offers low cost of living, great work/life balance, technical freedom, and interesting challenges. Here's a longer write up I have made: https://gist.github.com/bjcubsfan/5433ea47b33a3c46f8da Here's the official job ad: https://lstechllc.applicantpro.com/jobs/350503.html",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.05,
         "industry_stated": 0.36,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.12,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 437.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -353,17 +430,24 @@
       "text": "Freebox | Back-end Engineer | Paris (France) | Full time, Visa, Onsite\n\nFree is an internet innovative company in France and the driver of competitive ISP offers in France and in the 30 OECD countries. It was the first company to offer a \"triple play\" service in France through its self-produced singular \"Freebox\" set-top box.\n\nAs we are launching new products and innovative services this year, we are looking for a back-end engineer to develop our new projects around TV, VOD and catch-upTV. Through a small and agile team, where everything is done by a team of passionate users, join us in a fant",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 896.0,
         "region": [
           "europe"
         ],
@@ -371,9 +455,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
-          "Android"
+          "Android",
+          "Linux"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -384,17 +470,22 @@
       "text": "Automattic, WordPress.com VIP (https://vip.wordpress.com) | Remote | Full-Time\n\nWe are a distributed company, democratizing publishing and development.\n\nWe are the people behind WordPress.com, which serves more than 15.8 billion pages a month, as well as a host of other popular services, such as WooCommerce, Jetpack, and Simplenote. We are strong believers in Open Source, and the vast majority of our work is available under licenses like the GPL.\n\nOur team members hail from nearly every continent and 43 countries around the world. Come work with us:\n\nVIP Wrangler - (https://automattic.com/work",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.88,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1393.0,
         "region": [
           "unknown"
         ],
@@ -404,7 +495,8 @@
         "stack": [
           "Go"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -415,17 +507,22 @@
       "text": "Teachers Pay Teachers | NYC | Full-Time | Engineers, Product Managers, Product Designers\n\nTeachers Pay Teachers is a community of millions of educators who come together to share their work, their insights, and their inspiration with one another. We are the first and largest open marketplace where teachers share, sell, and buy original educational resources. Since we've started, authors on Teachers Pay Teachers have earned over $200M. Here's a bit more of the backstory (http://www.nytimes.com/2015/09/06/technology/a-sharing-economy-where-teachers-win.html).\n\nOur engineering culture focuses on ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.19,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 829.0,
         "region": [
           "us"
         ],
@@ -433,7 +530,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -444,17 +542,22 @@
       "text": "EquityZen | Manhattan, NYC | Onsite | Full Time\nEquityZen improves the way startup employees are paid. We unlock the value of their equity compensation in a way that benefits all key players: the shareholder, the company, and the investor. We build industry-defining technology as the premier platform for private placements.\nWhy join EquityZen?Our promise to you: you will learn more, faster than you can imagine.\n* Software Engineers (python, django, JS/Bootstrap/angularJS, PG, AWS) Full Stack, Front End, and Back End\nMeet us & get started here: https://jobs.lever.co/equityzen/?lever-source=Hack",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.95,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 606.0,
         "region": [
           "us"
         ],
@@ -468,7 +571,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -479,17 +583,22 @@
       "text": "Compose (IBM) | REMOTE (US, UK, CA)\n\nIf you're looking to join a forward-thinking industry with a stable outlook (databases-as-a-service), we have a tremendous challenge for you and a terrific team willing and able to support you through it.\n\nThe Compose family has grown into a vibrant group where folks can feel comfortable being themselves, living a balanced life. We welcome you to enjoy comfort when taking risks, collaborate with spirited peers, and to unleash your creative personality.\n\nSome great things about Compose:\n\n* Work from anywhere! (As long as you're legally able to work in the Un",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.96,
         "industry_stated": 0.93,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1669.0,
         "region": [
           "uk",
           "us"
@@ -501,7 +610,8 @@
           "Go",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -512,16 +622,21 @@
       "text": "<Company I work for> | Bangalore | Full-Time | On-Site\n\nWe are a company into core product development for large reputed cloud providers and fastest growing company out of Pittsburg.\n\nWhat you get:\n\n-------------\n\n+ Mac book pro\n\n+ Competitive Salary\n\n+ Flexible timing\n\nWhat's the requirement:\n\n-----------------------\n\n+ Skilled Ruby developer\n\n+ Experience in Ruby on Rails.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.36,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 377.0,
         "region": [
           "india"
         ],
@@ -531,7 +646,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -542,17 +658,22 @@
       "text": "Neighborly | San Francisco, CA | JS Engineer, Data Engineer and internships\nWe're a small fintech startup building a modern public finance platform for school districts and cities.\n\nWe're looking for civic-minded engineers passionate about public finance/economic data and beautiful frontend experiences. At the moment, we have positions open for a Data Engineer and JS Engineer. We also have internships available for the summer.\n\nOur tools help citizens invest in projects in their communities and public finance professionals research and advise local governments.\n\nBest way to apply is at https:/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.81,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 626.0,
         "region": [
           "us"
         ],
@@ -562,7 +683,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -573,16 +695,21 @@
       "text": "Make School (YC W12) | www.makeschool.com\n\niOS Summer Academy Instructor | Contract | On-Site | SF, Sunnyvale, NYC\n\nMake School was founded in 2012 to empower students to build and ship products. Our flagship program is a 2-year college alternative to the undergraduate CS degree. Students learn CS theory, build and ship products, and intern at tech companies before graduating. The curriculum is informed by guidance from corporate partners including Lyft, LinkedIn, and CA Technologies. Make School does not charge upfront tuition for this program - students pay through their internship earnings ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1307.0,
         "region": [
           "unknown"
         ],
@@ -593,7 +720,8 @@
           "Swift",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -604,17 +732,28 @@
       "text": "TrueCar | Santa Monica, CA - San Francisco, CA - Austin, TX | Full Time\n\nTrueCar is hiring Rails, Hadoop, Technical Product Managers, QA and Test Automation Engineers, SDET's, Designers and more in Santa Monica, San Francisco, and Austin.\n\nWe acquired the talent of quite a few Carwoo (YCS09) alums a little over a year ago. We've been around for 10 years and went public 1 1/2 years ago.\n\nThe company has big plans for the coming years and is looking for good developers to help us grow.\n\nSee http://careers.true.com for the full scoop.\n\nWe're using Rails and Python (Flask) to serve out all kinds o",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "bonus",
+          "equity",
+          "health_insurance",
+          "retirement",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "public_or_large",
         "industry": "unstated",
         "industry_fits": 0.08,
         "industry_stated": 0.15,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1831.0,
         "region": [
           "us"
         ],
@@ -622,6 +761,9 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Elasticsearch",
+          "Flask",
+          "Hadoop",
           "MySQL",
           "Python",
           "Rails",
@@ -629,7 +771,8 @@
           "Redis",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -640,17 +783,22 @@
       "text": "FreshBooks | Toronto, ON | ONSITE\n\nFreshBooks is cloud accounting for small & medium businesses that don't want to learn accounting. Pretty simple :) We support invoicing, automatic expense import from your bank account, and a variety of online payment options.\n\nWe're hiring for a variety of roles including Project Manager, Mobile Developer, regular old web developer, QA, Scrum Master, Designer, and Support.\n\nSee here for full list of positions: https://www.freshbooks.com/jobs",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 481.0,
         "region": [
           "canada"
         ],
@@ -658,7 +806,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -669,17 +818,22 @@
       "text": "Philadelphia, PA | Blackfynn | http://www.blackfynn.com | Full Time | Frontend Engineer & UX Designer | ONSITE\n\nNeuroscience data – EEG, MRI, microscopy, genetics, and associated metadata – is some of the most complex that is used in science today. Standing alone, each component does little to solve complicated problems in research, development, and clinical care. Epilepsy, Alzheimer’s disease, multiple sclerosis, depression, Parkinson’s Disease and other neurologic conditions affect one in six people worldwide. Without the ability to work collaboratively with this data in an integrated manner",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.87,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1333.0,
         "region": [
           "us"
         ],
@@ -691,7 +845,8 @@
           "Java",
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -702,17 +857,25 @@
       "text": "Software Engineer @ Caperna | Cambridge, MA | Full Time, permanent, ONSITE, VISA ok\n\nCaperna makes personalized cancer vaccines.\n\nOur therapeutic vaccine will train the immune system to recognize the unique genetics of a patient's cancer cells, and wipe them out. The Caperna Bioinformatics group is building a software pipeline to take Next Generation Sequencing data from a patient’s tumor, predict which mutations in that cancer genome are likely to be seen by the immune system, then design and manufacture a unique vaccine for each patient.\n\nI am looking for a Software Engineer to help us build",
       "answers": {
         "ai_native": 0.09,
+        "benefits": [
+          "equity",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1098.0,
         "region": [
           "us"
         ],
@@ -724,7 +887,8 @@
           "Docker",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -735,26 +899,36 @@
       "text": "ATLANTA - SOFTWARE ENGINEER (FULL TIME, ALL LEVELS) - VISAS WELCOME - ONSITE\n\nPindrop is a phone fraud security startup headquartered in Atlanta and growing like crazy after our third round of funding earlier this year for $75M. Our engineering team is doubling in size (from 50 to 100) and immediately seeking passionate software engineers, from entry- to senior-level, to join our awesome team.\n\nTech Stack: Python, Linux, MySQL, Agile\n\nPerks: conference budgets, flex hours, casual dress, game nights, tech talks, lots of free food and coffee, and more\n\nPlease shoot an email to talent@pindropsecu",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "learning_budget",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "series_c_plus",
         "industry": "security",
         "industry_fits": 0.96,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 647.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Linux",
           "MySQL",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -765,17 +939,22 @@
       "text": "Discuss.io | Seattle | Full-Time | Onsite (preferred) or Remote\n\nDiscuss.IO has developed the industry’s leading web-based video platform for the qualitative market research industry. Our culture is casual yet high energy. We are passionate about our product and obsessed with helping our clients.\n\n2. Front-End Developer/UX Designer\n\nIf the words AJAX, Streaming Video, and HTML5 make your heart skip a beat then keep reading. If you also like creating simple, efficient, eloquent, intuitive software software, we would love to see what you can do. Read on if this sounds like your cup of tea…\n- 3-5",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.71,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1033.0,
         "region": [
           "us"
         ],
@@ -786,7 +965,8 @@
           "JavaScript",
           "PHP"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -797,17 +977,22 @@
       "text": "Vibes | Chicago, IL | ONSITE\n\nVibes helps the world’s top brands to engage their customers on their mobile devices. Our Catapult SaaS platform enables marketers to drive revenue growth and loyalty through mobile messaging, mobile wallet marketing (Apple Wallet and Android Pay), post-click engagement, and advanced targeting and personalization. Vibes has delivered more than 7 billion mobile experiences on behalf of customers that include Sears, JCPenney, Home Depot, Verizon, Allstate, The Gap, Chipotle, Old Navy and more!\n\nWe are growing rapidly and hiring aggressively in 2016. We have openings",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.34,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 973.0,
         "region": [
           "us"
         ],
@@ -820,7 +1005,8 @@
           "JavaScript",
           "Rails"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -831,17 +1017,22 @@
       "text": "Rocketmiles | Chicago, IL | Multiple Openings | On-Site\n\nRocketmiles helps frequent travelers take more vacations. Our small team is headquartered in Chicago's West Loop, and growing our engineering team.\n\nWe're currently looking for:\n\n* Grails / Kotlin / Java / Backend developers\n\n* Front-end developers (React + Redux / Angular)\n\n* Android developer\n\n* Associate Product Manager\n\nIf you are interested, it's a great time to join the team. Please reach out to me (head of product) at jordan@rocketmiles.com to say hello!",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.81,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.06,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 522.0,
         "region": [
           "us"
         ],
@@ -855,7 +1046,8 @@
           "Kotlin",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -866,27 +1058,36 @@
       "text": "iOS Engineer | Canon Innovation Lab (https://canonlabs.io) | Waterloo, Ontario, Canada | Full-time | ONSITE\n\nThe Canon Innovation Lab is looking for an iOS Engineer to join our new Production Team. We are looking for individuals that are passionate about developing well-built, well-designed, customer-ready applications. In this position you'll be playing a lead role in building and perfecting our first iOS application. You'll work with our prototyping team to develop and implement new features. You'll commit to shipping a new update every two weeks, no matter how small. You'll work with our ba",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "bonus"
+        ],
+        "degree": "required",
         "eng_leadership": 0.08,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.26,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1207.0,
         "region": [
           "canada"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Objective-C",
           "Python",
           "Swift",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -897,17 +1098,22 @@
       "text": "Mutually Human - Grand Rapids, MI and Columbus, OH\nhttps://www.mutuallyhuman.com/\n\nWe are a small team passionate about making people's lives better through software. We are hiring engineers and designers at our offices in Grand Rapids or Columbus.\n\nA little bit about us:\n\n  - We aren't limited to any really specific set of\n    technologies, which is a great opportunity to learn.\n    In the past two years, we've worked with Python,\n    Angular + CoffeeScript, Node.js, Ember.js, Swift,\n    and Ruby/Rails.\n\n  - We practice a sustainable pace. We recognize that we\n    each have lives, activities,",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.32,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.08,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1415.0,
         "region": [
           "us"
         ],
@@ -922,7 +1128,8 @@
           "Ruby",
           "Swift"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -933,23 +1140,31 @@
       "text": "QA Manager - With Strong Hands on Linux Ability (Able to install and configure Linux) - On Site in NYC or Remote within the U.S\n\nNucleus is an early stage startup with unprecedented traction redefining family communication via an innovative smart home intercom device.\n\nThe Nucleus team is seeking a Senior QA Manager to establish a culture of quality early in the lifeblood of the company. Nucleus’ namesake product is a thin, affordable, connected device, giving families the easiest way to stay in touch, secure the home and connect to what matters most.\n\nThe Senior QA Manager will face the ambit",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2199.0,
         "region": [
           "us"
         ],
         "remote_token": 1.0,
         "seniority": "senior",
-        "stack": [],
-        "work_mode": "remote"
+        "stack": [
+          "Linux"
+        ],
+        "work_mode": "remote",
+        "years_required": "5_7"
       }
     }
   ]

@@ -9,17 +9,25 @@
       "text": "NStack | London, UK | Full time | Onsite | Functional Developers / Data Scientists | http://nstack.com\n\nNStack lets data analysts to do sophisticated data work in the cloud without a team of engineers. To accomplish this, we’re a building a platform for composable, data-driven microservices, using a mixture of Haskell and Linux systems (including containers, systemd, dbus, with some typed DSLs, systems code, and distributed systems thrown in.) Our aim is to use the fundamental lessons of programming languages and operating systems to provide an abstraction over infrastructure.\n\nWe’re looking f",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "equity",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1527.0,
         "region": [
           "uk"
         ],
@@ -27,9 +35,11 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
-          "Haskell"
+          "Haskell",
+          "Linux"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -40,17 +50,22 @@
       "text": "Dealini | Zurich, Switzerland | Onsite | Fulltime | Senior Python Developer | 85k-110k CHF\n\nDealini is creating and running marketing campaigns in retail stores, moving people from the physical world onto our online experiences.\n\nWe are looking for a Senior Python Developer to:\n\n- Craft clean and elegant REST APIs in Python, consumed by our web applications and mobile apps\n\n- Improve our development environment and workflow consisting of a Python REST framework, MariaDB, Redis, Varnish, Buildbot...\n\n- Tend to our services and servers running on Amazon Web Services\n\n- Take architectural decisio",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.12,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 999.0,
         "region": [
           "europe"
         ],
@@ -62,7 +77,8 @@
           "Python",
           "Redis"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -73,17 +89,22 @@
       "text": "PalleTech | Embedded Systems Engineer | San Francisco | Full-Time ONSITE | www.palletech.co\n\nCurrent supply chain technology sorely needs a makeover. We're building the next generation cargo monitoring solutions.\nWe're a heavily hardware and low level software focused company. Come and help us resolve true IoT challenges where power and connectivity are at a premium.\n\nFeel free to reach me at: anthony [at] palletech.co\n\nhttps://angel.co/palletech/jobs/204097-embedded-systems-engineer",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.99,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 488.0,
         "region": [
           "us"
         ],
@@ -91,7 +112,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -102,23 +124,29 @@
       "text": "Mountain View, CA | Full Time | Onsite\n\nI'm the CEO and co-founder of SimpleLegal. We're enterprise SaaS for the Legal Department from the YC13 batch.\n\nSales has Salesforce. Marketing Has Hubspot/Marketo. Customer Success has Gainsight. Legal has SimpleLegal. We're a team of 16 and growing with a great list of customers.\n\nDirector of Customer Success - Lead the Support and CS team. Hire ahead of need. CS drives growth. You'll drive CS. https://www.simplelegal.com/careers/customer-success-director\n\nSDR/BDR - Spend the first 1-3 months in support to learn about our customers and product. Then mo",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 926.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -129,17 +157,24 @@
       "text": "Blackstorm | Engineer | $140k - $220k | San Francisco Bay area (SF, Mountain View) | Tokyo, Japan | REMOTE OK | VISA OK\n\nBlackstorm is building the world's most advanced javascript game engine, among other cool products like an IDE (js.io)\n\nWe are hiring senior engineers who can tackle architecture and APIs for our game engine on a small team of 3-4 folks.\n\nFor flavor: our last project was to use redux as a server state timeline for 5M+ active players; before that we used code mods to port it from our propriety module and class system to es6; there are numerous projects coming up, such as firs",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1442.0,
         "region": [
           "asia_pacific",
           "us"
@@ -153,7 +188,8 @@
           "JavaScript",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -164,17 +200,26 @@
       "text": "Sysdig | https://www.sysdig.com | jobs@sysdig.com | San Francisco, Davis, or Remote | Many Positions\n\nSysdig is building the intelligence layer for next-generation applications built on containers and microservices. Hundreds of enterprise customers use our commercial solution for monitoring, troubleshooting, and managing performance of their applications.\n\n-50+ People\n\n-Founded by Loris Degioanni, co-creator of wireshark\n\n-Open source sysdig (http://www.sysdig.org) is used by millions\n\n-Funded by Accel and Bain Capital Ventures\n\n-Global Engineering Team\n\nBenefits:\n\n-Work from anywhere\n\n-Health",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "dental_vision",
+          "health_insurance",
+          "learning_budget"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 886.0,
         "region": [
           "us"
         ],
@@ -182,7 +227,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -193,17 +239,22 @@
       "text": "Mansa Gaming| Front End Engineer| Full Time| New York| Onsite\n\nMansa Gaming Ltd is a startup in the iGaming industry. We operate and build the platform for an online casino in European markets. We launched in December 2015 and have rapidly grown into a profitable company since then with over 800% revenue growth over the last 6 months.\n\nAs a company, we leverage our founders' past iGaming experience as well as Silicon Valley technology background to create a scalable platform and first-rate user experience. Our offices are located in New York City and the beautiful island of Malta, heart of the",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "optional",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1956.0,
         "region": [
           "us"
         ],
@@ -217,9 +268,11 @@
           "PHP",
           "Python",
           "React",
-          "Ruby"
+          "Ruby",
+          "SQL"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -230,17 +283,22 @@
       "text": "The Practical Dev | JavaScript Developer | New York City\n\nWe are @ThePracticalDev on Twitter. That's the fastest way to get to know what we're about. Our site is https://dev.to\n\nWe're on the lookout for a disciplined developer who likes writing tests and docs, and enjoys our content. Email ben@dev.to if you're interested. Local is a bonus, but remote is cool too.\n\n️",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.21,
         "industry_stated": 0.54,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 368.0,
         "region": [
           "us"
         ],
@@ -250,7 +308,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -261,17 +320,22 @@
       "text": "LWN.net | https://lwn.net/ | Writer/editor | Remote | full-time or freelance\n\nLWN.net is (IMHO) the premier news site for the free and open-source development community. We are looking for a top-quality writer/editor to join our staff. It's demanding work, because LWN's readership is highly technical and used to high-quality writing by people who understand how the development community works. But it's rewarding, and opportunities for international travel abound. See https://lwn.net/Articles/696258/ for more information.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.89,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 526.0,
         "region": [
           "unknown"
         ],
@@ -279,7 +343,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -290,17 +355,22 @@
       "text": "Channable - https://www.channable.com | Utrecht, The Netherlands | ONSITE\n\nChannable is a data feed management company that connects ecommerce companies to all big online marketing channels (marketplaces, price comparison sites etc.)\nWe also optimize and synchronize product data, offers and orders on the various platforms.\n\nWe currently have two open positions for a Backend Engineer and a DevOps Engineer.\n\nOur Stack includes: Python (Flask), Scala (Apache Spark), Haskell, PostgreSQL, Redis, HDFS, Ansible, Ember.js\n\nWe process millions of products per day and offer technically interesting and c",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.81,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 785.0,
         "region": [
           "europe"
         ],
@@ -308,6 +378,9 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Ansible",
+          "Flask",
+          "Hadoop",
           "Haskell",
           "Postgres",
           "Python",
@@ -315,7 +388,8 @@
           "Scala",
           "Spark"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -326,17 +400,24 @@
       "text": "SoundCloud | Senior Data Scientist, Machine Learning | Berlin, Germany | ONSITE, FULLTIME, RELOCATION OFFERED | https://soundcloud.com/jobs/2017-01-31-senior-data-scientist-machine-learning-berlin\n\nWe are looking for an impact-driven Senior Data Scientist to solve exciting problems in recommendations, search, and personalization using Machine Learning. As a Data Scientist at SoundCloud you will work closely with other data scientists and engineers to find opportunities and build, tune, instrument, and evaluate machine learning models.\n\nSome projects you might work on include:\n\n   * a personali",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [
+          "relocation"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.43,
         "industry_stated": 0.41,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1066.0,
         "region": [
           "europe"
         ],
@@ -347,7 +428,8 @@
           "Machine learning",
           "Spark"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -358,17 +440,22 @@
       "text": "Various | Social Nature | Vancouver, BC (onsite) | www.socialnature.com\n\nSocial Nature is making waves with our people-powered marketing vision (people trust friends not ads) and commitment to only promoting brands with natural products. We are a small and mighty team where everything you do will have an immediate impact on those around you. You'll get to work closely with our customers, invent new ways to integrate with social channels, and wrangle extremely big data as we build and grow our intelligent platform.\n\nWe're looking for a full stack developer who is comfortable working on a produc",
       "answers": {
         "ai_native": 0.06,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.81,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.1,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1568.0,
         "region": [
           "canada"
         ],
@@ -376,13 +463,15 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          ".NET",
           "AWS",
           "Angular",
           "JavaScript",
           "Node.js",
           "Postgres"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -393,17 +482,22 @@
       "text": "CaseWare | Toronto, Canada | Full-time | Multiple Positions | Onsite\n\nWe are looking for experienced developers to help us build our next generation of cloud services.\n\nCaseWare is the dominant provider of mission-critical accounting and auditing software used by domestic and global accounting firms and a leading provider of auditing software to governments, tax authorities and corporations.\n\nWe’re actively hiring for the following positions:\n\nDevOps Engineer\n\nServer Developer (Java)\n\nData Platform Developer (Java, Scala, Apache Spark)\n\nOur stack: Docker, Kubernetes, AWS, Java, Scala, Apache S",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 752.0,
         "region": [
           "canada"
         ],
@@ -420,7 +514,8 @@
           "Spark",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -431,17 +526,22 @@
       "text": "Formlabs | Boston, MA | Onsite | Full-time | Software Engineer\n\nSound interesting? Get in contact with us here: http://grnh.se/uj0s1o1\n\nTHE COMPANY:\nWe are a passionate team of engineers, designers, and problem-solvers who make 3D printing tools for professionals. Started out of MIT in 2011, Formlabs is committed to bringing innovative and sophisticated fabrication tools into the creative hands of designers, engineers, and artists around the world. We just raised $35 Million in our series B.\n\nJOB DESCRIPTION:\nIf you’re passionate about systems, can seamlessly move from one platform to another,",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.08,
         "funding_stage": "series_b",
         "industry": "hardware_robotics",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1453.0,
         "region": [
           "us"
         ],
@@ -450,9 +550,11 @@
         "seniority": "unspecified",
         "stack": [
           "C++",
+          "Linux",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -463,15 +565,22 @@
       "text": "1 point by d8niel 61 days ago [-]\n\ndrchrono | Software Engineer | Mountain View | REMOTE, VISA,\n\nhttps://www.drchrono.com\n\ndrchrono is a medical platform for doctors and patients. We are crafting only the best mobile healthcare experience, with a focus on iPad, iPhone, Apple Watch and web. The driving force of our efforts is in changing the way people engage and experience healthcare through electronic health records.\nYou would be part of an entrepreneurial, sharp, capable and curious team. Since our inception, we have attracted over 85,000 physicians, 5.5 million patients. So far we've booked",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1048.0,
         "region": [
           "unknown"
         ],
@@ -481,7 +590,8 @@
           "Django",
           "Python"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -492,17 +602,22 @@
       "text": "brightwheel | San Francisco | Full Time, Onsite | mybrightwheel.com\n\nBrightwheel is the first mobile platform for early education. It's a super talented team + a meaningful product that impacts daily life for teachers and parents. We are far outpacing our growth plan - now in every state + growing globally - with incredibly passionate users. Mark Cuban and Chris Sacca recently joined as investors.\n\nHere's more in a quick video: https://www.youtube.com/watch?v=5iKitGJeAZ4.\n\nStack: Rails, React/Redux, native Android & iOS\n\n* Sales Manager/Director: https://angel.co/brightwheel/jobs/63126-sales-m",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1026.0,
         "region": [
           "us"
         ],
@@ -515,7 +630,8 @@
           "React",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -526,17 +642,25 @@
       "text": "commercetools | Scala Backend Engineer | Berlin, Germany | ONSITE, VISA https://commercetools.com\n\nOur team of five experienced Scala Devs is building the API of commercetools. Our customer base is growing fast (our API calls grew by a factor of 5 last year). We work a lot on scaling the platform. Because our product is for developers, we work closely with our Product Owners and contribute to the documentation.\n\nWe're looking for strong Backend Engineers with a love for functional programming. We're hiring for both a senior and a junior position.\n\nStack: Scala, MongoDB, ElasticSearch, Cassandr",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "parental_leave",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.89,
         "industry_stated": 0.84,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1306.0,
         "region": [
           "europe"
         ],
@@ -544,10 +668,13 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [
+          "Cassandra",
+          "Elasticsearch",
           "MongoDB",
           "Scala"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -558,17 +685,22 @@
       "text": "MongoDB | Developer Advocate | Palo Alto | ONSITE, Full Time\n\nI am the hiring manager for this role Seeking Developer Advocate to help support the MongoDB community. You have written software and know first hand how powerful it can be to solve human problems. You love Open Source technology and community building. You enjoy creating compelling presentations and blog posts to educate your peers. Celebrating human accomplishment is something you do naturally and you get energy from creating relationships.\n\nLanguage/Stack agnostic, but helpful if you have expertise in one or more of the following",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.13,
         "industry_stated": 0.17,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 860.0,
         "region": [
           "us"
         ],
@@ -586,7 +718,8 @@
           "Node.js",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -597,17 +730,22 @@
       "text": "Code4Good -- https://www.engageSPARK.com - \"Twilio (Voice IVR & SMS) for Everyone\" | REMOTE or ONSITE: Cebu, Philippines | Full-Time\n\nengageSPARK, a social enterprise, is the world's EASIEST Platform that empowers professionals (marketing, sales, hr, operations, project managers, etc) at NGOs & Businesses to easily & quickly build interactive Automated Phone Calls (IVR) and 2-Way SMS campaigns in any country. We're especially focused on emerging markets, where 66% have no Internet and another 15% who have smartphones can't afford data plans regularly. Interactive automated phone calls are the ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.8,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.14,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 2208.0,
         "region": [
           "asia_pacific"
         ],
@@ -625,7 +763,8 @@
           "Python",
           "Redis"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -636,17 +775,24 @@
       "text": "Dia&Co | New York City or REMOTE | Software Engineer, Product Manager, Data Scientist, and Data Analyst | Full-time\n\nDia&Co is the premier personal styling service for plus-size women. We’re looking for engineers, product, and data people to help create our suite of large consumer-facing and internal products that are transforming both operational efficiency and consumer e-commerce. We work with Ruby on Rails on the engineering side and Python on the data science side.\n\nPlease check out our tech blog to get an idea of what we think about and value: https://making.dia.com/\n\nThe interview proces",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [
+          "take_home"
+        ],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 773.0,
         "region": [
           "us"
         ],
@@ -658,7 +804,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -669,17 +816,22 @@
       "text": "Ellevation | Boston, MA | Full Time | ONSITE | http://info.ellevationeducation.com\n\nWe are looking for a Senior Software Engineer to join our technology team. You will play a key role in building dynamic web applications and services, help implement complex data and API integrations, and drive the conception-to-design-to-implementation product development process.\n\nYou will help define our software architecture principles and standards through direct coding activities. Your ideas will translate our product and corporate strategy into technical solutions and engineering best practices. You will",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.12,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.14,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1752.0,
         "region": [
           "us"
         ],
@@ -687,7 +839,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -698,17 +851,22 @@
       "text": "Synoptica | Guildford, UK | Fulltime, ONSITE | Front End Developer & Full Stack Developer\n\nOur mission is to improve and automate research carried out on companies. We’re driven by a belief that technology can offer deeper and smarter insights into business that will change the way our clients approach their sales and investment decisions.\n\nWe do use Java 8 a lot in the back but I promise there is no JEE in sight. The front end role will come with a lot of autonomy for the successful candidate to choose the tools/frameworks used.\n\nInterview process: 15 minute Skype/face to face preliminary cha",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.67,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 768.0,
         "region": [
           "uk"
         ],
@@ -718,7 +876,8 @@
         "stack": [
           "Java"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -729,17 +888,22 @@
       "text": "Azarius | Amsterdam, The Netherlands | Full Stack PHP Developer | ONSITE\n\nAzarius is looking for a Full Stack PHP hacker to help us develop our custom shopping software. We work in a small team, so you get to do a bit of everything. The job will involve mostly developing but also server maintenance and network maintenance. You'll be working with PHP 7, MySQL, Linux, LXC, Ansible, etc.\n\n-- Who we are --\n\nSince its humble beginnings in 1999 Azarius has become the world's largest online smartshop. Our mission is to give every European of age access to only the best smart- and headshop products.\n\n",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1007.0,
         "region": [
           "europe"
         ],
@@ -747,10 +911,13 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Ansible",
+          "Linux",
           "MySQL",
           "PHP"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -761,17 +928,22 @@
       "text": "Chicago, IL | Trunk Club | ONSITE | Fulltime\n\nWe're building the future of retail, enabled through technology. Talk to us if you're interested in creating lightweight single-responsibility apps, building advanced Javascript MV*-powered front-ends, leveraging graph databases and machine learning, and creating amazing user experiences for users both internal and external. Our platform powers everything from the member experience (online and in-store) to our sales and relationship tools to our warehouse operations to our financial and merchandising capabilities - there is a lot going on!\n\nWe're c",
       "answers": {
         "ai_native": 0.08,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.95,
         "industry_stated": 0.81,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1408.0,
         "region": [
           "us"
         ],
@@ -782,7 +954,8 @@
           "JavaScript",
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -793,17 +966,22 @@
       "text": "Reside | Software Engineer, QA Engineer | San Francisco, CA | Fulltime | ONSITE\n\nReside is building a modern real estate brokerage, with the aim of unseating dinosaur brokerages like Remax and Coldwell-Banker. We just closed Series A a few weeks ago and are looking to grow our engineering team from 3 -> 10. We use React, Firebase, and Node. Reside is committed to creating an inclusive and diverse company.\n\nInterview process: screening phone call, then 4 hour onsite.\n\nSoftware Engineer: http://grnh.se/3aytm11\n\nQA Test Engineer: http://grnh.se/teo8j21\n\nFeel free to reach out to me directly, chri",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "series_a",
         "industry": "other",
         "industry_fits": 0.01,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 619.0,
         "region": [
           "us"
         ],
@@ -811,10 +989,12 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Firebase",
           "Node.js",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -825,23 +1005,29 @@
       "text": "IT Manager - Systems Security - PaymentSpring - Omaha, NE - Full-Time\n\nThis position will design and implement physical and logical security efforts across PaymentSpring. The position will take a proactive approach to managing security including oversight of security planning, policy and procedure development, PCI and other compliance, and will implement policies and procedures. Security responsibilities will include network security architecture, network access and monitoring policies, application security awareness, physical security, social engineering practices, and employee education and ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.09,
         "industry_stated": 0.1,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 989.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -852,17 +1038,24 @@
       "text": "AgariData | Raleigh NC | Full Time | Onsite | VISA | www.agari.com\nAgari is solving the email phishing problem through a combination of Big Data based analytics and a next generation web application that provides visibility into every message that our customers (and bad guys) send. Our goal is to spread the DMARC standard and ensure no one gets their personal data stolen ever again. We like opinionated engineers who enjoy a healthy debate but can commit to a solution. We're AWS hosted and are working hard to automate away as many of the reactive and tedious aspects of development as possible. ",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 875.0,
         "region": [
           "us"
         ],
@@ -871,12 +1064,14 @@
         "seniority": "unspecified",
         "stack": [
           "AWS",
+          "Ansible",
           "Python",
           "Rails",
           "Spark",
           "Terraform"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -887,17 +1082,24 @@
       "text": "Barcelona Supercomputing Center (BSC) | Research Engineer | Barcelona | On-site, Visa\n\nOur research group at BSC is working on improving the management of Software Defined Infrastructures for next generation data centers. We are looking for a research engineer to work on the modernization of workloads (in particular, genomics) to take advantage of acceleration through FPGAs and NVM.\n\nhttps://www.bsc.es/join-us/job-offers/job-offers-list/205cssuppeng\n\nIf you are interested or have questions, feel free to send me an email: jorda.polo@bsc.es",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.06,
         "industry_stated": 0.7,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 544.0,
         "region": [
           "europe"
         ],
@@ -905,7 +1107,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -916,17 +1119,25 @@
       "text": "BOOKING.COM - Amsterdam, The Netherlands | ONSITE | VISA support| Relocation to Amsterdam\n\nBooking.com is hiring smart people just like you, if you want to live in beautiful city like Amsterdam and work at Booking.com,\nI recommend you to apply for these jobs:\n\nSoftware Developer - http://grnh.se/ci7oka1\n\nSr. Software Developer - http://grnh.se/gahd3r1\n\nAndroid Developer - http://grnh.se/iaf6et1\n\nSr. IOS Developer - http://grnh.se/qs4fru1\n\nUX Designer - http://grnh.se/v4fgwh1\n\nFrontend Developer - http://grnh.se/mf4e3d1\n\nFull Stack Software Developer (Beijing, China) - http://grnh.se/hrt4cv1\n\nM",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "relocation",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.03,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 648.0,
         "region": [
           "europe"
         ],
@@ -937,7 +1148,8 @@
           "Android",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -948,16 +1160,21 @@
       "text": "San Francisco, CA / REMOTE OK | Lead Full Stack Rails Developer | Stitchfix | Full-time\n\nHello, we're continuing to do a ton of hiring at Stitchfix, but specifically I'm hiring a developer to join my small team - \"Better Data Engineering\". We are a small team that is responsible for Stitchfix's famous \"Style Profile\", and other similar data intensive customer facing features. We work closely with the Data Science team, and our goal is always to serve our customers better using the information they provided while not being creepy :-)\n\n             ,---.             Stitchfix is a clothing / sty",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.78,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1482.0,
         "region": [
           "us"
         ],
@@ -967,7 +1184,8 @@
           "Rails",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     }
   ]

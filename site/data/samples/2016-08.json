@@ -9,17 +9,22 @@
       "text": "Ingresso | London, UK | ONSITE\n\nIngresso is a London-based ticketing startup. We have done the work to connect to a large number of ticketing system APIs, allowing us to transact directly on the venue's system. We are profitable and growing fast, processing around £30 million worth of tickets in the first half of the year.\n\nOur ticketing platform consists of:\n\n- an API (exclusively powering Amazon's ticketing business tickets.amazon.co.uk)\n\n- a white label website (eg www.disneytickets.co.uk and www.fromtheboxoffice.com)\n\nWe aim to make these two products the best in market, and need your help",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "bootstrapped",
         "industry": "commerce",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.94,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1134.0,
         "region": [
           "uk"
         ],
@@ -30,9 +35,11 @@
           "GCP",
           "Go",
           "Kubernetes",
+          "Objective-C",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -43,17 +50,22 @@
       "text": "Haplo -- London, UK -- Full time, ONSITE\n\nhttp://www.haplo-services.com/jobs\n\nWould you like to write high quality open source software, for users in universities who love your work?\n\nWe're looking for developers to join our team, especially those who are early on in their career and would like to work in an environment which will support their learning.\n\nOur only recruitment criteria is whether you understand how computers work and can write good code, and if you can work in a diverse team.\n\nThe Haplo platform is open source, and we're working on open sourcing everything else we do: http://ha",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.07,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1394.0,
         "region": [
           "uk"
         ],
@@ -61,7 +73,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "junior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -72,17 +85,24 @@
       "text": "Nava | Washington DC & San Francisco SF | Full-stack Developers, DevOps Engineers, Software Engineers, Frontend Engineers, Designers| On-site - Full-time | $100k-$160k + equity\n\nWe're a small team (18 people!) of engineers, designers, and product builders that were brought in to help fix HealthCare.gov in the winter of 2013. Since then, we've been working with the government to improve the services HealthCare.gov provides. Our revamped Healthcare.gov application is used by millions, converts 35% better, and halves the completion time.\n\nIt turns out there’s a lot more to build, and it’s surpris",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.06,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1397.0,
         "region": [
           "us"
         ],
@@ -92,7 +112,8 @@
         "salary_min_usd": 100000.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -103,17 +124,24 @@
       "text": "Streak (https://www.streak.com/careers) | YC S11 | Profitable and growing | San Francisco | Tech Leads (Backend, Mobile and Front-End) | On-site | H1-B Transfers welcome\n\nHere are the hard problems you'll work on here at Streak:\n\nSales Autopilot\n\nWe want to do for salespeople what autopilot did for pilots. We will suggest to sales professionals the actions they need to take next to close deals. They'll instead need to monitor our \"autopilot\" system and manually override only when needed. Unlike most AI startups, we can actually build this - we have 100M+ datapoints of sales professionals manua",
       "answers": {
         "ai_native": 0.53,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "bootstrapped",
         "industry": "enterprise_saas",
         "industry_fits": 0.94,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2032.0,
         "region": [
           "us"
         ],
@@ -124,7 +152,8 @@
           "Java",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -135,25 +164,33 @@
       "text": "Cloudera | Palo Alto & San Francisco CA | ONSITE\n\n/looking/for/a.job ?\n\nYou want to make a REAL difference? Join the team at Cloudera and help answer the world's biggest questions.\n\nCloudera is looking for mid-senior level engineers who have a passion for distributed systems, Hadoop, open source, test & automation, to name a few.\n\nWe work alongside the Open Source community to do things with data that have never been done, on a scale & at a speed that no one has ever seen.\n\nWhen you work at/with Cloudera, you work with the leaders & innovators in Big Data.Those who think \"data first\" think Clo",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.91,
         "industry_stated": 0.86,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1016.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "senior",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          "Hadoop"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -164,17 +201,22 @@
       "text": "Segment – Engineering | SF (local)\n\nSegment is building the analytics routing layer for the world. We transform data into over 150 different services, adding new ones every day. We’re processing billions of events each month, and maintaining the analytics infrastructure for companies like DigitalOcean, Zenefits, and Atlassian.\n\nWhere we're at:\n\n  - built with Go, Node, Containers, NSQ, Redis, AWS\n  - just over 100 people, and growing actively\n  - we <3 open source [1]\n\nIf that sounds interesting, we'd love to hear from you. Apply: https://segment.com/jobs/\n\n[1]: https://github.com/segmentio",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 597.0,
         "region": [
           "us"
         ],
@@ -187,7 +229,8 @@
           "Node.js",
           "Redis"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -198,17 +241,29 @@
       "text": "Hart (https://hart.com) | Javascript/Frontend Engineer | Anaheim, CA | Full-time, onsite\n\nOK its Eric (eric@hart.com) from Hart. I post in the HN forum every month and have found some great people. Here is the deal our hiring process is to have a phone interview, a culture fit, and a code challenge. We require everyone do a challenge no matter what the position is (even the chef). Here are some of the perks we offer.\n\n* 100% Medical, Dental and Vision coverage for you and your family\n* Unlimited Vacation Policy\n* Paid Paternity and Maternity Leave\n* 401k Match up to 7% of annual salary\n* Life ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "dental_vision",
+          "health_insurance",
+          "learning_budget",
+          "parental_leave",
+          "retirement",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.11,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2217.0,
         "region": [
           "us"
         ],
@@ -218,7 +273,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -229,17 +285,25 @@
       "text": "Credit Kudos | London, UK (Shoreditch) | https://creditkudos.com | Full-Time | Onsite | Visa\n\nCredit Kudos uses consumer transaction data to build highly accurate and transparent credit score-cards and affordability metrics. Our platform makes decision-making possible for the ~8m previously “unbanked” as well as those with nonexistent or “thin” credit files.\n\nWe believe that it’s possible to establish high accuracy predictors of credit worthiness that don’t punish borrowers at the low end of the income spectrum. To achieve this we are leveraging our experience in building high throughput data ",
       "answers": {
         "ai_native": 0.2,
+        "benefits": [
+          "equity",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1400.0,
         "region": [
           "uk"
         ],
@@ -250,7 +314,8 @@
           "Rails",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -261,17 +326,22 @@
       "text": "Stasis Labs | Los Angeles | Onsite or Remote | https://stasislabs.com\n\nStasis Labs is hiring our first full-stack web engineer to help us improve the quality of medical care through smarter patient monitoring. We are working on a hard problem, and aim to make a sizable impact through technology. We build a connected vitals monitoring system for patients who are not currently monitored, and are launching our first product this year to Indian hospitals. We just graduated from the first class of the Techstars Healthcare Accelerator, in Partnership witch Cedars-Sinai.\n\nWe are seeking someone with ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2080.0,
         "region": [
           "us"
         ],
@@ -286,7 +356,8 @@
           "Node.js",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -297,17 +368,22 @@
       "text": "TapFwd | San Francisco, CA | Full-time | Full-stack Generalists\n\nYou're a generalist in the true sense of the word. You don't know what challenges tomorrow may bring, but you're happy to hack away at them - from high performance back-end applications to sophisticated web apps.\n\nYou love the uncertainty and ownership that comes with working at an early stage startup. If you need someone to hand you a well-packaged engineering puzzle, then this job isn't for you - you'll see projects through from concept to production to iteration.\n\nInterested please apply at tapfwd.com/careers\n\nTapFwd connects ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.07,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 710.0,
         "region": [
           "us"
         ],
@@ -315,7 +391,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -326,17 +403,25 @@
       "text": "Wayve | http://www.wayveapp.com/ | London | Frontend, Backend\n\nwayve is a adtech startup building a platform to make multiscreen advertising insanely simple for everyone. Our technology intelligently converts brand assets into animated HTML5 content and we run our own reporting and analytics. We have investment and have big plans for the rest of 2016.\n\nWe’re looking for a senior front-end and senior backend engineer to join our small yet talented team. On the frontend you’ll be working on our ad builder - a rich javascript app. Or on the backend you’ll be helping us scale our ad analytics plat",
       "answers": {
         "ai_native": 0.09,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [
+          "pair_programming",
+          "take_home"
+        ],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 889.0,
         "region": [
           "uk"
         ],
@@ -352,7 +437,8 @@
           "Redis",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -363,17 +449,24 @@
       "text": "Magic Leap | multiple positions | Dania Beach, FL; Mountain View, CA | Onsite | Full-Time; Intern | Visa (full time) | Computer Vision; Embedded; Machine Learning\n\nhttp://magicleap.com/\n\nMagic Leap is an eclectic group of visionaries, rocket scientists, wizards, and gurus from the fields of film, robotics, visualization, software, computing, and user experience. We are growing quickly, and this is the time to get on board and play a role in shaping the way people will be interacting with the world tomorrow.\n\nIn the press: http://www.wired.com/2016/04/magic-leap-vr/\n\nWe are hiring in the follow",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.43,
         "industry_stated": 0.22,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.95,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 908.0,
         "region": [
           "us"
         ],
@@ -384,7 +477,8 @@
           "Android",
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -395,23 +489,29 @@
       "text": "Mountain View CA ONSITE: I'm looking for a future-thinking software prototyper to invent the future UX of hardware devices at Google. We create ridiculous ideas, implement them quickly, hacking hardware prototypes when needed, and try things out on real people to see what sticks. https://goo.gl/nxNs8i",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.54,
         "industry_stated": 0.47,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 302.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -422,17 +522,22 @@
       "text": "Loco2 | https://loco2.com/careers/software-engineer | Full-time | REMOTE\n\nHello!\n\nI'm one of the lead developers at Loco2. We're looking for a Ruby/Rails developer to join our small development team. We use: Ruby, Rails, PostgreSQL, HAML, SCSS, CoffeeScript and more. Our developers are currently based across 4 European countries.\n\nLoco2's mission is to make booking trains anywhere in Europe as easy and affordable as possible. We integrate with rail providers across Europe and have the technical challenge of building a sophisticated routing system.\n\nIf you're interested or have any questions, p",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 701.0,
         "region": [
           "unknown"
         ],
@@ -444,7 +549,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -455,17 +561,22 @@
       "text": "Parsley Health | Lead Engineer | NYC | Full Time | On-Site\n\nParsley Health offers high-tech holistic alternatives to 'big medicine,' with advanced testing, personalized care, and natural options. We launched in NYC and after closing our first round of funding are expanding to LA and SF this fall.\n\nWe are hiring an engineering lead to build the digital platform to scale our unique approach to healthcare. The platform will connect the patient and practitioner across all platforms, boosting patient satisfaction, LTV and health outcomes.\n\nOur ideal candidate will be a doer and a leader, having bui",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.98,
         "funding_stage": "seed",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 870.0,
         "region": [
           "us"
         ],
@@ -477,7 +588,8 @@
           "Node.js",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -488,17 +600,24 @@
       "text": "Various | https://www.goodeggs.com/ | San Francisco | Fulltime | DOE\n\nGood groceries, delivered.\n\nGood Eggs lets folks like you shop local, organic produce, meat and fish, and delicious staples for next-day delivery in the San Francisco Bay Area. We've built an entirely new supply chain that is changing the way folks feel connected to the groceries they buy every week.\n\nApply online: http://careers.goodeggs.com/open-positions/\n\n# Why Good Eggs?\nWe're a mission-driven Certified B Corp, earnestly working to funnel more of the $50B US grocery spend into sustainable, local food producers. Our offi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.18,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [
+          "no_leetcode"
+        ],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3631.0,
         "region": [
           "us"
         ],
@@ -516,7 +635,8 @@
           "React",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "5_7"
       }
     },
     {
@@ -527,17 +647,27 @@
       "text": "Depth Security | Kansas City, MO | on-site | full-time\n\nLooking for Pentesters, hunting for bugs.\n\nWe are looking for experienced web application security consultants. Professional developers and systems administrators with no specific security experience will be considered provided sufficient aptitude and interest is displayed. Extra credit will be given to those who can demonstrate experience assessing both web & mobile applications. Applicants with published research (vulnerabilities, exploits, tools, etc.) will be preferred over those with none.\n\nBenefits\n\n* Competitive salary\n\n* Performan",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "bonus",
+          "dental_vision",
+          "health_insurance",
+          "relocation"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.13,
         "industry_stated": 0.76,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.09,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1646.0,
         "region": [
           "us"
         ],
@@ -545,7 +675,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -556,17 +687,22 @@
       "text": "js.io | SF/bay, Tokoyo, Remote | Full Time | $150k-$250k\n\njs.io is a new IDE for HTML5 Apps / Games, AR, VR, Minecraft mods, Arduino, IoT, and more, targeting javascript as a common language. We provide developers their own persistent container, a beautiful end-to-end development experiences, r remote-over-LTE debugging, one click publishing, and carefully polished community support. We value simple, frictionless experiences that cover every aspect of development, debugging, and deploying software.\n\nLooking for front-end (javascript) and back-end (javascript, python, posix, containers), or ide",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 727.0,
         "region": [
           "us"
         ],
@@ -579,7 +715,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -590,17 +727,25 @@
       "text": "Brightcove (http://brightcove.com) | London, Boston, Seattle, & Tempe | Full-Time | Onsite\n\nWe're an online video platform (OVP) headquartered near Boston's South Station (with offices around the world), and power video for many of the world's\nlargest media companies. We work on fun, difficult problems using the latest tech within a casual work environment. We offer a fully stocked kitchen,\nping pong/arcade machines, frequent catering, unlimited vacation policy that employees actually use, generous work/life balance, 401k matching, etc. etc.\n\nLondon:\n\n* Software Engineer, Golang (http://app.jo",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "retirement",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.76,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1823.0,
         "region": [
           "uk",
           "us"
@@ -612,7 +757,8 @@
           "Go",
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -623,17 +769,25 @@
       "text": "Gatecoin (http://gatecoin.com) | Hong Kong ONSITE | Multiple Positions | Fulltime | (INTERNS also welcome, VISA sponsor)\n\nWe're a regulated bitcoin/ether(/others) exchange in Hong Kong, with many projects in our backlog!\n\nWe're looking for technical folks to fill some roles:\n\na) Devs (Frontend, Backend, Fullstack, Mobile soonish via Xamarin)\n\nb) QA\n\nc) SysAdmins+DBA\n\nd) Security\n\ne) UI/UX/CSS designers (Android/iOS experience desirable too)\n\nf) Hybrid roles of the above\n\nWe use AngularJS (moving to TypeScript) and .NET/Mono (F# and C#), with a hybrid Linux/Windows environment (i.e. Redis, MySQ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "relocation",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 975.0,
         "region": [
           "asia_pacific"
         ],
@@ -641,15 +795,19 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          ".NET",
           "Android",
           "Angular",
           "C#",
+          "F#",
+          "Linux",
           "MySQL",
           "Redis",
           "TypeScript",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -660,17 +818,24 @@
       "text": "medigo.com - Berlin - onsite(prefered) or remote - visa\n\nSenior Full Stack Developer (JS,GO,docker) -> desc: https://goo.gl/NySYsh\n\nSenior Front End Developer (Polymer) -> desc: https://goo.gl/Tgo7Dn\n\nWe are 50 ppl, trying to play our part in fixing healthcare - world wide. Having evolved our stack towards web components and a service oriented architecture successfully, we now look for full stack and android developers to build healthy mobile applications and high quality browser-based healthcare solutions from scratch.\n\nfeatures:\n\n  solid CI pipeline\n  work on own projects 20% of the time\n  t",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.91,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 759.0,
         "region": [
           "europe"
         ],
@@ -682,7 +847,8 @@
           "Docker",
           "JavaScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -693,17 +859,22 @@
       "text": "Plethora - San Francisco, CA\n\nWe're hiring Full Stack/Front End, QA, Backend, CAD API, and Computational Geometry Software Engineers ONSITE.\n\nIn the future, innovation will be limited only by the bounds of your imagination. Plethora is building this future by creating design tools and manufacturing capabilities that empower everyone to create better inventions, faster than ever before. Join our team! Email the team at careers@plethora.com.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.91,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 443.0,
         "region": [
           "us"
         ],
@@ -711,7 +882,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -722,17 +894,22 @@
       "text": "Factr | New York, NY | Onsite/Full-time\n\nPython/React Developer\n\nWe're a 5 person shop - serial startup CTO, data scientist, media person, developer formerly at YC-backed startup (Submittable '12), ex—United Nations CEO. We're looking for number 6 to help us ramp up our existing codebase.\n\nWe're using the latest & greatest React libs and are proud Python3 people.\n\nYou'll be in our not-so-fancy digs ... a raw studio between Tribeca & Chinatown with a view of at least 5 water towers :-)\n\nFactr lets you find, organize, share, and evaluate articles, field reports, images/videos, documents that mat",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.64,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 732.0,
         "region": [
           "us"
         ],
@@ -743,7 +920,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -754,17 +932,22 @@
       "text": "Excella Consulting | Arlington, VA & Washington, D.C. | Full-time, ONSITE | https://www.excella.com/\n\nWe're a small-mid sized consulting company (~180 people) with a small company feel. Founders really invest in personal development, have weekly if not monthly happy hours, summer and winter weekend getaways, and the ability to WFH when necessary. Also, the projects are pretty engaging and theres hardly a dull moment. I'm on a small team working to revamp the entire US Immigration portal - high visibility, and direct impact on millions of lives. The White House has estimated that we'll make a '",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.84,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.78,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1024.0,
         "region": [
           "us"
         ],
@@ -772,12 +955,14 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          ".NET",
           "Java",
           "Node.js",
           "Python",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -788,17 +973,22 @@
       "text": "PlaceIQ (http://placeiq.com/) | NYC, USA | Systems Administrator | Full-Time | ONSITE\n\nPlaceIQ is a powerful, location-based audience and insights platform that organizes a wide variety of consumer activity data around a precise location base map at massive scale. PlaceIQ uses its detailed understanding of location and consumer activity to reach a targeted audience, and also to derive powerful insights about consumer behavior to inform market and business strategies for national brands. The company is headquartered in New York City and has offices in Palo Alto, Chicago, and Detroit.\n\nFull job ",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.05,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 687.0,
         "region": [
           "us"
         ],
@@ -806,7 +996,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -817,17 +1008,22 @@
       "text": "Sauce Labs (San Francisco, CA)\n\nSauce Labs provides the world’s largest cloud-based platform for the automated testing of web and mobile applications. Its award-winning service eliminates the time and expense of maintaining an in-house testing infrastructure, freeing development teams of any size to innovate and release better software, faster.\n\nWe are currently looking for:\n\nCustomer Support Engineers\n\nEngineering Managers (Web Engineering)\n\nLead Software Engineers (Desktop Platform Support\n\nSenior Software Engineers (Business Intelligence)\n\nSenior Software Engineers (Rest API)\n\nSoftware Engi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 820.0,
         "region": [
           "us"
         ],
@@ -835,7 +1031,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -846,17 +1043,22 @@
       "text": "R3 CEV | http://r3cev.com | London, UK | ONSITE\n\nR3 is designing a next-gen distributed database in which the nodes in the peer-to-peer network making it up don't trust each other. Then we're building financial apps on top, because finance is the industry that can benefit from this technology the most. Many startups in this space are building on top of the Nakamoto blockchain algorithm, but we don't actually use a Bitcoin-style blockchain at all: that's why we simply call what we're building the distributed ledger instead.\n\nWe're looking for a mix of sharp computer science generalists and peop",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1027.0,
         "region": [
           "uk"
         ],
@@ -867,7 +1069,8 @@
           "Kotlin",
           "Scala"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -878,16 +1081,21 @@
       "text": "Designers or Developers | Stealth Analytic and Visualization Platform | Onsite Washington, DC | Full Time\nTechnologies: CSS, Javascript (Angular), or Java\nNeed Expert Level CSS Wizards, Front-End Developers, or Back-End Developers to help customize a new Data Visualization Platform.\nEmail me at neelorsheel [at] gmail [dot] com",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.56,
         "industry_stated": 0.77,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 328.0,
         "region": [
           "us"
         ],
@@ -898,7 +1106,8 @@
           "Java",
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -909,16 +1118,21 @@
       "text": "San Francisco; Full Time; Onsite\n\nI'm the cofounder of Figma (www.figma.com), a startup in San Francisco building a browser-based collaborative design tool to improve the way designers and engineers work together. We're a small team and we're looking for talented designers and engineers (www.figma.com/careers) who are interested in tackling challenges in the creative tools space.\n\nExample challenges: annotation system on top of documents for feedback, 2D boolean operations on paths, speed up zooming in the app using a tile quadtree, UI testing framework that simulates user actions, real-time e",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.69,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 973.0,
         "region": [
           "us"
         ],
@@ -931,7 +1145,8 @@
           "Ruby",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -942,17 +1157,22 @@
       "text": "MORSE Corp | Boston/Cambridge, MA | $80k - $140k | US Citizens only\n\nMORSE develops algorithms and software for operational systems, implementing leading edge technologies for robotics, autonomous air and undersea vehicles, and coordination of human teams.\n\nIn particular, we are hiring:\n\nVision Navigation and Robotics Perception Engineer -- Focus on pushing the state of the art in computer vision and navigation to eliminate reliance on GPS and greatly increase the perception capabilities of future robotic systems. Develop and implement vision navigation algorithms to enable visual odometry, la",
       "answers": {
         "ai_native": 0.65,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.9,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 842.0,
         "region": [
           "us"
         ],
@@ -962,7 +1182,8 @@
         "salary_min_usd": 80000.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

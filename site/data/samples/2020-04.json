@@ -9,17 +9,25 @@
       "text": "Stylight | Full Stack Developers | Munich, Germany | Onsite | Relocation + Visa Assistance\n\nStylight is Europe’s leading search engine for fashion & design available in 16 countries worldwide. The team behind Stylight are 100 style geeks and tech professionals, a data-driven lifestyle force, coming from 25 nations all around the globe (company language is English). Also we love to be deeply involved in the local tech community, hosting meet ups in our amazing office on a weekly base. Together with Bits & Bretzels we organize daho.am, our own annual developer conference. As we appreciate Learni",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "learning_budget",
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.9,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.83,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1060.0,
         "region": [
           "europe"
         ],
@@ -32,7 +40,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -43,17 +52,22 @@
       "text": "Zimperium | Sr DevOps Engineer and SREs | Dallas, TX | Full Time, Preferably ONSITE\n\nZimperium, Inc. is a global leader in mobile security, offering real-time, on-device protection against both known and unknown Android and iOS threats. The Zimperium platform leverages our award-winning machine learning-based engine to protect mobile data, apps and sessions against device compromises, network attacks and malicious apps.\n\nOur Sr. DevOps engineers architect, deploy and maintain a global SAAS platform which provides proactive threat detection, analysis and response to hundreds of customers and te",
       "answers": {
         "ai_native": 0.95,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1356.0,
         "region": [
           "us"
         ],
@@ -62,14 +76,17 @@
         "seniority": "senior",
         "stack": [
           "Android",
+          "Ansible",
           "Docker",
+          "Elasticsearch",
           "Kubernetes",
           "Machine learning",
           "Postgres",
           "Terraform",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -80,17 +97,22 @@
       "text": "Sequoia Capital | Full Time | Menlo Park | Senior Security Analyst | https://www.sequoiacap.com\n\nFrom idea to IPO and beyond, Sequoia helps a small number of daring founders build legendary companies. We're looking for a curious, methodical Senior Security Analyst to join our team.\n\nThe definition of success in this role is simple - continually reduce our risk and keep Sequoia safe. You’ll take a leadership role with your security and infrastructure teammates to identify and triage incidents, and prioritize improvements to the systems that enable detection and response.\n\nSee more info on the p",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.52,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 648.0,
         "region": [
           "us"
         ],
@@ -98,7 +120,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -109,16 +132,23 @@
       "text": "Arcesium | Core Infrastructure Co-op | Distributed Systems Engineer | Infrastructure Engineer | Product Manager | Senior Front End Engineer | Summer Software Engineer Intern | Technical Relationship Manager | New York, NY | Onsite | Full-Time | Visa\n\nArcesium is a post-trade technology and professional services firm. We offer a new way for hedge fund managers to scale their business while maintaining control of critical non-investment activities. Arcesium combines a comprehensive and fully-integrated technology platform with a team of experienced hedge fund professionals to solve the most comp",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.9,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1271.0,
         "region": [
           "unknown"
         ],
@@ -126,7 +156,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -137,17 +168,22 @@
       "text": "Bunch.ai | New York, NY & Berlin (Germany) | Design | Full-time, Remote\n\nOur team is on a mission to make sure everyone has a great manager. The amount of knowledge that exist in psychology research about leadership and teams is mind blowing, but surprisingly enough, almost none of it is used on a daily basis: in your sprints, stand-ups, one-on-ones or performance feedback.\nWe want to change that.\n\nHere's our open roles:\n\n- Visual Design Generalist: https://angel.co/company/bunch-hq/jobs/682927-visual-design-generalist",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.66,
         "industry_stated": 0.89,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 524.0,
         "region": [
           "europe",
           "us"
@@ -156,7 +192,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -167,17 +204,22 @@
       "text": "Doist | Frontend Developer | JavaScript | World | Full-time | Remote: https://doist.com/jobs/#frontend-developer-javascript\n\nAt Doist, our mission is to inspire the workplace of the future by creating simple yet powerful productivity tools that promote a calmer, more balanced, more fulfilling way to work and live.\n\nWe envision a future in which people can work without distractions from anywhere in the world on things that they are passionate about and then unplug at the end of the day with the reassuring peace-of-mind that their tasks and teamwork are accounted for.\n\nThese are all remote posit",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.95,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1068.0,
         "region": [
           "unknown"
         ],
@@ -187,7 +229,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -198,17 +241,22 @@
       "text": "ISO | Full Stack Software Engineer | SF + REMOTE | https://iso.io\n\nWe are a stealth seed stage company on a mission to redefine analytics, accountability and visibility within the supply chain and logistics industry. We are a team of serial entrepreneurs who have an extensive background in building world class product, operations, and sales & marketing teams.\n\nWe are looking for a product-minded software engineers who are comfortable with both front and back-end software development to join our founding engineering team.\n\nFull job description is here: https://docs.google.com/document/d/1a_bK6u",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "seed",
         "industry": "commerce",
         "industry_fits": 0.97,
         "industry_stated": 0.93,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1034.0,
         "region": [
           "us"
         ],
@@ -216,7 +264,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -227,17 +276,22 @@
       "text": "FreeFlyer, a.i. solutions | C++ Software Engineer, UI/UX Designer | Washington, D.C. area | ONSITE\n\nFreeFlyer is a desktop-based spacecraft mission design software product used by organizations like NASA, the Air Force, international space agencies, and many others to plan and operate complex space missions. FreeFlyer provides an IDE to our users (rocket scientists!) where they can script up their own simulation for analysis then execute the simulation, generating multiple 2D, 3D, and text-based visualizations. We have a small and dedicated team that is needing to grow to keep up with the dema",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.73,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.05,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2980.0,
         "region": [
           "us"
         ],
@@ -248,7 +302,8 @@
           "C++",
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -259,17 +314,22 @@
       "text": "Prescreen | Vienna, Austria | DevOps/BE/QA Engineers & Product Managers | ONSITE | Full Time\nPrescreen is one of Europe’s fastest growing HR tech startups. We are a small but highly effective team delivering value to our users fast and in high quality. Working here still feels like in a startup but we do have some of the benefits of being a post-exit company (financial stability, 30 days of yearly paid vacation, all kinds of benefits...)\nAll our positions are listed on our homepage: https://prescreen.io/en/careers/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.79,
         "industry_stated": 0.78,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 520.0,
         "region": [
           "europe"
         ],
@@ -277,7 +337,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -288,17 +349,22 @@
       "text": "play | Saalbach.com, Austria | Wanted: CTO/Co-Founder | Video, Deep Learning, Machine Vision | Remote Ok\n\nJoin the founder’s team.\n\nplay is, in a nutshell, about the beaming of emotions via film. The most beautiful medium to capture emotions, to share and beam them around the world.\n\nWhat?\n\nJust follow our inviting “call to action”: Find out what we are working on and how you can be part of:\n\nhttps://www.playsys.at/cto-wanted/",
       "answers": {
         "ai_native": 0.37,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.8,
         "industry_stated": 0.92,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 430.0,
         "region": [
           "europe"
         ],
@@ -306,7 +372,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -317,17 +384,22 @@
       "text": "Hustle, Inc. | Staff / Senior Engineer | Remote or SF | Full-time | https://hustle.com\n\nHustle enables organizations to run large-scale text messaging campaigns by empowering their team members and volunteers to efficiently have thousands of personal 1-to-1 conversations.\nConversations driven by our platform are geared towards driving measurable meaningful outcomes such as voter turnout, event attendance, or dollars raised for clients such as PlannedParenthood, Sierra Club, the DNC, large non-profits, unions, and universities, as well as several 2020 presidential candidates.\n\nTo do that our te",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.58,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1197.0,
         "region": [
           "us"
         ],
@@ -335,7 +407,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "staff_plus",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -346,17 +419,22 @@
       "text": "Blossom Capital | London | Software Engineer in Venture Capital\n\nWe back Europe's top startups at Series A (including YC almumi Duffel, Fat Llama and Sqreen) and building technology is a core part of how we operate, from sourcing deals through to automating due diligence.\n\nRoughly a third of the companies we invest in are sourced through our technology platform and we're looking to hire someone who will help take it to the next level.\n\nOur current stack is Python + Postgres based, but beyond engineering skills we're looking for someone who'll enjoy spending time with the investment team really",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "fintech",
         "industry_fits": 0.79,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 768.0,
         "region": [
           "uk"
         ],
@@ -367,7 +445,8 @@
           "Postgres",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -378,17 +457,22 @@
       "text": "Skool | Software Engineers | Los Angeles (LA) | Full Time | Onsite | https://www.skool.com\n\nSkool builds simple and powerful collaborative tools for self-education. We're a small, self-organizing team of engineers and designers who want to make really great things. Craftsmanship, thoughtfulness, attention to detail and work ethic are important values to us. If you embody these values, you'll love working here.\n\nSenior Frontend Engineer — https://jobs.lever.co/skool/8a671940-1544-4a90-b4c3-698f60ac4fd1\n\nCome have fun at Skool. Apply at the link above, or email us fun@skool.com.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 583.0,
         "region": [
           "us"
         ],
@@ -396,7 +480,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -407,17 +492,22 @@
       "text": "Notion | Software Engineers (Full stack, Backend/Infra, Mobile; all experience levels) | San Francisco, CA | Onsite\n\nNotion's goal is to create the general purpose work tool for a post-file, post-Microsoft Office world. Tools for knowledge workers haven't advanced much since the 90s—the state of the art is something like Google Docs, Quip, or Dropbox Paper or rigid SAAS apps—and we're working hard to figure out what a coherent technology platform for work looks like in the modern era.\n\nThis is our product: https://notion.so\n\nWe are looking for people to fill the following roles: https://www.no",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.72,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1008.0,
         "region": [
           "us"
         ],
@@ -425,7 +515,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -436,17 +527,22 @@
       "text": "Southeast USA including: Virginia (Arlington and Dulles), Maryland (Annapolis Junction), South Carolina (Greenville), Alabama (Huntsville), Florida (Melbourne), Texas (Austin and San Antonio), Pennsylvania (State College) and possibly others, normally ONSITE. Citizenship is a job requirement.\n\nWe do emulators, JIT, hypervisors, stuff similar to valgrind, debuggers, manual disassembly, binary static analysis, parsers, and assembly. We write our own low-level tools, frequently in C99 to run on Linux. We also use IDA Pro, ghidra, qemu, Simics, JTAG debuggers, gdb, Coverity, KlocWork, LLVM, and so",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "optional",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.32,
         "industry_stated": 0.76,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.06,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1724.0,
         "region": [
           "asia_pacific",
           "us"
@@ -454,8 +550,11 @@
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          "Linux"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -466,17 +565,24 @@
       "text": "Compound (YC S19) | San Francisco, CA | Onsite | https://withcompound.com/\nCompound helps you optimize your finances. Through automation and abstraction, we eliminate the complexity of wealth management to maximize your upside. We help you manage your startup equity, forecast tax implications, and organize your financial life.\n\nWe are a small, well funded team based in San Francisco. We are growing really quickly.\n\nOur open positions:\n\n* Design lead (email below)\n\n* Fullstack engineer https://withcompound.com/careers/fullstack-software-engineer\n\n* Frontend engineer https://withcompound.com/car",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 668.0,
         "region": [
           "us"
         ],
@@ -484,7 +590,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -495,23 +602,29 @@
       "text": "Princeton University Center for Information Technology Policy | Princeton, NJ | Onsite | Full Time\n\nPrinceton CITP is a leading research center at the intersection of technology and public policy. We've conducted groundbreaking work on privacy, government surveillance, net neutrality, algorithmic fairness, dark patterns, and other high-profile topics. https://citp.princeton.edu/\n\nWe're hiring a data scientist who will collaborate with our world-class faculty, fellows, and students on interdisciplinary research projects and policy impact. If you live in New York City or New Jersey, are passiona",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 898.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -522,17 +635,22 @@
       "text": "JustWatch | Berlin, Germany | FULLTIME, ONSITE | EU Only https://www.justwatch.com/us/talent\n\nJustWatch is the world's leading movie and TV show streaming guide.\n\nWe are mainly looking for talent for these specific roles:\n\n• Product Manager\n\n• Senior Backend Engineer (Go)\n\nJustWatch promotes a culture of learning with a high degree of autonomy and room for personal growth. We work on hard problems, with low politics, clear focus and great context. We don't have any non-technical product management and like it that way. Our development philosophy balances fast hacking with a solid architectural",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "bootstrapped",
         "industry": "media_consumer",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1261.0,
         "region": [
           "europe"
         ],
@@ -542,7 +660,8 @@
         "stack": [
           "Go"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -553,17 +672,22 @@
       "text": "Ferrum Health | REMOTE | Full Time | Senior Backend Engineer | https://ferrumhealth.com\n\nMedical errors are the third leading cause of death in the US, and Ferrum builds AI-powered monitoring systems to help health systems detect and address mistakes before they affect patient care.\n\nFerrum is a fully remote and distributed company focused around the US and European timezones. Since launching its first offering for lung cancer errors two years ago, Ferrum now covers over 10 million patients at nine health systems around the world, including the US. The company is backed by multiple top-tier ve",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1425.0,
         "region": [
           "unknown"
         ],
@@ -572,9 +696,11 @@
         "seniority": "senior",
         "stack": [
           "Go",
+          "Linux",
           "Machine learning"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -585,17 +711,22 @@
       "text": "NASA EVA Mission Systems | Software Engineer | Houston, TX | INTERNS, ONSITE, REMOTE (maybe, see below)\n\nWe are looking to hire interns who can help build several products in support of ISS [0] and lunar EVAs [1]. The primary project is working on a procedure authoring tool which handles multiple actors working in parallel. We are making EVA procedures human and machine readable, and transforming procedure authors' workflow from a cumbersome process of sharing Word documents to something closer to a software development workflow. Part of this project includes getting non-programmers to use Git",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.18,
         "industry_stated": 0.86,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2122.0,
         "region": [
           "us"
         ],
@@ -606,7 +737,8 @@
           "Node.js",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -617,17 +749,22 @@
       "text": "Signal | San Francisco or Remote (US only) | Full-Time, Remote-OK | https://signal.org\n\nSignal is making private communication simple. As an Open Source project supported by grants and donations, Signal can put users first. There are no ads, no affiliate marketers, no creepy tracking. Just open technology for a fast, simple, and secure messaging experience. We design open protocols, develop Open Source software, and give it away for free.\n\nHere are our open roles:\n\n- Server Developer: https://jobs.lever.co/signal/2a5fee8b-5875-46d4-a41d-773a28a6b553\n\n- Desktop Developer: https://jobs.lever.co/",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.94,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1244.0,
         "region": [
           "us"
         ],
@@ -638,11 +775,13 @@
           "AWS",
           "Android",
           "Java",
+          "Objective-C",
           "Rust",
           "Swift",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -653,17 +792,24 @@
       "text": "Circadian Risk | REMOTE (USA)\n\n---\n\nPositions:\n\n1) Senior Software Engineer (Full-stack) | Full-Time\n\n* 75% product/engineering\n\n* 25% Cloud/data management (e.g. Terraform) site reliability\n\n2) DevOps Engineer | Part-Time/Full-Time\n\n---\n\nPackage (for all positions):\n\n* Competitive salary + equity incentive plan\n\n* Platinum PPO + vision + dental (including spouses/dependents)\n\n* Paid time off\n\n---\n\nMission:\nCircadian Risk aims to improve enterprise security and physical risk mitigation.\n\n---\n\nTeam:\nWe are a hard-working team who loves building great products that improve people’s lives. We hav",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.85,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1799.0,
         "region": [
           "us"
         ],
@@ -673,13 +819,16 @@
         "stack": [
           "AWS",
           "Docker",
+          "GitHub Actions",
           "Postgres",
           "React",
+          "React Native",
           "Redis",
           "Terraform",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -690,17 +839,22 @@
       "text": "Barracuda Networks | Campbell, CA | https://www.barracuda.com | Full-time | Onsite\n\nWe are looking for someone to join us at Barracuda. Our team is developing an innovative security product that focus on sophisticated email attacks. The product detects and visualizes advanced threats, such as conversation hijacking and account takeover.\n\nWe are working with Python, TypeScript, Kotlin, Spark and AWS services.\n\nPrincipal Backend Engineer: http://jobs.jobvite.com/barracuda-networks-inc/job/oSyhcfwD\n\nYou can apply directly using the links. Happy to answer any questions, my email is in bio.",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 592.0,
         "region": [
           "us"
         ],
@@ -714,7 +868,8 @@
           "Spark",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -725,17 +880,27 @@
       "text": "One Codex (YC S14) | San Francisco (Mission) | Software + Scientist Roles | Onsite + Remote | https://www.onecodex.com\n\nOne Codex is a platform for microbial genomics. We are a technical, experienced team working on meaningful problems that range from infectious disease diagnostics to outbreak epidemiology to improving our understanding of the microbiome. We work with top researchers, medical institutions, and biotechs, and have processed samples from all seven continents (and space!). Here's what we're doing to help out with COVID-19: https://www.onecodex.com/blog/2020/03/16/covid-19-sequenci",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "dental_vision",
+          "equity",
+          "health_insurance",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1525.0,
         "region": [
           "us"
         ],
@@ -749,7 +914,8 @@
           "Rust",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -760,17 +926,22 @@
       "text": "Series-C Construction Tech Startup| Hiring in San Francisco | Onsite, Fulltime\n\nFieldwire is a construction field management platform. We are venture backed and looking to double the engineering team! If you are looking for a fast-pace startup with great culture and a great product, feel free to apply!\n\nEngineering Manager Product - 4+ yrs of experience, BS or MS in CS or equivalent.\n\nSenior iOS Engineer - 3+ yrs of experience in iOS development, BS or MS in CS or equivalent.\n\nSenior Frontend Engineer - 3+ yrs of experience in iOS development, BS or MS in CS or equivalent.\n\niOS Engineer - 1+ y",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "optional",
         "eng_leadership": 0.99,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.14,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 719.0,
         "region": [
           "us"
         ],
@@ -780,7 +951,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -791,17 +963,22 @@
       "text": "Trellis | Atlanta, GA | Software Developers | [https://mytrellis.com/](https://mytrellis.com/) | ONSITE | Full-Time\n\nTrellis is a hardware enabled software company that enables farmers to make better decisions about their farm. We sell sensors that farmers install in their fields, and have a dashboard that lets them view the data.\n\nWe are looking to hire a Software Developer to help maintain and improve our user interfaces and services. You will be working as a part of our small software team on websites, a mobile app, and the backend services needed to support them.\n\nOur software stack is mos",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1048.0,
         "region": [
           "us"
         ],
@@ -809,13 +986,16 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Firebase",
           "GraphQL",
           "JavaScript",
           "Node.js",
           "React",
+          "React Native",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -826,17 +1006,22 @@
       "text": "Cocoon | Android Engineer (FTE) | San Francisco | Onsite (remote currently)\n\nCocoon is a dedicated digital space for families to gather and keep each other close. Over the past few weeks, we've been inspired by the thousands of groups coming together in Cocoon - and now we're urgently looking for a senior Android Engineer to help bring it to broader audience. We're a small + nimble team with backgrounds from Facebook, Microsoft, Amazon, IDEO, etc.\n\nMore about our mission here https://cocoon.com/about.html and the team/role here https://cocoon.com/team.html\n\nTo apply, reach out directly: founde",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 613.0,
         "region": [
           "us"
         ],
@@ -846,7 +1031,8 @@
         "stack": [
           "Android"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -857,17 +1043,24 @@
       "text": "Thinknum | Data Engineer | Full-Time | Onsite | Visa Sponsorship | New York\n\nThinknum creates datasets from a broad array of public online sources, capturing ephemeral information on the products, operating markets and labor markets of 400,000+ global companies across sectors, and provides rich toolsets for extracting intelligence. Last year, we closed a $11.6M round.\n\nThinknum is looking for an experienced Data Engineer to join the team in our NYC office.\n\nYou will join a fast-growing startup which offers exciting opportunities to those that are willing to put in the work.\n\nThis is a salaried",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.67,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 949.0,
         "region": [
           "us"
         ],
@@ -878,7 +1071,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -889,17 +1083,22 @@
       "text": "Atlassian | Many types of roles (inc Engineering) | Full-time/Contract/Intern/Grad/etc | Mix of onsite and remote [All remote for now] | Global\n\nRoles and number of open positions:\n\n    Data & Analytics (16)\n    Design (25)\n    Engineering (106)\n    General & Admin (33)\n    Graduates (10)\n    Interns (15)\n    Marketing & Sales (61)\n\n    Other (58)\n    Product Management (20)\n    Program Management (12)\n    Security (11)\n    Support (29)\n    Trello (3)\n\nApply here: https://jobs.lever.co/atlassian?lever-via=SftTHN-4I0\n\nAtlassian engineers like to get their hands dirty and build stuff. Whether cr",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.11,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.69,
         "industry_stated": 0.9,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1441.0,
         "region": [
           "unknown"
         ],
@@ -910,7 +1109,8 @@
           "AWS",
           "JavaScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -921,17 +1121,24 @@
       "text": "Alchemab Therapeutics | London, Cambridge UK | Software/Data Engineer | ONSITE, VISA | Full-time\n\nAlchemab Therapeutics is a VC-backed newco that is bringing together the latest advances in antibody repertoire profiling, deep learning, and synthetic DNA libraries to discover new antibody-based drugs in a variety of disease areas including oncology and neuroscience. Alchemab aims to deliver a pipeline of targets and therapeutic candidates over the next 18 months.\n\nWe are looking for a data engineer with cloud expertise to help build and maintain our cloud/software infrastructure. This person wi",
       "answers": {
         "ai_native": 0.5,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "venture_unspecified",
         "industry": "health",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1383.0,
         "region": [
           "uk"
         ],
@@ -944,7 +1151,8 @@
           "Python",
           "Spark"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

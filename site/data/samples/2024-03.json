@@ -9,17 +9,22 @@
       "text": "RPX | Data Quality | Remote (US)/Onsite (San Francisco, CA) | $100-120k approx.\n\nRPX is the leading provider of solutions to help companies manage their risks and costs arising at any stage of their intellectual property program. I'm on the tech side at RPX, please send your CV to [removed] and I'll get it into the hiring manager's hands. Cheers.\n\nSenior Associate, IP Data Quality: You will be responsible for data management and quality control of data underpinning RPX’s Names Service, which analyzes, transforms, and disambiguate raw strings obtained from various data sources so that they are ",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.81,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 976.0,
         "region": [
           "us"
         ],
@@ -29,7 +34,8 @@
         "salary_min_usd": 100000.0,
         "seniority": "junior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -40,17 +46,22 @@
       "text": "ML6 | Machine Learning Engineer, Data Engineer | Python, TensorFlow, PyTorch, GCP, AWS, Azure | Full-time | Amsterdam, Berlin, Ghent (EU) On-site/hybrid\n\nWe are a Machine Learning consulting company that builds end-to-end Machine Learning solutions. By applying the latest AI research, we keep our clients at the forefront of innovation.\n\nIf you are interested check out: https://www.ml6.eu/resources/resource-library and https://www.ml6.eu/client-cases\n\nWork on innovative projects for the biggest clients across Europe such as Randstad, ASML, FUNKE, and many more! Whether it’s about leveraging LLM",
       "answers": {
         "ai_native": 0.34,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1352.0,
         "region": [
           "europe"
         ],
@@ -61,13 +72,15 @@
           "AWS",
           "Azure",
           "GCP",
+          "Hugging Face",
           "LLM",
           "Machine learning",
           "PyTorch",
           "Python",
           "TensorFlow"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -78,17 +91,22 @@
       "text": "Emerging Technology Lab - Honda R&D Europe (UK) | Senior Researchers - Decentralization, Web3, Artificial Intelligence, Machine Learning | Full Time - Hybrid | Reading UK\n\nAt Emerging Technology Lab, we have nurtured a culture of collaborative innovation rooted in creativity, kindness, mutual trust, and respect. Our primary mission revolves around applied research in multi-domain software technology where we are actively sensing global business challenges. Our key output is creation of proof of concepts (PoCs), with potential of integration into next generation Honda products, platforms, and s",
       "answers": {
         "ai_native": 0.07,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "public_or_large",
         "industry": "other",
         "industry_fits": 0.18,
         "industry_stated": 0.86,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1255.0,
         "region": [
           "europe",
           "uk"
@@ -99,7 +117,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -110,17 +129,22 @@
       "text": "Coder | Remote first - US/Canada | Open-Source Sr. Full Stack Engineer | Full time, perm\n\n4 - 7 years of experience in Go, Typescript, React | We love seeing active open-source GitHub and side project work | Base: $140K to $180K/yr DOE & location\n\nOur mission is to keep developers in flow. Coder has created a devtool that offloads development from local workstations to your on-prem and public cloud infrastructure. Target customer is enterprise engineering orgs at some of the world’s largest and cutting edge companies. Our tech stack is typescript, react, golang, terraform, linux\n\nCheck us out:",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 689.0,
         "region": [
           "canada",
           "us"
@@ -132,11 +156,13 @@
         "seniority": "senior",
         "stack": [
           "Go",
+          "Linux",
           "React",
           "Terraform",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "3_4"
       }
     },
     {
@@ -147,16 +173,24 @@
       "text": "Grupago, Inc. - Head of Credit & Credit Operations | Data scientist / Machine Learning Engineer (Credit Analysis)\n\nSee our jobs page here: https://apply.workable.com/grupago/\n\nWe are an early-stage, venture-backed fintech that focuses on bringing affordable credit and financial services to small business owners across LatAm - starting with Mexico.\n\nGrupago is able to serve micro-SMBs as a result of three key innovations – community distribution, group collateral, and AI-driven underwriting.\n\nWe are backed by top venture investors across the US and Mexico, and our co-founding team has spent the",
       "answers": {
         "ai_native": 0.76,
+        "benefits": [
+          "bonus",
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "venture_unspecified",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 729.0,
         "region": [
           "unknown"
         ],
@@ -166,7 +200,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -177,22 +212,28 @@
       "text": "Hey people, good luck to everyone currently looking for work. It's an emotional roller coaster. But I do think the tech job market is much better now compared to how it was. If you haven't looked for work in a while all of these things are normal:\n\n- Complete radio silence for the first month, followed by a deluge of interest.\n\n- Feeling depressed, hopeless, or under appreciated.\n\n- Rejections (lots of rejections)\n\nTry not to take it personally and keep going. You got this.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.01,
         "industry_stated": 0.02,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 478.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -203,16 +244,21 @@
       "text": "SEEKING WORK - remote\n\nLocation: West coast Canada.\n\nRemote: Yes.\n\nTechnologies: Machine learning, Python, Tensorflow/Keras/pytorch, spark, Scala, AWS, kafka, HDFS, etc. A whole host of technologies over 20 year career. email in profile.\n\nI'm an experienced Data scientist, who's worked on a bunch of interesting projects. With Covid I've come to realize I need to work in public more often.\n\nSo an ideal fit would be a small/medium company with hair on fire problems that need solving that I can talk about publicly.\n\nWhat sort of problems do I like?\n\nA Taxi company in latam hired me to built a fle",
       "answers": {
         "ai_native": 0.26,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.12,
         "industry_stated": 0.08,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1409.0,
         "region": [
           "unknown"
         ],
@@ -220,6 +266,7 @@
         "seniority": "senior",
         "stack": [
           "AWS",
+          "Hadoop",
           "Kafka",
           "Machine learning",
           "PyTorch",
@@ -227,7 +274,8 @@
           "Scala",
           "TensorFlow"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -238,17 +286,22 @@
       "text": "Storesense || Founding Engineer || Fully Remote || Flexible || storesense.ai\n\nStoresense is developing an AI-powered computer vision system that enhances security, efficiency, and insights for businesses and municipalities through advanced zone detection, triggers, and analytics.\n\nWe are looking for a technical co-founder/principal engineer and/or senior implementation specialist to assist us with the fulfillment of a newly acquired high-value contract.\n\nOur ideal candidate will possess a thorough understanding of IT infrastructure as it relates to VMS (video management systems), computer visi",
       "answers": {
         "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.32,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.78,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 736.0,
         "region": [
           "unknown"
         ],
@@ -256,7 +309,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "staff_plus",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -267,17 +321,22 @@
       "text": "Monarch Money | Remote | Mix of Software Roles | Full-time\n\nWe are Monarch Money—a tool to manage your personal finances. We're a small team (<20 total) but are seeing a ton of growth. We're hiring for fullstack engineering, infra, mobile. Our stack is React/React Native, GraphQL, and Python/Django. Also doing some interesting things with Postgres.\n\nhttps://www.monarchmoney.com/careers",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 388.0,
         "region": [
           "unknown"
         ],
@@ -289,9 +348,11 @@
           "GraphQL",
           "Postgres",
           "Python",
-          "React"
+          "React",
+          "React Native"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -302,17 +363,22 @@
       "text": "Materialize Labs (https://materializelabs.com) | Engineering Manager | Remote | Full-time | EST hours\n\nAt Materialize, we craft bespoke digital products, from UI/UX design to technical development. We're on the hunt for an Engineering Manager to oversee our engineering team and manage our cutting-edge web, mobile, and AI application development.\n\nIdeal candidates have experience with JavaScript stacks (Node, React, Next.js), PHP (Laravel), Python, AI technologies, and cloud services. You'll be a part of strategic planning, technical direction, and ensuring our projects reflect our core princip",
       "answers": {
         "ai_native": 0.14,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 787.0,
         "region": [
           "unknown"
         ],
@@ -321,13 +387,15 @@
         "seniority": "unspecified",
         "stack": [
           "JavaScript",
+          "Laravel",
           "Next.js",
           "Node.js",
           "PHP",
           "Python",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -338,17 +406,22 @@
       "text": "Sticky | Social Media/Marketing/Community Lead | global, remote |\n\nhttps://apps.apple.com/us/app/zombie-games-more/id1497044357\n\nSticky is an integrated mobile platform for games, communities, creating & collecting & trading virtual items. We aim to be what facebook might have become if it hadn't killed its dev platform to become a walled-garden cash-cow. Or what web3 might be with more focus on user needs, less on blockchain technicalities, and without get-rich-quick schemes.\n\nFor further context - our initial approach to the above was to create the first iOS-native NFT marketplace (i.e. lett",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "seed",
         "industry": "media_consumer",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2027.0,
         "region": [
           "unknown"
         ],
@@ -358,7 +431,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -369,17 +443,25 @@
       "text": "Trunk | https://trunk.io | Sr Full Stack / Sr C++ | Full-Time | Remote / Hybrid, SF\n\nTrunk is an a16z funded dev tools startup, redefining software development at scale. We've built three products so far and have plans for more:\n\n  * Trunk Check: a universal linter/formatter, available as a CLI, VSCode extension, and CI check;\n  * Trunk Merge: a merge queue, to ensure that PRs are tested in order before they're merged; and\n  * Trunk CI Analytics: timing & pass/fail stats for GH Actions (e.g. \"how often does this workflow step actually succeed?\")\n\nIn 2022, we raised a $25M Series A led by Initi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1168.0,
         "region": [
           "us"
         ],
@@ -389,13 +471,17 @@
         "stack": [
           "AWS",
           "C++",
+          "GitHub Actions",
+          "Grafana",
           "Kubernetes",
           "Next.js",
           "Node.js",
+          "Prometheus",
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -406,17 +492,22 @@
       "text": "Dagg AI | Remote | Full-time\n\nMust live in the Nordic Countries, preferably Sweden.\n\nWe're on the lookout for skilled individuals to join our team at Dagg AI. We're looking for people with a passion for technology and a few years of professional experience in programming. Our focus is on developing innovative AI products, and we believe that the right mindset is just as important as technical skills.\n\nWe value curiosity, a collaborative spirit, and the drive to contribute to meaningful advancements in AI. If you're interested in working on cutting-edge projects and are motivated by the prospec",
       "answers": {
         "ai_native": 0.8,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.78,
         "industry_stated": 0.92,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1074.0,
         "region": [
           "unknown"
         ],
@@ -426,7 +517,8 @@
         "stack": [
           "C++"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -437,17 +529,24 @@
       "text": "SPAN | Staff SWE, Embedded Linux Platform | Rust, Clean Energy | Onsite (SF) | Full-time | VISA (H1B transfer)\n\nSPAN builds hardware products that accelerate the adoption renewable energy in the home! We manufacture and sell the SPAN Smart Panel, an electric panel that performs software-based load management and monitoring for homes with solar, battery storage, and big appliances like EV chargers.\n\nThe Device Platform team is a 6-person team maintaining the Yocto-based embedded Linux platform underpinning SPAN’s hardware products.\n\nWe're hiring a Rust-focused systems software engineer to work ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "climate_energy",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1414.0,
         "region": [
           "us"
         ],
@@ -457,9 +556,11 @@
         "salary_min_usd": 147000.0,
         "seniority": "staff_plus",
         "stack": [
+          "Linux",
           "Rust"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -470,17 +571,26 @@
       "text": "Offsite.com | Remote | Full-time | Fully remote US-based company\n\nLooking for a mid-level to senior fullstack TypeScript engineer. Experience Building Marketplaces Required.\n\nOffsite ([www.offsite.com](https://go.offsite.com/inquiry?utm=engineeringjd)) makes it easy to plan team retreats, offsites, and conferences.\n\nUsed by hundreds of top startups, Inc 5000s, nonprofits, and other organizations, Offsite is already a marketplace that has facilitated $10M+ in spend on offsites, with a user base growing 50% quarter-over-quarter, and a team that has hit or exceeded sales targets for 8 months in a",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity",
+          "remote_stipend",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "seed",
         "industry": "commerce",
         "industry_fits": 0.92,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2188.0,
         "region": [
           "us"
         ],
@@ -495,7 +605,8 @@
           "Node.js",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -506,16 +617,23 @@
       "text": "Company: Quidient\nPosition: Manager, Engine Group\nLocation: Columbia, MD (Onsite, Hybrid m-w 9-3)\nVisa Sponsorship: Yes\nAbout: We're a profitable start-up working on 5D Generalized Scene Reconstruction. Our engine can reconstruct full scenes or objects in real-time using a monocular RGB device and single image. All captures assets are measurable to a micron's accuracy, and completely relightable in new conditions (including glass and mirrored surfaces).\n\nWe're seeking someone with heavy experience in 3D computer vision applications and API-first to be a manager for our engine group.",
       "answers": {
         "ai_native": 0.73,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.97,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 589.0,
         "region": [
           "unknown"
         ],
@@ -523,7 +641,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -534,17 +653,22 @@
       "text": "Foxglove | Remote (US time zones only) | Full Time | https://foxglove.dev/\n\nFoxglove is the leading observability platform for robotics developers. We help robotics and autonomous vehicle companies log, ingest, organize, and visualize multimodal data. We're well funded (Series A), ~20 people, with an experienced and fast-moving team. Seeking like-minded people to join us!\n\n- Head of Design\n\n- Lead Infrastructure Engineer\n\n- Senior / Staff Frontend Product Engineer (TypeScript, React, visualization, bonus if you have experience with web workers, webgl/webgpu, and/or wasm)\n\n- Senior / Staff Full",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.83,
         "funding_stage": "series_a",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 890.0,
         "region": [
           "unknown"
         ],
@@ -560,7 +684,8 @@
           "Rust",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -571,17 +696,22 @@
       "text": "AllSpice | https://allspice.io/ | Boston, MA / SF | Full time | Remote/Onsite | Sr. - Principal| golang, Vuejs, rust\n\nAt AllSpice, we're building the future of hardware development and collaboration, applying modern software design principles to the hardware industry with revision control, design review, and automated test (think GitHub/Bitbucket for hardware). AllSpice is unlocking the next generation of smart vehicles, IOT devices, rockets, medical devices, robotics, and much more.\n\nhttps://techcrunch.com/2023/12/05/git-allspice-enterprise-6m/\n\nWe have a highly-capable, tight-knit, remote-fi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.77,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2583.0,
         "region": [
           "us"
         ],
@@ -596,7 +726,8 @@
           "Terraform",
           "Vue"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -607,24 +738,32 @@
       "text": "X | Software Engineer\n\nWe are hiring software engineers to help integrate xAI’s technology into X - prompt engineering, deploying models at scale, vector database deployment etc. This is an outrageous opportunity to interweave cutting edge AI from one of the strongest teams in the world into a consumer, planet scale app.\n\nWe are hiring client, backend and infra engineers. Most importantly we are looking for people who are excited about our mission and building products using our new AI.\n\nEmail me if you’re interested and I’ll get in touch.\n\njm@x.com",
       "answers": {
         "ai_native": 0.79,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.61,
         "industry_stated": 0.75,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 555.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
-        "stack": [],
-        "work_mode": "unclear"
+        "stack": [
+          "Vector databases"
+        ],
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -635,17 +774,22 @@
       "text": "Summit ESP | https://www.summitesp.com | Multiple Developer Roles | REMOTE (US), Based in Tulsa, OK\n\nWe are hiring for multiple roles at a Senior level and below. These are contract-to-hire positions. Our team is based in Tulsa, OK, however we are a 100% remote team across the US.\n\nTo apply, email your info/resume to jobs@summitesp.dev. This email goes directly to my team instead of HR. And if you have any questions feel free to reach out to me directly, info in my profile.\n\nSummit ESP is seeking candidates that can directly contribute to the development, design, installation, testing, and mai",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.08,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1997.0,
         "region": [
           "us"
         ],
@@ -655,14 +799,18 @@
         "stack": [
           "AWS",
           "Django",
+          "GitHub Actions",
           "JavaScript",
           "MySQL",
           "Postgres",
           "Python",
+          "SQL",
+          "Tailwind",
           "TypeScript",
           "Vue"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -673,17 +821,22 @@
       "text": "KPV LAB Edinburgh | Front-end Engineers | Full-time | Edinburgh, UK | Hybrid 3 days onsite\n\nAt KPV LAB we are creating new visually stunning and meaningful ways to explore and present information.\n\nOur tight-knit team of 16 is expanding and looking for more engineers to join one of our two projects, 3D data visualisation, and knowledge exploration.\n\nWeb tech stack: TypeScript, React, WebGL (prior WebGL or shader experience is a bonus, but not necessary), Node.js, GraphQL, Postgres.\n\nMore details (with pictures of our lovely office in the centre of beautiful Edinburgh) see\nhttps://kpv-lab.co.uk",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.18,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": 3.0,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 606.0,
         "region": [
           "uk"
         ],
@@ -697,7 +850,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -708,17 +862,22 @@
       "text": "Seshet Technologies | San Francisco Bay Area | Founding Engineer\nSeshet Technologies is building an AI platform for accelerating reading and research and we are seeking a talented full-stack developer.\n\nWe use Vue3 on the front-end, and on the back-end we are looking for someone with python or ruby experience (we use both) with strong data structure and algorithms skills who feels comfortable with recursive and functional programming styles (AI skills a plus).\n\nPlease contact jobs@seshet.tech if you are interested in learning more.",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "ai_ml",
         "industry_fits": 0.56,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 537.0,
         "region": [
           "us"
         ],
@@ -729,7 +888,8 @@
           "Python",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -740,16 +900,21 @@
       "text": "My name is Devang Sharma, and I'm reaching out to share a fantastic opportunity that I believe aligns perfectly with the talented people in this forum.\n\nAt Amazon, we are on the lookout for passionate and skilled individuals to join our dynamic team. Our commitment to diversity, inclusion, and empowerment is at the forefront of everything we do. We believe in fostering an environment where every voice is heard, every perspective is valued, and each individual can thrive.\n\nRole: System Engineer\n\nIn this role, you will have the opportunity to contribute to ground-breaking projects that are shapi",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.7,
         "industry_stated": 0.71,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 2180.0,
         "region": [
           "unknown"
         ],
@@ -757,9 +922,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
-          "AWS"
+          "AWS",
+          "Linux"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -770,17 +937,22 @@
       "text": "Better Stack | https://betterstack.com | /^(Full-?stack|Frontend) Engineer$/i | EU or remote in UTC ± 3h\n\nWe are software builders at :heart:\n\nCEO is a software engineer, COO is a software engineer and you guessed it; CTO is an engineer, too.\n\nWe’re helping developers in building a better internet. If you love building amazing software, you’re at the right address.\n\nHow we operate:\n\nhttps://betterstack.com/careers/engineering\n\nhttps://juraj.blog\n\nemail us at join@betterstack.com",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.43,
         "industry_stated": 0.82,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 483.0,
         "region": [
           "europe"
         ],
@@ -788,7 +960,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -799,22 +972,28 @@
       "text": "Loop is on a mission to unlock profits trapped in the supply chain (https://loop.com/article/unlock-profit-trapped-in-your-supply-chain) and lower costs for consumers. Bad data and inefficient workflows create friction that limits working capital and raises costs for every supply chain stakeholder.\n\nLoop’s modern audit and pay platform uses our domain-driven AI to harness the complexity of supply chain data and documentation. We improve transportation spend visibility so companies can control their costs and power profit. That is why industry leaders like J.P. Morgan Chase, Great Dane, Emerge,",
       "answers": {
         "ai_native": 0.91,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.96,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1488.0,
         "region": [
           "unknown"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -825,17 +1004,25 @@
       "text": "Wormhole Labs | Multiple Positions | Remote (US ET work hours) | https://wormholelabs.xyz/ | $150-225K + token grant + performance bonus\n\nWormhole Labs is a software company that specializes in building blockchain protocols. We are one of the core contributors to the Wormhole cross-chain messaging protocol, and service other clients across various blockchain ecosystems.\n\nWe are looking to hire a Staff Frontend Engineer and a Smart Contract Engineer.\n\nWe expect the Staff Frontend Engineer to start contributing to Wormhole Connect (https://github.com/wormhole-foundation/wormhole-connect) and the",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "bonus",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1352.0,
         "region": [
           "us"
         ],
@@ -847,7 +1034,8 @@
         "stack": [
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -858,17 +1046,22 @@
       "text": "Crusoe | Onsite/Hybrid – San Francisco | Climate Tech, Cloud Compute, Distributed Systems, Crypto | https://crusoe.ai/\n\nCrusoe is on a mission to align the future of computing with the future of the climate.\n\nData centers consume more than 2% of the world's electricity. We power data centers with stranded energy such as gas flares and underloaded renewables , so for every GPU hour you use on Crusoe Cloud, you're offsetting 0.5kg of CO2e, or approximately 4.4 metric tons over an entire year. The more compute you use, the more CO2 and other greenhouse gasses you offset.\n\nCrusoe Cloud (https://cr",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1873.0,
         "region": [
           "us"
         ],
@@ -877,9 +1070,11 @@
         "seniority": "staff_plus",
         "stack": [
           "Kubernetes",
+          "Linux",
           "Machine learning"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -890,25 +1085,33 @@
       "text": "Wasabi Technologies | [Principal|Senior] Software Engineer | Full-time | Remote\n\nWasabi offers cloud storage with an S3 compatible API.\n\nWasabi is hiring for multiple roles in engineering https://wasabi.com/careers-list/, but I am the hiring manager for https://jobs.lever.co/wasabi/06beebc3-7dc4-4480-a715-21793f1b2a4c . The role is posted as Principal, but we are open to Senior level applicants.\n\nWasabi is seeking a Principal Software Engineer with a specialized focus on CockroachDB. As a Principal Software Engineer, you will be responsible for leveraging your expertise in SQL and distributed ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1003.0,
         "region": [
           "unknown"
         ],
         "remote_token": 1.0,
         "returned_from_last_month": 0.0,
         "seniority": "staff_plus",
-        "stack": [],
-        "work_mode": "remote"
+        "stack": [
+          "SQL"
+        ],
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -919,17 +1122,22 @@
       "text": "Tulip | https://tulip.co/eng | Boston, MA, Munich, Germany, and Budapest, Hungary | Full time | Onsite\n\nDo you want to help transform manufacturing? We are building the best team in the industry to bring consumer-grade user experiences to a space dominated by ancient enterprise technology. Our platform enables our customers to create apps without code and to connect their apps to machines, sensors and smart tools. These augmented production lines would otherwise rely on paper to share information.\n\nWe have offices in Somerville, MA, Munich, Germany and Budapest, Hungary. We just closed a $100m",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_c_plus",
         "industry": "enterprise_saas",
         "industry_fits": 0.96,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1359.0,
         "region": [
           "europe",
           "us"
@@ -945,7 +1153,8 @@
           "React",
           "Redis"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -956,17 +1165,22 @@
       "text": "GitButler | Senior <Rust | TypeScript | Ruby> Engineer | Full-time | Onsite Berlin\n\nWe are a small team of 9 people who love Git, building new functionality on top of the Git format (branching, code review & more). Our own @schacon has published the Pro Git book as well as co-founded GitHub.\n\nRepository: https://github.com/gitbutlerapp/gitbutler Tech stack: Rust, TypeScript / Svelte in the Client, Ruby / Rails on the backend.\n\nCurrently looking for Senior Software Engineers with Rust, TypeScript (frontend) or Ruby skills to join us onsite in Berlin. Job ads: https://gitbutler.homerun.co",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 593.0,
         "region": [
           "europe"
         ],
@@ -977,9 +1191,11 @@
           "Rails",
           "Ruby",
           "Rust",
+          "Svelte",
           "TypeScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

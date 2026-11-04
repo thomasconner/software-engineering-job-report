@@ -9,17 +9,22 @@
       "text": "Second Measure (YC S15) | SF Bay Area - San Mateo, CA (downtown) | ONSITE | https://secondmeasure.com\n\n----\n\nSecond Measure analyzes billions of credit card transactions to answer real-time questions about consumer behavior.\n\nThrough our self-service analytics platform, we help our clients – some of the world’s largest brands and investment firms – answer questions like:\n\n  - Is Lyft gaining or losing market share in NYC? [1]\n  - How well does Blue Apron's retain its customers? [2]\n  - After a Game of Thrones season ends, do HBO Now subscribers stick around?\n  - (Check out our research blog [3",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.9,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1394.0,
         "region": [
           "us"
         ],
@@ -27,7 +32,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -38,17 +44,24 @@
       "text": "nuTonomy (self-driving cars) | Software engineers, machine learning specialists, roboticists, and many more | Santa Monica, Boston, Singapore | Onsite | Visa |\n\nnuTonomy is one of the leading start-ups in the autonomous vehicles area. We have fleets of autonomous cars in Singapore and Boston.\n\nYes, the first time you will be riding on a self-driving car, it will be a terrifying experience, with the spooky wheel that moves by itself: https://www.youtube.com/watch?v=iP_lAjIfZwU\n\nThe second time, we hope it will feel boring, which means that we achieved our objective to create a comfortable and p",
       "answers": {
         "ai_native": 0.2,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.11,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1606.0,
         "region": [
           "asia_pacific",
           "us"
@@ -59,7 +72,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -70,17 +84,22 @@
       "text": "Shoebox | Machine Learning Engineers, Backend Engineers | Toronto\nhttps://shoeboxapp.com/joinus\n\nShoebox is a service to relive your best moments through photos. Millions of users have synced billions of photos to our cloud. Our latest efforts focus on building machine learning models that can predict how a person will feel or behave when presented with a photo.\n\nWe are working on interesting problems at a scale that's hard to come by: we have billions of photos. It's a unique opportunity to work on a small smart team, tackle big problems, ship new projects often and learn a lot.",
       "answers": {
         "ai_native": 0.61,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 586.0,
         "region": [
           "canada"
         ],
@@ -90,7 +109,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -101,17 +121,22 @@
       "text": "Ably realtime | London | Full Time | Onsite or Remote | https://www.ably.io\n\nI am the co-founder of Ably realtime, and we're accelerating the growth of our engineering team.\n\nAbly helps power next generation digital experiences. Ones which are live rather than static, where data is in motion rather than at rest. Things like live chat, realtime location tracking, live document collaboration, gaming and elearning. One of our customers even uses Ably for their air traffic control system for drones.\n\nIf you'd like to work somewhere where you're solving complex internet-scale problems in a truly di",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.39,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1568.0,
         "region": [
           "uk"
         ],
@@ -124,7 +149,8 @@
           "Node.js",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -135,17 +161,22 @@
       "text": "Kiva | San Francisco, CA | Full-time | Onsite | DevOps and Security Engineer | http://kiva.org/careers\n\nWe're hiring someone who wants to make the world a better place with us through working on the systems that serve https://www.kiva.org We're a non-profit helping to alleviate poverty through connecting lenders to borrowers across the world and here in the US. It's a hand up not a hand out. We offer awesome benefits including a partner trip to anywhere we work in the world to meet our borrowers and partners after 1 year. We're looking for systems oriented folks to help us with our operations ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.17,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 953.0,
         "region": [
           "us"
         ],
@@ -155,7 +186,8 @@
         "stack": [
           "AWS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -166,17 +198,22 @@
       "text": "HFT Hedge Fund | Senior or Junior Site Reliability Engineer | Full-time + On-site in Chicago | Best Compensation in Global Finance\n\nSite Reliability Engineer to help grow technical operations. The successful candidate will be working very closely with their traders and business teams.\n\nResponsibilities:\n\n- Configuration management of multiple production silos, covering multiple asset classes.\n\n- The uptime, capacity, and performance among other aspects of day-to-day operations of trading systems.\n\n- Building automation and processes that reduce the impact of mistakes. Revise software designs t",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.87,
         "industry_stated": 0.65,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.78,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1226.0,
         "region": [
           "us"
         ],
@@ -184,9 +221,13 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
-          "Python"
+          "Linux",
+          "Perl",
+          "Python",
+          "SQL"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -197,17 +238,22 @@
       "text": "komoot | Data Scientist (m/f) | Full Time | Remote but limited to UTC-01:00 to UTC+03:00 time zones\n\nMillions of people experience real-life hiking and biking adventures with our apps. We help users all over the world discover the best hiking and biking routes, and we empower everybody to explore more of the great outdoors.\n\nTo help us be even better at what we do, we’re looking for a data scientist to help us to drive product decisions and strategy. We believe that data-driven decision making is key to our success and your skills and curiosity will play a crucial role in building the future o",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.94,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1433.0,
         "region": [
           "unknown"
         ],
@@ -216,9 +262,11 @@
         "seniority": "mid",
         "stack": [
           "Python",
-          "R"
+          "R",
+          "SQL"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "3_4"
       }
     },
     {
@@ -229,17 +277,22 @@
       "text": "Sourceress | Python Engineer | San Francisco | Full-time | Onsite\n\nWe're a (human-assisted) AI sourcing platform that delivers great results (customer quote: \"I'd have a panic attack if you guys stopped existing\"). We make it dramatically faster and easier for great companies to hire great people. We don't cure cancer, but we help companies who do ;)\n\nAs part of the most recent YC S17 batch, over the past few months we grew our revenue 20x (to over $1.1M in annual run rate) with only 3 engineers, and last month raised millions from some great investors at one of the highest ever valuations com",
       "answers": {
         "ai_native": 0.95,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.87,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1538.0,
         "region": [
           "us"
         ],
@@ -255,7 +308,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -266,17 +320,22 @@
       "text": "SharpSpring | Software Engineer or SRE | Gainesville, FL | https://sharpspring.com\n\nSharpSpring is a marketing automation company that helps our customers engage with their contacts. The term \"marketing automation\" encompasses lots of functionality but it really boils down to a bunch of different pieces of software all working together to help our customers (email editor, CRM, sales monitoring, site tracking/analytics, landing page editor, forms, email delivery). We are working on building an amazing team in downtown Gainesville, FL. We take care of our employees with lots of perks and are hig",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 836.0,
         "region": [
           "us"
         ],
@@ -294,7 +353,8 @@
           "React",
           "Redis"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -305,16 +365,21 @@
       "text": "We're looking for a B2B SaaS marketing manager at Weekdone: http://www.cv.ee/job-ad/weekdone-ou/b2b-marketing-manager-d3434086.html\n\nWe're 12 people, cash-flow positive since January 2015. Remote welcome.",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "bootstrapped",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.13,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 204.0,
         "region": [
           "unknown"
         ],
@@ -322,7 +387,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -333,17 +399,22 @@
       "text": "Codelitt Incubator | Jr. Product/Project Manager | Remote OK https://www.codelitt.com\n\nWe’re looking for a unique mix of a Jr. Product/Project Manager to join our team. We're looking for someone who is comfortable working closely with end users, customers, designers, and engineers. Ideally you have good software product knowledge as well as the ability to lead a team from problem discovery to execution.\n\nWe are a corporate product incubator and skunkworks/R&D lab. We develop scalable technology solutions on platforms such as Web + Mobile, Machine Learning, AR/VR, and AI/Robotics. You'll have t",
       "answers": {
         "ai_native": 0.23,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.12,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.67,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1099.0,
         "region": [
           "unknown"
         ],
@@ -353,7 +424,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -364,17 +436,22 @@
       "text": "Human API | Frontend Engineer, Full Stack Engineer, Data Engineer, DevOps | San Mateo, CA | ONSITE, https://humanapi.co/careers\n\nWe're helping to fix healthcare, by building a platform that allows developers to build health and fitness apps that make peoples' lives better.\n\nSome of the things you'd be working on:\n\n  - Mapping, modelling and indexing the world's healthcare data\n  - Building UIs to allow users to manage and visualize their health\n  - Scaling and optimizing our external and internal APIs\n  - Scaling our data ingestion pipeline from thousands of sources\n  - Data engineering, ETL a",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.71,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1457.0,
         "region": [
           "us"
         ],
@@ -382,7 +459,10 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Ansible",
+          "Cassandra",
           "Docker",
+          "Elasticsearch",
           "Kafka",
           "MongoDB",
           "Node.js",
@@ -390,7 +470,8 @@
           "React",
           "Terraform"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -401,17 +482,24 @@
       "text": "District M | Montreal, Quebec, Canada | FULLTIME | ONSITE\n\nWe are an ad-tech company building unique solutions for publishers and advertisers.\nLooking for candidates with production experience in:\n\n* Front End Javascript (React, ES6)\n\n* Systems Engineering (AWS, Kubernetes, Networking etc.)\n\n* PHP Development (PHP7, Symfony3)\n\n* Full stack (PHP + Javascript)\n\nWork within a tight, autonomous team in the heart of one of the most livable neighbourhoods in North America, competitive salary, quarterly performance based bonus, 3 weeks min time off.\n\nProduct side we currently leverage Symfony 3 and R",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "bonus"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "bootstrapped",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 987.0,
         "region": [
           "canada"
         ],
@@ -426,7 +514,8 @@
           "PHP",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -437,17 +526,22 @@
       "text": "Bill Karma | iOS Software Engineer | Full-time + On-site in NYC | https://www.getbillkarma.com\n\nThis is a full-time, staff hire and not a contract engagement. The ability to work remotely is a possibility for an exceptional engineer.\n\nWe are looking for a dedicated and an experienced IOS developer to join a specialized, and small mobile team.\n\nThis is a key position in the engineering team and you will have the unique opportunity to shape upcoming product features. You will be able to drive the implementation from ideation, scoping, development and ultimately to production.\n\nAbout You:\n\nYou ar",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.05,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.08,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1278.0,
         "region": [
           "us"
         ],
@@ -455,10 +549,12 @@
         "returned_from_last_month": 0.0,
         "seniority": "staff_plus",
         "stack": [
+          "Objective-C",
           "Swift",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "3_4"
       }
     },
     {
@@ -469,17 +565,22 @@
       "text": "Dallas, TX | Backend Dev, Frontend Dev, Full Stack | Full-time | Onsite | http://headstorm.com\n\nWe're a fast growing, high-powered technology firm dedicated to solving the most ambitious technical problems. From strategy through execution, we deliver big ideas, craft products with purpose, and create extraordinary experiences.\n\nWe are looking for highly-capable individuals that can solve technical problems unbound to any particular technology stack. We leverage cutting-edge technologies (clojure, react and react-native, docker, etc) and work with some cool, high-profile clients.\n\nShoot me an e",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.8,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 674.0,
         "region": [
           "us"
         ],
@@ -487,9 +588,12 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
-          "Docker"
+          "Clojure",
+          "Docker",
+          "React Native"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -500,17 +604,24 @@
       "text": "Quartzy | Palo Alto, CA | Onsite (Relocation provided)\n\nQuartzy helps hundreds of thousands of scientists improve the efficiency of their research by saving them time and money. Our team is passionate about accelerating scientific research through well-designed, meaningful tools for labs in academic institutions as well as pharma/biotech companies.\n\nSoftware/API Engineer: http://grnh.se/7nl1uo\n\nFront-end Engineer: http://grnh.se/286iwp1\n\nMore openings: https://www.quartzy.com/careers",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "relocation"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.44,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 488.0,
         "region": [
           "us"
         ],
@@ -518,7 +629,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -529,17 +641,22 @@
       "text": "Center for Open Science | Senior Software Engineer | Charlottesville, VA | ONSITE, REMOTE (possible US-only), FULLTIME, https://cos.io\n\nDevelop exclusively free, open source software to support open science. The Center for Open Science (COS) is a funded, non-profit startup looking for a senior developer who is passionate about open source, science, and collaboration. Open source has changed how software development works, and we want to apply the same principles to science.\n\nApply via https://jobs.lever.co/cos/1c1cedc2-3c09-4cb9-8eaa-b9681d91809b",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.05,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 552.0,
         "region": [
           "us"
         ],
@@ -547,7 +664,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -558,16 +676,21 @@
       "text": "MongoDB is hiring for driver developers, developer advocates and much much more.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.08,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.07,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.05,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 80.0,
         "region": [
           "unknown"
         ],
@@ -577,7 +700,8 @@
         "stack": [
           "MongoDB"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -588,17 +712,22 @@
       "text": "Wealthport.com | Senior Computer Science / Machine Learning Engineer, Scala Backend Engineer, Data Preparation Expert | Zurich | SALARY: 100k-120k CHF | ONSITE | EU-Passport holders or eligible to work in Switzerland\n\nWe solve on of the biggest problems in e-commerce: Normalising product information. Using machine learning an NLP we transform broken, badly-labeled, unstructured data into useable, categorised and unified data. See:\nhttps://www.slideshare.net/wealthportadmin/getting-started-with-wealthport\n\nWe are obsessed with functional programming. We use mainly Scala (backend) and we are res",
       "answers": {
         "ai_native": 0.97,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1582.0,
         "region": [
           "europe"
         ],
@@ -609,7 +738,8 @@
           "Machine learning",
           "Scala"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -620,16 +750,21 @@
       "text": "LiveStories / Sr. Software Eng. - Full Stack & Front End / Seattle, WA / full time, onsite.\n\nWe are looking for a full stack and/or Front End Sr. Software Engineer to work on our civic data platform.\n\nIf you:\n- have experience working with lots of data, visualization and exploration UX\n- want to join a small team to make your mark\n- resonate with the mission of making civic data accessible and actionable.\n- have a solid experience with ReactJS and NodeJS.\n\nI would like to hear from you.\nWe are building a large library of civic data, normalizing data from CDC, Census, BLS, and more. Our custome",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.29,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 725.0,
         "region": [
           "us"
         ],
@@ -639,7 +774,8 @@
           "Node.js",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -650,17 +786,22 @@
       "text": "Lucova Inc. | Toronto | Front End Developer and Full-Stack Developer | Full Time | Onsite\n\nhttps://www.lucova.com/\n\n> Lucova Inc. is an emerging technology company headquartered in downtown Toronto with a North American presence. We bring technology, data and people together to enhance the human touch-points in the world of offline commerce - think IoT for physical stores. Our tools help brands realize their customer experience aspirations by turning customers’ smartphones into intelligent Bluetooth sensors that interact with the in-store point-of-sale infrastructure - informing staff of their",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1167.0,
         "region": [
           "canada"
         ],
@@ -672,7 +813,8 @@
           "Java",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -683,17 +825,22 @@
       "text": "Qwinix | Multiple Positions | Denver, CO | W2 or 1099 | ONSITE\n\nBased in Centennial, CO, we are a software design and development firm with expertise in Agile/lean, design thinking, DevOps and Continuous Delivery. Using a global model and our Qwintessentials, we support our partners through the complete development lifecycle, solving complex problems with elegant solutions. We approach projects as though they are our own to optimize cost, reduce turnaround time and maintain your applications to efficiently meet your business objectives.\n\nAvailable Positions:\n\n- Product Owner/Product Manager(mu",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.05,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 786.0,
         "region": [
           "us"
         ],
@@ -704,7 +851,8 @@
           "AWS",
           "Java"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -715,17 +863,22 @@
       "text": "Textio | Seattle, WA USA | Full-Time | On-Site\n\nMy name is Max and I'm working at Textio to change how people write. We predict how your writing will perform based on previous real-world results from similar documents. We have some of the largest companies in the world as customers, and we're hiring engineers across the board to help us solve hard problems.\n\nI love working here, and I'm pretty sure you will too. We have a tight-knit, friendly, and experienced team, an incredible product, and a bright future.\n\nBuzzwords for Keyword Searchers: AI, NLP, Machine Learning, ReactJS, SaaS\n\nAll Textio",
       "answers": {
         "ai_native": 0.96,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.75,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1184.0,
         "region": [
           "us"
         ],
@@ -736,7 +889,8 @@
           "Machine learning",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -747,17 +901,22 @@
       "text": "Boston, MA | Sentenai | Full-time | On-site\n\nApply at: jobs@sentenai.com\n\nKeywords: Haskell, Machine Learning, Distributed Systems, FreeBSD\n\nSentenai: Machine Intelligence. Accelerated.\n\nWho we’re looking for:\n\nHaskellers with an interest in distributed systems and machine learning. The more production Haskell experience, the better. Applied maths and type theory backgrounds are highly desirable, as is experience with optimizing large in-memory data structures. Our culture is built on a foundation of good communication skills and solid engineering principles. Sentenai has been built with Haske",
       "answers": {
         "ai_native": 0.98,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.04,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 2490.0,
         "region": [
           "us"
         ],
@@ -768,7 +927,8 @@
           "Haskell",
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -779,17 +939,22 @@
       "text": "Uber | San Francisco or Seattle | Full-time\n\nUber's Security team works to ensure the security of all code, systems and data used by our riders, drivers, and partners. The Product Security team is responsible for working with engineers to design, build, advise and review security concerns across a diverse variety of projects.\n\nYour skills and knowledge will be relied upon to provide engineering and product teams with the security expertise necessary to make confident product decisions. Your responsibilities will include (and are not limited to!) finding security vulnerabilities through manual ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.42,
         "industry_stated": 0.78,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1112.0,
         "region": [
           "us"
         ],
@@ -797,7 +962,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -808,17 +974,22 @@
       "text": "Open Collective | https://opencollective.com | New York City | REMOTE\n\nOpen Collective allows unincorporated communities (like Open Source projects) to raise and spend money. You can charge membership fees, get donations from individuals or companies and spend it by filing expenses. The entire financial ledger is publicly viewable to ensure transparency. Some examples: opencollective.com/webpack, opencollective.com/babel, and many more opencollective.com/opensource.\n\nWe are a founding team of 3 (two engineers) and are looking to hire our first full-time engineer (https://medium.com/open-collec",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.69,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 750.0,
         "region": [
           "us"
         ],
@@ -826,7 +997,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -837,17 +1009,22 @@
       "text": "TGS - Irvine, CA and Princeton, NJ | Full Time | ONSITE | $180 - 250k (base) salary\n\nTGS is a quantitative hedge fund with offices in Princeton, NJ and Irvine, CA. We are not a traditional hedge fund: we are first and foremost a technology company applying mathematics and machine learning to the markets. Our fund offers a rich variety of challenging problems with an academic culture and highly competitive compensation.\n\nWe are looking for extremely talented generalist software engineers and research scientists in technical disciplines to join our team. Your work will consist of using the TB of",
       "answers": {
         "ai_native": 0.62,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.97,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.14,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1315.0,
         "region": [
           "us"
         ],
@@ -859,7 +1036,8 @@
         "stack": [
           "Machine learning"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -870,17 +1048,22 @@
       "text": "Cyberwatch | Software Developer | Paris, France | Full Time | https://www.cyberwatch.fr\n\nCyberwatch is a vulnerability monitoring software that helps companies to save time finding and fixing their IT vulnerabilities.\n\nWe're looking for a French back-end developer with a passion in cybersecurity.\n\nStack:\n- Core built with Ruby on Rails / MySQL / Redis / BackboneJS\n- Several modules built with Bash / Powershell / C#\n- Packaged with Docker & Docker-Compose\n\nEmail me to apply: maxime AT cyberwatch.fr. No remote, no recruiters.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 529.0,
         "region": [
           "europe"
         ],
@@ -895,7 +1078,8 @@
           "Redis",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -906,17 +1090,22 @@
       "text": "Insight Catastrophe Group | https://www.icg360.com/ | Quality Engineer | REMOTE preferred | full-time\n\nInsight's vision is to innovate and modernize property insurance solutions through technology, risk management and consulting from industry experts. Insight uses sophisticated modeling to deliver value to clients and policyholders nationwide.\n\nWe have a mostly-remote software organization, developing a RESTful web-services platform the supports HTML and Flash (for now) front ends. At this time, we can only hire people who can legally work in the US.\n\nWe are looking to add an engineer to our Q",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.91,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.09,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1346.0,
         "region": [
           "unknown"
         ],
@@ -924,7 +1113,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -935,17 +1125,24 @@
       "text": "Finimize | Full-stack Engineer (Node, React, Redux) | Full-time + On-site in London | https://www.finimize.com/jobs/\n\nHey there, we’re Finimize: a tech startup addressing a greater problem. We want to help people get their personal finances in order – not just savings, not just investments. But everything. Your whole financial life.\n\nAs part of this journey, we are looking for an adaptable and highly-motivated Engineer to help us make a difference in people's financial lives. You’ll work directly with our tech lead and the rest of the team to create features, deliver concepts and break new gro",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.96,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 861.0,
         "region": [
           "uk"
         ],
@@ -956,7 +1153,8 @@
           "Node.js",
           "React"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

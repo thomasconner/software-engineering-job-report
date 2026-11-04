@@ -9,17 +9,22 @@
       "text": "WebAction (http://www.webaction.com) - Full time or intern in Palo Alto, CA (Downtown Palo Alto). Seeking UI developers and Platform Engineers.\n\nWebAction is a start-up looking to fill the gap between Big Data and transaction data. We have just closed our Series A round and we are getting ready to launch our product. Our seasoned founding team has multiple successful exits; including some of the key enterprise infrastructure software that you use today. We are located in a newly-renovated office in famous downtown Palo Alto. You can walk to the Apple store in 7 minutes, Starbucks in 8 and the ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "series_a",
         "industry": "devtools_infra",
         "industry_fits": 0.59,
         "industry_stated": 0.87,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.95,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1654.0,
         "region": [
           "us"
         ],
@@ -29,13 +34,16 @@
         "stack": [
           "C",
           "C++",
+          "Cassandra",
+          "Hadoop",
           "Java",
           "JavaScript",
           "Kafka",
           "MongoDB",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -46,17 +54,22 @@
       "text": "Industry Dive - Mobile-first B2B news and intelligence - Washington, DC - FULLTIME & INTERN\n\nWe publish news and intelligence for business professionals in a variety of industries. All our content is optimized to look good on mobile devices. Check out http://www.educationdive.com or http://www.utilitydive.com to get a feel for what we're doing.\n\nWe are seeking to hire a full-time Online Marketing Manager as well as a Marketing Intern, Python Development Intern, and Web Design Intern. More details here http://www.industrydive.com/jobs/ or send me an email.\n\nBonus for HN readers: It's not yet po",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.53,
         "industry_stated": 0.96,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.99,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 857.0,
         "region": [
           "us"
         ],
@@ -66,7 +79,8 @@
         "stack": [
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -77,17 +91,22 @@
       "text": "Smarkets, London, Software Engineer, Python & Erlang\n\nSmarkets is disrupting the global betting industry by offering a modern betting exchange with significantly lower transaction fees than the competition. We're a well-funded company with a small, agile development team. We've handled over £200 million of bets since launching in 2010.\n\nOur office near Old Street in London is shared with other exciting startups and has a pool table, foosball table, and fully stocked fridge.\n\nWe're heavily driven by user-focused design and a focus on technology and engineering as a first class discipline.\n\nWe w",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 924.0,
         "region": [
           "uk"
         ],
@@ -95,10 +114,16 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Chef",
+          "Elasticsearch",
+          "Erlang",
+          "Flask",
+          "Linux",
           "Postgres",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -109,17 +134,24 @@
       "text": "LocBox, San Francisco. Frontend Engineer, Rails Developer, Data Scientist, Inside Sales Representative. Relocations Welcome, H1B Transfers Welcome.\n\nMore at http://www.getlocbox.com/careers and http://www.techcrunch.com/2012/10/31/locbox-series-a/.\n\nI’m CEO at LocBox (http://www.getlocbox.com) and we are looking to work with great folks that share our mission - empowering local businesses to generate sustainable revenue from their best customers. We want to do it with Data, Algorithms and Design in a space that has traditionally lacked all three but is finally turning the corner (and fast).\n\nM",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "series_a",
         "industry": "enterprise_saas",
         "industry_fits": 0.77,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1657.0,
         "region": [
           "us"
         ],
@@ -131,7 +163,8 @@
           "JavaScript",
           "Rails"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -142,17 +175,22 @@
       "text": "Brooklyn, NY | bondsy | Ruby on Rails BACON-end Developer\n\n----------------------------\n\nbondsy.com is growing faster than our Founder’s beard, so we’re looking for a killer Ruby on Rails BACON-end Developer to join us.\n\nIf you f@cking love coding to a point that it almost hurts. If you love developing to make people feel good, to make them smile. If you love breaking down a problem to its core, only to build it back up again. If you’re always looking for a different way to do things.\n\nIf you hate long meetings and bureaucracy. If you want to work at a place where lunch time is sacred (No joke",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "unstated",
         "industry_fits": 0.03,
         "industry_stated": 0.08,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1627.0,
         "region": [
           "us"
         ],
@@ -165,7 +203,8 @@
           "Redis",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -176,25 +215,33 @@
       "text": "Cellular Sales - Knoxville, TN\n\nHelp us make the process of selling a cellphone easy. Along the way you'll get to deal with the challenges of replacing a fast growing companies legacy software without bothering the customers and sales people.\n\nWe're looking for junior/mid-level developers, a configuration/release manager, and a leader for our QA department.\n\nWe use mostly .NET, but we're also exploring our options and no technology is off the table.\n\nContact steve.barbour@cellularsales.com",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.4,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.87,
         "industry_stated": 0.8,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.96,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 494.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "mid",
-        "stack": [],
-        "work_mode": "onsite"
+        "stack": [
+          ".NET"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -205,23 +252,29 @@
       "text": "Los Altos, CA\n\nBox (Box.com), specifically platform: developers.box.com, box.com/platform\n\nYou can find all of our recent awesome news here: http://www.crunchbase.com/company/box\n\nHiring for two positions:\n\n- Platform Engineer\n\nYou'll be building and designing APIs on the Box platform from front to back. Box is an enterprise software company, but we build and design our APIs to be on par with the best consumer APIs out there e.g. Twilio, Stripe, etc (you can see our documentation here: developers.box.com/docs). All experience levels are welcome to apply.\n\n- Associate Product Manager\n\nIdeal for",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.8,
         "industry_stated": 0.84,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.81,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1168.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -232,17 +285,22 @@
       "text": "Educreations (http://www.educreations.com) - Full Time or Intern in Palo Alto, CA\n\nWant to use your skills as a force for good to improve education for all? Here's your chance.\n\nAt Educreations, we believe that the world's best teachers should be available to all students.\n\nAs a first step, we've made it easy for teachers to create amazing online video lessons. Our top-100 app transforms the iPad into a mobile lesson recording studio, and hundreds of\nthousands of teachers and students are using it daily to learn from each other anytime, anywhere.\n\nWe're looking for some passionate people to he",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1174.0,
         "region": [
           "us"
         ],
@@ -250,9 +308,11 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Objective-C",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -263,17 +323,22 @@
       "text": "New Relic - Portland, OR - Technical Product Manager\n\nWe are hiring a bunch of engineers in Portland and SF, but I'm specifically looking for technically-minded product managers to help us focus our product line in various communities like .NET, PHP, Java, Python, Ruby, and Node. More details at http://bit.ly/UhAl1a",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.13,
         "industry_stated": 0.16,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 317.0,
         "region": [
           "us"
         ],
@@ -281,13 +346,15 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          ".NET",
           "Java",
           "Node.js",
           "PHP",
           "Python",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -298,17 +365,22 @@
       "text": "TubularLabs (Sunnyvale, CA) - Analytics Engineers and General Engineers.\n\nKey technologies: Storm, Python, Tornado.\n\nAbout Tubular: We're building tools to help YouTube channel develop their audiance. What this means is that\nwe're helping channels, programs and network increase their view base. We've recently closed a real series A\nround and have customers lined up to use our products.\n\nGlad to provide more details via email - david@tubularlabs.com",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "other",
         "industry_fits": 0.35,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 452.0,
         "region": [
           "us"
         ],
@@ -318,7 +390,8 @@
         "stack": [
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -329,17 +402,22 @@
       "text": "One Kings Lane (http://onekingslane.com) in San Francisco, CA.\n\nWe just moved into an historic warehouse building on 9th and Market downstairs from Twitter. We plan to add dozens of engineers, data analysts/scientists, and more (including non-technical roles) as we grow from >$200M in revenue this year toward profitability: https://www.onekingslane.com/corporate/careers/tech/\n\nOur platform is barely a year old, mostly Ruby on Rails, Hadoop/MongoDB, Redis, Node.js, PHP/Zend Framework, jQuery, iOS/Objective-C. Our stack has enough variety that you can start contributing immediately with what you",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.07,
         "industry_stated": 0.2,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 677.0,
         "region": [
           "us"
         ],
@@ -347,15 +425,18 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Hadoop",
           "MongoDB",
           "Node.js",
+          "Objective-C",
           "PHP",
           "Rails",
           "Redis",
           "Ruby",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -366,16 +447,23 @@
       "text": "Toronto, ON. Local only.\n\n500px - The worlds best photos.\n\nDeveloper: Work with awesome stuff (zerorpc, numpy, scipy, rails, backbone, iOS/OSX, even windows 8) lots of apps, lots of ownership and movement. Work with some killer designers. $60k-100k ~.25% in stock options.\n\nDesigner: design awesome stuff. $55k-90k, ~.25% in stock options.\n\nQA awesome person. Please. Save us. We have 10 products and one current QA awesome person. Similar range to a dev.\n\nData hero: whip up reports for the bosspersons and build out your coding skill around lots of smart people. A good roll for someone that loves ",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.92,
         "industry_stated": 0.84,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 655.0,
         "region": [
           "canada"
         ],
@@ -384,7 +472,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -395,16 +484,23 @@
       "text": "Palo Alto, CA. Full time. H1B okay.\n\nAMA Capital trades billions of dollars per day in the foreign exchange markets.\n\nWe are all engineers, and we all do a little bit of everything. We design and implement our own trading strategies and infrastructure, down to the networking code that ties us in to financial markets. We are a very small team (currently, I am the only employee) and are looking to add one or two engineers in the coming months who will focus on strategy or on infrastructure.\n\nNo experience or specific knowledge of finance is required. However, you do need to be interested in fina",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_grad": 0.92,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 711.0,
         "region": [
           "us"
         ],
@@ -413,7 +509,8 @@
         "stack": [
           "C++"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -424,17 +521,22 @@
       "text": "Parse - San Francisco, CA - F/T\n\nWe are hiring on all fronts:\n\n* Software Engineer\n\n* Site Reliability Engineer\n\n* Web Engineer\n\n* Solutions Architect\n\n* Developer Evangelist\n\n* Inside Sales Representative\n\nWe're building the mobile application platform, and we're growing like crazy. We're now powering over 40,000 apps, including big names like The Food Network, Armani, The Travel Channel, Toms Shoes, and Band of the Day.\n\nWe will dominate mobile, and we're a small, smart, and passionate team swinging for the fences with many happy customers. Come join us!\n\nhttps://parse.com/jobs",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.97,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 586.0,
         "region": [
           "us"
         ],
@@ -442,7 +544,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -453,16 +556,21 @@
       "text": "Munich, Germany (full-time)\nWeb-Developer (domainfactory GmbH)\n\nHello Everyone,\n\nwe are looking for support of our development department at domainfactory GmbH.\n\ndomainFACTORY is one of the leading hosting providers in the German-speaking area, offering high quality hosting and cloud services as well as dedicated server solutions and domain registration services to its more than 150,000 customers.\n\nApart from our control panel with 60 categories (e.g. FTP accounts, SSH accounts, order system, reseller features etc.) our development team maintains and extends an internal administration menu, an",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1204.0,
         "region": [
           "europe"
         ],
@@ -472,7 +580,8 @@
           "JavaScript",
           "PHP"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -483,23 +592,29 @@
       "text": "Canada (Toronto) - Looking for co-founder / CTO to lead development on a advertising optimization product. Strong computer science + statistical analysis skills are a must, ideally with previous experience building out low-latency transactional-type systems. Previous experience in ad-tech is not necessary, although would be beneficial.\n\nYou will be joining a team which has already built+sold a company in the online ad space, and has been working in the industry for 10+ years (and accordingly is very well positioned to succeed with this new venture). We are bringing an unusually advanced approa",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.98,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 824.0,
         "region": [
           "canada"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": "8_plus"
       }
     },
     {
@@ -510,15 +625,22 @@
       "text": "Anywhere\n\nREMOTE; FULLTIME; H1B, E3, etc. are all possible!\n\nSSC Group LLC is hiring a developer with Rails experience.\n\n====>\n\nWe run adult entertainment websites. Our company is profitable and growing.\n\nSome things we use every day and love: Linux, Git, GitHub, Vim, nginx, Varnish, Unicorn, Rails, PostgreSQL, Redis, Javascript, and probably others.\n\n====>\n\n* We allow full time telecommuting.\n\n* We work normal hours.\n\n* We pay for coworking/office space if you want it.\n\n* We have offices in Los Angeles if you want to work on-site.\n\n* We allow our developers to contribute to open source.\n\n* We",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.91,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1243.0,
         "region": [
           "unknown"
         ],
@@ -526,11 +648,13 @@
         "seniority": "unspecified",
         "stack": [
           "JavaScript",
+          "Linux",
           "Postgres",
           "Rails",
           "Redis"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -541,17 +665,22 @@
       "text": "Dev Ops, Mobile, Front End, Back End - Toronto / San Francisco / Remote\n\nTop Hat Monocle\n\nwww.tophatmonocle.com\n\nCome to Top Hat and solve Real Time, Large Scale problems. We are a venture backed and disrupting the education industry and want you to join us!\n\nGreat salary, stock, benefits, work from Toronto / San Francisco office, or if you are amazing you can work remotely.\n\n* Front End Developer\n\nJS, Backbone, HTML, HAML, CSS, SCSS\n\n* Dev Ops\n\nAWS, RabbitMQ\n\n* Back end\n\nPython, Django, C++\n\n* Mobile\n\nAndroid, iOS, Windows Phone\n\nContact kent@tophatmonocle.com for more details!",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.83,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 585.0,
         "region": [
           "canada",
           "us"
@@ -568,7 +697,8 @@
           "Python",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -579,17 +709,22 @@
       "text": "Netflix -- Los Gatos, CA\n\nLooking for a couple of SREs to fill out our team. The job is a combination of architecture, coding and evangelism of best practices. Our team writes monitoring and alerting tools, runs reliability exercises and also act as call leaders for outages.\n\nSkills required: Ability to code. We use mostly Python, so experience there is a plus. Good communication, calm under pressure and the ability to quick grasp how all the pieces of a large complex system fit together.\n\nCheck out our github page (https://gitub.com/netflix) for some examples of the type of stuff our team and",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.05,
         "industry_stated": 0.11,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 842.0,
         "region": [
           "us"
         ],
@@ -599,7 +734,8 @@
         "stack": [
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -610,17 +746,22 @@
       "text": "Arc90 - New York, NY - Local or remote\n\nJava/JVM Developer: http://arc90.com/jobs/java-developer/\n\nPython Web Developer: http://arc90.com/jobs/python-web-developer/",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.09,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.12,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 164.0,
         "region": [
           "us"
         ],
@@ -631,7 +772,8 @@
           "Java",
           "Python"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -642,17 +784,22 @@
       "text": "SurveyMonkey - Palo Alto, CA: Sr. Web Application Developer\n\nWe're looking for a of solid software engineer that can help us build out our next generation survey platform. This position will require a lot of heavy-lifting using JavaScript to write client-side applications using our own internal framework, jQuery, and Mustache. A solid understanding of front-end technologies that can work at a large scale is required; some experience with python would be great but not a requirement.\n\nSurveyMonkey is a great place to work. We're big enough to offer competitive salaries and great benefits but sma",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.79,
         "industry_stated": 0.9,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 928.0,
         "region": [
           "us"
         ],
@@ -663,7 +810,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -674,17 +822,22 @@
       "text": "Care.com (http://www.care.com) in Boston, MA.\n\nWe're looking for mobile UI designer to help grow our mobile application team from the ground up, and play a big role in designing and defining mobile web and mobile app experiences for our Karoo and care.com apps.\n\nIdeal candidates will have strong portfolios of work that demonstrate beautiful and thoughtful product design and a passion for designing simple and intuitive mobile web and mobile application interfaces.\n\nYou'll also be working on an awesome team in a fast-paced, iterative and entrepreneurial environment. Email or tweet me if interest",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.1,
         "industry_stated": 0.45,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 679.0,
         "region": [
           "us"
         ],
@@ -692,7 +845,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -703,16 +857,21 @@
       "text": "FULLTIME or INTERN. Offices in San Francisco, Menlo Park, and Boston\n\nDelphix is a data virtualization company that is doing for databases what VMware did for servers - this is a massive market, and we are on track for similar success. We're looking for software generalists to help build our full stack, from the operating system and filesystem, to the Java management stack, and the GUI.\n\nThe engineering team at Delphix is composed of the inventors and architects of the VMware platform, ZFS filesystem, DTrace, Oracle RAC, DataGuard, and Flashback.\n\nWe've built an engineering culture where anyon",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_c_plus",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.95,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1449.0,
         "region": [
           "us"
         ],
@@ -721,7 +880,8 @@
         "stack": [
           "Java"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -732,17 +892,22 @@
       "text": "Learndot – Vancouver, BC, Canada or San Francisco, CA\n\nhttp://www.learndot.com/\n\nFull-time, Intern, or Remote.\n\nLearndot builds beautiful learning centers for organizations. Our goal is to help make the world a smarter place. We've been creating learning technology for 3 years, are alumni of the GrowLab accelerator in Vancouver, and were recently profiled by TechCrunch as an up and coming player to watch. Our business model is SaaS, we are B2B, are revenue-focused, and growing very quickly.\n\nBoth founders are developers and we care about creating great work environments, providing flexibility ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.19,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.98,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.61,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1636.0,
         "region": [
           "canada",
           "us"
@@ -754,7 +919,8 @@
           "JavaScript",
           "Scala"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -765,16 +931,21 @@
       "text": "Canonical / Ubuntu\n\nSeeking senior web/frontend developer (html5, css3, yui app/backbone style, TDD) [fulltime remote work]. Building next-generation of opensource orchestration and deployment tools.\n\nhttps://ch.tbe.taleo.net/CH03/ats/careers/requisition.jsp?org=CANONICAL&cws=1&rid=482",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.97,
         "industry_stated": 0.92,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 286.0,
         "region": [
           "unknown"
         ],
@@ -782,7 +953,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -793,17 +965,22 @@
       "text": "Yikes Corp || Tokyo, Japan / San Francisco / Geoflexible || CTO\n\nYikes is a social media content creation company. Businesses need daily text content for their Facebook pages, Twitter feeds, and blogs. We create that content at scale, hassle-free. Our customers are some of the largest ad agencies and brands in the world. We’re growing quickly and so far have managed to finance our own growth with our profits, but we’re looking to fundraise soon.\n\nThere are 2 people on the core team, and we coordinate a team of freelance writers who create all the content which we then sell to our customers. At",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.81,
         "funding_stage": "bootstrapped",
         "industry": "other",
         "industry_fits": 0.08,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2307.0,
         "region": [
           "asia_pacific",
           "us"
@@ -812,7 +989,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -823,16 +1001,21 @@
       "text": "Boston, MA Full-time, On-site Developer\nRuby, Python, Java or front-end web development\n-Job Details: http://ripariandata.com/jobs/#section1\n-Riparian Data is a Boston-based startup spun out of SoftArtisans, a 15 year-old software company. Our mission: use big data technologies to make enterprise software smarter, faster, and friendlier. Our recipe for success: supremely talented employees, lean development, boundless pluck, and a close-knit, collaborative environment.",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.64,
         "industry_stated": 0.94,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 473.0,
         "region": [
           "us"
         ],
@@ -843,7 +1026,8 @@
           "Python",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -854,16 +1038,21 @@
       "text": "Amsterdam, the Netherlands. Interns OK, no remote work.\n\nSilk (www.silkapp.com) is looking for a DevOps engineer, and front-end and full-stack engineers: http://jobs.silkapp.com/\n\nWe're building a product that makes it easy for people to create sites with content that is easy to query, visualize and share. On a deeper level, our vision is to bring the semantic web to the masses and build an amazing company around that.\n\nWe're working on many interesting and challenging problems, with a custom-built Haskell graph-database on the back-end and a cutting-edge Functional Reactive client-side framew",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.76,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 795.0,
         "region": [
           "europe"
         ],
@@ -873,7 +1062,8 @@
           "Haskell",
           "JavaScript"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -884,16 +1074,21 @@
       "text": "Team Coco (teamcoco.com)\nLocation: Burbank, CA\nPosition: Web Developer, Full Time\nDetails: http://teamcoco.com/content/web-developer",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.09,
         "industry_stated": 0.32,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.16,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 132.0,
         "region": [
           "unknown"
         ],
@@ -901,7 +1096,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -912,17 +1108,22 @@
       "text": "NationBuilder (http://nationbuilder.com) in Los Angeles, California\n\nWe're looking for talented Rails and Javascript developers, project managers and designers.\n\nFun office in downtown LA packed with great developers building new kind of product - a \"Community Organising System\" (COS) with the goal of empowering leaders and creators around the world.\n\nWe're backed by Andreessen-Horowitz and Sean Parker, among others.\n\nhttp://dev.nationbuilder.com/jobs\n\nEmail jobs@nationbuilder.com.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.04,
         "funding_stage": "venture_unspecified",
         "industry": "enterprise_saas",
         "industry_fits": 0.75,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 486.0,
         "region": [
           "us"
         ],
@@ -933,7 +1134,8 @@
           "JavaScript",
           "Rails"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     }
   ]

@@ -9,17 +9,22 @@
       "text": "VanNoppen Marketing | Full-Stack Django/Wagtail | Part-time | Remote or Morganton, NC\n\nVanNoppen Marketing is a creative agency who develops websites from the ground up on Django+Wagtail. We are looking for part-time hires who can jump in-and-out of new-and-old projects.\n\nOur projects are developed on Heroku with Wagtail using Django, Postgres, and Redis. For frontend we use Webpack, Bootstrap, and SASS.\n\nIf you're interested in an interview or have any questions send me an email: isaac@vannoppen.co",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 504.0,
         "region": [
           "us"
         ],
@@ -31,7 +36,8 @@
           "Postgres",
           "Redis"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -42,17 +48,22 @@
       "text": "Sedition | Full-Stack Developer | Remote | Full-Time | https://www.seditionart.com\nSedition is a platform for selling and collecting digital art. We've been doing this for the last 10 years and since have become one of the industry leaders in terms of content and playback options. Our collection consists 4000+ artworks, including works from artists like Tracey Emin, Shepard Fairey, Yoko Ono, David Choe. Every collected artwork can be enjoyed on Apple TV / Chromecast / LG TV / Samgung TV via Sedition apps. We are particularly excited by the recent rise of NFTs popularity and the direction digit",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.97,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 906.0,
         "region": [
           "unknown"
         ],
@@ -60,12 +71,16 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Objective-C",
           "Rails",
           "React",
+          "React Native",
           "Ruby",
+          "Solidity",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -76,17 +91,29 @@
       "text": "Betterment | Frontend, Backend, Mobile, Product, SRE, Data Engineers & Managers | NYC & All USA | Full-Time | REMOTE\n\nBetterment.com is a technology-driven financial services company that offers services for spending and saving, alongside its core investing and retirement solutions. Since 2010, Betterment has had one mission: to help people make the most of their money so they can live better lives. We have a strong culture to keep us aligned on this mission written in The Betterment Way: https://tinyurl.com/betterment-way\n\n* Our stack: Ruby on Rails, React, Dart/Flutter, Java/Spring/, AWS/Kub",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "bonus",
+          "equity",
+          "learning_budget",
+          "parental_leave",
+          "retirement",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2077.0,
         "region": [
           "us"
         ],
@@ -95,14 +122,18 @@
         "seniority": "senior",
         "stack": [
           "AWS",
+          "Dart",
+          "Flutter",
           "Java",
           "Kubernetes",
           "Postgres",
           "Rails",
           "React",
-          "Ruby"
+          "Ruby",
+          "Spring"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -113,17 +144,24 @@
       "text": "Tresl | SF, CA | FULLY REMOTE | Data Science Intern / Data Analyst | www.tresl.co\n\nAt Tresl, we empower ecommerce brands to effortlessly leverage data and send relevant, targeted messages to grow their business. To do that, we are building a data marketing platform that transforms customer data into actionable marketing recommendations and segmentation that can be used across all marketing channels.\n\nWe're looking for a data analyst (or intern) to join our team. The ideal candidate for this role is passionate about the power of leveraging data for informed decision making, as well as making it",
       "answers": {
         "ai_native": 0.19,
+        "benefits": [
+          "learning_budget"
+        ],
+        "degree": "required",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.69,
         "industry_stated": 0.99,
         "interns_token": 1.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.98,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2029.0,
         "region": [
           "us"
         ],
@@ -132,9 +170,11 @@
         "seniority": "junior",
         "stack": [
           "Machine learning",
-          "Python"
+          "Python",
+          "SQL"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "0_2"
       }
     },
     {
@@ -145,17 +185,22 @@
       "text": "Sigma | Multiple positions | San Francisco | Full-time\n\nBy employing a format that a billion people understand and already use — the spreadsheet — we’re opening up the possibilities of data to the entire organization.\n\nSigma is how people use data. Instant answers to all your questions. Simple, and for everyone.\n\nWe allow everyone in the organization — from engineers to product managers and marketing to sales — to drill into the data and make smart decisions. This in turn drives our culture of internal experimentation, great technical execution, and widespread customer empathy\n\nWe're hiring _a",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.96,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1082.0,
         "region": [
           "us"
         ],
@@ -163,7 +208,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -174,17 +220,22 @@
       "text": "Shipyard (https://shipyard.build/) | New York, NY or Remote, US | Full-Time, Contract | Marketing Designer\n\nShipyard helps teams create and manage Git-based environments. From dev to production, Shipyard automates the provisioning of these environments (and the underlying infrastructure) at all steps of the software development lifecycle.\n\nWe're growing quickly and proudly backed by Heavybit, Work-Bench, Array, and Contour Ventures!\n\nDetails on our Marketing Designer role here: https://tinyurl.com/shipyardmarketing",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 520.0,
         "region": [
           "us"
         ],
@@ -192,7 +243,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -203,17 +255,22 @@
       "text": "Jobber | Remote (Canada) | Full time\n\nJobber’s field service scheduling software and app is the best way to organize your service business. Quote, schedule, invoice, and get paid—all in one place. Our easy-to-use app powers your sales, operations, and customer service.\n\nWe're hiring a variety of engineering roles:\n\n- Senior Full Stack Engineers: https://getjobber.com/careers/senior-full-stack-engineer-5182156002/\n\n- Intermediate Full Stack Engineers: https://getjobber.com/careers/intermediate-full-stack-engineer-5277711002/\n\n- React Native Engineers: https://getjobber.com/careers/react-native-",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1234.0,
         "region": [
           "canada"
         ],
@@ -225,9 +282,11 @@
           "GraphQL",
           "Rails",
           "React",
+          "React Native",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -238,17 +297,22 @@
       "text": "VMware Tanzu | Software Engineer Roles | Remote, Palo Alto, Austin\n\nVMware Tanzu is tightly coupling Kubernetes and modern app development workflows in to the already widely used vSphere virtualization platform. There are multiple engineering roles, everything from k8s internals, to networking, storage, virtualization, and everything in between. Looking for good all around problem solvers, plus if you are already familiar with k8s and golang, but not a prerequisite.\n\nhttps://www.youtube.com/watch?v=rYO4WrPKWI8\nhttps://tanzu.vmware.com/\n\nDrop me an email with your resume/linkedin at jkarunaratn",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 612.0,
         "region": [
           "us"
         ],
@@ -259,7 +323,8 @@
           "Go",
           "Kubernetes"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -270,17 +335,22 @@
       "text": "Stream Club | San Francisco | Full-Time, Remote-OK | http://stream.club\nWe are an early stage, venture backed startup building a better way to livestream from your browser. We're looking to hire a full stack engineer.\n\nHere's a little video introducing ourselves: (30 seconds)\n\nhttps://www.loom.com/share/5358fbecd222474a93dd83abbe6ed755\n\nTechnologies we love: Javascript, Typescript, React, Next.js, Express, Postgres, TypeORM, Puppeteer, Heroku, AWS, Github.\n\nIf you're interested, say hi by emailing me paul@stream.club.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "venture_unspecified",
         "industry": "media_consumer",
         "industry_fits": 0.92,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 523.0,
         "region": [
           "us"
         ],
@@ -289,13 +359,15 @@
         "seniority": "unspecified",
         "stack": [
           "AWS",
+          "Express",
           "JavaScript",
           "Next.js",
           "Postgres",
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -306,17 +378,24 @@
       "text": "Reaktor | iOS Developer | Amsterdam, Netherlands | Visa + relocation | https://www.reaktor.com\nMore information and application: https://www.reaktor.com/careers/ios-developer-amsterdam/\nAt Reaktor, we design and build tomorrow’s digital products. We are known for our flat hierarchy, have a 5-star Glassdoor rating, and launched a satellite running Node.js in low Earth orbit.\nThe Amsterdam office has a unique vibe, being a lively mix of 20 nationalities. From day one, our growth philosophy has been to hire any and all Reaktorians out there. This has served us well, with a welcoming community of ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "visa"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 1.0,
         "new_company": 0.0,
         "new_grad": 0.05,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1375.0,
         "region": [
           "europe"
         ],
@@ -326,10 +405,12 @@
         "stack": [
           "Node.js",
           "React",
+          "React Native",
           "Swift",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -340,17 +421,22 @@
       "text": "LiveEO (https://live-eo.com) | Berlin, Germany | FULL-TIME | ONSITE (post-covid)\n\nLiveEO turns satellite imagery into ready-to-use insights about your infrastructure grid. We're a Series A funded B2B SaaS based in Kreuzberg, Berlin and we are hiring for the following positions:\n\n- Software Engineer Mobile (f/m/x) - React Native\n\n- Senior Full-Stack Developer (f/m/x) for Map & Satellite Data Applications\n\nFor all open positions and applications: https://www.live-eo.com/company/jobs/",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "series_a",
         "industry": "enterprise_saas",
         "industry_fits": 0.89,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 486.0,
         "region": [
           "europe"
         ],
@@ -358,9 +444,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
-          "React"
+          "React",
+          "React Native"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -371,17 +459,22 @@
       "text": "Striim | Various Roles | Onsite in SF Bay Area Or Remote in the US, EU/UK, India | San Francisco Bay Area or Remote\n\nStriim is a data streaming platform enabling the world's largest companies to make decisions with real-time, data-driven insights.\n\nWe recently announced that Striim has raised $50 million from Goldman Sachs Growth.[0]\n\nSome examples of customer success stories include\n\n* Macy's uses Striim to power real-time shopping inventory; allowing them to scale to peak holiday volumes\n\n* Google Cloud and Microsoft Azure both refer to Striim as a preferred database migration and replicatio",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 1119.0,
         "region": [
           "europe",
           "india",
@@ -399,7 +492,8 @@
           "Kafka",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -410,17 +504,22 @@
       "text": "Close | Engineering and Product positions | REMOTE | https://jobs.close.com/\n\nWe're building the sales communication platform of the future. With our roots as the very first sales CRM to include built-in calling, we're leading the industry toward eliminating manual processes and helping companies to close more deals (faster). Since our founding in 2013, we've grown to become a profitable, 100% globally distributed team of ~45 high-performing, happy people that are dedicated to building a product our customers love.\n\nWe are currently hiring for a few 100% remote positions:\n\n- Senior Frontend En",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "bootstrapped",
         "industry": "enterprise_saas",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 886.0,
         "region": [
           "unknown"
         ],
@@ -431,7 +530,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -442,17 +542,24 @@
       "text": "quip | https://www.getquip.com | Brooklyn, NY | Onsite (Currently Remote due to COVID) | Full- Time\nRoles: Sr. Full-Stack Engineer & Sr. iOS Engineer\n\nquip sells oral health care products and services that are well designed, accessible, and fun to use. We’re a growing technology business with ambition to offer digital products that are as impactful and successful as our hardware.\n\nOver the last two years, we’ve launched quipCare (https://www.quipcare.com), a revolutionary dental benefits platform and our smart brush connected to iOS and Android via Bluetooth (https://www.getquip.com/store/prod",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "dental_vision"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 807.0,
         "region": [
           "us"
         ],
@@ -463,7 +570,8 @@
           "Android",
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -474,16 +582,21 @@
       "text": "DemandSphere (YC) | Full-Stack & Backend Engineers | Anywhere | Full-Time\n\nAbout DemandSphere:\n\nDemandSphere is an enterprise SEO platform. We provide data, insights, and automation to large ecommerce companies, typically companies with multinational audiences and complex needs.\n\n- Profitable for years, growing quickly\n\n- Fantastic, hard-working team\n\n- Many difficult and interesting problems to solve\n\nTech Stack: Python, Java, MySQL / Postgres, React / Node\n\nEmail: jobs@demandsphere.com",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.88,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 492.0,
         "region": [
           "unknown"
         ],
@@ -498,7 +611,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -509,17 +623,22 @@
       "text": "Open Systems | Site Reliability Engineer | Full-time (80% possible) | Redwood City, CA or Remote US / Canada\n\nWe are looking for Site Reliability Engineers (SRE) at different seniority levels to help us scale our cybersecurity and secure network services. Looking for US or Europe based engineers, remote-friendly and 80% friendly. One interesting specificity is that our services are highly distributed in all the network nodes of our customers (cloud & on-prem), which makes understanding service levels and building for reliability especially challenging and interesting. We have to think creative",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.94,
         "industry_stated": 0.92,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.1,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1107.0,
         "region": [
           "canada",
           "us"
@@ -528,7 +647,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -539,17 +659,22 @@
       "text": "Zeus Health | USA Full Stack Engineer and Tech Lead | Boston or Remote\nZeus Health is an early stage startup focused on accelerating digital health builders with a platform of healthcare-oriented, FHIR and API-first services. We believe that now is the time for healthcare to change in this country and that our modern technology infrastructure will unleash that change. Our first customers (healthcare “builders”) are innovative and hungry digital health startups. We're led by athenahealth's co-founder, Jonathan Bush, and a seasoned leadership team. Our evolving tech stack currently includes Go, ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.99,
         "funding_stage": "unknown",
         "industry": "health",
         "industry_fits": 0.95,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 833.0,
         "region": [
           "us"
         ],
@@ -562,7 +687,8 @@
           "Java",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -573,17 +699,22 @@
       "text": "Roostify | San Francisco, CA | Remote in CA | Full-Time | Technical Support Engineer, Sr. QA Engineer, Sr. DevOps, SRE Lead |\n\nRoostify is a fast growing FinTech startup transforming the mortgage industry with an innovative and integrated platform that’s streamlining the entire digital lending experience.\n\nYou can find these and all of our other current openings at: https://www.roostify.com/open-positions\n\nTech Stack: Ruby on Rails, Java, React, AWS, Python, Bash, JS, CSS",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.65,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 476.0,
         "region": [
           "us"
         ],
@@ -599,7 +730,8 @@
           "React",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -610,17 +742,22 @@
       "text": "Ultra Mobile/Mint Mobile|Various Roles| Costa Mesa, CA| Full-Time| Remote Roles Available| Ultra Mobile and Mint Mobile. Our two brands are basically the Batman and Superman of the wireless industry, saving our customers from our overpriced competitors with incredible prices and premium wireless service. We are inventors and innovators who believe in owning the outcome of everything we do, being action-based, and embracing the journey we’re on as a team.\nCheck out our careers page to learn more about us and see all open roles: https://www.ultramobile.com/careers/ and https://www.mintmobile.com",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.71,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.73,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1464.0,
         "region": [
           "us"
         ],
@@ -628,7 +765,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -639,17 +777,22 @@
       "text": "ON2IT | Site Reliability Engineer | The Netherlands | On-Site | Full-time\n\nWould you want to learn everyday, in a fun, open and informal culture with the latests techniques like: Kubernetes (bare metal) - GCP (VPC/GKE) - Istio - Galera - Elasticsearch - TimescaleDB - Ceph - Cumulus - Palo Alto Networks\n\nWe are an ambitious operator in managed cyber security in Europe and the United States. With our ambition we strive to stay ahead in Zero Trust, innovation and Cyber Security solutions. Our culture is open and informal and we inspire each other every day.\n\nAPPLY (and more info) here: https://on",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.97,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 656.0,
         "region": [
           "europe"
         ],
@@ -657,10 +800,12 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Elasticsearch",
           "GCP",
           "Kubernetes"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -671,17 +816,22 @@
       "text": "gridX | Various Roles | Primarily On-Site after the pandemic | Aachen and Munich, Germany\n\ngridX builds the infrastructure to enable the energy transition. We connect distributed energy resources on a single platform. We optimize energy flows to make the most efficient use of energy. Through this we make renewable energies more accessible and affordable.\n\nLooking for people to join our growing development team. We are hiring for various roles:\n\n- Backend Developer, https://gridx.jobs.personio.de/job/62771\n\n- Senior Backend Developer, https://gridx.jobs.personio.de/job/335056\n\n- Frontend Develo",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "climate_energy",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 1168.0,
         "region": [
           "europe"
         ],
@@ -689,9 +839,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "senior",
         "stack": [
-          "Go"
+          "Go",
+          "Linux"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -702,17 +854,22 @@
       "text": "Wellth | Sr. Software Engineer | Los Angeles or Remote | Full-time\n\nBehavioral Economics is at the heart of what we do. If you are a fan of books like Nudge, Freakonomics, and Predictably Irrational and were as excited as us when a Nobel Prize went to a professor of behavioral economics, then this is the place for you!\n\nApply: https://wellthapp.freshteam.com/jobs/_bSlURLVKjrW/sr-software-engineer-data",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.06,
         "industry_stated": 0.36,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 404.0,
         "region": [
           "us"
         ],
@@ -720,7 +877,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -731,17 +889,22 @@
       "text": "Improving - React developers/remote and onsite\nWe are hiring Senior React developers, remote and onsite. We will be building a secure (login required) website. We will be creating a new database to support the website and will also leverage existing data stores.\nJob Overview\nSupports the development and delivery of Web-based applications, Salesforce extensions, and integration of third-party tools into the client’s ecosystem. The person in this role will be working across the full stack (HTML5/CSS3, React.js/Redux, Node.js, Java, SFDC), leveraging the latest technologies to deliver top-notch t",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.16,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 728.0,
         "region": [
           "unknown"
         ],
@@ -753,7 +916,8 @@
           "Node.js",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -764,17 +928,22 @@
       "text": "primer.io | Product, Design, Engineering | Remote (ideally GMT/CET)\n\nWe're making the complexity of payments simple, offering merchants one API to connect to the entire payment stack. Set up by ex Braintree/PayPal founders last year, we've already secured an Accel-led Series A and grown to 50+, working remotely from Europe, Singapore, the US and South Africa.\n\nOur tech stack - Python, AWS Lambda, Kubernetes, React\n\n- Senior BE Engineers\n\n- Senior FE Engineers\n\n- Lead FE Engineer\n\n- Infrastructure Engineer\n\n- Associate Engineers\n\n- iOS Engineer\n\n- Product Designer\n\n- Product Manager (Integratio",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.4,
         "funding_stage": "series_a",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.13,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 965.0,
         "region": [
           "unknown"
         ],
@@ -788,7 +957,8 @@
           "React",
           "iOS"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -799,17 +969,22 @@
       "text": "Vinli | Various Roles | Full Time | Remote US\n\nVinli’s (www.vin.li) team is transforming the mobility industry via our next generation data intelligence platforms. Our passion is building products and services that unlock the true value of connected cars by showing drivers, passengers and organizations the potential hidden within their vehicles' data. We were founded in 2014 and are backed by some of the biggest names in transportation (Cox Auto, Samsung, Continental) venture capital (First Round Capital, Westly Group) and energy (E.ON). We are partnered with some of the largest players in the",
       "answers": {
         "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "hardware_robotics",
         "industry_fits": 0.92,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1049.0,
         "region": [
           "us"
         ],
@@ -821,7 +996,8 @@
           "Go",
           "Terraform"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -832,17 +1008,22 @@
       "text": "FarmX | SF Bay Area & Remote | Full-time | Backend SW Engineers\n\nhttps://www.farmx.co/careers\n\nFarmX is building hardware and software to help farmers manage irrigation, fertilization and yield. Currently we are focused on automating irrigation for orchards and vineyards in California.\n\nIn addition to the positions listed at the link above, we are hiring:\n\n  - Backend Developers with Django experience\n\nOur stack: Python/Django, PostgreSQL, React, AWS\n\nContact: jobs (at) farmx.co",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 483.0,
         "region": [
           "us"
         ],
@@ -856,7 +1037,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -867,17 +1049,22 @@
       "text": "Motili | Mid - Sr Full Stack Engineer | Denver, CO | Full-time | ONSITE (2 days/week) or FULL REMOTE\n\nMotili's technology platform helps single-family, multi-family, and commercial property owners and operators easily manage HVAC and hot water building systems through proactive and reactive repair and replacement projects.\n\nWe are hiring 7 mid to senior level full stack (preference to frontend or backend is fine) engineers to join our small but growing team. Qualified candidates have 5+ years experience working in a professional environment and are conversant in Javascript/React/Node.\n\nTechnol",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.37,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.01,
+        "office_days": 2.0,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 896.0,
         "region": [
           "us"
         ],
@@ -886,13 +1073,15 @@
         "seniority": "senior",
         "stack": [
           "AWS",
+          "Express",
           "JavaScript",
           "Node.js",
           "Postgres",
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": "5_7"
       }
     },
     {
@@ -903,17 +1092,22 @@
       "text": "Flowdash | Senior Full-Stack Engineer, Senior Product Designer | San Francisco & Remote (US-based) | Full-Time\n\nFlowdash (https://flowdash.com) lets anyone build business processes and workflows without code. We combine the familiarity of a spreadsheet with a visual workflow builder, plus built-in integrations to automate repetitive tasks so teams can focus on what matters.\n\nWe have a ton of interesting technical challenges and we're looking for humble, self-motivated and independent engineers and a product designer to help us transform how organizations build software.\n\nOur stack is Ruby on R",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.95,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 864.0,
         "region": [
           "us"
         ],
@@ -927,7 +1121,8 @@
           "React",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -938,17 +1133,24 @@
       "text": "FlipOS | Full-Stack Product Developer | Phoenix or Remote (US Timezones) | Full-Time | https://flipos.com\nFlipOS is building an end-to-end platform for Fix & Flip investors to work better and faster, from initial property search to final sale. We have ambitious goals to simplify and streamline the way homes are purchased, renovated, and sold across the US.\n\nWeb Stack: Node/TypeScript/React/GraphQL/Postgres\n\nhttps://flipos.com/jobs/full-stack-developer\n\nIf you're interested, please either email me with a quick overview of your experience / things you've built (sean@flipos.com), or just apply at",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [
+          "no_leetcode"
+        ],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 785.0,
         "region": [
           "us"
         ],
@@ -962,7 +1164,8 @@
           "React",
           "TypeScript"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -973,17 +1176,22 @@
       "text": "Mattermost | Open source | Remote |https://mattermost.com/ Mattermost is a flexible, open source messaging platform that enables secure team collaboration.\nWe are currently hiring:\n\n- Senior Product Manager (Focalboard team)\n\n- Senior Engineering Lead\n\n- Full Stack Engineer (Playbooks team)\n\n- Senior Full Stack Engineer (Growth team)\n\n- Senior Mobile Engineer\n\n- Front End UI Engineer\n\n- Senior UX Designer\n\n- DevOps Software Engineer\n\n- Senior Product Marketing Manager\n\n- Director, Growth Marketing\n\nPlease submit your application here: https://mattermost.com/careers/ or send your resume to tere",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.97,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.96,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 722.0,
         "region": [
           "unknown"
         ],
@@ -991,7 +1199,8 @@
         "returned_from_last_month": 1.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     }
   ]

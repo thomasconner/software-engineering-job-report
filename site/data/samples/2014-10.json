@@ -9,16 +9,21 @@
       "text": "Transcriptic: Full-stack developer (emphasis on frontend)\n\nMenlo Park, CA; https://www.transcriptic.com/\n\nTranscriptic is \"Amazon Web Services\" for the life sciences. Rather than carry out wet-lab experiments by hand, researchers can code up (or visually configure) their experimental protocols and then run them in Transcriptic's central, highly automated 'biocenter' in an on-demand way. Customers have no upfront capital costs and pay for only what they use. Life science research today is incredibly slow, error-prone, monotonous, and expensive with researchers spending many hours a day every da",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "health",
         "industry_fits": 0.88,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1916.0,
         "region": [
           "unknown"
         ],
@@ -29,7 +34,8 @@
           "AWS",
           "Rails"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -40,16 +46,21 @@
       "text": "Front-end Developer in Rancho Mirage, CA (http://www.e-worksmedia.com)\n\nWe are a branding and development firm looking for a temporary to full-time (5 mos; may develop into permanent) front-end developer to assist in web development, applications and plugin projects and to help maintain multiple web properties and assist in ongoing development and maintenance of internally developed CMS and web framework.\n\nResponsibilities:\n\n   • Attend team meetings.\n   • Possible attendance in client meeting/presentations.\n   • Collaborate with Project Manager/Designer/Lead Developer in development project p",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.03,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3846.0,
         "region": [
           "us"
         ],
@@ -59,7 +70,8 @@
           "JavaScript",
           "PHP"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -70,17 +82,27 @@
       "text": "Blue Apron (New York, NY) - Fulltime\n\nBlue Apron (http://www.blueapron.com) is an NYC-based startup delivering original recipes and premium, seasonal ingredients needed to prepare them, in exactly the right proportions. We've raised $58M from First Round Capital, Bessemer Venture Partners, and Stripes Group [1]. Last year, Forbes named us one of the hottest startups of 2013 and we've only continued our rapid growth in 2014 [2].\n\nOur engineering team creates software to manage the forecasting, purchasing, preparation, and shipment of new fresh ingredients every week, delivering over 800,000 mea",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "dental_vision",
+          "equity",
+          "health_insurance",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "commerce",
         "industry_fits": 0.99,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2108.0,
         "region": [
           "us"
         ],
@@ -89,13 +111,16 @@
         "seniority": "unspecified",
         "stack": [
           "AWS",
+          "Chef",
           "JavaScript",
           "Postgres",
+          "Puppet",
           "Python",
           "Rails",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -106,17 +131,22 @@
       "text": "Zillow Rentals, San Francisco, http://www.zillow.com/jobs/openings?l=san%20francisco\n\nZillow's SF office is near Montgomery station on Bush & Sansome\n\nWe're fast, efficient, passionate developers building the best and biggest rental sites on the internet: zillow.com, hotpads.com and postlets.com\n\nAll our teams are growing and we're hiring tons of folks:\n\n  Software Engineers (front end, back end, full stack, test)\n  DevOps\n  UX Design\n  Data Science\n  Dev Managers\n\nCome join us. davidpe@zillow.com\n\nZillow also has dozens of job openings in Seattle, Lincoln, Irvine, and New York: http://www.zil",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.87,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 621.0,
         "region": [
           "us"
         ],
@@ -124,7 +154,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -135,16 +166,21 @@
       "text": "Toronto, ON, Canada\n\ntheScore.com\n\nJob: Front-end Javascript & Ruby developer\n\ntheScore Inc. is seeking a talented and passionate front-end javascript and ruby developer to help build and extend one of the best sports web-apps on the market. The ideal candidate will possess at least two years of experience building web applications.\n\nYou will be working with a team of smart, friendly, and dedicated developers in one of Toronto’s top Javascript (Ember) & Ruby dev shops. As part of the development team, you will work along side a team of expert developers from other platforms to deliver a seamle",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.96,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 917.0,
         "region": [
           "canada"
         ],
@@ -154,7 +190,8 @@
           "JavaScript",
           "Ruby"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -165,17 +202,22 @@
       "text": "AdRoll - San Francisco\n\nIf you like Python (or C or D or Erlang) and petabytes of data, this is your dream job. AdRoll is one of the fastest growing adtech company, already producing $100M+ in revenue with a small engineering team.\n\nAnalytics is so critical to us that a large part of the stack, including our high-performance, in-memory data backend, is developed in-house in Python (Numba), Erlang, and C. Read more here\n\nhttp://tuulos.github.io/pydata-2014/\n\nhttp://tuulos.github.io/sf-python-meetup-sep-2013/\n\nI'm happy to tell you more by email (ville.tuulos@adroll.com) or over coffee in SF.\n\nP",
       "answers": {
         "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.89,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 757.0,
         "region": [
           "us"
         ],
@@ -184,11 +226,13 @@
         "seniority": "unspecified",
         "stack": [
           "C",
+          "Erlang",
           "JavaScript",
           "Machine learning",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -199,17 +243,22 @@
       "text": "MIT Lincoln Laboratory -- Lexington, MA (Boston) - Full Time (US Citizens)\n\nThe Quantum Information and Integrated Nanosystems group at Lincoln Laboratory has several openings for exciting positions working with quantum computing technology. Most needed are experimentalists and programmers willing to take on the challenge of structuring / automating data-taking and analysis for the next generation of quantum computing research. We code in Python.\n\nThere is also great need for an FPGA coder, for a homegrown technology platform that emphasizes low-latency for feedback experiments.\n\nExperience wi",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.05,
         "industry_stated": 0.47,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1102.0,
         "region": [
           "us"
         ],
@@ -219,7 +268,8 @@
         "stack": [
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -230,17 +280,22 @@
       "text": "Mixpanel - Remote in Europe. Dublin, London, Amsterdam preferred.\n\nWe're looking for our first support hire in Europe to provide coverage in the EMEA time zones. If you love being in technical, customer-facing roles, want to be part of a rapidly growing startup and have work authorization in the EU please e-mail me: geddes@mixpanel.com.",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.05,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 338.0,
         "region": [
           "europe",
           "uk"
@@ -249,7 +304,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -260,17 +316,22 @@
       "text": "Academia.edu (Downtown San Francisco)\n\nFull Time Openings:\n\n* Full Stack Engineers\n\n* Sr. Front End Developer\n\n* Data Engineer\n\n* Designers\n\nCompany:\n\n* Our mission is to build a new system for scientists to share their results and broadcast their work\n\n* We have over 13 million users and they are extremely important to us!\n\n* Our investors include Khosla Ventures, Spark Capital and True Ventures\n\nTeam:\n\n* We move quickly, everyone is in charge of their own projects but also very collaborative\n\n* We get catered lunches from zerocater and lunch usually ends with a round of foosball\n\n* We're a d",
       "answers": {
         "ai_native": 0.08,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.1,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1841.0,
         "region": [
           "us"
         ],
@@ -278,12 +339,14 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Elasticsearch",
           "Machine learning",
           "Postgres",
           "Rails",
           "Redis"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -294,17 +357,22 @@
       "text": "URX is hiring! San Francisco, CA\n\nURX is building the Mobile App Search API for Developers\n\n[ http://developers.urx.com/ ]\n\nWe're hiring Senior Software Engineers:\n\n=== The Role ===\n\nURX is looking for an experienced software engineer to take URX’s architecture to the next level by working on projects that touch all components in URX’s technology stack. As a polyglot organization, URX looks for versatile problem solvers with strong CS fundamentals who are excited to learn new languages and frameworks. The ideal candidate will not only build solid systems, but also excel at sharing knowledge wi",
       "answers": {
         "ai_native": 0.05,
+        "benefits": [],
+        "degree": "required",
         "eng_leadership": 0.07,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1311.0,
         "region": [
           "us"
         ],
@@ -319,7 +387,8 @@
           "Python",
           "Scala"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "3_4"
       }
     },
     {
@@ -330,17 +399,22 @@
       "text": "DroneDeploy - http://www.dronedeploy.com - San Francisco, SOMA\n\nWe are on a mission to take the complexity out of using unmanned vehicles and make them powerful, simple, and safe tools that everyone can use. We've created some really exciting technology that could change the world. We're building a world-class engineering team and looking for more talented people to join us.\n\nBeing a part of DroneDeploy means working hard and having fun. We like moving quickly and value engineers who can drive an idea from inception to production. We work in a dog-friendly office in SOMA with a kitchen full of",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "hardware_robotics",
         "industry_fits": 0.96,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2612.0,
         "region": [
           "us"
         ],
@@ -351,7 +425,8 @@
           "JavaScript",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -362,17 +437,24 @@
       "text": "VideoAmp in Santa Monica, CA -- Full Time, On Site, Salary + Equity\n\nVideoAmp is a programmatic video advertising platform connecting television and online video markets. We are well funded and advised by many ad-tech veterans.\n\nWe are currently hiring two roles to round out our baller team:\n\n❂ Lead Operations Engineer\nhttp://videoamp.theresumator.com/apply/DGfjXO/Lead-Operations-Engineer.html\n\n❂ Full Stack Engineer, expert in node.js\nhttp://videoamp.theresumator.com/apply/eJg9cb/Full-Stack-Generalist-Nodejs.html\n\nIf you're able to work on-site, full time in Santa Monica please follow the abov",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.34,
         "funding_stage": "venture_unspecified",
         "industry": "other",
         "industry_fits": 0.02,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 1.0,
+        "post_length": 718.0,
         "region": [
           "us"
         ],
@@ -382,7 +464,8 @@
         "stack": [
           "Node.js"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -393,17 +476,22 @@
       "text": "SnapEngage - Berlin, Germany or Boulder, CO - Front-End/UX Software Engineer\n\nThis position is a full-time software engineer based in either our Boulder, CO or Berlin office (work from home office 2 days/week). As a front end & UX software engineer at SnapEngage, you will work with a small, agile, distributed and passionate team. You’ll develop new, exciting features for the SnapEngage live chat and customer engagement solution, writing front end code that runs and looks beautiful in desktop and mobile browsers.\n\nWhat you'll do:\n\n  * Lead UI/UX projects\n  * Create appealing and functional UI w",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "bootstrapped",
         "industry": "enterprise_saas",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": 2.0,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2654.0,
         "region": [
           "europe",
           "us"
@@ -414,7 +502,8 @@
         "stack": [
           "JavaScript"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -425,17 +514,24 @@
       "text": "Pineapple Games | Software Development Engineer | Vancouver, BC\n\nPineapple Games is a mobile poker gaming startup looking for an extremely smart and talented Software Development Engineer. You will be joining a team founded by A Thinking Ape (a YC startup alumni), and a group of World Series of Poker bracelet champions. Together, we are building great products to disrupt the reemergence of the multi-billion dollar online poker gaming space.\n\n  You will be:\n  -Building product and deploying code every day\n  -Designing scalable, reliable and maintainable services for mobile and web platforms\n  -",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
         "eng_leadership": 0.06,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.07,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1661.0,
         "region": [
           "canada"
         ],
@@ -443,7 +539,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "mid",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "0_2"
       }
     },
     {
@@ -454,17 +551,22 @@
       "text": "Technical Writer - Johannesburg, South Africa - Onsite, Remote or permanent part time\n\nWe are looking for a talented technical writer to help us improve our suite of documentation and training materials.\n\nSkills & Duties\n\n   * Ability to understand highly technical concepts and communicate them effectively to less technical users\n   * Create and update all technical content including:\n      * User Guides\n      * Tutorials\n      * Blogs\n      * Knowledge Base Articles\n      * Instructional Videos\n      * Training Course Material\n      * Sales Proposals\n   * Experience with UX and information de",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.01,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.91,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 853.0,
         "region": [
           "africa_mideast"
         ],
@@ -472,7 +574,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -483,17 +586,22 @@
       "text": "REMOTE Developers at Twin Technologies - http://twintechs.com\n\n  ★★★★★★★★★★=========================================\n\n  ★★★ Help the U.S. government save trees and tax dollars!\n\n  ★★★★★★★★★★=========================================\n\n  ======================\n  ★ About the project:\n  ======================\n\nWe are seeking a few good men and women to help build a “best of breed” enterprise form processing platform. Our client is a top government organization that has continuously been at the forefront of the E-government initiatives. Your work will be visible and touched by customers throughout t",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "other",
         "industry_fits": 0.04,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2731.0,
         "region": [
           "unknown"
         ],
@@ -501,9 +609,11 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
-          "Java"
+          "Java",
+          "Jenkins"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -514,16 +624,27 @@
       "text": "ANSWERS.COM - Email: amanda.blume@answers.com\nFront-End Developer - Javascript, HTML, and CSS\n\nProven skills building high-performance, large-scale, distributed server applications - you have a portfolio of web apps you’ve played a key role in shipping\nExpert knowledge of Javascript, HTML, and CSS\nExperience with modern frameworks like Backbone or Angular\nExperience with a Javascript unit-testing frameworks, such as Jasmine, Qunit, and Browserstack.\nFamiliarity with a server-side language such as PHP or Java\nExperience working with REST APIs\nA passion for automation, including writing unit and",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "bonus",
+          "dental_vision",
+          "health_insurance",
+          "pto_days",
+          "retirement"
+        ],
+        "degree": "optional",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.04,
         "industry_stated": 0.23,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1967.0,
         "region": [
           "unknown"
         ],
@@ -536,7 +657,8 @@
           "JavaScript",
           "PHP"
         ],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -547,15 +669,20 @@
       "text": "Rails dev needed to help build a community in the video game space\n\nWe’re an NYC based company building an online community for the video game industry, and are hiring a rails/full stack developer on contract to build v1 of the application. You’ll be working off of front end product designs, but will have technical flexibility to build out the back end. This will start out as a contract job, but has the potential for more if its the right fit. Pay will be based on experience.\n\nThis will be an exciting and new approach for the video game industry, and we’re looking for someone who shares in our",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "media_consumer",
         "industry_fits": 0.9,
         "industry_stated": 0.95,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 1199.0,
         "region": [
           "unknown"
         ],
@@ -566,7 +693,8 @@
           "Rails",
           "Ruby"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -577,17 +705,22 @@
       "text": "LedgerX - New York, NY (Manhattan). Local or remote.\n\nJoin us to build a US-based exchange for virtual currency derivatives.\n\nWe have a Python, ZeroMQ and C++-based backend. We are looking for a software engineer who can build out features all the way to our React.js frontend.\n\nPlease email zach@ledgerx.com.",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.97,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 309.0,
         "region": [
           "us"
         ],
@@ -599,7 +732,8 @@
           "Python",
           "React"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -610,17 +744,22 @@
       "text": "Rackspace - San Francisco, CA (Will relocate and remote possible. Authorized to work in U.S. strongly preferred.)\n\nTLDR; email me if you want a great job writing software to change the world: taylor@hackrackspace.com.\n\nWe are changing the future of cloud computing at Rackspace and collaborating with OpenStack, Docker, CoreOS and anyone else that wants to joint the OSS cloud party. Just check out our latest offering, OnMetal [1], which is a combination of open source software (OpenStack) [2] and open source hardware (OpenCompute) [3].\n\nIf you are passionate about OSS/cloud/distributed systems, ",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.98,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1760.0,
         "region": [
           "us"
         ],
@@ -630,7 +769,8 @@
         "stack": [
           "Docker"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -641,27 +781,36 @@
       "text": "San Francisco - iMatchative - Director of Engineering, Director/VP of Product, QA, Dev/Ops, Data Engineering, Web Crawler Engineer and about 15 more.\n\nALTX is connecting the right investor to the right fund. Founded in 2012 as iMatchative, we’ve built a state of the art, two sided, cloud-based network that helps investors and funds alike find stickier, more satisfying investments with innovative algorithms, behavioral and traditional statistics and analysis.\n\nFounded by hedge fund expert Sam Hocking, our team is made of software engineers, bankers, marketers, psychologists and operations exper",
       "answers": {
         "ai_native": 0.55,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.96,
         "funding_stage": "series_b",
         "industry": "fintech",
         "industry_fits": 0.98,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1539.0,
         "region": [
           "us"
         ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [
+          "Elasticsearch",
+          "Hadoop",
           "Java",
           "Machine learning",
+          "Neo4j",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -672,17 +821,24 @@
       "text": "Entelo - San Francisco (SOMA), CA - Full-time - http://www.entelo.com/\n\nEntelo's mission is to help companies build great teams by allowing them to search for talented people regardless of where they represent themselves on the web. With over 400 million indexed social profiles, Entelo provides a powerful search tool that predicts which candidates are more likely to look for new opportunities and provides collaborative tools to help recruiters and hiring managers recruit more efficiently.\n\nWe're helping 160+ companies with their hiring needs including fast-growth companies such as Facebook, Sa",
       "answers": {
         "ai_native": 0.5,
+        "benefits": [
+          "health_insurance"
+        ],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "enterprise_saas",
         "industry_fits": 0.94,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1271.0,
         "region": [
           "us"
         ],
@@ -690,6 +846,7 @@
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
         "stack": [
+          "Elasticsearch",
           "MongoDB",
           "MySQL",
           "Rails",
@@ -697,7 +854,8 @@
           "Ruby",
           "Scala"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -708,17 +866,26 @@
       "text": "Crystal Valley - Lake Crystal, USA\n\nBe part of an organization that helps feed the world! If you possess the following then Crystal Valley would be a great fit.\n\n  • Solid work ethic\n  • Strong sense of ownership\n  • Committed to doing what’s right\n  • Passion for American agriculture\n\nWe are seeking a Software Developer to join our growing development team! At Crystal Valley, our team develops several types of applications, including WPF Windows programs, iOS apps, and ASP.NET websites. Most of our software is written in C#, Objective-C, JavaScript, and T-SQL. While we are most comfortable wi",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "dental_vision",
+          "health_insurance",
+          "retirement"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.75,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.03,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 2186.0,
         "region": [
           "us"
         ],
@@ -726,11 +893,15 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [
+          ".NET",
           "C#",
           "JavaScript",
+          "Objective-C",
+          "SQL",
           "iOS"
         ],
-        "work_mode": "hybrid"
+        "work_mode": "hybrid",
+        "years_required": null
       }
     },
     {
@@ -741,16 +912,27 @@
       "text": "Senior Software Engineer - Front End | Ripple Labs | San Francisco, CA | careers@ripple.com\n\n=========\n\nOur team:\n\nThe Ripple Client team is responsible for taking Ripple’s groundbreaking new technology and making it usable. Our code is open-source and has been forked by thousands of developers around the world.\n\n=========\n\nAbout Ripple Labs:\n\nRipple Labs is a 60+ person seed-stage startup backed by investors like Google Ventures, Andreessen Horowitz, Lightspeed Venture Partners and IDG Capital Partners. We developed Ripple (www.github.com/ripple/rippled), an open-source, distributed payments ",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "dental_vision",
+          "equity",
+          "health_insurance",
+          "parental_leave",
+          "unlimited_pto"
+        ],
+        "degree": "none",
         "eng_leadership": 0.67,
         "funding_stage": "seed",
         "industry": "fintech",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 3670.0,
         "region": [
           "us"
         ],
@@ -761,7 +943,8 @@
           "JavaScript",
           "Node.js"
         ],
-        "work_mode": "remote"
+        "work_mode": "remote",
+        "years_required": null
       }
     },
     {
@@ -772,23 +955,29 @@
       "text": "Hello, I am the CEO of Tribe Wearables[1], a venture-backed startup based out of Komotini, Greece; developing a cutting edge muscle activity tracker, embedded into sport apparel. We now have 3 new job openings[2]: Senior Industrial Designer[3], Junior Embedded Engineer[4] and Senior Embedded Engineer[5].\n\nWe want to create great products and to do so, we are creating a place to cultivate and nurture such greatness. Where amazingly talented people, people like yourself, are empowered to deliver their best and most creative work, within a fun and exciting environment.\n\nIf you are interested I wo",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "venture_unspecified",
         "industry": "hardware_robotics",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.97,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 0.0,
+        "post_length": 1100.0,
         "region": [
           "europe"
         ],
         "remote_token": 0.0,
         "seniority": "senior",
         "stack": [],
-        "work_mode": "unclear"
+        "work_mode": "unclear",
+        "years_required": null
       }
     },
     {
@@ -799,17 +988,22 @@
       "text": "Luxe - San Francisco, CA - http://www.luxevalet.com - Full Time - Various\n\nHey HN!\n\nI'm excited to share the opportunities available at our quickly growing startup. To get a real feel for our business, we invite you to try out our service, currently in private beta in SF. Simply email me at thai [at] luxevalet [dot] com and I'll set you up with some free credit.\n\nLuxe: A Parking Spot in Your Pocket\n\nLuxe removes the pain out of parking through its on-demand valet service. With our mobile app, a driver can request one of our many trained valets to meet her at her destination and park her car. W",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.03,
         "funding_stage": "unknown",
         "industry": "commerce",
         "industry_fits": 0.85,
         "industry_stated": 0.99,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1607.0,
         "region": [
           "us"
         ],
@@ -819,7 +1013,8 @@
         "stack": [
           "iOS"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -830,17 +1025,24 @@
       "text": "Nokia/HERE (Formerly Navteq) — Chicago\n\nAs an organization, we have a long history with map data. Now we’re looking at interesting ways to use it to change driving. Cars of the future (and present) have onboard computers, tons of sensors, and internet connections over the cell network. If you could hook that up to our map data, you could do some really cool things.\n\nTo see what we’re up to, check out http://360.here.com/tag/connected-driving/\n\nWe’re looking for strong Java developers to make this happen. Experience with AWS, apache storm, stream processing or high volume, low-latency applicati",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "health_insurance"
+        ],
+        "degree": "none",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "hardware_robotics",
         "industry_fits": 0.88,
         "industry_stated": 0.96,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1097.0,
         "region": [
           "us"
         ],
@@ -851,7 +1053,8 @@
           "AWS",
           "Java"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -862,17 +1065,27 @@
       "text": "TrueVault (W14) | San Francisco, CA | https://www.truevault.com/\n\nTrueVault is building a more secure Web. We're looking for more people to join our team to help us to move faster. TrueVault currently provides HIPAA compliant storage API. We are looking to expand and fulfill other compliance and security requirements to empower developers to focus on their core business. If you are passionate about security, infrastructure, and hard problems, we want to talk to you.\n\nWe have active openings in (https://www.truevault.com/careers):\n\n  * Client SDK Developer / Front End Developer\n  * Security Eng",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [
+          "dental_vision",
+          "health_insurance",
+          "learning_budget",
+          "remote_stipend"
+        ],
+        "degree": "none",
         "eng_leadership": 0.98,
         "funding_stage": "unknown",
         "industry": "security",
         "industry_fits": 0.98,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 0.0,
         "new_grad": 0.01,
+        "office_days": null,
         "onsite_token": 0.0,
         "open_to_us": 1.0,
+        "post_length": 1157.0,
         "region": [
           "us"
         ],
@@ -880,7 +1093,8 @@
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
         "stack": [],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -891,16 +1105,21 @@
       "text": "Toronto, onsite:\n\nFreshBooks is hiring for multiple positions, including:\n\nDirector of Development; senior ops engineers; senior Android and Ember developers; full-stack developers; product managers and scrum masters; UX experts; and some business roles as well.\n\nWe also offer a $3000 referral bonus on hire, if you know someone that would be a good fit!\n\nAll linked from here: http://www.freshbooks.com/jobs/",
       "answers": {
         "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
         "eng_leadership": 0.85,
         "funding_stage": "unknown",
         "industry": "unstated",
         "industry_fits": 0.02,
         "industry_stated": 0.04,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 1.0,
         "open_to_us": 0.0,
+        "post_length": 410.0,
         "region": [
           "canada"
         ],
@@ -909,7 +1128,8 @@
         "stack": [
           "Android"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": null
       }
     },
     {
@@ -920,16 +1140,23 @@
       "text": "Linode - Software Engineer - https://www.linode.com/careers\n\nLocation: Galloway, NJ\nType: Full Time\nMin. Experience: Mid Level\n\nSummary\n\nFounded in 2003, Linode is a leading cloud hosting provider with 150,000 customers worldwide. Since then, Linode has invested heavily in its people and set the bar for excellence in the cloud hosting industry. Our customer service, development, ops, hardware, marketing, documentation, and management teams are all part of making Linode everything it can be. This industry moves fast, but we’re committed to hiring the kind of people who can stay a step ahead and",
       "answers": {
         "ai_native": 0.02,
+        "benefits": [
+          "relocation"
+        ],
+        "degree": "required",
         "eng_leadership": 0.02,
         "funding_stage": "unknown",
         "industry": "devtools_infra",
         "industry_fits": 0.99,
         "industry_stated": 0.98,
         "interns_token": 0.0,
+        "interview_style": [],
         "mentions_visa": 0.0,
         "new_company": 1.0,
         "new_grad": 0.02,
+        "office_days": null,
         "onsite_token": 0.0,
+        "post_length": 2317.0,
         "region": [
           "unknown"
         ],
@@ -937,9 +1164,12 @@
         "returned_from_last_month": 0.0,
         "seniority": "mid",
         "stack": [
+          "Linux",
+          "Perl",
           "Python"
         ],
-        "work_mode": "onsite"
+        "work_mode": "onsite",
+        "years_required": "3_4"
       }
     }
   ]
