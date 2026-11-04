@@ -233,13 +233,13 @@ Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest l
 
 ## Sample posts: `site/data/samples/YYYY-MM.json`
 
-Real posts the article may quote, so the column never invents color. Export writes, for each complete month, a deterministic sample (seeded by month) of up to 30 in-snapshot hiring posts and 20 seeking posts:
+Real posts the article may quote, so the column never invents color. Export writes, for each complete month, a deterministic sample (seeded by month) of up to 30 in-snapshot hiring posts. Seeking posts are never exported:
 
 ```json
 {"month": "2026-11", "posts": [{"id": 50340012, "kind": "hiring", "url": "https://news.ycombinator.com/item?id=50340012", "header": "first line", "text": "first 600 characters", "answers": {"work_mode": "remote", "new_grad": 0.91}}]}
 ```
 
-The writer may quote only from these files and must put the item id in the ledger. Quote job posts, not individual job seekers (seeking posts are used for paraphrase-free mood examples only when the person's name and contact details are removed).
+The writer may quote only from these files and must put the item id in the ledger. Individual job seekers are never quoted or paraphrased.
 
 ## Question ids in `answers`
 
@@ -264,3 +264,13 @@ Completeness is per thread: a month whose hiring thread is complete publishes hi
 Samples contain hiring posts only. Seeking posts are never exported.
 
 Authoring mode (`?mock=1`, localhost) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only with `?mock=1&issue=_name`.
+
+## Comparability and minimum n
+
+- Each metric and breakdown may carry `comparable_from: "YYYY-MM"`. Points before it are not exported, and the description says why (e.g. `onsite_token_share` and `remote_token_share` from 2015-07, when the REMOTE/ONSITE header convention took hold; `new_company_share` from 2013-04, the first month with a full 24-month lookback).
+- `new_company` means not seen in the prior 24 months (stationary), not "never seen".
+- Points with `n` below `min_n` are omitted: 30 for salary medians, 50 for any share or breakdown.
+- Jev-based metrics publish a month only when at least 98% of its in-snapshot posts are answered.
+- Salary per post: the median of its ranges' lows and the median of their highs (not the extreme floor and ceiling across roles).
+- `validation` per metric comes from `site/data/validation.json` (holdout scores preferred), null until scored.
+- `generated_at` is the newest `fetched_at` among complete threads, so `metrics.json` changes only when data does.
