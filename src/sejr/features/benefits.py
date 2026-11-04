@@ -5,9 +5,7 @@ import re
 from sejr.features.tokens import is_negated, mentions_visa
 
 NUMBER = r"(?:\d{1,2}(?:\.\d)?|one|two|three|four|five|six|seven|eight|ten|twelve|fifteen|twenty(?:[- ]\w+)?|thirty)"
-TIME_OFF = (
-    r"(?:pto|paid time off|vacation|holidays?|time off|annual leave|days off|weeks off)"
-)
+TIME_OFF = r"(?:pto|paid time[- ]off|vacation|holidays?|time[- ]off|annual leave|days off|weeks off)"
 
 # Each benefit is a list of patterns; a post offers it when any match is not negated
 # ("no equity", "we can't offer relocation") and is not one of its false friends.
@@ -30,7 +28,8 @@ BENEFITS: dict[str, list[str]] = {
     ],
     "health_insurance": [
         r"\b(?:health|medical)(?:\s?care)?\s+(?:insurance|benefits?|coverage|plans?|cover|premiums?)\b",
-        r"\b(?:health|medical)(?:\s?care)?\s*(?:,|/|&|\+|and)\s*(?:health\s*,?\s*)?(?:dental|vision)\b",
+        r"\b(?:health|medical|med)(?:\s?care)?\s*(?:,|/|&|\+|and)\s*(?:health\s*,?\s*)?(?:dental|vision)\b",
+        r"\bfull\s+(?:health\s?care|medical)\b",
         r"\b(?:dental|vision)\s*(?:,|/|&|\+|and)\s*(?:\w+\s*(?:,|/|&|and)\s*)?(?:health|medical)\b",
         (
             r"\b(?:private|fully[- ]paid|fully[- ]covered|(?:fully\s+)?subsidi[sz]ed|100%(?:\s+(?:paid|covered))?)"
@@ -42,7 +41,7 @@ BENEFITS: dict[str, list[str]] = {
     "dental_vision": [
         r"\bdental\b(?=[^.\n]{0,40}\b(?:insurance|vision|health|medical|benefits?|coverage|plans?|401|pto)\b)",
         r"\b(?:health|medical|insurance|benefits)\b[^.\n]{0,40}\bdental\b",
-        r"\b(?:dental|medical|health)\s*(?:,|/|&|\+|and)\s*(?:\w+\s*(?:,|/|&|and)\s*)?vision\b",
+        r"\b(?:dental|medical|health|med)\s*(?:,|/|&|\+|and)\s*(?:\w+\s*(?:,|/|&|and)\s*)?vision\b",
         r"\bvision\s+(?:insurance|coverage|plans?|benefits?)\b",
     ],
     "unlimited_pto": [
@@ -56,6 +55,8 @@ BENEFITS: dict[str, list[str]] = {
         + NUMBER
         + r"\+?[\s-]*(?:working\s+|paid\s+|business\s+)?(?:days?|weeks?)'?\s*(?:of\s+)?"
         r"(?:paid\s+|annual\s+)?(?:pto|paid time off|vacation|holidays?|time off|annual leave|off)\b",
+        # "75 paid vacation days", "12 holidays".
+        r"\b" + NUMBER + r"\s+(?:paid\s+)?(?:vacation|holiday|pto)s?(?:\s+days?)?\b",
         r"\b(?:pto|paid time off|vacation|holidays?|annual leave)\s*(?::|of|-|–)?\s*"
         + NUMBER
         + r"\+?\s*(?:working\s+)?(?:days?|weeks?)\b",
@@ -80,7 +81,7 @@ BENEFITS: dict[str, list[str]] = {
     "remote_stipend": [
         (
             r"\b(?:home[- ]office|work[- ]from[- ]home|wfh|remote(?:[- ]work)?|co-?working|workspace"
-            r"|desk|office\s+setup|equipment|home\s+workplace)\s+(?:\w+\s+)?(?:stipends?|budgets?"
+            r"|desk|office\s+setup|equipment|gear|internet|home\s+workplace)(?:\s*/\s*\w+)?\s+(?:\w+\s+)?(?:stipends?|budgets?"
             r"|allowances?|reimbursements?)\b"
         ),
         r"\bhome[- ]office\s+support\b",
@@ -88,7 +89,7 @@ BENEFITS: dict[str, list[str]] = {
     "relocation": [
         (
             r"\breloc(?:ation)?\s*(?:assistance|support|package|help|bonus|reimbursement|expenses"
-            r"|available|offered|provided|benefits?|possible|ok|paid|costs|stipend|allowance|budget"
+            r"|available|offered|provided|benefits?|possible|ok|paid|costs|stipend|allowance|budget|incentives?"
             r"|\+|and\s+(?:visa|h-?1b|immigration|sponsorship))\b"
         ),
         (
@@ -96,7 +97,14 @@ BENEFITS: dict[str, list[str]] = {
             r"(?:relocation|relocating|relocate)\b"
         ),
         r"\bmoving\s+(?:costs|expenses|allowance|stipend|assistance)\b",
-        r"\brelocation\b[^.\n]{0,60}\b(?:taken care|covered|paid for|included|provided|supported)\b",
+        (
+            r"\brelocation\b[^.\n]{0,40}\b(?:taken care|covered|paid for|included|provided|supported"
+            r"|possible|available|negotiable|considered|an option|on the table)\b"
+        ),
+        # "relocation to the Bay Area" in a perks list.
+        r"\brelocation\s+to\s+(?:the\s+)?[A-Z]",
+        # A token in a header list: "(Local, Remote, Visa, Relocation)".
+        r"[(,|]\s*reloc(?:ation)?\s*(?=[,)|])",
         r"\b(?:relocate|relocating)\s+(?:\w+\s+)?(?:you|people|candidates|employees|engineers|folks|hires)\b",
         r"\breloc(?:ation)?\s+(?:for|to)\s+(?:the\s+)?(?:right|good|great|strong|qualified|exceptional)\b",
         (
@@ -116,16 +124,17 @@ NOT_A_BENEFIT: dict[str, re.Pattern[str]] = {
         r"|\bequity\s+(?:research|markets?|trading|derivatives|analysts?|crowdfunding|financing"
         r"|investors?|investments?|investing|firms?|funds?|partners?|round|raise|capital|backed"
         r"|management|portfolios?|compensation\s+plans?\s+for\s+clients|platform|plans\s+for)\b"
-        r"|equity-backed|\bDEI\b|\bequity\s+of\b",
+        r"|equity-backed|\bDEI\b|\bequity\s+of\b|\bequity[- ]free\b|\bequity\s+equivalent"
+        r"|\b(?:their|employees'?|founders'?)\s+equity\b",
         re.IGNORECASE,
     ),
     "bonus": re.compile(
-        r"\bsign(?:ing|[- ]on)[- ]bonus|\bbonus\s+points?\b|\bbonus\s*:|\bbonus\s+if\b"
+        r"\bsign(?:ing|[- ]on)[- ]bonus|\bbonus\s+points?\b|\bbonus(?:es)?\s*:|\bbonus\s+if\b|\(\s*bonus\s*\)"
         r"|\b(?:is|are|be|as|'s|’s|a|an)\s+(?:a\s+|an\s+)?(?:big|huge|major|nice|definite|great"
         r"|added|extra|strong|massive|real|significant|serious|bonus|plus|small)?\s*bonus\b"
         r"|\b(?:big|huge|major|nice|definite|great|added|extra|massive|significant)\s+bonus\b"
         r"|\b(?:referral|patent)\s+bonus|\bbonus\s+(?:for|to|but|skills?|qualifications?|points?"
-        r"|experience|if|questions?|round)\b|\bplus\s*/\s*bonus|\bbonus\s*/|/\s*bonus\b"
+        r"|experience|if|questions?|round)\b|\bplus\s*/\s*bonus|\bbonus\s*/(?!\s*carry)|/\s*bonus\b"
         r"|\b(?:nice[- ]to[- ]haves?|preferred)\W+bonus|\bbonus\s+system",
         re.IGNORECASE,
     ),
@@ -133,7 +142,18 @@ NOT_A_BENEFIT: dict[str, re.Pattern[str]] = {
     "health_insurance": re.compile(
         r"(?:rebuild\w*|reinvent\w*|disrupt\w*|fix\w*|transform\w*|navigat\w*|simplif\w*"
         r"|access\s+to|afford\w*|buy\w*|sell\w*|creat\w*|build\w*|employers?|members?|carriers?"
-        r"|claims?|customers?|from|people|help\w*)\s+(?:\w+\s+){0,2}(?:health|medical)\s+(?:insurance|plans?|benefits?|coverage)",
+        r"|claims?|customers?|from|people|help\w*|approach\s+to|pick\w*|choos\w*|make|understand\w*"
+        r"|compar\w*|manag\w*|enroll\w*|shop\w*|platform\s+for|marketplace\s+for|interact\w*\s+with)"
+        r"\s+(?:\w+\s+){0,2}(?:health|medical)(?:\s?care)?\s+(?:insurance|plans?|benefits?|coverage)"
+        # Health insurance as the company's domain: "the health insurance industry".
+        r"|\b(?:health|medical)(?:\s?care)?\s+(?:insurance|benefits?)\s+(?:industry|market|space"
+        r"|companies|carriers|brokers|claims|plans\s+for|navigation)\b",
+        re.IGNORECASE,
+    ),
+    # A move the candidate must make: "require relocation to Japan", "willing to relocate".
+    "relocation": re.compile(
+        r"(?:requir\w*|must|willing\s+to|open\s+to|need\w*|expect\w*)\s+(?:\w+\s+){0,2}relocat\w*\b"
+        r"(?!\s+(?:people|you|candidates|employees|engineers|folks|hires))",
         re.IGNORECASE,
     ),
     "parental_leave": re.compile(
@@ -148,6 +168,9 @@ NOT_A_BENEFIT: dict[str, re.Pattern[str]] = {
     ),
 }
 NOT_A_BENEFIT_CHARS = 40
+NEGATED_INSIDE = re.compile(
+    r"\b(?:not|no|cannot|unable|never)\b|n['’]t\b", re.IGNORECASE
+)
 PATTERNS = {
     name: [re.compile(p, re.IGNORECASE) for p in patterns]
     for name, patterns in BENEFITS.items()
@@ -165,7 +188,10 @@ def _counts(text: str, name: str, m: re.Match[str]) -> bool:
             for f in false_friend.finditer(window)
         ):
             return False
-    return not is_negated(text, m.start(), m.end())
+    # "Relocation not provided": the negation can sit inside a longer match.
+    return not (
+        NEGATED_INSIDE.search(m.group()) or is_negated(text, m.start(), m.end())
+    )
 
 
 def offered_benefits(text: str) -> list[str]:

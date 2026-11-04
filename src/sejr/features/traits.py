@@ -90,7 +90,9 @@ def interview_styles(text: str) -> list[str]:
 
 DAY_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5}
 DAY_NUMBER = r"(?P<n>[1-5]|one|two|three|four|five)"
-OFFICE = r"(?:office|onsite|on-site|on\s+site|in[- ]person|hq|in\s+the\s+office|at\s+the\s+office|in-office|co-?located|studio|lab)"
+# "2-3 days", "2/3 days", "two or three days": the lower number is the requirement.
+DAY_RANGE_END = r"(?:\s*(?:-|–|/|to|or)\s*(?P<n2>[1-5]|one|two|three|four|five))?"
+OFFICE = r"(?:office|onsite|on-site|on\s+site|in[- ]person|hq|in\s+the\s+office|at\s+the\s+office|in-office|co-?located|studio|lab|on[- ]campus)"
 # "3 days a week in the office", "hybrid (2 days/wk)", "in office 3x/week", "4 days onsite".
 # "In-office 3-4 days", "hybrid: 2 days".
 OFFICE_FIRST = re.compile(
@@ -98,12 +100,14 @@ OFFICE_FIRST = re.compile(
     + OFFICE
     + r"|hybrid)\W{0,3}"
     + DAY_NUMBER
-    + r"(?:\s*(?:-|–|to|or)\s*[1-5])?\s*\+?\s*(?:days?|d)\b",
+    + DAY_RANGE_END
+    + r"\s*\+?\s*(?:days?|d)\b",
     re.IGNORECASE,
 )
 OFFICE_DAYS = re.compile(
-    r"\b" + DAY_NUMBER + r"(?:\s*(?:-|–|to|or)\s*[1-5])?\s*\+?\s*(?:x|days?|d)\s*"
-    r"(?:(?:a|per|/|each|every|in\s+a)\s*(?:week|wk)\b|(?=\s*(?:in|at|on|onsite|on-site|in-office)\b))",
+    r"\b" + DAY_NUMBER + DAY_RANGE_END + r"\s*\+?\s*(?:x|days?|d)\s*"
+    r"(?:(?:a|per|/|each|every|in\s+a)\s*(?:week|wk)\b|p\s*/\s*w\b"
+    r"|(?=\s*(?:in|at|on|onsite|on-site|in-office)\b))",
     re.IGNORECASE,
 )
 NEAR_OFFICE = re.compile(r"\b" + OFFICE + r"\b|\bhybrid\b|\bcommute\b", re.IGNORECASE)
@@ -123,6 +127,15 @@ DAY_RANGE = re.compile(
 )
 
 
+def _day(word: str) -> int:
+    word = word.lower()
+    return int(word) if word.isdigit() else DAY_WORDS[word]
+
+
+def _low_day(m: re.Match[str]) -> int:
+    return min(_day(m["n"]), _day(m["n2"])) if m["n2"] else _day(m["n"])
+
+
 def office_days(text: str) -> int | None:
     """The fewest in-office days a week the post states, if it states any."""
     found = []
@@ -134,11 +147,9 @@ def office_days(text: str) -> int | None:
             or HOME_BEFORE.search(text[max(0, m.start() - 20) : m.start()])
         ):
             continue
-        n = m["n"].lower()
-        found.append(int(n) if n.isdigit() else DAY_WORDS[n])
+        found.append(_low_day(m))
     for m in OFFICE_FIRST.finditer(text):
-        n = m["n"].lower()
-        found.append(int(n) if n.isdigit() else DAY_WORDS[n])
+        found.append(_low_day(m))
     for m in DAY_RANGE.finditer(text):
         window = text[max(0, m.start() - 40) : m.end() + 40]
         if not re.search(r"\b" + OFFICE + r"\b", window, re.IGNORECASE):
