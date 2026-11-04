@@ -71,7 +71,7 @@ CREATE TABLE answers (
   post_id       BIGINT NOT NULL,
   question      VARCHAR NOT NULL,        -- e.g. 'work_mode', 'salary_min_usd', 'mentions_visa'
   method        VARCHAR NOT NULL,        -- 'regex' | 'vocab' | 'join' | 'jev'
-  version       VARCHAR NOT NULL,        -- code version for deterministic, model id for jev (e.g. 'jev-1.13.0')
+  version       VARCHAR NOT NULL,        -- code version for deterministic, model id for jev (e.g. 'jev-1.14.0')
   value         DOUBLE,                  -- numeric answer, Noul probability, or Score position
   label         VARCHAR,                 -- categorical answer (top choice)
   probabilities JSON,                    -- full distribution for Choice/Score

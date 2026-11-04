@@ -50,7 +50,7 @@ A hand-labeled reference set of about 200 posts, sampled across years. Each meth
 1. **Fixed snapshot age.** Each month uses only posts and replies whose `created_at` is within **7 days** of the thread's creation. Every month, past or current, is measured at the same age.
 2. **Cross-month features use only the past.** "New vs returning company", first appearance, rolling baselines, percentiles and z-scores are computed from months `<= as_of`. A test checks that computing month *t* from the full dataset gives the same output as computing it from data cut off at *t*.
 3. **Classifiers see only the post text.** No dates, no company outcomes, no other months. Questions ask what the text says, not what the model knows about the company.
-4. **Pinned model versions.** Jev versions are pinned (for example `jev-1.13.0`, not `jev-latest`) and stored on every answer. An upgrade reclassifies the full history, so one series never mixes versions.
+4. **Pinned model versions.** Jev versions are pinned (for example `jev-1.14.0`, not `jev-latest`) and stored on every answer. An upgrade reclassifies the full history, so one series never mixes versions.
 5. **Fixed vocabularies apply to all months.** Adding a term (for example "agents") reruns every month. A zero in 2015 is a real zero.
 
 ### Known biases (stated on the report)
