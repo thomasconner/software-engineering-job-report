@@ -205,11 +205,11 @@ Directive attributes:
 | `categories` | breakdown charts | comma list; a subset of the breakdown's categories |
 | `highlight` | multi-series charts | comma list of series drawn in the story color; the rest gray |
 | `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
-| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM` |
+| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM`; default 5y on slope, 1y on dot |
 | `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
 | `against` | ::compare | comma list of windows, default `3m,1y,5y` |
 | `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
-| `title` | all | the finding, stated |
+| `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
 
@@ -224,6 +224,7 @@ Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest l
 - `industry` rows store the folded distribution: P(sector) = P(fits) × P(sector | Choice); P(other) and P(unstated) come from the companion Nouls. `confidence` is that of the stored label, or NULL.
 - Noul rows have NULL `confidence`.
 - `answers` holds one Jev version per post; classify replaces a post's Jev rows.
+- Classify runs only on posts from complete threads, so answers reflect the text at freeze. Each stored answer set carries a request digest (sha256 of the request, text included); a post is re-sent only when its digest changes.
 - Durable copy: `data/answers/<model>/<YYYY-MM>.parquet` (one file per thread month, both kinds). Classify loads these before calling the API, so a fresh checkout reclassifies nothing. The response cache under `data/cache/jev/` is a local accelerator, sharded by the first two hex characters of the hash, and gitignored.
 
 ## Validation set
@@ -232,10 +233,44 @@ Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest l
 
 ## Sample posts: `site/data/samples/YYYY-MM.json`
 
-Real posts the article may quote, so the column never invents color. Export writes, for each complete month, a deterministic sample (seeded by month) of up to 30 in-snapshot hiring posts and 20 seeking posts:
+Real posts the article may quote, so the column never invents color. Export writes, for each complete month, a deterministic sample (seeded by month) of up to 30 in-snapshot hiring posts. Seeking posts are never exported:
 
 ```json
 {"month": "2026-11", "posts": [{"id": 50340012, "kind": "hiring", "url": "https://news.ycombinator.com/item?id=50340012", "header": "first line", "text": "first 600 characters", "answers": {"work_mode": "remote", "new_grad": 0.91}}]}
 ```
 
-The writer may quote only from these files and must put the item id in the ledger. Quote job posts, not individual job seekers (seeking posts are used for paraphrase-free mood examples only when the person's name and contact details are removed).
+The writer may quote only from these files and must put the item id in the ledger. Individual job seekers are never quoted or paraphrased.
+
+## Question ids in `answers`
+
+| question | method | stored as |
+|---|---|---|
+| `company` | regex | label: normalized company name |
+| `salary_min_usd`, `salary_max_usd` | regex | value |
+| `salary_currency` | regex | label: ISO code, `unknown` (bare k-range), or `none` (no salary found) |
+| `remote_token`, `onsite_token`, `mentions_visa`, `interns_token` | regex | value 0/1 |
+| `stack` | vocab | one row per post; `probabilities` holds the terms found |
+| `new_company`, `returned_from_last_month` | join | value 0/1; not emitted when no earlier (or previous-month) hiring thread exists |
+| `work_mode`, `seniority`, `industry`, `funding_stage` | jev | Choice: label, probabilities (category → p), confidence |
+| `industry_stated`, `industry_fits`, `ai_native`, `new_grad`, `eng_leadership` | jev | Noul: value |
+| `seeker_mood` | jev | Score: value, probabilities keyed "0"–"4", confidence |
+
+`salary_disclosed_share` counts any currency, including `unknown`; the salary medians use USD only.
+
+Extra breakdowns: `industry_known` (sector shares among posts whose sector is stated), `seniority_ai_native` and `seniority_not_ai_native` (seniority shares among posts with ai_native ≥ 0.5 and < 0.5). Stack categories use display names ("C++", "Next.js", "AI agents").
+
+Completeness is per thread: a month whose hiring thread is complete publishes hiring metrics even if its seeking thread is still pending; `seekers_per_post` needs both.
+
+Samples contain hiring posts only. Seeking posts are never exported.
+
+Authoring mode (`?mock=1`, localhost) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only with `?mock=1&issue=_name`.
+
+## Comparability and minimum n
+
+- Each metric and breakdown may carry `comparable_from: "YYYY-MM"`. Points before it are not exported, and the description says why (e.g. `onsite_token_share` and `remote_token_share` from 2015-07, when the REMOTE/ONSITE header convention took hold; `new_company_share` from 2013-04, the first month with a full 24-month lookback).
+- `new_company` means not seen in the prior 24 months (stationary), not "never seen".
+- Points with `n` below `min_n` are omitted: 30 for salary medians, 50 for any share or breakdown.
+- Jev-based metrics publish a month only when at least 98% of its in-snapshot posts are answered.
+- Salary per post: the median of its ranges' lows and the median of their highs (not the extreme floor and ceiling across roles).
+- `validation` per metric comes from `site/data/validation.json` (holdout scores preferred), null until scored.
+- `generated_at` is the newest `fetched_at` among complete threads, so `metrics.json` changes only when data does.

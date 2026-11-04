@@ -114,7 +114,7 @@ The paragraph that tells the reader what the whole article argues and why they s
 Right after the nut graf comes the `::compare` strip. It has a fixed core so readers can compare months at a glance:
 
 ```markdown
-::compare{metrics="posts.hiring,seekers_per_post.hiring,new_grad_share.hiring,ai_native_share.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
+::compare{title="The thread grew this year, but not for juniors" metrics="posts.hiring,seekers_per_post.hiring,new_grad_share.hiring,ai_native_share.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
 ```
 
 Add one or two extra metrics at the end when the argument uses them. Don't drop a core metric because it's dull this month. The strip is the "here's the data" moment. Don't restate every cell of it in prose. The prose picks the cells that matter.
@@ -266,7 +266,7 @@ These apply to every sentence. The fact-checker enforces them.
 ### No fabrication
 
 - No invented people, quotes, anecdotes or scenes. No "Maria, a bootcamp grad in Austin". No "picture a founder scrolling the thread". The column has no reporting behind it beyond the data, so it doesn't pretend to.
-- Color comes from the numbers, or from quoting a real post. Real posts come only from the month's sample file, `site/data/samples/YYYY-MM.json`, which the export writes. Quote the post's text, not the username, keep it to a sentence or two, and put its HN item id in the ledger.
+- Color comes from the numbers, or from quoting a real post. Real posts come only from the month's sample file, `site/data/samples/YYYY-MM.json`, which the export writes. Quote the post's text, not the username, keep it to a sentence or two, and put its HN item id in the ledger. The sample files hold hiring posts only; never quote or paraphrase an individual job seeker.
 - A quoted post illustrates a finding. It never stands in for one: "one company wrote X" can't support a claim about the thread.
 
 ### What a post is
@@ -429,7 +429,7 @@ Hacker News' October hiring thread drew more posts than any month since July 202
 
 The thread drew 362 hiring posts, up 22% from a year ago. By our classifier's estimate, posts for senior and staff engineers rose by about 67 over the same year, a bit more than the thread's whole gain of 66. Posts for junior engineers made up 6% of the thread, against 17% in October 2021. Hiring on HN is recovering from the top down. So far, the recovery hasn't reached junior engineers.
 
-::compare{metrics="posts.hiring,seekers_per_post.hiring,new_grad_share.hiring,ai_native_share.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
+::compare{title="The thread grew this year, but not for juniors" metrics="posts.hiring,seekers_per_post.hiring,new_grad_share.hiring,ai_native_share.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
 
 ## Demand is climbing out of last year's low
 

@@ -16,3 +16,12 @@ Label ONLY from what the post text says. Do not use outside knowledge of the com
 
 ## Output
 One JSON object per line: {"post_id": ..., "labels": {field: value, ...}, "unsure": [fields], "note": "optional short reason for any unsure field"}.
+
+## Clarifications (2026-11-04, after the first validation run)
+- Founding or first engineer with no stated level = unspecified.
+- Adtech = other. Gambling and betting exchanges = other.
+- Consumer fitness/wellness products = media_consumer; health = healthcare, medical, biotech, health insurance.
+- mid = 2–4 years.
+- An accelerator batch tag alone = unknown funding. No outside knowledge of company size ("part of Cisco" alone = unknown).
+- Posts that aren't job posts (or are in the wrong thread) get `"exclude": true`.
+- seeker_mood 3 includes "employed and selective / casually looking"; 4 needs multiple offers or being clearly in demand.
