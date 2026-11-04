@@ -650,8 +650,13 @@ def add_compare(
             stored = load(source, month, directory)
             if not (is_frozen(stored) or is_retry(stored)) or not lacks_compare(stored):
                 continue
-            fresh = pull(source, month, created_at, client=client, repos=repos,
-                         today=today, api_key=None)  # fmt: skip
+            try:
+                fresh = pull(source, month, created_at, client=client, repos=repos,
+                             today=today, api_key=None)  # fmt: skip
+            except Exception as e:  # noqa: BLE001
+                # A transient fetch failure leaves this month for the next backfill.
+                warn(f"external: {source} {month} compare failed, retry later: {e!r}")
+                continue
             for key, value in stored["values"].items():
                 new = fresh.get(key)
                 if new and (new["value"], new["ref_period"]) == (
