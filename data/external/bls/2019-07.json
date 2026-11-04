@@ -4,42 +4,140 @@
   "month": "2019-07",
   "values": {
     "ces_computer_systems_design.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2018-06",
+          "value": 2116.6
+        },
+        "3m": {
+          "ref_period": "2019-03",
+          "value": 2182.2
+        },
+        "5y": {
+          "ref_period": "2014-06",
+          "value": 1793.6
+        }
+      },
       "ref_period": "2019-06",
       "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=CES6054150001&vintage_date=2019-07-09",
       "value": 2209.6,
       "vintage_date": "2019-07-09"
     },
     "jolts_hires_information.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2018-05",
+          "value": 103.0
+        },
+        "3m": {
+          "ref_period": "2019-02",
+          "value": 71.0
+        },
+        "5y": {
+          "ref_period": "2014-05",
+          "value": 74.0
+        }
+      },
       "ref_period": "2019-05",
       "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU5100HIL&vintage_date=2019-07-09",
       "value": 102.0,
       "vintage_date": "2019-07-09"
     },
     "jolts_hires_professional.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2018-05",
+          "value": 1238.0
+        },
+        "3m": {
+          "ref_period": "2019-02",
+          "value": 1063.0
+        },
+        "5y": {
+          "ref_period": "2014-05",
+          "value": 1000.0
+        }
+      },
       "ref_period": "2019-05",
       "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU540099HIL&vintage_date=2019-07-09",
       "value": 1185.0,
       "vintage_date": "2019-07-09"
     },
     "jolts_layoffs_information.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2018-05",
+          "value": 34.0
+        },
+        "3m": {
+          "ref_period": "2019-02",
+          "value": 24.0
+        },
+        "5y": {
+          "ref_period": "2014-05",
+          "value": 26.0
+        }
+      },
       "ref_period": "2019-05",
       "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU5100LDL&vintage_date=2019-07-09",
       "value": 31.0,
       "vintage_date": "2019-07-09"
     },
     "jolts_layoffs_professional.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2018-05",
+          "value": 452.0
+        },
+        "3m": {
+          "ref_period": "2019-02",
+          "value": 381.0
+        },
+        "5y": {
+          "ref_period": "2014-05",
+          "value": 418.0
+        }
+      },
       "ref_period": "2019-05",
       "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU540099LDL&vintage_date=2019-07-09",
       "value": 505.0,
       "vintage_date": "2019-07-09"
     },
     "jolts_openings_information.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2018-05",
+          "value": 120.0
+        },
+        "3m": {
+          "ref_period": "2019-02",
+          "value": 133.0
+        },
+        "5y": {
+          "ref_period": "2014-05",
+          "value": 104.0
+        }
+      },
       "ref_period": "2019-05",
       "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU5100JOL&vintage_date=2019-07-09",
       "value": 98.0,
       "vintage_date": "2019-07-09"
     },
     "jolts_openings_professional.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2018-05",
+          "value": 1246.0
+        },
+        "3m": {
+          "ref_period": "2019-02",
+          "value": 1357.0
+        },
+        "5y": {
+          "ref_period": "2014-05",
+          "value": 892.0
+        }
+      },
       "ref_period": "2019-05",
       "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU540099JOL&vintage_date=2019-07-09",
       "value": 1319.0,
