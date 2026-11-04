@@ -5,7 +5,7 @@ from pathlib import Path
 
 import duckdb
 import pytest
-from conftest import CLASSIFIED, MONTHS, NO_HIRING, NO_SEEKING
+from conftest import CLASSIFIED, MONTHS, NO_HIRING, NO_SEEKING, PENDING
 
 from sejr import aggregate, export, features
 from sejr.config import JEV_MODEL
@@ -167,8 +167,14 @@ def test_no_join_metrics_without_history(db):
 def _thread(con, thread_id: int, month: date) -> None:
     created = datetime(month.year, month.month, 1, 15, tzinfo=UTC)
     con.execute(
-        "INSERT INTO threads VALUES (?, 'hiring', ?, 'Ask HN: Who is hiring?', ?, ?)",
-        [thread_id, month, created, created + timedelta(days=7)],
+        "INSERT INTO threads VALUES (?, 'hiring', ?, 'Ask HN: Who is hiring?', ?, ?, ?, 0)",
+        [
+            thread_id,
+            month,
+            created,
+            created + timedelta(days=7),
+            created + timedelta(days=8),
+        ],
     )
 
 
@@ -228,7 +234,14 @@ def test_export_follows_contract(db):
     assert data["latest_month"] == "2024-07"
     assert data["months"] == [f"{t:%Y-%m}" for t in MONTHS]
     posts = data["metrics"]["posts.hiring"]
-    assert set(posts) == {"label", "unit", "method", "description", "series"}
+    assert set(posts) == {
+        "label",
+        "unit",
+        "method",
+        "description",
+        "polarity",
+        "series",
+    }
     assert posts["unit"] == "count" and posts["method"] == "count"
     assert posts["series"][0] == {"month": "2024-01", "value": 4, "n": 4}
     assert "2024-04" not in [p["month"] for p in posts["series"]]
@@ -237,7 +250,7 @@ def test_export_follows_contract(db):
         assert metric["method"] in {"count", "regex", "join", "jev"}
 
     work_mode = data["breakdowns"]["work_mode"]
-    assert set(work_mode) == {"label", "method", "categories", "series"}
+    assert set(work_mode) == {"label", "method", "categories", "polarity", "series"}
     assert work_mode["categories"] == ["remote", "hybrid", "onsite", "unclear"]
     assert [p["month"] for p in work_mode["series"]] == [
         "2024-01",
@@ -246,3 +259,35 @@ def test_export_follows_contract(db):
     ]
     assert set(work_mode["series"][0]) == {"month", "n", "values"}
     assert data["breakdowns"]["stack"]["method"] == "vocab"
+
+
+def test_incomplete_threads_are_skipped_and_listed_as_pending(db):
+    features.build(db)
+    metrics = _metrics(aggregate.compute_month(db, PENDING))
+    assert ("hiring", "posts", "") in metrics
+    assert ("seeking", "posts", "") not in metrics
+    assert ("hiring", "seekers_per_post", "") not in metrics
+    aggregate.run(db, Namespace(month=None, dry_run=False, limit=None))
+    assert export.build(db)["pending"] == [f"{PENDING:%Y-%m}"]
+
+
+def test_removed_share(db):
+    rows = db.execute(
+        "SELECT month, kind, removed_in_snapshot FROM threads "
+        "WHERE removed_in_snapshot IS NOT NULL AND fetched_at >= snapshot_at"
+    ).fetchall()
+    assert rows
+    for month, kind, removed in rows:
+        metrics = _metrics(aggregate.compute_month(db, month))
+        posts, _ = metrics[(kind, "posts", "")]
+        assert metrics[(kind, "removed_share", "")] == (
+            pytest.approx(removed / (posts + removed)),
+            posts + removed,
+        )
+    no_count = db.execute(
+        "SELECT month, kind FROM threads WHERE removed_in_snapshot IS NULL"
+    ).fetchall()
+    for month, kind in no_count:
+        assert (kind, "removed_share", "") not in _metrics(
+            aggregate.compute_month(db, month)
+        )

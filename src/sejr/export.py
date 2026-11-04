@@ -7,11 +7,27 @@ from pathlib import Path
 
 import duckdb
 
-from sejr.aggregate import BREAKDOWNS, COUNT_METRICS, INDUSTRY_KNOWN, SCALARS
+from sejr.aggregate import BREAKDOWNS, COMPLETE, COUNT_METRICS, INDUSTRY_KNOWN, SCALARS
 from sejr.config import SITE_DATA_DIR
 
 # key → (label, unit, description). Descriptions are written for a newspaper reader.
 SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
+    "removed_share.hiring": (
+        "Hiring posts later removed",
+        "share",
+        (
+            "Share of hiring posts from the first 7 days that were deleted or killed before we "
+            "fetched the thread. Shown so readers can judge how much is missing."
+        ),
+    ),
+    "removed_share.seeking": (
+        "Job seeker posts later removed",
+        "share",
+        (
+            "Share of “Who wants to be hired?” posts from the first 7 days that were deleted or "
+            "killed before we fetched the thread."
+        ),
+    ),
     "posts.hiring": (
         "Companies hiring",
         "count",
@@ -134,6 +150,22 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
     ),
 }
 
+# 1 when a rise is good news for job seekers, -1 when bad; anything unlisted is neutral (0).
+POLARITY = {
+    "posts.hiring": 1,
+    "posts.seeking": -1,
+    "seekers_per_post.hiring": -1,
+    "salary_disclosed_share.hiring": 1,
+    "salary_min_median_usd.hiring": 1,
+    "salary_max_median_usd.hiring": 1,
+    "visa_share.hiring": 1,
+    "new_company_share.hiring": 1,
+    "new_grad_share.hiring": 1,
+    "interns_token_share.hiring": 1,
+    "seeker_mood.seeking": 1,
+    "seeker_strained_share.seeking": -1,
+}
+
 BREAKDOWN_LABELS = {
     "work_mode": "How companies want people to work",
     "seniority": "Which levels companies are hiring",
@@ -169,15 +201,21 @@ def build(con: duckdb.DuckDBPyConnection, generated_at: datetime | None = None) 
         "WHERE value IS NOT NULL ORDER BY month, kind, metric, category"
     ).fetchall()
     months = sorted({_month(r[0]) for r in rows})
+    pending = [
+        _month(m)
+        for (m,) in con.execute(
+            f"SELECT DISTINCT month FROM threads WHERE NOT ({COMPLETE}) ORDER BY month"
+        ).fetchall()
+    ]
 
     metrics = {
         key: {"label": label, "unit": unit, "method": _method(key), "description": description,
-              "series": []}
+              "polarity": POLARITY.get(key, 0), "series": []}
         for key, (label, unit, description) in SCALAR_TEXT.items()
     }  # fmt: skip
     breakdowns = {
         b.metric: {"label": BREAKDOWN_LABELS[b.metric], "method": b.method,
-                   "categories": list(b.categories), "series": []}
+                   "categories": list(b.categories), "polarity": 0, "series": []}
         for b in [*BREAKDOWNS, INDUSTRY_KNOWN]
     }  # fmt: skip
     points: dict[tuple[str, str], dict] = {}
@@ -203,6 +241,7 @@ def build(con: duckdb.DuckDBPyConnection, generated_at: datetime | None = None) 
         "generated_at": generated_at.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "latest_month": months[-1] if months else None,
         "months": months,
+        "pending": pending,
         "metrics": metrics,
         "breakdowns": breakdowns,
     }

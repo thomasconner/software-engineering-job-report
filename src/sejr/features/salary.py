@@ -1,7 +1,7 @@
 import re
 from dataclasses import dataclass
 
-from sejr.features.tokens import header_line
+from sejr.features.tokens import header_end
 
 MIN_ANNUAL = 30_000
 MAX_ANNUAL = 1_000_000
@@ -91,7 +91,7 @@ def _clause_before(text: str, start: int) -> str:
     return before[breaks[-1].end() :] if breaks else before
 
 
-def _salary(text: str, m: re.Match[str], header_end: int) -> Salary | None:
+def _salary(text: str, m: re.Match[str], header_stop: int) -> Salary | None:
     before = _clause_before(text, m.start())
     after = text[m.end() : m.end() + 30]
     suffix = SUFFIX.search(after)
@@ -107,7 +107,7 @@ def _salary(text: str, m: re.Match[str], header_end: int) -> Salary | None:
     symbol = suffix.group(1) if suffix else m["cur1"] or m["cur2"]
     currency = CURRENCIES.get(symbol) if symbol else None
     thousands = bool(m["k1"] or m["k2"])
-    in_header = m.start() < header_end
+    in_header = m.start() < header_stop
     has_context = in_header or bool(
         SALARY_BEFORE.search(before) or SALARY_AFTER.search(after)
     )
@@ -134,8 +134,8 @@ def _salary(text: str, m: re.Match[str], header_end: int) -> Salary | None:
 
 
 def salaries(text: str) -> list[Salary]:
-    header_end = len(header_line(text))
-    found = (_salary(text, m, header_end) for m in AMOUNT.finditer(text))
+    header_stop = header_end(text)
+    found = (_salary(text, m, header_stop) for m in AMOUNT.finditer(text))
     return [s for s in found if s]
 
 

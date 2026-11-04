@@ -87,13 +87,15 @@ BREAKDOWNS = [
 INDUSTRY_KNOWN = Breakdown("industry_known", "hiring", "jev", INDUSTRY[:-1])
 
 # Metrics counted straight from posts and replies, with method 'count'.
-COUNT_METRICS = ("posts", "seekers_per_post", "replies_per_post")
+COUNT_METRICS = ("posts", "removed_share", "seekers_per_post", "replies_per_post")
 
-SNAPSHOT = """
+# A thread fetched before its snapshot closed is still filling up, so it is skipped.
+COMPLETE = "fetched_at >= snapshot_at"
+SNAPSHOT = f"""
 WITH snapshot AS (
   SELECT p.post_id, t.kind
   FROM posts p JOIN threads t USING (thread_id)
-  WHERE p.in_snapshot AND t.month = $month
+  WHERE p.in_snapshot AND t.month = $month AND t.{COMPLETE}
 )
 """
 
@@ -132,6 +134,17 @@ def _count_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     rows: list[Row] = [
         (month, kind, "posts", "", float(n), n) for kind, n in posts.items()
     ]
+    removed = con.execute(
+        f"""
+        SELECT kind, sum(removed_in_snapshot)::INTEGER FROM threads
+        WHERE month = $month AND {COMPLETE} AND removed_in_snapshot IS NOT NULL
+        GROUP BY kind ORDER BY kind
+        """,
+        {"month": month},
+    ).fetchall()
+    for kind, gone in removed:
+        if total := posts.get(kind, 0) + gone:
+            rows.append((month, kind, "removed_share", "", gone / total, total))
     hiring = posts.get("hiring", 0)
     if not hiring:
         return rows

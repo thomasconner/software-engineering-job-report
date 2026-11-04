@@ -44,6 +44,7 @@ MONTHS = [date(2024, m, 1) for m in range(1, 8)]
 NO_HIRING = {date(2024, 4, 1)}
 NO_SEEKING = {date(2024, 2, 1)}
 # Months that Jev has classified; the rest must not get Jev metrics.
+PENDING = MONTHS[-1]  # its seeking thread is still inside the 7-day window
 CLASSIFIED = {date(2024, 1, 1), date(2024, 3, 1), date(2024, 6, 1)}
 CHOICES = {
     "work_mode": ["remote", "hybrid", "onsite", "unclear"],
@@ -74,11 +75,14 @@ def populate(con: duckdb.DuckDBPyConnection) -> None:
                 continue
             thread_id = next(next_id)
             created = _ts(month, 0)
+            # The newest seeking thread was fetched before its snapshot closed.
+            fetched_after = {"hiring": 8, "seeking": 3 if month == PENDING else 8}
             label = "Who is hiring?" if kind == "hiring" else "Who wants to be hired?"
             con.execute(
-                "INSERT INTO threads VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT INTO threads VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 [thread_id, kind, month, f"Ask HN: {label} ({month:%B %Y})", created,
-                 created + timedelta(days=7)],
+                 created + timedelta(days=7), created + timedelta(days=fetched_after[kind]),
+                 rng.choice([None, 0, 1, 3])],
             )  # fmt: skip
             if kind == "hiring":
                 companies = rng.sample(sorted(HIRING_TEXTS), 6)

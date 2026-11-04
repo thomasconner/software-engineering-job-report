@@ -1,6 +1,7 @@
 import re
 
-HEADER_CHARS = 300
+# The header is the first line; posts with no line breaks put the whole body on it.
+HEADER_CHARS = 200
 
 # A clause ends at punctuation, list separators or "but", so a "no" earlier in the
 # header ("NO REMOTE, VISA") does not negate a later token.
@@ -39,7 +40,12 @@ VISA_HELD = re.compile(
 
 
 def header_line(text: str) -> str:
-    return text.split("\n", 1)[0][:HEADER_CHARS]
+    return text.lstrip().split("\n", 1)[0][:HEADER_CHARS]
+
+
+def header_end(text: str) -> int:
+    """Offset in `text` where the header line ends."""
+    return len(text) - len(text.lstrip()) + len(header_line(text))
 
 
 def _clause_before(text: str, start: int) -> str:
@@ -86,7 +92,7 @@ def _is_visa_offer(text: str, m: re.Match[str]) -> bool:
     after = text[m.end() : m.end() + 30]
     if VISA_COMPANY.match(m.group()) and not (
         VISA_OFFER_AFTER.search(after)
-        or m.end() <= len(header_line(text))
+        or m.end() <= header_end(text)
         or PIPE_BEFORE.search(text[: m.start()])
         or PIPE_AFTER.search(after)
     ):
