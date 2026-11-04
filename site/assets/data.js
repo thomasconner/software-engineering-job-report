@@ -65,43 +65,89 @@ export function prepare(data) {
 
 const int = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 
-/** One number format per chart: a share chart uses one decimal everywhere if any value is under 10%. */
-export function makeFormat(unit, values = []) {
-  const small = values.some((v) => v > 0 && v < 0.1);
+/**
+ * Display precision follows the article's rounding: whole percents, ratios and scores to one decimal,
+ * dollars to the nearest $1,000. `precise` adds one digit, for tooltips and tables.
+ */
+export function makeFormat(unit, { precise = false } = {}) {
   return (v) => {
     if (v == null || Number.isNaN(v)) return 'n/a';
     switch (unit) {
-      case 'share': return `${(v * 100).toFixed(small ? 1 : 0)}%`;
-      case 'usd': return `$${int.format(Math.round(v / 1000))}K`;
+      case 'share': return `${(v * 100).toFixed(precise ? 1 : 0)}%`;
+      case 'usd': return `$${int.format(Math.round(v / 1000) * 1000)}`;
       case 'count': return int.format(v);
-      default: return v.toFixed(2);
+      default: return v.toFixed(precise ? 2 : 1);
     }
   };
 }
 
-// Shares move in percentage points; counts and dollars as percent change; ratios and scores as raw difference.
-export function delta(now, then, unit) {
-  if (now == null || then == null) return null;
+// How a change is printed. Share gaps come from the printed (whole) percents so they match the prose.
+function deltaText(now, then, unit) {
   let diff;
   let text;
   if (unit === 'share') {
-    diff = (now - then) * 100;
-    text = `${Math.abs(diff).toFixed(1)} pts`;
+    diff = Math.round(now * 100) - Math.round(then * 100);
+    text = `${Math.abs(diff)} pts`;
   } else if (unit === 'count' || unit === 'usd') {
     if (!then) return null;
     diff = ((now - then) / then) * 100;
     text = `${Math.abs(diff).toFixed(0)}%`;
   } else {
-    diff = now - then;
-    text = Math.abs(diff).toFixed(2);
+    diff = +now.toFixed(1) - +then.toFixed(1);
+    text = Math.abs(diff).toFixed(1);
   }
   const sign = Number(text.replace(/[^0-9.]/g, '')) === 0 ? 0 : Math.sign(diff);
   return { sign, text: `${sign > 0 ? '+' : sign < 0 ? '−' : ''}${text}` };
 }
 
-// good / bad / flat for a change, given the measure's polarity from metrics.json.
-export const tone = (sign, polarity) => ({ 1: 'good', '-1': 'bad' })[sign * (polarity ?? 0)] ?? 'flat';
-export const TONE_WORD = { good: 'better', bad: 'worse', flat: '' };
+const sum = (xs) => xs.reduce((t, x) => t + x, 0);
+
+/**
+ * Sampling-noise test from the style guide's noise bar (docs/style-guide.md, "The noise bar").
+ * Returns 'noise' when the move is within the bar, 'thin' when too few posts back a median, else 'clear'.
+ */
+function noiseTest(data, key, unit) {
+  const value = (k, m) => data.metrics[k]?.series.find((p) => p.month === m)?.value;
+  return (then, now) => {
+    const a = then.value;
+    const b = now.value;
+    if (unit === 'share') {
+      if (!then.n || !now.n) return 'clear';
+      const p = (a + b) / 2;
+      return Math.abs(b - a) < 1.96 * Math.sqrt(p * (1 - p) * (1 / then.n + 1 / now.n)) ? 'noise' : 'clear';
+    }
+    if (unit === 'count') return a && Math.abs(b - a) < 1.96 * Math.sqrt(a + b) ? 'noise' : 'clear';
+    if (key.startsWith('seekers_per_post')) {
+      const counts = [then.month, now.month].flatMap((m) => [value('posts.seeking', m), value('posts.hiring', m)]);
+      if (counts.some((c) => !c)) return 'clear';
+      return Math.abs(b / a - 1) < 1.96 * Math.sqrt(sum(counts.map((c) => 1 / c))) ? 'noise' : 'clear';
+    }
+    if (unit === 'usd') {
+      if (then.n < 30 || now.n < 30) return 'thin';
+      return Math.abs(b / a - 1) < 0.05 ? 'noise' : 'clear';
+    }
+    if (unit === 'score') return Math.abs(b - a) < 0.2 ? 'noise' : 'clear';
+    return 'clear';
+  };
+}
+
+const WORD = { good: 'better', bad: 'worse', noise: 'about the same', thin: 'too few posts' };
+
+/**
+ * A change from `thenMonth` to `nowMonth`, ready to print: {sign, text, mark, tone, word}.
+ * Moves inside the noise bar are gray, marked "≈" and called "about the same", whatever their polarity.
+ */
+export function change(series, thenMonth, nowMonth) {
+  const then = series.points.find((p) => p.month === thenMonth);
+  const now = series.points.find((p) => p.month === nowMonth);
+  if (!then || !now) return null;
+  const d = deltaText(now.value, then.value, series.unit);
+  if (!d) return null;
+  const verdict = series.noise(then, now);
+  if (verdict !== 'clear') return { ...d, mark: '≈', tone: 'flat', word: WORD[verdict] };
+  const tone = ({ 1: 'good', '-1': 'bad' })[d.sign * (series.polarity ?? 0)] ?? 'flat';
+  return { ...d, mark: d.sign > 0 ? '▲' : d.sign < 0 ? '▼' : '', tone, word: WORD[tone] ?? '' };
+}
 
 export const tickFormat = (unit) => {
   switch (unit) {
@@ -129,6 +175,7 @@ export function resolveSeries(data, { metric, metrics, breakdown, categories }, 
       return {
         key, label: m.label, group: m.label, unit: m.unit, method: m.method, description: m.description,
         polarity: m.polarity ?? 0, sources: m.sources ?? [key.split('.')[1]], points: clip(m.series),
+        confidence: m.confidence, noise: noiseTest(data, key, m.unit),
       };
     });
   }
@@ -139,7 +186,8 @@ export function resolveSeries(data, { metric, metrics, breakdown, categories }, 
     if (!b.categories.includes(c)) throw new AuthoringError(`Unknown category "${c}" in ${breakdown}`);
     return {
       key: c, label: categoryLabel(c), group: b.label, unit: 'share', method: b.method, description: b.label,
-      polarity: b.polarity ?? 0, sources: b.sources ?? ['hiring'],
+      polarity: b.polarity ?? 0, sources: b.sources ?? ['hiring'], confidence: b.confidence,
+      noise: noiseTest(data, c, 'share'),
       points: clip(b.series.map((s) => ({ month: s.month, value: s.values[c], n: s.n }))),
     };
   });
@@ -150,6 +198,9 @@ export const valueAt = (series, ym) => pointAt(series, ym)?.value ?? null;
 
 export function sourceLine(series) {
   const kinds = ['hiring', 'seeking'].filter((k) => series.some((s) => s.sources.includes(k)));
-  const jev = series.some((s) => s.method === 'jev') ? ' Jev estimates are expected values, not counts of top answers.' : '';
-  return `Source: HN ${kinds.map((k) => THREAD_NAME[k]).join(' and ')} threads, first 7 days.${jev}`;
+  return `Source: HN ${kinds.map((k) => THREAD_NAME[k]).join(' and ')} threads, first 7 days.`;
 }
+
+// Said once per chart, and only when the author's note doesn't already say it.
+export const MODEL_NOTE = 'Estimated by a language model reading each post; see How we measure this.';
+export const needsModelNote = (series, note) => series.some((s) => s.method === 'jev') && !/model/i.test(note ?? '');
