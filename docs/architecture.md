@@ -42,7 +42,9 @@ One file per thread; a re-fetch overwrites it only when content changed, and git
 `sejr ats` runs after normalize, once per calendar month (it skips when a snapshot for the current month exists). It reads the public job-board JSON of two sets of boards:
 
 - **HN boards:** every Greenhouse (`boards.greenhouse.io`, `job-boards.greenhouse.io`, including `embed/...?for=<slug>`), Ashby (`jobs.ashbyhq.com`), Lever (`jobs.lever.co`) and SmartRecruiters (`jobs.`/`careers.smartrecruiters.com`) link in the in-snapshot posts of the latest 3 complete hiring threads. Three months lets a later snapshot ask whether a company that posted in month *t* is still hiring at *t*+3. EU-hosted Greenhouse and Lever boards use other API hosts and are not matched.
-- **Panel:** `panel.json`, about 40 US tech companies whose boards were checked live on these ATSs. Membership changes only by explicit edit. Each entry has `added`; retire one by adding `removed` rather than deleting it, so the panel's history stays readable.
+- **Panel:** `panel.json`, about 40 US software companies whose boards were checked live on these ATSs. Membership changes only by explicit edit. Each entry has `added`; retire one by adding `removed` rather than deleting it, so the panel's history stays readable. Google, Meta, Apple, Microsoft, Amazon and Netflix run their own careers sites, so the panel has no big tech; the planned SEC filings panel (CON-174) covers them.
+
+Each board carries `scope`: `company` by default, `portfolio` for a VC or aggregator board that lists jobs at many companies. Scopes other than `company` are set by hand in `overrides.json` (`{"scope": {"<ats>/<slug>": "portfolio"}}`). HN-linked boards outside the US stay in the snapshot; export marks a board `non_us` when more than half of its jobs with a recognizable location are outside the US (`ats.non_us`; locations such as "Remote" or "North America" don't count either way). That flag is computed from job locations whenever export runs, never stored by hand.
 
 Requests are 1 s apart with the User-Agent `software-engineering-job-report (github.com/thomasconner/software-engineering-job-report)`. A 404 is recorded as `not_found`, other HTTP errors as `http_<code>`, network errors as `error`; one bad board never stops the run. SmartRecruiters answers 200 with no jobs for unknown companies, so its empty boards are `empty`, not `not_found`.
 
@@ -50,7 +52,7 @@ Each run writes `<YYYY-MM-DD>.json.gz` (compact JSON, gzip mtime 0):
 
 ```json
 {"snapshot_date": "2026-11-04", "generated_at": "...", "classifier": "eng-1", "hn_months": ["2026-08", "2026-09", "2026-10"],
- "boards": [{"ats": "ashby", "slug": "livekit", "sources": ["hn:2026-08", "panel"], "fetched_at": "...", "status": "ok",
+ "boards": [{"ats": "ashby", "slug": "livekit", "sources": ["hn:2026-08", "panel"], "scope": "company", "fetched_at": "...", "status": "ok",
              "total_jobs": 31, "engineering_jobs": 18, "remote_jobs": 22,
              "jobs": [{"id": "...", "title": "...", "department": "R&D", "team": "Engineering", "location": "...", "remote": true, "published": "..."}]}]}
 ```

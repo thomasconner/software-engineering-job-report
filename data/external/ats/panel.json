@@ -152,6 +152,12 @@
       "added": "2026-11-04"
     },
     {
+      "ats": "greenhouse",
+      "slug": "asana",
+      "company": "Asana",
+      "added": "2026-11-04"
+    },
+    {
       "ats": "ashby",
       "slug": "openai",
       "company": "OpenAI",
@@ -245,7 +251,9 @@
       "ats": "smartrecruiters",
       "slug": "WesternDigital",
       "company": "Western Digital",
-      "added": "2026-11-04"
+      "added": "2026-11-04",
+      "removed": "2026-11-04",
+      "note": "Swapped for a software-only company (hardware maker)."
     }
   ]
 }

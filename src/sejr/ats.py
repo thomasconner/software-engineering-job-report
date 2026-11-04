@@ -95,7 +95,21 @@ def load_panel(path: Path) -> list[dict]:
     return [b for b in json.loads(path.read_text())["boards"] if not b.get("removed")]
 
 
-def plan_boards(hn: dict[tuple[str, str], dict], panel: list[dict]) -> list[dict]:
+def load_scopes(path: Path) -> dict[str, str]:
+    """Hand-set board scopes from overrides.json, keyed "<ats>/<slug>" (lowercase)."""
+    if not path.exists():
+        return {}
+    return {k.lower(): v for k, v in json.loads(path.read_text())["scope"].items()}
+
+
+def plan_boards(
+    hn: dict[tuple[str, str], dict],
+    panel: list[dict],
+    scopes: dict[str, str] | None = None,
+) -> list[dict]:
+    """HN and panel boards merged. scope is "company" unless overrides.json says otherwise
+    ("portfolio" for a VC or aggregator board that lists jobs at many companies)."""
+    scopes = scopes or {}
     boards = {key: dict(board) for key, board in hn.items()}
     for entry in panel:
         key = board_key(entry["ats"], entry["slug"])
@@ -103,6 +117,8 @@ def plan_boards(hn: dict[tuple[str, str], dict], panel: list[dict]) -> list[dict
             key, {"ats": entry["ats"], "slug": entry["slug"], "sources": []}
         )
         board["sources"] = [*board["sources"], "panel"]
+    for (ats, slug), board in boards.items():
+        board["scope"] = scopes.get(f"{ats}/{slug}", "company")
     return sorted(boards.values(), key=lambda b: board_key(b["ats"], b["slug"]))
 
 
@@ -115,6 +131,12 @@ def plan_boards(hn: dict[tuple[str, str], dict], panel: list[dict]) -> list[dict
 # technical roles (sales, solutions, support, implementation engineers), IT support,
 # scientists and analysts, and product, program, design, recruiting or sales roles that
 # merely sit in an engineering department or mention one.
+#
+# Labeling calls for borderline titles (applied to the hand-labeled fixture too):
+# forward-deployed engineers are in (they write software at customer sites); GTM
+# engineers, IT support engineers, partner/deployment engineers in go-to-market teams
+# and manual testers are out; "Member of Technical Staff" is in unless the title names
+# hardware or a non-engineering area (policy, strategy).
 #
 # The rule reads the title first, the department only when the title is a bare
 # "Engineer": 1) other-discipline or customer-facing engineering titles are out;
@@ -202,6 +224,55 @@ def is_engineering_job(job: dict) -> bool:
     """Department and team both describe where a job sits (Ashby: "R&D" / "Engineering")."""
     unit = " > ".join(filter(None, [job.get("department"), job.get("team")]))
     return is_engineering(job["title"], unit)
+
+
+# --- US share of a board -------------------------------------------------------------
+#
+# Export flags a board non_us when most of its jobs with a recognizable location are
+# outside the US. Computed from job locations each time, never stored by hand. Locations
+# that name no country ("Remote", "North America", "Any") are left out of the share.
+
+US_STATES = [
+    "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
+    "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+    "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT",
+    "VA", "WA", "WV", "WI", "WY", "DC",
+]  # fmt: skip
+US_LOCATION = re.compile(
+    r"\bu\.s\.|\b(united states|usa|us|"
+    r"alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|"
+    r"georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|"
+    r"massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|"
+    r"new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|"
+    r"oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|"
+    r"texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming|"
+    r"san francisco|sf|bay area|nyc|seattle|boston|austin|los angeles|chicago|denver|"
+    r"atlanta|palo alto|mountain view|menlo park|sunnyvale|santa clara|san jose|"
+    r"brooklyn|miami|silicon valley)\b|"
+    r",\s*(?:" + "|".join(US_STATES) + r")\b",
+    re.IGNORECASE,
+)
+NO_COUNTRY_WORDS = {
+    "remote", "anywhere", "any", "global", "worldwide", "north", "america", "americas",
+    "multiple", "location", "locations", "various", "hybrid", "in", "office", "onsite", "on",
+    "site", "flexible", "tbd", "distributed",
+}  # fmt: skip
+
+
+def is_us_location(location: str | None) -> bool | None:
+    """True for a US location, False for a non-US one, None when it names no country."""
+    words = re.findall(r"[a-z.]+", (location or "").lower())
+    if all(w in NO_COUNTRY_WORDS for w in words):
+        return None
+    return bool(US_LOCATION.search(location))
+
+
+def non_us(jobs: list[dict], threshold: float = 0.5) -> bool | None:
+    """Whether most located jobs on a board are outside the US; None with no located jobs."""
+    located = [u for j in jobs if (u := is_us_location(j.get("location"))) is not None]
+    if not located:
+        return None
+    return located.count(False) / len(located) > threshold
 
 
 # --- Parsers: one API response → compact jobs ------------------------------------------
@@ -399,7 +470,7 @@ def run(con, args, directory: Path = ATS_DIR, client: Client | None = None) -> N
         return
     hn = discover_hn(con)
     panel = load_panel(directory / "panel.json")
-    boards = plan_boards(hn, panel)
+    boards = plan_boards(hn, panel, load_scopes(directory / "overrides.json"))
     hn_months = sorted({s[3:] for b in hn.values() for s in b["sources"]})
     print(
         f"ats: {len(hn)} boards from HN {hn_months}, {len(panel)} panel, {len(boards)} total"

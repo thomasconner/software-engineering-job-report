@@ -121,11 +121,14 @@ def test_plan_boards_merges_panel_and_skips_removed(tmp_path):
     hn = {
         ("lever", "beta"): {"ats": "lever", "slug": "beta", "sources": ["hn:2026-09"]}
     }
-    boards = ats.plan_boards(hn, ats.load_panel(panel_path))
-    assert [(b["ats"], b["slug"], b["sources"]) for b in boards] == [
-        ("greenhouse", "stripe", ["panel"]),
-        ("lever", "beta", ["hn:2026-09", "panel"]),
+    overrides = tmp_path / "overrides.json"
+    overrides.write_text(json.dumps({"scope": {"Lever/Beta": "portfolio"}}))
+    boards = ats.plan_boards(hn, ats.load_panel(panel_path), ats.load_scopes(overrides))
+    assert [(b["ats"], b["slug"], b["sources"], b["scope"]) for b in boards] == [
+        ("greenhouse", "stripe", ["panel"], "company"),
+        ("lever", "beta", ["hn:2026-09", "panel"], "portfolio"),
     ]
+    assert ats.load_scopes(tmp_path / "missing.json") == {}
     assert hn[("lever", "beta")]["sources"] == ["hn:2026-09"]
 
 
@@ -257,7 +260,7 @@ def test_run_writes_compact_snapshot_without_job_text(tmp_path):
     assert (livekit["status"], livekit["total_jobs"]) == ("ok", 3)
     assert (livekit["engineering_jobs"], livekit["remote_jobs"]) == (2, 3)
     assert set(livekit) == {
-        "ats", "slug", "sources", "fetched_at", "status", "total_jobs",
+        "ats", "slug", "sources", "scope", "fetched_at", "status", "total_jobs",
         "engineering_jobs", "remote_jobs", "jobs",
     }  # fmt: skip
     allowed = {
@@ -319,3 +322,31 @@ def test_engineering_classifier_accuracy_on_labeled_titles():
     )
     assert len(rows) == 150
     assert correct / len(rows) >= 0.95
+
+
+@pytest.mark.parametrize(
+    ("location", "expected"),
+    [
+        ("San Francisco, CA", True),
+        ("Remote U.S.", True),
+        ("New York, NY or Remote", True),
+        ("Remote (US)", True),
+        ("London, UK", False),
+        ("Remote - Canada", False),
+        ("Bengaluru, India", False),
+        ("Remote, Global", None),
+        ("North America", None),
+        (None, None),
+    ],
+)
+def test_is_us_location(location, expected):
+    assert ats.is_us_location(location) is expected
+
+
+def test_non_us_ignores_locations_without_a_country():
+    jobs = [
+        {"location": loc} for loc in ["London, UK", "Berlin", "Austin, TX", "Remote"]
+    ]
+    assert ats.non_us(jobs) is True
+    assert ats.non_us(jobs + [{"location": "Seattle, WA"}]) is False
+    assert ats.non_us([{"location": "Remote"}, {}]) is None

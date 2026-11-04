@@ -1,0 +1,6 @@
+{
+  "note": "Hand-set board scope, keyed <ats>/<slug> (lowercase). Default is company; portfolio = a VC or aggregator board listing jobs at many companies.",
+  "scope": {
+    "ashby/pear-vc": "portfolio"
+  }
+}
