@@ -6,7 +6,7 @@ The contracts here are shared by every module. Change them here first, then in c
 
 ```
 src/sejr/
-  cli.py            `sejr <command>` entry point (fetch, normalize, features, classify, aggregate, export)
+  cli.py            `sejr <command>` entry point (fetch, normalize, features, classify, aggregate, export; also validate, unanswered)
   fetch.py          Algolia → data/raw
   normalize.py      data/raw → DuckDB threads/posts/replies
   features/         deterministic answers (regex, vocab, joins) → answers table
@@ -224,7 +224,8 @@ Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest l
 - `industry` rows store the folded distribution: P(sector) = P(fits) × P(sector | Choice); P(other) and P(unstated) come from the companion Nouls. `confidence` is that of the stored label, or NULL.
 - Noul rows have NULL `confidence`.
 - `answers` holds one Jev version per post; classify replaces a post's Jev rows.
-- Durable copy: `data/answers/<model>/<YYYY-MM>.parquet` (one file per thread month, both kinds). Classify loads these before calling the API, so a fresh checkout reclassifies nothing. The response cache under `data/cache/jev/` is a local accelerator, sharded by the first two hex characters of the hash, and gitignored.
+- Classify answers only in-snapshot posts of complete threads (`fetched_at >= snapshot_at`), so it always sees the frozen text.
+- Durable copy: `data/answers/<model>/<YYYY-MM>.parquet` (one file per thread month, both kinds). Each row also carries `qset` (hash of model + questions for the kind) and `digest` (sha256 of the canonical request, including the post text); classify skips a post only when both match, so a question edit or a text change re-runs just the affected posts. Classify loads these before calling the API, so a fresh checkout reclassifies nothing. `sejr unanswered` prints the complete months that still have posts to classify. The response cache under `data/cache/jev/` is a local accelerator, sharded by the first two hex characters of the hash, and gitignored.
 
 ## Validation set
 

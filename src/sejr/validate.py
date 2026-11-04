@@ -201,7 +201,7 @@ def run(
             f"{len(absent)} reference posts are not in the database, e.g. {absent[:5]}"
         )
 
-    # Classify only the reference posts; already-answered ones are skipped by qset.
+    # Classify only the reference posts; already-answered ones are skipped.
     scope = argparse.Namespace(
         month=None, limit=None, dry_run=args.dry_run, backfill=False
     )
