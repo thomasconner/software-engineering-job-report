@@ -224,6 +224,7 @@ Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest l
 - `industry` rows store the folded distribution: P(sector) = P(fits) × P(sector | Choice); P(other) and P(unstated) come from the companion Nouls. `confidence` is that of the stored label, or NULL.
 - Noul rows have NULL `confidence`.
 - `answers` holds one Jev version per post; classify replaces a post's Jev rows.
+- Classify runs only on posts from complete threads, so answers reflect the text at freeze. Each stored answer set carries a request digest (sha256 of the request, text included); a post is re-sent only when its digest changes.
 - Durable copy: `data/answers/<model>/<YYYY-MM>.parquet` (one file per thread month, both kinds). Classify loads these before calling the API, so a fresh checkout reclassifies nothing. The response cache under `data/cache/jev/` is a local accelerator, sharded by the first two hex characters of the hash, and gitignored.
 
 ## Validation set
