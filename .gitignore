@@ -4,3 +4,4 @@ __pycache__/
 *.duckdb.wal
 .env
 data/sejr.duckdb
+.claude/
