@@ -18,7 +18,6 @@ import gzip
 import html
 import itertools
 import json
-import math
 import os
 import re
 import zipfile
@@ -59,13 +58,33 @@ BULK_SUBMISSIONS = (
 )
 
 SOFTWARE_SIC = {"7370", "7371", "7372", "7373", "7374"}
-# Computer hardware (3570-3579) and semiconductors and components (3670-3679) compete for the
-# panel by the same revenue rule as software.
-CANDIDATE_SIC = SOFTWARE_SIC | {
-    str(c) for c in (*range(3570, 3580), *range(3670, 3680))
+HARDWARE_SIC = {str(c) for c in (*range(3570, 3580), *range(3670, 3680))}
+# Which companies compete for the panel by revenue. A scope choice, not a fact: changing
+# PANEL_SCOPE and rerunning the backfill rebuilds every panel and month.
+# - software_internet_chips (default): software, IT services and data processing (7370-7374)
+#   plus chip companies (3674: Nvidia, Intel, AMD, Broadcom, Micron, ...) and Qualcomm, filed
+#   under 3663 (radio and TV equipment, otherwise mostly not chips). Leaves out computer
+#   hardware, networking gear and contract manufacturing: Apple, Cisco, IBM, Dell and HP are
+#   not in this panel.
+# - software_internet_hardware: 7370-7374 plus all computer hardware (3570-3579) and
+#   electronic components (3670-3679), including contract manufacturers such as Jabil.
+SCOPES = {
+    "software_internet_chips": {
+        "sic": SOFTWARE_SIC | {"3674"},
+        "named": {804328: "Qualcomm (SIC 3663)"},
+    },
+    "software_internet_hardware": {"sic": SOFTWARE_SIC | HARDWARE_SIC, "named": {}},
 }
-# Internet platforms that no SIC rule captures (retail, services, motion pictures). This list is
-# an editorial choice made with hindsight about which companies count as tech.
+PANEL_SCOPE = "software_internet_chips"
+SCOPE_SIC = SCOPES[PANEL_SCOPE]["sic"]
+
+# Editorial exceptions, each made with hindsight about which companies count as tech:
+# - NAMED: internet platforms that no SIC rule captures (retail, services, motion pictures),
+#   always candidates, plus the scope's own named companies.
+# - KNOWN_RECLASSIFIED: companies whose code today is outside the candidate codes but whose
+#   filings once carried a software code. Only candidates: the code in their own 10-K
+#   decides, as for everyone. Others that left SIC 7370-7374 later are missed.
+# - US_DESPITE_ADDRESS: a 10-K filer with a foreign business address but US headquarters.
 NAMED = {
     1018724: "Amazon",
     1543151: "Uber",
@@ -75,12 +94,8 @@ NAMED = {
     1633917: "PayPal",
     1065088: "eBay",
     1065280: "Netflix",
-}
-# Filers whose EDGAR code today is outside the candidate codes but whose filings once carried
-# a software code. They are candidates; the code in their own 10-K decides, as for everyone.
-# Other companies that left SIC 7370-7374 later are missed (see architecture.md).
+} | SCOPES[PANEL_SCOPE]["named"]
 KNOWN_RECLASSIFIED = {1011006: "Yahoo (Altaba from 2017)", 1563190: "Compass"}
-# 10-K filers with a foreign business address but US headquarters.
 US_DESPITE_ADDRESS = {1649338: "Broadcom Ltd (Singapore address, 2016-2017)"}
 # Business address state, as EDGAR codes it (50 states and DC).
 US_STATES = {
@@ -148,9 +163,12 @@ class Filing:
 
 
 def parse_accepted(text: str) -> datetime:
-    """EDGAR's acceptanceDateTime. Since 2002 it is UTC (an 8-K accepted 16:03 Eastern reads
-    20:03Z, and the filing header says 160335); before that only the date was kept, as
-    midnight. Month counts use filingDate, EDGAR's official (Eastern) filing date."""
+    """EDGAR's acceptanceDateTime, which always ends in "Z". In the per-company submissions
+    JSON it is UTC (an 8-K accepted 09:15:50 Eastern reads 14:15:50Z). Many records in the
+    bulk file carry the Eastern clock time with the same "Z" (21 of 30 Item 2.05 records
+    checked against their headers, 2004-2024), and before 2002 only the date was kept, as
+    midnight. Only cutoff comparisons use these times, so the error is a few
+    hours at the as-of boundary; month counts use filingDate, EDGAR's official date."""
     return datetime.fromisoformat(text).astimezone(UTC)
 
 
@@ -300,22 +318,21 @@ class Edgar:
             path.write_bytes(gzip.compress(page.encode(), mtime=0))
         return find_exhibit(gzip.decompress(path.read_bytes()).decode(), kind)
 
-    def filing_sic(self, cik: int, accn: str) -> str:
-        """SIC code in the filing's own header, as it stood when the filing was made."""
+    def filing_header(self, cik: int, accn: str) -> dict:
+        """SIC code and business state in the filing's own header (`<accn>.hdr.sgml`), as
+        they stood when it was filed. Headers exist for every filing; the HTML index-headers
+        page does not before about 2014. A missing header is an error, never cached."""
         folder = accn.replace("-", "")
-        path = self.cache_dir / "headers" / str(cik) / f"{accn}.sic"
+        path = self.cache_dir / "headers" / str(cik) / f"{accn}.json"
         if not path.exists():
-            try:
-                header = self.client.get(
-                    f"{ARCHIVES}/{cik}/{folder}/{accn}-index-headers.html"
-                ).text
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code != 404:
-                    raise
-                header = ""
+            header = self.client.get(f"{ARCHIVES}/{cik}/{folder}/{accn}.hdr.sgml").text
+            parsed = parse_header(header, cik)
             path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(header_sic(html.unescape(header), cik))
-        return path.read_text()
+            path.write_text(json.dumps(parsed))
+        return json.loads(path.read_text())
+
+    def filing_sic(self, cik: int, accn: str) -> str:
+        return self.filing_header(cik, accn)["sic"]
 
     def bulk_submissions(self) -> Path:
         path = self.cache_dir / "submissions.zip"
@@ -345,6 +362,8 @@ def find_exhibit(index_page: str, kind: str) -> str | None:
 
 # ---------- every filer, from the nightly bulk file ----------
 
+# Every scope's codes, so switching PANEL_SCOPE needs no new scan.
+SCAN_SIC = set().union(*(scope["sic"] for scope in SCOPES.values()))
 SIC_RE = re.compile(rb'"sic":\s*"(\d*)"')
 
 
@@ -368,7 +387,7 @@ def filer_record(main: dict, filings: list[Filing]) -> dict:
 def scan_bulk(zip_path: Path, extra_ciks: set[int]) -> dict:
     """Two things from submissions.zip:
 
-    - `filers`: panel candidates (today's SIC in CANDIDATE_SIC, or a CIK in `extra_ciks`) with
+    - `filers`: panel candidates (today's SIC in any scope's codes, or a CIK in `extra_ciks`) with
       name, SIC, business state, original 10-Ks, periodic reports and Form 15s. Today's SIC
       only finds candidates; the panel checks the code each 10-K was filed under.
     - `layoffs`: every original 8-K that lists Item 2.05, from any filer, as
@@ -389,7 +408,7 @@ def scan_bulk(zip_path: Path, extra_ciks: set[int]) -> dict:
             body = z.read(name)
             cik = int(name[3:13])
             sic = SIC_RE.search(body[:4000])
-            candidate = (sic and sic[1].decode() in CANDIDATE_SIC) or cik in extra_ciks
+            candidate = (sic and sic[1].decode() in SCAN_SIC) or cik in extra_ciks
             older = [z.read(p) for p in pages.get(cik, [])]
             if (
                 not candidate
@@ -422,7 +441,11 @@ def bulk_index(edgar: Edgar) -> dict:
             stored["filers"] = {int(k): v for k, v in stored["filers"].items()}
             return stored
     scanned = scan_bulk(
-        zip_path, set(NAMED) | set(KNOWN_RECLASSIFIED) | set(US_DESPITE_ADDRESS)
+        zip_path,
+        set(NAMED)
+        | set(KNOWN_RECLASSIFIED)
+        | set(US_DESPITE_ADDRESS)
+        | {cik for scope in SCOPES.values() for cik in scope["named"]},
     )
     index.write_bytes(
         gzip.compress(json.dumps({"zip_mtime": stamp, **scanned}).encode(), mtime=0)
@@ -430,21 +453,28 @@ def bulk_index(edgar: Edgar) -> dict:
     return scanned
 
 
-def header_sic(header: str, cik: int) -> str:
-    """ASSIGNED-SIC for `cik` in a filing header (the SIC on file when it was filed). A
+def parse_header(header: str, cik: int) -> dict:
+    """ASSIGNED-SIC and business-address STATE for `cik` in an EDGAR SGML filing header. A
     filing made for several companies lists each filer; the one asked for wins."""
     blocks = re.split(r"<FILER>", header)[1:] or [header]
-    for block in blocks:
-        key = re.search(r"<CIK>\s*0*(\d+)", block) or re.search(
-            r"CENTRAL INDEX KEY:\s*0*(\d+)", block
-        )
-        sic = re.search(r"<ASSIGNED-SIC>\s*(\d+)", block) or re.search(
-            r"STANDARD INDUSTRIAL CLASSIFICATION:[^\[\n]*\[(\d+)\]", block
-        )
-        if sic and (key is None or int(key[1]) == cik):
-            return sic[1]
-    first = re.search(r"<ASSIGNED-SIC>\s*(\d+)", header)
-    return first[1] if first else ""
+    chosen = next(
+        (
+            b
+            for b in blocks
+            if (key := re.search(r"<CIK>\s*0*(\d+)", b)) and int(key[1]) == cik
+        ),
+        blocks[0],
+    )
+    sic = re.search(r"<ASSIGNED-SIC>\s*(\d+)", chosen)
+    business = re.search(
+        r"<BUSINESS-ADDRESS>(.*?)</BUSINESS-ADDRESS>", chosen, re.DOTALL
+    )
+    state = business and re.search(r"<STATE>\s*(\w+)", business[1])
+    return {"sic": sic[1] if sic else "", "state": state[1] if state else None}
+
+
+def header_sic(header: str, cik: int) -> str:
+    return parse_header(header, cik)["sic"]
 
 
 # ---------- XBRL facts ----------
@@ -536,17 +566,21 @@ def tag_quarters(
     tag_accns: set[str],
     filings: list[Filing],
     cut: datetime,
-) -> dict[tuple[str, str], float]:
-    """Three-month values of one tag, plus a fourth quarter from a year with silent 10-Qs.
+) -> dict[tuple[str, str], float | None]:
+    """Three-month values of one tag, plus a marker for a charge known only for the year.
 
-    A company that reports a restructuring charge only in its 10-K (Salesforce's $828 million
-    in the quarter to January 2023) has no nine-month value to subtract. When the year's three
-    10-Qs were all accepted without the tag, the nine months count as zero and the fourth
-    quarter is the full year.
+    Some companies report a restructuring charge only in the 10-K (Salesforce's $828 million
+    for the year to January 2023): the three 10-Qs were accepted without the tag. Putting the
+    year into the fourth quarter overstates that quarter whenever the charge built up during
+    the year (Dell's fiscal 2023), and the split can't be known from the filings. So the
+    company counts as having a charge in the year's last quarter (value None) but adds no
+    dollars to any quarter.
     """
-    out = quarters(periods)
+    out: dict[tuple[str, str], float | None] = dict(quarters(periods))
     for (start, end), (value, _) in periods.items():
-        if not 350 <= days(start, end) <= 380 or any(e == end for _, e in out):
+        if not value or not 350 <= days(start, end) <= 380:
+            continue
+        if any(e == end for _, e in out):
             continue
         ten_qs = [
             f
@@ -562,17 +596,20 @@ def tag_quarters(
             date.fromisoformat(quarter_ends[-1]) + timedelta(days=1)
         ).isoformat()
         if is_quarter(q4_start, end):
-            out[(q4_start, end)] = value
+            out[(q4_start, end)] = None
     return out
 
 
-def restructuring_by_quarter(company: "Company", cut: datetime) -> dict[str, float]:
-    """Calendar quarter → restructuring charge, as first filed before `cut`.
+def restructuring_by_quarter(
+    company: "Company", cut: datetime
+) -> dict[str, float | None]:
+    """Calendar quarter → restructuring charge, as first filed before `cut`; None for a
+    charge reported only for the full year (see tag_quarters).
 
     Each fiscal year uses one tag: the first in RESTRUCTURING_TAGS that the company reported
     for that year by `cut`. Mixing tags within a year would add a total to its own part.
     """
-    by_tag: dict[str, dict[tuple[str, str], float]] = {}
+    by_tag: dict[str, dict[tuple[str, str], float | None]] = {}
     years_by_tag: dict[str, set[str]] = {}
     for tag in RESTRUCTURING_TAGS:
         facts = company.facts.get(tag, [])
@@ -582,7 +619,7 @@ def restructuring_by_quarter(company: "Company", cut: datetime) -> dict[str, flo
         accns = {f["accn"] for f in facts}
         by_tag[tag] = tag_quarters(periods, accns, company.filings, cut)
         years_by_tag[tag] = {fiscal_year_key(e, company.fy_ends) for _, e in periods}
-    out: dict[str, float] = {}
+    out: dict[str, float | None] = {}
     for tag, quarter_values in by_tag.items():
         for (start, end), value in quarter_values.items():
             year = fiscal_year_key(end, company.fy_ends)
@@ -608,8 +645,10 @@ def ref_quarter(month: str) -> str:
     return f"{year}-Q{q}"
 
 
-# One tag a thousand times the others is a units slip (Tigo Energy tagged $54 million of 2024
-# revenue as $54 billion in one tag); such a value is dropped.
+# Goods and services revenue are parts of the total; they count only when no total is tagged.
+COMPONENT_REVENUE_TAGS = {"SalesRevenueGoodsNet", "SalesRevenueServicesNet"}
+# A tag more than this many times the next largest is a units slip (Tigo Energy tagged $54
+# million of 2024 revenue as $54 billion in one tag); it is dropped.
 SCALE_SLIP = 100
 
 
@@ -617,20 +656,24 @@ def annual_revenue(
     companyfacts: dict, accepted: dict[str, datetime], cut: datetime
 ) -> tuple[float, str] | None:
     """(revenue, fiscal year end) for the latest fiscal year in a 10-K accepted before `cut`:
-    the largest revenue tag for that year, ignoring a tag more than SCALE_SLIP times the
-    smallest."""
-    by_end: dict[str, list[float]] = {}
+    the largest total-revenue tag for that year (goods or services alone only when no total is
+    tagged), dropping a value more than SCALE_SLIP times the next largest."""
+    by_end: dict[str, dict[str, float]] = {}
     for tag in REVENUE_TAGS:
         for (start, end), (value, _) in first_filed(
             usd_facts(companyfacts, tag), accepted, cut
         ).items():
             if 350 <= days(start, end) <= 380 and value > 0:
-                by_end.setdefault(end, []).append(value)
+                by_end.setdefault(end, {})[tag] = value
     if not by_end:
         return None
     end = max(by_end)
-    values = by_end[end]
-    return max(v for v in values if v <= min(values) * SCALE_SLIP), end
+    tags = by_end[end]
+    totals = {t: v for t, v in tags.items() if t not in COMPONENT_REVENUE_TAGS}
+    values = sorted((totals or tags).values(), reverse=True)
+    if len(values) > 1 and values[0] > values[1] * SCALE_SLIP:
+        values = values[1:]
+    return values[0], end
 
 
 # ---------- panel ----------
@@ -640,12 +683,11 @@ def panel_path(year: int, directory: Path = SEC_DIR) -> Path:
     return directory / "panel" / f"{year}.json"
 
 
-def eligible(filer: dict, cut: datetime, cik: int = 0) -> bool:
-    """A US-based filer with a 10-K in the year or so before `cut` that had not deregistered by
-    then. A Form 15 for one class of securities (notes, say) is followed by more 10-Qs, so only
-    a Form 15 after the last periodic report counts."""
-    if filer["state"] not in US_STATES and cik not in US_DESPITE_ADDRESS:
-        return False
+def eligible(filer: dict, cut: datetime) -> bool:
+    """A filer with a 10-K in the year or so before `cut` that had not deregistered by then.
+    A Form 15 for one class of securities (notes, say) is followed by more 10-Qs, so only a
+    Form 15 after the last periodic report counts. The address test uses the 10-K's own
+    header (rank_panel)."""
     if not any(
         cut - TEN_K_WINDOW <= parse_accepted(t) < cut for _, t in filer["ten_k"]
     ):
@@ -654,6 +696,14 @@ def eligible(filer: dict, cut: datetime, cik: int = 0) -> bool:
     return not any(
         last_report < t and parse_accepted(t) < cut for t in filer["deregistered"]
     )
+
+
+def in_scope(cik: int, header: dict | None) -> bool:
+    """By the code and business state in the company's latest 10-K before the cutoff."""
+    if not header:
+        return False
+    us = header["state"] in US_STATES or cik in US_DESPITE_ADDRESS
+    return us and (cik in NAMED or header["sic"] in SCOPE_SIC)
 
 
 def last_ten_k(filer: dict, cut: datetime) -> str:
@@ -672,25 +722,21 @@ def rank_panel(
     year: int,
     candidates: dict[int, dict],
     revenue: dict[int, tuple[float, str]],
-    sics: dict[int, str],
+    headers: dict[int, dict],
 ) -> dict:
-    """The top PANEL_SIZE candidates by revenue as first filed before Jan 1 of `year`. `sics`
-    holds each candidate's code as filed in its latest 10-K; a company is in by that code or by
-    name."""
+    """The top PANEL_SIZE candidates by revenue as first filed before Jan 1 of `year`.
+    `headers` holds each candidate's SIC and business state from its latest 10-K."""
     ranked = sorted(
-        (
-            cik
-            for cik in candidates
-            if cik in revenue and (cik in NAMED or sics.get(cik) in CANDIDATE_SIC)
-        ),
+        (c for c in candidates if c in revenue and in_scope(c, headers.get(c))),
         key=lambda c: (-revenue[c][0], c),
     )[:PANEL_SIZE]
     companies = [
         {
             "cik": cik,
             "name": candidates[cik]["name"],
-            "sic": sics.get(cik, ""),
-            "reason": "named" if cik in NAMED else f"sic_{sics[cik]}",
+            "sic": headers[cik]["sic"],
+            "state": headers[cik]["state"],
+            "reason": "named" if cik in NAMED else f"sic_{headers[cik]['sic']}",
             "rank": rank,
             "revenue_usd": revenue[cik][0],
             "revenue_fiscal_year_end": revenue[cik][1],
@@ -700,12 +746,13 @@ def rank_panel(
     return {
         "year": year,
         "cutoff": f"{year}-01-01T00:00:00Z",
+        "scope": PANEL_SCOPE,
         "rule": (
-            "US-based 10-K filers whose latest 10-K before the cutoff was filed under SIC "
-            f"3570-3579, 3670-3679 or 7370-7374, plus {len(NAMED)} named internet platforms, "
-            f"with a 10-K accepted in the {TEN_K_WINDOW.days} days before the cutoff and no "
-            f"Form 15 since; top {PANEL_SIZE} by annual revenue in the latest 10-K accepted "
-            "before the cutoff"
+            f"US-based 10-K filers whose latest 10-K before the cutoff was filed under SIC "
+            f"{', '.join(sorted(SCOPE_SIC))} (scope {PANEL_SCOPE}), plus {len(NAMED)} named "
+            f"companies, with a 10-K accepted in the {TEN_K_WINDOW.days} days before the "
+            f"cutoff and no Form 15 since; top {PANEL_SIZE} by annual revenue in the latest "
+            "10-K accepted before the cutoff. SIC and state are from that 10-K's header"
         ),
         "companies": companies,
     }
@@ -713,23 +760,33 @@ def rank_panel(
 
 def build_panel(year: int, filers: dict[int, dict], edgar: Edgar) -> dict:
     cut = datetime(year, 1, 1, tzinfo=UTC)
-    candidates = {cik: f for cik, f in filers.items() if eligible(f, cut, cik)}
+    candidates = {cik: f for cik, f in filers.items() if eligible(f, cut)}
     # The frames API holds the latest restated values, so it only shortlists; the ranking uses
     # each company's revenue as first filed before the cutoff.
     restated = frame_revenue(edgar, year - 2)
     others = sorted(
-        (c for c in candidates if c in restated and c not in NAMED),
+        (
+            c
+            for c in candidates
+            if c in restated
+            and c not in NAMED
+            and (
+                candidates[c]["sic"] in SCOPE_SIC
+                or c in KNOWN_RECLASSIFIED
+                or c in US_DESPITE_ADDRESS
+            )
+        ),
         key=lambda c: -restated[c],
     )
     shortlist = [c for c in candidates if c in NAMED] + others[:PREFILTER]
-    revenue, sics = {}, {}
+    revenue, headers = {}, {}
     for cik in shortlist:
         accepted = {accn: parse_accepted(t) for accn, t in candidates[cik]["ten_k"]}
         picked = annual_revenue(edgar.companyfacts(cik), accepted, cut)
         if picked:
             revenue[cik] = picked
-            sics[cik] = edgar.filing_sic(cik, last_ten_k(candidates[cik], cut))
-    return rank_panel(year, candidates, revenue, sics)
+            headers[cik] = edgar.filing_header(cik, last_ten_k(candidates[cik], cut))
+    return rank_panel(year, candidates, revenue, headers)
 
 
 def load_panel(year: int, directory: Path = SEC_DIR) -> dict | None:
@@ -750,12 +807,12 @@ SCALE = {"thousand": 1_000, "million": 1_000_000}
 # "employed: 29,187 employees".
 LEAD = (
     r"\b(?:had|employed|employ|employs|have|has|employing|of|was|were|totaled|totaling|"
-    r"comprised|consisted of|approximately|our|by|with)[:\s]+"
+    r"comprised|consisted of|consists of|approximately|our|by|with)[:\s]+"
 )
 NOUN = (
     r"(?:(?:full[- ]time[- ]equivalent|full[- ]time|part[- ]time|full|regular|permanent|"
     r"total|global|worldwide|active|temporary|and|or)[,\s]+)*"
-    r"(?:employees|people|persons|associates|team members|staff|personnel|professionals|"
+    r"(?:employees|people|persons|individuals|associates|team members|staff|personnel|professionals|"
     r"full[- ]time[- ]equivalents|FTEs|Googlers|workers)\b"
 )
 STATED = re.compile(
@@ -805,8 +862,14 @@ TABLE = re.compile(
 # The same, said by the words right after the count ("engaged in research", "in the Asia
 # Pacific region").
 NOT_TOTAL_AFTER = re.compile(
-    r"^\s*(?:(?:who|that) (?:are|were) )?(?:engaged in|located|in the [\w ]{1,30}region|"
-    r"impacted|affected|who will|were on|in (?:the )?(?-i:[A-Z]))|^\W*(?:or|representing) [^.]{0,20}%",
+    r"^\s*(?:(?:who|that) (?:are|were) )?(?:engaged in|located in (?:the )?(?-i:[A-Z])|"
+    r"in the [\w ]{1,30}region|"
+    r"impacted|affected|who will|were on|who (?:exited|departed|left)|in (?:the )?(?-i:[A-Z]))|"
+    r"^\W*(?:or|representing) [^.]{0,20}%|"
+    # A department: "403 employees and 4 engineering consultants dedicated to research".
+    r"^\s*(?:and \d[\d,]* [a-z ]{0,30}?)?(?:dedicated to|devoted to|engaged in|in) "
+    r"(?:research|sales|engineering|"
+    r"product development|marketing|manufacturing|operations|customer|technical support)",
     re.IGNORECASE,
 )
 EMPLOYEE_WORDS = re.compile(
@@ -822,6 +885,7 @@ AT_DATE = re.compile(
 # A number about part of the company, a change, or someone else.
 NOT_TOTAL = re.compile(
     r"restructur|reduc|impact|terminat|severance|eliminat|layoff|increase|decrease|added|"
+    r"exited|departed|affected|"
     r"sales and marketing|research and development|engineering|located|seasonal|contract|"
     r"overseeing|oversaw|led an|served as|prior to|services to|serving|serves|users|"
     r"subscribers|members|"
@@ -853,7 +917,7 @@ def headcount(text: str) -> tuple[int, str] | None:
 
     Many sentences in a 10-K pair a number with "employees": the sales team, a layoff, the
     staff in one country, a customer's size. Each candidate is scored: +2 when the count is
-    stated at a date, +1 for "we had/employed", -5 when the words around the number say it is
+    stated at a date, +1 for "we had/employed" or "our workforce", -5 when the words around the number say it is
     a part (part-time staff, one country, one function), a change (a layoff, growth) or
     someone else's (customers, a director's past employer). The best score wins, then the
     earliest. A sentence needs a score of at least 1 (a date or "we had"): a bare "We have
@@ -876,9 +940,11 @@ def headcount(text: str) -> tuple[int, str] | None:
             # The clause around the number, not the whole sentence: "We serve clients ... through
             # our 120,000 employees" is the company's own count.
             before = sentence[max(0, match.start() - 80) : match.end()]
+            # "We had ..." or "Our workforce consists of ..." names the whole company.
             score = 2 * bool(AT_DATE.search(sentence)) + bool(
                 re.search(
-                    r"\b(?:we|company|\w+) (?:had|employed|employs|has)\b",
+                    r"\b(?:we|company|\w+) (?:had|employed|employs|has)\b|"
+                    r"\b(?:our|total) (?:global )?workforce\b",
                     before,
                     re.IGNORECASE,
                 )
@@ -1082,18 +1148,25 @@ def restructuring_values(
     month: str, as_of: date, companies: list[Company]
 ) -> dict[str, dict]:
     """The panel's restructuring dollars and the number of companies with a charge, for the
-    reference quarter. Companies with their own restructuring element are left out of both."""
+    reference quarter. Companies with their own restructuring element are left out of both.
+    A charge known only for the full year counts in the year's last quarter but adds no
+    dollars (`annual_only` lists those companies)."""
     cut, quarter = cutoff(as_of), ref_quarter(month)
     counted = [c for c in companies if c.cik not in CUSTOM_RESTRUCTURING]
-    charges = []
+    charges, annual_only = [], []
     for c in counted:
-        value = restructuring_by_quarter(c, cut).get(quarter)
-        if value:
+        by_quarter = restructuring_by_quarter(c, cut)
+        if quarter not in by_quarter:
+            continue
+        value = by_quarter[quarter]
+        if value is None:
+            annual_only.append(c.cik)
+        elif value:
             charges.append((value, c))
     total = sum(v for v, _ in charges)
-    dollars = entry(
-        round(total), quarter, as_of, f"{DATA}/api/xbrl/companyfacts/", len(charges)
-    )
+    source = f"{DATA}/api/xbrl/companyfacts/"
+    dollars = entry(round(total), quarter, as_of, source, len(charges))
+    dollars["annual_only"] = sorted(annual_only)
     if charges and total > 0:
         value, top = max(charges, key=lambda x: (x[0], -x[1].cik))
         dollars["top"] = {
@@ -1104,7 +1177,7 @@ def restructuring_values(
     return {
         RESTRUCTURING_KEY: dollars,
         RESTRUCTURING_COUNT_KEY: entry(
-            len(charges), quarter, as_of, f"{DATA}/api/xbrl/companyfacts/", len(counted)
+            len(charges) + len(annual_only), quarter, as_of, source, len(counted)
         ),
     }
 
@@ -1134,19 +1207,48 @@ def software_layoff_value(month: str, as_of: date, layoffs: list[list], sic_of) 
     return entry(count, ref, as_of, BULK_SUBMISSIONS)
 
 
-# A change bigger than this (a third up, or a quarter down) is a spin-off or a large
-# acquisition, not hiring or layoffs: HP's split, eBay without PayPal, Symantec without Veritas.
-MAX_LOG_CHANGE = 0.3
+# Corporate actions that the filings don't flag mechanically for the company itself (the
+# parent of a spin-off files no Item 2.01 when the shares go out, or files it late). Checked
+# by hand: date of completion and what happened.
+CORPORATE_ACTIONS = {
+    47217: [("2015-11-01", "HP split into HP Inc and Hewlett Packard Enterprise")],
+    1645590: [
+        ("2015-11-01", "Hewlett Packard Enterprise separated from HP"),
+        ("2017-04-01", "Enterprise Services merged into DXC Technology"),
+    ],
+    1065088: [("2015-07-17", "PayPal spun off from eBay")],
+    849399: [("2016-01-29", "Symantec sold Veritas")],
+}
+SPIN_OFF_FORMS = {"10-12B", "10-12G"}
+
+
+def corporate_action(company: Company, after: str, through: str) -> str | None:
+    """Why a change in headcount between fiscal year ends `after` and `through` is not
+    hiring or layoffs alone: a completed acquisition or disposition (8-K Item 2.01), a Form 10
+    registering the company's own spin-off, or a hand-listed action. None when there was none.
+    """
+    for when, what in CORPORATE_ACTIONS.get(company.cik, []):
+        if after < when <= through:
+            return what
+    for f in company.filings:
+        if not after < f.filing_date <= through:
+            continue
+        if f.form == "8-K" and "2.01" in f.items:
+            return f"8-K Item 2.01 filed {f.filing_date} ({f.accn})"
+        if f.form in SPIN_OFF_FORMS:
+            return f"Form {f.form} filed {f.filing_date} ({f.accn})"
+    return None
 
 
 def matched_headcounts(
     as_of: date, companies: list[Company], counts: Headcounts
-) -> list[tuple[int, int, int, str]]:
+) -> tuple[list[tuple[int, int, int, str]], dict[int, str]]:
     """(cik, latest, previous, latest fiscal year end) for panel companies whose latest two
     10-Ks (accepted by the as-of date, the newer within a year or so) both state a count about
-    a year apart and moved by less than MAX_LOG_CHANGE in log terms."""
+    a year apart, and the companies left out for a corporate action between the two (cik →
+    reason). Organic growth and layoffs stay in, however large."""
     cut = cutoff(as_of)
-    out = []
+    matched, dropped = [], {}
     for c in companies:
         rows = counts.rows_for(c.cik, "10-K", cut)
         if len(rows) < 2 or cut - parse_accepted(rows[0]["accepted"]) > TEN_K_WINDOW:
@@ -1156,10 +1258,11 @@ def matched_headcounts(
             continue
         if not 300 <= days(prior["period"], latest["period"]) <= 430:
             continue
-        if abs(math.log(latest["value"] / prior["value"])) > MAX_LOG_CHANGE:
+        if why := corporate_action(c, prior["period"], latest["period"]):
+            dropped[c.cik] = why
             continue
-        out.append((c.cik, latest["value"], prior["value"], latest["period"]))
-    return out
+        matched.append((c.cik, latest["value"], prior["value"], latest["period"]))
+    return matched, dropped
 
 
 def headcount_change(
@@ -1167,8 +1270,9 @@ def headcount_change(
 ) -> dict[str, dict | None]:
     """Year-over-year change in panel headcount two ways: the total (Σ latest ÷ Σ previous,
     which Amazon's warehouse staff dominate) and the median company's change. Each point
-    lists the companies behind it, which change from month to month as 10-Ks arrive."""
-    matched = matched_headcounts(as_of, companies, counts)
+    lists the companies behind it (`companies`) and those left out for a corporate action
+    (`dropped`); both change from month to month as 10-Ks arrive."""
+    matched, dropped = matched_headcounts(as_of, companies, counts)
     if not matched:
         return {TOTAL_YOY_KEY: None, MEDIAN_YOY_KEY: None}
     ref = max(period for *_, period in matched)[:7]
@@ -1176,11 +1280,11 @@ def headcount_change(
     ratios = sorted(now / then - 1 for _, now, then, _ in matched)
     mid = len(ratios) // 2
     median = ratios[mid] if len(ratios) % 2 else (ratios[mid - 1] + ratios[mid]) / 2
-    ciks = sorted(m[0] for m in matched)
     out = {}
     for key, value in ((TOTAL_YOY_KEY, total), (MEDIAN_YOY_KEY, median)):
         out[key] = entry(round(value, 4), ref, as_of, f"{ARCHIVES}/", len(matched))
-        out[key]["companies"] = ciks
+        out[key]["companies"] = sorted(m[0] for m in matched)
+        out[key]["dropped"] = sorted(dropped)
     return out
 
 
@@ -1237,6 +1341,9 @@ class Sources:
         return self._bulk
 
     def company(self, cik: int, name: str = "") -> Company:
+        if cik in self.companies and name and not self.companies[cik].name:
+            # Loaded first for the quarterly releases, before it joined a panel.
+            self.companies[cik].name = name
         if cik not in self.companies:
             company = load_company(self.edgar, cik, name)
             self.counts.annual(self.edgar, company)

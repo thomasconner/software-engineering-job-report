@@ -125,6 +125,7 @@ class Client:
         # request is treated as throttling and retried after that many seconds.
         self.throttle_backoff = throttle_backoff
         self.sleep = time.sleep
+        self.clock = time.monotonic
 
     def get(self, url: str, params: dict | None = None) -> httpx.Response:
         return self.request("GET", url, params=params)
@@ -153,10 +154,10 @@ class Client:
         transport = False
         throttled = False
         for attempt in range(self.max_attempts):
-            wait = self.last_request + self.min_interval - time.monotonic()
+            wait = self.last_request + self.min_interval - self.clock()
             if wait > 0:
                 self.sleep(wait)
-            self.last_request = time.monotonic()
+            self.last_request = self.clock()
             try:
                 if sink is None:
                     response = self.http.request(method, url, **kwargs)

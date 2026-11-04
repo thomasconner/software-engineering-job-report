@@ -4,6 +4,7 @@ from argparse import Namespace
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
+import httpx
 import pytest
 
 from sejr import external, sec
@@ -23,6 +24,7 @@ from sejr.sec import (
     is_layoff_8k,
     panel_layoff_value,
     parse_accepted,
+    parse_header,
     quarters,
     rank_panel,
     read_filings,
@@ -59,9 +61,23 @@ def autodesk() -> tuple[list[dict], dict[str, datetime]]:
 # ---------- filings and items ----------
 
 
-def test_acceptance_time_is_utc():
-    when = parse_accepted("2026-10-21T20:03:35.000Z")
-    assert when == datetime(2026, 10, 21, 20, 3, 35, tzinfo=UTC)
+def test_an_eastern_time_labeled_z_moves_the_cutoff_by_hours_and_never_the_month():
+    # A real bulk-file record: Item 2.05 8-K 0001193125-22-222412 reads
+    # "2022-08-16T17:10:55.000Z", but its header says it was accepted at 17:10:55 Eastern
+    # (21:10:55 UTC). Read as UTC it is four hours early. That can only matter on the as-of
+    # day itself, and the month comes from filingDate.
+    eastern_as_z = parse_accepted("2022-08-16T17:10:55.000Z")
+    true_utc = datetime(2022, 8, 16, 21, 10, 55, tzinfo=UTC)
+    assert true_utc - eastern_as_z == timedelta(hours=4)
+    for as_of in (date(2022, 8, 15), date(2022, 8, 16), date(2022, 8, 17)):
+        assert (eastern_as_z < cutoff(as_of)) == (true_utc < cutoff(as_of))
+    layoffs = [
+        [1478069, "0001193125-22-222412", "2022-08-16", "2022-08-16T17:10:55.000Z"]
+    ]
+    value = software_layoff_value(
+        "2022-09", date(2022, 9, 9), layoffs, lambda c, a: "7372"
+    )
+    assert value["value"] == 1 and value["ref_period"] == "2022-08"
 
 
 def test_items_are_parsed_and_amendments_do_not_count():
@@ -153,17 +169,51 @@ def test_the_software_count_uses_the_code_in_each_filing():
     assert sorted(asked) == ["a", "b", "c"]
 
 
-def test_the_sic_comes_from_the_filing_header():
+def test_the_sic_and_state_come_from_the_filing_header():
     header = (FIXTURES / "header_synopsys_8k.txt").read_text()
-    assert header_sic(header, 883241) == "7372"
+    assert parse_header(header, 883241) == {"sic": "7372", "state": "CA"}
+    # A 2013 header: the HTML index-headers page does not exist that early; .hdr.sgml does.
+    old = (FIXTURES / "header_autodesk_10k_2013.sgml").read_text()
+    assert parse_header(old, 769397) == {"sic": "7372", "state": "CA"}
     two = (
         "<SEC-HEADER>\n<FILER>\n<COMPANY-DATA>\n<CIK>0000000001\n<ASSIGNED-SIC>6798\n"
-        "</COMPANY-DATA>\n</FILER>\n<FILER>\n<COMPANY-DATA>\n<CIK>0000000002\n"
-        "<ASSIGNED-SIC>7372\n</COMPANY-DATA>\n</FILER>\n</SEC-HEADER>"
+        "</COMPANY-DATA>\n<BUSINESS-ADDRESS>\n<STATE>NY\n</BUSINESS-ADDRESS>\n</FILER>\n"
+        "<FILER>\n<COMPANY-DATA>\n<CIK>0000000002\n<ASSIGNED-SIC>7372\n</COMPANY-DATA>\n"
+        "<MAIL-ADDRESS>\n<STATE>DE\n</MAIL-ADDRESS>\n</FILER>\n</SEC-HEADER>"
     )
-    assert header_sic(two, 2) == "7372"
-    assert header_sic(two, 1) == "6798"
+    assert parse_header(two, 2) == {"sic": "7372", "state": None}
+    assert parse_header(two, 1) == {"sic": "6798", "state": "NY"}
     assert header_sic("no header", 1) == ""
+
+
+class NotFound:
+    def __init__(self):
+        self.calls = 0
+
+    def get(self, url, params=None):
+        self.calls += 1
+        response = httpx.Response(404, request=httpx.Request("GET", url))
+        raise httpx.HTTPStatusError("404", request=response.request, response=response)
+
+
+def test_a_missing_header_is_an_error_and_is_not_cached(tmp_path):
+    client = NotFound()
+    edgar = sec.Edgar(client, cache_dir=tmp_path)
+    for _ in range(2):
+        with pytest.raises(httpx.HTTPStatusError):
+            edgar.filing_sic(1, "0000000001-12-000001")
+    assert client.calls == 2
+    assert not list(tmp_path.rglob("*.json"))
+
+
+def test_every_committed_panel_is_full():
+    years = sorted(sec.SEC_DIR.glob("panel/*.json"))
+    assert len(years) >= 15
+    for path in years:
+        panel = json.loads(path.read_text())
+        assert len(panel["companies"]) >= 45, path.name
+        assert panel["scope"] == sec.PANEL_SCOPE
+        assert all(c["sic"] for c in panel["companies"]), path.name
 
 
 def submissions_json(
@@ -332,18 +382,23 @@ def test_each_fiscal_year_reads_one_tag():
     assert out["2014-Q3"] == 5_000_000
 
 
-def test_a_charge_reported_only_in_the_10k_lands_in_the_fourth_quarter():
+def test_a_charge_reported_only_in_the_10k_counts_but_adds_no_dollars():
     crm = fixture("salesforce_fy2023.json")
     filings = read_filings(crm["recent"])
     company = company_from(
         {"RestructuringCharges": crm["facts"]}, filings, cik=1108524, name="Salesforce"
     )
     # HN April 2023 reads 2022-Q4 (Salesforce's quarter to January 31, 2023). The three
-    # fiscal 2023 10-Qs carried no restructuring tag, so the $828 million year is all Q4.
+    # fiscal 2023 10-Qs carried no restructuring tag; the $828 million is known only for the
+    # year, so Q4 carries the charge without an amount.
     out = restructuring_by_quarter(company, cutoff(date(2023, 4, 11)))
-    assert out["2022-Q4"] == 828_000_000
+    assert out["2022-Q4"] is None
     assert "2022-Q3" not in out
-    # A 10-Q that had tagged it would block the rule: then the nine months are unknown.
+    values = sec.restructuring_values("2023-04", date(2023, 4, 11), [company])
+    assert values[sec.RESTRUCTURING_KEY]["value"] == 0
+    assert values[sec.RESTRUCTURING_KEY]["annual_only"] == [1108524]
+    assert values[sec.RESTRUCTURING_COUNT_KEY]["value"] == 1
+    # A 10-Q that had tagged it blocks the marker: then the year isn't 10-K-only.
     tagged = {
         "RestructuringCharges": [
             *crm["facts"],
@@ -360,15 +415,16 @@ def test_a_charge_reported_only_in_the_10k_lands_in_the_fourth_quarter():
 
 
 def test_a_custom_tag_company_is_left_out_of_both_restructuring_series():
-    crm = fixture("salesforce_fy2023.json")
-    filings = read_filings(crm["recent"])
-    facts = {"RestructuringCharges": crm["facts"]}
-    meta = company_from(facts, filings, cik=1326801, name="Meta")
-    salesforce = company_from(facts, filings, cik=1108524, name="Salesforce")
-    values = sec.restructuring_values("2023-04", date(2023, 4, 11), [meta, salesforce])
+    facts, _ = autodesk()
+    meta = company_from({"RestructuringCharges": facts}, cik=1326801, name="Meta")
+    autodesk_co = company_from(
+        {"RestructuringCharges": facts}, cik=769397, name="Autodesk"
+    )
+    values = sec.restructuring_values("2013-01", date(2013, 1, 9), [meta, autodesk_co])
     dollars = values[sec.RESTRUCTURING_KEY]
-    assert dollars["value"] == 828_000_000 and dollars["n"] == 1
-    assert dollars["top"] == {"cik": 1108524, "name": "Salesforce", "share": 1.0}
+    assert dollars["ref_period"] == "2012-Q3"
+    assert dollars["value"] == 36_700_000 and dollars["n"] == 1
+    assert dollars["top"] == {"cik": 769397, "name": "Autodesk", "share": 1.0}
     count = values[sec.RESTRUCTURING_COUNT_KEY]
     assert count["value"] == 1 and count["n"] == 1
     description = {s.key: s for s in external.SERIES}[sec.RESTRUCTURING_KEY].description
@@ -420,8 +476,6 @@ def test_panel_eligibility_uses_only_filings_before_january():
     assert not eligible(filer(ten_k=["2026-01-15T21:00:00+00:00"]), cut)
     # Last 10-K too long ago.
     assert not eligible(filer(ten_k=["2024-08-01T21:00:00+00:00"]), cut)
-    # Not US-based.
-    assert not eligible(filer(state="L2", ten_k=["2025-02-20T21:00:00+00:00"]), cut)
     # Deregistered after its last report (acquired), before the cutoff.
     gone = filer(
         ten_k=["2025-02-20T21:00:00+00:00"], deregistered=["2025-10-01T21:00:00+00:00"]
@@ -441,54 +495,58 @@ def test_panel_eligibility_uses_only_filings_before_january():
     assert eligible(later, cut)
 
 
-def test_panel_ranks_by_revenue_and_records_the_reason():
+def header(sic: str, state: str = "CA") -> dict:
+    return {"sic": sic, "state": state}
+
+
+def test_panel_ranks_by_revenue_using_the_code_and_state_as_filed():
     candidates = {
-        1: {**filer(), "name": "Small"},
+        1: {**filer(), "name": "Small software"},
         2: {**filer(sic="3571"), "name": "Big hardware"},
         3: {**filer(), "name": "No revenue"},
         4: {**filer(sic="5961"), "name": "Retailer"},
         1018724: {**filer(sic="5961"), "name": "Amazon"},
         6: {**filer(sic="7372"), "name": "Filed as a bank"},
+        7: {**filer(sic="3674"), "name": "Chip maker"},
+        8: {**filer(sic="7372"), "name": "Filed from London"},
+        804328: {**filer(sic="3663"), "name": "Qualcomm"},
     }
     revenue = {1: (5e9, "2025-06-30"), 2: (4e11, "2025-09-27"), 4: (9e11, "2025-12-31"),
-               1018724: (6e11, "2025-12-31"), 6: (8e11, "2025-12-31")}  # fmt: skip
-    # The code in each company's latest 10-K decides, not today's code.
-    sics = {1: "7372", 2: "3571", 4: "5961", 1018724: "5961", 6: "6022"}
-    panel = rank_panel(2026, candidates, revenue, sics)
+               1018724: (6e11, "2025-12-31"), 6: (8e11, "2025-12-31"), 7: (3e10, "2025-12-31"),
+               8: (7e11, "2025-12-31"), 804328: (4e10, "2025-09-28")}  # fmt: skip
+    headers = {1: header("7372"), 2: header("3571"), 4: header("5961"), 1018724: header("5961"),
+               6: header("6022"), 7: header("3674"), 8: header("7372", "X0"),
+               804328: header("3663")}  # fmt: skip
+    panel = rank_panel(2026, candidates, revenue, headers)
+    # Hardware is out of the default scope; chips and the named platforms are in.
     assert [c["name"] for c in panel["companies"]] == [
-        "Amazon",
-        "Big hardware",
-        "Small",
-    ]
+        "Amazon", "Qualcomm", "Chip maker", "Small software"
+    ]  # fmt: skip
     assert [c["reason"] for c in panel["companies"]] == [
-        "named",
-        "sic_3571",
-        "sic_7372",
-    ]
-    assert panel["cutoff"] == "2026-01-01T00:00:00Z"
+        "named", "named", "sic_3674", "sic_7372"
+    ]  # fmt: skip
+    assert panel["scope"] == "software_internet_chips"
     many = rank_panel(
         2026,
         {i: filer() for i in range(80)},
         {i: (i, "2025-12-31") for i in range(80)},
-        dict.fromkeys(range(80), "7372"),
+        {i: header("7372") for i in range(80)},
     )
     assert len(many["companies"]) == 50
 
 
-def test_candidate_codes_and_names():
-    assert {"7370", "7374", "3570", "3579", "3670", "3679"} <= sec.CANDIDATE_SIC
-    assert "3663" not in sec.CANDIDATE_SIC and "5961" not in sec.CANDIDATE_SIC
+def test_scope_and_editorial_exceptions():
+    assert sec.PANEL_SCOPE == "software_internet_chips"
+    assert sec.SCOPE_SIC == sec.SOFTWARE_SIC | {"3674"}
+    assert "3571" in sec.SCOPES["software_internet_hardware"]["sic"]
     assert set(sec.NAMED.values()) == {
-        "Amazon", "Uber", "Lyft", "Airbnb", "DoorDash", "PayPal", "eBay", "Netflix"
+        "Amazon", "Uber", "Lyft", "Airbnb", "DoorDash", "PayPal", "eBay", "Netflix",
+        "Qualcomm (SIC 3663)",
     }  # fmt: skip
-    cut = datetime(2017, 1, 1, tzinfo=UTC)
-    singapore = filer(state="U0", ten_k=["2016-12-23T21:00:00+00:00"])
-    assert eligible(singapore, cut, 1649338)
-    assert not eligible(singapore, cut, 1)
-    assert (
-        "SalesRevenueGoodsNet" in sec.REVENUE_TAGS
-        and "SalesRevenueServicesNet" in sec.REVENUE_TAGS
-    )
+    # Broadcom Ltd filed 10-Ks from a Singapore address.
+    assert sec.in_scope(1649338, header("3674", "U0"))
+    assert not sec.in_scope(1, header("3674", "U0"))
+    assert not sec.in_scope(1, None)
 
 
 def test_annual_revenue_ignores_10ks_after_the_cutoff():
@@ -505,24 +563,42 @@ def test_annual_revenue_ignores_10ks_after_the_cutoff():
     assert sec.annual_revenue(facts, accepted, cut) == (100, "2024-12-31")
 
 
-def test_a_revenue_tag_off_by_a_thousand_is_ignored():
-    def fact(tag_val):
-        return {
-            "start": "2024-01-01",
-            "end": "2024-12-31",
-            "form": "10-K",
-            "accn": "a",
-            "val": tag_val,
+def revenue_facts(**values: float) -> dict:
+    fact = {"start": "2024-01-01", "end": "2024-12-31", "form": "10-K", "accn": "a"}
+    return {
+        "facts": {
+            "us-gaap": {
+                t: {"units": {"USD": [{**fact, "val": v}]}} for t, v in values.items()
+            }
         }
+    }
 
-    facts = {"facts": {"us-gaap": {
-        "Revenues": {"units": {"USD": [fact(54_014_000)]}},
-        "RevenueFromContractWithCustomerExcludingAssessedTax": {"units": {"USD": [fact(54_014_000_000)]}},
-        "SalesRevenueNet": {"units": {"USD": [fact(60_000_000)]}},
-    }}}  # fmt: skip
+
+def test_a_revenue_tag_off_by_a_thousand_is_ignored():
+    # Tigo Energy, 2024: $54 million in one tag, $54 billion in another.
+    facts = revenue_facts(
+        Revenues=54_014_000,
+        RevenueFromContractWithCustomerExcludingAssessedTax=54_014_000_000,
+    )
     accepted = {"a": datetime(2025, 3, 20, tzinfo=UTC)}
     cut = datetime(2026, 1, 1, tzinfo=UTC)
-    assert sec.annual_revenue(facts, accepted, cut) == (60_000_000, "2024-12-31")
+    assert sec.annual_revenue(facts, accepted, cut) == (54_014_000, "2024-12-31")
+
+
+def test_goods_or_services_alone_never_beat_a_total():
+    # Match Group, 2019: a $4.3 million goods line beside $3.3 billion of total revenue. A
+    # guard against the smallest value would have thrown the total away.
+    facts = revenue_facts(
+        SalesRevenueGoodsNet=4_300_000,
+        RevenueFromContractWithCustomerExcludingAssessedTax=3_300_000_000,
+    )
+    accepted = {"a": datetime(2020, 3, 1, tzinfo=UTC)}
+    cut = datetime(2021, 1, 1, tzinfo=UTC)
+    assert sec.annual_revenue(facts, accepted, cut) == (3_300_000_000, "2024-12-31")
+    goods_only = revenue_facts(
+        SalesRevenueGoodsNet=4_300_000, SalesRevenueServicesNet=9_000_000
+    )
+    assert sec.annual_revenue(goods_only, accepted, cut) == (9_000_000, "2024-12-31")
 
 
 class NoEdgar:
@@ -549,6 +625,7 @@ def test_a_stored_panel_is_frozen(tmp_path):
         ("headcount_labels.jsonl", 0.94),
         ("headcount_heldout.jsonl", 0.9),
         ("headcount_review_draw.jsonl", 0.95),
+        ("headcount_review_draw2.jsonl", 0.95),
     ],
 )
 def test_headcount_sentences(name, floor):
@@ -563,7 +640,7 @@ def test_headcount_sentences(name, floor):
 def test_competing_sentences_from_whole_filings():
     """Every sentence in each labeled 10-K that pairs a number with employees (and its
     employee table), so the company total has to beat the parts, the layoffs and the
-    customers. 85 filings across three hand-labeled draws."""
+    customers. 100 filings across four hand-labeled draws."""
     rows = jsonl("headcount_filings.jsonl")
     got = [headcount("\n".join(r["sentences"])) for r in rows]
     values = [g[0] if g else None for g in got]
@@ -710,23 +787,61 @@ def test_one_giant_moves_the_total_but_not_the_median(tmp_path):
     assert value[sec.MEDIAN_YOY_KEY]["companies"] == [1, 2, 3, 4]
 
 
-def test_a_spin_off_is_not_a_layoff(tmp_path):
+def test_a_corporate_action_is_left_out_and_organic_growth_stays(tmp_path):
     counts = Headcounts(tmp_path / "h.json")
-    # HP's 10-Ks: 287,000, then 49,000 after Hewlett Packard Enterprise split off. eBay
-    # without PayPal: 34,600 to 11,600. Neither is hiring or firing.
+    # HP: 287,000, then 49,000 after the split (hand list). Company 5 completed an
+    # acquisition (8-K Item 2.01) between its 10-Ks. Amazon's 2020 +63% was hiring: kept.
     sizes = {
         47217: (287_000, 49_000),
-        1065088: (34_600, 11_600),
+        5: (1_000, 1_400),
+        1018724: (798_000, 1_298_000),
         3: (1_000, 1_100),
-        4: (1_000, 1_500),
     }
     counts.rows = ten_k_rows(sizes)
-    companies = [Company(cik, [], {}, {}) for cik in sizes]
-    value = sec.headcount_change(date(2026, 3, 9), companies, counts)
+    deal = Filing(
+        "d",
+        "8-K",
+        datetime(2025, 6, 2, tzinfo=UTC),
+        ("2.01", "9.01"),
+        filing_date="2025-06-02",
+    )
+    other = Filing(
+        "o",
+        "8-K",
+        datetime(2025, 6, 2, tzinfo=UTC),
+        ("2.02",),
+        filing_date="2025-06-02",
+    )
+    companies = [
+        Company(47217, [], {}, {}),
+        Company(5, [deal], {}, {}),
+        Company(1018724, [other], {}, {}),
+        Company(3, [], {}, {}),
+    ]
+    sec.CORPORATE_ACTIONS[47217] = [("2025-06-01", "test split")]
+    try:
+        value = sec.headcount_change(date(2026, 3, 9), companies, counts)
+    finally:
+        sec.CORPORATE_ACTIONS[47217] = [
+            ("2015-11-01", "HP split into HP Inc and Hewlett Packard Enterprise")
+        ]
     for key in (sec.TOTAL_YOY_KEY, sec.MEDIAN_YOY_KEY):
-        assert value[key]["companies"] == [3]
-        assert value[key]["value"] == 0.1
-    assert sec.MAX_LOG_CHANGE == 0.3
+        assert value[key]["companies"] == [3, 1018724]
+        assert value[key]["dropped"] == [5, 47217]
+    assert value[sec.TOTAL_YOY_KEY]["value"] == round(1_299_100 / 799_000 - 1, 4)
+
+
+def test_corporate_actions_cover_the_known_splits():
+    hp = Company(47217, [], {}, {})
+    assert sec.corporate_action(hp, "2014-10-31", "2015-10-31") is None
+    assert "split" in sec.corporate_action(hp, "2015-10-31", "2016-10-31")
+    spin = Filing(
+        "f", "10-12B", datetime(2020, 5, 1, tzinfo=UTC), filing_date="2020-05-01"
+    )
+    assert "10-12B" in sec.corporate_action(
+        Company(9, [spin], {}, {}), "2019-12-31", "2020-12-31"
+    )
+    assert set(sec.CORPORATE_ACTIONS) == {47217, 1645590, 1065088, 849399}
 
 
 # ---------- the step ----------
@@ -768,8 +883,26 @@ def test_the_user_agent_is_required(monkeypatch):
     assert sec.user_agent() == "Name name@example.com"
 
 
-def test_requests_stay_under_the_fair_access_limit():
-    assert 1 / sec.MIN_INTERVAL <= 8
+def test_requests_are_spaced_at_the_sec_interval():
+    from sejr.fetch import Client
+
+    now = [100.0]
+    slept = []
+
+    def sleep(seconds):
+        slept.append(round(seconds, 3))
+        now[0] += seconds
+
+    client = Client(min_interval=sec.MIN_INTERVAL)
+    client.http = httpx.Client(
+        transport=httpx.MockTransport(lambda r: httpx.Response(200))
+    )
+    client.clock, client.sleep = (lambda: now[0]), sleep
+    for _ in range(4):
+        client.get("https://data.sec.gov/x")
+    # Back-to-back requests wait out the interval: at most 1/0.15 = 6.7 a second.
+    assert slept == [0.15, 0.15, 0.15]
+    assert 1 / sec.MIN_INTERVAL < 8
 
 
 def test_sec_series_export_with_n(tmp_path):
@@ -808,4 +941,3 @@ def test_sec_series_export_with_n(tmp_path):
         "sec_headcount_alphabet.US",
         "sec_headcount_amazon.US",
     }
-    assert timedelta(days=0) < timedelta(days=external.AS_OF_DAYS)

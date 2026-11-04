@@ -233,16 +233,21 @@ def _sec(name: str, label: str, unit: str, description: str, credit: str) -> Ser
     )
 
 
-PANEL = "the SEC panel (about 50 US public tech companies, fixed each January)"
+PANEL = (
+    "the SEC panel (the 50 largest US software, internet and chip companies by revenue, "
+    "fixed each January)"
+)
 LATE_FILERS = (
     "The same quarter is shown for three HN months, and its value can change between them "
     "as late filers arrive."
 )
 MATCHED = (
-    "Each point lists the companies behind it (CIKs); the set changes from month to month as "
-    "10-Ks arrive. Companies whose count moved by more than about a third (a spin-off or a "
-    "large acquisition, such as HP's split or eBay without PayPal) are left out, because "
-    "their change is not hiring or layoffs."
+    "Each point lists the companies behind it (companies, as CIKs); the set changes from "
+    "month to month as 10-Ks arrive. Companies that completed an acquisition, disposition or "
+    "spin-off between their two 10-Ks (an 8-K Item 2.01, a Form 10, or a hand-checked list "
+    "such as HP's split and eBay's PayPal spin-off) are left out and listed (dropped), "
+    "because their change mixes the deal with hiring and layoffs. Organic growth and layoffs "
+    "stay in, however large."
 )
 SERIES += [
     _sec(
@@ -254,9 +259,13 @@ SERIES += [
         "RestructuringCharges, SeveranceCosts1, RestructuringAndRelatedCostIncurredCost, "
         "RestructuringSettlementAndImpairmentProvisions, RestructuringCosts, "
         "RestructuringCostsAndAssetImpairmentCharges; some include impairments and other "
-        "exit costs. Meta files its charges under its own XBRL element and is left out. n is "
-        "the number of companies with a charge; top names the largest and its share of the "
-        "total. The quarter is the latest that every company had to file by the as-of date, "
+        "exit costs, and a few carry other items (Intel's 2021-Q1 value includes the VLSI "
+        "patent litigation charge). Meta files its charges under its own XBRL element and is "
+        "left out. A charge reported only in the 10-K, with no quarter, counts in "
+        "sec_restructuring_companies but adds no dollars here (annual_only lists those "
+        "companies; Salesforce's $828 million for fiscal 2023 is one), so the sum understates. "
+        "n is the number of companies with dollars; top names the largest and its share of "
+        "the total. The quarter is the latest that every company had to file by the as-of date, "
         f"so it trails the HN month by four to six months. {LATE_FILERS}",
         "panel and sums by this report",
     ),
@@ -266,7 +275,9 @@ SERIES += [
         "count",
         "Number of companies in "
         f"{PANEL} that reported a restructuring or similar charge for the quarter (tags as in "
-        "sec_restructuring_usd; Meta, which uses its own element, is left out). Sturdier than "
+        "sec_restructuring_usd; Meta, which uses its own element, is left out). A charge "
+        "reported only for the full year counts in the fiscal year's last quarter. Sturdier "
+        "than "
         f"the dollar sum, which one large charge can dominate. n is the number of companies "
         f"counted. {LATE_FILERS}",
         "panel and counts by this report",
