@@ -55,9 +55,8 @@ class Term:
     always: re.Pattern[str] | None  # counts wherever it appears
     in_list: re.Pattern[str] | None  # counts only inside a tech list
     near: re.Pattern[str] | None  # every match needs this within CONTEXT_CHARS
-    exclude: (
-        re.Pattern[str] | None
-    )  # a match is dropped when this is within 30 characters
+    # A match is dropped when this is within 30 characters of it.
+    exclude: re.Pattern[str] | None
     company: str | None  # the term is also a company (normalized name, see company.py)
 
 
