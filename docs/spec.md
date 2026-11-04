@@ -23,7 +23,7 @@ A monthly heartbeat on US startup and engineering hiring, built from Hacker News
 
 ## Pipeline
 
-1. **Fetch:** save raw thread JSON, gzipped, under `data/raw/<thread_id>/<fetched_at>.json.gz`. Never edited.
+1. **Fetch:** save raw thread JSON, gzipped, under `data/raw/<kind>/<YYYY-MM>/<thread_id>.json.gz`. A re-fetch overwrites only when content changed; git history keeps earlier versions.
 2. **Normalize:** DuckDB tables `threads`, `posts` (top-level comments), `replies`.
 3. **Derive:** table `answers(post_id, question, method, version, value, probabilities, confidence)`.
 4. **Aggregate:** monthly series, computed with `as_of = month`.
@@ -50,7 +50,7 @@ A hand-labeled reference set of about 200 posts, sampled across years. Each meth
 1. **Fixed snapshot age.** Each month uses only posts and replies whose `created_at` is within **7 days** of the thread's creation. Every month, past or current, is measured at the same age.
 2. **Cross-month features use only the past.** "New vs returning company", first appearance, rolling baselines, percentiles and z-scores are computed from months `<= as_of`. A test checks that computing month *t* from the full dataset gives the same output as computing it from data cut off at *t*.
 3. **Classifiers see only the post text.** No dates, no company outcomes, no other months. Questions ask what the text says, not what the model knows about the company.
-4. **Pinned model versions.** Jev versions are pinned (for example `jev-1.13.0`, not `jev-latest`) and stored on every answer. An upgrade reclassifies the full history, so one series never mixes versions.
+4. **Pinned model versions.** Jev versions are pinned (for example `jev-1.14.0`, not `jev-latest`) and stored on every answer. An upgrade reclassifies the full history, so one series never mixes versions.
 5. **Fixed vocabularies apply to all months.** Adding a term (for example "agents") reruns every month. A zero in 2015 is a real zero.
 
 ### Known biases (stated on the report)
@@ -96,3 +96,6 @@ Articles are written by an agent from the exported numbers, then fact-checked by
 - 2026-11-04: Public repo `thomasconner/software-engineering-job-report`. Linear project P-CON-53 in Conner Technology.
 - 2026-11-04: No Haiku. Salary and company name come from regex. Jev is the only model.
 - 2026-11-04: Backfill from April 2011, both thread kinds. Snapshot age 7 days.
+- 2026-11-04: Raw storage keeps one file per thread (architecture.md layout); git history is the version record.
+- 2026-11-04: The Jev response cache (~126k files) is not committed. Jev answers are committed as Parquet under `data/answers/`, so CI only classifies new posts.
+- 2026-11-04: Thread coverage: 188 hiring months (2011-04 to 2026-11, no gaps) and 151 seeking months (the thread started 2014-05). Four months use threads posted by other users; see `EXTRA_THREADS` in fetch.py.
