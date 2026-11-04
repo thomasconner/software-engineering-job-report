@@ -12,6 +12,7 @@ Read these first, in this order. They hold the context this repo builds on, so d
 4. `docs/style-guide.md`: how the column reads. `docs/editor-notes.md` holds what Thomas changed in past drafts.
 5. `docs/research.md`: the known ways each source can mislead, and the sources considered, both used and rejected.
 6. `docs/sessions/`: one note per working session, recording what Thomas asked for and what was decided.
+7. `docs/column-routine.md`: the scheduled routine that drafts each column, with its verbatim prompt. Keep it in sync with the routine on claude.ai. `docs/editing.md` covers how Thomas edits a column PR.
 
 ## How Thomas wants the report
 
@@ -29,7 +30,7 @@ Read these first, in this order. They hold the context this repo builds on, so d
   2. A fresh agent reviews the diff adversarially. It gets the code, not the author's conclusions, and checks numbers against the data. Where labels matter, it draws its own sample.
   3. The author fixes the findings.
   4. The same reviewer re-reviews until nothing serious is left.
-  5. The lead merges and runs the full test suite.
+  5. The lead opens a PR and runs the full test suite. Thomas merges; auto mode blocks agent merges to main. Small doc and data commits go straight to main.
 - **Learning loop:** after each review, any finding that reveals a class of mistake goes into `docs/lessons.md` in the same PR. Agents read it before starting.
 - **Column loop:** the routine's draft is the first commit of each `column/YYYY-MM` PR. Thomas edits it and merges. The next run reads the gap between draft and merge, plus his reasons, and records it in `docs/editor-notes.md`.
 - **Decisions:** any decision made in conversation lands in the `docs/spec.md` Decisions log, or in the relevant doc, in the same session.
@@ -38,7 +39,7 @@ Read these first, in this order. They hold the context this repo builds on, so d
 
 ## Commands
 
-`uv run sejr <step>` (fetch, normalize, features, classify, aggregate, ats, external, export, validate, unanswered); `uv run pytest -q`; `uv run ruff check`. Jev needs `uv run --env-file .env` (`TYPESAFE_API_KEY`). The SEC needs `SEC_USER_AGENT`. Never print or commit `.env`.
+`uv run sejr <step>` (fetch, normalize, features, classify, aggregate, ats, external, sec, export, validate, unanswered); `uv run pytest -q`; `uv run ruff check`. Jev needs `uv run --env-file .env` (`TYPESAFE_API_KEY`). The SEC needs `SEC_USER_AGENT`. Never print or commit `.env`. Actions secrets: `TYPESAFE_API_KEY` and `SEC_USER_AGENT`, plus optional `BLS_API_KEY`. Only Thomas can set them.
 
 ## Conventions
 

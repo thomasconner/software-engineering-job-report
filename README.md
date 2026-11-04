@@ -61,7 +61,7 @@ To view the site, serve `site/` (for example `python -m http.server -d site`).
 
 Expect a commit on most of days 1–12 while the current thread fills in, and none for the rest of the month.
 
-When a new month becomes complete and `site/articles/YYYY-MM.md` doesn't exist yet, the workflow opens an issue titled "Write the <Month YYYY> column". The column is written and fact-checked by agents outside CI, then merged, which deploys it.
+When a new month becomes complete and `site/articles/YYYY-MM.md` doesn't exist yet, the workflow opens an issue titled "Write the <Month YYYY> column". A scheduled Claude Code routine (`docs/column-routine.md`) drafts and fact-checks the column on days 10–14 and opens a `column/YYYY-MM` PR. Thomas edits and merges it (`docs/editing.md`), which deploys it.
 
 ## First deploy
 
