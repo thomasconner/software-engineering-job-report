@@ -197,30 +197,39 @@ def _count_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     return rows
 
 
-def _us_ratio_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
-    """US-located seekers per hiring post open to US workers.
+def _us_ratio_rows(
+    con: duckdb.DuckDBPyConnection, month: date, counts: list[Row]
+) -> list[Row]:
+    """US-located seekers per hiring post open to US workers, on the submitted basis.
 
-    Region needs the text, so both sides count live posts. Posts removed before the fetch
-    have no text, unlike the submitted counts behind seekers_per_post.
+    Region needs the text, which removed posts don't have, so the US shares come from live
+    posts and scale seekers_per_post, assuming removed posts share the live posts' mix.
+    Counting live posts directly would let each thread's removed share, which depends on
+    fetch age, move the ratio.
     """
-    us_seekers, seekers, open_posts = con.execute(
+    ratio = next((r[4] for r in counts if r[2] == "seekers_per_post"), None)
+    if ratio is None:
+        return []
+    us_seekers, known_seekers, open_posts, hiring = con.execute(
         SNAPSHOT
         + """
         SELECT
           count(*) FILTER (WHERE s.kind = 'seeking' AND a.question = 'region'
                            AND a.label = 'us'),
-          (SELECT count(*) FROM snapshot WHERE kind = 'seeking'),
+          count(*) FILTER (WHERE s.kind = 'seeking' AND a.question = 'region'
+                           AND a.label <> 'unknown'),
           count(*) FILTER (WHERE s.kind = 'hiring' AND a.question = 'open_to_us'
-                           AND a.value = 1)
+                           AND a.value = 1),
+          count(*) FILTER (WHERE s.kind = 'hiring' AND a.question = 'open_to_us')
         FROM snapshot s JOIN answers a USING (post_id)
         WHERE a.method = 'regex' AND a.version = $version
         """,
         {"month": month, "version": FEATURES_VERSION},
     ).fetchone()
-    if not (seekers and open_posts):
+    if not (known_seekers and open_posts):
         return []
-    ratio = us_seekers / open_posts
-    return [(month, "hiring", "seekers_per_post_us", "", ratio, open_posts)]
+    us_ratio = ratio * (us_seekers / known_seekers) / (open_posts / hiring)
+    return [(month, "hiring", "seekers_per_post_us", "", us_ratio, open_posts)]
 
 
 def _covered(
@@ -298,9 +307,10 @@ def _breakdown_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
 
 def compute_month(con: duckdb.DuckDBPyConnection, month: date | str) -> list[Row]:
     month = _as_date(month)
+    counts = _count_rows(con, month)
     return (
-        _count_rows(con, month)
-        + _us_ratio_rows(con, month)
+        counts
+        + _us_ratio_rows(con, month, counts)
         + _scalar_rows(con, month)
         + _breakdown_rows(con, month)
     )

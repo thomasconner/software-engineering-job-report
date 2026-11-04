@@ -67,8 +67,8 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
             "Posts in “Who wants to be hired?” whose Location line is in the US, divided by "
             "hiring posts whose first line names a US place or offers remote work US workers "
             "can take (no region stated, or the US, North America, the Americas, worldwide or "
-            "US time zones). The location is read from the text, so both counts leave out "
-            "posts deleted before we fetched the thread."
+            "US time zones). Both counts include posts later deleted: deleted posts have no "
+            "text to read a location from, so we assume they split the same way as the rest."
         ),
     ),
     "replies_per_post.hiring": (

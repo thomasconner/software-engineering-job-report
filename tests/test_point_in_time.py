@@ -59,28 +59,37 @@ def test_region_metrics_are_the_same_with_or_without_later_months(db, tmp_path):
     assert seen == REGION_METRICS
 
 
-def test_us_seeker_ratio_counts_live_posts(db):
+def test_us_seeker_ratio_is_on_the_submitted_basis(db):
     features.build(db)
     t = date(2024, 3, 1)
-    db.execute("UPDATE threads SET removed_in_snapshot = 50 WHERE month = ?", [t])
+    db.execute(
+        "UPDATE threads SET removed_in_snapshot = 50 WHERE month = ? AND kind = 'hiring'",
+        [t],
+    )
     metrics = _metrics(aggregate.compute_month(db, t))
-    (us_seekers, seekers, open_posts) = db.execute(
+    (us_seekers, seekers, open_posts, hiring) = db.execute(
         """
         SELECT
           count(*) FILTER (WHERE t.kind = 'seeking' AND p.text LIKE 'Location: Austin%'),
           count(*) FILTER (WHERE t.kind = 'seeking'),
-          count(*) FILTER (WHERE t.kind = 'hiring' AND a.value = 1)
+          count(*) FILTER (WHERE t.kind = 'hiring' AND a.value = 1),
+          count(*) FILTER (WHERE t.kind = 'hiring')
         FROM posts p JOIN threads t USING (thread_id)
         LEFT JOIN answers a ON a.post_id = p.post_id AND a.question = 'open_to_us'
         WHERE p.in_snapshot AND t.month = $m
         """,
         {"m": t},
     ).fetchone()
-    # Removed posts have no text, so they change seekers_per_post but not the US ratio.
+    # Every fixture seeker names a region, and removed posts are assumed to split like
+    # live ones, so the US ratio is seekers_per_post scaled by the two live shares.
+    ratio, _ = metrics[("hiring", "seekers_per_post", "")]
+    expected = ratio * (us_seekers / seekers) / (open_posts / hiring)
     assert metrics[("hiring", "seekers_per_post_us", "")] == (
-        pytest.approx(us_seekers / open_posts),
+        pytest.approx(expected),
         open_posts,
     )
+    # 50 removed hiring posts make the live-count ratio differ from the submitted one.
+    assert expected != pytest.approx(us_seekers / open_posts)
     assert metrics[("seeking", "seeker_us_share", "")] == (
         pytest.approx(us_seekers / seekers),
         seekers,
@@ -273,7 +282,7 @@ def test_removed_posts_change_counts_but_not_shares(db):
         after[("hiring", "seekers_per_post", "")]
         != before[("hiring", "seekers_per_post", "")]
     )
-    counts = {"posts", "seekers_per_post", "removed_share"}
+    counts = {"posts", "seekers_per_post", "seekers_per_post_us", "removed_share"}
     assert {k: v for k, v in after.items() if k[1] not in counts} == {
         k: v for k, v in before.items() if k[1] not in counts
     }
