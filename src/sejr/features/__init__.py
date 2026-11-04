@@ -7,7 +7,9 @@ from datetime import date
 import duckdb
 
 from sejr.db import insert_rows
+from sejr.features.benefits import offered_benefits
 from sejr.features.company import company_name
+from sejr.features.experience import degree, years_bucket, years_required
 from sejr.features.region import hiring_regions, seeker_region
 from sejr.features.salary import salary_summary
 from sejr.features.tokens import (
@@ -16,13 +18,18 @@ from sejr.features.tokens import (
     onsite_token,
     remote_token,
 )
+from sejr.features.traits import interview_styles, office_days
 from sejr.features.vocab import stack_terms
 
 # Bump whenever a rule or the vocabulary changes; aggregate reads only this version.
-VERSION = "features-3"
+VERSION = "features-4"
 LOOKBACK_MONTHS = 24
 
 Answer = tuple[int, str, str, str, float | None, str | None, str | None, float | None]
+
+
+def _float(value: int | None) -> float | None:
+    return None if value is None else float(value)
 
 
 def post_answers(post_id: int, text: str, kind: str = "hiring") -> list[Answer]:
@@ -36,6 +43,9 @@ def post_answers(post_id: int, text: str, kind: str = "hiring") -> list[Answer]:
     regions, open_to_us = hiring_regions(text)
     low, high, currency = salary_summary(text)
     terms = stack_terms(text)
+    offered = offered_benefits(text)
+    styles = interview_styles(text)
+    years = years_required(text)
     rows = [
         row("salary_currency", "regex", label=currency),
         row("remote_token", "regex", float(remote_token(text))),
@@ -56,6 +66,28 @@ def post_answers(post_id: int, text: str, kind: str = "hiring") -> list[Answer]:
             float(len(regions)),
             probabilities=json.dumps(dict.fromkeys(regions, 1.0)),
         ),
+        row(
+            "benefits",
+            "regex",
+            float(len(offered)),
+            probabilities=json.dumps(dict.fromkeys(offered, 1.0)),
+        ),
+        row(
+            "interview_style",
+            "regex",
+            float(len(styles)),
+            probabilities=json.dumps(dict.fromkeys(styles, 1.0)),
+        ),
+        # Always a row, NULL when the post states no years, so the share has a denominator.
+        row(
+            "years_required",
+            "regex",
+            _float(years),
+            None if years is None else years_bucket(years),
+        ),
+        row("degree", "regex", label=degree(text)),
+        row("office_days", "regex", _float(office_days(text))),
+        row("post_length", "count", float(len(text))),
     ]
     # No row when the header names no place and doesn't say remote.
     if open_to_us is not None:
@@ -121,7 +153,7 @@ def _delete(con: duckdb.DuckDBPyConnection, month: date | None) -> None:
     con.execute(
         """
         DELETE FROM answers
-        WHERE version = $version AND method IN ('regex', 'vocab')
+        WHERE version = $version AND method IN ('regex', 'vocab', 'count')
           AND post_id IN (
             SELECT p.post_id FROM posts p JOIN threads t USING (thread_id)
             WHERE $month IS NULL OR t.month = $month
@@ -137,7 +169,7 @@ def _delete(con: duckdb.DuckDBPyConnection, month: date | None) -> None:
 
 
 def build(con: duckdb.DuckDBPyConnection, month: date | None = None) -> int:
-    """Rewrite this version's regex/vocab answers for one month (or all), then every join."""
+    """Rewrite this version's regex/vocab/count answers for one month (or all), then every join."""
     rows = [
         r
         for post_id, text, kind in _posts(con, month)
