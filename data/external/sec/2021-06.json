@@ -1,6 +1,6 @@
 {
   "as_of": "2021-06-09",
-  "fetched_at": "2026-11-04T17:44:17Z",
+  "fetched_at": "2026-11-04T17:48:05Z",
   "month": "2021-06",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -13,6 +13,13 @@
       "ref_period": "2021-03-31",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
       "value": 1271000,
+      "vintage_date": "2021-06-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "n": 45,
+      "ref_period": "2021-03",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0362,
       "vintage_date": "2021-06-09"
     },
     "sec_headcount_meta.US": {

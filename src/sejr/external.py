@@ -270,8 +270,20 @@ SERIES += [
         f"Year-over-year change in employees across {PANEL}, from the employee count in each "
         "company's latest 10-K against its previous 10-K, over the companies that state both; "
         "n is that number of companies. 10-Ks come once a year, so the series moves as each "
-        "company files.",
+        "company files. Amazon has about a third of the panel's employees, mostly warehouse "
+        "and delivery staff, so it drives this total; sec_headcount_median_yoy shows the "
+        "typical company.",
         "counts read from 10-K text and summed by this report",
+    ),
+    _sec(
+        "sec_headcount_median_yoy",
+        "Employees at the median US public tech panel company, change over a year",
+        "change",
+        f"Median company's year-over-year change in employees across {PANEL}, from each "
+        "company's latest 10-K against its previous 10-K, over the companies that state both "
+        "(the same companies as sec_headcount_panel); n is that number. Unlike the total, no "
+        "single company drives it.",
+        "counts read from 10-K text; median by this report",
     ),
     *(
         _sec(

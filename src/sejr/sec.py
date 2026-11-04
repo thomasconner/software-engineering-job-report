@@ -939,14 +939,14 @@ def software_layoff_value(month: str, as_of: date, filers: dict[int, dict]) -> d
     return entry(count, ref, as_of, BULK_SUBMISSIONS)
 
 
-def headcount_change(
+def matched_headcounts(
     as_of: date, companies: list[Company], counts: Headcounts
-) -> dict | None:
-    """Year-over-year change over panel companies whose latest two 10-Ks (accepted by the as-of
-    date, the newer within a year or so) both state a count about a year apart."""
+) -> list[tuple[int, int, str]]:
+    """(latest, previous, latest fiscal year end) for panel companies whose latest two 10-Ks
+    (accepted by the as-of date, the newer within a year or so) both state a count about a
+    year apart."""
     cut = cutoff(as_of)
-    now_total = then_total = 0
-    periods = []
+    out = []
     for c in companies:
         rows = counts.rows_for(c.cik, "10-K", cut)
         if len(rows) < 2 or cut - parse_accepted(rows[0]["accepted"]) > TEN_K_WINDOW:
@@ -956,18 +956,27 @@ def headcount_change(
             continue
         if not 300 <= days(prior["period"], latest["period"]) <= 430:
             continue
-        now_total += latest["value"]
-        then_total += prior["value"]
-        periods.append(latest["period"])
-    if not periods:
-        return None
-    return entry(
-        round(now_total / then_total - 1, 4),
-        max(periods)[:7],
-        as_of,
-        f"{ARCHIVES}/",
-        len(periods),
-    )
+        out.append((latest["value"], prior["value"], latest["period"]))
+    return out
+
+
+def headcount_change(
+    as_of: date, companies: list[Company], counts: Headcounts
+) -> dict[str, dict | None]:
+    """Year-over-year change in panel headcount two ways: the total (Σ latest ÷ Σ previous,
+    which Amazon's warehouse staff dominate) and the median company's change."""
+    matched = matched_headcounts(as_of, companies, counts)
+    if not matched:
+        return {TOTAL_YOY_KEY: None, MEDIAN_YOY_KEY: None}
+    ref = max(period for _, _, period in matched)[:7]
+    total = sum(now for now, _, _ in matched) / sum(then for _, then, _ in matched) - 1
+    ratios = sorted(now / then - 1 for now, then, _ in matched)
+    mid = len(ratios) // 2
+    median = ratios[mid] if len(ratios) % 2 else (ratios[mid - 1] + ratios[mid]) / 2
+    return {
+        key: entry(round(value, 4), ref, as_of, f"{ARCHIVES}/", len(matched))
+        for key, value in ((TOTAL_YOY_KEY, total), (MEDIAN_YOY_KEY, median))
+    }
 
 
 def quarterly_headcount(key: str, as_of: date, counts: Headcounts) -> dict | None:
@@ -985,10 +994,13 @@ def quarterly_headcount(key: str, as_of: date, counts: Headcounts) -> dict | Non
     )
 
 
+TOTAL_YOY_KEY = "sec_headcount_panel.US"
+MEDIAN_YOY_KEY = "sec_headcount_median_yoy.US"
 PANEL_KEYS = [
     "sec_restructuring_usd.US",
     "sec_item_205_filings_panel.US",
-    "sec_headcount_panel.US",
+    TOTAL_YOY_KEY,
+    MEDIAN_YOY_KEY,
 ]
 SOFTWARE_KEY = "sec_item_205_filings_software.US"
 QUARTERLY_KEYS = [f"sec_headcount_{k}.US" for k in QUARTERLY]
@@ -1066,7 +1078,7 @@ def month_values(month: str, as_of: date, src: Sources) -> tuple[dict, list[str]
             "sec_item_205_filings_panel.US": panel_layoff_value(
                 month, as_of, companies
             ),
-            "sec_headcount_panel.US": headcount_change(as_of, companies, src.counts),
+            **headcount_change(as_of, companies, src.counts),
         }
 
     def quarterly_group() -> dict:

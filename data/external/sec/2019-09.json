@@ -1,6 +1,6 @@
 {
   "as_of": "2019-09-11",
-  "fetched_at": "2026-11-04T17:43:40Z",
+  "fetched_at": "2026-11-04T17:48:04Z",
   "month": "2019-09",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -13,6 +13,13 @@
       "ref_period": "2019-06-30",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
       "value": 653300,
+      "vintage_date": "2019-09-11"
+    },
+    "sec_headcount_median_yoy.US": {
+      "n": 48,
+      "ref_period": "2019-07",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0963,
       "vintage_date": "2019-09-11"
     },
     "sec_headcount_meta.US": {

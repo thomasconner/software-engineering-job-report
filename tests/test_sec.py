@@ -398,9 +398,34 @@ def test_headcount_change_matches_companies_across_two_10ks(tmp_path):
     }
     companies = [Company(cik, [], {}, {}) for cik in (1, 2, 3)]
     value = sec.headcount_change(date(2026, 3, 9), companies, counts)
-    assert value["value"] == 0.1 and value["n"] == 1
+    assert value[sec.TOTAL_YOY_KEY]["value"] == 0.1
+    assert value[sec.TOTAL_YOY_KEY]["n"] == 1
     # Before the 2026 10-K, company 1 has one count only.
-    assert sec.headcount_change(date(2026, 1, 9), companies, counts) is None
+    none = sec.headcount_change(date(2026, 1, 9), companies, counts)
+    assert none == {sec.TOTAL_YOY_KEY: None, sec.MEDIAN_YOY_KEY: None}
+
+
+def test_one_giant_moves_the_total_but_not_the_median(tmp_path):
+    counts = Headcounts(tmp_path / "h.json")
+    sizes = {1: (1_000_000, 1_500_000), 2: (100, 90), 3: (200, 190), 4: (300, 270)}
+    counts.rows = {
+        f"{cik}-{i}": {
+            "cik": cik,
+            "kind": "10-K",
+            "accepted": f"{2025 + i}-02-01T21:00:00+00:00",
+            "period": f"{2024 + i}-12-31",
+            "value": value,
+        }
+        for cik, pair in sizes.items()
+        for i, value in enumerate(pair)
+    }
+    companies = [Company(cik, [], {}, {}) for cik in sizes]
+    value = sec.headcount_change(date(2026, 3, 9), companies, counts)
+    assert value[sec.TOTAL_YOY_KEY]["value"] > 0.4
+    # Changes -10%, -5%, -10%, +50%: the median is the mean of the middle two.
+    assert value[sec.MEDIAN_YOY_KEY]["value"] == -0.075
+    assert value[sec.MEDIAN_YOY_KEY]["n"] == 4
+    assert value[sec.MEDIAN_YOY_KEY]["ref_period"] == "2025-12"
 
 
 # ---------- the step ----------
@@ -474,6 +499,7 @@ def test_sec_series_export_with_n(tmp_path):
         "sec_item_205_filings_panel.US",
         "sec_item_205_filings_software.US",
         "sec_headcount_panel.US",
+        "sec_headcount_median_yoy.US",
         "sec_headcount_meta.US",
         "sec_headcount_alphabet.US",
         "sec_headcount_amazon.US",
