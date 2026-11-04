@@ -6,8 +6,9 @@ The contracts here are shared by every module. Change them here first, then in c
 
 ```
 src/sejr/
-  cli.py            `sejr <command>` entry point (fetch, normalize, features, classify, aggregate, export; also validate, unanswered)
+  cli.py            `sejr <command>` entry point (fetch, ats, normalize, features, classify, aggregate, export; also validate, unanswered)
   fetch.py          Algolia → data/raw
+  ats.py            company job boards (Greenhouse, Ashby, Lever, SmartRecruiters) → data/external/ats
   normalize.py      data/raw → DuckDB threads/posts/replies
   features/         deterministic answers (regex, vocab, joins) → answers table
   classify/         Jev questions → answers table
@@ -18,6 +19,7 @@ data/raw/           gzipped API responses, committed, never edited
 data/sejr.duckdb    rebuildable from data/raw, gitignored
 data/cache/jev/     cached Jev responses keyed by request hash, gitignored
 data/answers/       Jev answers as Parquet, committed (the durable record)
+data/external/ats/  monthly job-board snapshots and the fixed board panel, committed
 site/               static GitHub Pages site (index.html + assets + data/)
 site/articles/      one Markdown article per month, YYYY-MM.md
 tests/
@@ -34,6 +36,32 @@ Run everything with `uv run sejr <command>`. Tests: `uv run pytest`.
 `month` is the month named in the title, not the creation date.
 
 One file per thread; a re-fetch overwrites it only when content changed, and git history keeps earlier versions. The sidecar also records `checked_at` (last fetch, changed or not) and the thread's Firebase `kids` list, used to count removed posts.
+
+## Job-board snapshots: `data/external/ats/`
+
+`sejr ats` runs after normalize, once per calendar month (it skips when a snapshot for the current month exists). It reads the public job-board JSON of two sets of boards:
+
+- **HN boards:** every Greenhouse (`boards.greenhouse.io`, `job-boards.greenhouse.io`, including `embed/...?for=<slug>`), Ashby (`jobs.ashbyhq.com`), Lever (`jobs.lever.co`) and SmartRecruiters (`jobs.`/`careers.smartrecruiters.com`) link in the in-snapshot posts of the latest 3 complete hiring threads. Three months lets a later snapshot ask whether a company that posted in month *t* is still hiring at *t*+3. EU-hosted Greenhouse and Lever boards use other API hosts and are not matched.
+- **Panel:** `panel.json`, about 40 US tech companies whose boards were checked live on these ATSs. Membership changes only by explicit edit. Each entry has `added`; retire one by adding `removed` rather than deleting it, so the panel's history stays readable.
+
+Requests are 1 s apart with the User-Agent `software-engineering-job-report (github.com/thomasconner/software-engineering-job-report)`. A 404 is recorded as `not_found`, other HTTP errors as `http_<code>`, network errors as `error`; one bad board never stops the run. SmartRecruiters answers 200 with no jobs for unknown companies, so its empty boards are `empty`, not `not_found`.
+
+Each run writes `<YYYY-MM-DD>.json.gz` (compact JSON, gzip mtime 0):
+
+```json
+{"snapshot_date": "2026-11-04", "generated_at": "...", "classifier": "eng-1", "hn_months": ["2026-08", "2026-09", "2026-10"],
+ "boards": [{"ats": "ashby", "slug": "livekit", "sources": ["hn:2026-08", "panel"], "fetched_at": "...", "status": "ok",
+             "total_jobs": 31, "engineering_jobs": 18, "remote_jobs": 22,
+             "jobs": [{"id": "...", "title": "...", "department": "R&D", "team": "Engineering", "location": "...", "remote": true, "published": "..."}]}]}
+```
+
+Per job only id, title, department, team, location, remote flag and the published/updated timestamps the ATS provides (missing fields are omitted). No descriptions or other job text: they are large, copyrighted by the employer, and the report publishes counts, not postings. Slugs are lowercased except SmartRecruiters company ids, which are case-sensitive. Greenhouse jobs come from the `/departments` endpoint (the job list has no department); the department is stored with its parents, `Engineering > Software Engineering`. `remote` is the ATS's own flag where it has one (Ashby `isRemote`, Lever `workplaceType`, SmartRecruiters `location.remote`), otherwise the word "remote" in the location.
+
+The snapshot is point-in-time by construction: a file holds what the boards showed on its date. There is no history before the first run (2026-11-04).
+
+**Engineering classifier** (`ats.is_engineering`, version `eng-1` in the snapshot): engineering means software engineering, including infra, SRE, security, data and ML engineering, firmware, QA automation, research engineers and engineering managers. It reads the title first: other engineering disciplines and customer-facing engineer titles (sales, GTM, solutions, support, implementation) are out unless the title also names software work; non-engineering roles (recruiting, product and program management, design, scientists, analysts) are out; titles naming software work are in; a bare "Engineer" or "Architect" is in unless its department names a non-software function. `tests/fixtures/ats/engineering_labels.jsonl` holds 150 titles from the first snapshot, labeled by hand before the rule was tuned: 96.7% untuned, 98% after adding GTM (precision 0.96, recall 0.98). A test keeps it at or above 95%. Forward-deployed engineers count as engineering; GTM engineers, IT support engineers and manual testers don't. Jobs keep title and department, so a rule change can reclassify old snapshots.
+
+Not exported yet: `metrics.json` has no ATS section until there are enough snapshots to compare.
 
 ## DuckDB schema
 

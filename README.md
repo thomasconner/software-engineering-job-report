@@ -20,6 +20,7 @@ Then run the pipeline, one step at a time:
 ```sh
 uv run sejr fetch        # Algolia -> data/raw (gzipped thread JSON)
 uv run sejr normalize    # data/raw -> data/sejr.duckdb
+uv run sejr ats          # company job boards -> data/external/ats (once a month)
 uv run sejr features     # regex and vocabulary answers
 uv run --env-file .env sejr classify   # Jev answers for posts not yet answered
 uv run sejr aggregate    # monthly metrics, each month as it looked at the time
@@ -43,10 +44,10 @@ To view the site, serve `site/` (for example `python -m http.server -d site`).
 `.github/workflows/monthly.yml` runs at 17:00 UTC on days 1–12 of each month. A thread's 7-day snapshot completes around the 8th, and fetch only touches threads still inside that window, so new data appears only in that stretch. Each run:
 
 1. runs the tests;
-2. fetches, normalizes and computes features;
+2. fetches and normalizes, snapshots company job boards (`sejr ats`; only the month's first run fetches, and a failure there doesn't stop the run), and computes features;
 3. classifies each complete month that has unanswered posts (`--month`), then runs a guarded unscoped classify. If more than three months need classifying, it stops: that is a question or model change, and the backfill is run by hand;
 4. commits `data/answers` straight away, even if a later step fails, so paid answers aren't lost;
-5. aggregates, exports, and commits `data/raw`, `data/answers` and `site/data` as `data: refresh YYYY-MM`;
+5. aggregates, exports, and commits `data/raw`, `data/answers`, `data/external/ats` and `site/data` as `data: refresh YYYY-MM`;
 6. redeploys the site when `site/` changed.
 
 Expect a commit on most of days 1–12 while the current thread fills in, and none for the rest of the month.

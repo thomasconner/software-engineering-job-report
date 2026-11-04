@@ -94,15 +94,20 @@ def now() -> str:
 
 
 class Client:
-    """httpx wrapper that stays under 2 requests/sec and retries transient failures."""
+    """httpx wrapper that spaces requests min_interval apart and retries transient failures."""
 
-    def __init__(self) -> None:
-        self.http = httpx.Client(headers={"User-Agent": USER_AGENT}, timeout=60)
+    def __init__(
+        self, user_agent: str = USER_AGENT, min_interval: float = MIN_INTERVAL
+    ) -> None:
+        self.http = httpx.Client(
+            headers={"User-Agent": user_agent}, timeout=60, follow_redirects=True
+        )
+        self.min_interval = min_interval
         self.last_request = 0.0
 
     def get(self, url: str, params: dict | None = None) -> httpx.Response:
         for attempt in range(MAX_ATTEMPTS):
-            wait = self.last_request + MIN_INTERVAL - time.monotonic()
+            wait = self.last_request + self.min_interval - time.monotonic()
             if wait > 0:
                 time.sleep(wait)
             self.last_request = time.monotonic()

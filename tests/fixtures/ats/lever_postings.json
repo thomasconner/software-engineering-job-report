@@ -1,0 +1,62 @@
+[
+ {
+  "categories": {
+   "commitment": "W2",
+   "department": "Clinical",
+   "location": "Remote",
+   "team": "Medical Assistant",
+   "allLocations": [
+    "Remote"
+   ]
+  },
+  "createdAt": 1793638512336,
+  "id": "cf5cd5d7-cab7-405b-90d8-4f1536d02421",
+  "text": "Medical Assistant",
+  "country": "US",
+  "workplaceType": "remote",
+  "hostedUrl": "https://jobs.lever.co/curai/cf5cd5d7-cab7-405b-90d8-4f1536d02421",
+  "applyUrl": "https://jobs.lever.co/curai/cf5cd5d7-cab7-405b-90d8-4f1536d02421/apply"
+ },
+ {
+  "categories": {
+   "commitment": "W2",
+   "department": "AI",
+   "location": "Remote",
+   "team": "AI/ML Engineering",
+   "allLocations": [
+    "Remote"
+   ]
+  },
+  "createdAt": 1790794199400,
+  "id": "cd31b67b-d83c-466a-ac55-cfa4c2ec4237",
+  "text": "Senior Software Engineer, Agentic AI",
+  "country": "US",
+  "workplaceType": "remote",
+  "hostedUrl": "https://jobs.lever.co/curai/cd31b67b-d83c-466a-ac55-cfa4c2ec4237",
+  "applyUrl": "https://jobs.lever.co/curai/cd31b67b-d83c-466a-ac55-cfa4c2ec4237/apply"
+ },
+ {
+  "categories": {
+   "commitment": "W2",
+   "department": "Engineering",
+   "location": "Remote",
+   "team": "Product Engineering",
+   "allLocations": [
+    "Remote"
+   ]
+  },
+  "createdAt": 1790792281515,
+  "id": "46e0dd2f-c1dd-4ca2-9095-5b45f477b656",
+  "salaryRange": {
+   "min": 175000,
+   "max": 210000,
+   "currency": "USD",
+   "interval": "per-year-salary"
+  },
+  "text": "Senior Software Engineer, Full-Stack",
+  "country": "US",
+  "workplaceType": "remote",
+  "hostedUrl": "https://jobs.lever.co/curai/46e0dd2f-c1dd-4ca2-9095-5b45f477b656",
+  "applyUrl": "https://jobs.lever.co/curai/46e0dd2f-c1dd-4ca2-9095-5b45f477b656/apply"
+ }
+]

@@ -36,6 +36,10 @@ jobs:
 
       - run: uv run sejr fetch
       - run: uv run sejr normalize
+      # Job-board snapshot, once per calendar month (it skips when this month's file exists).
+      # A network problem here must not block the HN refresh.
+      - run: uv run sejr ats
+        continue-on-error: true
       - run: uv run sejr features
 
       # A newly complete month is over classify's 500-call unscoped guard, so each
@@ -72,7 +76,7 @@ jobs:
 
       - name: Commit data
         id: commit
-        run: .github/scripts/commit-data.sh data/raw data/answers site/data
+        run: .github/scripts/commit-data.sh data/raw data/answers data/external/ats site/data
 
       - name: Deploy the site
         # A push made with GITHUB_TOKEN never triggers other workflows, so dispatch it.

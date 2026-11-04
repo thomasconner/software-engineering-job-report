@@ -1,0 +1,178 @@
+{
+ "departments": [
+  {
+   "id": 4006672004,
+   "name": "Engineering",
+   "parent_id": null,
+   "child_ids": [
+    4006675004,
+    4006673004,
+    4071922004,
+    4152656004,
+    4006674004,
+    4071923004
+   ],
+   "jobs": [
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/4714198004",
+     "internal_job_id": 4028310004,
+     "location": {
+      "name": "Any"
+     },
+     "metadata": null,
+     "id": 4714198004,
+     "updated_at": "2026-10-16T16:23:19-04:00",
+     "requisition_id": null,
+     "title": "Open Call for Engineers",
+     "company_name": "Oklo",
+     "first_published": "2023-04-04T12:10:38-04:00",
+     "language": "en",
+     "application_deadline": null
+    },
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/5979482004",
+     "internal_job_id": 5146053004,
+     "location": {
+      "name": "Santa Clara, CA or Remote"
+     },
+     "metadata": null,
+     "id": 5979482004,
+     "updated_at": "2026-10-16T16:23:20-04:00",
+     "requisition_id": null,
+     "title": "Technical Product Engineer",
+     "company_name": "Oklo",
+     "first_published": "2026-04-23T17:49:38-04:00",
+     "language": "en",
+     "application_deadline": null
+    }
+   ]
+  },
+  {
+   "id": 4071923004,
+   "name": "Software Engineering",
+   "parent_id": 4006672004,
+   "child_ids": [],
+   "jobs": [
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/4018702004",
+     "internal_job_id": 4018069004,
+     "location": {
+      "name": "Santa Clara, CA or Remote"
+     },
+     "metadata": null,
+     "id": 4018702004,
+     "updated_at": "2026-10-16T16:23:19-04:00",
+     "requisition_id": null,
+     "title": "Software Engineer",
+     "company_name": "Oklo",
+     "first_published": "2021-05-24T20:34:28-04:00",
+     "language": "en",
+     "application_deadline": null
+    },
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/5739483004",
+     "internal_job_id": 5020826004,
+     "location": {
+      "name": "Santa Clara, CA or Remote"
+     },
+     "metadata": null,
+     "id": 5739483004,
+     "updated_at": "2026-10-16T16:23:20-04:00",
+     "requisition_id": null,
+     "title": "Senior Software Engineer",
+     "company_name": "Oklo",
+     "first_published": "2025-12-19T09:05:47-05:00",
+     "language": "en",
+     "application_deadline": null
+    }
+   ]
+  },
+  {
+   "id": 4006673004,
+   "name": "Mechanical Engineering",
+   "parent_id": 4006672004,
+   "child_ids": [],
+   "jobs": [
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/5743023004",
+     "internal_job_id": 5022760004,
+     "location": {
+      "name": "Santa Clara, CA or Remote"
+     },
+     "metadata": null,
+     "id": 5743023004,
+     "updated_at": "2026-10-16T16:23:20-04:00",
+     "requisition_id": null,
+     "title": "Senior Mechanical Design Engineer - Reactor Module",
+     "company_name": "Oklo",
+     "first_published": "2026-01-13T12:18:11-05:00",
+     "language": "en",
+     "application_deadline": null
+    },
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/6123402004",
+     "internal_job_id": 5191026004,
+     "location": {
+      "name": "Santa Clara, CA or Remote"
+     },
+     "metadata": null,
+     "id": 6123402004,
+     "updated_at": "2026-10-16T16:23:20-04:00",
+     "requisition_id": null,
+     "title": "Mechanical Engineer - Fuel Recycling",
+     "company_name": "Oklo",
+     "first_published": "2026-08-03T13:48:50-04:00",
+     "language": "en",
+     "application_deadline": null
+    }
+   ]
+  },
+  {
+   "id": 0,
+   "name": "No Department",
+   "parent_id": null,
+   "child_ids": [],
+   "jobs": []
+  },
+  {
+   "id": 4131839004,
+   "name": "Finance",
+   "parent_id": null,
+   "child_ids": [],
+   "jobs": [
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/6165152004",
+     "internal_job_id": 5205720004,
+     "location": {
+      "name": "Santa Clara, CA or Remote"
+     },
+     "metadata": null,
+     "id": 6165152004,
+     "updated_at": "2026-10-16T16:23:21-04:00",
+     "requisition_id": null,
+     "title": "Cost Accountant",
+     "company_name": "Oklo",
+     "first_published": "2026-09-14T11:26:14-04:00",
+     "language": "en",
+     "application_deadline": null
+    },
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/6165155004",
+     "internal_job_id": 5205722004,
+     "location": {
+      "name": "Santa Clara, CA or Remote"
+     },
+     "metadata": null,
+     "id": 6165155004,
+     "updated_at": "2026-10-16T16:23:20-04:00",
+     "requisition_id": null,
+     "title": "Senior Accountant",
+     "company_name": "Oklo",
+     "first_published": "2026-09-18T11:27:40-04:00",
+     "language": "en",
+     "application_deadline": null
+    }
+   ]
+  }
+ ]
+}
