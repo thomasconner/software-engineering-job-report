@@ -274,6 +274,7 @@ These apply to every sentence. The fact-checker enforces them.
 - **Posts aren't jobs.** One "Who is hiring?" post can list one role or 20. Write "hiring posts" or "companies posting". Never write "jobs", "openings" or "roles" for a post count. A role level can describe which posts ("posts for senior engineers").
 - **Seeking posts aren't all job seekers.** "Who wants to be hired?" posts come from people who chose to post on Hacker News. On first mention write "people posting in 'Who wants to be hired?'". After that, "job seekers posting" or "job seekers" is fine.
 - **Hacker News isn't the job market.** The threads skew toward venture-backed startups, engineering roles and the Bay Area. Say "on Hacker News", "in the thread" or "among companies posting on HN". Never "tech hiring rose" or "the job market recovered". When you want to say something wider, say that HN agrees or disagrees with a named outside measure, and cite it in the ledger.
+- **The threads aren't the US market either.** In 2026 only about a third to two fifths of the people posting in "Who wants to be hired?" gave a US location, and hiring posts include European, Canadian and remote-anywhere companies. The column describes HN's threads. "US" claims rest on `seeker_us_share`, `seekers_per_post_us` or the `region` breakdowns, never on the whole-thread numbers.
 - **The snapshot is seven days.** Every month counts posts in the first seven days of its thread. Late posts don't count, past or present. Don't compare our counts to someone else's thread totals.
 - **Survivorship.** Deleted posts are missing and edited posts show their latest text. Older months have had more time to lose posts, so counts from earlier years are a floor.
 - **Series starts.** The hiring series runs from April 2011 with no gaps (July and December 2011 use replacement threads). The seeking series starts in May 2014. The first seeking thread was posted by the user jader201, and the whoishiring account took it over in July 2014.
@@ -283,7 +284,7 @@ These apply to every sentence. The fact-checker enforces them.
 - **Jev estimates, shares:** `ai_native_share`, `new_grad_share`, `work_mode`, `seniority`, `industry`, `funding_stage`. These are expected values: the sum of the model's probabilities divided by the number of posts. Say "by our classifier's estimate" or similar once per article, the first time one appears.
 - **Jev estimate, score:** `seeker_mood` is a mean score from 0 (discouraged) to 4 (upbeat). It isn't a share and doesn't take points-of-share language.
 - **Counts:** `posts`, `seekers_per_post`, `replies_per_post`.
-- **Regex:** `salary_disclosed_share`, `salary_min_median_usd`, `salary_max_median_usd`, `remote_token_share`, `onsite_token_share`, `visa_share`. These are exact counts of what the text says, but regex can miss unusual formats.
+- **Regex:** `salary_disclosed_share`, `salary_min_median_usd`, `salary_max_median_usd`, `remote_token_share`, `onsite_token_share`, `visa_share`, `seeker_us_share`, `seekers_per_post_us`, `region`, `seeker_region`. These are exact counts of what the text says, but regex can miss unusual formats. Region comes from the seeker's `Location:` line and the hiring post's first line; posts that name no place are `unknown`. `seekers_per_post_us` is `seekers_per_post` scaled by the US shares of live posts, so both ratios count submitted posts and can be compared directly. It assumes deleted posts, seekers with no recognized location and hiring posts that name no place and don't say remote split the same way as the rest.
 - **Join:** `new_company_share`, `returning_company_share`. These depend on company names pulled from the header line by regex, so a renamed company or a typo counts as new. They also need history: in 2011 every company is "new". Don't use their 2011 values.
 - **Vocab:** `stack`. This is the share of posts mentioning each term from a fixed list. Terms overlap and don't sum to 1.
 
@@ -313,6 +314,7 @@ Rules that stay:
 - **Salary medians.** Use a median only when at least 30 posts disclosed pay in each month compared. Months under 30 have no bar and the page shows "too few posts". The bar is the bootstrap alone (s² = 0): salaries cluster on round numbers, so neighboring medians often tie exactly and the neighbor comparison can't measure their wobble.
 - **Other month pairs.** A comparison that isn't 3 months, 1 year or 5 years (a chart with explicit `months`) has no exported bar. The page then falls back to the sampling-only floors (Poisson, binomial, 5% for salaries, 0.2 for mood); treat those as too narrow and hedge anything close.
 - **Mood.** `seeker_mood` bars never go below 0.2 points. Its sampling and dispersion bar is only about 0.02 to 0.04, but it leaves out classifier error, which dominates a Jev score.
+- **US-only ratio.** `seekers_per_post_us` gets its bar the same way as `seekers_per_post`, with S = value × n and H = n (hiring posts open to US workers). Fewer posts on each side make it wider, about 30% before dispersion.
 - `removed_share` has no bar: it is never compared across months.
 
 **Many comparisons.** Each article looks at dozens of numbers across three windows, so some will clear the bar by chance. Prefer moves that persist: the 1y window, or a three-month average against the same three months a year earlier. Treat a 3m move that the 1y window doesn't confirm as suspect. Counting directions is allowed and often more honest than one comparison: "the share has risen in 10 of the last 12 months".
@@ -558,6 +560,7 @@ Noise and claims
 - [ ] Every move described as a change clears the noise bar for its `n` (section 4). Moves below it are called flat or left out.
 - [ ] Verbs of size match the table in section 4.
 - [ ] Relative changes on shares only for large moves, with both endpoints printed.
+- [ ] Before a change in `seekers_per_post` is called "doubled", a surge or any large move, the checker compares `seekers_per_post_us` over the same months. If the US ratio moved much less, the text says so (for example, "most of the rise came from people outside the US"), and the ledger carries both ratios.
 - [ ] No causal verbs with a measure, and no motives. Annotated events are described as timing.
 
 Vocabulary of the data
