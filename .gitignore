@@ -8,3 +8,4 @@ data/sejr.duckdb
 data/cache/jev/*
 !data/cache/jev/.gitkeep
 data/cache/external/
+data/cache/sec/

@@ -2,6 +2,7 @@ import gzip
 import json
 import re
 
+import httpx
 import pytest
 
 from sejr import fetch
@@ -169,3 +170,18 @@ def test_threads_freeze_once_fetched_after_snapshot(tmp_path, monkeypatch):
     del meta["kids"]
     fetch.raw_paths(thread)[1].write_text(json.dumps(meta))
     assert fetch.plan([thread]) == [(thread, "kids")]
+
+
+def test_download_writes_the_file_only_when_complete(tmp_path):
+    bodies = iter([httpx.Response(404), httpx.Response(200, content=b"x" * 3_000_000)])
+    client = fetch.Client(min_interval=0, max_attempts=1)
+    client.http = httpx.Client(
+        transport=httpx.MockTransport(lambda request: next(bodies))
+    )
+    target = tmp_path / "big.zip"
+    with pytest.raises(httpx.HTTPStatusError):
+        client.download("https://example.com/big.zip", target)
+    assert not target.exists()
+    client.download("https://example.com/big.zip", target)
+    assert target.read_bytes() == b"x" * 3_000_000
+    assert not (tmp_path / "big.zip.part").exists()

@@ -57,3 +57,9 @@ assert.match(parseArticle('::chart{type="bar" title="t" metric="posts.hiring" ex
 const share = data.resolveExternal(prepared(external({ seasonally_adjusted: false })), 'x.US', '2025-04');
 assert.equal(share.smoothed, false);
 assert.equal(share.points.length, 4);
+
+// Publisher periods read as a day, a month or a quarter.
+assert.equal(data.periodLabel('2026-Q2'), 'Q2 2026');
+assert.equal(data.periodLabel('2026-09'), data.monthLabel('2026-09'));
+assert.equal(data.makeFormat('change')(-0.031), '−3%');
+assert.equal(data.makeFormat('change', { precise: true })(0.0133), '+1.3%');

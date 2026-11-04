@@ -76,6 +76,8 @@ export function makeFormat(unit, { precise = false } = {}) {
       case 'share': return `${(v * 100).toFixed(precise ? 1 : 0)}%`;
       case 'usd': return `$${int.format(Math.round(v / 1000) * 1000)}`;
       case 'count': return int.format(v);
+      // A change over a year, as a fraction (SEC panel headcount).
+      case 'change': return `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v * 100).toFixed(precise ? 1 : 0)}%`;
       default: return v.toFixed(precise ? 2 : 1);
     }
   };
@@ -252,7 +254,12 @@ export function indexTo(series, base) {
 
 const dayFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 // A publisher's reference period: a month ("2026-09") or a day ("2026-10-02").
-export const periodLabel = (ref) => (ref.length > 7 ? dayFmt.format(new Date(`${ref}T00:00:00Z`)) : monthLabel(ref));
+// A publisher period: a day (YYYY-MM-DD), a month (YYYY-MM) or a quarter (YYYY-Qn, SEC filings).
+export const periodLabel = (ref) => {
+  const quarter = /^(\d{4})-Q([1-4])$/.exec(ref);
+  if (quarter) return `Q${quarter[2]} ${quarter[1]}`;
+  return ref.length > 7 ? dayFmt.format(new Date(`${ref}T00:00:00Z`)) : monthLabel(ref);
+};
 
 export function sourceLine(series) {
   const kinds = ['hiring', 'seeking'].filter((k) => series.some((s) => s.sources.includes(k)));

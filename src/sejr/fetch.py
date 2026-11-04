@@ -127,7 +127,24 @@ class Client:
     def post(self, url: str, json: dict) -> httpx.Response:
         return self.request("POST", url, json=json)
 
-    def request(self, method: str, url: str, **kwargs) -> httpx.Response:
+    def download(self, url: str, path: Path) -> httpx.Response:
+        """GET a large file straight to disk. `path` appears only once the body is complete."""
+        return self.request("GET", url, sink=path)
+
+    def _stream(self, method: str, url: str, sink: Path, **kwargs) -> httpx.Response:
+        with self.http.stream(method, url, **kwargs) as response:
+            if response.is_success:
+                sink.parent.mkdir(parents=True, exist_ok=True)
+                part = sink.with_name(sink.name + ".part")
+                with part.open("wb") as out:
+                    for chunk in response.iter_bytes(1 << 20):
+                        out.write(chunk)
+                part.replace(sink)
+        return response
+
+    def request(
+        self, method: str, url: str, sink: Path | None = None, **kwargs
+    ) -> httpx.Response:
         transport = False
         for attempt in range(self.max_attempts):
             wait = self.last_request + self.min_interval - time.monotonic()
@@ -135,7 +152,10 @@ class Client:
                 time.sleep(wait)
             self.last_request = time.monotonic()
             try:
-                response = self.http.request(method, url, **kwargs)
+                if sink is None:
+                    response = self.http.request(method, url, **kwargs)
+                else:
+                    response = self._stream(method, url, sink, **kwargs)
                 if response.status_code != 429 and response.status_code < 500:
                     response.raise_for_status()
                     return response

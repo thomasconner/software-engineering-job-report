@@ -78,11 +78,27 @@ jobs:
         continue-on-error: true
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+      # SEC EDGAR panel: restructuring, layoff filings and headcount (data/external/sec). SEC
+      # requires a User-Agent with a contact email, so without the secret the step is skipped.
+      # It computes a month once its as-of date has passed, downloading the ~1.6 GB nightly
+      # submissions.zip then; a failure must not stop the HN refresh.
+      - name: SEC filings
+        continue-on-error: true
+        timeout-minutes: 30
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          if [ -z "$SEC_USER_AGENT" ]; then
+            echo "::warning::SEC_USER_AGENT secret is not set; skipping sejr sec"
+            exit 0
+          fi
+          uv run sejr sec
       - run: uv run sejr export
 
       - name: Commit data
         id: commit
-        # data/external includes the job-board snapshots in data/external/ats.
+        # data/external includes the job-board snapshots in data/external/ats and the SEC
+        # panel in data/external/sec.
         run: .github/scripts/commit-data.sh data/raw data/answers data/external site/data
 
       - name: Deploy the site

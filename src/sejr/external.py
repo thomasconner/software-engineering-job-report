@@ -46,8 +46,20 @@ RAW_GITHUB = "https://raw.githubusercontent.com/hiring-lab"
 
 INDEED = "Indeed Hiring Lab"
 BLS = "U.S. Bureau of Labor Statistics"
+SEC = "SEC EDGAR"
 CC_BY = ("CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/")
 PUBLIC_DOMAIN = ("public domain", "https://www.bls.gov/opub/copyright-information.htm")
+# "Information presented on sec.gov is considered public information and may be copied or
+# further distributed ... without the SEC's permission."
+SEC_PUBLIC = (
+    "public domain",
+    "https://www.sec.gov/about/privacy-information#dissemination",
+)
+PUBLISHERS = {
+    "indeed": (INDEED, CC_BY),
+    "bls": (BLS, PUBLIC_DOMAIN),
+    "sec": (SEC, SEC_PUBLIC),
+}
 FIRST_PUBLISHED = (
     "Each month shows the value as first published by that month's as-of date; later "
     "revisions are not applied."
@@ -63,9 +75,9 @@ SOFTWARE_SECTOR = {"Software Development", "techsoftware"}
 class Series:
     name: str
     country: str
-    source: str  # 'indeed' | 'bls'
+    source: str  # 'indeed' | 'bls' | 'sec'
     label: str
-    unit: str  # 'index' | 'share' | 'thousands'
+    unit: str  # 'index' | 'share' | 'thousands' | 'count' | 'usd' | 'change'
     description: str
     credit: str
     repo: str = ""
@@ -78,6 +90,7 @@ class Series:
     smooth_12m: bool = False
     bls_id: str = ""
     fred_id: str = ""
+    source_url: str = ""
 
     @property
     def key(self) -> str:
@@ -85,14 +98,16 @@ class Series:
 
     @property
     def publisher(self) -> str:
-        return INDEED if self.source == "indeed" else BLS
+        return PUBLISHERS[self.source][0]
 
     @property
     def license(self) -> tuple[str, str]:
-        return CC_BY if self.source == "indeed" else PUBLIC_DOMAIN
+        return PUBLISHERS[self.source][1]
 
     @property
     def url(self) -> str:
+        if self.source_url:
+            return self.source_url
         if self.source == "indeed":
             return f"{GITHUB}/{self.repo}"
         return f"https://data.bls.gov/timeseries/{self.bls_id}"
@@ -202,6 +217,78 @@ SERIES: list[Series] = [
         fred_id="CES6054150001",
     ),
 ]  # fmt: skip
+
+
+def _sec(name: str, label: str, unit: str, description: str, credit: str) -> Series:
+    return Series(
+        name=name,
+        country="US",
+        source="sec",
+        label=label,
+        unit=unit,
+        description=description,
+        credit=f"SEC EDGAR filings; {credit}",
+        seasonally_adjusted=False,
+        source_url="https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+    )
+
+
+PANEL = "the SEC panel (about 50 US public tech companies, fixed each January)"
+SERIES += [
+    _sec(
+        "sec_restructuring_usd",
+        "Restructuring charges, US public tech panel",
+        "usd",
+        f"Restructuring charges (XBRL RestructuringCharges, else SeveranceCosts1) for one "
+        f"calendar quarter, summed over {PANEL}; n is the number of companies that reported "
+        "one. The quarter is the latest that every company had to file by the as-of date, so "
+        "it trails the HN month by four to six months. Companies tag the charge only in "
+        "quarters they have one.",
+        "panel and sums by this report",
+    ),
+    _sec(
+        "sec_item_205_filings_panel",
+        "Layoff filings (8-K Item 2.05), US public tech panel",
+        "count",
+        f"8-K filings (not amendments) that report Item 2.05, exit or disposal costs, filed "
+        f"in the calendar month before the HN month by {PANEL}; n is the panel size.",
+        "panel and counts by this report",
+    ),
+    _sec(
+        "sec_item_205_filings_software",
+        "Layoff filings (8-K Item 2.05), all software and IT-services filers",
+        "count",
+        "8-K filings (not amendments) that report Item 2.05, exit or disposal costs, filed in "
+        "the calendar month before the HN month by any company with SIC code 7370-7374 "
+        "(computer programming, software, systems design, data processing), as coded today.",
+        "counts by this report",
+    ),
+    _sec(
+        "sec_headcount_panel",
+        "Employees at US public tech panel companies, change over a year",
+        "change",
+        f"Year-over-year change in employees across {PANEL}, from the employee count in each "
+        "company's latest 10-K against its previous 10-K, over the companies that state both; "
+        "n is that number of companies. 10-Ks come once a year, so the series moves as each "
+        "company files.",
+        "counts read from 10-K text and summed by this report",
+    ),
+    *(
+        _sec(
+            f"sec_headcount_{key}",
+            f"{name} employees",
+            "count",
+            f"{name}'s employee count at the end of the latest quarter, as stated in its "
+            "earnings release (8-K Exhibit 99.1).",
+            "count read from the release by this report",
+        )
+        for key, name in (
+            ("meta", "Meta"),
+            ("alphabet", "Alphabet"),
+            ("amazon", "Amazon"),
+        )
+    ),
+]
 SOURCES = ("indeed", "bls")
 
 
@@ -658,7 +745,7 @@ def build_section(months: list[str], directory: Path = EXTERNAL_DIR) -> dict:
     section = {}
     stored = {
         (source, month): load(source, month, directory)
-        for source in SOURCES
+        for source in {s.source for s in SERIES}
         for month in months
     }
     for s in SERIES:
@@ -669,14 +756,15 @@ def build_section(months: list[str], directory: Path = EXTERNAL_DIR) -> dict:
             # Defensive: a value published after the month's as-of date never reaches the site.
             if not entry or entry["vintage_date"] > record["as_of"]:
                 continue
-            points.append(
-                {
-                    "month": month,
-                    "value": entry["value"],
-                    "ref_period": entry["ref_period"],
-                    "vintage_date": entry["vintage_date"],
-                }
-            )
+            point = {
+                "month": month,
+                "value": entry["value"],
+                "ref_period": entry["ref_period"],
+                "vintage_date": entry["vintage_date"],
+            }
+            if "n" in entry:
+                point["n"] = entry["n"]
+            points.append(point)
         section[s.key] = {
             "id": s.key,
             "label": s.label,

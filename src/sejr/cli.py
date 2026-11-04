@@ -12,6 +12,7 @@ STEPS = [
     "classify",
     "aggregate",
     "external",
+    "sec",
     "export",
     "validate",
     "unanswered",
