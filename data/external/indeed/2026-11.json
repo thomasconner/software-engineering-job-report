@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-10",
-  "fetched_at": "2026-11-04T17:55:04Z",
+  "fetched_at": "2026-11-04T22:27:54Z",
   "month": "2026-11",
   "values": {
     "indeed_software_pay_transparency.US": {
@@ -26,42 +26,42 @@
     "indeed_software_postings.GB": {
       "compare": {
         "1y": {
-          "ref_period": "2025-10-23",
-          "value": 58.75
+          "ref_period": "2025-10-30",
+          "value": 59.38
         },
         "3m": {
-          "ref_period": "2026-07-23",
-          "value": 60.28
+          "ref_period": "2026-07-30",
+          "value": 59.96
         },
         "5y": {
-          "ref_period": "2021-10-23",
-          "value": 151.34
+          "ref_period": "2021-10-30",
+          "value": 152.02
         }
       },
-      "ref_period": "2026-10-23",
-      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/d71b8dd5e4d60c0d10c743385741f2d372bc60f0/GB/job_postings_by_sector_GB.csv",
-      "value": 61.57,
-      "vintage_date": "2026-10-28"
+      "ref_period": "2026-10-30",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/707b5cd7c1add5b83677bf492cf81d4c3d8b1797/GB/job_postings_by_sector_GB.csv",
+      "value": 61.28,
+      "vintage_date": "2026-11-04"
     },
     "indeed_software_postings.US": {
       "compare": {
         "1y": {
-          "ref_period": "2025-10-23",
-          "value": 65.27
+          "ref_period": "2025-10-30",
+          "value": 65.91
         },
         "3m": {
-          "ref_period": "2026-07-23",
-          "value": 75.36
+          "ref_period": "2026-07-30",
+          "value": 75.72
         },
         "5y": {
-          "ref_period": "2021-10-23",
-          "value": 190.39
+          "ref_period": "2021-10-30",
+          "value": 192.74
         }
       },
-      "ref_period": "2026-10-23",
-      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/d71b8dd5e4d60c0d10c743385741f2d372bc60f0/US/job_postings_by_sector_US.csv",
-      "value": 80.79,
-      "vintage_date": "2026-10-28"
+      "ref_period": "2026-10-30",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/707b5cd7c1add5b83677bf492cf81d4c3d8b1797/US/job_postings_by_sector_US.csv",
+      "value": 81.58,
+      "vintage_date": "2026-11-04"
     },
     "indeed_software_remote_share.GB": {
       "compare": {
