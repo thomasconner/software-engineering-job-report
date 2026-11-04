@@ -26,8 +26,11 @@ WINDOWS = {"3m": 3, "1y": 12, "5y": 60}
 # structural break or holiday dip doesn't widen every later bar.
 HISTORY = 36
 MIN_HISTORY = 12
+# Of those, at least this many must come from months that weren't all zero, so a stack
+# term that just took off doesn't get its s² from two years of zeros.
+MIN_MOVING = 6
 MEDIAN_CHI2_1 = 0.4549
-# With fewer residuals than MIN_HISTORY, assume the month-to-month noise is ten times the
+# With fewer residuals than that, assume the month-to-month noise is ten times the
 # sampling variance (about what post counts show over the long run), so a young series
 # gets a wide bar rather than a falsely narrow one.
 FALLBACK_DISPERSION = 10.0
@@ -77,7 +80,7 @@ def residuals(
 
     r is the point minus the average of its neighbors and V the sampling part of Var(r), so
     Var(r) = 1.5 s² + V. A share that is 0 in all three months (a stack term before it
-    caught on) counts as (0, 0): history with no wobble, not missing history.
+    caught on) is (0, 0): it counts toward MIN_HISTORY but not toward the estimate.
     """
     out: list[tuple[float, float] | None] = [None] * len(pts)
     for i in range(1, len(pts) - 1):
@@ -145,7 +148,10 @@ def excess_variances(
     for i in range(len(pts)):
         # The residual at j uses point j + 1, so only j <= i - 1 is known at point i.
         known = [r for r in found[:i] if r is not None][-HISTORY:]
-        out.append(excess_variance(known) if len(known) >= MIN_HISTORY else None)
+        # All-zero share months (V = 0) count as history but say nothing about wobble.
+        moving = [r for r in known if r[1] > 0]
+        enough = len(known) >= MIN_HISTORY and len(moving) >= MIN_MOVING
+        out.append(excess_variance(moving) if enough else None)
     return out
 
 

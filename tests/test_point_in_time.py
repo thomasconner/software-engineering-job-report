@@ -57,8 +57,9 @@ def test_noise_bars_are_the_same_with_or_without_later_months(
     features.build(db)
     aggregate.run(db, Namespace(month=None, dry_run=False))
     fallback = _bars(export.build(db))
-    # Seven fixture months never reach the real minimum, so lower it to exercise s².
+    # Seven fixture months never reach the real minimums, so lower them to exercise s².
     monkeypatch.setattr(noise, "MIN_HISTORY", 1)
+    monkeypatch.setattr(noise, "MIN_MOVING", 1)
     full = _bars(export.build(db))
     assert full != fallback
     compared = 0

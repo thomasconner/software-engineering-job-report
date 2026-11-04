@@ -106,12 +106,26 @@ def test_short_history_falls_back_to_a_wide_bar():
     )
 
 
-def test_months_at_zero_share_count_as_history():
-    # A stack term at 0% for two years, then catching on: no fallback once it moves.
-    values = [0.0] * 24 + [0.01 * i for i in range(1, 7)]
-    pts = [{"month": m, "value": v, "n": 300} for m, v in zip(_months(30), values)]
-    s2 = noise.excess_variances("llm", "share", pts, {})
-    assert None not in s2[noise.MIN_HISTORY + 1 :]
+def _take_off(seed: int) -> list[dict]:
+    """Three years at 0%, then about 10% with an extra 3-point s.d. plus binomial sampling."""
+    rng = random.Random(seed)
+    values = [0.0] * 36
+    for _ in range(30):
+        p = min(0.9, max(0.01, rng.gauss(0.10, 0.03)))
+        values.append(min(0.9, max(0.01, rng.gauss(p, math.sqrt(p * (1 - p) / 300)))))
+    return [{"month": m, "value": v, "n": 300} for m, v in zip(_months(66), values)]
+
+
+def test_a_share_that_takes_off_gets_its_own_wobble_soon():
+    # Point 35 + k has k moving residuals behind it (the first is centered on point 35).
+    # Zeros already fill MIN_HISTORY, so only MIN_MOVING moving ones are needed.
+    estimates = []
+    for seed in range(10):
+        s2 = noise.excess_variances("rag", "share", _take_off(seed), {})
+        assert s2[35 + noise.MIN_MOVING - 1] is None
+        assert s2[35 + noise.MIN_MOVING] is not None
+        estimates.append(s2[35 + 12])
+    assert sum(e > 0 for e in estimates) >= 8
 
 
 def test_share_bars_add_the_excess_to_the_binomial():
