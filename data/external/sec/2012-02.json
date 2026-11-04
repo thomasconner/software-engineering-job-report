@@ -1,6 +1,6 @@
 {
   "as_of": "2012-02-09",
-  "fetched_at": "2026-11-04T19:39:09Z",
+  "fetched_at": "2026-11-04T19:48:34Z",
   "month": "2012-02",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -58,22 +58,40 @@
         1097864,
         1108524,
         1124610,
-        1274494,
         1288776,
         1336920,
         1341439
       ],
       "dropped": [
-        36047,
-        804328,
-        827054,
-        945436,
-        1065088
+        {
+          "cik": 4127,
+          "reason": "8-K Item 2.01 filed 2011-06-10 (0000950123-11-058364)"
+        },
+        {
+          "cik": 36047,
+          "reason": "8-K Item 2.01 filed 2010-06-01 (0000950130-10-002567)"
+        },
+        {
+          "cik": 804328,
+          "reason": "8-K Item 2.01 filed 2011-05-24 (0000950123-11-053544)"
+        },
+        {
+          "cik": 827054,
+          "reason": "8-K Item 2.01 filed 2010-04-09 (0000827054-10-000096)"
+        },
+        {
+          "cik": 1002517,
+          "reason": "8-K Item 2.01 filed 2011-10-07 (0000950123-11-089014)"
+        },
+        {
+          "cik": 1065088,
+          "reason": "8-K Item 2.01 filed 2011-06-20 (0001193125-11-168404)"
+        }
       ],
-      "n": 45,
+      "n": 44,
       "ref_period": "2011-12",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0512,
+      "value": 0.0498,
       "vintage_date": "2012-02-09"
     },
     "sec_headcount_panel.US": {
@@ -119,22 +137,40 @@
         1097864,
         1108524,
         1124610,
-        1274494,
         1288776,
         1336920,
         1341439
       ],
       "dropped": [
-        36047,
-        804328,
-        827054,
-        945436,
-        1065088
+        {
+          "cik": 4127,
+          "reason": "8-K Item 2.01 filed 2011-06-10 (0000950123-11-058364)"
+        },
+        {
+          "cik": 36047,
+          "reason": "8-K Item 2.01 filed 2010-06-01 (0000950130-10-002567)"
+        },
+        {
+          "cik": 804328,
+          "reason": "8-K Item 2.01 filed 2011-05-24 (0000950123-11-053544)"
+        },
+        {
+          "cik": 827054,
+          "reason": "8-K Item 2.01 filed 2010-04-09 (0000827054-10-000096)"
+        },
+        {
+          "cik": 1002517,
+          "reason": "8-K Item 2.01 filed 2011-10-07 (0000950123-11-089014)"
+        },
+        {
+          "cik": 1065088,
+          "reason": "8-K Item 2.01 filed 2011-06-20 (0001193125-11-168404)"
+        }
       ],
-      "n": 45,
+      "n": 44,
       "ref_period": "2011-12",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0751,
+      "value": 0.0741,
       "vintage_date": "2012-02-09"
     },
     "sec_item_205_filings_panel.US": {
@@ -154,20 +190,20 @@
       "n": 50,
       "ref_period": "2011-Q3",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 15,
+      "value": 17,
       "vintage_date": "2012-02-09"
     },
     "sec_restructuring_usd.US": {
       "annual_only": [],
-      "n": 15,
+      "n": 17,
       "ref_period": "2011-Q3",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
       "top": {
         "cik": 1341439,
         "name": "ORACLE CORP",
-        "share": 0.4759
+        "share": 0.4379
       },
-      "value": 212246000,
+      "value": 230653000,
       "vintage_date": "2012-02-09"
     }
   }

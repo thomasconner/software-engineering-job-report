@@ -1,6 +1,6 @@
 {
   "as_of": "2020-05-09",
-  "fetched_at": "2026-11-04T19:39:11Z",
+  "fetched_at": "2026-11-04T19:48:36Z",
   "month": "2020-05",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -64,15 +64,27 @@
         1688568
       ],
       "dropped": [
-        827054,
-        1108524,
-        1724670,
-        1730168
+        {
+          "cik": 827054,
+          "reason": "8-K Item 2.01 filed 2018-05-29 (0001193125-18-176340)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2019-08-01 (0001193125-19-209951)"
+        },
+        {
+          "cik": 1724670,
+          "reason": "8-K Item 2.01 filed 2018-06-06 (0001193125-18-185743)"
+        },
+        {
+          "cik": 1730168,
+          "reason": "8-K Item 2.01 filed 2019-11-04 (0001193125-19-282605)"
+        }
       ],
       "n": 45,
       "ref_period": "2020-03",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0387,
+      "value": 0.042,
       "vintage_date": "2020-05-09"
     },
     "sec_headcount_meta.US": {
@@ -130,15 +142,27 @@
         1688568
       ],
       "dropped": [
-        827054,
-        1108524,
-        1724670,
-        1730168
+        {
+          "cik": 827054,
+          "reason": "8-K Item 2.01 filed 2018-05-29 (0001193125-18-176340)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2019-08-01 (0001193125-19-209951)"
+        },
+        {
+          "cik": 1724670,
+          "reason": "8-K Item 2.01 filed 2018-06-06 (0001193125-18-185743)"
+        },
+        {
+          "cik": 1730168,
+          "reason": "8-K Item 2.01 filed 2019-11-04 (0001193125-19-282605)"
+        }
       ],
       "n": 45,
       "ref_period": "2020-03",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0456,
+      "value": 0.094,
       "vintage_date": "2020-05-09"
     },
     "sec_item_205_filings_panel.US": {

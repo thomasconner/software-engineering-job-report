@@ -311,29 +311,9 @@
    "state": "AZ"
   },
   {
-   "cik": 1274494,
-   "name": "FIRST SOLAR, INC.",
-   "rank": 32,
-   "reason": "sic_3674",
-   "revenue_fiscal_year_end": "2011-12-31",
-   "revenue_usd": 2766207000.0,
-   "sic": "3674",
-   "state": "AZ"
-  },
-  {
-   "cik": 945436,
-   "name": "SUNEDISON, INC.",
-   "rank": 33,
-   "reason": "sic_3674",
-   "revenue_fiscal_year_end": "2011-12-31",
-   "revenue_usd": 2715500000.0,
-   "sic": "3674",
-   "state": "MO"
-  },
-  {
    "cik": 6281,
    "name": "ANALOG DEVICES INC",
-   "rank": 34,
+   "rank": 32,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2012-11-03",
    "revenue_usd": 2701142000.0,
@@ -343,7 +323,7 @@
   {
    "cik": 714603,
    "name": "DST SYSTEMS INC",
-   "rank": 35,
+   "rank": 33,
    "reason": "sic_7374",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 2388700000.0,
@@ -351,19 +331,9 @@
    "state": "MO"
   },
   {
-   "cik": 867773,
-   "name": "SUNPOWER CORP",
-   "rank": 36,
-   "reason": "sic_3674",
-   "revenue_fiscal_year_end": "2012-01-01",
-   "revenue_usd": 2312494000.0,
-   "sic": "3674",
-   "state": "CA"
-  },
-  {
    "cik": 1108524,
    "name": "Salesforce, Inc.",
-   "rank": 37,
+   "rank": 34,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2012-01-31",
    "revenue_usd": 2266539000.0,
@@ -373,7 +343,7 @@
   {
    "cik": 1062047,
    "name": "CONCENTRIX CVG Corp",
-   "rank": 38,
+   "rank": 35,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 2262000000.0,
@@ -383,7 +353,7 @@
   {
    "cik": 743988,
    "name": "XILINX INC",
-   "rank": 39,
+   "rank": 36,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2012-03-31",
    "revenue_usd": 2240736000.0,
@@ -393,7 +363,7 @@
   {
    "cik": 769397,
    "name": "Autodesk, Inc.",
-   "rank": 40,
+   "rank": 37,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2012-01-31",
    "revenue_usd": 2215600000.0,
@@ -403,7 +373,7 @@
   {
    "cik": 877890,
    "name": "CITRIX SYSTEMS INC",
-   "rank": 41,
+   "rank": 38,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 2206392000.0,
@@ -413,7 +383,7 @@
   {
    "cik": 804753,
    "name": "CERNER Corp",
-   "rank": 42,
+   "rank": 39,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 2203153000.0,
@@ -423,7 +393,7 @@
   {
    "cik": 1468516,
    "name": "AOL Inc.",
-   "rank": 43,
+   "rank": 40,
    "reason": "sic_7374",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 2202100000.0,
@@ -433,7 +403,7 @@
   {
    "cik": 835729,
    "name": "BMC SOFTWARE INC",
-   "rank": 44,
+   "rank": 41,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2012-03-31",
    "revenue_usd": 2172000000.0,
@@ -443,7 +413,7 @@
   {
    "cik": 768251,
    "name": "ALTERA CORP",
-   "rank": 45,
+   "rank": 42,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 2064475000.0,
@@ -453,7 +423,7 @@
   {
    "cik": 703360,
    "name": "LSI CORP",
-   "rank": 46,
+   "rank": 43,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 2043958000.0,
@@ -463,7 +433,7 @@
   {
    "cik": 872448,
    "name": "ATMEL CORP",
-   "rank": 47,
+   "rank": 44,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 1803053000.0,
@@ -473,7 +443,7 @@
   {
    "cik": 883241,
    "name": "SYNOPSYS INC",
-   "rank": 48,
+   "rank": 45,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2012-10-31",
    "revenue_usd": 1756017000.0,
@@ -483,7 +453,7 @@
   {
    "cik": 912093,
    "name": "VIAVI SOLUTIONS INC.",
-   "rank": 49,
+   "rank": 46,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2012-06-30",
    "revenue_usd": 1682100000.0,
@@ -493,12 +463,42 @@
   {
    "cik": 1002517,
    "name": "Nuance Communications, Inc.",
-   "rank": 50,
+   "rank": 47,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2012-09-30",
    "revenue_usd": 1651509000.0,
    "sic": "7372",
    "state": "MA"
+  },
+  {
+   "cik": 1036960,
+   "name": "FAIRCHILD SEMICONDUCTOR INTERNATIONAL INC",
+   "rank": 48,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-25",
+   "revenue_usd": 1588800000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 4127,
+   "name": "SKYWORKS SOLUTIONS, INC.",
+   "rank": 49,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2012-09-28",
+   "revenue_usd": 1568581000.0,
+   "sic": "3674",
+   "state": "MA"
+  },
+  {
+   "cik": 1124804,
+   "name": "Veradigm Inc.",
+   "rank": 50,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 1444077000.0,
+   "sic": "7373",
+   "state": "IL"
   }
  ],
  "cutoff": "2013-01-01T00:00:00Z",

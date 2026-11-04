@@ -411,19 +411,9 @@
    "state": "NC"
   },
   {
-   "cik": 1274494,
-   "name": "FIRST SOLAR, INC.",
-   "rank": 42,
-   "reason": "sic_3674",
-   "revenue_fiscal_year_end": "2016-12-31",
-   "revenue_usd": 2951328000.0,
-   "sic": "3674",
-   "state": "AZ"
-  },
-  {
    "cik": 1062047,
    "name": "CONCENTRIX CVG Corp",
-   "rank": 43,
+   "rank": 42,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2016-12-31",
    "revenue_usd": 2913600000.0,
@@ -433,7 +423,7 @@
   {
    "cik": 750004,
    "name": "Light & Wonder, Inc.",
-   "rank": 44,
+   "rank": 43,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2016-12-31",
    "revenue_usd": 2883400000.0,
@@ -443,7 +433,7 @@
   {
    "cik": 1556148,
    "name": "Infor, Inc.",
-   "rank": 45,
+   "rank": 44,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2017-04-30",
    "revenue_usd": 2855800000.0,
@@ -453,7 +443,7 @@
   {
    "cik": 746838,
    "name": "UNISYS CORP",
-   "rank": 46,
+   "rank": 45,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2016-12-31",
    "revenue_usd": 2820700000.0,
@@ -463,7 +453,7 @@
   {
    "cik": 883241,
    "name": "SYNOPSYS INC",
-   "rank": 47,
+   "rank": 46,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2017-10-31",
    "revenue_usd": 2724880000.0,
@@ -471,19 +461,9 @@
    "state": "CA"
   },
   {
-   "cik": 867773,
-   "name": "SUNPOWER CORP",
-   "rank": 48,
-   "reason": "sic_3674",
-   "revenue_fiscal_year_end": "2017-01-01",
-   "revenue_usd": 2559562000.0,
-   "sic": "3674",
-   "state": "CA"
-  },
-  {
    "cik": 1418091,
    "name": "TWITTER, INC.",
-   "rank": 49,
+   "rank": 47,
    "reason": "sic_7370",
    "revenue_fiscal_year_end": "2016-12-31",
    "revenue_usd": 2529619000.0,
@@ -493,12 +473,32 @@
   {
    "cik": 1087423,
    "name": "RED HAT INC",
-   "rank": 50,
+   "rank": 48,
    "reason": "sic_7370",
    "revenue_fiscal_year_end": "2017-02-28",
    "revenue_usd": 2411803000.0,
    "sic": "7370",
    "state": "NC"
+  },
+  {
+   "cik": 743988,
+   "name": "XILINX INC",
+   "rank": 49,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2017-04-01",
+   "revenue_usd": 2349330000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 743316,
+   "name": "MAXIM INTEGRATED PRODUCTS INC",
+   "rank": 50,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2017-06-24",
+   "revenue_usd": 2295615000.0,
+   "sic": "3674",
+   "state": "CA"
   }
  ],
  "cutoff": "2018-01-01T00:00:00Z",

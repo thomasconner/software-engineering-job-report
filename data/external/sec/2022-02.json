@@ -1,6 +1,6 @@
 {
   "as_of": "2022-02-09",
-  "fetched_at": "2026-11-04T19:39:12Z",
+  "fetched_at": "2026-11-04T19:48:37Z",
   "month": "2022-02",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -17,7 +17,6 @@
     },
     "sec_headcount_median_yoy.US": {
       "companies": [
-        2488,
         6951,
         8670,
         97476,
@@ -56,16 +55,35 @@
         1756497
       ],
       "dropped": [
-        6281,
-        896878,
-        1045810,
-        1373715,
-        1543151
+        {
+          "cik": 2488,
+          "reason": "8-K Item 2.01 filed 2022-02-14 (0000002488-22-000031)"
+        },
+        {
+          "cik": 6281,
+          "reason": "8-K Item 2.01 filed 2021-08-26 (0001193125-21-257596)"
+        },
+        {
+          "cik": 896878,
+          "reason": "8-K Item 2.01 filed 2020-12-03 (0001193125-20-309090)"
+        },
+        {
+          "cik": 1045810,
+          "reason": "8-K Item 2.01 filed 2020-04-27 (0001045810-20-000052)"
+        },
+        {
+          "cik": 1373715,
+          "reason": "8-K Item 2.01 filed 2021-01-14 (0001373715-21-000006)"
+        },
+        {
+          "cik": 1543151,
+          "reason": "8-K Item 2.01 filed 2020-01-21 (0001552781-20-000094)"
+        }
       ],
-      "n": 37,
+      "n": 36,
       "ref_period": "2021-12",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0789,
+      "value": 0.077,
       "vintage_date": "2022-02-09"
     },
     "sec_headcount_meta.US": {
@@ -76,7 +94,6 @@
     },
     "sec_headcount_panel.US": {
       "companies": [
-        2488,
         6951,
         8670,
         97476,
@@ -115,16 +132,35 @@
         1756497
       ],
       "dropped": [
-        6281,
-        896878,
-        1045810,
-        1373715,
-        1543151
+        {
+          "cik": 2488,
+          "reason": "8-K Item 2.01 filed 2022-02-14 (0000002488-22-000031)"
+        },
+        {
+          "cik": 6281,
+          "reason": "8-K Item 2.01 filed 2021-08-26 (0001193125-21-257596)"
+        },
+        {
+          "cik": 896878,
+          "reason": "8-K Item 2.01 filed 2020-12-03 (0001193125-20-309090)"
+        },
+        {
+          "cik": 1045810,
+          "reason": "8-K Item 2.01 filed 2020-04-27 (0001045810-20-000052)"
+        },
+        {
+          "cik": 1373715,
+          "reason": "8-K Item 2.01 filed 2021-01-14 (0001373715-21-000006)"
+        },
+        {
+          "cik": 1543151,
+          "reason": "8-K Item 2.01 filed 2020-01-21 (0001552781-20-000094)"
+        }
       ],
-      "n": 37,
+      "n": 36,
       "ref_period": "2021-12",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.137,
+      "value": 0.1365,
       "vintage_date": "2022-02-09"
     },
     "sec_item_205_filings_panel.US": {

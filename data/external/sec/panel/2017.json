@@ -331,19 +331,9 @@
    "state": "CA"
   },
   {
-   "cik": 1274494,
-   "name": "FIRST SOLAR, INC.",
-   "rank": 34,
-   "reason": "sic_3674",
-   "revenue_fiscal_year_end": "2015-12-31",
-   "revenue_usd": 3578995000.0,
-   "sic": "3674",
-   "state": "AZ"
-  },
-  {
    "cik": 1097864,
    "name": "ON SEMICONDUCTOR CORP",
-   "rank": 35,
+   "rank": 34,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 3495800000.0,
@@ -353,7 +343,7 @@
   {
    "cik": 6281,
    "name": "ANALOG DEVICES INC",
-   "rank": 36,
+   "rank": 35,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-10-29",
    "revenue_usd": 3421409000.0,
@@ -363,7 +353,7 @@
   {
    "cik": 4127,
    "name": "SKYWORKS SOLUTIONS, INC.",
-   "rank": 37,
+   "rank": 36,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-09-30",
    "revenue_usd": 3289000000.0,
@@ -373,7 +363,7 @@
   {
    "cik": 877890,
    "name": "CITRIX SYSTEMS INC",
-   "rank": 38,
+   "rank": 37,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 3275594000.0,
@@ -383,7 +373,7 @@
   {
    "cik": 746838,
    "name": "UNISYS CORP",
-   "rank": 39,
+   "rank": 38,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 3015100000.0,
@@ -393,7 +383,7 @@
   {
    "cik": 1597033,
    "name": "Sabre Corp",
-   "rank": 40,
+   "rank": 39,
    "reason": "sic_7370",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 2960896000.0,
@@ -403,7 +393,7 @@
   {
    "cik": 1062047,
    "name": "CONCENTRIX CVG Corp",
-   "rank": 41,
+   "rank": 40,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 2950600000.0,
@@ -413,7 +403,7 @@
   {
    "cik": 1047127,
    "name": "AMKOR TECHNOLOGY, INC.",
-   "rank": 42,
+   "rank": 41,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 2884603000.0,
@@ -423,7 +413,7 @@
   {
    "cik": 714603,
    "name": "DST SYSTEMS INC",
-   "rank": 43,
+   "rank": 42,
    "reason": "sic_7374",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 2825100000.0,
@@ -433,7 +423,7 @@
   {
    "cik": 750004,
    "name": "Light & Wonder, Inc.",
-   "rank": 44,
+   "rank": 43,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 2758800000.0,
@@ -443,7 +433,7 @@
   {
    "cik": 1556148,
    "name": "Infor, Inc.",
-   "rank": 45,
+   "rank": 44,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-04-30",
    "revenue_usd": 2691600000.0,
@@ -453,7 +443,7 @@
   {
    "cik": 1604778,
    "name": "Qorvo, Inc.",
-   "rank": 46,
+   "rank": 45,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-04-02",
    "revenue_usd": 2610726000.0,
@@ -463,7 +453,7 @@
   {
    "cik": 769397,
    "name": "Autodesk, Inc.",
-   "rank": 47,
+   "rank": 46,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-01-31",
    "revenue_usd": 2504100000.0,
@@ -473,7 +463,7 @@
   {
    "cik": 883241,
    "name": "SYNOPSYS INC",
-   "rank": 48,
+   "rank": 47,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-10-31",
    "revenue_usd": 2422532000.0,
@@ -483,7 +473,7 @@
   {
    "cik": 1418091,
    "name": "TWITTER, INC.",
-   "rank": 49,
+   "rank": 48,
    "reason": "sic_7370",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 2218032000.0,
@@ -493,10 +483,20 @@
   {
    "cik": 743988,
    "name": "XILINX INC",
-   "rank": 50,
+   "rank": 49,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-04-02",
    "revenue_usd": 2213881000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 743316,
+   "name": "MAXIM INTEGRATED PRODUCTS INC",
+   "rank": 50,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2016-06-25",
+   "revenue_usd": 2194719000.0,
    "sic": "3674",
    "state": "CA"
   }

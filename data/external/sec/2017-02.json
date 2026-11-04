@@ -1,6 +1,6 @@
 {
   "as_of": "2017-02-09",
-  "fetched_at": "2026-11-04T19:39:11Z",
+  "fetched_at": "2026-11-04T19:48:35Z",
   "month": "2017-02",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -28,6 +28,7 @@
         712515,
         718877,
         723125,
+        743316,
         743988,
         746838,
         750004,
@@ -49,7 +50,6 @@
         1097864,
         1108524,
         1124610,
-        1274494,
         1326801,
         1336920,
         1341439,
@@ -60,15 +60,27 @@
         1633917
       ],
       "dropped": [
-        16058,
-        23082,
-        804753,
-        849399
+        {
+          "cik": 16058,
+          "reason": "8-K Item 2.01 filed 2016-02-03 (0001564590-16-012268)"
+        },
+        {
+          "cik": 23082,
+          "reason": "8-K Item 2.01 filed 2015-12-03 (0000023082-15-000083)"
+        },
+        {
+          "cik": 804753,
+          "reason": "8-K Item 2.01 filed 2015-02-02 (0000804753-15-000002)"
+        },
+        {
+          "cik": 849399,
+          "reason": "Symantec sold Veritas"
+        }
       ],
       "n": 41,
       "ref_period": "2016-12",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0364,
+      "value": 0.0309,
       "vintage_date": "2017-02-09"
     },
     "sec_headcount_panel.US": {
@@ -84,6 +96,7 @@
         712515,
         718877,
         723125,
+        743316,
         743988,
         746838,
         750004,
@@ -105,7 +118,6 @@
         1097864,
         1108524,
         1124610,
-        1274494,
         1326801,
         1336920,
         1341439,
@@ -116,15 +128,27 @@
         1633917
       ],
       "dropped": [
-        16058,
-        23082,
-        804753,
-        849399
+        {
+          "cik": 16058,
+          "reason": "8-K Item 2.01 filed 2016-02-03 (0001564590-16-012268)"
+        },
+        {
+          "cik": 23082,
+          "reason": "8-K Item 2.01 filed 2015-12-03 (0000023082-15-000083)"
+        },
+        {
+          "cik": 804753,
+          "reason": "8-K Item 2.01 filed 2015-02-02 (0000804753-15-000002)"
+        },
+        {
+          "cik": 849399,
+          "reason": "Symantec sold Veritas"
+        }
       ],
       "n": 41,
       "ref_period": "2016-12",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.098,
+      "value": 0.0969,
       "vintage_date": "2017-02-09"
     },
     "sec_item_205_filings_panel.US": {
@@ -144,20 +168,20 @@
       "n": 49,
       "ref_period": "2016-Q3",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 22,
+      "value": 21,
       "vintage_date": "2017-02-09"
     },
     "sec_restructuring_usd.US": {
       "annual_only": [],
-      "n": 22,
+      "n": 21,
       "ref_period": "2016-Q3",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
       "top": {
         "cik": 1649338,
         "name": "Broadcom Pte. Ltd.",
-        "share": 0.5022
+        "share": 0.5048
       },
-      "value": 836328000,
+      "value": 832014000,
       "vintage_date": "2017-02-09"
     }
   }

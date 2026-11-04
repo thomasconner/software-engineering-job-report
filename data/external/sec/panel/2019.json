@@ -401,19 +401,9 @@
    "state": "NC"
   },
   {
-   "cik": 1274494,
-   "name": "FIRST SOLAR, INC.",
-   "rank": 41,
-   "reason": "sic_3674",
-   "revenue_fiscal_year_end": "2017-12-31",
-   "revenue_usd": 2941324000.0,
-   "sic": "3674",
-   "state": "AZ"
-  },
-  {
    "cik": 1087423,
    "name": "RED HAT INC",
-   "rank": 42,
+   "rank": 41,
    "reason": "sic_7370",
    "revenue_fiscal_year_end": "2018-02-28",
    "revenue_usd": 2920461000.0,
@@ -423,7 +413,7 @@
   {
    "cik": 877890,
    "name": "CITRIX SYSTEMS INC",
-   "rank": 43,
+   "rank": 42,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2017-12-31",
    "revenue_usd": 2824686000.0,
@@ -433,7 +423,7 @@
   {
    "cik": 746838,
    "name": "UNISYS CORP",
-   "rank": 44,
+   "rank": 43,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2017-12-31",
    "revenue_usd": 2741800000.0,
@@ -443,7 +433,7 @@
   {
    "cik": 743988,
    "name": "XILINX INC",
-   "rank": 45,
+   "rank": 44,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2018-03-31",
    "revenue_usd": 2539004000.0,
@@ -453,7 +443,7 @@
   {
    "cik": 1418091,
    "name": "TWITTER, INC.",
-   "rank": 46,
+   "rank": 45,
    "reason": "sic_7370",
    "revenue_fiscal_year_end": "2017-12-31",
    "revenue_usd": 2443299000.0,
@@ -463,7 +453,7 @@
   {
    "cik": 791915,
    "name": "CYPRESS SEMICONDUCTOR CORP /DE/",
-   "rank": 47,
+   "rank": 46,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2017-12-31",
    "revenue_usd": 2327771000.0,
@@ -473,7 +463,7 @@
   {
    "cik": 1609711,
    "name": "GoDaddy Inc.",
-   "rank": 48,
+   "rank": 47,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2017-12-31",
    "revenue_usd": 2231900000.0,
@@ -483,7 +473,7 @@
   {
    "cik": 1512673,
    "name": "Block, Inc.",
-   "rank": 49,
+   "rank": 48,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2017-12-31",
    "revenue_usd": 2214253000.0,
@@ -493,12 +483,22 @@
   {
    "cik": 1442145,
    "name": "Verisk Analytics, Inc.",
-   "rank": 50,
+   "rank": 49,
    "reason": "sic_7374",
    "revenue_fiscal_year_end": "2017-12-31",
    "revenue_usd": 2145200000.0,
    "sic": "7374",
    "state": "NJ"
+  },
+  {
+   "cik": 1327811,
+   "name": "Workday, Inc.",
+   "rank": 50,
+   "reason": "sic_7374",
+   "revenue_fiscal_year_end": "2018-01-31",
+   "revenue_usd": 2143050000.0,
+   "sic": "7374",
+   "state": "CA"
   }
  ],
  "cutoff": "2019-01-01T00:00:00Z",

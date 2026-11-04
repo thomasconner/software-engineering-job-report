@@ -1,6 +1,6 @@
 {
   "as_of": "2016-12-09",
-  "fetched_at": "2026-11-04T19:39:10Z",
+  "fetched_at": "2026-11-04T19:48:35Z",
   "month": "2016-12",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -35,10 +35,11 @@
         789019,
         796343,
         804328,
-        867773,
+        827054,
         877890,
         883241,
         896878,
+        1002517,
         1011006,
         1018724,
         1045810,
@@ -49,7 +50,6 @@
         1097864,
         1108524,
         1124610,
-        1274494,
         1288776,
         1316360,
         1326801,
@@ -59,18 +59,39 @@
         1597033
       ],
       "dropped": [
-        16058,
-        23082,
-        804753,
-        849399,
-        1065088,
-        1271024,
-        1595262
+        {
+          "cik": 16058,
+          "reason": "8-K Item 2.01 filed 2016-02-03 (0001564590-16-012268)"
+        },
+        {
+          "cik": 23082,
+          "reason": "8-K Item 2.01 filed 2015-12-03 (0000023082-15-000083)"
+        },
+        {
+          "cik": 804753,
+          "reason": "8-K Item 2.01 filed 2015-02-02 (0000804753-15-000002)"
+        },
+        {
+          "cik": 849399,
+          "reason": "Symantec sold Veritas"
+        },
+        {
+          "cik": 1065088,
+          "reason": "PayPal spun off from eBay"
+        },
+        {
+          "cik": 1271024,
+          "reason": "8-K Item 2.01 filed 2015-05-15 (0001104659-15-038289)"
+        },
+        {
+          "cik": 1595262,
+          "reason": "8-K Item 2.01 filed 2015-04-01 (0001193125-15-116279)"
+        }
       ],
       "n": 40,
       "ref_period": "2016-10",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0306,
+      "value": 0.0281,
       "vintage_date": "2016-12-09"
     },
     "sec_headcount_panel.US": {
@@ -93,10 +114,11 @@
         789019,
         796343,
         804328,
-        867773,
+        827054,
         877890,
         883241,
         896878,
+        1002517,
         1011006,
         1018724,
         1045810,
@@ -107,7 +129,6 @@
         1097864,
         1108524,
         1124610,
-        1274494,
         1288776,
         1316360,
         1326801,
@@ -117,25 +138,46 @@
         1597033
       ],
       "dropped": [
-        16058,
-        23082,
-        804753,
-        849399,
-        1065088,
-        1271024,
-        1595262
+        {
+          "cik": 16058,
+          "reason": "8-K Item 2.01 filed 2016-02-03 (0001564590-16-012268)"
+        },
+        {
+          "cik": 23082,
+          "reason": "8-K Item 2.01 filed 2015-12-03 (0000023082-15-000083)"
+        },
+        {
+          "cik": 804753,
+          "reason": "8-K Item 2.01 filed 2015-02-02 (0000804753-15-000002)"
+        },
+        {
+          "cik": 849399,
+          "reason": "Symantec sold Veritas"
+        },
+        {
+          "cik": 1065088,
+          "reason": "PayPal spun off from eBay"
+        },
+        {
+          "cik": 1271024,
+          "reason": "8-K Item 2.01 filed 2015-05-15 (0001104659-15-038289)"
+        },
+        {
+          "cik": 1595262,
+          "reason": "8-K Item 2.01 filed 2015-04-01 (0001193125-15-116279)"
+        }
       ],
       "n": 40,
       "ref_period": "2016-10",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0807,
+      "value": 0.0791,
       "vintage_date": "2016-12-09"
     },
     "sec_item_205_filings_panel.US": {
       "n": 50,
       "ref_period": "2016-11",
       "source_url": "https://data.sec.gov/submissions/",
-      "value": 1,
+      "value": 0,
       "vintage_date": "2016-12-09"
     },
     "sec_item_205_filings_software.US": {
@@ -148,20 +190,20 @@
       "n": 49,
       "ref_period": "2016-Q2",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 23,
+      "value": 22,
       "vintage_date": "2016-12-09"
     },
     "sec_restructuring_usd.US": {
       "annual_only": [],
-      "n": 23,
+      "n": 22,
       "ref_period": "2016-Q2",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
       "top": {
         "cik": 789019,
         "name": "MICROSOFT CORP",
-        "share": 0.485
+        "share": 0.5257
       },
-      "value": 1032964000,
+      "value": 953032000,
       "vintage_date": "2016-12-09"
     }
   }
