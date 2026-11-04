@@ -6,6 +6,7 @@ from datetime import date
 
 import duckdb
 
+from sejr.db import insert_rows
 from sejr.features.company import company_name
 from sejr.features.salary import salary_summary
 from sejr.features.tokens import (
@@ -17,7 +18,8 @@ from sejr.features.tokens import (
 from sejr.features.vocab import stack_terms
 
 # Bump whenever a rule or the vocabulary changes; aggregate reads only this version.
-VERSION = "features-1"
+VERSION = "features-2"
+LOOKBACK_MONTHS = 24
 
 Answer = tuple[int, str, str, str, float | None, str | None, str | None, float | None]
 
@@ -54,8 +56,8 @@ def post_answers(post_id: int, text: str) -> list[Answer]:
 
 
 # Only earlier months' in-snapshot posts are read, so adding later months never changes a row.
-# A month with no earlier hiring thread (or no thread last month) gets no answer at all,
-# rather than a meaningless "everyone is new".
+# "New" means not seen in the prior 24 months, so the rate doesn't sink forever as history
+# grows. A month with no earlier hiring thread (or no thread last month) gets no answer.
 JOIN_SQL = """
 WITH company AS (
   SELECT a.post_id, a.label AS company, t.month, p.in_snapshot
@@ -65,17 +67,15 @@ WITH company AS (
   WHERE a.question = 'company' AND a.method = 'regex' AND a.version = $version
     AND t.kind = 'hiring'
 ),
-hiring_months AS (SELECT DISTINCT month FROM threads WHERE kind = 'hiring'),
-targets AS (
-  SELECT * FROM company WHERE $month IS NULL OR month = $month
-)
+hiring_months AS (SELECT DISTINCT month FROM threads WHERE kind = 'hiring')
 SELECT post_id, 'new_company', 'join', $version,
        (NOT EXISTS (
           SELECT 1 FROM company e
-          WHERE e.company = t.company AND e.month < t.month AND e.in_snapshot
+          WHERE e.company = t.company AND e.in_snapshot
+            AND e.month < t.month AND e.month >= t.month - INTERVAL (LOOKBACK) MONTH
        ))::DOUBLE,
        NULL, NULL, NULL
-FROM targets t
+FROM company t
 WHERE EXISTS (SELECT 1 FROM hiring_months h WHERE h.month < t.month)
 UNION ALL
 SELECT post_id, 'returned_from_last_month', 'join', $version,
@@ -84,17 +84,9 @@ SELECT post_id, 'returned_from_last_month', 'join', $version,
           WHERE e.company = t.company AND e.month = t.month - INTERVAL 1 MONTH AND e.in_snapshot
        ))::DOUBLE,
        NULL, NULL, NULL
-FROM targets t
+FROM company t
 WHERE EXISTS (SELECT 1 FROM hiring_months h WHERE h.month = t.month - INTERVAL 1 MONTH)
-"""
-
-
-INSERT_COLUMNS = """
-INSERT INTO answers
-SELECT unnest(?::BIGINT[]), unnest(?::VARCHAR[]), unnest(?::VARCHAR[]), unnest(?::VARCHAR[]),
-       unnest(?::DOUBLE[]), unnest(?::VARCHAR[]), unnest(?::VARCHAR[])::JSON,
-       unnest(?::DOUBLE[])
-"""
+""".replace("LOOKBACK", str(LOOKBACK_MONTHS))
 
 
 def _hiring_posts(
@@ -115,7 +107,7 @@ def _delete(con: duckdb.DuckDBPyConnection, month: date | None) -> None:
     con.execute(
         """
         DELETE FROM answers
-        WHERE version = $version AND method IN ('regex', 'vocab', 'join')
+        WHERE version = $version AND method IN ('regex', 'vocab')
           AND post_id IN (
             SELECT p.post_id FROM posts p JOIN threads t USING (thread_id)
             WHERE t.kind = 'hiring' AND ($month IS NULL OR t.month = $month)
@@ -123,10 +115,15 @@ def _delete(con: duckdb.DuckDBPyConnection, month: date | None) -> None:
         """,
         {"version": VERSION, "month": month},
     )
+    # Joins are always rebuilt in full: a month's company labels feed every later month.
+    con.execute(
+        "DELETE FROM answers WHERE version = $version AND method = 'join'",
+        {"version": VERSION},
+    )
 
 
 def build(con: duckdb.DuckDBPyConnection, month: date | None = None) -> int:
-    """Rewrite this version's deterministic answers for one month (YYYY-MM-01) or all."""
+    """Rewrite this version's regex/vocab answers for one month (or all), then every join."""
     rows = [
         r
         for post_id, text in _hiring_posts(con, month)
@@ -134,12 +131,8 @@ def build(con: duckdb.DuckDBPyConnection, month: date | None = None) -> int:
     ]
     con.begin()
     _delete(con, month)
-    if rows:
-        # One statement over column lists: executemany is ~50x slower at 600k rows.
-        con.execute(
-            INSERT_COLUMNS, [list(column) for column in zip(*rows, strict=True)]
-        )
-    con.execute(f"INSERT INTO answers {JOIN_SQL}", {"version": VERSION, "month": month})
+    insert_rows(con, "answers", rows)
+    con.execute(f"INSERT INTO answers {JOIN_SQL}", {"version": VERSION})
     con.commit()
     return len(rows)
 

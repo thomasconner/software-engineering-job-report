@@ -64,3 +64,18 @@ def connect(path: Path | str = DB_PATH) -> duckdb.DuckDBPyConnection:
     con.execute("SET TimeZone = 'UTC'")
     con.execute(SCHEMA)
     return con
+
+
+def insert_rows(con: duckdb.DuckDBPyConnection, table: str, rows: list[tuple]) -> None:
+    """Insert rows in one statement over column lists; executemany is ~50x slower at scale."""
+    if not rows:
+        return
+    types = [
+        column_type
+        for _, column_type, *_ in con.execute(f"DESCRIBE {table}").fetchall()
+    ]
+    columns = ", ".join(f"unnest(?::{t}[])" for t in types)
+    con.execute(
+        f"INSERT INTO {table} SELECT {columns}",
+        [list(c) for c in zip(*rows, strict=True)],
+    )

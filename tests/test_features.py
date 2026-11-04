@@ -44,6 +44,14 @@ from sejr.features.vocab import TERMS, stack_terms
         ("Looking for a commercial co-founder | Europe / US Remote", None),
         ("I'm applying for the Growth Lead / Expansion & Lifecycle role", None),
         ("SAN FRANCISCO, CA", None),
+        ("Amsterdam, Netherlands - Acme", "acme"),
+        ("Berlin, Germany | Acme GmbH | Backend Engineer", "acme"),
+        ("Amsterdam, the Netherlands. No remote work", None),
+        ("London | Acme | Engineer", None),
+        ("Boston Dynamics | Robotics Engineer | Waltham, MA", "boston dynamics"),
+        ("Senior Backend Engineer | Acme | Remote", None),
+        ("Head of Data | Acme", None),
+        ("2024 | Acme | Remote", None),
         ("Palo Alto, CA - Box.net", "box"),
         ("San Francisco, CA - Kontagent", "kontagent"),
         ("Santa Barbara, CA: AppFolio inc.", "appfolio"),
@@ -89,9 +97,16 @@ def test_company_spellings_normalize_together():
         ("Pex | Engineers | Los Angeles | ONSITE, FULL-TIME |Salary $100k+ & Equity | https://pex.com",
          (100_000, None, "USD")),
         ("principal and distinguished engineers | up to ~ $750k", (None, 750_000, "USD")),
-        # Several roles: floor of the lowest range, ceiling of the highest.
+        # Several roles: median of the lows, median of the highs.
         (("- Lead Engineer ($140-180k plus stock options)\n- Frontend Engineer ($80-120k plus "
-         "stock options)"), (80_000, 180_000, "USD")),
+         "stock options)\n- Backend Engineer ($100-150k plus stock options)"),
+         (100_000, 150_000, "USD")),
+        ("Acme | Senior Engineer | NYC | 100k-140kUSD", (100_000, 140_000, "USD")),
+        ("Acme | Engineer | Remote (US) | $150k+bonus", (150_000, 150_000, "USD")),
+        ("Acme | Engineer | Austin, TX | $120k (USD) + equity", (120_000, 120_000, "USD")),
+        ("Acme | Engineer | Remote (US/Canada) | $150k-$190k", (150_000, 190_000, "USD")),
+        # A range right after "Salary:" survives a stock mention; a lone RSU amount doesn't.
+        ("Salary: $150k-$200k RSUs on top", (150_000, 200_000, "USD")),
         # Hourly and annual quoted together: only the annual figure counts.
         ("Remote or NY | Full-time or Part-time | $60/hr (Part-time) or $120k/yr (Full-time)",
          (120_000, 120_000, "USD")),
@@ -104,6 +119,11 @@ def test_usd_salary(text, expected):
 @pytest.mark.parametrize(
     ("text", "currency"),
     [
+        ("Shopify | Toronto, Canada | ONSITE | $120k-$150k", "CAD"),
+        ("Acme | Sydney, Australia | $140k-$170k", "AUD"),
+        ("Acme | Berlin, Germany | $90k-$120k", "unknown"),
+        ("Acme | Engineer | $120k-$160k CAD + equity", "CAD"),
+        ("Acme | Engineer | $120k-$160k base (paid in CAD)", "CAD"),
         ("Planlab.ai | ONSITE in London, UK | 100k-160k GBP + 0.25-0.75% Equity | Visa sponsorship",
          "GBP"),
         ("Trackerbot | Full-Stack Developer (Node.js) | REMOTE |  €35-45k/year", "EUR"),
@@ -144,6 +164,8 @@ def test_non_usd_salary_is_counted_but_not_in_usd(text, currency):
         "we've helped over 100 million Americans save over $15 billion to date",
         "Thinknum | Senior Engineer | New York | 55K",
         "no traffic or commute, surfing, and houses that commonly go for $150,000 to $450,000.",
+        "Perks: $50k RSUs vesting over 4 years",
+        "Join us: a $10k signing bonus for senior hires",
     ],
 )
 def test_not_a_salary(text):
@@ -217,6 +239,9 @@ def test_mentions_visa(text):
         "REMOTE (US only, US time zones; no visa sponsorship) | Full-time | $170k–$210k",
         "We're not able to offer relocation or visa sponsorship.",
         "We help trial sponsors recruit quickly.",
+        "VISA | Senior Software Engineer | Austin, TX | ONSITE",
+        "Acme | London | You must have the right to work in the UK, visa holders welcome",
+        "Acme | NYC | Work visa required.",
         "Visa Inc | Platform Engineer | Kubernetes / OpenShift",
         "I'm moving to the Bay Area in November (I have work visa)",
     ],
@@ -264,6 +289,7 @@ def test_no_visa_offer(text):
         ("AWS, GCP and Azure, provisioned with Terraform", {"AWS", "GCP", "Azure", "Terraform"},
          set()),
         ("Machine learning on k8s", {"Machine learning", "Kubernetes"}, set()),
+        ("Apply: https://jobs.example.com/go/python-rust | Remote", set(), {"Go", "Python", "Rust"}),
     ],
 )  # fmt: skip
 def test_stack_terms(text, present, absent):

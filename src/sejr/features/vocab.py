@@ -115,5 +115,10 @@ def _mentions(text: str, term: Term) -> bool:
     )
 
 
+# "github.com/rust-lang" or "jobs.example.com/go" is a link, not a stack mention.
+URL = re.compile(r"https?://\S+|www\.\S+", re.IGNORECASE)
+
+
 def stack_terms(text: str) -> list[str]:
+    text = URL.sub(" ", text)
     return [name for name, term in TERMS.items() if _mentions(text, term)]

@@ -24,6 +24,8 @@ VISA = re.compile(
 )
 # "Visa" in title case is often the payments company ("clients include Google, Visa").
 VISA_COMPANY = re.compile(r"^Visa(?:['’]s)?$")
+# The company as a post's first word, in any case: "VISA | Senior Engineer", "Visa Inc".
+COMPANY_AFTER = re.compile(r"^\s*(?:\||[-–—]|\(|,|Inc\b)")
 VISA_OFFER_AFTER = re.compile(
     r"^\W{0,3}(?:sponsor|transfer|support|assist|welcome|ok|considered|possib|available|provid"
     r"|offer|relocation|for\b)",
@@ -35,7 +37,8 @@ PIPE_AFTER = re.compile(r"^\s*(?:\||\n|$)")
 # A visa the candidate must already hold is a requirement, not an offer.
 VISA_HELD = re.compile(
     r"^\s*holders?\b|^\s*on your own\b|(?:valid|own|existing work|current)\s+(?:work\s+)?$"
-    r"|\bhave\s+(?:a\s+)?(?:valid\s+)?(?:work\s+)?$",
+    r"|\bhave\s+(?:a\s+)?(?:valid\s+)?(?:work\s+)?$|\bright[- ]to[- ]work\b[^.|]{0,30}$"
+    r"|^\s*(?:is\s+)?(?:required|needed|necessary)\b",
     re.IGNORECASE,
 )
 
@@ -91,7 +94,10 @@ def interns_token(text: str) -> bool:
 
 def _is_visa_offer(text: str, m: re.Match[str]) -> bool:
     after = text[m.end() : m.end() + 30]
-    if VISA_COMPANY.match(m.group()) and re.match(r"\s+Inc\b", after):
+    at_start = m.start() == len(text) - len(text.lstrip())
+    if (at_start and COMPANY_AFTER.match(after)) or (
+        VISA_COMPANY.match(m.group()) and re.match(r"\s+Inc\b", after)
+    ):
         return False
     if VISA_COMPANY.match(m.group()) and not (
         VISA_OFFER_AFTER.search(after)
@@ -101,7 +107,7 @@ def _is_visa_offer(text: str, m: re.Match[str]) -> bool:
     ):
         return False
     if VISA_HELD.search(after) or VISA_HELD.search(
-        text[max(0, m.start() - 20) : m.start()]
+        text[max(0, m.start() - 45) : m.start()]
     ):
         return False
     return not is_negated(text, m.start(), m.end())
