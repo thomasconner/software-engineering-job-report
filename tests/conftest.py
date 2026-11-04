@@ -37,7 +37,10 @@ HIRING_TEXTS = {
     "app!\n\nNo remote work. Python, Go, Swift and Kotlin.",
 }
 
-SEEKING_TEXT = "Location: Berlin, Germany\nRemote: Yes\nWilling to relocate: No\n\nTechnologies: Python"
+SEEKING_TEXTS = [
+    "Location: Berlin, Germany\nRemote: Yes\nWilling to relocate: No\n\nTechnologies: Python",
+    "Location: Austin, TX\nRemote: Yes\nWilling to relocate: No\n\nTechnologies: Go",
+]
 
 MONTHS = [date(2024, m, 1) for m in range(1, 8)]
 # April has no hiring thread, so May has no "last month" to compare against.
@@ -88,7 +91,8 @@ def populate(con: duckdb.DuckDBPyConnection) -> None:
                 companies = rng.sample(sorted(HIRING_TEXTS), 6)
                 texts = [HIRING_TEXTS[c] for c in companies]
             else:
-                texts = [SEEKING_TEXT] * rng.randint(4, 9)
+                count = rng.randint(4, 9)
+                texts = [SEEKING_TEXTS[i % 2] for i in range(count)]
             for i, text in enumerate(texts):
                 # Every month a couple of posts land after the 7-day snapshot.
                 hours = 24 * 9 if i >= len(texts) - 2 else rng.uniform(0, 24 * 6)

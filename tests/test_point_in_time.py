@@ -41,6 +41,52 @@ def test_month_is_the_same_with_or_without_later_months(db, tmp_path):
         cut.close()
 
 
+REGION_METRICS = {"seekers_per_post_us", "seeker_us_share", "region", "seeker_region"}
+
+
+def test_region_metrics_are_the_same_with_or_without_later_months(db, tmp_path):
+    features.build(db)
+    seen = set()
+    for t in MONTHS:
+        cut = truncated_copy(db, tmp_path / f"region-{t}.duckdb", t)
+        features.build(cut)
+        full = [r for r in aggregate.compute_month(db, t) if r[2] in REGION_METRICS]
+        assert [
+            r for r in aggregate.compute_month(cut, t) if r[2] in REGION_METRICS
+        ] == full
+        seen |= {r[2] for r in full}
+        cut.close()
+    assert seen == REGION_METRICS
+
+
+def test_us_seeker_ratio_counts_live_posts(db):
+    features.build(db)
+    t = date(2024, 3, 1)
+    db.execute("UPDATE threads SET removed_in_snapshot = 50 WHERE month = ?", [t])
+    metrics = _metrics(aggregate.compute_month(db, t))
+    (us_seekers, seekers, open_posts) = db.execute(
+        """
+        SELECT
+          count(*) FILTER (WHERE t.kind = 'seeking' AND p.text LIKE 'Location: Austin%'),
+          count(*) FILTER (WHERE t.kind = 'seeking'),
+          count(*) FILTER (WHERE t.kind = 'hiring' AND a.value = 1)
+        FROM posts p JOIN threads t USING (thread_id)
+        LEFT JOIN answers a ON a.post_id = p.post_id AND a.question = 'open_to_us'
+        WHERE p.in_snapshot AND t.month = $m
+        """,
+        {"m": t},
+    ).fetchone()
+    # Removed posts have no text, so they change seekers_per_post but not the US ratio.
+    assert metrics[("hiring", "seekers_per_post_us", "")] == (
+        pytest.approx(us_seekers / open_posts),
+        open_posts,
+    )
+    assert metrics[("seeking", "seeker_us_share", "")] == (
+        pytest.approx(us_seekers / seekers),
+        seekers,
+    )
+
+
 def test_later_months_exist_in_full_db(db):
     # Guard against a vacuous point-in-time test: the full DB must hold data after each t.
     (latest,) = db.execute("SELECT max(month) FROM threads").fetchone()
@@ -513,3 +559,18 @@ def test_month_by_month_build_matches_full_build(db, tmp_path):
     for t in reversed(MONTHS):
         features.build(db, t)
     assert _answer_rows(db) == full
+
+
+def test_export_carries_region_metrics(db, tmp_path):
+    features.build(db)
+    aggregate.run(db, Namespace(month=None, dry_run=False, limit=None))
+    data = export.build(db, tmp_path / "missing.json")
+    ratio = data["metrics"]["seekers_per_post_us.hiring"]
+    assert (ratio["unit"], ratio["method"], ratio["polarity"]) == ("ratio", "regex", -1)
+    assert ratio["sources"] == ["hiring", "seeking"]
+    assert ratio["series"]
+    assert data["metrics"]["seeker_us_share.seeking"]["sources"] == ["seeking"]
+    for name, kind in [("region", "hiring"), ("seeker_region", "seeking")]:
+        breakdown = data["breakdowns"][name]
+        assert breakdown["sources"] == [kind]
+        assert breakdown["categories"][-1] == "unknown"

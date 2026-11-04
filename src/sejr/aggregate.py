@@ -15,6 +15,7 @@ import duckdb
 from sejr import config
 from sejr.db import insert_rows
 from sejr.features import VERSION as FEATURES_VERSION
+from sejr.features.region import REGIONS
 from sejr.features.vocab import TERMS
 
 Row = tuple[date, str, str, str, float, int]
@@ -61,6 +62,10 @@ SCALARS = [
                  """avg(coalesce(json_extract(probabilities, '$."0"')::DOUBLE, 0)
                       + coalesce(json_extract(probabilities, '$."1"')::DOUBLE, 0))""",
                  "probabilities"),
+    # Among seekers whose Location line names a region.
+    AnswerMetric("seeker_us_share", "seeking", "region", "regex",
+                 "avg((label = 'us')::DOUBLE) FILTER (WHERE label <> 'unknown')",
+                 "nullif(label, 'unknown')"),
 ]  # fmt: skip
 
 SENIORITY = ("junior", "mid", "senior", "staff_plus", "unspecified")
@@ -80,6 +85,9 @@ BREAKDOWNS = [
               ("bootstrapped", "seed", "series_a", "series_b", "series_c_plus", "public_or_large",
                "venture_unspecified", "unknown")),
     Breakdown("stack", "hiring", "vocab", tuple(TERMS)),
+    # Hiring headers can name several regions, so these shares don't sum to 1.
+    Breakdown("region", "hiring", "regex", REGIONS),
+    Breakdown("seeker_region", "seeking", "regex", REGIONS, "region"),
     # Cross-tab: seniority mix of posts judged AI-native (ai_native >= 0.5) and of the rest.
     Breakdown("seniority_ai_native", "hiring", "jev", SENIORITY, "seniority",
               AI_NATIVE_POSTS.format(">=")),
@@ -189,6 +197,32 @@ def _count_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     return rows
 
 
+def _us_ratio_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
+    """US-located seekers per hiring post open to US workers.
+
+    Region needs the text, so both sides count live posts. Posts removed before the fetch
+    have no text, unlike the submitted counts behind seekers_per_post.
+    """
+    us_seekers, seekers, open_posts = con.execute(
+        SNAPSHOT
+        + """
+        SELECT
+          count(*) FILTER (WHERE s.kind = 'seeking' AND a.question = 'region'
+                           AND a.label = 'us'),
+          (SELECT count(*) FROM snapshot WHERE kind = 'seeking'),
+          count(*) FILTER (WHERE s.kind = 'hiring' AND a.question = 'open_to_us'
+                           AND a.value = 1)
+        FROM snapshot s JOIN answers a USING (post_id)
+        WHERE a.method = 'regex' AND a.version = $version
+        """,
+        {"month": month, "version": FEATURES_VERSION},
+    ).fetchone()
+    if not (seekers and open_posts):
+        return []
+    ratio = us_seekers / open_posts
+    return [(month, "hiring", "seekers_per_post_us", "", ratio, open_posts)]
+
+
 def _covered(
     con: duckdb.DuckDBPyConnection, month: date, m: AnswerMetric | Breakdown
 ) -> bool:
@@ -265,7 +299,10 @@ def _breakdown_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
 def compute_month(con: duckdb.DuckDBPyConnection, month: date | str) -> list[Row]:
     month = _as_date(month)
     return (
-        _count_rows(con, month) + _scalar_rows(con, month) + _breakdown_rows(con, month)
+        _count_rows(con, month)
+        + _us_ratio_rows(con, month)
+        + _scalar_rows(con, month)
+        + _breakdown_rows(con, month)
     )
 
 
