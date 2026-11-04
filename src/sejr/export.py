@@ -11,6 +11,7 @@ from sejr import noise
 from sejr.aggregate import BREAKDOWNS, COMPLETE, COUNT_METRICS, INDUSTRY_KNOWN, SCALARS
 from sejr.config import EXTERNAL_DIR, JEV_MODEL, SITE_DATA_DIR
 from sejr.external import build_section as build_external
+from sejr.sources import build as build_sources
 
 VALIDATION_PATH = SITE_DATA_DIR / "validation.json"
 from sejr.features import VERSION as FEATURES_VERSION
@@ -536,6 +537,7 @@ def build(
         "breakdowns": breakdowns,
         "external": build_external(months, external_dir),
     }
+    data["sources"] = build_sources(metrics, data["external"])
     noise.attach(con, data)
     return data
 

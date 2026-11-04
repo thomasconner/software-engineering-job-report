@@ -1,10 +1,10 @@
 // Directive renderers: line, bar, stacked-area, small-multiples, slope, dot.
 import d3 from './d3.js';
 import {
-  AuthoringError, WINDOWS, addMonths, monthDate, monthLabel, makeFormat, change, needsModelNote, tickFormat,
-  resolveSeries, pointAt, valueAt, sourceLine, pastMonth, isCatchAll, resolveExternal, indexTo, periodLabel,
+  AuthoringError, WINDOWS, addMonths, monthDate, monthLabel, makeFormat, change, tickFormat,
+  resolveSeries, resolveChartSeries, compareCells, pointAt, valueAt, pastMonth, isCatchAll, periodLabel,
 } from './data.js';
-import { modelNote } from './compare.js';
+import { sourceNode } from './compare.js';
 
 const MAX_BANDS = 6; // a stack keeps its five largest categories and folds the rest into "Everything else"
 const MARKER_LIMIT = 36; // fewer points than this get a dot on every month
@@ -22,11 +22,7 @@ const el = (tag, cls, text) => {
 };
 
 export function renderChart(mount, attrs, data, until) {
-  let series = resolveSeries(data, attrs, until);
-  if (attrs.external) {
-    if (attrs.base > until) throw new AuthoringError(`base="${attrs.base}" is after ${monthLabel(until)}`);
-    series = [...series, resolveExternal(data, attrs.external, until)].map((s) => indexTo(s, attrs.base));
-  }
+  const series = resolveChartSeries(data, attrs, until);
   if (!series.some((s) => s.points.length)) throw new AuthoringError(`No data up to ${monthLabel(until)}`);
   const fig = figureShell(mount, attrs, series);
   RENDERERS[attrs.type](fig, series, attrs, until, data);
@@ -63,25 +59,7 @@ function figureShell(mount, attrs, series) {
 
   const foot = el('div', 'chart-foot');
   const presets = el('div', 'presets');
-  const source = el('p', 'chart-source', sourceLine(series));
-  if (needsModelNote(series, attrs.note)) source.append(' ', modelNote());
-  if (series.some((s) => s.confidence === 'rough')) source.append(' ', el('span', 'chart-note', 'A rough measure: read it as a broad picture.'));
-  if (attrs.note) source.append(' ', el('span', 'chart-note', attrs.note));
-  // Outside benchmarks are credited by name and license, with what this report changed (CC BY asks for both).
-  for (const s of series.filter((x) => x.credit)) {
-    const credit = el('span', 'chart-credit', 'Benchmark: ');
-    const link = (text, href) => {
-      const a = el('a', null, text);
-      a.href = href;
-      return a;
-    };
-    credit.append(link(s.credit, s.url));
-    if (s.license) credit.append(' (', s.licenseUrl ? link(s.license, s.licenseUrl) : s.license, ')');
-    const changes = [attrs.base && `indexed to ${monthLabel(attrs.base)} = 100`, s.smoothed && '12-month average']
-      .filter(Boolean).join(', ');
-    credit.append(changes ? `; ${changes} by this report.` : '.');
-    source.append(' ', credit);
-  }
+  const source = sourceNode(series, attrs, (s) => [attrs.base && `indexed to ${monthLabel(attrs.base)} = 100`, s.smoothed && '12-month average']);
   const toggle = el('button', 'table-toggle', 'Show the numbers');
   toggle.type = 'button';
   toggle.setAttribute('aria-expanded', 'false');
@@ -133,11 +111,15 @@ function renderTable({ columns, rows }) {
 function seriesTable(fig, series, fmt) {
   fig.table(() => {
     const months = [...new Set(series.flatMap((s) => s.points.map((p) => p.month)))].sort().reverse();
+    // Outside series have no post count, and name the period each value describes instead.
+    const posts = series[0].points.some((p) => p.n != null);
+    const refs = series.filter((s) => s.external);
     return {
-      columns: ['Month', ...series.map((s) => s.label), 'Posts'],
+      columns: ['Month', ...series.map((s) => s.label), ...refs.map((s) => `${s.label}: period covered`), ...(posts ? ['Posts'] : [])],
       rows: months.map((m) => [
         monthLabel(m), ...series.map((s) => fmt(valueAt(s, m))),
-        (pointAt(series[0], m)?.n ?? '').toLocaleString('en-US'),
+        ...refs.map((s) => { const ref = pointAt(s, m)?.ref_period; return ref ? periodLabel(ref) : ''; }),
+        ...(posts ? [(pointAt(series[0], m)?.n ?? '').toLocaleString('en-US')] : []),
       ]),
     };
   });
@@ -370,9 +352,12 @@ const pinCatchAllLast = (items, keyOf = (s) => s.key) => [
 const referenceMonths = (to) => Object.entries(WINDOWS).reverse().map(([key, n]) => ({ key, month: addMonths(to, -n) }));
 
 // The end-label badge compares with a year earlier, the style guide's cleanest window, falling back to 5y then 3m.
+// An outside series as published uses its same-release readings, like the compare strip.
 function endDelta(s, to) {
   for (const key of ['1y', '5y', '3m']) {
-    const c = change(s, addMonths(to, -WINDOWS[key]), to);
+    const c = s.external && !s.smoothed && !s.indexed
+      ? compareCells(s, to, [key]).deltas[0].change
+      : change(s, addMonths(to, -WINDOWS[key]), to);
     if (c) return { ...c, key };
   }
   return null;
@@ -434,7 +419,9 @@ function timeChart(fig, series, attrs, until, data, mode) {
     const startM = months[0];
     const endM = months.at(-1);
     const smoothed = series.some((s) => s.smoothed) ? '; the benchmark is a 12-month average, as it is not seasonally adjusted and swings with the seasons' : '';
-    const indexed = attrs.base ? `, indexed to ${monthLabel(attrs.base)} = 100${smoothed}` : '';
+    const indexed = attrs.base ? `, indexed to ${monthLabel(attrs.base)} = 100${smoothed}`
+      // An outside series on its own: each point is the newest value published by that issue's date.
+      : series.every((s) => s.external) ? `, as published by each issue's date${series.some((s) => s.smoothed) ? ', 12-month average as it is not seasonally adjusted' : ''}` : '';
     fig.setSubtitle(`${subjectOf(series)}${indexed}, ${monthLabel(startM, 'long')} to ${monthLabel(endM, 'long')}`);
     const fmt = makeFormat(unit);
     const tipFmt = makeFormat(unit, { precise: true });
@@ -565,9 +552,10 @@ function timeChart(fig, series, attrs, until, data, mode) {
       const labelOf = (s) => {
         const ref = s.external && pointAt(s, m)?.ref_period;
         if (!ref) return s.label;
-        return s.smoothed ? `${s.label} (12 months to ${periodLabel(ref)})` : `${s.label} (${periodLabel(ref)} data)`;
+        const p = pointAt(s, m);
+        return s.smoothed ? `${s.label} (average of ${p.readings} monthly readings, ${periodLabel(p.refStart)} to ${periodLabel(ref.slice(0, 7))})` : `${s.label} (${periodLabel(ref)} data)`;
       };
-      const rows = visible.map((s, i) => ({ color: colorOf(s, i), value: tipFmt(valueAt(s, m)), label: visible.length > 1 ? labelOf(s) : '', v: valueAt(s, m) ?? -1 }));
+      const rows = visible.map((s, i) => ({ color: colorOf(s, i), value: tipFmt(valueAt(s, m)), label: visible.length > 1 || s.external ? labelOf(s) : '', v: valueAt(s, m) ?? -1 }));
       if (mode === 'area') rows.reverse();
       else rows.sort((a, b) => b.v - a.v);
       // A post count is redundant beside a count metric, but tells the reader how solid a share or median is.
