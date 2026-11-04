@@ -38,7 +38,7 @@ export function renderCompare(mount, attrs, data, until) {
   head.append(heading);
   heading.append(el('h3', 'chart-title', attrs.title));
   const span = windows.map((a) => WINDOW_LABEL[a]).join(', ').replace(/, ([^,]*)$/, ' and $1');
-  // One line; how to read the verdicts and the outside rows is explained once, in "How to read the comparisons".
+  // One line; how to read the verdicts and the outside rows is explained once, in the methodology's "Then and now".
   heading.append(el('p', 'chart-sub', attrs.subtitle ?? `${monthLabel(until, 'long')} against ${span} earlier; gray \u2248 means within normal swings.`));
 
   const table = el('table', 'compare-table');

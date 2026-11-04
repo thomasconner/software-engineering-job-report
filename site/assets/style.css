@@ -153,7 +153,7 @@ h1 {
 .article-body > .topline { margin-block: 0 var(--sp-5); }
 .article-body > p + .topline { margin-top: var(--sp-4); }
 /* A chart waiting for its breakdown file holds roughly its place, so the page doesn't jump when it arrives. */
-.directive:empty { min-height: 20rem; }
+.article-body > .directive:empty { min-height: 20rem; }
 .directive-error, .load-error {
   font: 500 0.9375rem/1.5 var(--sans); color: var(--bad);
   border: 1px solid currentColor; border-radius: 6px; padding: 10px 12px; margin-block: var(--sp-3);
