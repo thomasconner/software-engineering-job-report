@@ -171,7 +171,7 @@ Breakdowns (`category` set, values sum to ~1 per month):
 }
 ```
 
-Scalar keys are `<metric>.<kind>`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
+Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`: `1` when a rise is good news for job seekers, `-1` when bad, `0` when neutral; the exporter owns it. `pending` lists months whose snapshot is not complete. The mock file adds `"mock": true` and `"note"`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
@@ -194,7 +194,29 @@ Body paragraphs…
 ::compare{metrics="posts.hiring,seekers_per_post.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
 ```
 
-Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category). Every directive accepts `title` and `note`.
+Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category).
+
+Directive attributes:
+
+| attribute | applies to | meaning |
+|---|---|---|
+| `metric` | all charts | one metric key, or a comma list for multi-series lines |
+| `breakdown` | stacked-area, small-multiples, slope, dot, bar | breakdown id |
+| `categories` | breakdown charts | comma list; a subset of the breakdown's categories |
+| `highlight` | multi-series charts | comma list of series drawn in the story color; the rest gray |
+| `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
+| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM` |
+| `against` | ::compare | comma list of windows, default `3m,1y,5y` |
+| `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
+| `title` | all | the finding, stated |
+| `subtitle` | all | optional; defaults to the metric label + date range |
+| `note` | all | text after the source line |
+
+`bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack` must not be drawn as `stacked-area` (its shares don't sum to 1).
+
+A back issue clips every series to its front-matter `month`, so older issues never show later data.
+
+Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest last. Files starting with `_` are samples and never listed.
 
 ## Jev answers storage
 
