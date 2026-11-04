@@ -15,7 +15,8 @@ src/sejr/
   export.py         monthly_metrics → site/data/*.json
 data/raw/           gzipped API responses, committed, never edited
 data/sejr.duckdb    rebuildable from data/raw, gitignored
-data/cache/jev/     cached Jev responses keyed by request hash, committed
+data/cache/jev/     cached Jev responses keyed by request hash, gitignored
+data/answers/       Jev answers as Parquet, committed (the durable record)
 site/               static GitHub Pages site (index.html + assets + data/)
 site/articles/      one Markdown article per month, YYYY-MM.md
 tests/

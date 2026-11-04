@@ -23,7 +23,7 @@ A monthly heartbeat on US startup and engineering hiring, built from Hacker News
 
 ## Pipeline
 
-1. **Fetch:** save raw thread JSON, gzipped, under `data/raw/<thread_id>/<fetched_at>.json.gz`. Never edited.
+1. **Fetch:** save raw thread JSON, gzipped, under `data/raw/<kind>/<YYYY-MM>/<thread_id>.json.gz`. A re-fetch overwrites only when content changed; git history keeps earlier versions.
 2. **Normalize:** DuckDB tables `threads`, `posts` (top-level comments), `replies`.
 3. **Derive:** table `answers(post_id, question, method, version, value, probabilities, confidence)`.
 4. **Aggregate:** monthly series, computed with `as_of = month`.
@@ -96,3 +96,6 @@ Articles are written by an agent from the exported numbers, then fact-checked by
 - 2026-11-04: Public repo `thomasconner/software-engineering-job-report`. Linear project P-CON-53 in Conner Technology.
 - 2026-11-04: No Haiku. Salary and company name come from regex. Jev is the only model.
 - 2026-11-04: Backfill from April 2011, both thread kinds. Snapshot age 7 days.
+- 2026-11-04: Raw storage keeps one file per thread (architecture.md layout); git history is the version record.
+- 2026-11-04: The Jev response cache (~126k files) is not committed. Jev answers are committed as Parquet under `data/answers/`, so CI only classifies new posts.
+- 2026-11-04: Thread coverage: 188 hiring months (2011-04 to 2026-11, no gaps) and 151 seeking months (the thread started 2014-05). Four months use threads posted by other users; see `EXTRA_THREADS` in fetch.py.

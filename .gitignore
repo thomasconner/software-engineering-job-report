@@ -5,3 +5,5 @@ __pycache__/
 .env
 data/sejr.duckdb
 .claude/
+data/cache/jev/*
+!data/cache/jev/.gitkeep
