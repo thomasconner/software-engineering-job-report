@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software Engineering Job Report</title>
+  <meta name="description" content="A monthly column on the US startup and software engineering job market, measured from Hacker News hiring threads since 2011.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%232a78d6' d='M1 9h3v6H1zM6.5 4h3v11h-3zM12 7h3v8h-3z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..500&family=Public+Sans:ital,wght@0,400..700;1,400&display=swap">
+  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm">
+  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/marked@15.0.12/+esm">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="module" src="assets/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#article-body">Skip to the article</a>
+  <p id="mock-banner" class="mock-banner" hidden>Preview with synthetic data. Every number on this page is made up for layout testing.</p>
+
+  <header class="masthead">
+    <div class="masthead-bar">
+      <a class="wordmark" href="./">Software Engineering Job Report</a>
+      <div class="masthead-tools">
+        <label class="picker">
+          <span>Issue</span>
+          <select id="issue-picker" aria-label="Choose an issue"></select>
+        </label>
+        <button id="theme-toggle" class="theme-toggle" type="button">Switch theme</button>
+      </div>
+    </div>
+    <figure class="ribbon-figure">
+      <div id="ribbon" class="ribbon" role="img"></div>
+      <figcaption id="ribbon-caption" class="ribbon-caption"></figcaption>
+    </figure>
+  </header>
+
+  <main>
+    <article>
+      <header class="article-head">
+        <h1 id="headline">Loading this month's issue</h1>
+        <p id="dek" class="dek"></p>
+        <p class="meta">
+          <span id="byline"></span>
+          <time id="dateline"></time>
+          <span id="data-stamp"></span>
+        </p>
+      </header>
+      <div id="article-body" class="article-body"></div>
+    </article>
+
+    <section class="methodology" aria-labelledby="method-title">
+      <h2 id="method-title">How we measure this</h2>
+      <p>Every number here comes from two monthly Hacker News threads: “Ask HN: Who is hiring?”, where companies post openings, and “Ask HN: Who wants to be hired?”, where people post that they are looking. We have read every thread back to April 2011.</p>
+
+      <h3>Each month is measured at the same age</h3>
+      <p>Threads keep collecting posts for weeks. To compare months fairly we only count posts and replies written in the first 7 days after a thread opens, for every month, past or present. A thread from 2014 and last month's thread are both judged on their first week.</p>
+
+      <h3>No hindsight</h3>
+      <p>Each month is computed as it looked at the time. When we decide whether a company is posting for the first time, we only look at earlier months, never later ones. Rolling averages and baselines work the same way. A test checks that computing a month from the full history gives exactly the same answer as computing it from data that stops at that month. That is also why April 2011 shows every company as new: it is the first month we have.</p>
+
+      <h3>Code for facts, a model for judgment</h3>
+      <p>Anything with a clear yes or no answer is measured in code: counting posts, spotting a dollar figure, finding the word REMOTE in the header line, checking a fixed list of stack terms. A word list applies to every month, so a zero in 2015 is a real zero.</p>
+      <p>Questions that need judgment, such as seniority, industry, whether a company is built on AI, or how upbeat a job seeker sounds, go to a classifier called Jev. Jev sees only the text of the post, never its date or anything about how the company did later. Its version is pinned and recorded with every answer, and a new version reruns the entire history so a chart never mixes versions. Each method is scored against about 200 posts we labeled by hand before its numbers appear here.</p>
+
+      <h3>Shares are expected values</h3>
+      <p>When Jev answers, it gives a probability for each option rather than one guess. A post that is 70% likely remote and 30% likely hybrid adds 0.7 to remote and 0.3 to hybrid. Monthly shares are those probabilities added up and divided by the number of posts. This keeps uncertain posts from being forced into one bucket, so shares move smoothly instead of jumping when a borderline post flips.</p>
+
+      <h3>Then and now</h3>
+      <p>Comparisons put this month next to the same month 3 months, 1 year and 5 years earlier. Shares change in percentage points. Counts and salaries change in percent. Green marks a change that is better for people looking for engineering work, red one that is worse, and gray one that is neither.</p>
+
+      <h3>What this data can't tell you</h3>
+      <ul>
+        <li>One post can advertise many roles, so a count of posts is not a count of jobs.</li>
+        <li>Hacker News leans toward US startups, engineering roles and the Bay Area. It is a view of that world, not of the whole job market.</li>
+        <li>Edited posts show their latest text and deleted posts are gone, so older months carry some survivorship bias.</li>
+        <li>Salary figures come only from posts that state one, and the share that do has changed a lot as pay transparency laws spread.</li>
+      </ul>
+
+      <h3 id="glossary-title">What each measure means</h3>
+      <dl id="glossary" class="glossary"></dl>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built from public Hacker News threads. Not affiliated with Hacker News or Y Combinator. Code and data on <a href="https://github.com/thomasconner/software-engineering-job-report">GitHub</a>.</p>
+  </footer>
+</body>
+</html>
