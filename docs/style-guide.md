@@ -266,7 +266,7 @@ These apply to every sentence. The fact-checker enforces them.
 ### No fabrication
 
 - No invented people, quotes, anecdotes or scenes. No "Maria, a bootcamp grad in Austin". No "picture a founder scrolling the thread". The column has no reporting behind it beyond the data, so it doesn't pretend to.
-- Color comes from the numbers, or from quoting a real post. Real posts come only from the month's sample file, `site/data/samples/YYYY-MM.json`, which the export writes. Quote the post's text, not the username, keep it to a sentence or two, and put its HN item id in the ledger.
+- Color comes from the numbers, or from quoting a real post. Real posts come only from the month's sample file, `site/data/samples/YYYY-MM.json`, which the export writes. Quote the post's text, not the username, keep it to a sentence or two, and put its HN item id in the ledger. The sample files hold hiring posts only; never quote or paraphrase an individual job seeker.
 - A quoted post illustrates a finding. It never stands in for one: "one company wrote X" can't support a claim about the thread.
 
 ### What a post is
