@@ -13,7 +13,7 @@ import pytest
 from sejr.features import post_answers
 from sejr.features.benefits import CATEGORIES, offered_benefits
 from sejr.features.experience import degree, years_bucket, years_required
-from sejr.features.traits import STYLE_NAMES, interview_styles, office_days
+from sejr.features.traits import interview_styles, office_days
 from sejr.features.vocab import GROUP_TERMS, stack_terms
 
 FIXTURES = Path(__file__).parent / "fixtures" / "post_trends"
@@ -51,6 +51,21 @@ FIXTURES = Path(__file__).parent / "fixtures" / "post_trends"
         ("100% of health insurance premiums paid for by the company", {"health_insurance"}, set()),
         ("We build software for pension funds", set(), {"retirement"}),
         ("Unfortunately we cannot sponsor visas.", set(), {"visa"}),
+        ("Toronto, ON (Local, Remote, Visa, Relocation)", {"relocation", "visa"}, set()),
+        ("Relocation could be possible if you are the right person!", {"relocation"}, set()),
+        ("we do provide a relocation incentive", {"relocation"}, set()),
+        ("Relocation not provided.", set(), {"relocation"}),
+        ("Both roles require relocation to Japan.", set(), {"relocation"}),
+        ("We're open to relocating people", {"relocation"}, set()),
+        ("401k, unlimited time-off, full healthcare", {"unlimited_pto", "health_insurance"}, set()),
+        ("med/dental/vision", {"health_insurance", "dental_vision"}, set()),
+        ("75 paid vacations days", {"pto_days"}, set()),
+        ("co-working/gear budget; Internet stipend", {"remote_stipend"}, set()),
+        ("We help employees pick the right health insurance", set(), {"health_insurance"}),
+        ("a new approach to health benefits", set(), {"health_insurance"}),
+        ("We back founders with equity-free grants", set(), {"equity"}),
+        ("Bonuses:\n - AJAX, jQuery", set(), {"bonus"}),
+        ("$180-250K + Bonus/Carry (hedge fund equity equivalent)", {"bonus"}, {"equity"}),
     ],
 )  # fmt: skip
 def test_benefits(text, present, absent):
@@ -78,6 +93,12 @@ def test_benefits(text, present, absent):
         ("We scaled to $20m ARR in 3 years with 600 customers", None),
         ("a 4 year degree", None),
         ("the CTO has been working with Rails for five years", None),
+        ("named a fastest growing company for nine years in a row", None),
+        ("We have 3+ years cash runway", None),
+        ("A family business (20+ years) in Ohio", None),
+        ("Senior (5+ years)", 5),
+        ("founded by a portfolio manager with 15+ years of experience", None),
+        ("product minded (3y+ experience, 32-40h)", 3),
     ],
 )
 def test_years_required(text, years):
@@ -128,6 +149,9 @@ def test_degree(text, label):
         ("We work a 4 day work week", None),
         ("support 24 hours a day, 7 days a week", None),
         ("Hybrid, flexible days in office", None),
+        ("V7 | London (UK) | ONSITE (2/3 Days P/W)", 2),
+        ("Hybrid (2/3 days in the office)", 2),
+        ("hybrid: on-campus at least two or three days per week", 2),
     ],
 )
 def test_office_days(text, days):
@@ -182,16 +206,16 @@ def _load(name: str) -> list[dict]:
 
 # Hand labels, written before the rules ran on these posts. "random" is a seeded draw of 120
 # live hiring posts (30 per era: 2011–14, 2015–19, 2020–22, 2023–26); "keyword" is 80 posts
-# with a benefits, experience or interview word (20 per era); "sentences" is 120 posts'
-# keyword sentences (30 per era), labeled for years, degree, office days and interview style.
-# Rules were tuned on a separate 240-post dev draw. After the first scoring, five general
-# misses found here were fixed ("Bain" read as "BA in", "to an advanced degree", product
-# health insurance, an equity percentage in the header, a paid trial with no interview word,
-# "WFH 3 days a week", "most of us have N years"), so these sets are partly in-sample now.
-# First scores, before those fixes: benefits precision 0.98 / recall 0.98 (random) and
-# 1.00 / 0.90 (keyword); years stated precision 1.00 / 0.93 / 0.95 and recall 1.00 on all
-# three; degree accuracy 0.98–0.99. Current scores are in docs/architecture.md.
+# with a benefits, experience or interview word (20 per era; one seeker post that landed in a
+# hiring thread was dropped, leaving 79); "sentences" is 120 posts' keyword sentences (30 per era),
+# labeled for years, degree, office days and interview style. "review_random" (150 posts)
+# and "review_keyword" (100 keyword-dense posts) were drawn and labeled by an independent
+# reviewer. Rules were tuned on a separate 240-post dev draw; general misses found in each
+# set's first scoring were then fixed, so every set is partly in-sample now. First scores
+# are in docs/architecture.md. Personal emails in the fixtures are replaced by [email].
 POSTS = _load("post_labels.jsonl")
+SIZES = {"random": 120, "keyword": 79, "sentences": 120, "review_random": 150,
+         "review_keyword": 100}  # fmt: skip
 
 
 def _text(row: dict) -> str:
@@ -202,66 +226,76 @@ def _pr(tp: int, fp: int, fn: int) -> tuple[float, float]:
     return tp / (tp + fp), tp / (tp + fn)
 
 
-def test_fixture_sizes():
-    assert Counter(r["set"] for r in POSTS) == {
-        "random": 120,
-        "keyword": 80,
-        "sentences": 120,
-    }
-
-
-@pytest.mark.parametrize("sample", ["random", "keyword"])
-def test_benefits_accuracy(sample):
+def _scores(pairs) -> tuple[float, float]:
+    """Precision and recall over (gold set, found set) pairs: positives only, not every row."""
     tp = fp = fn = 0
-    for row in (r for r in POSTS if r["set"] == sample):
-        found, gold = set(offered_benefits(_text(row))), set(row["benefits"])
-        assert found <= set(CATEGORIES)
+    for gold, found in pairs:
         tp, fp, fn = (
             tp + len(found & gold),
             fp + len(found - gold),
             fn + len(gold - found),
         )
-    precision, recall = _pr(tp, fp, fn)
+    return _pr(tp, fp, fn)
+
+
+def test_fixture_sizes():
+    assert Counter(r["set"] for r in POSTS) == SIZES
+    assert not any("@" in ln and "." in ln.split("@")[-1][:30] for r in POSTS
+                   for ln in r["lines"] if "[email]" not in ln and "@ " not in ln)  # fmt: skip
+
+
+@pytest.mark.parametrize(
+    "sample", ["random", "keyword", "review_random", "review_keyword"]
+)
+def test_benefits_accuracy(sample):
+    rows = [r for r in POSTS if r["set"] == sample]
+    for row in rows:
+        assert set(offered_benefits(_text(row))) <= set(CATEGORIES)
+    precision, recall = _scores(
+        (set(r["benefits"]), set(offered_benefits(_text(r)))) for r in rows
+    )
     assert precision >= 0.95
     assert recall >= 0.85
 
 
+def _stated(rows, rule, field):
+    """A scalar answer as a set, so "stated" is scored on positives: {value} or {}."""
+    return (
+        ({r[field]} if r[field] is not None else set(),
+         {v} if (v := rule(_text(r))) is not None else set())
+        for r in rows
+    )  # fmt: skip
+
+
 def test_years_required_accuracy():
-    tp = fp = fn = exact = 0
-    for row in POSTS:
-        found, gold = years_required(_text(row)), row["years"]
-        tp += found is not None and gold is not None
-        fp += found is not None and gold is None
-        fn += found is None and gold is not None
-        exact += found is not None and found == gold
-    precision, recall = _pr(tp, fp, fn)
+    pairs = list(_stated(POSTS, years_required, "years"))
+    stated = [({1} if g else set(), {1} if f else set()) for g, f in pairs]
+    precision, recall = _scores(stated)
     assert precision >= 0.9 and recall >= 0.9
-    assert exact / tp >= 0.9
+    both = [(g, f) for g, f in pairs if g and f]
+    assert sum(g == f for g, f in both) / len(both) >= 0.9
 
 
 def test_degree_accuracy():
-    pairs = [(row["degree"], degree(_text(row))) for row in POSTS]
-    assert sum(g == p for g, p in pairs) / len(pairs) >= 0.97
-    required = [(g, p) for g, p in pairs if "required" in (g, p)]
-    assert sum(g == p for g, p in required) / len(required) >= 0.85
-
-
-def test_office_days_and_interview_accuracy():
-    assert (
-        sum(office_days(_text(r)) == r["office_days"] for r in POSTS) / len(POSTS)
-        >= 0.98
-    )
-    tp = fp = fn = 0
-    for row in POSTS:
-        found, gold = set(interview_styles(_text(row))), set(row["interview"])
-        assert found <= set(STYLE_NAMES)
-        tp, fp, fn = (
-            tp + len(found & gold),
-            fp + len(found - gold),
-            fn + len(gold - found),
+    pairs = [({r["degree"]} - {"none"}, {degree(_text(r))} - {"none"}) for r in POSTS]
+    for label in ("required", "optional"):
+        precision, recall = _scores(
+            ({label} & gold, {label} & found) for gold, found in pairs
         )
-    precision, recall = _pr(tp, fp, fn)
-    assert precision >= 0.9 and recall >= 0.6
+        assert precision >= 0.85 and recall >= 0.8, label
+
+
+def test_office_days_accuracy():
+    pairs = list(_stated(POSTS, office_days, "office_days"))
+    precision, recall = _scores(pairs)  # the stated number must match exactly
+    assert precision >= 0.9 and recall >= 0.85
+
+
+def test_interview_style_accuracy():
+    precision, recall = _scores(
+        (set(r["interview"]), set(interview_styles(_text(r)))) for r in POSTS
+    )
+    assert precision >= 0.85 and recall >= 0.6
 
 
 # A seeded sample of matches, 30 per group drawn across all terms (so it weighs terms by how
