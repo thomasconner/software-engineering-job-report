@@ -6,8 +6,9 @@ The contracts here are shared by every module. Change them here first, then in c
 
 ```
 src/sejr/
-  cli.py            `sejr <command>` entry point (fetch, normalize, features, classify, aggregate, external, export; also validate, unanswered)
+  cli.py            `sejr <command>` entry point (fetch, ats, normalize, features, classify, aggregate, external, export; also validate, unanswered)
   fetch.py          Algolia → data/raw
+  ats.py            company job boards (Greenhouse, Ashby, Lever, SmartRecruiters) → data/external/ats
   normalize.py      data/raw → DuckDB threads/posts/replies
   features/         deterministic answers (regex, vocab, joins) → answers table
   classify/         Jev questions → answers table
@@ -21,6 +22,7 @@ data/cache/jev/     cached Jev responses keyed by request hash, gitignored
 data/answers/       Jev answers as Parquet, committed (the durable record)
 data/external/      outside benchmark values per HN month, committed
 data/cache/external/ blobless mirrors of the hiring-lab repos, gitignored
+data/external/ats/  monthly job-board snapshots and the fixed board panel, committed
 site/               static GitHub Pages site (index.html + assets + data/)
 site/articles/      one Markdown article per month, YYYY-MM.md
 tests/
@@ -37,6 +39,36 @@ Run everything with `uv run sejr <command>`. Tests: `uv run pytest`.
 `month` is the month named in the title, not the creation date.
 
 One file per thread; a re-fetch overwrites it only when content changed, and git history keeps earlier versions. The sidecar also records `checked_at` (last fetch, changed or not) and the thread's Firebase `kids` list, used to count removed posts.
+
+## Job-board snapshots: `data/external/ats/`
+
+`sejr ats` runs after normalize, once per calendar month (it skips when a snapshot for the current month exists). It reads the public job-board JSON of two sets of boards:
+
+- **HN boards:** every Greenhouse (`boards.greenhouse.io`, `job-boards.greenhouse.io`, including iframe and script embeds that name the board in `?for=<slug>`), Ashby (`jobs.ashbyhq.com`), Lever (`jobs.lever.co`) and SmartRecruiters (`jobs.`/`careers.smartrecruiters.com`) link in the in-snapshot posts of the latest 3 complete hiring threads. The snapshot's `hn_months` lists those thread months, whether or not each linked a board. Three months lets a later snapshot ask whether a company that posted in month *t* is still hiring at *t*+3. EU-hosted Greenhouse and Lever boards use other API hosts and are not matched.
+- **Panel:** `panel.json`, about 40 US software companies whose boards were checked live on these ATSs. Membership changes only by explicit edit. A run uses the entries with `added <= snapshot date < removed`; retire an entry by setting `removed` rather than deleting it, so the panel's history stays readable. Google, Meta, Apple, Microsoft, Amazon and Netflix run their own careers sites, so the panel has no big tech; the planned SEC filings panel (CON-174) covers them.
+
+Each board carries `scope`: `company` by default, `portfolio` for a VC or aggregator board that lists jobs at many companies. Scopes other than `company` are set by hand in `overrides.json` (`{"scope": {"<ats>/<slug>": "portfolio"}}`). Boards whose jobs are mostly outside the US stay in the snapshot. Export will count each board's US-located jobs from job locations (`ats.us_jobs`: us, non_us, unknown) every time it runs; the count is never stored, so a location-parser fix applies to every past snapshot. Locations that name no country ("Remote", "North America", "N/A") and places on neither list count as unknown, not non-US. Any US name, state name or city wins, so a multi-city string with a US office counts as US ("Remote - US or Canada", "San Francisco, CA; Toronto, Canada"); then Canada by name, city or province code ("Toronto, ON, CA" and "Toronto, CA" are Canada, not California); then case-sensitive state codes after a separator ("Remote - TX", "Austin (TX)"; a leading code such as "CA-Ontario-Toronto" or "IN-Bangalore" is a country prefix, not a state); then a list of non-US countries and cities.
+
+Requests are 1 s apart with the User-Agent `software-engineering-job-report (github.com/thomasconner/software-engineering-job-report)`, a 20 s timeout and 2 attempts per request; only this client follows redirects (moved boards). Board statuses: `not_found` (404/410), `http_<code>` (any other 4xx), `unreachable` (no response), `error` (5xx or 429 after retries, or a bad payload), `empty` (SmartRecruiters answers 200 with no jobs for unknown companies), `ok`. One bad board never stops the run, but the run stops without writing after 10 unreachable boards in a row (our network, not theirs), and writes nothing when more than 20% of boards failed (`unreachable`, `error`, any `http_<code>`; a 404 or 410 is a real answer), because a half-fetched snapshot would read as a hiring drop. `--limit` fetches and prints but never writes. The workflow step has a 20-minute timeout and `continue-on-error`, so a failure never blocks the HN refresh; the next day's run retries.
+
+Each run writes `<YYYY-MM-DD>.json.gz` (compact JSON, gzip mtime 0):
+
+```json
+{"snapshot_date": "2026-11-04", "generated_at": "...", "classifier": "eng-3", "hn_months": ["2026-08", "2026-09", "2026-10"],
+ "boards": [{"ats": "ashby", "slug": "livekit", "sources": ["hn:2026-08", "panel"], "scope": "company", "fetched_at": "...", "status": "ok",
+             "total_jobs": 31, "engineering_jobs": 18, "workplace_jobs": {"remote": 22, "hybrid": 3, "onsite": 4, "unknown": 2},
+             "jobs": [{"id": "...", "title": "...", "department": "R&D", "team": "Engineering", "location": "...", "workplace": "remote", "published": "..."}]}]}
+```
+
+Per job only id, title, department, team, location, workplace and the published/updated timestamps the ATS provides (missing fields are omitted). No descriptions or other job text: they are large, copyrighted by the employer, and the report publishes counts, not postings. Slugs are lowercased except SmartRecruiters company ids, which are case-sensitive. Greenhouse jobs come from the `/departments` endpoint (the job list has no department); the department is stored with its parents, `Engineering > Software Engineering`, and a job listed under two departments is kept once, under the deeper one.
+
+`workplace` is `remote`, `hybrid`, `onsite` or absent (the board doesn't say). The ATS's own field wins: Ashby `workplaceType` (its `isRemote` only when `workplaceType` is missing, because Ashby sets `isRemote` on hybrid jobs too), Lever `workplaceType`, SmartRecruiters `location.remote`/`hybrid`. Otherwise the location text decides: remote, distributed or anywhere beats hybrid, which beats onsite/in-office; a plain city says nothing. Greenhouse has no field, so most of its jobs are unknown; compare workplace shares across ATSs only over jobs whose workplace is known.
+
+The snapshot is point-in-time by construction: a file holds what the boards showed on its date. There is no history before the first run (2026-11-04).
+
+**Engineering classifier** (`ats.is_engineering`, version `eng-3` in the snapshot): engineering means software engineering, including infra, SRE, security, data and ML engineering, firmware, QA automation, research engineers and engineering managers. It reads the title first: a customer-facing role word right before the role (Sales, Solutions, Field, Support, Customer Engineer or Architect) or "Specialist" is out, whatever software words follow ("Solutions Engineer, ML Platform"); other engineering disciplines and customer-facing engineer titles (sales, GTM, solutions, support, implementation) are out unless the title also names software work (software, backend, platform, ML, SRE, research engineer, ...); non-engineering roles (recruiting, product and program management, design, scientists, analysts, curriculum or business developers) are out unless the title is a software engineering title, so "Backend Engineer | Accounting" is in; a "Systems" title with no software word is in only when its department is a software, engineering or infrastructure one and not systems engineering, hardware, vehicles or IT (Cloudflare's "Systems Engineer" in Engineering is in; Fuel, IT, Financial and Business Systems Engineers are out); software words include languages and areas such as C++, Rust, Go(lang), operating systems, networking, DNS and SDKs; titles naming software work are in; a bare "Engineer" or "Architect" is in unless its department names a non-software function. Labeling calls: forward-deployed engineers are in; GTM engineers, IT support engineers, go-to-market deployment engineers and manual testers are out; "Member of Technical Staff" is in unless the title names hardware or a non-engineering area. `tests/fixtures/ats/engineering_labels.jsonl` holds 150 titles from the first snapshot, labeled by hand before the rule was tuned: 96.7% untuned, 98% with `eng-1` through `eng-3` (precision 0.96, recall 0.98). `engineering_labels_heldout.jsonl` holds 100 titles labeled independently by a reviewer and never used for tuning: `eng-2` 97%, `eng-3` 98% (precision 0.95, recall 1.0). Tests keep both at or above 95%. Jobs keep title and department, so a rule change can reclassify old snapshots.
+
+Not exported yet: `metrics.json` has no ATS section until there are enough snapshots to compare.
 
 ## DuckDB schema
 

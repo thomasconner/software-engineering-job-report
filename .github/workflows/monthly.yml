@@ -36,6 +36,11 @@ jobs:
 
       - run: uv run sejr fetch
       - run: uv run sejr normalize
+      # Job-board snapshot, once per calendar month (it skips when this month's file exists).
+      # A network problem here must not block the HN refresh.
+      - run: uv run sejr ats
+        continue-on-error: true
+        timeout-minutes: 20
       - run: uv run sejr features
 
       # A newly complete month is over classify's 500-call unscoped guard, so each
@@ -77,6 +82,7 @@ jobs:
 
       - name: Commit data
         id: commit
+        # data/external includes the job-board snapshots in data/external/ats.
         run: .github/scripts/commit-data.sh data/raw data/answers data/external site/data
 
       - name: Deploy the site

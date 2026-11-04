@@ -55,6 +55,7 @@ Point-in-time rule: month *t* uses only the outside values that had been publish
 Build, in this order:
 
 1. **Company job boards (ATS).** Greenhouse, Ashby, Lever and SmartRecruiters publish open jobs as public JSON with no key. The October 2026 hiring thread links to about 46 distinct company boards, mostly Ashby and Greenhouse. A monthly snapshot of those boards plus a fixed big-tech/YC panel gives open engineering roles per company, and "share of HN posters still hiring 3 months later". There is no history before the first run, so start early. Publish counts, never job text.
+   - Started 2026-11-04 (CON-173): `sejr ats` snapshots monthly into `data/external/ats/`. Big tech that runs its own careers site (Google, Meta, Apple, Microsoft, Amazon, Netflix) is not on these ATSs, so the panel leans to mid-size tech and AI labs.
 2. **SEC EDGAR panel.**
    - Headcount is almost never machine-tagged: 0 of 46 large tech companies tag it in XBRL. It comes from text instead: the 10-K "Human Capital" section (annual) and the earnings press release, Exhibit 99.1 (quarterly, for Meta, Alphabet and Amazon only).
    - Restructuring and severance costs are tagged quarterly (`RestructuringCharges` at 31 of 46).

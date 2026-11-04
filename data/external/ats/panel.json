@@ -1,0 +1,259 @@
+{
+  "note": "Fixed panel of US tech company job boards. Membership changes only by explicit edit; record the date in 'added' (and 'removed' instead of deleting an entry).",
+  "boards": [
+    {
+      "ats": "greenhouse",
+      "slug": "airbnb",
+      "company": "Airbnb",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "stripe",
+      "company": "Stripe",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "dropbox",
+      "company": "Dropbox",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "pinterest",
+      "company": "Pinterest",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "reddit",
+      "company": "Reddit",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "lyft",
+      "company": "Lyft",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "coinbase",
+      "company": "Coinbase",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "cloudflare",
+      "company": "Cloudflare",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "datadog",
+      "company": "Datadog",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "robinhood",
+      "company": "Robinhood",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "instacart",
+      "company": "Instacart",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "figma",
+      "company": "Figma",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "discord",
+      "company": "Discord",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "gitlab",
+      "company": "GitLab",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "twilio",
+      "company": "Twilio",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "databricks",
+      "company": "Databricks",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "mongodb",
+      "company": "MongoDB",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "okta",
+      "company": "Okta",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "roblox",
+      "company": "Roblox",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "samsara",
+      "company": "Samsara",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "brex",
+      "company": "Brex",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "anthropic",
+      "company": "Anthropic",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "scaleai",
+      "company": "Scale AI",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "waymo",
+      "company": "Waymo",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "doordashusa",
+      "company": "DoorDash",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "greenhouse",
+      "slug": "asana",
+      "company": "Asana",
+      "added": "2026-12-01"
+    },
+    {
+      "ats": "ashby",
+      "slug": "openai",
+      "company": "OpenAI",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "notion",
+      "company": "Notion",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "ramp",
+      "company": "Ramp",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "linear",
+      "company": "Linear",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "replit",
+      "company": "Replit",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "cursor",
+      "company": "Cursor (Anysphere)",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "perplexity",
+      "company": "Perplexity",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "supabase",
+      "company": "Supabase",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "snowflake",
+      "company": "Snowflake",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "harvey",
+      "company": "Harvey",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "plaid",
+      "company": "Plaid",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "ashby",
+      "slug": "vanta",
+      "company": "Vanta",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "lever",
+      "slug": "palantir",
+      "company": "Palantir",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "lever",
+      "slug": "veeva",
+      "company": "Veeva Systems",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "smartrecruiters",
+      "slug": "ServiceNow",
+      "company": "ServiceNow",
+      "added": "2026-11-04"
+    },
+    {
+      "ats": "smartrecruiters",
+      "slug": "WesternDigital",
+      "company": "Western Digital",
+      "added": "2026-11-04",
+      "removed": "2026-12-01",
+      "note": "Swapped for a software-only company (hardware maker)."
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+ "offset": 0,
+ "limit": 100,
+ "totalFound": 3,
+ "content": [
+  {
+   "id": "744000159574119",
+   "name": "Scientist 2, Data Science",
+   "uuid": "ad1c15fd-0c3e-473e-9c1f-62ec2b96588b",
+   "jobAdId": "56712741-6440-4272-a8b9-3d1b0c3d53ec",
+   "defaultJobAd": true,
+   "refNumber": "REF34828Q",
+   "company": {
+    "identifier": "WesternDigital",
+    "name": "Western Digital"
+   },
+   "releasedDate": "2026-11-04T08:54:14.460Z",
+   "location": {
+    "city": "Singapore",
+    "country": "sg",
+    "remote": false,
+    "hybrid": false,
+    "latitude": "1.2811866",
+    "longitude": "103.8503404",
+    "fullLocation": "Singapore, , Singapore"
+   },
+   "industry": {
+    "id": "computer_hardware",
+    "label": "Computer Hardware"
+   },
+   "department": {},
+   "function": {
+    "id": "engineering",
+    "label": "Engineering"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "entry_level",
+    "label": "Entry Level"
+   },
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/WesternDigital/postings/744000159574119",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000159562109",
+   "name": "Internship - Software Development (Embedded)",
+   "uuid": "29276f94-1a4f-4b02-b70b-f376c66e7554",
+   "jobAdId": "5b6d9559-f6b4-4eb3-b8a0-bb2c14ab0720",
+   "defaultJobAd": true,
+   "refNumber": "REF33206Y",
+   "company": {
+    "identifier": "WesternDigital",
+    "name": "Western Digital"
+   },
+   "releasedDate": "2026-11-04T08:00:21.420Z",
+   "location": {
+    "city": "Petaling Jaya",
+    "region": "Selangor",
+    "country": "my",
+    "remote": false,
+    "hybrid": false,
+    "latitude": "3.1291518",
+    "longitude": "101.6165247",
+    "fullLocation": "Petaling Jaya, Selangor, Malaysia"
+   },
+   "industry": {
+    "id": "computer_hardware",
+    "label": "Computer Hardware"
+   },
+   "department": {},
+   "function": {
+    "id": "engineering",
+    "label": "Engineering"
+   },
+   "typeOfEmployment": {
+    "id": "intern",
+    "label": "Intern"
+   },
+   "experienceLevel": {
+    "id": "internship",
+    "label": "Internship"
+   },
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/WesternDigital/postings/744000159562109",
+   "creator": {
+    "name": "Sabeer Chemmaran Kuzhiyil"
+   },
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000159540669",
+   "name": "Scientist 1, Data Science ",
+   "uuid": "ea4d86d7-7aea-4351-9f81-ce3bf9218214",
+   "jobAdId": "599931b2-21a6-4e17-bbbb-137ff01c2b78",
+   "defaultJobAd": true,
+   "refNumber": "REF33460E",
+   "company": {
+    "identifier": "WesternDigital",
+    "name": "Western Digital"
+   },
+   "releasedDate": "2026-11-04T02:52:19.075Z",
+   "location": {
+    "city": "Amphoe Si Maha Phot",
+    "region": "Prachin Buri",
+    "country": "th",
+    "postalCode": "25140",
+    "remote": false,
+    "hybrid": true,
+    "fullLocation": "Amphoe Si Maha Phot, Prachin Buri, Thailand"
+   },
+   "industry": {
+    "id": "computer_hardware",
+    "label": "Computer Hardware"
+   },
+   "department": {},
+   "function": {
+    "id": "engineering",
+    "label": "Engineering"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "entry_level",
+    "label": "Entry Level"
+   },
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/WesternDigital/postings/744000159540669",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  }
+ ]
+}

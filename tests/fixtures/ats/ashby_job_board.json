@@ -1,0 +1,224 @@
+{
+ "jobs": [
+  {
+   "id": "1757f49e-7e19-4c45-85f7-e4637dff66fb",
+   "title": "Software Engineer, Agents",
+   "department": "R&D",
+   "team": "Engineering",
+   "employmentType": "FullTime",
+   "location": "North America",
+   "secondaryLocations": [
+    {
+     "location": "APJ",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "APJ"
+      }
+     }
+    },
+    {
+     "location": "EMEA",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "EMEA"
+      }
+     }
+    }
+   ],
+   "publishedAt": "2026-08-11T00:18:10.574+00:00",
+   "isListed": true,
+   "isRemote": true,
+   "workplaceType": "Remote",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "NAMER"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/livekit/1757f49e-7e19-4c45-85f7-e4637dff66fb",
+   "applyUrl": "https://jobs.ashbyhq.com/livekit/1757f49e-7e19-4c45-85f7-e4637dff66fb/application"
+  },
+  {
+   "id": "03f4997e-8c86-4067-b929-8b3f16a9de35",
+   "title": "Security Engineer, Infrastructure Security",
+   "department": "R&D",
+   "team": "Trust",
+   "employmentType": "FullTime",
+   "location": "United States (Remote)",
+   "secondaryLocations": [
+    {
+     "location": "Canada (Remote)",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "Canada",
+       "addressLocality": ""
+      }
+     }
+    }
+   ],
+   "publishedAt": "2026-10-22T23:40:10.908+00:00",
+   "isListed": true,
+   "isRemote": true,
+   "workplaceType": "Remote",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "United States"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/livekit/03f4997e-8c86-4067-b929-8b3f16a9de35",
+   "applyUrl": "https://jobs.ashbyhq.com/livekit/03f4997e-8c86-4067-b929-8b3f16a9de35/application"
+  },
+  {
+   "id": "062acaf8-aa08-43dc-8230-ca2d2bf64293",
+   "title": "Senior Brand Designer",
+   "department": "R&D",
+   "team": "Design",
+   "employmentType": "FullTime",
+   "location": "Austin, TX (Remote)",
+   "secondaryLocations": [
+    {
+     "location": "San Francisco, CA (Remote)",
+     "address": {
+      "postalAddress": {
+       "addressRegion": "California ",
+       "addressCountry": "United States",
+       "addressLocality": "San Francisco "
+      }
+     }
+    },
+    {
+     "location": "United States (Remote)",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "United States"
+      }
+     }
+    }
+   ],
+   "publishedAt": "2026-09-15T20:34:15.266+00:00",
+   "isListed": true,
+   "isRemote": true,
+   "workplaceType": "Remote",
+   "address": {
+    "postalAddress": {
+     "addressRegion": "Texas",
+     "addressCountry": "United States",
+     "addressLocality": "Austin"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/livekit/062acaf8-aa08-43dc-8230-ca2d2bf64293",
+   "applyUrl": "https://jobs.ashbyhq.com/livekit/062acaf8-aa08-43dc-8230-ca2d2bf64293/application"
+  },
+  {
+   "id": "00000000-0000-0000-0000-00000000hyb1",
+   "title": "Backend Engineer, Billing",
+   "department": "R&D",
+   "team": "Engineering",
+   "employmentType": "FullTime",
+   "location": "New York, NY",
+   "secondaryLocations": [
+    {
+     "location": "APJ",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "APJ"
+      }
+     }
+    },
+    {
+     "location": "EMEA",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "EMEA"
+      }
+     }
+    }
+   ],
+   "publishedAt": "2026-08-11T00:18:10.574+00:00",
+   "isListed": true,
+   "isRemote": true,
+   "workplaceType": "Hybrid",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "NAMER"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/livekit/1757f49e-7e19-4c45-85f7-e4637dff66fb",
+   "applyUrl": "https://jobs.ashbyhq.com/livekit/1757f49e-7e19-4c45-85f7-e4637dff66fb/application"
+  },
+  {
+   "id": "00000000-0000-0000-0000-0000000onst",
+   "title": "Office Manager",
+   "department": "G&A",
+   "team": "Workplace",
+   "employmentType": "FullTime",
+   "location": "San Francisco, CA",
+   "secondaryLocations": [
+    {
+     "location": "APJ",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "APJ"
+      }
+     }
+    },
+    {
+     "location": "EMEA",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "EMEA"
+      }
+     }
+    }
+   ],
+   "publishedAt": "2026-08-11T00:18:10.574+00:00",
+   "isListed": true,
+   "isRemote": false,
+   "workplaceType": "OnSite",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "NAMER"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/livekit/1757f49e-7e19-4c45-85f7-e4637dff66fb",
+   "applyUrl": "https://jobs.ashbyhq.com/livekit/1757f49e-7e19-4c45-85f7-e4637dff66fb/application"
+  },
+  {
+   "id": "00000000-0000-0000-0000-0000000none",
+   "title": "Account Executive",
+   "department": "Sales",
+   "team": "Sales",
+   "employmentType": "FullTime",
+   "location": "Distributed (US)",
+   "secondaryLocations": [
+    {
+     "location": "APJ",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "APJ"
+      }
+     }
+    },
+    {
+     "location": "EMEA",
+     "address": {
+      "postalAddress": {
+       "addressCountry": "EMEA"
+      }
+     }
+    }
+   ],
+   "publishedAt": "2026-08-11T00:18:10.574+00:00",
+   "isListed": true,
+   "isRemote": null,
+   "workplaceType": null,
+   "address": {
+    "postalAddress": {
+     "addressCountry": "NAMER"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/livekit/1757f49e-7e19-4c45-85f7-e4637dff66fb",
+   "applyUrl": "https://jobs.ashbyhq.com/livekit/1757f49e-7e19-4c45-85f7-e4637dff66fb/application"
+  }
+ ],
+ "apiVersion": "1"
+}

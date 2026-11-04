@@ -6,6 +6,7 @@ from sejr.db import connect
 # Each step lives in sejr.<module> and exposes run(con, args).
 STEPS = [
     "fetch",
+    "ats",
     "normalize",
     "features",
     "classify",
