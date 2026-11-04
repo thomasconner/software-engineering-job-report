@@ -4,7 +4,15 @@ import importlib
 from sejr.db import connect
 
 # Each step lives in sejr.<module> and exposes run(con, args).
-STEPS = ["fetch", "normalize", "features", "classify", "aggregate", "export"]
+STEPS = [
+    "fetch",
+    "normalize",
+    "features",
+    "classify",
+    "aggregate",
+    "export",
+    "validate",
+]
 
 
 def main() -> None:
@@ -15,6 +23,9 @@ def main() -> None:
         p.add_argument("--month", help="YYYY-MM; limit the step to one month")
         p.add_argument("--limit", type=int, help="process at most N items")
         p.add_argument("--dry-run", action="store_true")
+        p.add_argument(
+            "--backfill", action="store_true", help="allow a full-history run"
+        )
     args = parser.parse_args()
 
     module = importlib.import_module(f"sejr.{args.command}")
