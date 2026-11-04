@@ -1,0 +1,31 @@
+{
+  "as_of": "2025-07-09",
+  "fetched_at": "2026-11-04T16:02:58Z",
+  "month": "2025-07",
+  "values": {
+    "indeed_software_postings.GB": {
+      "ref_period": "2025-07-04",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/1493dcc2cc78df3f1a7ec8d9b43307c27deb0efc/GB/job_postings_by_sector_GB.csv",
+      "value": 59.96,
+      "vintage_date": "2025-07-09"
+    },
+    "indeed_software_postings.US": {
+      "ref_period": "2025-07-04",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/1493dcc2cc78df3f1a7ec8d9b43307c27deb0efc/US/job_postings_by_sector_US.csv",
+      "value": 64.24,
+      "vintage_date": "2025-07-09"
+    },
+    "indeed_software_remote_share.GB": {
+      "ref_period": "2025-05-31",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/0899423217173e36b57f0b2c722580e2c5c73a73/remote_postings_sector.csv",
+      "value": 0.4698,
+      "vintage_date": "2025-06-16"
+    },
+    "indeed_software_remote_share.US": {
+      "ref_period": "2025-05-31",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/0899423217173e36b57f0b2c722580e2c5c73a73/remote_postings_sector.csv",
+      "value": 0.3057,
+      "vintage_date": "2025-06-16"
+    }
+  }
+}

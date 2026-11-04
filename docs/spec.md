@@ -20,6 +20,8 @@ A monthly heartbeat on US startup and engineering hiring, built from Hacker News
 | Algolia `search_by_date?tags=story,author_whoishiring` | Discover monthly thread IDs back to April 2011 |
 | Algolia `items/<id>` | Full comment tree per thread, with `created_at_i` per comment |
 | Greenhouse / Lever / Ashby public job-board JSON | Current month only: open-role counts for linked companies (later phase) |
+| Indeed Hiring Lab GitHub repos (CC BY 4.0) | Benchmarks: software postings index and remote share (US, GB), pay transparency (US), each as published by the month's as-of date |
+| BLS API v2 and ALFRED vintages (public domain) | Benchmarks: JOLTS openings/hires/layoffs (information; professional and business services) and CES computer systems design employment, US |
 
 ## Pipeline
 
@@ -27,7 +29,8 @@ A monthly heartbeat on US startup and engineering hiring, built from Hacker News
 2. **Normalize:** DuckDB tables `threads`, `posts` (top-level comments), `replies`.
 3. **Derive:** table `answers(post_id, question, method, version, value, probabilities, confidence)`.
 4. **Aggregate:** monthly series, computed with `as_of = month`.
-5. **Publish:** export series to JSON, build the static page, deploy to GitHub Pages.
+5. **External:** one value per outside series per month, as published by the month's as-of date (thread + 8 days), under `data/external/`.
+6. **Publish:** export series to JSON, build the static page, deploy to GitHub Pages.
 
 ## Methods by question type
 
@@ -109,3 +112,5 @@ Articles are written by an agent from the exported numbers, then fact-checked by
 - 2026-11-04: metrics.json is written compactly (no indentation): per-point noise bars took the indented file from 1.0 MB to 2.9 MB; compact is 1.3 MB.
 - 2026-11-04: Lessons loop: each column PR's first commit is the routine's untouched draft; the merged article is Thomas's edit. Before drafting, the routine diffs the previous routine PR's draft against main, records lessons in docs/editor-notes.md (with PR refs and counts), and proposes style-guide rules for lessons seen 2–3 times. Lesson changes ride in the column PR, so Thomas approves them by merging.
 - 2026-11-04: Post region is a regex feature (features-3): a seeker's `Location:` line, a hiring post's header line (several regions allowed) plus `open_to_us`. Region is a general category, not a US flag, so UK/Europe comparisons can follow. `seekers_per_post_us` is `seekers_per_post` × the live US seeker share ÷ the live open-to-US hiring share, so it stays on the submitted basis (removed posts have no text and are assumed to share the live mix); both shares leave out posts that say nothing about place (unknown seekers; headers with no place and no "remote"), so unknowns are assumed to split like the knowns on both sides, and the ratio is withheld under 50 located seekers. It is checked before any seeker-ratio change is called large. Validation: 150 Location lines and 150 headers (seeded, stratified 2011–26) were labeled by hand blind to the regex, then the rules were tuned on them, so that set (tests/fixtures/region_sample.jsonl) is in-sample. A held-out set (tests/fixtures/region_heldout.jsonl: 190 Location lines and 200 headers, 2015–26) was drawn by an independent reviewer, whose labels were not saved; it was relabeled by hand blind to the regex before the second round of rules. That round targeted its misses (as general patterns, not single lines), so the held-out set is now partly in-sample too. A clean accuracy number needs a fresh third draw labeled before any further rule change. Both sets carry accuracy-floor tests (≥ 95% exact, US precision and recall ≥ 95%).
+- 2026-11-04: Outside benchmarks (CON-167): Indeed Hiring Lab from its GitHub repos, BLS from the API with ALFRED vintages for history. Month t uses only values published by thread + 8 days. Indeed months before a file's first commit get no value rather than a revised one, so the postings benchmark starts June 2021. Daily Indeed series take the 7-day trailing average dated at (or just before) the thread's window end. JOLTS uses the unadjusted JTU series because ALFRED has no adjusted vintages for these industries. Every series carries a country for the planned US vs UK comparison.
+- 2026-11-04: Review fixes to CON-167: Indeed vintages are dated by first-parent commits on the default branch (merge time), not branch commit dates; months missing an expected BLS value stay open; an outside-source failure only warns; unadjusted JOLTS is drawn as a 12-month trailing average on indexed charts (not Indeed's remote and pay shares, whose seasonality is minor and history short); every credit links its license and says what this report changed.

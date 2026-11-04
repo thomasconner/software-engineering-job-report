@@ -2,7 +2,7 @@
 import d3 from './d3.js';
 import {
   AuthoringError, WINDOWS, addMonths, monthDate, monthLabel, makeFormat, change, needsModelNote, tickFormat,
-  resolveSeries, pointAt, valueAt, sourceLine, pastMonth, isCatchAll,
+  resolveSeries, pointAt, valueAt, sourceLine, pastMonth, isCatchAll, resolveExternal, indexTo, periodLabel,
 } from './data.js';
 import { modelNote } from './compare.js';
 
@@ -22,7 +22,11 @@ const el = (tag, cls, text) => {
 };
 
 export function renderChart(mount, attrs, data, until) {
-  const series = resolveSeries(data, attrs, until);
+  let series = resolveSeries(data, attrs, until);
+  if (attrs.external) {
+    if (attrs.base > until) throw new AuthoringError(`base="${attrs.base}" is after ${monthLabel(until)}`);
+    series = [...series, resolveExternal(data, attrs.external, until)].map((s) => indexTo(s, attrs.base));
+  }
   if (!series.some((s) => s.points.length)) throw new AuthoringError(`No data up to ${monthLabel(until)}`);
   const fig = figureShell(mount, attrs, series);
   RENDERERS[attrs.type](fig, series, attrs, until, data);
@@ -33,8 +37,10 @@ export function renderChart(mount, attrs, data, until) {
 // What the chart is about, for the default subtitle: the metric label, the breakdown label, or several labels.
 function subjectOf(series) {
   const groups = [...new Set(series.map((s) => s.group))];
+  // Benchmark labels start with a publisher's name ("Indeed …"), which keeps its capital.
+  const proper = new Set(series.filter((s) => s.external).map((s) => s.group));
   // "Hiring posts removed and seeker posts removed", but leave acronyms like REMOTE alone.
-  const midSentence = (g) => (/^[A-Z][a-z]/.test(g) ? g[0].toLowerCase() + g.slice(1) : g);
+  const midSentence = (g) => (/^[A-Z][a-z]/.test(g) && !proper.has(g) ? g[0].toLowerCase() + g.slice(1) : g);
   return groups.map((g, i) => (i ? midSentence(g) : g)).join(' and ');
 }
 
@@ -61,6 +67,21 @@ function figureShell(mount, attrs, series) {
   if (needsModelNote(series, attrs.note)) source.append(' ', modelNote());
   if (series.some((s) => s.confidence === 'rough')) source.append(' ', el('span', 'chart-note', 'A rough measure: read it as a broad picture.'));
   if (attrs.note) source.append(' ', el('span', 'chart-note', attrs.note));
+  // Outside benchmarks are credited by name and license, with what this report changed (CC BY asks for both).
+  for (const s of series.filter((x) => x.credit)) {
+    const credit = el('span', 'chart-credit', 'Benchmark: ');
+    const link = (text, href) => {
+      const a = el('a', null, text);
+      a.href = href;
+      return a;
+    };
+    credit.append(link(s.credit, s.url));
+    if (s.license) credit.append(' (', s.licenseUrl ? link(s.license, s.licenseUrl) : s.license, ')');
+    const changes = [attrs.base && `indexed to ${monthLabel(attrs.base)} = 100`, s.smoothed && '12-month average']
+      .filter(Boolean).join(', ');
+    credit.append(changes ? `; ${changes} by this report.` : '.');
+    source.append(' ', credit);
+  }
   const toggle = el('button', 'table-toggle', 'Show the numbers');
   toggle.type = 'button';
   toggle.setAttribute('aria-expanded', 'false');
@@ -241,7 +262,7 @@ function drawYAxis(g, y, x0, x1, unit) {
   const grid = g.append('g').attr('class', 'grid');
   grid.selectAll('line').data(ticks).join('line')
     .attr('x1', x0).attr('x2', x1).attr('y1', (d) => y(d)).attr('y2', (d) => y(d))
-    .attr('class', (d) => (d === 0 ? 'baseline' : null));
+    .attr('class', (d) => (d === 0 || (unit === 'index' && d === 100) ? 'baseline' : null));
   grid.selectAll('text').data(ticks).join('text')
     .attr('x', x0 - 6).attr('y', (d) => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end').text(fmt);
 }
@@ -412,7 +433,9 @@ function timeChart(fig, series, attrs, until, data, mode) {
     }
     const startM = months[0];
     const endM = months.at(-1);
-    fig.setSubtitle(`${subjectOf(series)}, ${monthLabel(startM, 'long')} to ${monthLabel(endM, 'long')}`);
+    const smoothed = series.some((s) => s.smoothed) ? '; the benchmark is a 12-month average, as it is not seasonally adjusted and swings with the seasons' : '';
+    const indexed = attrs.base ? `, indexed to ${monthLabel(attrs.base)} = 100${smoothed}` : '';
+    fig.setSubtitle(`${subjectOf(series)}${indexed}, ${monthLabel(startM, 'long')} to ${monthLabel(endM, 'long')}`);
     const fmt = makeFormat(unit);
     const tipFmt = makeFormat(unit, { precise: true });
     const phone = isPhone(width);
@@ -538,7 +561,13 @@ function timeChart(fig, series, attrs, until, data, mode) {
     cross.append('line').attr('y1', margin.top).attr('y2', height - margin.bottom);
     const dots = cross.selectAll('circle').data(visible).join('circle').attr('r', 4).attr('fill', (s, i) => colorOf(s, i));
     const readout = (m) => {
-      const rows = visible.map((s, i) => ({ color: colorOf(s, i), value: tipFmt(valueAt(s, m)), label: visible.length > 1 ? s.label : '', v: valueAt(s, m) ?? -1 }));
+      // A benchmark names the period its number describes, which usually trails the HN month.
+      const labelOf = (s) => {
+        const ref = s.external && pointAt(s, m)?.ref_period;
+        if (!ref) return s.label;
+        return s.smoothed ? `${s.label} (12 months to ${periodLabel(ref)})` : `${s.label} (${periodLabel(ref)} data)`;
+      };
+      const rows = visible.map((s, i) => ({ color: colorOf(s, i), value: tipFmt(valueAt(s, m)), label: visible.length > 1 ? labelOf(s) : '', v: valueAt(s, m) ?? -1 }));
       if (mode === 'area') rows.reverse();
       else rows.sort((a, b) => b.v - a.v);
       // A post count is redundant beside a count metric, but tells the reader how solid a share or median is.

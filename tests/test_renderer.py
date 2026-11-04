@@ -13,3 +13,16 @@ def test_change_uses_the_exported_bar():
         ["node", ROOT / "tests/js/change.mjs", ROOT / "site/assets/data.js"],
         check=True,
     )
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node is not installed")
+def test_external_benchmark_helpers():
+    subprocess.run(
+        [
+            "node",
+            ROOT / "tests/js/external.mjs",
+            ROOT / "site/assets/data.js",
+            ROOT / "site/assets/article.js",
+        ],
+        check=True,
+    )

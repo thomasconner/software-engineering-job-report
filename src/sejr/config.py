@@ -7,6 +7,8 @@ ANSWERS_DIR = ROOT / "data" / "answers"
 LABELS_PATH = ROOT / "data" / "labels" / "reference.jsonl"
 DB_PATH = ROOT / "data" / "sejr.duckdb"
 SITE_DATA_DIR = ROOT / "site" / "data"
+EXTERNAL_DIR = ROOT / "data" / "external"
+EXTERNAL_CACHE_DIR = ROOT / "data" / "cache" / "external"
 
 SNAPSHOT_DAYS = 7
 FIRST_MONTH = "2011-04"

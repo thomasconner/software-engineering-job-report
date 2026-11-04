@@ -9,7 +9,8 @@ import duckdb
 
 from sejr import noise
 from sejr.aggregate import BREAKDOWNS, COMPLETE, COUNT_METRICS, INDUSTRY_KNOWN, SCALARS
-from sejr.config import JEV_MODEL, SITE_DATA_DIR
+from sejr.config import EXTERNAL_DIR, JEV_MODEL, SITE_DATA_DIR
+from sejr.external import build_section as build_external
 
 VALIDATION_PATH = SITE_DATA_DIR / "validation.json"
 from sejr.features import VERSION as FEATURES_VERSION
@@ -327,7 +328,9 @@ def _publishable(key: str, month: str, n: int, min_n: int) -> bool:
 
 
 def build(
-    con: duckdb.DuckDBPyConnection, validation_path: Path = VALIDATION_PATH
+    con: duckdb.DuckDBPyConnection,
+    validation_path: Path = VALIDATION_PATH,
+    external_dir: Path = EXTERNAL_DIR,
 ) -> dict:
     pending = [
         _month(m)
@@ -408,6 +411,7 @@ def build(
         "pending": pending,
         "metrics": metrics,
         "breakdowns": breakdowns,
+        "external": build_external(months, external_dir),
     }
     noise.attach(con, data)
     return data
