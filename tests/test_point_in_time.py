@@ -7,7 +7,7 @@ import duckdb
 import pytest
 from conftest import CLASSIFIED, MONTHS, NO_HIRING, NO_SEEKING, PENDING
 
-from sejr import aggregate, export, features
+from sejr import aggregate, export, features, noise
 from sejr.config import JEV_MODEL
 from sejr.db import connect
 
@@ -51,10 +51,16 @@ def _bars(data: dict) -> dict[tuple[str, str], dict]:
     return bars
 
 
-def test_noise_bars_are_the_same_with_or_without_later_months(db, tmp_path):
+def test_noise_bars_are_the_same_with_or_without_later_months(
+    db, tmp_path, monkeypatch
+):
     features.build(db)
     aggregate.run(db, Namespace(month=None, dry_run=False))
+    fallback = _bars(export.build(db))
+    # Seven fixture months never reach the real minimum, so lower it to exercise s².
+    monkeypatch.setattr(noise, "MIN_HISTORY", 1)
     full = _bars(export.build(db))
+    assert full != fallback
     compared = 0
     for t in MONTHS:
         cut = truncated_copy(db, tmp_path / f"bars-{t}.duckdb", t)

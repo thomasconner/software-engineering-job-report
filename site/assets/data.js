@@ -118,8 +118,9 @@ function noiseTest(data, key, unit) {
     const win = Object.keys(WINDOWS).find((w) => addMonths(now.month, -WINDOWS[w]) === then.month);
     const bar = now.bar?.[win];
     if (bar != null) {
-      if (!absolute && !a) return 'clear';
-      return (absolute ? Math.abs(b - a) : Math.abs(b / a - 1)) < bar ? 'noise' : 'clear';
+      // Counts, ratios and dollars carry their bar on the log scale: ln(now / then).
+      if (!absolute && !(a > 0 && b > 0)) return 'clear';
+      return (absolute ? Math.abs(b - a) : Math.abs(Math.log(b / a))) < bar ? 'noise' : 'clear';
     }
     if (unit === 'share') {
       if (!then.n || !now.n) return 'clear';

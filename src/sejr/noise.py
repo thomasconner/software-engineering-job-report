@@ -1,11 +1,12 @@
 """Noise bars: how large a change must be before we call it a move.
 
-A bar is the 95% half-width of the change into month t from 3, 12 or 60 months earlier.
-It starts from the sampling variance of each month (Poisson for counts, binomial for
-shares, a bootstrap for salary medians) and widens it by a dispersion factor D measured
-on the series' own history: how much more each month strays from the average of its two
-neighbors than sampling alone would allow. D for month t reads only months <= t, so a
-bar never changes once its month is published.
+A bar is the 95% half-width of the change into month t from 3, 12 or 60 months earlier,
+on the log scale for counts, ratios and dollars and on the value itself for shares and
+scores. Each month's value varies by its sampling variance v (Poisson for counts, binomial
+for shares, a bootstrap for salary medians) plus an extra variance s² that is the same
+for every month of a series: the wobble sampling can't explain. s² is estimated from how
+far each month strays from the average of its two neighbors, using only months <= t, so a
+bar never changes once its month is published. The bar is 1.96 * sqrt(2 s² + v_then + v_now).
 """
 
 import math
@@ -20,14 +21,16 @@ from sejr.aggregate import ANSWERS, SCALARS, SNAPSHOT, _params
 
 Z = 1.96
 WINDOWS = {"3m": 3, "1y": 12, "5y": 60}
-# D is the median of the last HISTORY squared z-scores, scaled so it estimates their mean
-# when the residuals are normal. The median ignores the odd structural break or holiday dip.
+# s² comes from the last HISTORY neighbor residuals. It is the value that makes the median
+# of r² / Var(r) equal the median of a chi-square with one degree of freedom, so the odd
+# structural break or holiday dip doesn't widen every later bar.
 HISTORY = 36
 MIN_HISTORY = 12
-# With less history than that, assume about the dispersion post counts show over the long
-# run, so a young series gets a wide bar rather than a falsely narrow one.
-FALLBACK_DISPERSION = 10.0
 MEDIAN_CHI2_1 = 0.4549
+# With fewer residuals than MIN_HISTORY, assume the month-to-month noise is ten times the
+# sampling variance (about what post counts show over the long run), so a young series
+# gets a wide bar rather than a falsely narrow one.
+FALLBACK_DISPERSION = 10.0
 BOOTSTRAP_DRAWS = 400
 # Mood bars come out near 0.02, but they leave out classifier error, so they never go
 # below the 0.2 convention the style guide used before.
@@ -67,11 +70,16 @@ def _month_index(month: str) -> int:
     return int(month[:4]) * 12 + int(month[5:7]) - 1
 
 
-def _residual_z2(
+def residuals(
     key: str, unit: str, pts: list[dict], extras: dict
-) -> list[float | None]:
-    """z² for each point against its two neighbors, or None when it can't be measured."""
-    out: list[float | None] = [None] * len(pts)
+) -> list[tuple[float, float] | None]:
+    """(r², V) for each point against its two neighbors, or None when it can't be measured.
+
+    r is the point minus the average of its neighbors and V the sampling part of Var(r), so
+    Var(r) = 1.5 s² + V. A share that is 0 in all three months (a stack term before it
+    caught on) counts as (0, 0): history with no wobble, not missing history.
+    """
+    out: list[tuple[float, float] | None] = [None] * len(pts)
     for i in range(1, len(pts) - 1):
         trio = pts[i - 1 : i + 2]
         idx = [_month_index(p["month"]) for p in trio]
@@ -88,6 +96,9 @@ def _residual_z2(
             y = [math.log(v) for v in values]
         else:
             pooled = sum(values) / 3
+            if unit == "share" and pooled in (0, 1):
+                out[i] = (0.0, 0.0)
+                continue
             vs = [
                 _abs_variance(unit, pooled, p["n"], extras.get(p["month"]))
                 for p in trio
@@ -95,30 +106,53 @@ def _residual_z2(
             if None in vs:
                 continue
             y = values
-        expected = vs[1] + (vs[0] + vs[2]) / 4
-        if expected > 0:
-            out[i] = (y[1] - (y[0] + y[2]) / 2) ** 2 / expected
+        out[i] = ((y[1] - (y[0] + y[2]) / 2) ** 2, vs[1] + (vs[0] + vs[2]) / 4)
     return out
 
 
-def dispersions(key: str, unit: str, pts: list[dict], extras: dict) -> list[float]:
-    """D for each point, from residuals whose right-hand neighbor is no later than it."""
-    z2 = _residual_z2(key, unit, pts, extras)
-    out = []
+def _median_z2(history: list[tuple[float, float]], s2: float) -> float:
+    return statistics.median(
+        0.0 if not r2 else r2 / d if (d := 1.5 * s2 + v) else math.inf
+        for r2, v in history
+    )
+
+
+def excess_variance(history: list[tuple[float, float]]) -> float:
+    """s² such that the median of r² / (1.5 s² + V) is MEDIAN_CHI2_1; 0 when sampling suffices."""
+    if _median_z2(history, 0.0) <= MEDIAN_CHI2_1:
+        return 0.0
+    # The median falls as s² grows, so bisect. At hi every ratio is below MEDIAN_CHI2_1.
+    lo, hi = 0.0, max(r2 for r2, _ in history) / (1.5 * MEDIAN_CHI2_1)
+    for _ in range(40):
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if _median_z2(history, mid) > MEDIAN_CHI2_1 else (lo, mid)
+    return (lo + hi) / 2
+
+
+def excess_variances(
+    key: str, unit: str, pts: list[dict], extras: dict
+) -> list[float | None]:
+    """s² for each point, or None (use the fallback) when history is too short.
+
+    Salary medians get 0: the median of a few dozen round-number salaries often ties
+    across months, so neighbor residuals are mostly zero and say nothing. Their bar is the
+    bootstrap alone.
+    """
+    if unit == "usd":
+        return [0.0] * len(pts)
+    found = residuals(key, unit, pts, extras)
+    out: list[float | None] = []
     for i in range(len(pts)):
         # The residual at j uses point j + 1, so only j <= i - 1 is known at point i.
-        known = [z for z in z2[:i] if z is not None][-HISTORY:]
-        if len(known) < MIN_HISTORY:
-            out.append(FALLBACK_DISPERSION)
-        else:
-            out.append(max(1.0, statistics.median(known) / MEDIAN_CHI2_1))
+        known = [r for r in found[:i] if r is not None][-HISTORY:]
+        out.append(excess_variance(known) if len(known) >= MIN_HISTORY else None)
     return out
 
 
 def bar(
-    key: str, unit: str, then: dict, now: dict, d: float, extras: dict
+    key: str, unit: str, then: dict, now: dict, s2: float | None, extras: dict
 ) -> float | None:
-    """Half-width of the change from `then` to `now`: relative for log series, else absolute."""
+    """Half-width of the change from `then` to `now`: on ln(now/then) for relative units."""
     if _relative(unit):
         vs = [
             _log_variance(key, unit, p["value"], p["n"], extras.get(p["month"]))
@@ -131,7 +165,9 @@ def bar(
         ]
     if None in vs:
         return None
-    half_width = Z * math.sqrt(d * sum(vs))
+    if s2 is None:
+        s2 = (FALLBACK_DISPERSION - 1) * vs[1]
+    half_width = Z * math.sqrt(2 * s2 + sum(vs))
     return max(half_width, SCORE_FLOOR) if unit == "score" else half_width
 
 
@@ -142,12 +178,12 @@ def series_bars(
     extras = extras or {}
     by_index = {_month_index(p["month"]): p for p in pts}
     out = []
-    for p, d in zip(pts, dispersions(key, unit, pts, extras), strict=True):
+    for p, s2 in zip(pts, excess_variances(key, unit, pts, extras), strict=True):
         now = _month_index(p["month"])
         bars = {}
         for window, k in WINDOWS.items():
             if (then := by_index.get(now - k)) and (
-                b := bar(key, unit, then, p, d, extras)
+                b := bar(key, unit, then, p, s2, extras)
             ) is not None:
                 bars[window] = round(b, 3)
         out.append(bars)
