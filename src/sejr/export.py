@@ -121,7 +121,7 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
         "Share of companies posting that also posted the month before.",
     ),
     "ai_native_share.hiring": (
-        "AI-native companies",
+        "Posts describing an AI product",
         "share",
         (
             "Expected share of job posts from companies whose product is built on AI or machine "

@@ -648,3 +648,7 @@ HN hiring threads as a signal
 AI tells
 
 - Wikipedia, "Signs of AI writing," WikiProject AI Cleanup (via the `humanizer` skill). https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
+
+## Changes within noise on the page
+
+The renderer applies the same noise bars as this guide. A move inside the bar is shown gray with "≈" and read as "about the same"; salary medians with fewer than 30 posts show "too few posts". `replies_per_post` uses the count bar on its post counts. The prose must agree with the page: never call a ≈ move a rise or fall.

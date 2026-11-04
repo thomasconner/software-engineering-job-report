@@ -11092,7 +11092,7 @@
       ]
     },
     "ai_native_share.hiring": {
-      "label": "AI-native companies",
+      "label": "Posts describing an AI product",
       "unit": "share",
       "method": "jev",
       "description": "Expected share of job posts from companies whose product is built on AI or machine learning, as judged by a language model reading each post.",
