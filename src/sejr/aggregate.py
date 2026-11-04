@@ -132,32 +132,45 @@ def _as_date(month: date | str) -> date:
 
 
 def _count_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
-    posts = dict(
+    live = dict(
         con.execute(
             SNAPSHOT
             + "SELECT kind, count(*) FROM snapshot GROUP BY kind ORDER BY kind",
             {"month": month},
         ).fetchall()
     )
+    removed = dict(
+        con.execute(
+            f"""
+            SELECT kind, sum(removed_in_snapshot)::INTEGER FROM threads
+            WHERE month = $month AND {COMPLETE} AND removed_in_snapshot IS NOT NULL
+            GROUP BY kind ORDER BY kind
+            """,
+            {"month": month},
+        ).fetchall()
+    )
+    # Counts include posts deleted after the window: how many survive depends on how long
+    # after the window a thread was fetched (years for history, days for new months).
+    submitted = {kind: n + removed.get(kind, 0) for kind, n in live.items()}
+    for kind, gone in removed.items():
+        submitted.setdefault(kind, gone)
     rows: list[Row] = [
-        (month, kind, "posts", "", float(n), n) for kind, n in posts.items()
+        (month, kind, "posts", "", float(n), n)
+        for kind, n in sorted(submitted.items())
+        if n
     ]
-    removed = con.execute(
-        f"""
-        SELECT kind, sum(removed_in_snapshot)::INTEGER FROM threads
-        WHERE month = $month AND {COMPLETE} AND removed_in_snapshot IS NOT NULL
-        GROUP BY kind ORDER BY kind
-        """,
-        {"month": month},
-    ).fetchall()
-    for kind, gone in removed:
-        if total := posts.get(kind, 0) + gone:
-            rows.append((month, kind, "removed_share", "", gone / total, total))
-    hiring = posts.get("hiring", 0)
+    rows += [
+        (month, kind, "removed_share", "", gone / submitted[kind], submitted[kind])
+        for kind, gone in removed.items()
+        if submitted[kind]
+    ]
+    hiring = submitted.get("hiring", 0)
     if not hiring:
         return rows
-    if seeking := posts.get("seeking", 0):
+    if seeking := submitted.get("seeking", 0):
         rows.append((month, "hiring", "seekers_per_post", "", seeking / hiring, hiring))
+    if not live.get("hiring"):
+        return rows
     (replies,) = con.execute(
         SNAPSHOT
         + """
@@ -172,7 +185,7 @@ def _count_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
         """,
         {"month": month},
     ).fetchone()
-    rows.append((month, "hiring", "replies_per_post", "", replies, hiring))
+    rows.append((month, "hiring", "replies_per_post", "", replies, live["hiring"]))
     return rows
 
 
