@@ -220,7 +220,9 @@ def log_median_variance(values: list[float], seed: str) -> float | None:
         return None
     rng = random.Random(seed)
     draws = [
-        math.log(max(statistics.median(rng.choices(values, k=len(values))), MEDIAN_FLOOR))
+        math.log(
+            max(statistics.median(rng.choices(values, k=len(values))), MEDIAN_FLOOR)
+        )
         for _ in range(BOOTSTRAP_DRAWS)
     ]
     return statistics.variance(draws)
