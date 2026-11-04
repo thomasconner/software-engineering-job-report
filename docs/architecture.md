@@ -15,7 +15,8 @@ src/sejr/
   export.py         monthly_metrics → site/data/*.json
 data/raw/           gzipped API responses, committed, never edited
 data/sejr.duckdb    rebuildable from data/raw, gitignored
-data/cache/jev/     cached Jev responses keyed by request hash, committed
+data/cache/jev/     cached Jev responses keyed by request hash, gitignored
+data/answers/       Jev answers as Parquet, committed (the durable record)
 site/               static GitHub Pages site (index.html + assets + data/)
 site/articles/      one Markdown article per month, YYYY-MM.md
 tests/
@@ -71,7 +72,7 @@ CREATE TABLE answers (
   post_id       BIGINT NOT NULL,
   question      VARCHAR NOT NULL,        -- e.g. 'work_mode', 'salary_min_usd', 'mentions_visa'
   method        VARCHAR NOT NULL,        -- 'regex' | 'vocab' | 'join' | 'jev'
-  version       VARCHAR NOT NULL,        -- code version for deterministic, model id for jev (e.g. 'jev-1.13.0')
+  version       VARCHAR NOT NULL,        -- code version for deterministic, model id for jev (e.g. 'jev-1.14.0')
   value         DOUBLE,                  -- numeric answer, Noul probability, or Score position
   label         VARCHAR,                 -- categorical answer (top choice)
   probabilities JSON,                    -- full distribution for Choice/Score
@@ -118,18 +119,21 @@ Scalar metrics (`category = ''`). Shares are 0–1. Jev-based shares are expecte
 | `visa_share` | hiring | regex | mentions visa sponsorship |
 | `new_company_share` | hiring | join | company not seen in any earlier month |
 | `returning_company_share` | hiring | join | company also posted last month |
-| `ai_native_share` | hiring | jev | Noul: the product is built on AI/ML |
+| `ai_native_share` | hiring | jev | Noul: the post describes its product as built on AI/ML |
 | `new_grad_share` | hiring | jev | Noul: open to new grads / juniors |
 | `seeker_mood` | seeking | jev | Score mean, 0 (discouraged) – 4 (upbeat) |
+| `seeker_strained_share` | seeking | jev | mean of P(level 0) + P(level 1) of seeker_mood |
+| `eng_leadership_share` | hiring | jev | Noul: the post hires engineering managers or leads |
+| `interns_token_share` | hiring | regex | INTERN(S) keyword present |
 
 Breakdowns (`category` set, values sum to ~1 per month):
 
 | metric | method | categories |
 |---|---|---|
 | `work_mode` | jev | remote, hybrid, onsite, unclear |
-| `seniority` | jev | junior, mid, senior, staff_plus, unspecified |
-| `industry` | jev | ai_ml, devtools_infra, fintech, health, climate_energy, security, commerce, media_consumer, enterprise_saas, hardware_robotics, other |
-| `funding_stage` | jev | bootstrapped, seed, series_a, series_b, series_c_plus, public_or_large, unknown |
+| `seniority` | jev | junior, mid, senior, staff_plus, unspecified. The modal level of the individual-contributor engineering roles; management roles excluded; "all levels" = unspecified |
+| `industry` | jev | ai_ml, devtools_infra, fintech, health, climate_energy, security, commerce, media_consumer, enterprise_saas, hardware_robotics, other, unstated. `other` = described but no listed sector fits; `unstated` = the post doesn't say what the company does. Export also publishes shares renormalized over posts whose sector is known |
+| `funding_stage` | jev | bootstrapped, seed, series_a, series_b, series_c_plus, public_or_large, venture_unspecified, unknown. `seed` needs an explicitly named pre-seed/seed/angel round; an accelerator batch tag alone (e.g. "YC W12") is `unknown`; investors or amounts without a named round are `venture_unspecified` |
 | `stack` | vocab | one category per term in `features/vocab.py`; share of posts mentioning it (does not sum to 1) |
 
 ## Export contract: `site/data/metrics.json`
@@ -183,3 +187,14 @@ Body paragraphs…
 ```
 
 Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category). Every directive accepts `title` and `note`.
+
+## Jev answers storage
+
+- `industry` rows store the folded distribution: P(sector) = P(fits) × P(sector | Choice); P(other) and P(unstated) come from the companion Nouls. `confidence` is that of the stored label, or NULL.
+- Noul rows have NULL `confidence`.
+- `answers` holds one Jev version per post; classify replaces a post's Jev rows.
+- Durable copy: `data/answers/<model>/<YYYY-MM>.parquet` (one file per thread month, both kinds). Classify loads these before calling the API, so a fresh checkout reclassifies nothing. The response cache under `data/cache/jev/` is a local accelerator, sharded by the first two hex characters of the hash, and gitignored.
+
+## Validation set
+
+`data/labels/reference.jsonl`: about 240 posts stratified by era (2011–14, 2015–19, 2020–22, 2023–26) and kind, labeled independently. Each Jev question reports accuracy and Brier score per era before its metric is published; the export carries those scores per metric as `validation`.
