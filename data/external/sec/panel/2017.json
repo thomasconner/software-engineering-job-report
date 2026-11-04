@@ -1,457 +1,508 @@
 {
  "companies": [
   {
-   "cik": 320193,
-   "name": "Apple Inc.",
-   "rank": 1,
-   "reason": "sic_3571",
-   "revenue_fiscal_year_end": "2016-09-24",
-   "revenue_usd": 215639000000.0,
-   "sic": "3571"
-  },
-  {
    "cik": 1018724,
    "name": "AMAZON COM INC",
-   "rank": 2,
+   "rank": 1,
    "reason": "named",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 107006000000.0,
-   "sic": "5961"
+   "sic": "5961",
+   "state": "WA"
   },
   {
    "cik": 789019,
    "name": "MICROSOFT CORP",
-   "rank": 3,
+   "rank": 2,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-06-30",
    "revenue_usd": 85320000000.0,
-   "sic": "7372"
-  },
-  {
-   "cik": 51143,
-   "name": "INTERNATIONAL BUSINESS MACHINES CORP",
-   "rank": 4,
-   "reason": "sic_3570",
-   "revenue_fiscal_year_end": "2015-12-31",
-   "revenue_usd": 81741000000.0,
-   "sic": "3570"
+   "sic": "7372",
+   "state": "WA"
   },
   {
    "cik": 1652044,
    "name": "Alphabet Inc.",
-   "rank": 5,
+   "rank": 3,
    "reason": "sic_7370",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 74989000000.0,
-   "sic": "7370"
+   "sic": "7370",
+   "state": "CA"
   },
   {
    "cik": 50863,
    "name": "INTEL CORP",
-   "rank": 6,
+   "rank": 4,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2015-12-26",
    "revenue_usd": 55355000000.0,
-   "sic": "3674"
-  },
-  {
-   "cik": 1645590,
-   "name": "Hewlett Packard Enterprise Co",
-   "rank": 7,
-   "reason": "sic_3570",
-   "revenue_fiscal_year_end": "2016-10-31",
-   "revenue_usd": 50123000000.0,
-   "sic": "3570"
-  },
-  {
-   "cik": 858877,
-   "name": "CISCO SYSTEMS, INC.",
-   "rank": 8,
-   "reason": "sic_3576",
-   "revenue_fiscal_year_end": "2016-07-30",
-   "revenue_usd": 49247000000.0,
-   "sic": "3576"
-  },
-  {
-   "cik": 47217,
-   "name": "HP INC",
-   "rank": 9,
-   "reason": "sic_3570",
-   "revenue_fiscal_year_end": "2016-10-31",
-   "revenue_usd": 48238000000.0,
-   "sic": "3570"
+   "sic": "3674",
+   "state": "CA"
   },
   {
    "cik": 1341439,
    "name": "ORACLE CORP",
-   "rank": 10,
+   "rank": 5,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-05-31",
    "revenue_usd": 37047000000.0,
-   "sic": "7372"
+   "sic": "7372",
+   "state": "CA"
   },
   {
-   "cik": 866374,
-   "name": "FLEX LTD.",
-   "rank": 11,
-   "reason": "sic_3672",
-   "revenue_fiscal_year_end": "2016-03-31",
-   "revenue_usd": 24418885000.0,
-   "sic": "3672"
-  },
-  {
-   "cik": 898293,
-   "name": "JABIL INC",
-   "rank": 12,
-   "reason": "sic_3672",
-   "revenue_fiscal_year_end": "2016-08-31",
-   "revenue_usd": 18353086000.0,
-   "sic": "3672"
+   "cik": 804328,
+   "name": "QUALCOMM INC/DE",
+   "rank": 6,
+   "reason": "named",
+   "revenue_fiscal_year_end": "2016-09-25",
+   "revenue_usd": 23554000000.0,
+   "sic": "3663",
+   "state": "CA"
   },
   {
    "cik": 1326801,
    "name": "Meta Platforms, Inc.",
-   "rank": 13,
+   "rank": 7,
    "reason": "sic_7370",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 17928000000.0,
-   "sic": "7370"
+   "sic": "7370",
+   "state": "CA"
   },
   {
    "cik": 1649338,
    "name": "Broadcom Pte. Ltd.",
-   "rank": 14,
+   "rank": 8,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-10-30",
    "revenue_usd": 13240000000.0,
-   "sic": "3674"
+   "sic": "3674",
+   "state": "U0"
   },
   {
    "cik": 97476,
    "name": "TEXAS INSTRUMENTS INC",
-   "rank": 15,
+   "rank": 9,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 13000000000.0,
-   "sic": "3674"
-  },
-  {
-   "cik": 106040,
-   "name": "WESTERN DIGITAL CORP",
-   "rank": 16,
-   "reason": "sic_3572",
-   "revenue_fiscal_year_end": "2016-07-01",
-   "revenue_usd": 12994000000.0,
-   "sic": "3572"
+   "sic": "3674",
+   "state": "TX"
   },
   {
    "cik": 1058290,
    "name": "COGNIZANT TECHNOLOGY SOLUTIONS CORP",
-   "rank": 17,
+   "rank": 10,
    "reason": "sic_7371",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 12416000000.0,
-   "sic": "7371"
+   "sic": "7371",
+   "state": "NJ"
   },
   {
    "cik": 723125,
    "name": "MICRON TECHNOLOGY INC",
-   "rank": 18,
+   "rank": 11,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-09-01",
    "revenue_usd": 12399000000.0,
-   "sic": "3674"
+   "sic": "3674",
+   "state": "ID"
   },
   {
    "cik": 8670,
    "name": "AUTOMATIC DATA PROCESSING INC",
-   "rank": 19,
+   "rank": 12,
    "reason": "sic_7374",
    "revenue_fiscal_year_end": "2016-06-30",
    "revenue_usd": 11667800000.0,
-   "sic": "7374"
+   "sic": "7374",
+   "state": "NJ"
   },
   {
    "cik": 6951,
    "name": "APPLIED MATERIALS INC /DE",
-   "rank": 20,
+   "rank": 13,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-10-30",
    "revenue_usd": 10825000000.0,
-   "sic": "3674"
+   "sic": "3674",
+   "state": "CA"
   },
   {
    "cik": 1633917,
    "name": "PayPal Holdings, Inc.",
-   "rank": 21,
+   "rank": 14,
    "reason": "named",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 9248000000.0,
-   "sic": "7389"
+   "sic": "7389",
+   "state": "CA"
   },
   {
    "cik": 1065088,
    "name": "EBAY INC",
-   "rank": 22,
+   "rank": 15,
    "reason": "named",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 8592000000.0,
-   "sic": "7389"
+   "sic": "7389",
+   "state": "CA"
   },
   {
    "cik": 23082,
    "name": "COMPUTER SCIENCES CORP",
-   "rank": 23,
+   "rank": 16,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2016-04-01",
    "revenue_usd": 7106000000.0,
-   "sic": "7373"
+   "sic": "7373",
+   "state": "VA"
   },
   {
    "cik": 1065280,
    "name": "NETFLIX INC",
-   "rank": 24,
+   "rank": 17,
    "reason": "named",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 6779511000.0,
-   "sic": "7841"
+   "sic": "7841",
+   "state": "CA"
   },
   {
    "cik": 1108524,
    "name": "Salesforce, Inc.",
-   "rank": 25,
+   "rank": 18,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-01-31",
    "revenue_usd": 6667216000.0,
-   "sic": "7372"
+   "sic": "7372",
+   "state": "CA"
   },
   {
    "cik": 1124610,
    "name": "VMWARE LLC",
-   "rank": 26,
+   "rank": 19,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 6571000000.0,
-   "sic": "7372"
-  },
-  {
-   "cik": 897723,
-   "name": "SANMINA CORP",
-   "rank": 27,
-   "reason": "sic_3672",
-   "revenue_fiscal_year_end": "2016-10-01",
-   "revenue_usd": 6481181000.0,
-   "sic": "3672"
-  },
-  {
-   "cik": 70866,
-   "name": "NCR Voyix Corp",
-   "rank": 28,
-   "reason": "sic_3578",
-   "revenue_fiscal_year_end": "2015-12-31",
-   "revenue_usd": 6373000000.0,
-   "sic": "3578"
-  },
-  {
-   "cik": 820313,
-   "name": "AMPHENOL CORP /DE/",
-   "rank": 29,
-   "reason": "sic_3678",
-   "revenue_fiscal_year_end": "2015-12-31",
-   "revenue_usd": 5568700000.0,
-   "sic": "3678"
-  },
-  {
-   "cik": 1002047,
-   "name": "NetApp, Inc.",
-   "rank": 30,
-   "reason": "sic_3572",
-   "revenue_fiscal_year_end": "2016-04-29",
-   "revenue_usd": 5546000000.0,
-   "sic": "3572"
+   "sic": "7372",
+   "state": "CA"
   },
   {
    "cik": 1336920,
    "name": "Leidos Holdings, Inc.",
-   "rank": 31,
+   "rank": 20,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2015-01-30",
    "revenue_usd": 5063000000.0,
-   "sic": "7373"
+   "sic": "7373",
+   "state": "VA"
   },
   {
    "cik": 1045810,
    "name": "NVIDIA CORP",
-   "rank": 32,
+   "rank": 21,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-01-31",
    "revenue_usd": 5010000000.0,
-   "sic": "3674"
+   "sic": "3674",
+   "state": "CA"
   },
   {
    "cik": 1011006,
    "name": "ALTABA INC.",
-   "rank": 33,
+   "rank": 22,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 4968301000.0,
-   "sic": "7373"
-  },
-  {
-   "cik": 1043604,
-   "name": "JUNIPER NETWORKS INC",
-   "rank": 34,
-   "reason": "sic_3576",
-   "revenue_fiscal_year_end": "2015-12-31",
-   "revenue_usd": 4857800000.0,
-   "sic": "3576"
+   "sic": "7373",
+   "state": "CA"
   },
   {
    "cik": 796343,
    "name": "ADOBE INC.",
-   "rank": 35,
+   "rank": 23,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2015-11-27",
    "revenue_usd": 4795511000.0,
-   "sic": "7372"
+   "sic": "7372",
+   "state": "CA"
   },
   {
    "cik": 896878,
    "name": "INTUIT INC.",
-   "rank": 36,
+   "rank": 24,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-07-31",
    "revenue_usd": 4694000000.0,
-   "sic": "7372"
+   "sic": "7372",
+   "state": "CA"
   },
   {
    "cik": 718877,
    "name": "Activision Blizzard, Inc.",
-   "rank": 37,
+   "rank": 25,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 4664000000.0,
-   "sic": "7372"
+   "sic": "7372",
+   "state": "CA"
   },
   {
    "cik": 804753,
    "name": "CERNER Corp",
-   "rank": 38,
+   "rank": 26,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2016-01-02",
    "revenue_usd": 4425267000.0,
-   "sic": "7373"
+   "sic": "7373",
+   "state": "MO"
   },
   {
    "cik": 712515,
    "name": "ELECTRONIC ARTS INC.",
-   "rank": 39,
+   "rank": 27,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-03-31",
    "revenue_usd": 4396000000.0,
-   "sic": "7372"
+   "sic": "7372",
+   "state": "CA"
   },
   {
    "cik": 1571123,
    "name": "Science Applications International Corp",
-   "rank": 40,
+   "rank": 28,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2016-01-29",
    "revenue_usd": 4315000000.0,
-   "sic": "7373"
+   "sic": "7373",
+   "state": "VA"
   },
   {
    "cik": 1646383,
    "name": "CSRA Inc.",
-   "rank": 41,
+   "rank": 29,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2016-04-01",
    "revenue_usd": 4250447000.0,
-   "sic": "7373"
+   "sic": "7373",
+   "state": "VA"
   },
   {
    "cik": 356028,
    "name": "CA, INC.",
-   "rank": 42,
+   "rank": 30,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-03-31",
    "revenue_usd": 4025000000.0,
-   "sic": "7372"
+   "sic": "7372",
+   "state": "NY"
   },
   {
    "cik": 2488,
    "name": "ADVANCED MICRO DEVICES INC",
-   "rank": 43,
+   "rank": 31,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2015-12-26",
    "revenue_usd": 3991000000.0,
-   "sic": "3674"
+   "sic": "3674",
+   "state": "CA"
   },
   {
    "cik": 16058,
    "name": "CACI INTERNATIONAL INC /DE/",
-   "rank": 44,
+   "rank": 32,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2016-06-30",
    "revenue_usd": 3744053000.0,
-   "sic": "7373"
+   "sic": "7373",
+   "state": "VA"
   },
   {
    "cik": 849399,
    "name": "Gen Digital Inc.",
-   "rank": 45,
+   "rank": 33,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2016-04-01",
    "revenue_usd": 3600000000.0,
-   "sic": "7372"
+   "sic": "7372",
+   "state": "CA"
   },
   {
    "cik": 1274494,
    "name": "FIRST SOLAR, INC.",
-   "rank": 46,
+   "rank": 34,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 3578995000.0,
-   "sic": "3674"
-  },
-  {
-   "cik": 78814,
-   "name": "PITNEY BOWES INC /DE/",
-   "rank": 47,
-   "reason": "sic_3579",
-   "revenue_fiscal_year_end": "2015-12-31",
-   "revenue_usd": 3578060000.0,
-   "sic": "3579"
+   "sic": "3674",
+   "state": "AZ"
   },
   {
    "cik": 1097864,
    "name": "ON SEMICONDUCTOR CORP",
-   "rank": 48,
+   "rank": 35,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2015-12-31",
    "revenue_usd": 3495800000.0,
-   "sic": "3674"
+   "sic": "3674",
+   "state": "AZ"
   },
   {
    "cik": 6281,
    "name": "ANALOG DEVICES INC",
-   "rank": 49,
+   "rank": 36,
    "reason": "sic_3674",
    "revenue_fiscal_year_end": "2016-10-29",
    "revenue_usd": 3421409000.0,
-   "sic": "3674"
+   "sic": "3674",
+   "state": "MA"
   },
   {
-   "cik": 48898,
-   "name": "HUBBELL INC",
-   "rank": 50,
-   "reason": "sic_3670",
+   "cik": 4127,
+   "name": "SKYWORKS SOLUTIONS, INC.",
+   "rank": 37,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2016-09-30",
+   "revenue_usd": 3289000000.0,
+   "sic": "3674",
+   "state": "MA"
+  },
+  {
+   "cik": 877890,
+   "name": "CITRIX SYSTEMS INC",
+   "rank": 38,
+   "reason": "sic_7372",
    "revenue_fiscal_year_end": "2015-12-31",
-   "revenue_usd": 3390400000.0,
-   "sic": "3670"
+   "revenue_usd": 3275594000.0,
+   "sic": "7372",
+   "state": "FL"
+  },
+  {
+   "cik": 746838,
+   "name": "UNISYS CORP",
+   "rank": 39,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2015-12-31",
+   "revenue_usd": 3015100000.0,
+   "sic": "7373",
+   "state": "PA"
+  },
+  {
+   "cik": 1597033,
+   "name": "Sabre Corp",
+   "rank": 40,
+   "reason": "sic_7370",
+   "revenue_fiscal_year_end": "2015-12-31",
+   "revenue_usd": 2960896000.0,
+   "sic": "7370",
+   "state": "TX"
+  },
+  {
+   "cik": 1062047,
+   "name": "CONCENTRIX CVG Corp",
+   "rank": 41,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2015-12-31",
+   "revenue_usd": 2950600000.0,
+   "sic": "7373",
+   "state": "OH"
+  },
+  {
+   "cik": 1047127,
+   "name": "AMKOR TECHNOLOGY, INC.",
+   "rank": 42,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2015-12-31",
+   "revenue_usd": 2884603000.0,
+   "sic": "3674",
+   "state": "AZ"
+  },
+  {
+   "cik": 714603,
+   "name": "DST SYSTEMS INC",
+   "rank": 43,
+   "reason": "sic_7374",
+   "revenue_fiscal_year_end": "2015-12-31",
+   "revenue_usd": 2825100000.0,
+   "sic": "7374",
+   "state": "MO"
+  },
+  {
+   "cik": 750004,
+   "name": "Light & Wonder, Inc.",
+   "rank": 44,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2015-12-31",
+   "revenue_usd": 2758800000.0,
+   "sic": "7373",
+   "state": "NV"
+  },
+  {
+   "cik": 1556148,
+   "name": "Infor, Inc.",
+   "rank": 45,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2016-04-30",
+   "revenue_usd": 2691600000.0,
+   "sic": "7372",
+   "state": "NY"
+  },
+  {
+   "cik": 1604778,
+   "name": "Qorvo, Inc.",
+   "rank": 46,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2016-04-02",
+   "revenue_usd": 2610726000.0,
+   "sic": "3674",
+   "state": "NC"
+  },
+  {
+   "cik": 769397,
+   "name": "Autodesk, Inc.",
+   "rank": 47,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2016-01-31",
+   "revenue_usd": 2504100000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 883241,
+   "name": "SYNOPSYS INC",
+   "rank": 48,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2016-10-31",
+   "revenue_usd": 2422532000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 1418091,
+   "name": "TWITTER, INC.",
+   "rank": 49,
+   "reason": "sic_7370",
+   "revenue_fiscal_year_end": "2015-12-31",
+   "revenue_usd": 2218032000.0,
+   "sic": "7370",
+   "state": "CA"
+  },
+  {
+   "cik": 743988,
+   "name": "XILINX INC",
+   "rank": 50,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2016-04-02",
+   "revenue_usd": 2213881000.0,
+   "sic": "3674",
+   "state": "CA"
   }
  ],
  "cutoff": "2017-01-01T00:00:00Z",
- "rule": "US-based 10-K filers whose latest 10-K before the cutoff was filed under SIC 3570-3579, 3670-3679 or 7370-7374, plus 8 named internet platforms, with a 10-K accepted in the 456 days before the cutoff and no Form 15 since; top 50 by annual revenue in the latest 10-K accepted before the cutoff",
+ "rule": "US-based 10-K filers whose latest 10-K before the cutoff was filed under SIC 3674, 7370, 7371, 7372, 7373, 7374 (scope software_internet_chips), plus 9 named companies, with a 10-K accepted in the 456 days before the cutoff and no Form 15 since; top 50 by annual revenue in the latest 10-K accepted before the cutoff. SIC and state are from that 10-K's header",
+ "scope": "software_internet_chips",
  "year": 2017
 }

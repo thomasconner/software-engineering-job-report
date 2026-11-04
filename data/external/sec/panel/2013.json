@@ -1,43 +1,508 @@
 {
  "companies": [
   {
+   "cik": 789019,
+   "name": "MICROSOFT CORP",
+   "rank": 1,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-06-30",
+   "revenue_usd": 73723000000.0,
+   "sic": "7372",
+   "state": "WA"
+  },
+  {
+   "cik": 50863,
+   "name": "INTEL CORP",
+   "rank": 2,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 53999000000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
    "cik": 1018724,
    "name": "AMAZON COM INC",
-   "rank": 1,
+   "rank": 3,
    "reason": "named",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 48077000000.0,
-   "sic": ""
+   "sic": "5961",
+   "state": "WA"
+  },
+  {
+   "cik": 1288776,
+   "name": "GOOGLE INC.",
+   "rank": 4,
+   "reason": "sic_7370",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 37905000000.0,
+   "sic": "7370",
+   "state": "CA"
+  },
+  {
+   "cik": 1341439,
+   "name": "ORACLE CORP",
+   "rank": 5,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-05-31",
+   "revenue_usd": 37121000000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 804328,
+   "name": "QUALCOMM INC/DE",
+   "rank": 6,
+   "reason": "named",
+   "revenue_fiscal_year_end": "2012-09-30",
+   "revenue_usd": 19121000000.0,
+   "sic": "3663",
+   "state": "CA"
+  },
+  {
+   "cik": 23082,
+   "name": "COMPUTER SCIENCES CORP",
+   "rank": 7,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2012-03-30",
+   "revenue_usd": 15877000000.0,
+   "sic": "7373",
+   "state": "VA"
+  },
+  {
+   "cik": 97476,
+   "name": "TEXAS INSTRUMENTS INC",
+   "rank": 8,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 13735000000.0,
+   "sic": "3674",
+   "state": "TX"
   },
   {
    "cik": 1065088,
    "name": "EBAY INC",
-   "rank": 2,
+   "rank": 9,
    "reason": "named",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 11651654000.0,
-   "sic": ""
+   "sic": "7389",
+   "state": "CA"
   },
   {
-   "cik": 67472,
-   "name": "MOLEX INC",
-   "rank": 3,
-   "reason": "sic_3678",
+   "cik": 8670,
+   "name": "AUTOMATIC DATA PROCESSING INC",
+   "rank": 10,
+   "reason": "sic_7374",
    "revenue_fiscal_year_end": "2012-06-30",
-   "revenue_usd": 3489189000.0,
-   "sic": "3678"
+   "revenue_usd": 10665200000.0,
+   "sic": "7374",
+   "state": "NJ"
+  },
+  {
+   "cik": 1336920,
+   "name": "Leidos Holdings, Inc.",
+   "rank": 11,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2012-01-31",
+   "revenue_usd": 10587000000.0,
+   "sic": "7373",
+   "state": "VA"
+  },
+  {
+   "cik": 6951,
+   "name": "APPLIED MATERIALS INC /DE",
+   "rank": 12,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2012-10-28",
+   "revenue_usd": 8719000000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 723125,
+   "name": "MICRON TECHNOLOGY INC",
+   "rank": 13,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2012-08-30",
+   "revenue_usd": 8234000000.0,
+   "sic": "3674",
+   "state": "ID"
+  },
+  {
+   "cik": 1054374,
+   "name": "BROADCOM CORP",
+   "rank": 14,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 7389000000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 849399,
+   "name": "Gen Digital Inc.",
+   "rank": 15,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-03-30",
+   "revenue_usd": 6730000000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 2488,
+   "name": "ADVANCED MICRO DEVICES INC",
+   "rank": 16,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 6568000000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 1058290,
+   "name": "COGNIZANT TECHNOLOGY SOLUTIONS CORP",
+   "rank": 17,
+   "reason": "sic_7371",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 6121156000.0,
+   "sic": "7371",
+   "state": "NJ"
+  },
+  {
+   "cik": 1011006,
+   "name": "ALTABA INC.",
+   "rank": 18,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 4984199000.0,
+   "sic": "7373",
+   "state": "CA"
+  },
+  {
+   "cik": 356028,
+   "name": "CA, INC.",
+   "rank": 19,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-03-31",
+   "revenue_usd": 4814000000.0,
+   "sic": "7372",
+   "state": "NY"
+  },
+  {
+   "cik": 718877,
+   "name": "Activision Blizzard, Inc.",
+   "rank": 20,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 4755000000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 1337272,
+   "name": "SunGard",
+   "rank": 21,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 4499000000.0,
+   "sic": "7372",
+   "state": "PA"
+  },
+  {
+   "cik": 796343,
+   "name": "ADOBE INC.",
+   "rank": 22,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2011-12-02",
+   "revenue_usd": 4216258000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 896878,
+   "name": "INTUIT INC.",
+   "rank": 23,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-07-31",
+   "revenue_usd": 4151000000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 712515,
+   "name": "ELECTRONIC ARTS INC.",
+   "rank": 24,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-03-31",
+   "revenue_usd": 4143000000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 1045810,
+   "name": "NVIDIA CORP",
+   "rank": 25,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2012-01-29",
+   "revenue_usd": 3997930000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 746838,
+   "name": "UNISYS CORP",
+   "rank": 26,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 3853800000.0,
+   "sic": "7373",
+   "state": "PA"
+  },
+  {
+   "cik": 16058,
+   "name": "CACI INTERNATIONAL INC /DE/",
+   "rank": 27,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2012-06-30",
+   "revenue_usd": 3774473000.0,
+   "sic": "7373",
+   "state": "VA"
+  },
+  {
+   "cik": 1124610,
+   "name": "VMWARE LLC",
+   "rank": 28,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 3767096000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 1097864,
+   "name": "ON SEMICONDUCTOR CORP",
+   "rank": 29,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 3442300000.0,
+   "sic": "3674",
+   "state": "AZ"
   },
   {
    "cik": 1065280,
    "name": "NETFLIX INC",
-   "rank": 4,
+   "rank": 30,
    "reason": "named",
    "revenue_fiscal_year_end": "2011-12-31",
    "revenue_usd": 3204577000.0,
-   "sic": ""
+   "sic": "7841",
+   "state": "CA"
+  },
+  {
+   "cik": 1047127,
+   "name": "AMKOR TECHNOLOGY, INC.",
+   "rank": 31,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2776359000.0,
+   "sic": "3674",
+   "state": "AZ"
+  },
+  {
+   "cik": 1274494,
+   "name": "FIRST SOLAR, INC.",
+   "rank": 32,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2766207000.0,
+   "sic": "3674",
+   "state": "AZ"
+  },
+  {
+   "cik": 945436,
+   "name": "SUNEDISON, INC.",
+   "rank": 33,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2715500000.0,
+   "sic": "3674",
+   "state": "MO"
+  },
+  {
+   "cik": 6281,
+   "name": "ANALOG DEVICES INC",
+   "rank": 34,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2012-11-03",
+   "revenue_usd": 2701142000.0,
+   "sic": "3674",
+   "state": "MA"
+  },
+  {
+   "cik": 714603,
+   "name": "DST SYSTEMS INC",
+   "rank": 35,
+   "reason": "sic_7374",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2388700000.0,
+   "sic": "7374",
+   "state": "MO"
+  },
+  {
+   "cik": 867773,
+   "name": "SUNPOWER CORP",
+   "rank": 36,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2012-01-01",
+   "revenue_usd": 2312494000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 1108524,
+   "name": "Salesforce, Inc.",
+   "rank": 37,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-01-31",
+   "revenue_usd": 2266539000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 1062047,
+   "name": "CONCENTRIX CVG Corp",
+   "rank": 38,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2262000000.0,
+   "sic": "7373",
+   "state": "OH"
+  },
+  {
+   "cik": 743988,
+   "name": "XILINX INC",
+   "rank": 39,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2012-03-31",
+   "revenue_usd": 2240736000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 769397,
+   "name": "Autodesk, Inc.",
+   "rank": 40,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-01-31",
+   "revenue_usd": 2215600000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 877890,
+   "name": "CITRIX SYSTEMS INC",
+   "rank": 41,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2206392000.0,
+   "sic": "7372",
+   "state": "FL"
+  },
+  {
+   "cik": 804753,
+   "name": "CERNER Corp",
+   "rank": 42,
+   "reason": "sic_7373",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2203153000.0,
+   "sic": "7373",
+   "state": "MO"
+  },
+  {
+   "cik": 1468516,
+   "name": "AOL Inc.",
+   "rank": 43,
+   "reason": "sic_7374",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2202100000.0,
+   "sic": "7374",
+   "state": "NY"
+  },
+  {
+   "cik": 835729,
+   "name": "BMC SOFTWARE INC",
+   "rank": 44,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-03-31",
+   "revenue_usd": 2172000000.0,
+   "sic": "7372",
+   "state": "TX"
+  },
+  {
+   "cik": 768251,
+   "name": "ALTERA CORP",
+   "rank": 45,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2064475000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 703360,
+   "name": "LSI CORP",
+   "rank": 46,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 2043958000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 872448,
+   "name": "ATMEL CORP",
+   "rank": 47,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2011-12-31",
+   "revenue_usd": 1803053000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 883241,
+   "name": "SYNOPSYS INC",
+   "rank": 48,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-10-31",
+   "revenue_usd": 1756017000.0,
+   "sic": "7372",
+   "state": "CA"
+  },
+  {
+   "cik": 912093,
+   "name": "VIAVI SOLUTIONS INC.",
+   "rank": 49,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2012-06-30",
+   "revenue_usd": 1682100000.0,
+   "sic": "3674",
+   "state": "CA"
+  },
+  {
+   "cik": 1002517,
+   "name": "Nuance Communications, Inc.",
+   "rank": 50,
+   "reason": "sic_7372",
+   "revenue_fiscal_year_end": "2012-09-30",
+   "revenue_usd": 1651509000.0,
+   "sic": "7372",
+   "state": "MA"
   }
  ],
  "cutoff": "2013-01-01T00:00:00Z",
- "rule": "US-based 10-K filers whose latest 10-K before the cutoff was filed under SIC 3570-3579, 3670-3679 or 7370-7374, plus 8 named internet platforms, with a 10-K accepted in the 456 days before the cutoff and no Form 15 since; top 50 by annual revenue in the latest 10-K accepted before the cutoff",
+ "rule": "US-based 10-K filers whose latest 10-K before the cutoff was filed under SIC 3674, 7370, 7371, 7372, 7373, 7374 (scope software_internet_chips), plus 9 named companies, with a 10-K accepted in the 456 days before the cutoff and no Form 15 since; top 50 by annual revenue in the latest 10-K accepted before the cutoff. SIC and state are from that 10-K's header",
+ "scope": "software_internet_chips",
  "year": 2013
 }
