@@ -89,6 +89,14 @@ WHERE EXISTS (SELECT 1 FROM hiring_months h WHERE h.month = t.month - INTERVAL 1
 """
 
 
+INSERT_COLUMNS = """
+INSERT INTO answers
+SELECT unnest(?::BIGINT[]), unnest(?::VARCHAR[]), unnest(?::VARCHAR[]), unnest(?::VARCHAR[]),
+       unnest(?::DOUBLE[]), unnest(?::VARCHAR[]), unnest(?::VARCHAR[])::JSON,
+       unnest(?::DOUBLE[])
+"""
+
+
 def _hiring_posts(
     con: duckdb.DuckDBPyConnection, month: date | None
 ) -> list[tuple[int, str]]:
@@ -126,7 +134,9 @@ def build(con: duckdb.DuckDBPyConnection, month: date | None = None) -> int:
     ]
     con.begin()
     _delete(con, month)
-    con.executemany("INSERT INTO answers VALUES (?, ?, ?, ?, ?, ?, ?, ?)", rows)
+    if rows:
+        # One statement over column lists: executemany is ~50x slower at 600k rows.
+        con.execute(INSERT_COLUMNS, [list(column) for column in zip(*rows, strict=True)])
     con.execute(f"INSERT INTO answers {JOIN_SQL}", {"version": VERSION, "month": month})
     con.commit()
     return len(rows)
