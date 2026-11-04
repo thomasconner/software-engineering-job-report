@@ -4,24 +4,80 @@
   "month": "2025-08",
   "values": {
     "indeed_software_postings.GB": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-08-01",
+          "value": 59.07
+        },
+        "3m": {
+          "ref_period": "2025-05-01",
+          "value": 53.19
+        },
+        "5y": {
+          "ref_period": "2020-08-01",
+          "value": 54.85
+        }
+      },
       "ref_period": "2025-08-01",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/10d17ce69ac0d4d6cbb6c621005e148fc8c8740d/GB/job_postings_by_sector_GB.csv",
       "value": 62.69,
       "vintage_date": "2025-08-07"
     },
     "indeed_software_postings.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-08-01",
+          "value": 69.0
+        },
+        "3m": {
+          "ref_period": "2025-05-01",
+          "value": 62.59
+        },
+        "5y": {
+          "ref_period": "2020-08-01",
+          "value": 68.43
+        }
+      },
       "ref_period": "2025-08-01",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/10d17ce69ac0d4d6cbb6c621005e148fc8c8740d/US/job_postings_by_sector_US.csv",
       "value": 65.4,
       "vintage_date": "2025-08-07"
     },
     "indeed_software_remote_share.GB": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-07-31",
+          "value": 0.4934
+        },
+        "3m": {
+          "ref_period": "2025-04-30",
+          "value": 0.4874
+        },
+        "5y": {
+          "ref_period": "2020-07-31",
+          "value": 0.249
+        }
+      },
       "ref_period": "2025-07-31",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/ef2f523940969d7312c6a4fab3d1be8a0545f874/remote_postings_sector.csv",
       "value": 0.4778,
       "vintage_date": "2025-08-05"
     },
     "indeed_software_remote_share.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-07-31",
+          "value": 0.3483
+        },
+        "3m": {
+          "ref_period": "2025-04-30",
+          "value": 0.3222
+        },
+        "5y": {
+          "ref_period": "2020-07-31",
+          "value": 0.1809
+        }
+      },
       "ref_period": "2025-07-31",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/ef2f523940969d7312c6a4fab3d1be8a0545f874/remote_postings_sector.csv",
       "value": 0.3275,

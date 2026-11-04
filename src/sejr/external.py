@@ -7,7 +7,9 @@ date: the hiring thread's created_at + 8 days (UTC date). Contracts are in docs/
 - Indeed Hiring Lab (CC BY 4.0): the version of the CSV in the hiring-lab GitHub repo at the
   last commit on or before the as-of date. Git history is the vintage record.
 - BLS (public domain): the BLS API v2 while the as-of date is today or later, otherwise the
-  ALFRED vintage in effect on the as-of date. Only the one value per month is stored.
+  ALFRED vintage in effect on the as-of date. Only the one value per month is stored, plus
+  the same vintage's readings for the reference months 3, 12 and 60 months earlier
+  (`compare`), never the vintage itself.
 """
 
 import argparse
@@ -16,6 +18,7 @@ import io
 import json
 import os
 import subprocess
+from calendar import monthrange
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
@@ -216,6 +219,46 @@ def window_end(created_at: datetime) -> date:
     return (created_at.astimezone(UTC) + timedelta(days=WINDOW_DAYS)).date()
 
 
+# Each stored value also carries the same vintage's readings for these earlier reference
+# periods, so a 3m/1y/5y change never mixes two vintages (a BLS revision is not a market move).
+COMPARE_WINDOWS = {"3m": 3, "1y": 12, "5y": 60}
+# A daily Indeed reading counts for a target day when it is at most this much older.
+COMPARE_DAILY_SLACK = timedelta(days=7)
+
+
+def shift_period(ref_period: str, months: int) -> str:
+    """Move a 'YYYY-MM' or 'YYYY-MM-DD' period by whole months (days clamp to month end)."""
+    year, month = map(int, ref_period[:7].split("-"))
+    index = year * 12 + month - 1 + months
+    shifted = f"{index // 12:04d}-{index % 12 + 1:02d}"
+    if len(ref_period) == 7:
+        return shifted
+    day = int(ref_period[8:10])
+    last = monthrange(index // 12, index % 12 + 1)[1]
+    return f"{shifted}-{min(day, last):02d}"
+
+
+def same_vintage(points: list[tuple[str, float]], ref_period: str) -> dict:
+    """Readings from one vintage for the reference periods 3, 12 and 60 months before
+    `ref_period`. Monthly periods must match exactly; a daily period takes the latest reading
+    on or before the target day, within a week. Windows with no reading are left out."""
+    compare = {}
+    for window, months in COMPARE_WINDOWS.items():
+        target = shift_period(ref_period, -months)
+        if len(target) == 7:
+            hit = next((p for p in points if p[0] == target), None)
+        else:
+            eligible = [p for p in points if p[0] <= target]
+            hit = eligible[-1] if eligible else None
+            if hit and date.fromisoformat(target) - date.fromisoformat(hit[0]) > (
+                COMPARE_DAILY_SLACK
+            ):
+                hit = None
+        if hit:
+            compare[window] = {"ref_period": hit[0], "value": hit[1]}
+    return compare
+
+
 def months_between(earlier: str, later: str) -> int:
     (y1, m1), (y2, m2) = (map(int, s.split("-")[:2]) for s in (earlier, later))
     return (y2 - y1) * 12 + (m2 - m1)
@@ -394,6 +437,7 @@ def indeed_value(
         return {
             "value": value,
             "ref_period": ref_period,
+            "compare": same_vintage(points, ref_period),
             "vintage_date": committed.isoformat(),
             "source_url": f"{RAW_GITHUB}/{series.repo}/{sha}/{series.path}",
         }
@@ -404,10 +448,12 @@ def indeed_value(
 
 
 def bls_latest(client, series: list[Series], year: int, api_key: str | None) -> dict:
-    """Newest monthly value per series from the BLS API v2, in one request."""
+    """Newest monthly value per series from the BLS API v2, in one request, with the same
+    pull's readings for the comparison months (`same_vintage`). Six years covers the 5y window;
+    the keyless API allows up to ten."""
     body = {
         "seriesid": [s.bls_id for s in series],
-        "startyear": str(year - 1),
+        "startyear": str(year - 6),
         "endyear": str(year),
     }
     if api_key:
@@ -425,24 +471,35 @@ def bls_latest(client, series: list[Series], year: int, api_key: str | None) -> 
             and d["value"] != "-"
         ]
         if monthly:
-            latest[result["seriesID"]] = max(monthly)
+            monthly.sort()
+            ref_period, value = monthly[-1]
+            latest[result["seriesID"]] = (
+                ref_period,
+                value,
+                same_vintage(monthly, ref_period),
+            )
     return latest
 
 
-def read_alfred(text: str) -> tuple[str, float] | None:
-    """The last observation of an ALFRED vintage CSV ('.' marks a missing value)."""
+def read_alfred_all(text: str) -> list[tuple[str, float]]:
+    """Every monthly observation of an ALFRED vintage CSV ('.' marks a missing value)."""
     rows = [
         r
         for r in csv.reader(io.StringIO(text))
         if len(r) == 2 and r[1] not in (".", "")
     ]
-    if len(rows) < 2:
-        return None
-    observed, value = rows[-1]
-    return observed[:7], float(value)
+    return [(observed[:7], float(value)) for observed, value in rows[1:]]
 
 
-def alfred_value(client, series: Series, as_of: date) -> tuple[str, float] | None:
+def read_alfred(text: str) -> tuple[str, float] | None:
+    """The last observation of an ALFRED vintage CSV."""
+    rows = read_alfred_all(text)
+    return rows[-1] if rows else None
+
+
+def alfred_value(client, series: Series, as_of: date) -> tuple[str, float, dict] | None:
+    """The newest value in the vintage in effect on `as_of`, with that vintage's readings for
+    the comparison months. Only these few numbers are stored, never the vintage itself."""
     try:
         response = client.get(
             ALFRED_CSV, {"id": series.fred_id, "vintage_date": as_of.isoformat()}
@@ -453,7 +510,11 @@ def alfred_value(client, series: Series, as_of: date) -> tuple[str, float] | Non
         if e.response.status_code == 404 and as_of < BLS_FIRST_VINTAGE:
             return None
         raise
-    return read_alfred(response.text)
+    rows = read_alfred_all(response.text)
+    if not rows:
+        return None
+    ref_period, value = rows[-1]
+    return ref_period, value, same_vintage(rows, ref_period)
 
 
 def bls_values(client, as_of: date, today: date, api_key: str | None) -> dict:
@@ -463,10 +524,11 @@ def bls_values(client, as_of: date, today: date, api_key: str | None) -> dict:
         latest = bls_latest(client, series, as_of.year, api_key)
         for s in series:
             if s.bls_id in latest:
-                ref_period, value = latest[s.bls_id]
+                ref_period, value, compare = latest[s.bls_id]
                 values[s.key] = {
                     "value": value,
                     "ref_period": ref_period,
+                    "compare": compare,
                     "vintage_date": today.isoformat(),
                     "source_url": s.url,
                 }
@@ -477,6 +539,7 @@ def bls_values(client, as_of: date, today: date, api_key: str | None) -> dict:
             values[s.key] = {
                 "value": picked[1],
                 "ref_period": picked[0],
+                "compare": picked[2],
                 "vintage_date": as_of.isoformat(),
                 "source_url": (
                     f"{ALFRED_CSV}?id={s.fred_id}&vintage_date={as_of.isoformat()}"
@@ -568,10 +631,56 @@ def pull(source: str, month: str, created_at: datetime, *, client, repos: Indeed
     return values
 
 
+def lacks_compare(stored: dict | None) -> bool:
+    return bool(stored) and any("compare" not in v for v in stored["values"].values())
+
+
+def add_compare(
+    threads: dict[str, datetime], *, client, repos, today: date,
+    directory: Path = EXTERNAL_DIR,
+) -> None:  # fmt: skip
+    """Give frozen months stored before `compare` existed their same-vintage readings.
+
+    Re-pulling a frozen month is deterministic (ALFRED at the as-of date, Indeed at the same
+    commit), so the stored value must come back unchanged; only then is `compare` attached.
+    A value that comes back different is warned about and left without `compare`.
+    """
+    for month, created_at in threads.items():
+        for source in SOURCES:
+            stored = load(source, month, directory)
+            if not (is_frozen(stored) or is_retry(stored)) or not lacks_compare(stored):
+                continue
+            try:
+                fresh = pull(source, month, created_at, client=client, repos=repos,
+                             today=today, api_key=None)  # fmt: skip
+            except Exception as e:  # noqa: BLE001
+                # A transient fetch failure leaves this month for the next backfill.
+                warn(f"external: {source} {month} compare failed, retry later: {e!r}")
+                continue
+            for key, value in stored["values"].items():
+                new = fresh.get(key)
+                if new and (new["value"], new["ref_period"]) == (
+                    value["value"],
+                    value["ref_period"],
+                ):
+                    value["compare"] = new["compare"]
+                else:
+                    warn(
+                        f"external: {month} {key} re-pulled differently; no compare added"
+                    )
+            path = month_path(source, month, directory)
+            path.write_text(json.dumps(stored, indent=2, sort_keys=True) + "\n")
+            print(f"  {month} {source}: compare added", flush=True)
+
+
 def run(con: duckdb.DuckDBPyConnection, args: argparse.Namespace) -> None:
     threads = hiring_threads(con)
     if args.month:
         threads = {m: c for m, c in threads.items() if m == args.month}
+    if args.backfill and not args.dry_run:
+        # Months frozen before same-vintage comparisons existed get them once.
+        add_compare(threads, client=Client(min_interval=BACKFILL_INTERVAL),
+                    repos=IndeedRepos(), today=date.fromisoformat(now()[:10]))  # fmt: skip
     todo = plan(threads)
     if args.limit:
         todo = todo[: args.limit]
@@ -669,14 +778,15 @@ def build_section(months: list[str], directory: Path = EXTERNAL_DIR) -> dict:
             # Defensive: a value published after the month's as-of date never reaches the site.
             if not entry or entry["vintage_date"] > record["as_of"]:
                 continue
-            points.append(
-                {
-                    "month": month,
-                    "value": entry["value"],
-                    "ref_period": entry["ref_period"],
-                    "vintage_date": entry["vintage_date"],
-                }
-            )
+            point = {
+                "month": month,
+                "value": entry["value"],
+                "ref_period": entry["ref_period"],
+                "vintage_date": entry["vintage_date"],
+            }
+            if "compare" in entry:
+                point["compare"] = entry["compare"]
+            points.append(point)
         section[s.key] = {
             "id": s.key,
             "label": s.label,

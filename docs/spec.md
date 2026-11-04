@@ -1,27 +1,33 @@
-# Software Engineering Job Report: spec
+# Software Engineering Jobs Report: spec
 
-A monthly heartbeat on US startup and engineering hiring, built from Hacker News "Ask HN: Who is hiring?" and "Who wants to be hired?" threads. Published as a single-page report on GitHub Pages, written like FiveThirtyEight data journalism: each section leads with a finding, then shows the chart behind it.
+A monthly Software Engineering Jobs Report on the US software engineering job market, drawn from several public sources: Indeed Hiring Lab job postings, BLS job openings, hires, layoffs and employment (JOLTS and CES), Hacker News's monthly hiring and job-seeker threads, and, as they are built, company job boards, SEC filings and WARN layoff notices. Hacker News is one source among these, a startup-leaning panel of employer posts and job-seeker posts, not the subject of the report. Published as a single-page report on GitHub Pages, written like FiveThirtyEight data journalism: each section leads with a finding, then shows the chart behind it.
 
 ## Goals
 
+- Say each month what the US software engineering job market did, synthesized across sources: where postings, openings, hires, layoffs, employment, filings and HN posts agree, and where they don't and why (each measures something different).
 - Show trends over time, with direct comparisons: this month vs 3 months ago, 1 year ago and 5 years ago.
-- Compute every month **as it looked at the time**, with no knowledge of later months, even though the backfill runs in November 2026.
+- Compute every month **as it looked at the time**, with no knowledge of later months, even though the backfill runs in November 2026. For outside sources that means each value as published by the issue's as-of date, never a later revision.
 - Keep yes/no measurements in code and use Jev only for judgment calls, so every number traces back to a method and a version.
+- Make adding a source cheap: a new publisher's series lands in the `external` export and appears in the compare strip, the charts and the Sources block without renderer changes.
 
 ## Non-goals
 
 - A job board or search tool.
-- A single composite "health score". Each measure is shown on its own.
+- A single composite "health score". Each measure is shown on its own, with its source.
+- A report about Hacker News. HN figures appear as one source; the threads' own trivia (stack trends, industries) lives on the dashboard and enters a column only when it bears on the market argument.
+- Non-US markets, for now. Series carry a country so a US vs UK comparison can follow (Indeed GB, later UK ONS).
 
 ## Sources
 
+Every source is read as published by each issue's as-of date (thread + 8 days). The site lists them, with coverage, lag, credit and caveat, in a Sources block generated from the export (`sources` in metrics.json).
+
 | Source | Use |
 |---|---|
-| Algolia `search_by_date?tags=story,author_whoishiring` | Discover monthly thread IDs back to April 2011 |
+| Algolia `search_by_date?tags=story,author_whoishiring` | Hacker News: discover monthly thread IDs back to April 2011 |
 | Algolia `items/<id>` | Full comment tree per thread, with `created_at_i` per comment |
 | Greenhouse / Ashby / Lever / SmartRecruiters public job-board JSON | Monthly snapshot of boards linked from recent hiring posts plus a fixed panel (`sejr ats`, `data/external/ats/`); counts and job metadata, no job text |
-| Indeed Hiring Lab GitHub repos (CC BY 4.0) | Benchmarks: software postings index and remote share (US, GB), pay transparency (US), each as published by the month's as-of date |
-| BLS API v2 and ALFRED vintages (public domain) | Benchmarks: JOLTS openings/hires/layoffs (information; professional and business services) and CES computer systems design employment, US |
+| Indeed Hiring Lab GitHub repos (CC BY 4.0) | Software postings index and remote share (US, GB), pay transparency (US), each as published by the month's as-of date |
+| BLS API v2 and ALFRED vintages (public domain) | JOLTS openings/hires/layoffs (information; professional and business services) and CES computer systems design employment, US |
 
 ## Pipeline
 
@@ -64,18 +70,16 @@ A reference set of 265 posts labeled by two AI annotators with adjudication, plu
 
 ## Report (GitHub Pages, one page)
 
-- Lede: three or four sentences on what moved this month.
-- Comparison strip: now vs 3 months, 1 year and 5 years ago, for each headline measure.
-- Sections, each with a headline finding and a chart:
-  1. Demand: employer posts, job seekers per employer
-  2. Remote, hybrid, onsite
-  3. Pay: disclosure rate, ranges by seniority
-  4. AI share of hiring
-  5. Seniority mix and the entry-level squeeze
-  6. Stack trends
-  7. Company churn: new, returning, gone quiet
-  8. Job-seeker mood
-- Methodology and caveats footer.
+- Lede: three or four sentences on what the software engineering job market did this month, across sources.
+- Comparison strip: now vs 3 months, 1 year and 5 years ago for a fixed core that mixes sources (Indeed postings, JOLTS information openings, CES computer systems design employment, HN hiring posts, HN job seekers per post and its US-only version, HN pay disclosure). Outside rows show their reference period and a plain change, with no noise verdict.
+- Sections, each with a headline finding and a chart, chosen by the month's argument from these themes:
+  1. Demand: postings (Indeed), openings (JOLTS), employer posts (HN), and later open roles on company job boards
+  2. Employment and flows: CES employment, JOLTS hires and layoffs, later SEC headcount and restructuring filings and WARN notices
+  3. Supply and competition: job seekers per hiring post (HN, with the US-only ratio)
+  4. Pay: pay transparency (Indeed, HN) and posted ranges (HN)
+  5. Remote, hybrid, onsite (Indeed, HN)
+  6. Seniority mix and the entry-level squeeze; AI share of hiring; stack trends (HN)
+- Methodology footer with a Sources block (one row per source: what it measures, coverage start, typical lag, license and credit, caveat), then how the HN threads are measured.
 - Design: `frontend-design` skill, with Mobbin as reference for the dashboard layout.
 
 ## Stack
@@ -90,9 +94,9 @@ All months from April 2011 for "Who is hiring?"; "Who wants to be hired?" starts
 
 ## The article
 
-Each month is one article in `site/articles/YYYY-MM.md`, written like a newspaper data column: a headline that makes a claim, a dek, an argued lede, and sections where every claim sits next to the chart that backs it. Voice: a FiveThirtyEight-style analyst writing an opinion column, plain and confident, with honest uncertainty. The style guide is `docs/style-guide.md`.
+Each month is one article in `site/articles/YYYY-MM.md`, written like a newspaper data column about the software engineering job market: a headline that makes a claim about the market, a dek, an argued lede, and sections where every claim names its source and sits next to the chart that backs it. When sources disagree, the article says so and explains what each measures. Voice: a FiveThirtyEight-style analyst writing an opinion column, plain and confident, with honest uncertainty. The style guide is `docs/style-guide.md`.
 
-Articles are written by an agent from the exported numbers, then fact-checked by a second agent. Every number in the text must match `site/data/metrics.json`.
+Articles are written by an agent from the exported numbers, then fact-checked by a second agent. Every number in the text must match `site/data/metrics.json`. The October 2026 column predates the multi-source framing and stays as an archived edition, with its correction, unchanged.
 
 ## Decisions log
 
@@ -118,3 +122,9 @@ Articles are written by an agent from the exported numbers, then fact-checked by
 - 2026-11-04: Job-board follow-ups: no big tech on the ATS panel (own careers sites); the SEC panel (CON-174) covers it. Boards keep a `scope` (`company`, or `portfolio` set in `data/external/ats/overrides.json`; pear-vc is the first). US-located job counts are computed at export from job locations, not stored. Western Digital leaves the panel for Asana (software only) on 2026-12-01. Workable is a follow-up ticket.
 - 2026-11-04: Job-board review fixes (eng-2): per-job `workplace` (remote/hybrid/onsite/unknown) replaces the remote flag, because Ashby's isRemote includes hybrid; a run writes nothing when over 20% of boards fail or after 10 unreachable in a row; the first snapshot was re-fetched with these rules.
 - 2026-11-04: Classifier eng-3: "Systems Engineer" is decided by department, customer-facing role words beat software words, and a reviewer's 100 independently labeled titles are a held-out test (98%). US location counts return unknown for unrecognized places. The 2026-11-04 snapshot's engineering counts were recomputed in place from stored titles (no re-fetch).
+- 2026-11-04: Reframe (CON-201). The product is a monthly Software Engineering Jobs Report on the US software engineering job market, synthesized from several sources; Hacker News is one source (a startup-leaning panel of employer and job-seeker posts), not the theme. Headlines and ledes are about the market; every claim names its source; no single source stands in for the market. Outside series have no noise bar and are described in plain language with their reference period. The core compare strip mixes sources and takes `external:<key>` rows. The page has a Sources block generated from a `sources` export section. The October 2026 column stays as an archived edition, unchanged. This replaces the earlier rule that columns describe HN's threads, not the US market.
+- 2026-11-04: The brand is "Software Engineering Jobs Report" on every user-facing surface (wordmark, page title, meta, default byline, footer, README). The repo name and URL stay `software-engineering-job-report`. The archived October 2026 column keeps its original byline in its front matter; the page chrome around it uses the new name.
+- 2026-11-04: Context for later sessions lives in the repo: CLAUDE.md (read order, how Thomas wants the report, how work runs), docs/lessons.md (mistakes, rejected approaches, source traps; every review that finds a class of mistake adds a line in the same PR) and docs/sessions/<date>.md (what Thomas asked and answered). Every agent diff gets an independent adversarial review and re-review before merge.
+- 2026-11-04: Outside changes are computed within one release (CON-201 review). Each stored outside value carries the same vintage's readings for its reference period minus 3, 12 and 60 months (`compare`); the strip and the prose use those, never two issues' stored values, so revisions don't read as market moves. A missing reading is shown as "No same-month value". JOLTS 12-month averages use distinct reference months (at least 10 of 12), not 12 issues. The masthead ribbon is set per issue (`ribbon` front matter), defaulting to Indeed's postings index from November 2026 and to HN hiring posts before.
+- 2026-11-04: Article text runs the same width as charts (--measure = --wide = 56rem), at Thomas's request; it trades a longer line for one aligned column.
+- 2026-11-04: Responsive article layout, replacing the 56rem column above at Thomas's request (wide desktop, iPad, iPhone). One container of up to 96rem holds the masthead, ribbon, compare strip and wide charts. Text sits in a centered column of up to 52rem (about 105 characters a line). From 80rem (1280px) up, regular charts float at 46% of the container, alternating right and left, and are moved up to the start of their section's paragraphs so text wraps beside them (about 55 characters a line) and returns to the full column below; headings clear floats. A chart with under about 500 characters of paragraphs beside it stays in the column, so a short section leaves no hole. `::compare`, small multiples and `layout="wide"` charts span the container. Below 1280px everything is one column with charts at column width, in the written order. Root type scales from 16px at 1600px to 18px at 2240px and up, so the page grows with big screens. Gutters are 16px on phones, 32px from 600px, 48px from 1280px.

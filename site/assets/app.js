@@ -2,7 +2,10 @@ import d3 from './d3.js';
 import { parseArticle } from './article.js';
 import { renderChart } from './charts.js';
 import { renderCompare } from './compare.js';
-import { AuthoringError, WINDOWS, addMonths, monthLabel, makeFormat, categoryLabel, METHOD_LABEL, prepare } from './data.js';
+import {
+  AuthoringError, WINDOWS, addMonths, monthLabel, makeFormat, categoryLabel, METHOD_LABEL, prepare, resolveCompareRows,
+  periodLabel, ribbonKey,
+} from './data.js';
 
 const params = new URLSearchParams(location.search);
 const mock = params.get('mock') === '1';
@@ -26,8 +29,8 @@ async function main() {
   if (!issues.length) throw new Error('The first issue has not been published yet.');
 
   const wanted = params.get('issue');
-  // Samples (files starting with _) are reachable by name only while previewing with mock data.
-  const issue = issues.includes(wanted) || (mock && wanted?.startsWith('_')) ? wanted : issues[0];
+  // Samples (files starting with _) are reachable by name only in authoring mode (mock data or a local server).
+  const issue = issues.includes(wanted) || (authoring && wanted?.startsWith('_')) ? wanted : issues[0];
   const res = await fetch(`articles/${issue}.md`);
   if (!res.ok) throw new Error(`The article for ${issue} could not be loaded.`);
   const article = parseArticle(await res.text());
@@ -37,7 +40,7 @@ async function main() {
   if (data.mock) $('#mock-banner').hidden = false;
   renderPicker(issues, issue);
   renderHeader(article.meta, until, data);
-  renderRibbon(data, until);
+  renderRibbon(data, until, ribbonKey(article.meta));
   renderBody(article, data, until);
   renderMethodology(data, until);
 }
@@ -56,6 +59,8 @@ function showError(message) {
   $('#headline').textContent = 'No issue to show yet';
   if (!$('#issue-picker').options.length) $('.picker').hidden = true;
   $('#glossary-title').hidden = true;
+  $('#sources-title').hidden = true;
+  $('#sources-intro').hidden = true;
   $('.ribbon-figure').hidden = true;
 }
 
@@ -95,26 +100,40 @@ function renderHeader(meta, until, data) {
   const headline = meta.headline ?? 'Untitled issue';
   $('#headline').textContent = headline;
   $('#dek').textContent = meta.dek ?? '';
-  $('#byline').textContent = `By ${meta.byline ?? 'Software Engineering Job Report'}`;
+  $('#byline').textContent = `By ${meta.byline ?? 'Software Engineering Jobs Report'}`;
   const time = $('#dateline');
   time.dateTime = until;
   time.textContent = `${monthLabel(until, 'long')} issue`;
   $('#data-stamp').textContent = data.mock
     ? 'Mock data for layout testing'
     : `Data updated ${new Date(data.generated_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}`;
-  document.title = `${headline} | Software Engineering Job Report`;
+  document.title = `${headline} | Software Engineering Jobs Report`;
 }
 
-// Masthead strip: every complete month of hiring posts up to this issue, with the comparison months marked.
-function renderRibbon(data, until) {
-  const metric = data.metrics['posts.hiring'];
+// Masthead strip: one series (front matter `ribbon`, see data.ribbonKey) for every complete month up
+// to this issue, with the comparison months marked.
+function renderRibbon(data, until, key) {
   const wrap = $('#ribbon');
   const caption = $('#ribbon-caption');
-  if (!metric) return;
-  const pts = metric.series.filter((p) => p.month <= until && !data.pending.has(p.month));
+  let series;
+  try {
+    [series] = resolveCompareRows(data, key, until);
+  } catch (err) {
+    if (authoring) console.warn(`ribbon: ${err.message}`);
+    $('.ribbon-figure').hidden = true;
+    return;
+  }
+  const pts = series.points;
+  if (!pts.length) {
+    $('.ribbon-figure').hidden = true;
+    return;
+  }
   const marks = new Map(Object.entries(WINDOWS).map(([k, n]) => [addMonths(until, -n), k]));
-  const fmt = makeFormat('count');
-  const defaultCaption = `${metric.label} each month since ${monthLabel(pts[0].month)}. Marked bars show 5 years, 1 year and 3 months before ${monthLabel(until)}.`;
+  const fmt = makeFormat(series.unit);
+  const what = series.external
+    ? `${series.label} in each issue since ${monthLabel(pts[0].month)}, as published by its date`
+    : `${series.label} in Hacker News's "Who is hiring?" thread each month since ${monthLabel(pts[0].month)}`;
+  const defaultCaption = `${what}. Marked bars show 5 years, 1 year and 3 months before ${monthLabel(until)}.`;
   caption.textContent = defaultCaption;
   wrap.setAttribute('aria-label', `${defaultCaption} Use the arrow keys to read each month.`);
   let idx = pts.length - 1;
@@ -122,7 +141,10 @@ function renderRibbon(data, until) {
 
   const read = (i, keyboard) => {
     idx = Math.max(0, Math.min(pts.length - 1, i));
-    const text = `${monthLabel(pts[idx].month, 'long')}: ${fmt(pts[idx].value)} companies hiring`;
+    const p = pts[idx];
+    const text = series.external
+      ? `${monthLabel(p.month, 'long')} issue: ${fmt(p.value)} (${periodLabel(p.ref_period)} data)`
+      : `${monthLabel(p.month, 'long')}: ${fmt(p.value)} hiring posts on Hacker News`;
     caption.textContent = text;
     wrap.querySelector('.cursor')?.setAttribute('x', x(pts[idx].month));
     wrap.querySelector('.cursor')?.removeAttribute('hidden');
@@ -217,6 +239,54 @@ function renderBody(article, data, until) {
     if (error) showDirectiveError(mount, error);
     else mountDirective(mount, name, attrs, data, until);
   }
+  arrangeFigures(body, article.directives);
+}
+
+// On wide screens regular charts float beside the text, alternating right and left; the strip, small multiples
+// and `layout="wide"` charts span the page. Keep the breakpoint in step with style.css.
+const FLOAT_QUERY = matchMedia('(min-width: 80rem)');
+const MIN_PROSE = 500; // characters, about ten lines beside a float
+const isProse = (node) => ['P', 'UL', 'OL', 'BLOCKQUOTE'].includes(node?.tagName);
+
+function arrangeFigures(body, directives) {
+  const hoisted = [];
+  let floats = 0;
+  for (const mount of body.querySelectorAll('.directive')) {
+    const { name, attrs } = directives[mount.dataset.directive];
+    if (!mount.querySelector('.chart, .compare')) continue; // errors stay in the column
+    if (name === 'compare' || attrs.type === 'small-multiples' || attrs.layout === 'wide') {
+      mount.dataset.layout = 'wide';
+      continue;
+    }
+    // Articles put a chart after the paragraphs it backs. A float only wraps the text that follows it, so on
+    // wide screens the chart moves up to the start of that run of paragraphs and goes back on narrow ones.
+    // A sentence or two beside a chart leaves a hole under it, so a short run stays in the column.
+    let start = mount;
+    let text = 0;
+    while (isProse(start.previousElementSibling)) {
+      start = start.previousElementSibling;
+      text += start.textContent.length;
+    }
+    for (let next = mount.nextElementSibling; start === mount && isProse(next); next = next.nextElementSibling) {
+      text += next.textContent.length;
+    }
+    if (text < MIN_PROSE) continue;
+    mount.dataset.layout = 'float';
+    mount.dataset.side = floats++ % 2 ? 'left' : 'right';
+    if (start === mount) continue;
+    const anchor = document.createComment('chart');
+    mount.before(anchor);
+    hoisted.push({ mount, start, anchor });
+  }
+  if (!hoisted.length) return;
+  const place = () => {
+    for (const { mount, start, anchor } of hoisted) {
+      if (FLOAT_QUERY.matches) start.before(mount);
+      else anchor.after(mount);
+    }
+  };
+  FLOAT_QUERY.addEventListener('change', place);
+  place();
 }
 
 // Plain names for the Jev questions scored in validation.json, and the measures they feed.
@@ -278,7 +348,59 @@ async function renderValidation(data) {
   $('#validation').replaceChildren(table, notes);
 }
 
+// One entry per source from metrics.json `sources`: what it measures, coverage, newest data, lag,
+// credit and caveat. A back issue shows only what existed by its month.
+function renderSources(data, until) {
+  const sources = (data.sources ?? []).filter((s) => s.coverage_start <= until);
+  const newestRef = (s) => s.series.map((key) => data.external?.[key]?.series.filter((p) => p.month <= until).at(-1)?.ref_period)
+    .filter(Boolean).sort().at(-1);
+  $('#sources').replaceChildren(...sources.flatMap((s) => {
+    const dt = document.createElement('dt');
+    dt.textContent = s.name;
+    const dd = document.createElement('dd');
+    const line = (label, text) => {
+      const p = document.createElement('p');
+      const b = document.createElement('span');
+      b.className = 'source-field';
+      b.textContent = `${label}: `;
+      p.append(b, text);
+      return p;
+    };
+    const credit = document.createElement('span');
+    const name = s.credit || s.name;
+    if (s.url) {
+      const link = document.createElement('a');
+      link.href = s.url;
+      link.textContent = name;
+      credit.append(link);
+    } else {
+      credit.append(name);
+    }
+    if (s.license) {
+      let lic = s.license;
+      if (s.license_url) {
+        lic = document.createElement('a');
+        lic.href = s.license_url;
+        lic.textContent = s.license;
+      }
+      credit.append(' (', lic, ')');
+    }
+    const end = s.coverage_end < until ? s.coverage_end : until;
+    const ref = newestRef(s);
+    dd.append(
+      line('Measures', s.measures),
+      line('Coverage', `${monthLabel(s.coverage_start, 'long')} to ${monthLabel(end, 'long')} issues${ref ? `; this issue carries ${periodLabel(ref)} data` : ''}`),
+      line('Lag', s.lag),
+      line('Credit', credit),
+    );
+    if (s.caveat) dd.append(line('Caveat', s.caveat));
+    return [dt, dd];
+  }));
+  for (const id of ['#sources-title', '#sources-intro']) $(id).hidden = !sources.length;
+}
+
 function renderMethodology(data, until) {
+  renderSources(data, until);
   renderValidation(data).catch(() => { /* the table is optional; the prose still explains the checks */ });
   const removed = ['removed_share.hiring', 'removed_share.seeking'].filter((k) => data.metrics[k]);
   if (removed.length) {

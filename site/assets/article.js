@@ -1,6 +1,6 @@
 // Turns an article file (front matter + Markdown + ::chart / ::compare directives) into HTML and a directive list.
 import { marked } from './vendor/marked-15.0.12.esm.js';
-import { AuthoringError, WINDOWS, isMonth } from './data.js';
+import { AuthoringError, EXTERNAL_PREFIX, WINDOWS, isMonth } from './data.js';
 
 const FRONT_MATTER = /^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/;
 const DIRECTIVE = /^::(chart|compare)\{(.*)\}\s*$/;
@@ -11,13 +11,14 @@ const ATTR = /([\w-]+)\s*=\s*(?:"((?:\\.|[^"\\])*)"|'((?:\\.|[^'\\])*)'|\u201C([
 // Which attributes each directive accepts (docs/architecture.md, "Directive attributes").
 const COMMON = ['title', 'subtitle', 'note'];
 const TIME = ['from', 'to', 'annotate'];
+// Small multiples and ::compare always span the page, so they don't take `layout`.
 const ALLOWED = {
-  line: ['metric', 'highlight', 'external', 'base', ...TIME],
-  'stacked-area': ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
+  line: ['metric', 'highlight', 'external', 'base', 'layout', ...TIME],
+  'stacked-area': ['metric', 'breakdown', 'categories', 'highlight', 'layout', ...TIME],
   'small-multiples': ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
-  slope: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'months'],
-  dot: ['metric', 'breakdown', 'categories', 'highlight', 'vs'],
-  bar: ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
+  slope: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'months', 'layout'],
+  dot: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'layout'],
+  bar: ['metric', 'breakdown', 'categories', 'highlight', 'layout', ...TIME],
   compare: ['metrics', 'against'],
 };
 
@@ -56,13 +57,27 @@ function checkDirective(name, attrs) {
   if (!attrs.title) throw new AuthoringError(`${type} needs a title that states the finding`);
   if (name === 'compare') {
     if (!attrs.metrics) throw new AuthoringError('compare needs metrics');
+    const ids = attrs.metrics.split(',').map((s) => s.trim());
+    for (const id of ids) {
+      const outside = id.startsWith(EXTERNAL_PREFIX) ? id.slice(EXTERNAL_PREFIX.length).trim() : null;
+      if (!id || outside === '') throw new AuthoringError(`metrics="${attrs.metrics}" has an empty id; outside series are written external:<key>`);
+      if (outside == null && /^external\s*:/i.test(id)) throw new AuthoringError(`"${id}": write the prefix as lowercase external: followed by the key`);
+    }
     const bad = (attrs.against ?? '').split(',').map((s) => s.trim()).filter((a) => a && !WINDOWS[a]);
     if (bad.length) throw new AuthoringError(`against takes 3m, 1y, 5y, not ${bad.join(', ')}`);
     return;
   }
-  if (!attrs.metric === !attrs.breakdown) throw new AuthoringError(`${type} needs either metric or breakdown`);
-  if (attrs.external || attrs.base) {
-    if (!attrs.external || !isMonth(attrs.base)) throw new AuthoringError('external needs base="YYYY-MM", the month both lines are indexed to 100');
+  if (attrs.layout && !['float', 'wide'].includes(attrs.layout)) {
+    throw new AuthoringError(`layout="${attrs.layout}" must be float or wide`);
+  }
+  // A line can draw an outside series on its own (raw values) or paired with one HN metric (both indexed to base).
+  const externalOnly = attrs.external && !attrs.metric && !attrs.breakdown;
+  if (!externalOnly && !attrs.metric === !attrs.breakdown) throw new AuthoringError(`${type} needs either metric or breakdown`);
+  if (attrs.external?.includes(',')) throw new AuthoringError('external takes one key; draw a second outside series in its own chart');
+  if (externalOnly) {
+    if (attrs.base) throw new AuthoringError('base indexes an external series against a metric; drop base to draw the external series on its own, in its own unit');
+  } else if (attrs.external || attrs.base) {
+    if (!attrs.external || !isMonth(attrs.base)) throw new AuthoringError('external with a metric needs base="YYYY-MM", the month both lines are indexed to 100');
     if (!attrs.metric || attrs.metric.includes(',')) throw new AuthoringError('external pairs with exactly one metric');
   }
   for (const key of ['from', 'to']) {
