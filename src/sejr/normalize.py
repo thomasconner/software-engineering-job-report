@@ -59,15 +59,19 @@ class _TextExtractor(HTMLParser):
                 self._write(f"{label} ({href})")
 
     def handle_data(self, data: str) -> None:
-        # Outside <pre>, newlines in HN's HTML are wrapping whitespace, not line breaks.
-        self._write(data if self.in_pre else re.sub(r"\s+", " ", data))
+        if not self.in_pre:
+            # A bare newline is one the author typed; keep it as a single line break.
+            data = re.sub(r"[^\S\n]*\n\s*", "\n", data)
+            data = re.sub(r"[^\S\n]+", " ", data)
+        self._write(data)
 
 
 def html_to_text(html: str) -> str:
     parser = _TextExtractor()
     parser.feed(html)
     parser.close()
-    return "\n\n".join(p.strip("\n").rstrip() for p in parser.paragraphs if p.strip())
+    text = "\n\n".join(p.strip("\n").rstrip() for p in parser.paragraphs if p.strip())
+    return re.sub(r"[ \t]+\n", "\n", text).lstrip()
 
 
 def to_datetime(epoch: int) -> datetime:
@@ -81,16 +85,12 @@ def is_dropped(comment: dict) -> bool:
     )
 
 
-def latest_raw_files(raw_dir: Path) -> list[tuple[dict, Path]]:
-    """Newest raw file per thread, judged by the sidecar's fetched_at."""
-    newest: dict[int, tuple[dict, Path]] = {}
-    for meta_path in raw_dir.glob("*/*/*.meta.json"):
+def raw_files(raw_dir: Path) -> list[tuple[dict, Path]]:
+    files = []
+    for meta_path in sorted(raw_dir.glob("*/*/*.meta.json")):
         meta = json.loads(meta_path.read_text())
-        data_path = meta_path.with_name(f"{meta['thread_id']}.json.gz")
-        current = newest.get(meta["thread_id"])
-        if current is None or meta["fetched_at"] > current[0]["fetched_at"]:
-            newest[meta["thread_id"]] = (meta, data_path)
-    return sorted(newest.values(), key=lambda item: (item[0]["month"], item[0]["kind"]))
+        files.append((meta, meta_path.with_name(f"{meta['thread_id']}.json.gz")))
+    return files
 
 
 def flatten(
@@ -105,6 +105,8 @@ def flatten(
         "title": meta["title"],
         "created_at": created_at,
         "snapshot_at": snapshot_at,
+        "fetched_at": datetime.fromisoformat(meta["fetched_at"]),
+        "removed_in_snapshot": None,
     }
     posts: list[dict] = []
     replies: list[dict] = []
@@ -146,7 +148,24 @@ def flatten(
                 walk(child, post_id, depth + 1)
 
     walk(item, 0, 0)
+    if "kids" in meta:
+        thread["removed_in_snapshot"] = count_removed(meta["kids"], posts, replies)
     return thread, posts, replies
+
+
+def count_removed(kids: list[int], posts: list[dict], replies: list[dict]) -> int:
+    """Top-level comments Firebase lists but Algolia omits, within the snapshot window.
+
+    HN ids rise over time, so a removed kid belongs to the window when its id is no
+    higher than the newest comment we can date inside the window.
+    """
+    in_window = [p["post_id"] for p in posts if p["in_snapshot"]]
+    in_window += [r["reply_id"] for r in replies if r["in_snapshot"]]
+    if not in_window:
+        return 0
+    cutoff = max(in_window)
+    present = {p["post_id"] for p in posts}
+    return sum(1 for kid in kids if kid not in present and kid <= cutoff)
 
 
 def count_descendants(node: dict) -> int:
@@ -176,7 +195,7 @@ def insert(
 
 
 def run(con: duckdb.DuckDBPyConnection, args, raw_dir: Path = RAW_DIR) -> None:
-    files = latest_raw_files(raw_dir)
+    files = raw_files(raw_dir)
     if args.month:
         files = [(meta, path) for meta, path in files if meta["month"] == args.month]
     if args.limit:
@@ -212,7 +231,14 @@ def run(con: duckdb.DuckDBPyConnection, args, raw_dir: Path = RAW_DIR) -> None:
         for table in ("replies", "posts", "threads"):
             con.execute(f"DELETE FROM {table}")
     with tempfile.TemporaryDirectory() as folder:
-        insert(con, "threads", threads, Path(folder))
+        try:
+            insert(con, "threads", threads, Path(folder))
+        except duckdb.ConstraintException as e:
+            con.execute("ROLLBACK")
+            raise RuntimeError(
+                "two raw files claim the same thread or the same (kind, month); "
+                f"keep one per month under {raw_dir}: {e}"
+            ) from e
         insert(con, "posts", posts, Path(folder))
         insert(con, "replies", replies, Path(folder))
     con.execute("COMMIT")

@@ -17,7 +17,8 @@ THREAD_CREATED = 1793635297
     [
         ("First<p>Second<p>Third", "First\n\nSecond\n\nThird"),
         ("Tom &amp; Jerry&#x27;s &quot;shop&quot; &lt;3", 'Tom & Jerry\'s "shop" <3'),
-        ("wrapped\nline", "wrapped line"),
+        ("typed\nline  break", "typed\nline break"),
+        ("  one \n\n  line\t\tbreak", "one\nline break"),
         (
             '<a href="https:&#x2F;&#x2F;example.com&#x2F;jobs" rel="nofollow">https:&#x2F;&#x2F;example.com&#x2F;jobs</a>',
             "https://example.com/jobs",
@@ -53,7 +54,10 @@ def raw_dir(tmp_path: Path) -> Path:
         "month": "2026-11",
         "title": "Ask HN: Who is hiring? (November 2026)",
         "fetched_at": "2026-11-04T12:00:00Z",
+        "checked_at": "2026-11-04T12:00:00Z",
         "source_url": "https://hn.algolia.com/api/v1/items/50338728",
+        # 50338740 is missing from Algolia inside the window; 50339999 is after it.
+        "kids": [50338732, 50338736, 50338740, 50338768, 50339999],
     }
     (folder / "50338728.meta.json").write_text(json.dumps(meta))
     return tmp_path
@@ -67,11 +71,18 @@ def test_normalize_loads_thread_posts_and_replies(raw_dir):
     con = connect(":memory:")
     normalize(con, raw_dir)
 
-    # Timestamps come back as epoch seconds: fetching TIMESTAMPTZ into Python needs pytz.
     assert con.execute(
-        "SELECT kind, month::VARCHAR, epoch(created_at), epoch(snapshot_at) FROM threads"
+        "SELECT kind, month::VARCHAR, epoch(created_at), epoch(snapshot_at),"
+        " fetched_at::VARCHAR, removed_in_snapshot FROM threads"
     ).fetchall() == [
-        ("hiring", "2026-11-01", THREAD_CREATED, THREAD_CREATED + 7 * 24 * 3600)
+        (
+            "hiring",
+            "2026-11-01",
+            THREAD_CREATED,
+            THREAD_CREATED + 7 * 24 * 3600,
+            "2026-11-04 12:00:00+00",
+            1,
+        )
     ]
     posts = con.execute(
         "SELECT post_id, author, in_snapshot FROM posts ORDER BY post_id"
@@ -135,20 +146,24 @@ def test_normalize_is_idempotent(raw_dir):
     assert len(first["posts"]) == 3
 
 
-def test_newest_raw_file_wins(raw_dir):
-    stale = raw_dir / "hiring" / "2026-10"
-    stale.mkdir()
-    item = json.loads(FIXTURE.read_text())
-    item["children"] = item["children"][:1]
-    (stale / "50338728.json.gz").write_bytes(gzip.compress(json.dumps(item).encode()))
-    meta = json.loads(
-        (raw_dir / "hiring" / "2026-11" / "50338728.meta.json").read_text()
-    )
-    (stale / "50338728.meta.json").write_text(
-        json.dumps(meta | {"month": "2026-10", "fetched_at": "2026-11-01T00:00:00Z"})
-    )
-
+def test_removed_count_is_null_without_kids(raw_dir):
+    meta_path = raw_dir / "hiring" / "2026-11" / "50338728.meta.json"
+    meta = json.loads(meta_path.read_text())
+    del meta["kids"]
+    meta_path.write_text(json.dumps(meta))
     con = connect(":memory:")
     normalize(con, raw_dir)
-    assert con.execute("SELECT count(*) FROM threads").fetchone()[0] == 1
-    assert con.execute("SELECT count(*) FROM posts").fetchone()[0] == 3
+    assert con.execute("SELECT removed_in_snapshot FROM threads").fetchone() == (None,)
+
+
+def test_two_threads_for_one_month_fail_clearly(raw_dir):
+    folder = raw_dir / "hiring" / "2026-11"
+    item = json.loads(FIXTURE.read_text())
+    item |= {"id": 1, "children": []}
+    (folder / "1.json.gz").write_bytes(gzip.compress(json.dumps(item).encode()))
+    meta = json.loads((folder / "50338728.meta.json").read_text())
+    (folder / "1.meta.json").write_text(json.dumps(meta | {"thread_id": 1}))
+
+    con = connect(":memory:")
+    with pytest.raises(RuntimeError, match="same \\(kind, month\\)"):
+        normalize(con, raw_dir)
