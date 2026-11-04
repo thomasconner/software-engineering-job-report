@@ -27,14 +27,34 @@ uv run sejr export       # site/data/*.json
 uv run pytest
 ```
 
-Every step takes `--month YYYY-MM`, `--limit N` and `--dry-run`. Jev answers are committed under `data/answers/`, so a fresh checkout classifies only new posts. Classify refuses a run of more than 500 API calls unless you pass `--month` or `--backfill`.
+Flags:
+
+- `fetch`, `normalize`: `--month YYYY-MM`, `--limit N`, `--dry-run`.
+- `classify`: the same, plus `--backfill`. It only answers posts from complete threads (past their 7-day snapshot) and skips posts whose stored answers match the current questions and text. Without `--month` or `--backfill` it refuses a run of more than 500 API calls. `--dry-run` prints the call count and estimated cost.
+- `uv run sejr unanswered` prints the complete months that still have posts to classify.
+- `uv run --env-file .env sejr validate` scores Jev against the hand-labeled reference set (`data/labels/`) and writes `site/data/validation.json`. `--dry-run` shows what it would classify first.
+
+Jev answers are committed under `data/answers/`, so a fresh checkout classifies only new posts.
 
 To view the site, serve `site/` (for example `python -m http.server -d site`).
 
 ## Monthly updates
 
-`.github/workflows/monthly.yml` runs every day at 17:00 UTC. Fetch only touches threads still inside their 7-day snapshot window, so on most days nothing changes. Each run goes through the full pipeline and the tests; if data changed, it commits `data/raw`, `data/answers` and `site/data` as `data: refresh YYYY-MM`, and redeploys the site.
+`.github/workflows/monthly.yml` runs at 17:00 UTC on days 1–12 of each month. A thread's 7-day snapshot completes around the 8th, and fetch only touches threads still inside that window, so new data appears only in that stretch. Each run:
+
+1. runs the tests;
+2. fetches, normalizes and computes features;
+3. classifies each complete month that has unanswered posts (`--month`), then runs a guarded unscoped classify. If more than three months need classifying, it stops: that is a question or model change, and the backfill is run by hand;
+4. commits `data/answers` straight away, even if a later step fails, so paid answers aren't lost;
+5. aggregates, exports, and commits `data/raw`, `data/answers` and `site/data` as `data: refresh YYYY-MM`;
+6. redeploys the site when `site/` changed.
+
+Expect a commit on most of days 1–12 while the current thread fills in, and none for the rest of the month.
 
 When a new month becomes complete and `site/articles/YYYY-MM.md` doesn't exist yet, the workflow opens an issue titled "Write the <Month YYYY> column". The column is written and fact-checked by agents outside CI, then merged, which deploys it.
 
-If the workflow misses a week and classify refuses to run, run it by hand with `--month YYYY-MM` for the missed month and push the answers.
+## First deploy
+
+1. Run the full backfill locally (`uv run --env-file .env sejr classify --backfill`) and commit `data/answers/`. CI never backfills.
+2. Add `TYPESAFE_API_KEY` as a repository Actions secret.
+3. Set Settings → Pages → Source to "GitHub Actions".
