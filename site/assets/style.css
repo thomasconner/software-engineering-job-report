@@ -96,7 +96,7 @@ a:hover { text-decoration-thickness: 2px; }
 .ribbon rect.cursor { fill: none; stroke: var(--ink); stroke-width: 1.5; }
 .ribbon line.tick { stroke: var(--ink-2); }
 .ribbon text { font: 500 11px var(--sans); fill: var(--muted); }
-.ribbon text.now { fill: var(--ink); font-weight: 650; }
+.ribbon text.now { fill: var(--ink); font-weight: 650; paint-order: stroke; stroke: var(--paper); stroke-width: 3px; }
 .ribbon-caption { font: 400 0.8125rem/1.4 var(--sans); color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
 
 /* ---------- article grid: text column with charts breaking out wider ---------- */
@@ -211,7 +211,7 @@ h1 {
 .end-delta.d-bad { fill: var(--bad); }
 .end-delta.d-flat { fill: var(--ink-2); }
 .annotation line, .annotation-line { stroke: var(--axis); stroke-width: 1; }
-.annotation text, .annotation-text { fill: var(--ink-2); font-size: 11.5px; font-style: italic; }
+.annotation text, .annotation-text, .annotation-label { fill: var(--ink-2); font-size: 11.5px; font-style: italic; }
 .annotation-text { font-size: 10.5px; }
 .crosshair line { stroke: var(--ink-2); stroke-width: 1; }
 .hit { fill: transparent; }
@@ -265,26 +265,26 @@ h1 {
 .compare-table { width: 100%; border-collapse: collapse; font: 400 0.9375rem/1.3 var(--sans); }
 .compare-table thead th {
   font: 600 0.8125rem/1.3 var(--sans); color: var(--muted); text-align: right; padding: 0 10px 8px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink); white-space: nowrap;
 }
 .compare-table thead th.c-measure { text-align: left; padding-left: 0; }
+.compare-table thead th.c-trend { text-align: left; }
 .compare-table thead th.c-now { color: var(--ink); }
 .compare-table tbody tr { border-bottom: 1px solid var(--rule); }
-.compare-table td, .compare-table tbody th { padding: 12px 10px; vertical-align: middle; text-align: right; }
+.compare-table td, .compare-table tbody th { padding: 11px 10px; vertical-align: middle; text-align: right; }
 .compare-table tbody th { padding-left: 0; text-align: left; font-weight: 600; }
-.c-measure { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.m-label { font: 600 0.9375rem/1.3 var(--sans); }
-.spark { flex: none; overflow: visible; }
+.compare-table td.c-trend { text-align: left; padding-right: 4px; }
+.spark { display: block; overflow: visible; }
 .spark path { fill: none; stroke: var(--deemph); stroke-width: 1.5; }
 .spark circle.then { fill: var(--ink-2); }
 .spark circle.now { fill: var(--s1); stroke: var(--paper); stroke-width: 1.5; }
 td.c-now { font: 680 1.375rem/1 var(--sans); letter-spacing: -0.01em; }
 .c-delta { white-space: nowrap; }
-.d { display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: 0 4px; font-weight: 650; font-variant-numeric: tabular-nums; }
-.d-arrow { font-size: 0.65em; transform: translateY(-0.1em); }
+.d { display: inline-flex; align-items: baseline; flex-wrap: wrap; justify-content: flex-end; gap: 0 4px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.d-arrow { font-size: 0.7em; }
 .d-good { color: var(--good); }
 .d-bad { color: var(--bad); }
-.d-flat { color: var(--ink-2); }
+.d-flat { color: var(--ink-2); font-weight: 500; }
 .d-was { display: block; margin-top: 3px; font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .d-word { font-size: 0.75em; font-weight: 600; }
 .d-none { color: var(--muted); font-size: 0.8125rem; }
@@ -295,6 +295,12 @@ td.c-now { font: 680 1.375rem/1 var(--sans); letter-spacing: -0.01em; }
 .methodology h3 { margin: 1.6em 0 0.2em; font: 650 1.0625rem/1.3 var(--sans); }
 .methodology p { margin: 0.4em 0 0.8em; }
 .methodology ul { padding-left: 1.1em; }
+.validation-table { width: 100%; border-collapse: collapse; margin: 12px 0 4px; font: 400 0.9375rem/1.4 var(--sans); font-variant-numeric: tabular-nums; }
+.validation-table th, .validation-table td { padding: 7px 8px; border-bottom: 1px solid var(--rule); text-align: right; }
+.validation-table th:first-child { text-align: left; padding-left: 0; font-weight: 500; }
+.validation-table thead th { font-weight: 600; font-size: 0.8125rem; color: var(--muted); border-bottom: 2px solid var(--ink); }
+.validation-note { font: 400 0.8125rem/1.5 var(--sans); color: var(--muted); }
+.badge { display: inline-block; padding: 0 6px; border: 1px solid var(--axis); border-radius: 999px; font-size: 0.75rem; color: var(--ink-2); vertical-align: 1px; }
 .glossary { margin: 8px 0 0; font: 400 0.9375rem/1.45 var(--sans); }
 .glossary dt { font-weight: 650; margin-top: 14px; }
 .glossary dd { margin: 2px 0 0; color: var(--ink-2); }
@@ -308,18 +314,24 @@ td.c-now { font: 680 1.375rem/1 var(--sans); letter-spacing: -0.01em; }
   .article-head { padding-top: 32px; }
   .article-body > p:first-of-type { font-size: 1.1875rem; }
   .masthead-tools { width: 100%; justify-content: space-between; }
-  /* Headers stay in the table for screen readers; each cell shows its own small label instead. */
+  /* On a phone the strip becomes a two-column grid of small cards. Headers stay for screen readers; each cell
+     shows its own short label instead. */
   .compare-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .compare-table tbody { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .compare-table tbody tr {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 6px; padding: 14px 0;
+    display: flex; flex-direction: column; gap: 3px; padding: 10px; border: 1px solid var(--rule); border-radius: 8px;
   }
-  .compare-table tbody th { grid-column: 1 / 3; padding: 0; }
-  .compare-table td { padding: 0; }
-  .compare-table td.c-now { grid-column: 3; text-align: right; align-self: center; }
-  .compare-table td.c-now::before { content: attr(data-label); display: block; font: 400 0.75rem var(--sans); color: var(--muted); margin-bottom: 3px; }
-  .compare-table td.c-delta { text-align: left; }
-  .compare-table td.c-delta::before { content: attr(data-label); display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 2px; }
-  .c-measure { justify-content: flex-start; flex-wrap: wrap; gap: 4px 10px; }
+  .compare-table td, .compare-table tbody th { padding: 0; text-align: left; }
+  .compare-table tbody th { font-size: 0.8125rem; line-height: 1.25; }
+  .compare-table td.c-trend, .compare-table .d-was { display: none; }
+  .compare-table td.c-now { font-size: 1.25rem; margin: 2px 0 4px; }
+  .compare-table td.c-now::after { content: " " attr(data-label); font: 400 0.6875rem var(--sans); color: var(--muted); letter-spacing: 0; }
+  .compare-table td.c-delta { display: flex; gap: 6px; font-size: 0.8125rem; white-space: normal; }
+  .compare-table td.c-delta::before { content: attr(data-label); flex: none; width: 1.5em; color: var(--muted); }
+  .compare-table .d { justify-content: flex-start; }
+  .compare-table .d-word { font-size: 0.6875rem; }
+  /* The ≈ mark already says "about the same", and the subtitle defines it; the word would double the card. */
+  .compare-table .d-word-quiet { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
