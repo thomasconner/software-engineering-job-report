@@ -12,6 +12,10 @@ Every question Jev answers for the report. The source of truth is `src/sejr/clas
 - **Model pinned** to `config.JEV_MODEL` (`jev-1.14.0`). The model id in each response is stored as `answers.version`, and the run fails if it differs from the pin.
 - **Question-set hash.** Each kind's questions plus the model pin hash to one value. It is stored with every answer in `data/answers/<model>/<YYYY-MM>.parquet`, so an edit to any question re-runs that kind's posts, and nothing else does.
 
+## Validation and its limits
+
+The definitions here were aligned with the reference rubric (`data/labels/rubric.md`) after a validation run on the reference set itself (`data/labels/reference.jsonl`). Six rules changed to match it: founding engineers, adtech, gambling, consumer fitness, mood levels 3 and 4, and the mid-level range. `ai_native` was also tightened for recommendation teams at consumer companies. Because the wording was tuned against the same posts that score it, the reference-set numbers in `site/data/validation.json` are optimistic. A held-out set is being labeled for an unbiased score.
+
 ## What gets stored
 
 - **Answer rows.** One `answers` row per question per post, `method = 'jev'`, `version` = the model id from the response. Choice: `label`, `probabilities`, `confidence`. Score: `value` (expected score), `probabilities` keyed `"0"`–`"4"`, `confidence`. Noul: `value` only; Jev returns no confidence for a Noul.
@@ -43,12 +47,12 @@ Why: in 2011–2015 most posts just gave a city and said nothing about remote. B
 | Option | Covers |
 |---|---|
 | `junior` | Interns, new grads, entry-level, junior, associate, up to about 2 years. |
-| `mid` | Called mid-level or Engineer II, or about 2–5 years. |
-| `senior` | Senior, lead, tech lead, founding or first engineers, or 5+ years. |
+| `mid` | Called mid-level or Engineer II, or about 2–4 years. |
+| `senior` | Senior, lead, tech lead, or 5+ years. A founding or first engineer with no stated level is `unspecified`. |
 | `staff_plus` | Staff, principal, distinguished or architect engineers. Excludes managers, directors, VPs and CTOs. |
 | `unspecified` | Titles with no level ("Software Engineer") and no years of experience, or "all levels". |
 
-Why: the modal level, with the same "most of the roles" rule as `work_mode`, describes what a post is mostly hiring for. Management is measured separately (`eng_leadership`), so it doesn't push a post toward `staff_plus`. A founding engineer counts as `senior` because those posts ask for someone who can own the whole system. Posts with no level signal go to `unspecified` rather than being guessed as `mid`, so the share of posts that name a level is itself a measurement. Early-career openness is asked separately (`new_grad`).
+Why: the modal level, with the same "most of the roles" rule as `work_mode`, describes what a post is mostly hiring for. Management is measured separately (`eng_leadership`), so it doesn't push a post toward `staff_plus`. A founding engineer with no stated level is `unspecified`, as in the reference rubric; "founding" describes the team's stage, not the hire's level. Posts with no level signal go to `unspecified` rather than being guessed as `mid`, so the share of posts that name a level is itself a measurement. Early-career openness is asked separately (`new_grad`).
 
 ### `eng_leadership` (Noul)
 
@@ -63,7 +67,9 @@ Why: the modal level, with the same "most of the roles" rule as `work_mode`, des
 The options are listed in this order: `enterprise_saas`, `commerce`, `fintech`, `health`, `media_consumer`, `devtools_infra`, `hardware_robotics`, `security`, `climate_energy`, `ai_ml`. Each has a `covers` list, and the sectors that blur have `excludes`:
 
 - AI for one sector (radiology, fraud) goes to that sector, not `ai_ml`. AI is measured separately by `ai_native`.
-- HR and recruiting *software*, and marketing and adtech, are `enterprise_saas`. Staffing agencies that *place* candidates are not a listed sector.
+- HR and recruiting *software*, and sales and marketing software, are `enterprise_saas`. Advertising technology, and staffing agencies that *place* candidates, are not listed sectors (they fold into `other`).
+- Gambling, betting and betting exchanges are excluded from `fintech` and fold into `other`.
+- `health` is healthcare, medical care and devices, biotech, pharma and health insurance. Consumer fitness and wellness products (Peloton) are `media_consumer`.
 - Education products, consumer or not, real estate and proptech, and government are not listed sectors.
 
 The order is deliberate. TypeSafe notes that Jev can lean toward the first Choice option ([model jaggedness](https://docs.typesafe.ai/model-jaggedness.md#choice-option-order)). `ai_ml` is the sector whose trend the report watches most, so it goes last, and a broad, stable sector goes first.
@@ -101,7 +107,7 @@ Why: this is the question most exposed to look-ahead, because Jev knows which 20
 
 > Does the job post describe the company's product as built on AI or machine learning?
 
-`true`: the post presents AI or ML as the core of the product (a model, an AI assistant or agent, an ML platform, or a product whose main feature is vision, speech, recommendations or prediction). `false`: no AI or ML, or AI for a side feature, an internal tool, or one data scientist, or hiring for an ML, research or data-science team at a company whose product the post doesn't present as AI. "Data-driven", "analytics", "big data" and "automation" are not AI or ML on their own.
+`true`: the post presents AI or ML as the core of the product (a model, an AI assistant or agent, an ML platform, or a product whose main feature is vision, speech or prediction). Recommendations or personalization count only when the post presents the product itself as AI-driven. `false`: no AI or ML, or AI for a side feature, an internal tool, or one data scientist, or hiring for an ML, research or data-science team at a company whose product the post doesn't present as AI, such as a large consumer company hiring for its recommendations team. "Data-driven", "analytics", "big data" and "automation" are not AI or ML on their own.
 
 Why: "uses AI" would be true of nearly every 2025 post, and "data-driven" of every 2012 one. The question is whether the post presents the product *as* AI, which is what `ai_native_share` charts.
 
@@ -124,8 +130,8 @@ Why: silence counts as no. The metric is "posts that say they are open to new gr
 | 0 Discouraged | Search going badly or dragging on for months, many rejections, money worries or desperation, "any job at all". |
 | 1 Strained | Says the search is hard or urgent: needs work soon, struggling to land interviews, or offers concessions (lower pay, any role), without despair. |
 | 2 Neutral | Location, skills, experience and the role they want, however confidently, with nothing about how the search is going. |
-| 3 Positive | Something hopeful about the search: chose to leave, looking forward to the next role, taking time to find the right fit. |
-| 4 Upbeat | A strong position: employed and open only to exceptional offers, or openly excited and in demand. |
+| 3 Positive | The search is going fine: employed and selective, casually looking, chose to leave, taking time to find the right fit. |
+| 4 Upbeat | Clearly in demand: multiple offers, or very choosy because companies are competing for them. |
 
 Why: most seeking posts follow the thread's template (Location / Remote / Willing to relocate / Technologies / Résumé / Email) plus a short pitch. A pitch is written to sound confident, so confidence alone is the baseline (level 2). A layoff or a gap is a fact about the person, not a mood about the market, and a 2016 career-gap line shouldn't read as distress. The levels key on what the seeker says about the search itself. The full probability vector is stored, so `seeker_strained_share` is the mean of P(0) + P(1).
 
