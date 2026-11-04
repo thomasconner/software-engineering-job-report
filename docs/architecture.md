@@ -6,7 +6,7 @@ The contracts here are shared by every module. Change them here first, then in c
 
 ```
 src/sejr/
-  cli.py            `sejr <command>` entry point (fetch, ats, normalize, features, classify, aggregate, external, export; also validate, unanswered)
+  cli.py            `sejr <command>` entry point (fetch, ats, normalize, features, classify, aggregate, external, sec, export; also validate, unanswered)
   fetch.py          Algolia → data/raw
   ats.py            company job boards (Greenhouse, Ashby, Lever, SmartRecruiters) → data/external/ats
   normalize.py      data/raw → DuckDB threads/posts/replies
@@ -14,6 +14,7 @@ src/sejr/
   classify/         Jev questions → answers table
   aggregate.py      answers → monthly_metrics, point-in-time
   external.py       Indeed Hiring Lab and BLS benchmarks → data/external, one value per HN month
+  sec.py            SEC EDGAR panel (restructuring, layoff filings, headcount) → data/external/sec
   export.py         monthly_metrics + data/external → site/data/*.json
   noise.py          point-in-time noise bars attached to every exported point
 data/raw/           gzipped API responses, committed, never edited
@@ -23,6 +24,8 @@ data/answers/       Jev answers as Parquet, committed (the durable record)
 data/external/      outside benchmark values per HN month, committed
 data/cache/external/ blobless mirrors of the hiring-lab repos, gitignored
 data/external/ats/  monthly job-board snapshots and the fixed board panel, committed
+data/external/sec/  SEC panel per year, headcounts read from filings, one value file per HN month, committed
+data/cache/sec/     raw EDGAR responses (submissions, company facts, frames, filing text, submissions.zip), gitignored
 site/               static GitHub Pages site (index.html + assets + data/)
 site/articles/      one Markdown article per month, YYYY-MM.md
 tests/
@@ -157,6 +160,11 @@ Outside series sit next to HN series so a column can say whether HN's thread mov
 | `jolts_{openings,hires,layoffs}_information.US` | BLS (public domain) | `JTU510000000000000JOL/HIL/LDL`; ALFRED `JTU5100JOL/HIL/LDL` | thousands |
 | `jolts_{openings,hires,layoffs}_professional.US` | BLS | `JTU540099000000000JOL/HIL/LDL`; ALFRED `JTU540099JOL/HIL/LDL` | thousands |
 | `ces_computer_systems_design.US` | BLS | `CES6054150001` (same id on ALFRED) | thousands |
+| `sec_restructuring_usd.US` | SEC EDGAR (public) | XBRL company facts, `RestructuringCharges` else `SeveranceCosts1`, summed over the SEC panel for one calendar quarter | usd |
+| `sec_item_205_filings_panel.US` | SEC EDGAR | 8-Ks listing Item 2.05 by panel companies, previous calendar month (per-company submissions JSON) | count |
+| `sec_item_205_filings_software.US` | SEC EDGAR | the same for every SIC 7370–7374 filer (nightly `submissions.zip`) | count |
+| `sec_headcount_panel.US` | SEC EDGAR | employees in each panel company's latest 10-K against its previous one, matched companies | change |
+| `sec_headcount_{meta,alphabet,amazon}.US` | SEC EDGAR | employees stated in the latest earnings release (8-K Exhibit 99.1) | count |
 
 Indeed comes from its GitHub repos, never FRED: FRED's copies of Indeed need Indeed's pre-approval, and FRED's terms forbid archiving. Hiring Lab files name the software sector either `Software Development` or `techsoftware`, and versions alternate between the two (the remote tracker went `Software Development` → `techsoftware` → `Software Development` → `techsoftware` between 2024 and 2025), so every reader accepts both; a version with no matching rows prints a warning. Pay transparency, the remote share and JOLTS are not seasonally adjusted (`seasonally_adjusted: false`); the postings index and CES are. Only JOLTS is flagged `smooth_12m`: its counts swing with the seasons, while the remote and pay shares move little by season and have too short a history to give up a year to smoothing. JOLTS uses the unadjusted (`JTU`) series because ALFRED has no seasonally adjusted vintages for information or for professional-services layoffs; current pulls and vintages must be the same series.
 
@@ -178,6 +186,32 @@ Indeed comes from its GitHub repos, never FRED: FRED's copies of Indeed need Ind
 ```
 
 A file pulled after its as-of date is frozen and never pulled again, unless it records `missing`: BLS series with no value although the as-of date is past the first ALFRED vintage (2011-04-09). Those months stay open and the next run retries; asking ALFRED for the same vintage date is idempotent. A 404 from ALFRED counts as "no value" only before that first vintage; after it, it is an error. Indeed gaps come from git history and can't change on a retry, so they don't keep a month open, but a series that had a value the month before and has none now prints a warning. If a source fails outright (network, API error), `sejr external` prints a `::warning::`, skips that source for the rest of the run and leaves its months unfrozen; the step never blocks the HN refresh. Before the as-of date, each run rewrites a file only when a value changed. `sejr external` refuses to pull more than three months unless `--backfill` (or `--month`) is given; the backfill is resumable (it skips frozen months) and sends at most one request a second with the project's User-Agent.
+
+## SEC EDGAR panel: `data/external/sec/`
+
+`sejr sec` runs after `sejr external`. Every SEC number comes from filings with an EDGAR acceptance timestamp (`acceptanceDateTime`, UTC), so HN month *t* reads only filings accepted on or before its as-of date (thread `created_at` + 8 days, the same as-of date as the other benchmarks). A month is computed only once its as-of date has passed, so its first file is final and frozen (`is_frozen`, as in `external.py`); a month that records `missing` (a source failed) stays open and the next run retries it. `vintage_date` is the as-of date. More than three open months need `--backfill` or `--month`; the backfill is resumable.
+
+**Panel** (`panel/<year>.json`, used for every HN month of that year). Built once, the first time a month of the year is computed, from filings accepted before January 1, and never rebuilt:
+
+1. Candidates: every EDGAR filer whose SIC code is 7370–7374, plus the big-tech CIKs in `sec.NAMED` that file under other codes (Apple 3571, Amazon 5961, Nvidia, Intel and AMD 3674, Cisco 3576, IBM 3570, Netflix 7841, Qualcomm, Broadcom, Dell, HP, HPE, PayPal, eBay, Uber, Lyft, Airbnb, DoorDash, with predecessor CIKs). SIC, name and business address come from the nightly bulk `submissions.zip`, so they are as EDGAR has them today: EDGAR keeps no history of either, and a company that stopped filing keeps its last code.
+2. Eligible: business address in a US state or DC, an original 10-K accepted in the 456 days before January 1, and no Form 15 (15-12B/12G/15D) after its last 10-K or 10-Q (an acquired or privatized company drops out; a Form 15 for one class of notes followed by more reports does not count).
+3. Ranked by annual revenue (the largest of `Revenues`, `RevenueFromContractWithCustomerExcludingAssessedTax`, `…IncludingAssessedTax`, `SalesRevenueNet`) for the latest fiscal year in a 10-K accepted before January 1, as first filed. Headcount would be the better size measure but is not tagged in XBRL, and reading it from text for hundreds of candidates a year is too slow, so the panel ranks by revenue. To keep company-facts downloads small, candidates are first shortlisted to the top 100 by SEC's frames API for calendar year *Y*−2 (restated values, used only for the shortlist; named companies always pass). Top 50 form the panel; each entry stores CIK, name, SIC, `reason` (`sic_7372`, …, or `named`), rank and the revenue used.
+
+XBRL reached mid-size filers' 10-Ks in 2011, so the first panel is 2012 and SEC series start with HN month 2012-01. The rule leans to the largest revenue: hardware, IT services and payment processors (Dell, HP, Leidos, ADP, Kyndryl) sit next to software and internet companies. That is the SIC rule's doing, and stated on charts that use the panel.
+
+**Restructuring.** For each panel company and each of `RestructuringCharges` and `SeveranceCosts1` (company facts, USD, 10-K/10-Q and their amendments), keep for every (start, end) the value from the earliest filing accepted by the as-of date: later comparatives, restatements and amendments never replace it (when one filing tags a period twice, the larger value is kept). Three-month values are taken as reported or as the difference of two periods that share a start (a 10-K's year less the nine-month 10-Q value gives the fourth quarter). Each fiscal quarter goes to the calendar quarter holding its midpoint, as SEC frames do. A company tagging both uses `RestructuringCharges` (severance is part of it). HN month *t* reports the latest quarter whose last month is at least four months before *t* (October → Q2, January → Q3, April → Q4): 10-Qs are due 40–45 days and 10-Ks 60–90 days after period end, so every company has filed it by the as-of date. `ref_period` is `YYYY-Qn`; `n` is the number of panel companies that reported a value. Companies tag the charge only in quarters that have one, so `n` moves with restructuring activity and the total is a sum over reporters.
+
+**Layoff filings.** An 8-K (not 8-K/A) whose `items` include `2.05` (costs associated with exit or disposal activities), counted in the calendar month (UTC) of its acceptance. HN month *t* counts month *t*−1 (`ref_period`), complete before the as-of date. The panel count reads each panel company's submissions JSON (`n` = panel size). The software count reads `submissions.zip` (about 1.6 GB, downloaded only when a month is computed; scanning it takes about 20 s) for every filer coded SIC 7370–7374 today, panel or not. Foreign private issuers file 6-Ks, not 8-Ks, so both counts are effectively US registrants.
+
+**Headcount, annual.** The employee count in each panel company's 10-K primary document, read by `sec.headcount`: candidate sentences pair a number with employees, people, associates or personnel (or "workforce of N", "Headcount was N", a list "N, N and N employees, respectively"); each scores +2 when stated at a date, +1 for "we had/employed", −5 when the words around the number make it a part (part-time staff, one region or function), a change (layoffs, growth) or someone else's (customers, a director's former employer); the best score wins, the earliest on ties; a best below zero gives no count. When no sentence scores at least 1, an "Employees are summarized … Total N" table is read. Counts are stored per accession in `headcount.json` (null when none is found, so the filing is not read again). Changing the extraction means deleting `headcount.json` and the month files and rerunning the backfill (filing text is cached). `sec_headcount_panel.US` is Σ latest ÷ Σ previous − 1 over panel companies whose latest 10-K (accepted by the as-of date, within 456 days) and previous 10-K both state a count, with fiscal year ends 300–430 days apart; `n` is that number, `ref_period` the newest fiscal year end (`YYYY-MM`). IBM states its headcount only in its annual report exhibit, not the 10-K, so it never counts.
+
+Validation: 40 10-Ks drawn at random from the panel companies (seeded, two to three per year 2011–2026) were labeled by hand from the filing text before the rules were tuned (`tests/fixtures/sec/headcount_labels.jsonl`, one sentence per filing): the first regex got 31 of 40 (77.5%); tuned, 39 of 40 (97.5%; the miss is DST's table that also counts affiliates). A second draw of 20 (`headcount_heldout.jsonl`) was labeled before the regex saw it: 16 of 20 (80%); after a second round of general rules, 18 of 20 (90%; both misses are no count, not a wrong one), so it is in-sample now too. Labels were made by the agent that wrote the rules, reading each filing, not by an independent person. Across the 1,138 panel 10-Ks read, 72 (6%) give no count. Tests hold both sets' sentences at or above 95% and 85% and allow no wrong counts.
+
+**Headcount, quarterly.** Meta (from Q1 2017), Alphabet (Google Inc before October 2015) and Amazon state headcount in every earnings release, the Exhibit 99.1 of an 8-K with Item 2.02. The exhibit is found from the filing index (`EX-99.1`, also written `EX-99.01`), and the count read with a per-company pattern (Meta "Headcount was N"; Alphabet's "Number of employees" or "Headcount" table row, last column, or Google's "employed N full-time employees"; Amazon's "Employees (full-time and part-time; …)" row, last column before the growth rate). HN month *t* takes the newest release accepted by its as-of date, if under 200 days old; `ref_period` is the quarter end before the release.
+
+**Fair access.** Requests go through `fetch.Client` with `min_interval` 0.15 s (at most about 6.7 a second; SEC allows 10), retries on 429 and 5xx, and the User-Agent from `SEC_USER_AGENT` (a name and contact email, as SEC requires); `sejr sec` stops with a message when it is missing. Filed documents are cached forever; submissions, company facts and `submissions.zip` are reused only when fetched after the newest as-of date the run needs. Only derived files are committed (panels, `headcount.json`, month files; about 1 MB).
+
+**Storage.** `data/external/sec/<YYYY-MM>.json` has the same shape as the other benchmarks (`month`, `as_of`, `fetched_at`, `values`, optional `missing`); values may carry `n`.
 
 ## Metric ids
 
@@ -262,7 +296,7 @@ Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`:
 }
 ```
 
-`month` is the HN month (complete months only); `ref_period` is the day (`YYYY-MM-DD`) or month (`YYYY-MM`) the publisher's number describes. External units are `index`, `share` (0–1) or `thousands`. Every description ends by saying values are as first published and later revisions are not applied, so a chart note can repeat it.
+`month` is the HN month (complete months only); `ref_period` is the day (`YYYY-MM-DD`), month (`YYYY-MM`) or quarter (`YYYY-Qn`, SEC restructuring) the publisher's number describes. A point may carry `n` (SEC series: companies behind the value). External units are `index`, `share` (0–1), `thousands`, `count`, `usd` or `change` (a fraction: −0.03 is a 3% fall). Indexed `external` lines suit levels; a count that can be zero (layoff filings) or a `change` series cannot be indexed to a base month, so those need their own chart type before an article uses them. Every description ends by saying values are as first published and later revisions are not applied, so a chart note can repeat it.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
