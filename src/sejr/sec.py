@@ -73,11 +73,27 @@ SCOPES = {
     "software_internet_chips": {
         "sic": SOFTWARE_SIC | {"3674"},
         "named": {804328: "Qualcomm (SIC 3663)"},
+        # Solar panel and inverter makers file under 3674 too; they are energy companies,
+        # not chip companies. An editorial exclusion, like NAMED. (Amkor, which packages and
+        # tests chips, stays.)
+        "excluded": {
+            1274494: "First Solar",
+            945436: "SunEdison",
+            867773: "SunPower",
+            1463101: "Enphase Energy",
+            1419612: "SolarEdge",
+            1855447: "Tigo Energy",
+        },
     },
-    "software_internet_hardware": {"sic": SOFTWARE_SIC | HARDWARE_SIC, "named": {}},
+    "software_internet_hardware": {
+        "sic": SOFTWARE_SIC | HARDWARE_SIC,
+        "named": {},
+        "excluded": {},
+    },
 }
 PANEL_SCOPE = "software_internet_chips"
 SCOPE_SIC = SCOPES[PANEL_SCOPE]["sic"]
+SCOPE_EXCLUDED = SCOPES[PANEL_SCOPE]["excluded"]
 
 # Editorial exceptions, each made with hindsight about which companies count as tech:
 # - NAMED: internet platforms that no SIC rule captures (retail, services, motion pictures),
@@ -704,6 +720,8 @@ def in_scope(cik: int, header: dict | None) -> bool:
     if not header:
         return False
     us = header["state"] in US_STATES or cik in US_DESPITE_ADDRESS
+    if cik in SCOPE_EXCLUDED:
+        return False
     return us and (cik in NAMED or header["sic"] in SCOPE_SIC)
 
 
@@ -886,7 +904,7 @@ AT_DATE = re.compile(
 # A number about part of the company, a change, or someone else.
 NOT_TOTAL = re.compile(
     r"restructur|reduc|impact|terminat|severance|eliminat|layoff|increase|decrease|added|"
-    r"exited|departed|affected|"
+    r"exited|departed|affected|sales force|sales team|"
     r"sales and marketing|research and development|engineering|located|seasonal|contract|"
     r"overseeing|oversaw|led an|served as|prior to|services to|serving|serves|users|"
     r"subscribers|members|"
@@ -913,19 +931,57 @@ PART_ONLY = re.compile(r"part[- ]time|temporary", re.IGNORECASE)
 MIN_SCORE = 1
 
 
-def headcount(text: str) -> tuple[int, str] | None:
+# A sentence whose subject is a named company: "Koch Industries has a presence in about 60
+# countries and employs more than 120,000 people" (in Infor's 10-K, about its owner).
+NAMED_SUBJECT = re.compile(
+    r"^(?:[A-Z][\w&.'-]*,?\s+){1,4}(?:has|is|was|employs|employed|had)\b"
+)
+ALIAS_STOP = {
+    "inc",
+    "corp",
+    "corporation",
+    "company",
+    "the",
+    "holdings",
+    "co",
+    "ltd",
+    "llc",
+}
+
+
+def alias_words(aliases) -> set[str]:
+    return {
+        w
+        for a in aliases
+        for w in re.findall(r"[a-z0-9]+", a.lower())
+        if len(w) >= 2 and w not in ALIAS_STOP
+    }
+
+
+def other_company(sentence: str, words: set[str]) -> bool:
+    """The sentence is about a named company that isn't the filer."""
+    subject = NAMED_SUBJECT.match(sentence)
+    if not subject or not words:
+        return False
+    named = set(re.findall(r"[a-z0-9]+", subject[0].lower()))
+    return not named & words and not named & {"we", "our", "company"}
+
+
+def headcount(text: str, aliases=()) -> tuple[int, str] | None:
     """The company's employee count and the sentence that states it, from 10-K text.
 
     Many sentences in a 10-K pair a number with "employees": the sales team, a layoff, the
     staff in one country, a customer's size. Each candidate is scored: +2 when the count is
     stated at a date, +1 for "we had/employed" or "our workforce", -5 when the words around the number say it is
     a part (part-time staff, one country, one function), a change (a layoff, growth) or
-    someone else's (customers, a director's past employer). The best score wins, then the
+    someone else's (customers, a director's past employer, a sentence whose subject is a
+    company not among `aliases`, the filer's names and tickers). The best score wins, then the
     earliest. A sentence needs a score of at least 1 (a date or "we had"): a bare "We have
     9,639 employees working in game development" is not the company total. Without one, a
     table row ("Total 73,700" under "Employees are summarized") is used, and failing that
     there is no count.
     """
+    words = alias_words(aliases)
     best: tuple[int, int, int, str] | None = None  # (score, -order, value, sentence)
     order = 0
     for sentence in sentences(text):
@@ -958,6 +1014,7 @@ def headcount(text: str) -> tuple[int, str] | None:
             )
             if (
                 part_only
+                or other_company(sentence, words)
                 or NOT_TOTAL.search(before)
                 or NOT_TOTAL_AFTER.search(sentence[match.end() :])
             ):
@@ -1017,6 +1074,9 @@ class Company:
     facts: dict[str, list[dict]]
     fy_ends: list[str] = field(default_factory=list)
     name: str = ""
+    # Every name the company has filed under, and its tickers: headcount() tells its own
+    # workforce from another company's by them.
+    aliases: tuple[str, ...] = ()
 
 
 def fiscal_year_ends(companyfacts: dict) -> list[str]:
@@ -1031,8 +1091,13 @@ def fiscal_year_ends(companyfacts: dict) -> list[str]:
 
 
 def load_company(edgar: Edgar, cik: int, name: str = "") -> Company:
-    _, filings = edgar.submissions(cik)
+    main, filings = edgar.submissions(cik)
     facts = edgar.companyfacts(cik)
+    aliases = (
+        main.get("name", ""),
+        *(f.get("name", "") for f in main.get("formerNames", [])),
+        *main.get("tickers", []),
+    )
     return Company(
         cik=cik,
         filings=filings,
@@ -1040,6 +1105,7 @@ def load_company(edgar: Edgar, cik: int, name: str = "") -> Company:
         facts={tag: usd_facts(facts, tag) for tag in RESTRUCTURING_TAGS},
         fy_ends=fiscal_year_ends(facts),
         name=name or NAMED.get(cik, ""),
+        aliases=tuple(a for a in aliases if a),
     )
 
 
@@ -1074,7 +1140,9 @@ class Headcounts:
                 or f.accn in self.rows
             ):
                 continue
-            found = headcount(edgar.document(company.cik, f.accn, f.primary_doc))
+            found = headcount(
+                edgar.document(company.cik, f.accn, f.primary_doc), company.aliases
+            )
             self.rows[f.accn] = {
                 "cik": company.cik,
                 "kind": "10-K",
@@ -1227,18 +1295,30 @@ SPIN_OFF_FORMS = {"10-12B", "10-12G"}
 DEAL_LOG_CHANGE = 0.15
 
 
+# Deals are looked for up to this long after each fiscal year end: a deal that closed near
+# the year end can be reported after it, and the 10-K's count may already include it.
+DEAL_LAG = timedelta(days=75)
+# Bigger than this with no corporate action is almost always a misread count (another
+# company's workforce, one department), not hiring: it is dropped as a suspect extraction.
+SUSPECT_LOG_CHANGE = 0.7
+
+
 def corporate_action(company: Company, after: str, through: str) -> str | None:
     """Why a change in headcount between fiscal year ends `after` and `through` is not
-    hiring or layoffs alone: a completed acquisition or disposition (8-K Item 2.01), a Form 10
-    registering the company's own spin-off, or a hand-listed action. None when there was none.
-    """
+    hiring or layoffs alone: a completed acquisition or disposition (an 8-K with Item 2.01
+    and its financial statements, Item 9.01), a Form 10 registering the company's own
+    spin-off, or a hand-listed action, after `after` and up to DEAL_LAG after `through`. A deal
+    in the DEAL_LAG after a year end can count for both years around it. None when there was
+    none."""
+    start = after
+    end = (date.fromisoformat(through) + DEAL_LAG).isoformat()
     for when, what in CORPORATE_ACTIONS.get(company.cik, []):
-        if after < when <= through:
+        if start < when <= end:
             return what
     for f in company.filings:
-        if not after < f.filing_date <= through:
+        if not start < f.filing_date <= end:
             continue
-        if f.form == "8-K" and "2.01" in f.items:
+        if f.form == "8-K" and "2.01" in f.items and "9.01" in f.items:
             return f"8-K Item 2.01 filed {f.filing_date} ({f.accn})"
         if f.form in SPIN_OFF_FORMS:
             return f"Form {f.form} filed {f.filing_date} ({f.accn})"
@@ -1264,9 +1344,13 @@ def matched_headcounts(
             continue
         if not 300 <= days(prior["period"], latest["period"]) <= 430:
             continue
-        moved = abs(math.log(latest["value"] / prior["value"])) > DEAL_LOG_CHANGE
-        if moved and (why := corporate_action(c, prior["period"], latest["period"])):
+        change = abs(math.log(latest["value"] / prior["value"]))
+        why = corporate_action(c, prior["period"], latest["period"])
+        if why and change > DEAL_LOG_CHANGE:
             dropped[c.cik] = why
+            continue
+        if not why and change > SUSPECT_LOG_CHANGE:
+            dropped[c.cik] = "suspect extraction"
             continue
         matched.append((c.cik, latest["value"], prior["value"], latest["period"]))
     return matched, dropped
@@ -1291,7 +1375,9 @@ def headcount_change(
     for key, value in ((TOTAL_YOY_KEY, total), (MEDIAN_YOY_KEY, median)):
         out[key] = entry(round(value, 4), ref, as_of, f"{ARCHIVES}/", len(matched))
         out[key]["companies"] = sorted(m[0] for m in matched)
-        out[key]["dropped"] = sorted(dropped)
+        out[key]["dropped"] = [
+            {"cik": cik, "reason": reason} for cik, reason in sorted(dropped.items())
+        ]
     return out
 
 

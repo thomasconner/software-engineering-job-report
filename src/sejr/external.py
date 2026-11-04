@@ -235,7 +235,8 @@ def _sec(name: str, label: str, unit: str, description: str, credit: str) -> Ser
 
 PANEL = (
     "the SEC panel (the 50 largest US software, internet and chip companies by revenue, "
-    "fixed each January)"
+    "fixed each January; chips include Amkor, which packages and tests them, and leave out "
+    "solar makers)"
 )
 LATE_FILERS = (
     "The same quarter is shown for three HN months, and its value can change between them "
@@ -243,12 +244,13 @@ LATE_FILERS = (
 )
 MATCHED = (
     "Each point lists the companies behind it (companies, as CIKs); the set changes from "
-    "month to month as 10-Ks arrive. Companies that completed an acquisition, disposition or "
-    "spin-off between their two 10-Ks (an 8-K Item 2.01, a Form 10, or a hand-checked list "
-    "such as HP's split and eBay's PayPal spin-off) and whose count moved by more than about "
-    "15% are left out and listed (dropped), because their change mixes the deal with hiring "
-    "and layoffs; a small deal beside a small change stays in. Organic growth and layoffs "
-    "stay in, however large."
+    "month to month as 10-Ks arrive. A company that completed any deal between its two 10-Ks "
+    "or within 75 days after the later one (an 8-K with Items 2.01 and 9.01, its own Form 10, "
+    "or a hand-checked split such as HP's or eBay's PayPal spin-off) is left out when its "
+    "count also changed by more than 15%. That rule also drops some years whose growth was "
+    "mostly organic (Uber 2020, ServiceNow 2021, Meta 2014). A change of more than about "
+    "100% up or 50% down with no deal is treated as a misread count and left out too. Left-out "
+    "companies are listed with the reason (dropped)."
 )
 SERIES += [
     _sec(

@@ -535,6 +535,13 @@ def test_panel_ranks_by_revenue_using_the_code_and_state_as_filed():
     assert len(many["companies"]) == 50
 
 
+def test_solar_makers_are_not_chip_companies():
+    for cik in (1274494, 945436, 867773):
+        assert cik in sec.SCOPE_EXCLUDED
+        assert not sec.in_scope(cik, header("3674"))
+    assert sec.in_scope(1047127, header("3674"))  # Amkor packages and tests chips
+
+
 def test_scope_and_editorial_exceptions():
     assert sec.PANEL_SCOPE == "software_internet_chips"
     assert sec.SCOPE_SIC == sec.SOFTWARE_SIC | {"3674"}
@@ -648,6 +655,36 @@ def test_competing_sentences_from_whole_filings():
     right = sum(v == r["value"] for v, r in zip(values, rows, strict=True))
     assert right / len(rows) >= 0.95
     assert not any(v and v != r["value"] for v, r in zip(values, rows, strict=True))
+
+
+def test_another_named_companys_workforce_is_not_the_filers():
+    # Infor's fiscal 2017 10-K, about its new owner.
+    text = (
+        "Koch Industries has a presence in about 60 countries and employs more than 120,000 "
+        "people worldwide, with about 70,000 of those in the U.S. "
+        "April 30, 2017, we had approximately 15,970 employees, including approximately "
+        "2,230 in sales and marketing."
+    )
+    assert headcount(text, ("Infor, Inc.", "INFOR")) == (
+        15970,
+        (
+            "April 30, 2017, we had approximately 15,970 employees, including approximately "
+            "2,230 in sales and marketing."
+        ),
+    )
+    # The filer's own name or ticker as subject is fine.
+    own = "ADP employed approximately 61,000 persons as of June 30, 2014."
+    assert headcount(own, ("AUTOMATIC DATA PROCESSING INC", "ADP"))[0] == 61000
+
+
+def test_a_sales_force_is_not_the_company():
+    # Verisk, 2017 10-K.
+    text = (
+        "As of December 31, 2017 , we had a sales force of 312 people in our continuing "
+        "operations. As of December 31, 2017 , we employed 7,079 full-time and 225 "
+        "part-time employees in our continuing operations."
+    )
+    assert headcount(text)[0] == 7079
 
 
 def test_full_time_and_part_time_counts_take_the_full_time_number():
@@ -798,6 +835,8 @@ def test_a_corporate_action_is_left_out_and_organic_growth_stays(tmp_path):
         3: (1_000, 1_100),
         # Microsoft-like: an Item 2.01 most years, but a change of a few percent. Kept.
         6: (100_000, 105_000),
+        # Tripled with no deal on file: a misread count, not hiring.
+        7: (1_000, 3_000),
     }
     counts.rows = ten_k_rows(sizes)
     deal = Filing(
@@ -820,6 +859,7 @@ def test_a_corporate_action_is_left_out_and_organic_growth_stays(tmp_path):
         Company(1018724, [other], {}, {}),
         Company(3, [], {}, {}),
         Company(6, [deal], {}, {}),
+        Company(7, [], {}, {}),
     ]
     sec.CORPORATE_ACTIONS[47217] = [("2025-06-01", "test split")]
     try:
@@ -830,14 +870,34 @@ def test_a_corporate_action_is_left_out_and_organic_growth_stays(tmp_path):
         ]
     for key in (sec.TOTAL_YOY_KEY, sec.MEDIAN_YOY_KEY):
         assert value[key]["companies"] == [3, 6, 1018724]
-        assert value[key]["dropped"] == [5, 47217]
+        assert value[key]["dropped"] == [
+            {"cik": 5, "reason": "8-K Item 2.01 filed 2025-06-02 (d)"},
+            {"cik": 7, "reason": "suspect extraction"},
+            {"cik": 47217, "reason": "test split"},
+        ]
     assert value[sec.TOTAL_YOY_KEY]["value"] == round(1_404_100 / 899_000 - 1, 4)
 
 
 def test_corporate_actions_cover_the_known_splits():
     hp = Company(47217, [], {}, {})
-    assert sec.corporate_action(hp, "2014-10-31", "2015-10-31") is None
+    assert sec.corporate_action(hp, "2013-10-31", "2014-10-31") is None
+    # The split took effect the day after the fiscal 2015 year end: deals up to 75 days
+    # past a year end count for that year, and for the next.
+    assert "split" in sec.corporate_action(hp, "2014-10-31", "2015-10-31")
     assert "split" in sec.corporate_action(hp, "2015-10-31", "2016-10-31")
+    assert sec.corporate_action(hp, "2016-10-31", "2017-10-31") is None
+    # An Item 2.01 without the deal's financial statements (Item 9.01) is not counted.
+    bare = Filing(
+        "b",
+        "8-K",
+        datetime(2020, 5, 1, tzinfo=UTC),
+        ("2.01",),
+        filing_date="2020-05-01",
+    )
+    assert (
+        sec.corporate_action(Company(9, [bare], {}, {}), "2019-12-31", "2020-12-31")
+        is None
+    )
     spin = Filing(
         "f", "10-12B", datetime(2020, 5, 1, tzinfo=UTC), filing_date="2020-05-01"
     )
