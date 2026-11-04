@@ -1,0 +1,19 @@
+{
+  "as_of": "2023-07-11",
+  "fetched_at": "2026-11-04T15:44:33Z",
+  "month": "2023-07",
+  "values": {
+    "indeed_software_postings.GB": {
+      "ref_period": "2023-07-07",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/9b46d14c24f58d8f92820527b2e107c7af9833c6/GB/job_postings_by_sector_GB.csv",
+      "value": 68.51,
+      "vintage_date": "2023-07-11"
+    },
+    "indeed_software_postings.US": {
+      "ref_period": "2023-07-07",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/9b46d14c24f58d8f92820527b2e107c7af9833c6/US/job_postings_by_sector_US.csv",
+      "value": 80.84,
+      "vintage_date": "2023-07-11"
+    }
+  }
+}

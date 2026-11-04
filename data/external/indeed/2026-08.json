@@ -1,0 +1,37 @@
+{
+  "as_of": "2026-08-11",
+  "fetched_at": "2026-11-04T15:44:55Z",
+  "month": "2026-08",
+  "values": {
+    "indeed_software_pay_transparency.US": {
+      "ref_period": "2026-06",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/pay-transparency/4b06d326e16855b0a32a3f5cf9a806ee3b452586/pay-transparency-sector.csv",
+      "value": 0.4526,
+      "vintage_date": "2026-07-16"
+    },
+    "indeed_software_postings.GB": {
+      "ref_period": "2026-08-07",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/e5e16db4b6fd8787ab482a9f6d7a37629a033d56/GB/job_postings_by_sector_GB.csv",
+      "value": 59.15,
+      "vintage_date": "2026-08-11"
+    },
+    "indeed_software_postings.US": {
+      "ref_period": "2026-08-07",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/e5e16db4b6fd8787ab482a9f6d7a37629a033d56/US/job_postings_by_sector_US.csv",
+      "value": 73.66,
+      "vintage_date": "2026-08-11"
+    },
+    "indeed_software_remote_share.GB": {
+      "ref_period": "2026-07-31",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/2e7daab114d7dcadff3216a012cd6d82fc6acbef/remote_postings_sector.csv",
+      "value": 0.4589,
+      "vintage_date": "2026-08-05"
+    },
+    "indeed_software_remote_share.US": {
+      "ref_period": "2026-07-31",
+      "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/2e7daab114d7dcadff3216a012cd6d82fc6acbef/remote_postings_sector.csv",
+      "value": 0.3176,
+      "vintage_date": "2026-08-05"
+    }
+  }
+}
