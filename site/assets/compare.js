@@ -31,7 +31,6 @@ function sparkline(series, until, windows) {
 export function renderCompare(mount, attrs, data, until) {
   const windows = (attrs.against ?? '3m,1y,5y').split(',').map((s) => s.trim()).filter((a) => WINDOWS[a]);
   const series = resolveCompareRows(data, attrs.metrics, until);
-  const outside = series.some((s) => s.external);
 
   const figure = el('figure', 'compare');
   const head = el('figcaption', 'chart-head');
@@ -39,8 +38,8 @@ export function renderCompare(mount, attrs, data, until) {
   head.append(heading);
   heading.append(el('h3', 'chart-title', attrs.title));
   const span = windows.map((a) => WINDOW_LABEL[a]).join(', ').replace(/, ([^,]*)$/, ' and $1');
-  const outsideNote = outside ? ' Outside sources show the period their number describes and have no noise bar, so their changes carry no verdict; each change compares readings from the same release.' : '';
-  heading.append(el('p', 'chart-sub', attrs.subtitle ?? `${monthLabel(until, 'long')} against ${span} earlier. Better and worse are from the point of view of people looking for work; moves within the noise are gray and marked \u2248 (about the same).${outsideNote}`));
+  // One line; how to read the verdicts and the outside rows is explained once, in "How to read the comparisons".
+  heading.append(el('p', 'chart-sub', attrs.subtitle ?? `${monthLabel(until, 'long')} against ${span} earlier; gray \u2248 means within normal swings.`));
 
   const table = el('table', 'compare-table');
   const hr = table.createTHead().insertRow();
