@@ -653,3 +653,25 @@ AI tells
 ## Changes within noise on the page
 
 The renderer reads the exported `bar` (section 4, "The noise bar"), so the page and the ledger use the same number. A move inside the bar is shown gray with "≈" and read as "about the same"; salary medians with fewer than 30 posts show "too few posts". The prose must agree with the page: never call a ≈ move a rise or fall.
+
+## What employers ask for
+
+Stack, benefit, experience and interview trends come from fixed word lists and patterns run on every month's posts (docs/architecture.md, "What employers ask for"). They describe what hiring posts on HN say, not what companies use or pay.
+
+### Words
+
+- **Shares are of HN hiring posts.** Write "posts mentioning Rust", "posts that offer equity", "posts asking for five or more years". Never "Rust jobs", "companies using Rust" or "employers that offer equity".
+- **A mention is not usage.** A post can name a tool it is migrating off, one it would like candidates to know, or one its product integrates with. "Mentioned in 12% of posts" is the claim; "12% of startups run on Postgres" is not.
+- **A missing mention is not a no.** Most posts don't list benefits at all, so "17% of posts offer equity" doesn't mean 83% don't. Say "mention" or "offer in the post".
+- **Vocabulary changes rerun every month.** A term's 2014 zero is a real zero under today's list (spec rule 5), so "Kubernetes went from zero in 2014" is fair; "Kubernetes appeared in 2015" is a fact about the posts, not the tool's release.
+- **Name the group's denominator.** Each `stack_<group>` share is of all hiring posts, not of posts that name any language. "Python is in 30% of posts" is right; "Python's share of languages" is not.
+- **Years and degrees.** `years_required_median` is the median of each post's lowest stated number, among posts that state one, so write "posts that state a number ask for a median of four years". Pair it with `years_required_share`: a median from a third of posts says nothing about the rest. `degree_required_share` and `degree_optional_share` count what posts say; most say nothing.
+- **Post length** is characters of the live post. Longer posts mention more of everything, so a rise in mention shares across years can come partly from length. Check `post_length_median` before calling a broad rise in mentions a trend.
+
+### Charts
+
+- Several terms over time: `small-multiples` with `breakdown="stack_language"` (or another group) and `categories` set to the four or five the claim is about. Never `stacked-area`: these shares don't sum to 1.
+- Ranking now vs a past year: `dot` with `vs="5y"` and up to eight categories.
+- `years_required` buckets do sum to 1 among posts stating years, so they can be a `stacked-area`; the subtitle says "among posts that state years".
+- Note line for mention charts: "Share of 'Who is hiring?' posts that mention each term. A mention is not usage."
+- The `years` unit's noise bar is on ln(now/then) like dollars; a move from four to five years is a 22% rise in those terms. Medians move in whole or half years, so most month-to-month changes are ties or one-step jumps. Compare yearly, not monthly.
