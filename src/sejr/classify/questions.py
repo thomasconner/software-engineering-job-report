@@ -13,17 +13,20 @@ TEXT_ONLY = (
     "the company from elsewhere, such as what it later became."
 )
 
+# Jev can lean toward the first option (docs: model-jaggedness). ai_ml is the sector whose
+# trend the report watches most, so it sits last, and a broad, stable sector sits first.
 INDUSTRIES = {
-    "ai_ml": {
-        "covers": "Sells AI itself: models, AI assistants or agents, ML platforms, "
-        "computer vision or speech technology, with no single other sector as its market.",
-        "excludes": "An AI product built for one sector below, such as AI for "
-        "radiology (health) or AI for fraud (fintech). Pick that sector instead.",
+    "enterprise_saas": {
+        "covers": "Business software for non-technical teams: CRM, HR and recruiting "
+        "software, sales, marketing and adtech, collaboration, analytics, vertical SaaS "
+        "(legal, construction).",
+        "excludes": "Tools for developers (devtools_infra). Education products and "
+        "staffing agencies that place candidates (neither is a listed sector).",
     },
-    "devtools_infra": {
-        "covers": "Products for developers and IT teams: developer tools, cloud "
-        "infrastructure, databases, data pipelines, DevOps, observability, APIs.",
-        "excludes": "Business software for non-technical teams (enterprise_saas).",
+    "commerce": {
+        "covers": "Buying, selling and moving goods: e-commerce, retail, marketplaces "
+        "for goods, logistics, delivery, supply chain, travel booking.",
+        "excludes": "Real estate, property and rental platforms (not a listed sector).",
     },
     "fintech": {
         "covers": "Money: payments, banking, lending, insurance, trading, investing, "
@@ -33,29 +36,34 @@ INDUSTRIES = {
         "covers": "Healthcare, medical devices, biotech, pharma, health insurance, "
         "mental health, fitness and wellness.",
     },
-    "climate_energy": {
-        "covers": "Energy, solar, batteries, grid, EV charging, carbon removal, "
-        "climate and sustainability tech.",
+    "media_consumer": {
+        "covers": "Products for consumers: social apps, games, media, news, music, "
+        "video, dating, consumer subscriptions.",
+        "excludes": "Education and learning products, even consumer ones (not a "
+        "listed sector).",
+    },
+    "devtools_infra": {
+        "covers": "Products for developers and IT teams: developer tools, cloud "
+        "infrastructure, databases, data pipelines, DevOps, observability, APIs.",
+        "excludes": "Business software for non-technical teams (enterprise_saas).",
+    },
+    "hardware_robotics": {
+        "covers": "Physical products: robotics, drones, semiconductors, IoT, space, "
+        "automotive, manufacturing, consumer electronics.",
     },
     "security": {
         "covers": "Cybersecurity, identity and access, privacy, threat detection, "
         "security compliance.",
     },
-    "commerce": {
-        "covers": "Buying, selling and moving goods: e-commerce, retail, marketplaces, "
-        "logistics, delivery, supply chain, travel booking.",
+    "climate_energy": {
+        "covers": "Energy, solar, batteries, grid, EV charging, carbon removal, "
+        "climate and sustainability tech.",
     },
-    "media_consumer": {
-        "covers": "Products for consumers: social apps, games, media, news, music, "
-        "video, dating, consumer subscriptions.",
-    },
-    "enterprise_saas": {
-        "covers": "Business software for non-technical teams: CRM, HR, sales, "
-        "marketing, collaboration, analytics, vertical SaaS (legal, construction).",
-    },
-    "hardware_robotics": {
-        "covers": "Physical products: robotics, drones, semiconductors, IoT, space, "
-        "automotive, manufacturing, consumer electronics.",
+    "ai_ml": {
+        "covers": "Sells AI itself: models, AI assistants or agents, ML platforms, "
+        "computer vision or speech technology, with no other sector as its market.",
+        "excludes": "An AI product built for one of the other sectors, such as AI for "
+        "radiology (health) or AI for fraud (fintech). Pick that sector instead.",
     },
 }
 
@@ -68,17 +76,20 @@ HIRING: dict[str, Question] = {
                 "covers": "Fully remote work is allowed, including remote within a "
                 "country, region or time zone, and posts that offer office or remote "
                 "at the candidate's choice.",
-                "excludes": "Remote for only some days of the week (hybrid).",
+                "excludes": "Remote only as an exception or for occasional days "
+                "(onsite), or for a set number of days a week (hybrid).",
             },
             "hybrid": {
-                "covers": "People must be in an office part of the week, such as two "
-                "or three days, and can work from home the rest.",
-                "excludes": "Fully remote teams that meet up only for occasional "
-                "offsites (remote).",
+                "covers": "The post says hybrid, or states a recurring in-office "
+                "schedule such as two or three days a week in the office.",
+                "excludes": "Occasional or ad-hoc work from home with no stated "
+                "schedule (onsite). Fully remote teams that meet only for offsites "
+                "(remote).",
             },
             "onsite": {
                 "covers": "Work happens at an office or site: the post says onsite or "
-                "no remote, or names an office location and does not offer remote work.",
+                "no remote, names an office location without offering remote work, or "
+                "allows working from home only occasionally or as an exception.",
             },
             "unclear": {
                 "covers": "The post names no office location and no work arrangement, "
@@ -87,8 +98,9 @@ HIRING: dict[str, Question] = {
         },
     ),
     "seniority": Choice(
-        instructions="What seniority level does this job post hire engineers at? If "
-        "it hires at several levels, pick the most senior level it names. " + TEXT_ONLY,
+        instructions="What seniority level are most of the individual-contributor "
+        "engineering roles in this job post? Ignore management roles. If levels are "
+        "tied, pick the more senior one. " + TEXT_ONLY,
         criteria={
             "junior": {
                 "covers": "Interns, new grads, entry-level, junior or associate "
@@ -99,39 +111,59 @@ HIRING: dict[str, Question] = {
                 "two to five years of experience.",
             },
             "senior": {
-                "covers": "Senior, lead or tech lead engineers, or asking for five or "
-                "more years of experience.",
+                "covers": "Senior, lead or tech lead engineers, founding or first "
+                "engineers, or asking for five or more years of experience.",
             },
             "staff_plus": {
-                "covers": "Staff, principal, distinguished or architect roles, and "
-                "engineering leadership: engineering manager, head of engineering, "
-                "director, VP of engineering, CTO.",
+                "covers": "Staff, principal, distinguished or architect engineers.",
+                "excludes": "Engineering managers, directors, VPs and CTOs; those are "
+                "management roles and are ignored here.",
             },
             "unspecified": {
                 "covers": "No level is given: titles without a level, such as "
-                "'Software Engineer' or 'Backend Developer', and no years of experience.",
+                "'Software Engineer' or 'Backend Developer', and no years of "
+                "experience; or the post says it hires at all levels.",
             },
         },
+    ),
+    "eng_leadership": Noul(
+        instructions="Does the job post hire engineering managers or engineering "
+        "leads? " + TEXT_ONLY,
+        criteria=NoulCriteria(
+            true="It hires for a role that leads engineers: engineering manager, team "
+            "lead, tech lead, head of engineering, director or VP of engineering, CTO.",
+            false="It hires only engineers without a lead or management role, or only "
+            "non-engineering managers.",
+        ),
     ),
     "industry": Choice(
         instructions="Which sector is the hiring company's main product or service "
         "in? " + TEXT_ONLY,
         criteria=INDUSTRIES,
     ),
-    # Companion to `industry`: a Choice always picks a sector, even for a consultancy or a
-    # university. This says whether any listed sector fits, and run() turns a "no" into
-    # the `other` category.
-    "industry_fits": Noul(
-        instructions="Does the hiring company's main product or service belong to one "
-        "of these sectors: AI and machine learning, developer tools and infrastructure, "
-        "fintech, health, climate and energy, security, commerce, consumer and media, "
-        "business software, hardware and robotics? " + TEXT_ONLY,
+    # Companions to `industry`: a Choice always picks a sector, even for a consultancy or a
+    # post that never says what the company does. jev.fold_industry() turns these two
+    # into the `other` and `unstated` categories.
+    "industry_stated": Noul(
+        instructions="Does the job post say what the hiring company makes or does?",
         criteria=NoulCriteria(
-            true="The post says what the company makes or does, and it clearly belongs "
-            "to one of the listed sectors.",
-            false="The company does something else, such as consulting, agency or "
-            "staffing work, government, education, research, nonprofit or real estate, "
-            "or the post does not say what the company does.",
+            true="It describes the company's product, service or business, even in "
+            "one phrase.",
+            false="It gives only a company name, roles, location or perks, with no "
+            "description of what the company does.",
+        ),
+    ),
+    "industry_fits": Noul(
+        instructions={
+            "question": "Does the post say what the hiring company does, and does its "
+            "main product or service belong to one of `sectors`? " + TEXT_ONLY,
+            "sectors": INDUSTRIES,
+        },
+        criteria=NoulCriteria(
+            true="The post describes the company, and it clearly fits one of `sectors`.",
+            false="The company does something outside `sectors`, such as consulting, "
+            "agency or staffing work, education, government, research, nonprofit or "
+            "real estate; or the post does not say what the company does.",
         ),
     ),
     "funding_stage": Choice(
@@ -144,8 +176,9 @@ HIRING: dict[str, Question] = {
                 "independent without venture funding.",
             },
             "seed": {
-                "covers": "Pre-seed, seed or angel funded, or backed by an accelerator "
-                "such as Y Combinator or Techstars, with no later round named.",
+                "covers": "The post names a pre-seed, seed or angel round.",
+                "excludes": "An accelerator batch tag alone, such as 'YC W12' "
+                "(unknown).",
             },
             "series_a": {"covers": "The post names a Series A round as its latest."},
             "series_b": {"covers": "The post names a Series B round as its latest."},
@@ -157,21 +190,26 @@ HIRING: dict[str, Question] = {
                 "itself as a large established company (thousands of employees, Fortune "
                 "500, a division of a large company).",
             },
+            "venture_unspecified": {
+                "covers": "The post names investors or an amount raised, or says it is "
+                "venture-backed, but names no round.",
+            },
             "unknown": {
-                "covers": "The post states no stage, round, investors or size, or says "
-                "only that it is venture-backed without naming a round.",
+                "covers": "The post states no stage, round, investors, amount or size. "
+                "An accelerator batch tag alone counts as unknown.",
             },
         },
     ),
     "ai_native": Noul(
-        instructions="According to the job post, is the company's core product built "
-        "on AI or machine learning? " + TEXT_ONLY,
+        instructions="Does the job post describe the company's product as built on AI "
+        "or machine learning? " + TEXT_ONLY,
         criteria=NoulCriteria(
-            true="The main product depends on AI or ML: it is a model, an AI assistant "
-            "or agent, an ML platform, or a product whose core feature is computer "
-            "vision, speech, recommendations or prediction.",
-            false="AI is absent, a side feature, an internal tool, or a role (such as "
-            "one data scientist) rather than the product itself.",
+            true="The post presents AI or ML as the core of the product: a model, an AI "
+            "assistant or agent, an ML platform, or a product whose main feature is "
+            "computer vision, speech, recommendations or prediction.",
+            false="The post does not mention AI or ML, or uses it for a side feature or "
+            "an internal tool, or hires one data scientist. Words like 'data-driven', "
+            "'analytics', 'big data' or 'automation' are not AI or ML on their own.",
         ),
     ),
     "new_grad": Noul(
@@ -188,12 +226,13 @@ HIRING: dict[str, Question] = {
 
 SEEKING: dict[str, Question] = {
     # Every post here is a sales pitch, so a confident self-description is the baseline
-    # (Neutral), not a sign of mood. The levels key on what the seeker says about their
-    # situation. The first live check scored plain pitches near "Positive" before this.
+    # (Neutral), not a sign of mood. The levels key on what the seeker says about how the
+    # search is going. The first live check scored plain pitches near "Positive".
     "seeker_mood": Score(
         instructions="How does this job seeker say their job search is going? Judge "
-        "what they say about their situation, not how confidently they describe their "
-        "skills.",
+        "what they say about the search, not how confidently they describe their "
+        "skills. Facts about their circumstances, such as a career gap, a layoff, visa "
+        "status or a move, are not mood on their own.",
         criteria=[
             {
                 "level": "Discouraged",
@@ -203,8 +242,9 @@ SEEKING: dict[str, Question] = {
             },
             {
                 "level": "Strained",
-                "signals": "Mentions a layoff, a gap or urgency, or offers concessions "
-                "such as lower pay or any role, but without despair.",
+                "signals": "Says the search is hard or urgent: needs work soon, is "
+                "struggling to land interviews, or offers concessions such as lower "
+                "pay or any role, but without despair.",
             },
             {
                 "level": "Neutral",
@@ -214,9 +254,9 @@ SEEKING: dict[str, Question] = {
             },
             {
                 "level": "Positive",
-                "signals": "Says something hopeful about their situation: chose to "
-                "leave their last job, is looking forward to the next one, or is taking "
-                "time to find the right fit.",
+                "signals": "Says something hopeful about the search: chose to leave "
+                "their last job, is looking forward to the next one, or is taking time "
+                "to find the right fit.",
             },
             {
                 "level": "Upbeat",
