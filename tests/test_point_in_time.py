@@ -1,3 +1,4 @@
+import json
 from argparse import Namespace
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
@@ -7,6 +8,7 @@ import pytest
 from conftest import CLASSIFIED, MONTHS, NO_HIRING, NO_SEEKING
 
 from sejr import aggregate, export, features
+from sejr.config import JEV_MODEL
 from sejr.db import connect
 
 
@@ -74,12 +76,65 @@ def test_choice_breakdown_is_expected_share(db):
         """
         SELECT avg(json_extract(a.probabilities, '$.hybrid')::DOUBLE)
         FROM answers a JOIN posts p USING (post_id) JOIN threads t USING (thread_id)
-        WHERE a.question = 'work_mode' AND a.version = 'jev-1.13.0' AND p.in_snapshot
-          AND t.month = $m
+        WHERE a.question = 'work_mode' AND a.version = $v AND p.in_snapshot AND t.month = $m
         """,
-        {"m": month},
+        {"m": month, "v": JEV_MODEL},
     ).fetchone()
     assert metrics[("hiring", "work_mode", "hybrid")][0] == pytest.approx(expected)
+
+
+def _snapshot_answers(db, month: date, question: str) -> list[tuple]:
+    return db.execute(
+        """
+        SELECT a.value, a.probabilities
+        FROM answers a JOIN posts p USING (post_id) JOIN threads t USING (thread_id)
+        WHERE a.question = $q AND a.version = $v AND p.in_snapshot AND t.month = $m
+        """,
+        {"q": question, "m": month, "v": JEV_MODEL},
+    ).fetchall()
+
+
+def test_seeker_strained_share_sums_levels_0_and_1(db):
+    month = date(2024, 3, 1)
+    metrics = _metrics(aggregate.compute_month(db, month))
+    moods = [json.loads(p) for _, p in _snapshot_answers(db, month, "seeker_mood")]
+    expected = sum(m["0"] + m["1"] for m in moods) / len(moods)
+    assert metrics[("seeking", "seeker_strained_share", "")] == (
+        pytest.approx(expected),
+        len(moods),
+    )
+
+
+def test_industry_known_renormalizes_without_unstated(db):
+    metrics = _metrics(aggregate.compute_month(db, date(2024, 3, 1)))
+    industry = {c: v for (_, m, c), (v, _) in metrics.items() if m == "industry"}
+    known = {c: v for (_, m, c), (v, _) in metrics.items() if m == "industry_known"}
+    assert "unstated" not in known
+    assert sum(known.values()) == pytest.approx(1.0, abs=0.01)
+    for category, share in known.items():
+        assert share == pytest.approx(industry[category] / (1 - industry["unstated"]))
+
+
+def test_seniority_split_by_ai_native(db):
+    month = date(2024, 6, 1)
+    metrics = _metrics(aggregate.compute_month(db, month))
+    ai_values = [v for v, _ in _snapshot_answers(db, month, "ai_native")]
+    n_ai = sum(v >= 0.5 for v in ai_values)
+    for metric, n in [
+        ("seniority_ai_native", n_ai),
+        ("seniority_not_ai_native", len(ai_values) - n_ai),
+    ]:
+        shares = {c: v for (_, m, c), v in metrics.items() if m == metric}
+        if n:
+            assert {count for _, count in shares.values()} == {n}
+            assert sum(v for v, _ in shares.values()) == pytest.approx(1.0, abs=0.01)
+
+
+def test_new_jev_scalars_present(db):
+    features.build(db)
+    metrics = _metrics(aggregate.compute_month(db, date(2024, 1, 1)))
+    assert ("hiring", "eng_leadership_share", "") in metrics
+    assert ("hiring", "interns_token_share", "") in metrics
 
 
 def test_old_jev_versions_are_ignored(db):

@@ -16,6 +16,7 @@ NEGATION_AFTER = re.compile(
 
 REMOTE = re.compile(r"\bremote", re.IGNORECASE)
 ONSITE = re.compile(r"\bon-?\s?site\b", re.IGNORECASE)
+INTERNS = re.compile(r"\binterns?\b|\binternships?\b", re.IGNORECASE)
 
 VISA = re.compile(
     r"\bvisas?\b|\bvisa['’]s\b|\bH-?1-?Bs?\b|\bgreen cards?\b", re.IGNORECASE
@@ -73,6 +74,12 @@ def remote_token(text: str) -> bool:
 
 def onsite_token(text: str) -> bool:
     return _has_token(ONSITE, header_line(text))
+
+
+def interns_token(text: str) -> bool:
+    # Anywhere in the post: the HN convention puts INTERNS in the header, but many posts
+    # list internships further down.
+    return _has_token(INTERNS, text)
 
 
 def _is_visa_offer(text: str, m: re.Match[str]) -> bool:

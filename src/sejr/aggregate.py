@@ -32,9 +32,11 @@ class AnswerMetric:
 class Breakdown:
     metric: str
     kind: str
-    question: str
     method: str
     categories: tuple[str, ...]
+    question: str | None = None  # defaults to the metric id
+    # Extra SQL condition on the answer's post, e.g. to split by another answer.
+    post_filter: str = "TRUE"
 
 
 SCALARS = [
@@ -49,21 +51,40 @@ SCALARS = [
     AnswerMetric("returning_company_share", "hiring", "returned_from_last_month", "join"),
     AnswerMetric("ai_native_share", "hiring", "ai_native", "jev"),
     AnswerMetric("new_grad_share", "hiring", "new_grad", "jev"),
+    AnswerMetric("eng_leadership_share", "hiring", "eng_leadership", "jev"),
+    AnswerMetric("interns_token_share", "hiring", "interns_token", "regex"),
     AnswerMetric("seeker_mood", "seeking", "seeker_mood", "jev"),
+    # Score levels are keyed "0".."4"; 0 is Discouraged and 1 is Strained.
+    AnswerMetric("seeker_strained_share", "seeking", "seeker_mood", "jev",
+                 """avg(coalesce(json_extract(probabilities, '$."0"')::DOUBLE, 0)
+                      + coalesce(json_extract(probabilities, '$."1"')::DOUBLE, 0))"""),
 ]  # fmt: skip
 
+SENIORITY = ("junior", "mid", "senior", "staff_plus", "unspecified")
+INDUSTRY = ("ai_ml", "devtools_infra", "fintech", "health", "climate_energy", "security",
+            "commerce", "media_consumer", "enterprise_saas", "hardware_robotics", "other",
+            "unstated")  # fmt: skip
+AI_NATIVE_POSTS = """post_id IN (
+  SELECT post_id FROM answers
+  WHERE question = 'ai_native' AND method = 'jev' AND version = $version AND value {} 0.5
+)"""
+
 BREAKDOWNS = [
-    Breakdown("work_mode", "hiring", "work_mode", "jev", ("remote", "hybrid", "onsite", "unclear")),
-    Breakdown("seniority", "hiring", "seniority", "jev",
-              ("junior", "mid", "senior", "staff_plus", "unspecified")),
-    Breakdown("industry", "hiring", "industry", "jev",
-              ("ai_ml", "devtools_infra", "fintech", "health", "climate_energy", "security",
-               "commerce", "media_consumer", "enterprise_saas", "hardware_robotics", "other")),
-    Breakdown("funding_stage", "hiring", "funding_stage", "jev",
+    Breakdown("work_mode", "hiring", "jev", ("remote", "hybrid", "onsite", "unclear")),
+    Breakdown("seniority", "hiring", "jev", SENIORITY),
+    Breakdown("industry", "hiring", "jev", INDUSTRY),
+    Breakdown("funding_stage", "hiring", "jev",
               ("bootstrapped", "seed", "series_a", "series_b", "series_c_plus", "public_or_large",
-               "unknown")),
-    Breakdown("stack", "hiring", "stack", "vocab", tuple(TERMS)),
+               "venture_unspecified", "unknown")),
+    Breakdown("stack", "hiring", "vocab", tuple(TERMS)),
+    # Cross-tab: seniority mix of posts judged AI-native (ai_native >= 0.5) and of the rest.
+    Breakdown("seniority_ai_native", "hiring", "jev", SENIORITY, "seniority",
+              AI_NATIVE_POSTS.format(">=")),
+    Breakdown("seniority_not_ai_native", "hiring", "jev", SENIORITY, "seniority",
+              AI_NATIVE_POSTS.format("<")),
 ]  # fmt: skip
+# Industry shares among posts that say what the company does, derived from `industry`.
+INDUSTRY_KNOWN = Breakdown("industry_known", "hiring", "jev", INDUSTRY[:-1])
 
 # Metrics counted straight from posts and replies, with method 'count'.
 COUNT_METRICS = ("posts", "seekers_per_post", "replies_per_post")
@@ -90,7 +111,7 @@ def _params(month: date, m: AnswerMetric | Breakdown) -> dict:
     return {
         "month": month,
         "kind": m.kind,
-        "question": m.question,
+        "question": m.question or m.metric,
         "method": m.method,
         "version": version_for(m.method),
     }
@@ -155,17 +176,27 @@ def _breakdown_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     rows: list[Row] = []
     for b in BREAKDOWNS:
         answers = con.execute(
-            SNAPSHOT + f"SELECT a.probabilities, a.label {ANSWERS} ORDER BY a.post_id",
+            SNAPSHOT
+            + f"SELECT a.probabilities, a.label {ANSWERS} AND {b.post_filter} ORDER BY a.post_id",
             _params(month, b),
         ).fetchall()
         if not answers:
             continue
         # Expected shares: the mean probability of each category across posts.
         distributions = [_distribution(p, label) for p, label in answers]
+        totals = {
+            c: sum(float(d.get(c, 0.0)) for d in distributions) for c in b.categories
+        }
         n = len(distributions)
-        for category in b.categories:
-            share = sum(float(d.get(category, 0.0)) for d in distributions) / n
-            rows.append((month, b.kind, b.metric, category, share, n))
+        rows += [
+            (month, b.kind, b.metric, c, total / n, n) for c, total in totals.items()
+        ]
+        if b.metric == "industry" and (known := n - totals["unstated"]) > 0:
+            k = INDUSTRY_KNOWN
+            rows += [
+                (month, k.kind, k.metric, c, totals[c] / known, round(known))
+                for c in k.categories
+            ]
     return rows
 
 

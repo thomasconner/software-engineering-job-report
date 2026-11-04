@@ -7,7 +7,7 @@ from pathlib import Path
 
 import duckdb
 
-from sejr.aggregate import BREAKDOWNS, COUNT_METRICS, SCALARS
+from sejr.aggregate import BREAKDOWNS, COUNT_METRICS, INDUSTRY_KNOWN, SCALARS
 from sejr.config import SITE_DATA_DIR
 
 # key → (label, unit, description). Descriptions are written for a newspaper reader.
@@ -111,14 +111,38 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
             "scale, as judged by a language model reading each post."
         ),
     ),
+    "seeker_strained_share.seeking": (
+        "Job seekers under strain",
+        "share",
+        (
+            "Expected share of “Who wants to be hired?” posts that sound discouraged or strained: "
+            "a long search, a layoff, urgency or money worries, as judged by a language model."
+        ),
+    ),
+    "eng_leadership_share.hiring": (
+        "Hiring engineering leads",
+        "share",
+        (
+            "Expected share of job posts hiring engineering managers or leads, as judged by a "
+            "language model reading each post."
+        ),
+    ),
+    "interns_token_share.hiring": (
+        "Posts that mention interns",
+        "share",
+        "Share of job posts that mention interns or internships anywhere in the text.",
+    ),
 }
 
 BREAKDOWN_LABELS = {
     "work_mode": "How companies want people to work",
     "seniority": "Which levels companies are hiring",
     "industry": "What hiring companies do",
+    "industry_known": "What hiring companies do, among posts that say",
     "funding_stage": "How far along hiring companies are",
     "stack": "Technologies job posts mention",
+    "seniority_ai_native": "Which levels AI-native companies are hiring",
+    "seniority_not_ai_native": "Which levels other companies are hiring",
 }
 
 
@@ -154,7 +178,7 @@ def build(con: duckdb.DuckDBPyConnection, generated_at: datetime | None = None) 
     breakdowns = {
         b.metric: {"label": BREAKDOWN_LABELS[b.metric], "method": b.method,
                    "categories": list(b.categories), "series": []}
-        for b in BREAKDOWNS
+        for b in [*BREAKDOWNS, INDUSTRY_KNOWN]
     }  # fmt: skip
     points: dict[tuple[str, str], dict] = {}
 

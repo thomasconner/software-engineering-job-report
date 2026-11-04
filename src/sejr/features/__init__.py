@@ -8,7 +8,12 @@ import duckdb
 
 from sejr.features.company import company_name
 from sejr.features.salary import salary_summary
-from sejr.features.tokens import mentions_visa, onsite_token, remote_token
+from sejr.features.tokens import (
+    interns_token,
+    mentions_visa,
+    onsite_token,
+    remote_token,
+)
 from sejr.features.vocab import stack_terms
 
 # Bump whenever a rule or the vocabulary changes; aggregate reads only this version.
@@ -30,6 +35,7 @@ def post_answers(post_id: int, text: str) -> list[Answer]:
         row("remote_token", "regex", float(remote_token(text))),
         row("onsite_token", "regex", float(onsite_token(text))),
         row("mentions_visa", "regex", float(mentions_visa(text))),
+        row("interns_token", "regex", float(interns_token(text))),
         # One row per post holding every hit, so the breakdown reads like a Choice answer.
         row(
             "stack",

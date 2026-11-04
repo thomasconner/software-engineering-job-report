@@ -49,7 +49,7 @@ CHOICES = {
     "work_mode": ["remote", "hybrid", "onsite", "unclear"],
     "seniority": ["junior", "mid", "senior", "staff_plus", "unspecified"],
     "funding_stage": ["seed", "series_a", "public_or_large", "unknown"],
-    "industry": ["ai_ml", "fintech", "devtools_infra", "other"],
+    "industry": ["ai_ml", "fintech", "devtools_infra", "other", "unstated"],
 }
 
 
@@ -123,10 +123,17 @@ def _add_jev(con, rng, post_id, kind) -> None:
         )  # fmt: skip
 
     if kind == "seeking":
-        answer("seeker_mood", value=rng.uniform(0, 4))
+        # Score levels are keyed "0".."4", as Jev returns them.
+        mood = _distribution(rng, ["0", "1", "2", "3", "4"])
+        answer(
+            "seeker_mood",
+            value=sum(int(k) * p for k, p in mood.items()),
+            probabilities=mood,
+        )
         return
     answer("ai_native", value=rng.random())
     answer("new_grad", value=rng.random())
+    answer("eng_leadership", value=rng.random())
     # An old model version that aggregate must ignore.
     answer("ai_native", value=1.0, version="jev-1.12.0")
     for question, categories in CHOICES.items():
