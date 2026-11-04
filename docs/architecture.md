@@ -293,7 +293,7 @@ Regex and vocabulary rules on the hiring post's own text, applied to every month
 
 ## Export contract: `site/data/metrics.json`
 
-The export is split in two so the page loads only what an issue draws. `metrics.json` (the core) holds everything below except breakdown series: each breakdown keeps its labels, categories and other fields and gains `file`, the path of its series relative to `site/data` (`"breakdowns/work_mode.json"`). Each `site/data/breakdowns/<id>.json` is `{"id": "<id>", "series": [...]}`, the same series the core would otherwise carry. The page fetches a breakdown file only when a directive draws that breakdown, so a page that draws none loads the core alone. The values are identical either way, so point-in-time behavior doesn't change. `metrics.mock.json` keeps its breakdown series inline, which the page also accepts. Breakdown series were three quarters of the 4.2 MB file (the stack terms alone 0.9 MB); the core is 1.1 MB, 127 KB gzipped. Shown below as one document for readability:
+The export is split in two so the page loads only what an issue draws. `metrics.json` (the core) holds everything below except breakdown series: each breakdown keeps its labels, categories and other fields and gains `file`, the path of its series relative to `site/data` (`"breakdowns/work_mode.json"`). Each `site/data/breakdowns/<id>.json` is `{"id": "<id>", "series": [...]}`, the same series the core would otherwise carry. The page fetches a breakdown file only when a directive draws that breakdown, so a page that draws none loads the core alone. The values are identical either way, so point-in-time behavior doesn't change. `metrics.mock.json` keeps its breakdown series inline, which the page also accepts. Breakdown series were three quarters of the 4.2 MB file (the stack terms alone 0.9 MB); the core is 1,140,026 bytes, 134,395 gzipped at the default level (was 4,175,967 and 519,548). Shown below as one document for readability:
 
 ```json
 {
@@ -399,13 +399,13 @@ Directive attributes:
 | `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
-| `width` | all, including ::compare | `column` (the text width, 40rem), `wide` (62.5rem) or `full` (75rem, the page). Every graphic is centered on the text's axis; nothing floats. Defaults: `wide` for `line`, `stacked-area`, `bar` with a scalar metric and `::compare`; `column` for `slope`, `dot` and `bar` with a breakdown; `full` for `small-multiples`. On phones every graphic runs edge to edge. `layout` is the float layout's attribute, accepted until the next release as a deprecated alias: `layout="wide"` means `width="wide"`, `layout="float"` means the type's default, and `layout` with `width` is an error |
+| `width` | all, including ::compare | `column` (the text width, 36rem), `wide` (62.5rem) or `full` (75rem, the page). Every graphic is centered on the text's axis; nothing floats. Defaults: `wide` for `line`, `stacked-area`, `bar` with a scalar metric and `::compare`; `column` for `slope`, `dot` and `bar` with a breakdown; `full` for `small-multiples`. On phones every graphic runs edge to edge. `layout` is the float layout's attribute, accepted until the next release as a deprecated alias: `layout="wide"` means `width="wide"`, `layout="float"` means the type's default, and `layout` with `width` is an error |
 
 `bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack`, `stack_<group>`, `benefits`, `interview_style` and `region` must not be drawn as `stacked-area` (their shares don't sum to 1, even when a month's happen to stay under 1).
 
 A back issue clips every series to its front-matter `month`, so older issues never show later data.
 
-A `::compare` written before the first `##` section head is the issue's topline: the page moves it up to sit right under the byline, before the lede. A strip written later stays where it is.
+A `::compare` written before the first `##` section head is the issue's topline: the page moves it up to sit right under the byline, before the lede. An opening editor's note (a first paragraph that is entirely italic and starts with "Editor's note") stays above it. A strip written after the first section head, a strip whose directive has an error, and any strip in an article with no section head stay where they are. A directive's width is set before its data loads, and a breakdown chart holds a 20rem placeholder while its file arrives.
 
 Front matter `ribbon` is ignored. It picked the series for the masthead strip, which was dropped when the float layout was replaced (docs/spec.md, Decisions log), and old articles keep the key harmlessly.
 

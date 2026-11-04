@@ -285,7 +285,7 @@ Rules that follow from the data:
 - Pick `from` to fit the claim, not to exaggerate it. A "lowest since" claim shows enough history to see the earlier low. A short-term claim can start in 2019, which keeps COVID and the 2021 peak in view. Starting a line in mid-2022 to make a drop look steeper is not allowed.
 - One chart per section. If a section needs two charts, it's two findings, so it's two sections.
 - Charts never float; text never wraps around a chart. Each graphic is centered on the text's axis at one of three widths, set with `width`:
-  - `column`, the text width (40rem). The default for `slope`, `dot` and `bar` by category, whose rows read best close to the text.
+  - `column`, the text width (36rem, 576px). The default for `slope`, `dot` and `bar` by category, whose rows read best close to the text.
   - `wide`, about 1,000px. The default for `line`, `stacked-area`, monthly `bar` and the `::compare` strip: time needs room along the x-axis.
   - `full`, the page (about 1,200px). The default for `small-multiples`; use it for a rare hero chart, such as a long history with annotations close together.
 
