@@ -1,7 +1,9 @@
 """Jev answers in DuckDB and their durable copy, data/answers/<model>/<YYYY-MM>.parquet.
 
 Each Parquet row is an `answers` row plus `qset`, the question-set hash it was answered
-under, so a fresh checkout knows which posts are done and a question edit re-runs them.
+under, and `digest`, the hash of the exact request (questions and post text). A fresh
+checkout knows which posts are done, and a question edit or a changed post text re-runs
+just those posts.
 """
 
 from pathlib import Path
@@ -10,6 +12,9 @@ import duckdb
 
 from sejr.classify.jev import AnswerRow
 from sejr.config import JEV_MODEL
+
+# post_id → (qset, digest)
+Done = dict[int, tuple[str, str]]
 
 ANSWER_TYPES = ["BIGINT", "VARCHAR", "VARCHAR", "VARCHAR", "DOUBLE", "VARCHAR", "VARCHAR", "DOUBLE"]  # fmt: skip
 
@@ -22,13 +27,16 @@ def parquet_files(answers_dir: Path) -> list[str]:
     return sorted(str(f) for f in model_dir(answers_dir).glob("*.parquet"))
 
 
-def read_qsets(con: duckdb.DuckDBPyConnection, answers_dir: Path) -> dict[int, str]:
-    """post_id → question-set hash, for every post in the durable copy."""
+def read_done(con: duckdb.DuckDBPyConnection, answers_dir: Path) -> Done:
+    """post_id → (qset, digest), for every post in the durable copy."""
     files = parquet_files(answers_dir)
     if not files:
         return {}
-    sql = "SELECT DISTINCT post_id, qset FROM read_parquet(?)"
-    return dict(con.execute(sql, [files]).fetchall())
+    sql = "SELECT DISTINCT post_id, qset, digest FROM read_parquet(?)"
+    return {
+        pid: (qset, digest)
+        for pid, qset, digest in con.execute(sql, [files]).fetchall()
+    }
 
 
 def load(con: duckdb.DuckDBPyConnection, answers_dir: Path) -> None:
@@ -45,7 +53,7 @@ def load(con: duckdb.DuckDBPyConnection, answers_dir: Path) -> None:
         "DELETE FROM answers WHERE method = 'jev' "
         "AND post_id IN (SELECT post_id FROM jev_loaded)"
     )
-    con.execute("INSERT INTO answers SELECT * EXCLUDE (qset) FROM jev_loaded")
+    con.execute("INSERT INTO answers SELECT * EXCLUDE (qset, digest) FROM jev_loaded")
     con.execute("DROP TABLE jev_loaded")
     con.commit()
 
@@ -72,23 +80,23 @@ def save(
     con: duckdb.DuckDBPyConnection,
     answers_dir: Path,
     months: set[str],
-    qsets: dict[int, str],
+    done: Done,
 ) -> None:
     """Rewrite the Parquet file of each month in `months` from `answers`."""
     out = model_dir(answers_dir)
     out.mkdir(parents=True, exist_ok=True)
     con.execute(
-        "CREATE OR REPLACE TEMP TABLE jev_qsets AS "
-        "SELECT unnest(?::BIGINT[]) AS post_id, unnest(?::VARCHAR[]) AS qset",
-        [list(qsets), list(qsets.values())],
+        "CREATE OR REPLACE TEMP TABLE jev_done AS SELECT unnest(?::BIGINT[]) AS post_id, "
+        "unnest(?::VARCHAR[]) AS qset, unnest(?::VARCHAR[]) AS digest",
+        [list(done), [q for q, _ in done.values()], [d for _, d in done.values()]],
     )
     for month in sorted(months):
         con.execute(
             """
             CREATE OR REPLACE TEMP TABLE jev_month AS
-            SELECT a.*, q.qset
+            SELECT a.*, d.qset, d.digest
             FROM answers a
-            JOIN jev_qsets q USING (post_id)
+            JOIN jev_done d USING (post_id)
             JOIN posts p USING (post_id)
             JOIN threads t USING (thread_id)
             WHERE a.method = 'jev' AND a.version = ? AND strftime(t.month, '%Y-%m') = ?
@@ -101,4 +109,4 @@ def save(
         con.execute(f"COPY jev_month TO '{tmp}' (FORMAT parquet)")
         tmp.replace(path)
     con.execute("DROP TABLE IF EXISTS jev_month")
-    con.execute("DROP TABLE jev_qsets")
+    con.execute("DROP TABLE jev_done")

@@ -1,4 +1,5 @@
-"""Jev questions → answers table. One request per in-snapshot post, cached by request hash."""
+"""Jev questions → answers table. One request per in-snapshot post of a complete thread,
+cached by request hash."""
 
 import argparse
 import asyncio
@@ -28,6 +29,7 @@ from sejr.classify.jev import (
     estimate_tokens,
     make_client,
     question_set_hash,
+    request_digest,
 )
 from sejr.config import ANSWERS_DIR, JEV_CACHE_DIR, JEV_USD_PER_MTOK
 
@@ -68,6 +70,8 @@ def select_posts(
         SELECT p.post_id, t.kind, strftime(t.month, '%Y-%m'), p.text
         FROM posts p JOIN threads t USING (thread_id)
         WHERE p.in_snapshot AND t.kind IN ('hiring', 'seeking')
+          -- Only frozen threads: an in-window edit would otherwise leave a stale answer.
+          AND t.fetched_at >= t.snapshot_at
     """
     params: list[object] = []
     if month:
@@ -84,6 +88,17 @@ def select_posts(
         Post(post_id, kind, month, build_request(kind, text))
         for post_id, kind, month, text in con.execute(sql, params).fetchall()
     ]
+
+
+def keys(post: Post) -> tuple[str, str]:
+    return question_set_hash(post.kind), request_digest(post.request)
+
+
+def unanswered_months(con: duckdb.DuckDBPyConnection, answers_dir: Path) -> list[str]:
+    """Complete months with at least one post whose stored answers don't match its request."""
+    done = store.read_done(con, answers_dir)
+    posts = select_posts(con, None, None)
+    return sorted({p.month for p in posts if done.get(p.post_id) != keys(p)})
 
 
 def print_estimate(posts: list[Post], skipped: int, uncached: list[Post]) -> None:
@@ -154,9 +169,9 @@ def run(
     answers_dir: Path = ANSWERS_DIR,
     post_ids: list[int] | None = None,
 ) -> None:
-    qsets = store.read_qsets(con, answers_dir)
+    done = store.read_done(con, answers_dir)
     selected = select_posts(con, args.month, args.limit, post_ids)
-    posts = [p for p in selected if qsets.get(p.post_id) != question_set_hash(p.kind)]
+    posts = [p for p in selected if done.get(p.post_id) != keys(p)]
     skipped = len(selected) - len(posts)
     uncached = [p for p in posts if not cache_path(cache_dir, p.request).exists()]
     scoped = args.month or args.backfill or post_ids is not None
@@ -177,8 +192,8 @@ def run(
         classify_with_client(posts, client, cache_dir, bool(uncached))
     )
     store.replace(con, [p.post_id for p in outcome.done], outcome.rows)
-    qsets.update({p.post_id: question_set_hash(p.kind) for p in outcome.done})
-    store.save(con, answers_dir, {p.month for p in outcome.done}, qsets)
+    done.update({p.post_id: keys(p) for p in outcome.done})
+    store.save(con, answers_dir, {p.month for p in outcome.done}, done)
 
     cost = outcome.input_tokens / 1e6 * JEV_USD_PER_MTOK
     print(
