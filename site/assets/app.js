@@ -1,7 +1,8 @@
-import { parseArticle, directiveWidth } from './article.js';
+import { parseArticle } from './article.js';
+import { isEditorsNote, mountDirective as mountWith, toplinePlan } from './directives.js';
 import { renderChart } from './charts.js';
 import { renderCompare } from './compare.js';
-import { AuthoringError, monthLabel, categoryLabel, METHOD_LABEL, prepare, periodLabel, loadBreakdown } from './data.js';
+import { AuthoringError, monthLabel, categoryLabel, METHOD_LABEL, prepare, periodLabel } from './data.js';
 
 const params = new URLSearchParams(location.search);
 const mock = params.get('mock') === '1';
@@ -105,17 +106,10 @@ function renderHeader(meta, until, data) {
 }
 
 const fetchData = (url) => fetchJson(url, `${url} could not be loaded.`);
+const draw = (mount, name, attrs, data, until) => (name === 'compare' ? renderCompare : renderChart)(mount, attrs, data, until);
 
-// Breakdown series load on demand (data.loadBreakdown), so a chart of one waits for its file.
-async function mountDirective(mount, name, attrs, data, until) {
-  try {
-    if (attrs.breakdown) await loadBreakdown(data, attrs.breakdown, fetchData);
-    if (name === 'compare') renderCompare(mount, attrs, data, until);
-    else renderChart(mount, attrs, data, until);
-    mount.dataset.width = directiveWidth(name, attrs);
-  } catch (err) {
-    showDirectiveError(mount, err);
-  }
+function mountDirective(mount, name, attrs, data, until) {
+  return mountWith(mount, name, attrs, data, until, { render: draw, fetchJson: fetchData, onError: showDirectiveError });
 }
 
 function showDirectiveError(mount, err) {
@@ -135,14 +129,20 @@ function renderBody(article, data, until) {
   const body = $('#article-body');
   body.innerHTML = article.html;
   const mounts = [...body.querySelectorAll('.directive')];
-  // A ::compare written before the first section head is the issue's topline: it goes right under the byline,
-  // before the lede, so the page opens with the headline numbers and the text then reads without a break.
-  const firstHead = body.querySelector('h2');
-  const topline = mounts.find((m) => article.directives[m.dataset.directive].name === 'compare'
-    && !(firstHead && firstHead.compareDocumentPosition(m) & Node.DOCUMENT_POSITION_FOLLOWING));
-  if (topline) {
-    topline.classList.add('topline');
-    body.prepend(topline);
+  // A ::compare written before the first section head is the issue's topline (see directives.toplinePlan).
+  const blocks = [...body.children];
+  const plan = toplinePlan(blocks.map((el) => {
+    const entry = el.classList.contains('directive') ? article.directives[el.dataset.directive] : null;
+    const only = el.childElementCount === 1 ? el.firstElementChild : null;
+    return {
+      tag: el.tagName, name: entry?.name, error: Boolean(entry?.error),
+      editorsNote: isEditorsNote({ tag: el.tagName, text: el.textContent, allItalic: only?.tagName === 'EM' && only.textContent.trim() === el.textContent.trim() }),
+    };
+  }));
+  if (plan) {
+    const strip = blocks[plan.from];
+    strip.classList.add('topline');
+    if (plan.from !== plan.to) blocks[plan.to].before(strip);
   }
   for (const mount of mounts) {
     const { name, attrs, error } = article.directives[mount.dataset.directive];
