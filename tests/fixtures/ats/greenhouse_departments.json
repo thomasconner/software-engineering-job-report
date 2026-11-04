@@ -44,6 +44,22 @@
      "first_published": "2026-04-23T17:49:38-04:00",
      "language": "en",
      "application_deadline": null
+    },
+    {
+     "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/4018702004",
+     "internal_job_id": 4018069004,
+     "location": {
+      "name": "Santa Clara, CA or Remote"
+     },
+     "metadata": null,
+     "id": 4018702004,
+     "updated_at": "2026-10-16T16:23:19-04:00",
+     "requisition_id": null,
+     "title": "Software Engineer",
+     "company_name": "Oklo",
+     "first_published": "2021-05-24T20:34:28-04:00",
+     "language": "en",
+     "application_deadline": null
     }
    ]
   },
@@ -144,7 +160,7 @@
      "absolute_url": "https://job-boards.greenhouse.io/oklo/jobs/6165152004",
      "internal_job_id": 5205720004,
      "location": {
-      "name": "Santa Clara, CA or Remote"
+      "name": "Distributed"
      },
      "metadata": null,
      "id": 6165152004,

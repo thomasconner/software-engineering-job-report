@@ -15,17 +15,25 @@ from urllib.parse import quote, unquote
 import httpx
 
 from sejr.config import ATS_DIR
-from sejr.fetch import Client, now
+from sejr.fetch import Client, GaveUp, now
 
 USER_AGENT = "software-engineering-job-report (github.com/thomasconner/software-engineering-job-report)"
 MIN_INTERVAL = 1.0
+# A board that fails twice is recorded as failed; next month tries again. Short timeouts
+# keep a hung host from eating the workflow's time budget.
+MAX_ATTEMPTS = 2
+TIMEOUT = 20
+# This many unreachable boards in a row means our network is down, not theirs.
+MAX_CONSECUTIVE_UNREACHABLE = 10
+# A snapshot with more failed boards than this would look like a hiring drop, so it isn't written.
+MAX_FAILED_SHARE = 0.2
 # Boards linked from this many of the latest complete hiring threads. Three months lets a
 # later run ask whether a company that posted in month t is still hiring at t+3.
 HN_MONTHS = 3
 SMARTRECRUITERS_PAGE = 100
 # Bumped whenever is_engineering changes; jobs keep title and department, so old
 # snapshots can be reclassified.
-CLASSIFIER_VERSION = "eng-1"
+CLASSIFIER_VERSION = "eng-2"
 
 API = {
     "greenhouse": "https://boards-api.greenhouse.io/v1/boards/{slug}/departments",
@@ -34,17 +42,18 @@ API = {
     "smartrecruiters": "https://api.smartrecruiters.com/v1/companies/{slug}/postings",
 }
 
-# Slugs are the first path segment. Greenhouse embeds name the board in ?for=<slug>.
-# EU-hosted Greenhouse and Lever boards use other API hosts and are not matched.
+# Slugs are the first path segment. Greenhouse embeds (iframe and script) name the board
+# in ?for=<slug>. EU-hosted Greenhouse and Lever boards use other API hosts and are not matched.
 SLUG = r"([A-Za-z0-9][A-Za-z0-9._%-]*)"
 LINK_PATTERNS = [
-    ("greenhouse", re.compile(r"(?:job-)?boards\.greenhouse\.io/embed/job_(?:app|board)\?(?:[^\s\"'<>]*&)?for=" + SLUG, re.IGNORECASE)),
+    ("greenhouse", re.compile(r"(?:job-)?boards\.greenhouse\.io/embed/job_(?:app|board)(?:/js)?\?(?:[^\s\"'<>]*&)?for=" + SLUG, re.IGNORECASE)),
     ("greenhouse", re.compile(r"(?:job-)?boards\.greenhouse\.io/" + SLUG, re.IGNORECASE)),
     ("ashby", re.compile(r"jobs\.ashbyhq\.com/" + SLUG, re.IGNORECASE)),
     ("lever", re.compile(r"jobs\.lever\.co/" + SLUG, re.IGNORECASE)),
     ("smartrecruiters", re.compile(r"(?:jobs|careers)\.smartrecruiters\.com/" + SLUG, re.IGNORECASE)),
 ]  # fmt: skip
 NOT_SLUGS = {"embed", "oneclick-ui", "api", "v1"}
+FAILED = {"error", "unreachable"}
 
 
 def board_key(ats: str, slug: str) -> tuple[str, str]:
@@ -65,19 +74,25 @@ def extract_slugs(text: str) -> set[tuple[str, str]]:
     return found
 
 
-def discover_hn(con, months: int = HN_MONTHS) -> dict[tuple[str, str], dict]:
-    """Boards linked from in-snapshot posts of the latest complete hiring threads."""
-    rows = con.execute(
+def discover_hn(
+    con, months: int = HN_MONTHS
+) -> tuple[list[str], dict[tuple[str, str], dict]]:
+    """The latest complete hiring-thread months, and the boards their in-snapshot posts link."""
+    selected = con.execute(
         """
-        WITH recent AS (
-          SELECT thread_id, strftime(month, '%Y-%m') AS month FROM threads
-          WHERE kind = 'hiring' AND fetched_at >= snapshot_at
-          ORDER BY month DESC LIMIT ?
-        )
-        SELECT r.month, p.text FROM posts p JOIN recent r USING (thread_id)
-        WHERE p.in_snapshot ORDER BY r.month, p.post_id
+        SELECT thread_id, strftime(month, '%Y-%m') AS month FROM threads
+        WHERE kind = 'hiring' AND fetched_at >= snapshot_at
+        ORDER BY month DESC LIMIT ?
         """,
         [months],
+    ).fetchall()
+    rows = con.execute(
+        """
+        SELECT strftime(t.month, '%Y-%m'), p.text FROM posts p JOIN threads t USING (thread_id)
+        WHERE p.in_snapshot AND p.thread_id IN (SELECT unnest(?::BIGINT[]))
+        ORDER BY t.month, p.post_id
+        """,
+        [[thread_id for thread_id, _ in selected]],
     ).fetchall()
     boards: dict[tuple[str, str], dict] = {}
     for month, text in rows:
@@ -87,12 +102,18 @@ def discover_hn(con, months: int = HN_MONTHS) -> dict[tuple[str, str], dict]:
             )
             if f"hn:{month}" not in board["sources"]:
                 board["sources"].append(f"hn:{month}")
-    return boards
+    return sorted(month for _, month in selected), boards
 
 
-def load_panel(path: Path) -> list[dict]:
-    """Current panel members; entries keep their history as "added" and "removed" dates."""
-    return [b for b in json.loads(path.read_text())["boards"] if not b.get("removed")]
+def load_panel(path: Path, day: date) -> list[dict]:
+    """Panel members on day: added <= day < removed. Entries are never deleted, so the
+    panel's history stays in the file."""
+    iso = day.isoformat()
+    return [
+        b
+        for b in json.loads(path.read_text())["boards"]
+        if b["added"] <= iso and (not b.get("removed") or iso < b["removed"])
+    ]
 
 
 def load_scopes(path: Path) -> dict[str, str]:
@@ -136,7 +157,10 @@ def plan_boards(
 # forward-deployed engineers are in (they write software at customer sites); GTM
 # engineers, IT support engineers, partner/deployment engineers in go-to-market teams
 # and manual testers are out; "Member of Technical Staff" is in unless the title names
-# hardware or a non-engineering area (policy, strategy).
+# hardware or a non-engineering area (policy, strategy). A "Systems Engineer" with no
+# software word (Fuel Systems, IT Systems, Business Systems) is out. A non-engineering
+# word next to a software engineering title ("Backend Engineer | Accounting") names the
+# team, not the role, so the job is in.
 #
 # The rule reads the title first, the department only when the title is a bare
 # "Engineer": 1) other-discipline or customer-facing engineering titles are out;
@@ -160,23 +184,25 @@ NON_ENGINEERING_ROLE = re.compile(
     r"devrel|community|writer|editor|communications|people partner|hrbp|human resources|"
     r"executive assistant|assistant|coordinator|specialist|representative|customer success|"
     r"business development|partnerships?|recruiting|operations manager|chief of staff|"
-    r"intern(?:ship)? program)\b",
+    r"intern(?:ship)? program|"
+    r"(?:curriculum|course|content|instructional|business|land|real estate) developer)\b",
     re.IGNORECASE,
 )
-SOFTWARE_TITLE = re.compile(
-    r"\b(software|swe|sde|developer|programmer|devops|devsecops|sre|site reliability|"
+SOFTWARE_WORDS = (
+    r"software|swe|sde|developer|programmer|devops|devsecops|sre|site reliability|"
     r"full[- ]?stack|front[- ]?end|back[- ]?end|mobile|ios|android|web|platform|"
     r"infrastructure|infra|cloud|data|machine learning|ml|ai|llm|security|reliability|"
-    r"systems?|distributed|firmware|embedded|api|application|applied|product engineer|"
+    r"distributed|firmware|embedded|api|application|applied|product engineer|"
     r"forward[- ]deployed|founding|research engineer|qa|quality assurance|test automation|"
     r"automation|sdet|database|kernel|compiler|graphics|game|gameplay|rendering|"
     r"analytics engineer|frontier|inference|training|gpu|performance|observability|"
     r"build|release|tooling|developer experience|member of technical staff|"
     r"technical staff|mts|cto|chief technology officer|tech lead|engineering manager|"
     r"(?:head|director|vp|vice president|manager)(?:,| of)? (?:software )?engineering|"
-    r"engineering (?:lead|director|head))\b",
-    re.IGNORECASE,
+    r"engineering (?:lead|director|head)"
 )
+SOFTWARE_TITLE = re.compile(rf"\b({SOFTWARE_WORDS})\b", re.IGNORECASE)
+SYSTEMS = re.compile(r"\bsystems?\b", re.IGNORECASE)
 GENERIC_ENGINEERING = re.compile(
     r"\b(engineer\w*|architect|developer|programmer)\b", re.IGNORECASE
 )
@@ -186,13 +212,12 @@ NON_SOFTWARE_DEPARTMENT = re.compile(
     r"vehicle|avionics|propulsion|marketing|finance|legal|people|g&a)\b",
     re.IGNORECASE,
 )
-
-
 # Words that keep a title in even when it also names a customer-facing or other function,
 # as in "Backend Engineer, Sales Platform" or "Hardware/Firmware Engineer".
 SOFTWARE_OVERRIDE = re.compile(
     r"\b(software|firmware|embedded|platform|back[- ]?end|front[- ]?end|full[- ]?stack|"
-    r"mobile|ios|android|ml|machine learning|infrastructure|devops|sre)\b",
+    r"mobile|ios|android|ml|machine learning|infrastructure|devops|sre|site reliability|"
+    r"research engineer)\b",
     re.IGNORECASE,
 )
 ROLE_OVERRIDE = re.compile(
@@ -202,11 +227,19 @@ ROLE_OVERRIDE = re.compile(
 
 def is_engineering(title: str, department: str | None = None) -> bool:
     title = title or ""
-    if NON_SOFTWARE_ENGINEERING.search(title) and not SOFTWARE_OVERRIDE.search(title):
+    software_override = bool(SOFTWARE_OVERRIDE.search(title))
+    is_engineer = bool(GENERIC_ENGINEERING.search(title))
+    if NON_SOFTWARE_ENGINEERING.search(title) and not software_override:
         return False
-    if NON_ENGINEERING_ROLE.search(title) and not ROLE_OVERRIDE.search(title):
+    if NON_ENGINEERING_ROLE.search(title) and not (
+        ROLE_OVERRIDE.search(title)
+        or (software_override and re.search(r"\bengineer\b", title, re.IGNORECASE))
+    ):
         return False
-    if SOFTWARE_TITLE.search(title) and GENERIC_ENGINEERING.search(title):
+    software_title = bool(SOFTWARE_TITLE.search(title))
+    if SYSTEMS.search(title) and not software_title:
+        return False
+    if software_title and is_engineer:
         return True
     if re.search(
         r"\b(developer|programmer|sre|devops|sdet|member of technical staff|"
@@ -215,7 +248,7 @@ def is_engineering(title: str, department: str | None = None) -> bool:
         re.IGNORECASE,
     ):
         return True
-    if GENERIC_ENGINEERING.search(title):
+    if is_engineer:
         return not NON_SOFTWARE_DEPARTMENT.search(department or "")
     return False
 
@@ -226,11 +259,11 @@ def is_engineering_job(job: dict) -> bool:
     return is_engineering(job["title"], unit)
 
 
-# --- US share of a board -------------------------------------------------------------
+# --- US-located jobs -------------------------------------------------------------------
 #
-# Export flags a board non_us when most of its jobs with a recognizable location are
-# outside the US. Computed from job locations each time, never stored by hand. Locations
-# that name no country ("Remote", "North America", "Any") are left out of the share.
+# Export counts a board's US-located jobs from job locations each time it runs; the count
+# is never stored, so a parser fix applies to every past snapshot. Locations that name no
+# country ("Remote", "North America", "N/A") count neither way.
 
 US_STATES = [
     "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
@@ -238,9 +271,34 @@ US_STATES = [
     "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT",
     "VA", "WA", "WV", "WI", "WY", "DC",
 ]  # fmt: skip
-US_LOCATION = re.compile(
-    r"\bu\.s\.|\b(united states|usa|us|"
-    r"alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|"
+CA_PROVINCES = [
+    "ON",
+    "QC",
+    "BC",
+    "AB",
+    "MB",
+    "NS",
+    "NB",
+    "NL",
+    "PE",
+    "SK",
+    "YT",
+    "NT",
+    "NU",
+]
+# Two-letter codes are matched case-sensitively after a separator, so "or" and "in" in
+# "(ON, AB, or NS Only)" are words, not Oregon and Indiana.
+SEPARATOR = r"(?:^|[,;(\-–/|]\s*)"
+US_STATE_CODE = re.compile(
+    SEPARATOR + r"(?:" + "|".join(US_STATES) + r")(?=$|[\s,;)/|.-])"
+)
+CA_PROVINCE_CODE = re.compile(
+    SEPARATOR + r"(?:" + "|".join(CA_PROVINCES) + r")(?=$|[\s,;)/|.-])"
+)
+US_NAMED = re.compile(r"\bU\.S\.|\bUS\b")
+US_NAMED_CI = re.compile(r"\b(united states|usa)\b", re.IGNORECASE)
+US_PLACE = re.compile(
+    r"\b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|"
     r"georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|"
     r"massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|"
     r"new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|"
@@ -248,38 +306,83 @@ US_LOCATION = re.compile(
     r"texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming|"
     r"san francisco|sf|bay area|nyc|seattle|boston|austin|los angeles|chicago|denver|"
     r"atlanta|palo alto|mountain view|menlo park|sunnyvale|santa clara|san jose|"
-    r"brooklyn|miami|silicon valley)\b|"
-    r",\s*(?:" + "|".join(US_STATES) + r")\b",
+    r"brooklyn|miami|silicon valley|phoenix|philadelphia|houston|dallas|san diego|"
+    r"portland|minneapolis|detroit|pittsburgh|raleigh|durham|nashville|salt lake city|"
+    r"baltimore|st\.? louis|kansas city|columbus|cincinnati|cleveland|charlotte|orlando|"
+    r"tampa|las vegas|sacramento|oakland|berkeley|irvine|redwood city|san mateo|"
+    r"south san francisco|arlington|reston|mclean|boulder|ann arbor|new orleans|honolulu|"
+    r"jersey city|hoboken|stamford|providence|scottsdale|tempe|plano|fort worth|"
+    r"san antonio|indianapolis|milwaukee|omaha|el segundo|santa monica|culver city|"
+    r"pasadena|long beach|hawthorne|cupertino|san bruno|foster city|emeryville)\b",
     re.IGNORECASE,
 )
+CANADA = re.compile(r"\bcanada\b|\bcanadian\b", re.IGNORECASE)
 NO_COUNTRY_WORDS = {
     "remote", "anywhere", "any", "global", "worldwide", "north", "america", "americas",
     "multiple", "location", "locations", "various", "hybrid", "in", "office", "onsite", "on",
-    "site", "flexible", "tbd", "distributed",
+    "site", "flexible", "tbd", "distributed", "n/a", "na", "none", "or",
 }  # fmt: skip
 
 
 def is_us_location(location: str | None) -> bool | None:
-    """True for a US location, False for a non-US one, None when it names no country."""
-    words = re.findall(r"[a-z.]+", (location or "").lower())
-    if all(w in NO_COUNTRY_WORDS for w in words):
+    """True for a US location, False for a non-US one, None when it names no country.
+
+    Order matters: a named US ("Remote - US or Canada") wins; then Canada, by name or by a
+    province code ("Toronto, ON, CA", where CA is Canada, not California); then US states
+    and cities."""
+    location = (location or "").strip()
+    words = re.findall(r"[a-z./]+", location.lower())
+    if all(w.strip(".") in NO_COUNTRY_WORDS for w in words):
         return None
-    return bool(US_LOCATION.search(location))
+    if US_NAMED.search(location) or US_NAMED_CI.search(location):
+        return True
+    if CANADA.search(location) or CA_PROVINCE_CODE.search(location):
+        return False
+    return bool(US_STATE_CODE.search(location) or US_PLACE.search(location))
 
 
-def non_us(jobs: list[dict], threshold: float = 0.5) -> bool | None:
-    """Whether most located jobs on a board are outside the US; None with no located jobs."""
-    located = [u for j in jobs if (u := is_us_location(j.get("location"))) is not None]
-    if not located:
-        return None
-    return located.count(False) / len(located) > threshold
+def us_jobs(jobs: list[dict]) -> dict[str, int]:
+    """Jobs by location: us, non_us, unknown. Export computes this; snapshots don't store it."""
+    counts = {"us": 0, "non_us": 0, "unknown": 0}
+    for job in jobs:
+        us = is_us_location(job.get("location"))
+        counts["unknown" if us is None else "us" if us else "non_us"] += 1
+    return counts
+
+
+# --- Workplace --------------------------------------------------------------------------
+#
+# remote / hybrid / onsite, or None when the board doesn't say. Each ATS's own field wins
+# (Ashby workplaceType, Lever workplaceType, SmartRecruiters location.remote/hybrid);
+# Ashby's isRemote is used only without workplaceType, because Ashby sets it for hybrid
+# jobs too. Otherwise the location text decides: remote or distributed beats hybrid,
+# which beats onsite; a plain city says nothing and stays None.
+
+WORKPLACE_TYPES = {
+    "remote": "remote",
+    "hybrid": "hybrid",
+    "onsite": "onsite",
+    "on-site": "onsite",
+    "on site": "onsite",
+}
+
+
+def workplace_from_text(*values: str | None) -> str | None:
+    text = " ".join(v for v in values if v)
+    if re.search(r"\b(remote|distributed|anywhere)\b", text, re.IGNORECASE):
+        return "remote"
+    if re.search(r"\bhybrid\b", text, re.IGNORECASE):
+        return "hybrid"
+    if re.search(r"\b(on-?site|in[- ]office|in[- ]person)\b", text, re.IGNORECASE):
+        return "onsite"
+    return None
+
+
+def _workplace_type(value) -> str | None:
+    return WORKPLACE_TYPES.get(str(value).lower()) if value else None
 
 
 # --- Parsers: one API response → compact jobs ------------------------------------------
-
-
-def _text_remote(*values: str | None) -> bool:
-    return any(v and re.search(r"\bremote\b", v, re.IGNORECASE) for v in values)
 
 
 def _job(
@@ -288,7 +391,7 @@ def _job(
     department=None,
     team=None,
     location=None,
-    remote=None,
+    workplace=None,
     published=None,
     updated=None,
 ) -> dict:
@@ -298,7 +401,7 @@ def _job(
         "department": department or None,
         "team": team or None,
         "location": location or None,
-        "remote": remote,
+        "workplace": workplace,
         "published": published,
         "updated": updated,
     }
@@ -306,29 +409,34 @@ def _job(
 
 
 def parse_greenhouse(payload: dict) -> list[dict]:
-    """The /departments response lists every job once, under its leaf department (or
-    "No Department"). The department is stored with its parents, "Engineering > Platform"."""
+    """The /departments response lists jobs under departments (or "No Department"), stored
+    with their parents, "Engineering > Platform". A job listed under several departments is
+    kept once, under the most specific (deepest) one; ties keep the first."""
     departments = {d["id"]: d for d in payload["departments"]}
 
-    def path(dep: dict) -> str:
+    def path(dep: dict) -> list[str]:
         names, seen = [], set()
         while dep and dep["id"] not in seen:
             seen.add(dep["id"])
             names.append(dep["name"])
             dep = departments.get(dep.get("parent_id"))
-        return " > ".join(reversed(names))
+        return list(reversed(names))
 
-    jobs = {}
+    jobs: dict = {}
+    depth: dict = {}
     for dep in payload["departments"]:
-        department = None if dep["id"] == 0 else path(dep)
+        names = [] if dep["id"] == 0 else path(dep)
         for j in dep["jobs"]:
+            if j["id"] in jobs and depth[j["id"]] >= len(names):
+                continue
             location = (j.get("location") or {}).get("name")
+            depth[j["id"]] = len(names)
             jobs[j["id"]] = _job(
                 j["id"],
                 j["title"],
-                department=department,
+                department=" > ".join(names),
                 location=location,
-                remote=_text_remote(location),
+                workplace=workplace_from_text(location),
                 published=j.get("first_published"),
                 updated=j.get("updated_at"),
             )
@@ -340,11 +448,11 @@ def parse_ashby(payload: dict) -> list[dict]:
     for j in payload["jobs"]:
         if j.get("isListed") is False:
             continue
-        remote = j.get("isRemote")
-        if remote is None:
-            remote = j.get("workplaceType") == "Remote" or _text_remote(
-                j.get("location")
-            )
+        workplace = _workplace_type(j.get("workplaceType"))
+        if workplace is None and j.get("isRemote") is True:
+            workplace = "remote"
+        if workplace is None:
+            workplace = workplace_from_text(j.get("location"))
         jobs.append(
             _job(
                 j["id"],
@@ -352,7 +460,7 @@ def parse_ashby(payload: dict) -> list[dict]:
                 department=j.get("department"),
                 team=j.get("team"),
                 location=j.get("location"),
-                remote=bool(remote),
+                workplace=workplace,
                 published=j.get("publishedAt"),
             )
         )
@@ -370,11 +478,8 @@ def parse_lever(payload: list) -> list[dict]:
     for j in payload:
         categories = j.get("categories") or {}
         location = categories.get("location")
-        workplace = j.get("workplaceType")
-        remote = (
-            workplace == "remote"
-            if workplace and workplace != "unspecified"
-            else _text_remote(location)
+        workplace = _workplace_type(j.get("workplaceType")) or workplace_from_text(
+            location
         )
         jobs.append(
             _job(
@@ -383,7 +488,7 @@ def parse_lever(payload: list) -> list[dict]:
                 department=categories.get("department"),
                 team=categories.get("team"),
                 location=location,
-                remote=remote,
+                workplace=workplace,
                 published=_epoch_ms(j.get("createdAt")),
             )
         )
@@ -395,13 +500,21 @@ def parse_smartrecruiters(pages: list[dict]) -> list[dict]:
     for page in pages:
         for j in page["content"]:
             location = j.get("location") or {}
+            if location.get("remote"):
+                workplace = "remote"
+            elif location.get("hybrid"):
+                workplace = "hybrid"
+            elif location.get("remote") is False:
+                workplace = "onsite"
+            else:
+                workplace = None
             jobs[j["id"]] = _job(
                 j["id"],
                 j.get("name"),
                 department=(j.get("department") or {}).get("label"),
                 team=(j.get("function") or {}).get("label"),
                 location=location.get("fullLocation") or location.get("city"),
-                remote=location.get("remote"),
+                workplace=workplace,
                 published=j.get("releasedDate"),
             )
     return list(jobs.values())
@@ -431,7 +544,8 @@ def fetch_board(client: Client, ats: str, slug: str) -> list[dict]:
 
 
 def snapshot_board(client: Client, board: dict) -> dict:
-    """Fetch one board. A missing or broken board is recorded with its status, not raised."""
+    """Fetch one board. A missing or broken board is recorded with its status, not raised:
+    not_found (404/410), http_<code>, unreachable (no response at all) or error."""
     record = {**board, "fetched_at": now()}
     try:
         jobs = fetch_board(client, board["ats"], board["slug"])
@@ -440,16 +554,28 @@ def snapshot_board(client: Client, board: dict) -> dict:
         return record | {
             "status": "not_found" if code in (404, 410) else f"http_{code}"
         }
-    except (httpx.HTTPError, RuntimeError, ValueError, KeyError, TypeError) as e:
+    except (httpx.TransportError, GaveUp) as e:
+        transport = isinstance(e, httpx.TransportError) or e.transport
+        status = "unreachable" if transport else "error"
+        return record | {"status": status, "error": f"{type(e).__name__}: {e}"[:200]}
+    except (httpx.HTTPError, ValueError, KeyError, TypeError) as e:
         return record | {"status": "error", "error": f"{type(e).__name__}: {e}"[:200]}
     jobs.sort(key=lambda j: j["id"])
+    workplace = {"remote": 0, "hybrid": 0, "onsite": 0, "unknown": 0}
+    for job in jobs:
+        workplace[job.get("workplace", "unknown")] += 1
     return record | {
         "status": "ok" if jobs else "empty",
         "total_jobs": len(jobs),
         "engineering_jobs": sum(is_engineering_job(j) for j in jobs),
-        "remote_jobs": sum(j.get("remote") is True for j in jobs),
+        "workplace_jobs": workplace,
         "jobs": jobs,
     }
+
+
+def is_failed(result: dict) -> bool:
+    """Our side or theirs broke: 5xx, no response, bad payload. A 404 is a real answer."""
+    return result["status"] in FAILED or result["status"].startswith("http_5")
 
 
 def write_snapshot(path: Path, snapshot: dict) -> None:
@@ -462,16 +588,31 @@ def has_snapshot_for_month(directory: Path, day: date) -> bool:
     return any(directory.glob(f"{day:%Y-%m}-??.json.gz"))
 
 
-def run(con, args, directory: Path = ATS_DIR, client: Client | None = None) -> None:
-    today = datetime.now(UTC).date()
+def ats_client() -> Client:
+    return Client(
+        user_agent=USER_AGENT,
+        min_interval=MIN_INTERVAL,
+        max_attempts=MAX_ATTEMPTS,
+        timeout=TIMEOUT,
+        follow_redirects=True,
+    )
+
+
+def run(
+    con,
+    args,
+    directory: Path = ATS_DIR,
+    client: Client | None = None,
+    today: date | None = None,
+) -> None:
+    today = today or datetime.now(UTC).date()
     # The monthly workflow runs on days 1–12; one snapshot per calendar month is enough.
     if has_snapshot_for_month(directory, today):
         print(f"ats: a snapshot for {today:%Y-%m} already exists, skipping")
         return
-    hn = discover_hn(con)
-    panel = load_panel(directory / "panel.json")
+    hn_months, hn = discover_hn(con)
+    panel = load_panel(directory / "panel.json", today)
     boards = plan_boards(hn, panel, load_scopes(directory / "overrides.json"))
-    hn_months = sorted({s[3:] for b in hn.values() for s in b["sources"]})
     print(
         f"ats: {len(hn)} boards from HN {hn_months}, {len(panel)} panel, {len(boards)} total"
     )
@@ -482,14 +623,38 @@ def run(con, args, directory: Path = ATS_DIR, client: Client | None = None) -> N
             print(f"  {board['ats']}/{board['slug']} {board['sources']}")
         return
 
-    client = client or Client(user_agent=USER_AGENT, min_interval=MIN_INTERVAL)
+    client = client or ats_client()
     results = []
+    unreachable_run = 0
     for board in boards:
         result = snapshot_board(client, board)
         print(
             f"  {board['ats']}/{board['slug']}: {result['status']} {result.get('total_jobs', '')}"
         )
         results.append(result)
+        unreachable_run = (
+            unreachable_run + 1 if result["status"] == "unreachable" else 0
+        )
+        if unreachable_run >= MAX_CONSECUTIVE_UNREACHABLE:
+            raise SystemExit(
+                f"ats: {unreachable_run} boards in a row unreachable, stopping; nothing written"
+            )
+
+    ok = [r for r in results if r["status"] in ("ok", "empty")]
+    failed = [r for r in results if is_failed(r)]
+    summary = (
+        f"{len(ok)} boards fetched, {len(results) - len(ok)} not fetched "
+        f"({len(failed)} failed), {sum(r['total_jobs'] for r in ok)} jobs, "
+        f"{sum(r['engineering_jobs'] for r in ok)} engineering"
+    )
+    if args.limit:
+        print(f"ats: --limit run, not written: {summary}")
+        return
+    if results and len(failed) / len(results) > MAX_FAILED_SHARE:
+        raise SystemExit(
+            f"ats: {len(failed)} of {len(results)} boards failed, over {MAX_FAILED_SHARE:.0%}; "
+            "nothing written"
+        )
     snapshot = {
         "snapshot_date": today.isoformat(),
         "generated_at": now(),
@@ -499,9 +664,4 @@ def run(con, args, directory: Path = ATS_DIR, client: Client | None = None) -> N
     }
     path = directory / f"{today.isoformat()}.json.gz"
     write_snapshot(path, snapshot)
-    ok = [r for r in results if r["status"] in ("ok", "empty")]
-    print(
-        f"ats: wrote {path.name}: {len(ok)} boards fetched, {len(results) - len(ok)} failed, "
-        f"{sum(r['total_jobs'] for r in ok)} jobs, "
-        f"{sum(r['engineering_jobs'] for r in ok)} engineering"
-    )
+    print(f"ats: wrote {path.name}: {summary}")

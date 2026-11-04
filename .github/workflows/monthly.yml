@@ -40,6 +40,7 @@ jobs:
       # A network problem here must not block the HN refresh.
       - run: uv run sejr ats
         continue-on-error: true
+        timeout-minutes: 20
       - run: uv run sejr features
 
       # A newly complete month is over classify's 500-call unscoped guard, so each

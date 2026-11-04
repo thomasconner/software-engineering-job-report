@@ -93,20 +93,37 @@ def now() -> str:
     return datetime.now(UTC).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 
+class GaveUp(RuntimeError):
+    """Every attempt failed; transport is True when the last failure never got a response."""
+
+    def __init__(self, message: str, transport: bool) -> None:
+        super().__init__(message)
+        self.transport = transport
+
+
 class Client:
     """httpx wrapper that spaces requests min_interval apart and retries transient failures."""
 
     def __init__(
-        self, user_agent: str = USER_AGENT, min_interval: float = MIN_INTERVAL
+        self,
+        user_agent: str = USER_AGENT,
+        min_interval: float = MIN_INTERVAL,
+        max_attempts: int = MAX_ATTEMPTS,
+        timeout: float = 60,
+        follow_redirects: bool = False,
     ) -> None:
         self.http = httpx.Client(
-            headers={"User-Agent": user_agent}, timeout=60, follow_redirects=True
+            headers={"User-Agent": user_agent},
+            timeout=timeout,
+            follow_redirects=follow_redirects,
         )
         self.min_interval = min_interval
+        self.max_attempts = max_attempts
         self.last_request = 0.0
 
     def get(self, url: str, params: dict | None = None) -> httpx.Response:
-        for attempt in range(MAX_ATTEMPTS):
+        transport = False
+        for attempt in range(self.max_attempts):
             wait = self.last_request + self.min_interval - time.monotonic()
             if wait > 0:
                 time.sleep(wait)
@@ -116,13 +133,15 @@ class Client:
                 if response.status_code != 429 and response.status_code < 500:
                     response.raise_for_status()
                     return response
-                error = f"HTTP {response.status_code}"
+                error, transport = f"HTTP {response.status_code}", False
             except httpx.TransportError as e:
-                error = repr(e)
+                error, transport = repr(e), True
             backoff = 2**attempt
             print(f"  {url}: {error}, retrying in {backoff}s")
             time.sleep(backoff)
-        raise RuntimeError(f"giving up on {url} after {MAX_ATTEMPTS} attempts")
+        raise GaveUp(
+            f"giving up on {url} after {self.max_attempts} attempts", transport
+        )
 
 
 def search_stories(client: Client, author: str) -> list[dict]:

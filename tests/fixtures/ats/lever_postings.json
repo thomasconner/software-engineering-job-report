@@ -58,5 +58,52 @@
   "workplaceType": "remote",
   "hostedUrl": "https://jobs.lever.co/curai/46e0dd2f-c1dd-4ca2-9095-5b45f477b656",
   "applyUrl": "https://jobs.lever.co/curai/46e0dd2f-c1dd-4ca2-9095-5b45f477b656/apply"
+ },
+ {
+  "categories": {
+   "commitment": "W2",
+   "department": "Engineering",
+   "location": "San Francisco, CA",
+   "team": "Product Engineering",
+   "allLocations": [
+    "Remote"
+   ]
+  },
+  "createdAt": 1790792281515,
+  "id": "00000000-onsite",
+  "salaryRange": {
+   "min": 175000,
+   "max": 210000,
+   "currency": "USD",
+   "interval": "per-year-salary"
+  },
+  "text": "Senior Software Engineer, Full-Stack",
+  "country": "US",
+  "workplaceType": "onsite",
+  "hostedUrl": "https://jobs.lever.co/curai/46e0dd2f-c1dd-4ca2-9095-5b45f477b656",
+  "applyUrl": "https://jobs.lever.co/curai/46e0dd2f-c1dd-4ca2-9095-5b45f477b656/apply"
+ },
+ {
+  "categories": {
+   "commitment": "W2",
+   "department": "Engineering",
+   "location": "Toronto, ON, CA",
+   "team": "Product Engineering",
+   "allLocations": [
+    "Remote"
+   ]
+  },
+  "createdAt": 1790792281515,
+  "id": "00000000-nofield",
+  "salaryRange": {
+   "min": 175000,
+   "max": 210000,
+   "currency": "USD",
+   "interval": "per-year-salary"
+  },
+  "text": "Senior Software Engineer, Full-Stack",
+  "country": "US",
+  "hostedUrl": "https://jobs.lever.co/curai/46e0dd2f-c1dd-4ca2-9095-5b45f477b656",
+  "applyUrl": "https://jobs.lever.co/curai/46e0dd2f-c1dd-4ca2-9095-5b45f477b656/apply"
  }
 ]
