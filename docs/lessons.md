@@ -15,6 +15,8 @@ These are mistakes already made, approaches already tried, and traps found in ea
 - **"Series high" on a gappy series.** Months under the n ≥ 30 floor are missing, and most salary months before 2024 are missing. Say how many months qualify before calling something a high.
 - **Classifier labels from AI annotators can share the classifier's blind spots.** The held-out set also dropped annotator disagreements. Treat validation as provisional until human labels exist (CON-170).
 - **A validation set stops being held-out once rules are tuned to its misses.** The region regex hit this twice. A clean number needs a fresh draw labeled before any rule change.
+- **A disclosure trend can pose as a benefits trend.** Equity mentions rose from 8% to 22% of HN posts, but among posts that state pay they held at 40–59%. About two-thirds of the rise was more posts stating compensation ("$X + equity"). Check a mention share against how often posts state compensation at all.
+- **A log-scale bootstrap must survive zeros.** "0–2 years" posts made the years median's variance undefined, so no month got a bar and every move rendered as real. Guard on the statistic, not the minimum, and test with zeros.
 - **Mentioning a tool is not using it.** Stack and benefit trends are shares of posts that mention a term.
 
 ## Point-in-time and outside data
@@ -43,6 +45,12 @@ These are mistakes already made, approaches already tried, and traps found in ea
   - Greenhouse has no workplace field.
   - Board-level "mostly non-US" flags mislabel US companies that hire abroad, so count US jobs per board instead.
   - A failed run must not lock the month.
+- **A standard XBRL tag is not a standard concept.** Meta's $4.6B 2022 restructuring sits in a custom tag that company facts omit, and Intel's `RestructuringCharges` includes a $2.2B patent verdict. Before summing a tag across companies, check each peak's top contributor against the filing text, and publish who drives each point.
+- **Year-to-date differencing loses one-quarter charges.** When the 10-Qs never tagged a zero, a Q4-only charge disappears (Salesforce, $828M). Treat untagged year-to-date as zero only when the 10-Qs were filed.
+- **Corporate actions read as moves.** The HP/HPE split read as an 83% headcount fall, and eBay/PayPal as 66%. Flag company changes over about 30% and check for a spin-off or divestiture before counting them.
+- **EDGAR's present-day metadata rewrites the past.** Yahoo/Altaba has a blank SIC, and Compass moved from 7371 to 6531. Take SIC from the filing, never from today's submissions file.
+- **EDGAR timestamps differ by copy.** The data.sec.gov API gives true UTC, but `submissions.zip` often gives Eastern time labeled "Z". Bucket months by `filingDate`.
+- **Revenue tags change over time, and named lists carry hindsight.** AMD's first-filed revenue was `SalesRevenueGoodsNet`, and Broadcom had an older CIK. Check that each expected company lands in each year's panel, and prefer mechanical membership rules to lists of today's winners.
 - **Moderators detach off-topic subthreads into top-level comments.** These look like posts and should be dropped (CON-169).
 - **HN thread rules changed over time:** 2015-09, 2017-06, 2018-02 (one post per company), 2024-04, 2024-11, and the Freelancer thread was retired in 2025-11. Annotate charts and don't compare across these breaks silently.
 
@@ -50,7 +58,9 @@ These are mistakes already made, approaches already tried, and traps found in ea
 
 - **Two-letter codes are words too.** ON, OR, IN, OK, NO, CA and DE caused false places ("Full-time, On-site" was read as Ontario, "No Visa" as Norway). Code-only matches need context and a regression test per case.
 - **Company names collide with tools and places:** Bank of America, Elixir's Phoenix framework, Snowflake, Datadog. Header company fields need care.
-- **Labeled fixtures hold only the line needed** (a Location line or a header), never seeker post text, and never post ids for seekers.
+- **Words near a tool are not always about the company.** An investor and customer cue ("backed", "client") dropped about 17% real mentions ("a Rails stack backed by MySQL"). Keep the cue close to the term, and skip it in tech-list sentences.
+- **A header URL can hide the company name**, so a company's own posts count as mentions of its product (Cloudflare). Strip URLs before parsing names.
+- **Labeled fixtures hold only the line needed** (a Location line or a header), never seeker post text, never post ids for seekers, and never personal emails. Seeker posts sometimes appear in hiring threads; check for them.
 
 ## Process and tooling
 
