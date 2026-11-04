@@ -115,7 +115,7 @@ function noiseTest(data, key, unit) {
   return (then, now) => {
     const a = then.value;
     const b = now.value;
-    if (unit === 'usd' && (then.n < 30 || now.n < 30)) return 'thin';
+    if ((unit === 'usd' || unit === 'years') && (then.n < 30 || now.n < 30)) return 'thin';
     const win = Object.keys(WINDOWS).find((w) => addMonths(now.month, -WINDOWS[w]) === then.month);
     const bar = now.bar?.[win];
     if (bar != null) {
@@ -136,6 +136,8 @@ function noiseTest(data, key, unit) {
     }
     if (unit === 'usd') return Math.abs(b / a - 1) < 0.05 ? 'noise' : 'clear';
     if (unit === 'score') return Math.abs(b - a) < 0.2 ? 'noise' : 'clear';
+    // A median of whole years moves in steps; with no exported bar, never call a step a move.
+    if (unit === 'years') return 'thin';
     return 'clear';
   };
 }

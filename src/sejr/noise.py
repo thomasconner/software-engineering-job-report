@@ -36,6 +36,8 @@ MEDIAN_CHI2_1 = 0.4549
 # gets a wide bar rather than a falsely narrow one.
 FALLBACK_DISPERSION = 10.0
 BOOTSTRAP_DRAWS = 400
+# Half a year: the smallest median a bootstrap draw may take before its log.
+MEDIAN_FLOOR = 0.5
 # Mood bars come out near 0.02, but they leave out classifier error, so they never go
 # below the 0.2 convention the style guide used before.
 SCORE_FLOOR = 0.2
@@ -209,12 +211,16 @@ def series_bars(
 
 
 def log_median_variance(values: list[float], seed: str) -> float | None:
-    """Bootstrap variance of ln(median), seeded so a month always gets the same answer."""
-    if len(values) < 2 or min(values) <= 0:
+    """Bootstrap variance of ln(median), seeded so a month always gets the same answer.
+
+    Some values can be zero (a post asking for "0-2 years"), so only the median itself must
+    be positive; a draw whose median lands on zero is clamped to MEDIAN_FLOOR.
+    """
+    if len(values) < 2 or statistics.median(values) <= 0:
         return None
     rng = random.Random(seed)
     draws = [
-        math.log(statistics.median(rng.choices(values, k=len(values))))
+        math.log(max(statistics.median(rng.choices(values, k=len(values))), MEDIAN_FLOOR))
         for _ in range(BOOTSTRAP_DRAWS)
     ]
     return statistics.variance(draws)

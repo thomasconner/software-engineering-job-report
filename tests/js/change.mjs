@@ -32,6 +32,13 @@ assert.equal(verdict('share', 0.2, 0.31, 0.1), 'better');
 // Salary medians on fewer than 30 posts are "too few posts", whatever the bar says.
 assert.equal(verdict('usd', 200000, 300000, 0.01, { n: 20 }), 'too few posts');
 
+// Years medians move in whole steps: with a bar they use it on ln(now/then); without one,
+// or on fewer than 30 posts, a step is never called a move.
+assert.equal(verdict('years', 4, 5, 0.3), 'about the same');
+assert.equal(verdict('years', 3, 5, 0.3), 'better');
+assert.equal(verdict('years', 3, 5, undefined), 'too few posts');
+assert.equal(verdict('years', 3, 5, 0.01, { n: 20 }), 'too few posts');
+
 // A zero on either side can't be put on the log scale, so a ratio move is never called noise.
 assert.equal(verdict('ratio', 0, 0.5, 10), 'better');
 assert.equal(verdict('ratio', 0.5, 0, 10), 'worse');

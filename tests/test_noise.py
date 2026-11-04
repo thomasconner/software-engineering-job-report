@@ -179,3 +179,13 @@ def test_mood_bars_never_go_below_the_floor():
     extras = {p["month"]: 0.8 / 500 for p in pts}
     bars = noise.series_bars("seeker_mood.seeking", "score", pts, extras)
     assert bars[-1]["1y"] == noise.SCORE_FLOOR
+
+
+def test_bootstrap_handles_zero_values():
+    # "0-2 years" posts are common; they must not drop the month's bar.
+    years = [0, 0, 2, 3, 3, 4, 5, 5, 5, 7, 8, 10] * 4
+    v = noise.log_median_variance(years, "years_required_median.hiring:2026-10")
+    assert v is not None and v > 0
+    assert noise.log_median_variance([0, 0, 0, 1], "z") is None  # median 0: no log scale
+    mostly_zero = [0] * 20 + [1] * 21
+    assert noise.log_median_variance(mostly_zero, "z") is not None
