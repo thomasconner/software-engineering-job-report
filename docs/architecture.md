@@ -32,7 +32,7 @@ Run everything with `uv run sejr <command>`. Tests: `uv run pytest`.
 
 `month` is the month named in the title, not the creation date.
 
-A re-fetch writes a new file only when the content changed. The newest file wins in normalize.
+One file per thread; a re-fetch overwrites it only when content changed, and git history keeps earlier versions. The sidecar also records `checked_at` (last fetch, changed or not) and the thread's Firebase `kids` list, used to count removed posts.
 
 ## DuckDB schema
 
@@ -43,7 +43,10 @@ CREATE TABLE threads (
   month       DATE NOT NULL,             -- first day of the named month
   title       VARCHAR NOT NULL,
   created_at  TIMESTAMPTZ NOT NULL,
-  snapshot_at TIMESTAMPTZ NOT NULL       -- created_at + INTERVAL 7 DAY
+  snapshot_at TIMESTAMPTZ NOT NULL,      -- created_at + 168 hours (computed in UTC)
+  fetched_at  TIMESTAMPTZ NOT NULL,      -- last fetch whose content was stored or confirmed unchanged
+  removed_in_snapshot INTEGER,           -- top-level comments (Firebase kids) in the window that Algolia omits as deleted/dead
+  UNIQUE (kind, month)
 );
 
 CREATE TABLE posts (                      -- top-level comments only
@@ -100,6 +103,10 @@ Every metric for month *t* may read only:
 - posts and replies with `in_snapshot = true` from threads with `month <= t`;
 - answers for those posts.
 
+A month is complete only when its thread's `fetched_at >= snapshot_at`. Aggregate skips incomplete months (the export lists them as `pending`).
+
+Raw files freeze once complete: fetch re-fetches a thread only while its stored `fetched_at < snapshot_at`. Later edits and deletions never change a published month.
+
 `aggregate.compute_month(con, t)` must return the same rows whether the database holds all months or only months `<= t`. `tests/test_point_in_time.py` enforces this.
 
 ## Metric ids
@@ -109,6 +116,7 @@ Scalar metrics (`category = ''`). Shares are 0–1. Jev-based shares are expecte
 | metric | kind | method | meaning |
 |---|---|---|---|
 | `posts` | hiring, seeking | count | top-level posts in snapshot |
+| `removed_share` | hiring, seeking | count | removed_in_snapshot ÷ (posts + removed_in_snapshot); shown in methodology |
 | `seekers_per_post` | hiring | count | seeking posts ÷ hiring posts, same month |
 | `replies_per_post` | hiring | count | mean direct replies per post |
 | `salary_disclosed_share` | hiring | regex | share with a parseable salary |

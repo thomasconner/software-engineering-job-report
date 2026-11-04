@@ -11,7 +11,10 @@ CREATE TABLE IF NOT EXISTS threads (
   month       DATE NOT NULL,
   title       VARCHAR NOT NULL,
   created_at  TIMESTAMPTZ NOT NULL,
-  snapshot_at TIMESTAMPTZ NOT NULL
+  snapshot_at TIMESTAMPTZ NOT NULL,
+  fetched_at  TIMESTAMPTZ NOT NULL,
+  removed_in_snapshot INTEGER,
+  UNIQUE (kind, month)
 );
 CREATE TABLE IF NOT EXISTS posts (
   post_id     BIGINT PRIMARY KEY,

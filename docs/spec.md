@@ -55,7 +55,7 @@ A hand-labeled reference set of about 200 posts, sampled across years. Each meth
 
 ### Known biases (stated on the report)
 
-- Edited posts show their latest text, and deleted posts are missing (survivorship).
+- Edited posts show the text as of the snapshot fetch. Deleted posts are missing, and the removed share rose from about 2–9% (2011–2023) to 13–23% (2026), so the post-count trend is shown alongside `removed_share`.
 - HN skews toward US startups, engineering roles and the Bay Area.
 - One post can cover many roles, so post count is not job count.
 
@@ -83,7 +83,7 @@ A hand-labeled reference set of about 200 posts, sampled across years. Each meth
 
 ## Backfill
 
-All months from April 2011, for both threads. This gives a 5-year comparison with deeper context (2020, the 2022–23 layoffs).
+All months from April 2011 for "Who is hiring?"; "Who wants to be hired?" starts May 2014, when the thread began. This gives a 5-year comparison with deeper context (2020, the 2022–23 layoffs).
 
 ## The article
 
@@ -99,3 +99,4 @@ Articles are written by an agent from the exported numbers, then fact-checked by
 - 2026-11-04: Raw storage keeps one file per thread (architecture.md layout); git history is the version record.
 - 2026-11-04: The Jev response cache (~126k files) is not committed. Jev answers are committed as Parquet under `data/answers/`, so CI only classifies new posts.
 - 2026-11-04: Thread coverage: 188 hiring months (2011-04 to 2026-11, no gaps) and 151 seeking months (the thread started 2014-05). Four months use threads posted by other users; see `EXTRA_THREADS` in fetch.py.
+- 2026-11-04: Months are complete only once fetched after the 7-day window; raw files then freeze. Removed posts are counted from Firebase and published as `removed_share` rather than added back into post counts (many are spam or rule-breaking posts).
