@@ -56,6 +56,9 @@ These are mistakes already made, approaches already tried, and traps found in ea
 - **A size threshold isn't a corporate-action detector.** Dropping year-over-year changes over 30% removed Amazon's 2020 hiring and Compass's layoffs along with HP's split. Detect corporate actions explicitly (8-K Item 2.01, Form 10, a documented list).
 - **A guard against unit slips needs a sound reference.** Comparing against the smallest revenue tag let a goods-only component ($4.3M) replace $3.3B of revenue.
 - **Widening SIC ranges changes what a panel measures.** Adding 3570–79 and 3670–79 brought in contract manufacturers and solar makers and pushed out Qualcomm and design-software companies. Check the membership diff before accepting a rule change.
+- **A deal filter needs an extraction-error guard next to it.** Without one, a misread sentence about another company (Koch Industries' 120,000 read as Infor's) went straight into the panel total and halved a year's change. With no deal on file, treat a change of more than about 2× as a suspect extraction, not as hiring.
+- **"Any Item 2.01" is a blunt test for corporate actions.** Acquisitive companies file one most years, so some organic years get dropped too. Pair it with a size threshold and say so wherever the rule is described.
+- **A SIC code isn't an industry definition.** SIC 3674 includes solar makers, and First Solar led the "tech" restructuring sum in some quarters. After any scope change, check the panel's top contributors.
 - **Moderators detach off-topic subthreads into top-level comments.** These look like posts and should be dropped (CON-169).
 - **HN thread rules changed over time:** 2015-09, 2017-06, 2018-02 (one post per company), 2024-04, 2024-11, and the Freelancer thread was retired in 2025-11. Annotate charts and don't compare across these breaks silently.
 
