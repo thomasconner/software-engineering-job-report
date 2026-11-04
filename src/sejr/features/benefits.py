@@ -25,11 +25,25 @@ BENEFITS: dict[str, list[str]] = {
         r"\bpensions?\b|\bsuperannuation\b|\bRRSP\b|\bKiwiSaver\b",
         r"\bretirement\s+(?:plans?|match\w*|savings|contributions?|benefits?|accounts?|fund)\b",
         r"\bretirement\s*(?:\+|and|with)\s*(?:company\s+)?match",
+        # Retirement in a benefits list: "(medical, dental, retirement)".
+        r"\b(?:medical|dental|vision|health\s?care|health)\s*,\s*(?:\w+\s*,\s*)*(?:and\s+)?retirement\b",
+        r"\bretirement\s*,\s*(?:\w+\s*,\s*)*(?:and\s+)?(?:medical|dental|vision|health)\b",
     ],
     "health_insurance": [
         r"\b(?:health|medical)(?:\s?care)?\s+(?:insurance|benefits?|coverage|plans?|cover|premiums?)\b",
         r"\b(?:health|medical|med)(?:\s?care)?\s*(?:,|/|&|\+|and)\s*(?:health\s*,?\s*)?(?:dental|vision)\b",
         r"\bfull\s+(?:health\s?care|medical)\b",
+        # "health care" as an item in a benefits list ("time off, health care, 401k"), not in a
+        # list of industries ("retail, and healthcare").
+        (
+            r"(?:^|[,:;•*(]\s*|\band\s+)health\s?care(?=\s*(?:[,;/.)]|and\b|$))"
+            r"(?=[^.\n]{0,60}\b(?:401|dental|vision|pto|vacation|insurance|perks|equity|stipends?"
+            r"|retirement|pension|time\s+off|bonus|salary|life)\b)"
+        ),
+        (
+            r"\b(?:401k?|dental|vision|pto|vacation|perks|benefits|equity|stipends?|salary|pay|bonus"
+            r"|time\s+off)\b[^.\n]{0,60}(?:[,:;•*]\s*|\band\s+)health\s?care(?=\s*(?:[,;/.)]|and\b|$))"
+        ),
         r"\b(?:dental|vision)\s*(?:,|/|&|\+|and)\s*(?:\w+\s*(?:,|/|&|and)\s*)?(?:health|medical)\b",
         (
             r"\b(?:private|fully[- ]paid|fully[- ]covered|(?:fully\s+)?subsidi[sz]ed|100%(?:\s+(?:paid|covered))?)"
@@ -72,7 +86,8 @@ BENEFITS: dict[str, list[str]] = {
     "learning_budget": [
         (
             r"\b(?:learning|education(?:al)?|training|conferences?|development|books?|L&D|courses?)"
-            r"(?:\s+(?:and|&|/)\s+\w+)?\s+(?:budgets?|stipends?|allowances?|reimbursements?)\b"
+            r"(?:\s+(?:and|&|/)\s+\w+)?\s+(?:budgets?|stipends?|allowances?|reimbursements?"
+            r"|expense\s+accounts?)\b"
         ),
         r"\b(?:learning|education(?:al)?|training)\s+funds?\b",
         r"\btuition\s+(?:reimbursement|assistance|support)\b",
@@ -84,7 +99,7 @@ BENEFITS: dict[str, list[str]] = {
             r"|desk|office\s+setup|equipment|gear|internet|home\s+workplace)(?:\s*/\s*\w+)?\s+(?:\w+\s+)?(?:stipends?|budgets?"
             r"|allowances?|reimbursements?)\b"
         ),
-        r"\bhome[- ]office\s+support\b",
+        r"\bhome[- ]office\s+(?:support|expenses?)\b",
     ],
     "relocation": [
         (
@@ -102,7 +117,9 @@ BENEFITS: dict[str, list[str]] = {
             r"|possible|available|negotiable|considered|an option|on the table)\b"
         ),
         # "relocation to the Bay Area" in a perks list.
-        r"\brelocation\s+to\s+(?:the\s+)?[A-Z]",
+        r"\brelocation\s+to\s+(?:the\s+)?(?-i:[A-Z])",
+        r"\bconsider\w*\s+(?:\w+\s+)?relocation\b",
+        r"\b(?:assist\w*|help|support)\s+(?:in|with)\s+relocat\w*",
         # A token in a header list: "(Local, Remote, Visa, Relocation)".
         r"[(,|]\s*reloc(?:ation)?\s*(?=[,)|])",
         r"\b(?:relocate|relocating)\s+(?:\w+\s+)?(?:you|people|candidates|employees|engineers|folks|hires)\b",
@@ -152,8 +169,12 @@ NOT_A_BENEFIT: dict[str, re.Pattern[str]] = {
     ),
     # A move the candidate must make: "require relocation to Japan", "willing to relocate".
     "relocation": re.compile(
-        r"(?:requir\w*|must|willing\s+to|open\s+to|need\w*|expect\w*)\s+(?:\w+\s+){0,2}relocat\w*\b"
-        r"(?!\s+(?:people|you|candidates|employees|engineers|folks|hires))",
+        r"(?:requir\w*|must|willing\s+to|open\s+to(?!\s+(?:provid|offer|cover|help|assist|pay|support))"
+        r"|need\w*|expect\w*)\s+(?:[\w()]+\s+){0,2}relocat\w*\b"
+        r"(?!\s+(?:people|you|candidates|employees|engineers|folks|hires))"
+        # "relocation to Austin is required", but not "relocation support if required".
+        r"|\brelocat\w*\s+(?:to\s+(?:[\w,]+\s+){1,4}?)?(?:is\s+|will\s+be\s+|would\s+be\s+)?"
+        r"(?:required|preferred|expected|mandatory|a\s+must)\b",
         re.IGNORECASE,
     ),
     "parental_leave": re.compile(
@@ -168,6 +189,7 @@ NOT_A_BENEFIT: dict[str, re.Pattern[str]] = {
     ),
 }
 NOT_A_BENEFIT_CHARS = 40
+NON_PREFIX = re.compile(r"\bnon-(?=\w)", re.IGNORECASE)
 NEGATED_INSIDE = re.compile(
     r"\b(?:not|no|cannot|unable|never)\b|n['’]t\b", re.IGNORECASE
 )
@@ -189,8 +211,10 @@ def _counts(text: str, name: str, m: re.Match[str]) -> bool:
         ):
             return False
     # "Relocation not provided": the negation can sit inside a longer match.
+    # "non-trivial equity" is not a negation.
+    plain = NON_PREFIX.sub("non_", text)
     return not (
-        NEGATED_INSIDE.search(m.group()) or is_negated(text, m.start(), m.end())
+        NEGATED_INSIDE.search(m.group()) or is_negated(plain, m.start(), m.end())
     )
 
 

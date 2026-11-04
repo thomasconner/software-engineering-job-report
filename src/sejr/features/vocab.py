@@ -36,6 +36,11 @@ COMPANY_CUE = re.compile(
     re.IGNORECASE,
 )
 CUE_WORDS = 6
+# These name the company even in a sentence that lists tools ("used by OpenAI and Datadog").
+STRONG_CUE = re.compile(
+    r"\b(?:used\s+by|trusted\s+by|companies\s+like|teams?\s+at|customers?)\b",
+    re.IGNORECASE,
+)
 # "backed by" is a cue only next to money: "backed by a MySQL database" is a stack.
 BACKED_BY = re.compile(r"\bbacked\s+by\b", re.IGNORECASE)
 INVESTOR_WORDS = re.compile(
@@ -358,6 +363,8 @@ def _company_cue(text: str, m: re.Match[str]) -> bool:
     near = " ".join(sentence.split()[-CUE_WORDS:])
     if BACKED_BY.search(near):
         return bool(INVESTOR_WORDS.search(sentence + text[m.end() : m.end() + 60]))
+    if STRONG_CUE.search(near):
+        return True
     return bool(COMPANY_CUE.search(near)) and not TECH_LIST.search(sentence)
 
 

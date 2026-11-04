@@ -137,12 +137,12 @@ function noiseTest(data, key, unit) {
     if (unit === 'usd') return Math.abs(b / a - 1) < 0.05 ? 'noise' : 'clear';
     if (unit === 'score') return Math.abs(b - a) < 0.2 ? 'noise' : 'clear';
     // A median of whole years moves in steps; with no exported bar, never call a step a move.
-    if (unit === 'years') return 'thin';
+    if (unit === 'years') return 'none';
     return 'clear';
   };
 }
 
-const WORD = { good: 'better', bad: 'worse', noise: 'about the same', thin: 'too few posts' };
+const WORD = { good: 'better', bad: 'worse', noise: 'about the same', thin: 'too few posts', none: 'no comparison' };
 
 /**
  * A change from `thenMonth` to `nowMonth`, ready to print: {sign, text, mark, tone, word}.

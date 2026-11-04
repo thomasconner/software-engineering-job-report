@@ -365,6 +365,8 @@ def test_vocabulary_size_and_groups():
         ("Acme | Eng\n\nOur API is backed by a MySQL database and Elasticsearch",
          {"MySQL", "Elasticsearch"}, set()),
         ("Acme | Eng\n\nWe are backed by Datadog and a16z", set(), {"Datadog"}),
+        ("Acme | Eng\n\nOur product is used by OpenAI, Datadog and Snowflake.", set(),
+         {"OpenAI", "Datadog", "Snowflake"}),
         ("Acme | Eng\n\nOur stack: dbt, Snowflake, plus data coming from tools like Datadog",
          {"Snowflake", "Datadog"}, set()),
         ("Hugging Face | ML Engineer\n\nWork on the Hugging Face Hub", set(), {"Hugging Face"}),

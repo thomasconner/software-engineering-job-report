@@ -36,7 +36,7 @@ assert.equal(verdict('usd', 200000, 300000, 0.01, { n: 20 }), 'too few posts');
 // or on fewer than 30 posts, a step is never called a move.
 assert.equal(verdict('years', 4, 5, 0.3), 'about the same');
 assert.equal(verdict('years', 3, 5, 0.3), 'better');
-assert.equal(verdict('years', 3, 5, undefined), 'too few posts');
+assert.equal(verdict('years', 3, 5, undefined), 'no comparison');
 assert.equal(verdict('years', 3, 5, 0.01, { n: 20 }), 'too few posts');
 
 // A zero on either side can't be put on the log scale, so a ratio move is never called noise.

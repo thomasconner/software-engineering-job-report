@@ -11,7 +11,8 @@ NUMBER = r"(?:\d{1,2}|" + "|".join(WORD_NUMBERS) + r")"
 YEARS = re.compile(
     r"(?<![\w.$€£])(?<!\d[-–])(?P<low>"
     + NUMBER
-    + r")\s*\+?\s*(?:(?:-|–|to)\s*(?P<high>"
+    # "Two (2) years" repeats the number in parentheses.
+    + r")(?:\s*\(\s*\d{1,2}\s*\))?\s*\+?\s*(?:(?:-|–|to)\s*(?P<high>"
     + NUMBER
     + r")\s*\+?\s*)?(?:years?|yrs?|y/o/e|yoe|y(?=\+))\b(?:'|’)?",
     re.IGNORECASE,
@@ -60,13 +61,13 @@ NOT_REQUIRED_CLAUSE = re.compile(
     r"\b(?:(?:our|current|the)\s+team\s+(?:is|are|has|have)|team\s+of\b|founders?\s+(?:have|has|with|are)"
     r"|(?:we|i)\s+(?:have|bring)\s+(?:a\s+)?(?:combined|collective|over)|i'?ve\s+been|we'?ve\s+been"
     r"|(?:most|many|all|some|several)\s+of\s+us"
-    r"|(?:founded|led|run|started)\s+by\b|(?:founders?|ceo|cto|partners?|managers?)\s+(?:\w+\s+){0,2}with)",
+    r"|(?:founded|led|run|started)\s+by\b|(?:founders?|ceo|cto|partners?)[\s,]+(?:\w+[\s,]+){0,2}with)",
     re.IGNORECASE,
 )
-# "(20+ years)" on its own in parentheses is the company's age, unless a role is named.
-PAREN_ROLE = re.compile(
-    r"\b(?:engineers?|developers?|senior|sr|lead|staff|principal|mid|junior|level|manager"
-    r"|designers?|scientists?|architects?|experience|exp)\b",
+# "Acme, established (20+ years)": a parenthesized number after a company or age word is the
+# company's age. "Python (5+ years)" is a requirement.
+COMPANY_AGE_BEFORE = re.compile(
+    r"\b(?:company|business|firm|established|founded|in\s+business|around|history|old)\W*\(\s*$",
     re.IGNORECASE,
 )
 BUCKETS = (("0_2", 0, 2), ("3_4", 3, 4), ("5_7", 5, 7), ("8_plus", 8, 99))
@@ -88,11 +89,7 @@ def years_required(text: str) -> int | None:
             NOT_REQUIRED_BEFORE.search(before)
             or NOT_REQUIRED_AFTER.search(after)
             or NOT_REQUIRED_CLAUSE.search(clause)
-            or (
-                re.search(r"\(\s*$", before)
-                and re.match(r"\s*\)", after)
-                and not PAREN_ROLE.search(before[-30:])
-            )
+            or (COMPANY_AGE_BEFORE.search(before) and re.match(r"\s*\)", after))
         ):
             continue
         if not (

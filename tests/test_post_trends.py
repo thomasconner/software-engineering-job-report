@@ -66,6 +66,18 @@ FIXTURES = Path(__file__).parent / "fixtures" / "post_trends"
         ("We back founders with equity-free grants", set(), {"equity"}),
         ("Bonuses:\n - AJAX, jQuery", set(), {"bonus"}),
         ("$180-250K + Bonus/Carry (hedge fund equity equivalent)", {"bonus"}, {"equity"}),
+        ("meaningful, non-trivial equity", {"equity"}, set()),
+        ("Benefits: health care, 401k", {"health_insurance", "retirement"}, set()),
+        ("We are a health care company", set(), {"health_insurance"}),
+        ("Insurance (medical, dental, retirement)", {"retirement"}, set()),
+        ("home office expenses; an education expense account",
+         {"remote_stipend", "learning_budget"}, set()),
+        ("we consider relocation for strong candidates", {"relocation"}, set()),
+        ("assistance in relocating", {"relocation"}, set()),
+        ("we are open to providing relocation assistance", {"relocation"}, set()),
+        ("Both roles require (eventual) relocation to Japan", set(), {"relocation"}),
+        ("Relocation to London preferred", set(), {"relocation"}),
+        ("relocation to the bay area", set(), {"relocation"}),
     ],
 )  # fmt: skip
 def test_benefits(text, present, absent):
@@ -99,6 +111,12 @@ def test_benefits(text, present, absent):
         ("Senior (5+ years)", 5),
         ("founded by a portfolio manager with 15+ years of experience", None),
         ("product minded (3y+ experience, 32-40h)", 3),
+        ("Python (5+ years)", 5),
+        ("an experienced (4+ years) developer", 4),
+        ("Acme, established (20+ years), is hiring", None),
+        ("Our CTO, with 15+ years at Google, leads the team", None),
+        ("Product manager with 5+ years of experience", 5),
+        ("Two (2) years of experience required", 2),
     ],
 )
 def test_years_required(text, years):
@@ -215,7 +233,11 @@ def _load(name: str) -> list[dict]:
 # are in docs/architecture.md. Personal emails in the fixtures are replaced by [email].
 POSTS = _load("post_labels.jsonl")
 SIZES = {"random": 120, "keyword": 79, "sentences": 120, "review_random": 150,
-         "review_keyword": 100}  # fmt: skip
+         "review_keyword": 100, "heldout": 60}  # fmt: skip
+# The reviewer's seed-31337 draw (30 random, 30 keyword-dense) was labeled for benefits and
+# years only and scored before the rules saw it: benefits 0.99/0.90, years 9 of 9 stated.
+# The next round fixed the misses it showed, so it is partly in-sample too.
+TRAITS = [r for r in POSTS if r["set"] != "heldout"]
 
 
 def _text(row: dict) -> str:
@@ -245,7 +267,7 @@ def test_fixture_sizes():
 
 
 @pytest.mark.parametrize(
-    "sample", ["random", "keyword", "review_random", "review_keyword"]
+    "sample", ["random", "keyword", "review_random", "review_keyword", "heldout"]
 )
 def test_benefits_accuracy(sample):
     rows = [r for r in POSTS if r["set"] == sample]
@@ -277,7 +299,7 @@ def test_years_required_accuracy():
 
 
 def test_degree_accuracy():
-    pairs = [({r["degree"]} - {"none"}, {degree(_text(r))} - {"none"}) for r in POSTS]
+    pairs = [({r["degree"]} - {"none"}, {degree(_text(r))} - {"none"}) for r in TRAITS]
     for label in ("required", "optional"):
         precision, recall = _scores(
             ({label} & gold, {label} & found) for gold, found in pairs
@@ -286,14 +308,14 @@ def test_degree_accuracy():
 
 
 def test_office_days_accuracy():
-    pairs = list(_stated(POSTS, office_days, "office_days"))
+    pairs = list(_stated(TRAITS, office_days, "office_days"))
     precision, recall = _scores(pairs)  # the stated number must match exactly
     assert precision >= 0.9 and recall >= 0.85
 
 
 def test_interview_style_accuracy():
     precision, recall = _scores(
-        (set(r["interview"]), set(interview_styles(_text(r)))) for r in POSTS
+        (set(r["interview"]), set(interview_styles(_text(r)))) for r in TRAITS
     )
     assert precision >= 0.85 and recall >= 0.6
 
