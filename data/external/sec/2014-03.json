@@ -1,6 +1,6 @@
 {
   "as_of": "2014-03-09",
-  "fetched_at": "2026-11-04T17:48:03Z",
+  "fetched_at": "2026-11-04T18:40:27Z",
   "month": "2014-03",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -16,21 +16,31 @@
       "vintage_date": "2014-03-09"
     },
     "sec_headcount_median_yoy.US": {
-      "n": 47,
-      "ref_period": "2014-01",
+      "companies": [
+        1018724,
+        1065088,
+        1065280
+      ],
+      "n": 3,
+      "ref_period": "2013-12",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0362,
+      "value": 0.0635,
       "vintage_date": "2014-03-09"
     },
     "sec_headcount_panel.US": {
-      "n": 47,
-      "ref_period": "2014-01",
+      "companies": [
+        1018724,
+        1065088,
+        1065280
+      ],
+      "n": 3,
+      "ref_period": "2013-12",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0438,
+      "value": 0.2532,
       "vintage_date": "2014-03-09"
     },
     "sec_item_205_filings_panel.US": {
-      "n": 50,
+      "n": 3,
       "ref_period": "2014-02",
       "source_url": "https://data.sec.gov/submissions/",
       "value": 0,
@@ -42,11 +52,18 @@
       "value": 0,
       "vintage_date": "2014-03-09"
     },
-    "sec_restructuring_usd.US": {
-      "n": 21,
+    "sec_restructuring_companies.US": {
+      "n": 3,
       "ref_period": "2013-Q3",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 447028000,
+      "value": 0,
+      "vintage_date": "2014-03-09"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 0,
+      "ref_period": "2013-Q3",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 0,
       "vintage_date": "2014-03-09"
     }
   }

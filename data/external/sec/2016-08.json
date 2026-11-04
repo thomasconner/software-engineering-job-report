@@ -1,6 +1,6 @@
 {
   "as_of": "2016-08-09",
-  "fetched_at": "2026-11-04T17:48:04Z",
+  "fetched_at": "2026-11-04T18:40:33Z",
   "month": "2016-08",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -16,24 +16,100 @@
       "vintage_date": "2016-08-09"
     },
     "sec_headcount_median_yoy.US": {
-      "n": 46,
+      "companies": [
+        2488,
+        6951,
+        8670,
+        16058,
+        23082,
+        47217,
+        50863,
+        70866,
+        97476,
+        320193,
+        356028,
+        712515,
+        718877,
+        723125,
+        746838,
+        789019,
+        790070,
+        796343,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        898293,
+        1000180,
+        1002047,
+        1011006,
+        1043604,
+        1045810,
+        1058290,
+        1108524,
+        1124610,
+        1274494,
+        1288776,
+        1336920,
+        1341439
+      ],
+      "n": 36,
       "ref_period": "2016-06",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0441,
+      "value": 0.0147,
       "vintage_date": "2016-08-09"
     },
     "sec_headcount_panel.US": {
-      "n": 46,
+      "companies": [
+        2488,
+        6951,
+        8670,
+        16058,
+        23082,
+        47217,
+        50863,
+        70866,
+        97476,
+        320193,
+        356028,
+        712515,
+        718877,
+        723125,
+        746838,
+        789019,
+        790070,
+        796343,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        898293,
+        1000180,
+        1002047,
+        1011006,
+        1043604,
+        1045810,
+        1058290,
+        1108524,
+        1124610,
+        1274494,
+        1288776,
+        1336920,
+        1341439
+      ],
+      "n": 36,
       "ref_period": "2016-06",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0484,
+      "value": 0.0442,
       "vintage_date": "2016-08-09"
     },
     "sec_item_205_filings_panel.US": {
       "n": 50,
       "ref_period": "2016-07",
       "source_url": "https://data.sec.gov/submissions/",
-      "value": 1,
+      "value": 2,
       "vintage_date": "2016-08-09"
     },
     "sec_item_205_filings_software.US": {
@@ -42,11 +118,23 @@
       "value": 3,
       "vintage_date": "2016-08-09"
     },
-    "sec_restructuring_usd.US": {
-      "n": 23,
+    "sec_restructuring_companies.US": {
+      "n": 49,
       "ref_period": "2016-Q1",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 686498000,
+      "value": 22,
+      "vintage_date": "2016-08-09"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 22,
+      "ref_period": "2016-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 1645590,
+        "name": "Hewlett Packard Enterprise Co",
+        "share": 0.2409
+      },
+      "value": 668292000,
       "vintage_date": "2016-08-09"
     }
   }

@@ -13,7 +13,7 @@
    "cik": 320193,
    "name": "Apple Inc.",
    "rank": 2,
-   "reason": "named",
+   "reason": "sic_3571",
    "revenue_fiscal_year_end": "2020-09-26",
    "revenue_usd": 274515000000.0,
    "sic": "3571"
@@ -40,7 +40,7 @@
    "cik": 1571996,
    "name": "Dell Technologies Inc.",
    "rank": 5,
-   "reason": "named",
+   "reason": "sic_3571",
    "revenue_fiscal_year_end": "2020-01-31",
    "revenue_usd": 92154000000.0,
    "sic": "3571"
@@ -49,7 +49,7 @@
    "cik": 51143,
    "name": "INTERNATIONAL BUSINESS MACHINES CORP",
    "rank": 6,
-   "reason": "named",
+   "reason": "sic_3570",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 77147000000.0,
    "sic": "3570"
@@ -58,7 +58,7 @@
    "cik": 50863,
    "name": "INTEL CORP",
    "rank": 7,
-   "reason": "named",
+   "reason": "sic_3674",
    "revenue_fiscal_year_end": "2019-12-28",
    "revenue_usd": 71965000000.0,
    "sic": "3674"
@@ -76,7 +76,7 @@
    "cik": 47217,
    "name": "HP INC",
    "rank": 9,
-   "reason": "named",
+   "reason": "sic_3570",
    "revenue_fiscal_year_end": "2020-10-31",
    "revenue_usd": 56639000000.0,
    "sic": "3570"
@@ -85,7 +85,7 @@
    "cik": 858877,
    "name": "CISCO SYSTEMS, INC.",
    "rank": 10,
-   "reason": "named",
+   "reason": "sic_3576",
    "revenue_fiscal_year_end": "2020-07-25",
    "revenue_usd": 49301000000.0,
    "sic": "3576"
@@ -100,36 +100,45 @@
    "sic": "7372"
   },
   {
-   "cik": 1645590,
-   "name": "Hewlett Packard Enterprise Co",
+   "cik": 898293,
+   "name": "JABIL INC",
    "rank": 12,
-   "reason": "named",
-   "revenue_fiscal_year_end": "2020-10-31",
-   "revenue_usd": 26982000000.0,
-   "sic": "3570"
+   "reason": "sic_3672",
+   "revenue_fiscal_year_end": "2020-08-31",
+   "revenue_usd": 27266438000.0,
+   "sic": "3672"
+  },
+  {
+   "cik": 866374,
+   "name": "FLEX LTD.",
+   "rank": 13,
+   "reason": "sic_3672",
+   "revenue_fiscal_year_end": "2020-03-31",
+   "revenue_usd": 24209870000.0,
+   "sic": "3672"
   },
   {
    "cik": 1730168,
    "name": "Broadcom Inc.",
-   "rank": 13,
-   "reason": "named",
+   "rank": 14,
+   "reason": "sic_3674",
    "revenue_fiscal_year_end": "2020-11-01",
    "revenue_usd": 23888000000.0,
    "sic": "3674"
   },
   {
-   "cik": 804328,
-   "name": "QUALCOMM INC/DE",
-   "rank": 14,
-   "reason": "named",
-   "revenue_fiscal_year_end": "2020-09-27",
-   "revenue_usd": 23531000000.0,
-   "sic": "3663"
+   "cik": 723125,
+   "name": "MICRON TECHNOLOGY INC",
+   "rank": 15,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2020-09-03",
+   "revenue_usd": 21435000000.0,
+   "sic": "3674"
   },
   {
    "cik": 1065280,
    "name": "NETFLIX INC",
-   "rank": 15,
+   "rank": 16,
    "reason": "named",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 20156447000.0,
@@ -138,7 +147,7 @@
   {
    "cik": 1688568,
    "name": "DXC Technology Co",
-   "rank": 16,
+   "rank": 17,
    "reason": "sic_7374",
    "revenue_fiscal_year_end": "2020-03-31",
    "revenue_usd": 19577000000.0,
@@ -147,16 +156,25 @@
   {
    "cik": 1633917,
    "name": "PayPal Holdings, Inc.",
-   "rank": 17,
+   "rank": 18,
    "reason": "named",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 17772000000.0,
    "sic": "7389"
   },
   {
+   "cik": 6951,
+   "name": "APPLIED MATERIALS INC /DE",
+   "rank": 19,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2020-10-25",
+   "revenue_usd": 17202000000.0,
+   "sic": "3674"
+  },
+  {
    "cik": 1108524,
    "name": "Salesforce, Inc.",
-   "rank": 18,
+   "rank": 20,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2020-01-31",
    "revenue_usd": 17098000000.0,
@@ -165,7 +183,7 @@
   {
    "cik": 1058290,
    "name": "COGNIZANT TECHNOLOGY SOLUTIONS CORP",
-   "rank": 19,
+   "rank": 21,
    "reason": "sic_7371",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 16783000000.0,
@@ -174,16 +192,25 @@
   {
    "cik": 8670,
    "name": "AUTOMATIC DATA PROCESSING INC",
-   "rank": 20,
+   "rank": 22,
    "reason": "sic_7374",
    "revenue_fiscal_year_end": "2020-06-30",
    "revenue_usd": 14589800000.0,
    "sic": "7374"
   },
   {
+   "cik": 97476,
+   "name": "TEXAS INSTRUMENTS INC",
+   "rank": 23,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2019-12-31",
+   "revenue_usd": 14383000000.0,
+   "sic": "3674"
+  },
+  {
    "cik": 1543151,
    "name": "Uber Technologies, Inc",
-   "rank": 21,
+   "rank": 24,
    "reason": "named",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 14147000000.0,
@@ -192,7 +219,7 @@
   {
    "cik": 796343,
    "name": "ADOBE INC.",
-   "rank": 22,
+   "rank": 25,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2019-11-29",
    "revenue_usd": 11171297000.0,
@@ -201,7 +228,7 @@
   {
    "cik": 1336920,
    "name": "Leidos Holdings, Inc.",
-   "rank": 23,
+   "rank": 26,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2020-01-03",
    "revenue_usd": 11094000000.0,
@@ -210,8 +237,8 @@
   {
    "cik": 1045810,
    "name": "NVIDIA CORP",
-   "rank": 24,
-   "reason": "named",
+   "rank": 27,
+   "reason": "sic_3674",
    "revenue_fiscal_year_end": "2020-01-26",
    "revenue_usd": 10918000000.0,
    "sic": "3674"
@@ -219,7 +246,7 @@
   {
    "cik": 1124610,
    "name": "VMWARE LLC",
-   "rank": 25,
+   "rank": 28,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2020-01-31",
    "revenue_usd": 10811000000.0,
@@ -228,26 +255,62 @@
   {
    "cik": 1065088,
    "name": "EBAY INC",
-   "rank": 26,
+   "rank": 29,
    "reason": "named",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 10800000000.0,
    "sic": "7389"
   },
   {
+   "cik": 1770450,
+   "name": "Xerox Holdings Corp",
+   "rank": 30,
+   "reason": "sic_3577",
+   "revenue_fiscal_year_end": "2019-12-31",
+   "revenue_usd": 9066000000.0,
+   "sic": "3577"
+  },
+  {
+   "cik": 820313,
+   "name": "AMPHENOL CORP /DE/",
+   "rank": 31,
+   "reason": "sic_3678",
+   "revenue_fiscal_year_end": "2019-12-31",
+   "revenue_usd": 8225400000.0,
+   "sic": "3678"
+  },
+  {
    "cik": 896878,
    "name": "INTUIT INC.",
-   "rank": 27,
+   "rank": 32,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2020-07-31",
    "revenue_usd": 7679000000.0,
    "sic": "7372"
   },
   {
+   "cik": 897723,
+   "name": "SANMINA CORP",
+   "rank": 33,
+   "reason": "sic_3672",
+   "revenue_fiscal_year_end": "2020-10-03",
+   "revenue_usd": 6960370000.0,
+   "sic": "3672"
+  },
+  {
+   "cik": 70866,
+   "name": "NCR Voyix Corp",
+   "rank": 34,
+   "reason": "sic_3578",
+   "revenue_fiscal_year_end": "2019-12-31",
+   "revenue_usd": 6915000000.0,
+   "sic": "3578"
+  },
+  {
    "cik": 2488,
    "name": "ADVANCED MICRO DEVICES INC",
-   "rank": 28,
-   "reason": "named",
+   "rank": 35,
+   "reason": "sic_3674",
    "revenue_fiscal_year_end": "2019-12-28",
    "revenue_usd": 6731000000.0,
    "sic": "3674"
@@ -255,7 +318,7 @@
   {
    "cik": 718877,
    "name": "Activision Blizzard, Inc.",
-   "rank": 29,
+   "rank": 36,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 6489000000.0,
@@ -264,7 +327,7 @@
   {
    "cik": 1571123,
    "name": "Science Applications International Corp",
-   "rank": 30,
+   "rank": 37,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2020-01-31",
    "revenue_usd": 6379000000.0,
@@ -273,7 +336,7 @@
   {
    "cik": 16058,
    "name": "CACI INTERNATIONAL INC /DE/",
-   "rank": 31,
+   "rank": 38,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2020-06-30",
    "revenue_usd": 5720042000.0,
@@ -282,34 +345,61 @@
   {
    "cik": 804753,
    "name": "CERNER Corp",
-   "rank": 32,
+   "rank": 39,
    "reason": "sic_7373",
    "revenue_fiscal_year_end": "2019-12-28",
    "revenue_usd": 5692598000.0,
    "sic": "7373"
   },
   {
+   "cik": 6281,
+   "name": "ANALOG DEVICES INC",
+   "rank": 40,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2020-10-31",
+   "revenue_usd": 5603056000.0,
+   "sic": "3674"
+  },
+  {
    "cik": 712515,
    "name": "ELECTRONIC ARTS INC.",
-   "rank": 33,
+   "rank": 41,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2020-03-31",
    "revenue_usd": 5537000000.0,
    "sic": "7372"
   },
   {
-   "cik": 891103,
-   "name": "Match Group, Inc.",
-   "rank": 34,
-   "reason": "sic_7370",
+   "cik": 1097864,
+   "name": "ON SEMICONDUCTOR CORP",
+   "rank": 42,
+   "reason": "sic_3674",
    "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 4757055000.0,
-   "sic": "7370"
+   "revenue_usd": 5517900000.0,
+   "sic": "3674"
+  },
+  {
+   "cik": 1002047,
+   "name": "NetApp, Inc.",
+   "rank": 43,
+   "reason": "sic_3572",
+   "revenue_fiscal_year_end": "2020-04-24",
+   "revenue_usd": 5412000000.0,
+   "sic": "3572"
+  },
+  {
+   "cik": 827054,
+   "name": "MICROCHIP TECHNOLOGY INC",
+   "rank": 44,
+   "reason": "sic_3674",
+   "revenue_fiscal_year_end": "2020-03-31",
+   "revenue_usd": 5274200000.0,
+   "sic": "3674"
   },
   {
    "cik": 1512673,
    "name": "Block, Inc.",
-   "rank": 35,
+   "rank": 45,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 4713500000.0,
@@ -318,140 +408,50 @@
   {
    "cik": 1402436,
    "name": "SS&C Technologies Holdings Inc",
-   "rank": 36,
+   "rank": 46,
    "reason": "sic_7372",
    "revenue_fiscal_year_end": "2019-12-31",
    "revenue_usd": 4632900000.0,
    "sic": "7372"
   },
   {
+   "cik": 48898,
+   "name": "HUBBELL INC",
+   "rank": 47,
+   "reason": "sic_3670",
+   "revenue_fiscal_year_end": "2019-12-31",
+   "revenue_usd": 4591000000.0,
+   "sic": "3670"
+  },
+  {
    "cik": 1724670,
    "name": "Perspecta Inc.",
-   "rank": 37,
+   "rank": 48,
    "reason": "sic_7374",
    "revenue_fiscal_year_end": "2020-03-31",
    "revenue_usd": 4504000000.0,
    "sic": "7374"
   },
   {
-   "cik": 1597033,
-   "name": "Sabre Corp",
-   "rank": 38,
-   "reason": "sic_7370",
-   "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 3974988000.0,
-   "sic": "7370"
-  },
-  {
-   "cik": 275880,
-   "name": "PARSONS CORP",
-   "rank": 39,
-   "reason": "sic_7373",
-   "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 3954812000.0,
-   "sic": "7373"
-  },
-  {
-   "cik": 883241,
-   "name": "SYNOPSYS INC",
-   "rank": 40,
-   "reason": "sic_7372",
-   "revenue_fiscal_year_end": "2020-10-31",
-   "revenue_usd": 3685281000.0,
-   "sic": "7372"
-  },
-  {
-   "cik": 1327811,
-   "name": "Workday, Inc.",
-   "rank": 41,
-   "reason": "sic_7374",
-   "revenue_fiscal_year_end": "2020-01-31",
-   "revenue_usd": 3627206000.0,
-   "sic": "7374"
-  },
-  {
-   "cik": 1759509,
-   "name": "Lyft, Inc.",
-   "rank": 42,
-   "reason": "named",
-   "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 3615960000.0,
-   "sic": "7389"
-  },
-  {
-   "cik": 1373715,
-   "name": "ServiceNow, Inc.",
-   "rank": 43,
-   "reason": "sic_7372",
-   "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 3460437000.0,
-   "sic": "7372"
-  },
-  {
-   "cik": 1418091,
-   "name": "TWITTER, INC.",
-   "rank": 44,
-   "reason": "sic_7370",
-   "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 3459329000.0,
-   "sic": "7370"
-  },
-  {
-   "cik": 750004,
-   "name": "Light & Wonder, Inc.",
-   "rank": 45,
-   "reason": "sic_7373",
-   "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 3400000000.0,
-   "sic": "7373"
-  },
-  {
-   "cik": 769397,
-   "name": "Autodesk, Inc.",
-   "rank": 46,
-   "reason": "sic_7372",
-   "revenue_fiscal_year_end": "2020-01-31",
-   "revenue_usd": 3274300000.0,
-   "sic": "7372"
-  },
-  {
-   "cik": 946581,
-   "name": "TAKE TWO INTERACTIVE SOFTWARE INC",
-   "rank": 47,
-   "reason": "sic_7372",
-   "revenue_fiscal_year_end": "2020-03-31",
-   "revenue_usd": 3088970000.0,
-   "sic": "7372"
-  },
-  {
-   "cik": 877890,
-   "name": "CITRIX SYSTEMS INC",
-   "rank": 48,
-   "reason": "sic_7372",
-   "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 3010564000.0,
-   "sic": "7372"
-  },
-  {
-   "cik": 1609711,
-   "name": "GoDaddy Inc.",
+   "cik": 1043604,
+   "name": "JUNIPER NETWORKS INC",
    "rank": 49,
-   "reason": "sic_7373",
+   "reason": "sic_3576",
    "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 2988100000.0,
-   "sic": "7373"
+   "revenue_usd": 4445400000.0,
+   "sic": "3576"
   },
   {
-   "cik": 746838,
-   "name": "UNISYS CORP",
+   "cik": 28823,
+   "name": "DIEBOLD NIXDORF, Inc",
    "rank": 50,
-   "reason": "sic_7373",
+   "reason": "sic_3578",
    "revenue_fiscal_year_end": "2019-12-31",
-   "revenue_usd": 2948700000.0,
-   "sic": "7373"
+   "revenue_usd": 4408700000.0,
+   "sic": "3578"
   }
  ],
  "cutoff": "2021-01-01T00:00:00Z",
- "rule": "US-based 10-K filers in SIC 7370-7374 plus 21 named big-tech CIKs, with a 10-K accepted in the 456 days before the cutoff; top 50 by annual revenue in the latest 10-K accepted before the cutoff",
+ "rule": "US-based 10-K filers whose latest 10-K before the cutoff was filed under SIC 3570-3579, 3670-3679 or 7370-7374, plus 8 named internet platforms, with a 10-K accepted in the 456 days before the cutoff and no Form 15 since; top 50 by annual revenue in the latest 10-K accepted before the cutoff",
  "year": 2021
 }

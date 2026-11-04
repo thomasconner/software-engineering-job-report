@@ -1,6 +1,6 @@
 {
   "as_of": "2023-07-11",
-  "fetched_at": "2026-11-04T17:48:05Z",
+  "fetched_at": "2026-11-04T18:40:51Z",
   "month": "2023-07",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -16,10 +16,45 @@
       "vintage_date": "2023-07-11"
     },
     "sec_headcount_median_yoy.US": {
-      "n": 42,
+      "companies": [
+        6281,
+        6951,
+        8670,
+        70866,
+        97476,
+        320193,
+        712515,
+        789019,
+        796343,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        1002047,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1097864,
+        1108524,
+        1326801,
+        1336920,
+        1341439,
+        1373715,
+        1543151,
+        1559720,
+        1571996,
+        1633917,
+        1652044,
+        1688568,
+        1730168
+      ],
+      "n": 33,
       "ref_period": "2023-05",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0882,
+      "value": 0.0645,
       "vintage_date": "2023-07-11"
     },
     "sec_headcount_meta.US": {
@@ -29,10 +64,45 @@
       "vintage_date": "2023-07-11"
     },
     "sec_headcount_panel.US": {
-      "n": 42,
+      "companies": [
+        6281,
+        6951,
+        8670,
+        70866,
+        97476,
+        320193,
+        712515,
+        789019,
+        796343,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        1002047,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1097864,
+        1108524,
+        1326801,
+        1336920,
+        1341439,
+        1373715,
+        1543151,
+        1559720,
+        1571996,
+        1633917,
+        1652044,
+        1688568,
+        1730168
+      ],
+      "n": 33,
       "ref_period": "2023-05",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0434,
+      "value": 0.0306,
       "vintage_date": "2023-07-11"
     },
     "sec_item_205_filings_panel.US": {
@@ -45,14 +115,26 @@
     "sec_item_205_filings_software.US": {
       "ref_period": "2023-06",
       "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
-      "value": 6,
+      "value": 5,
+      "vintage_date": "2023-07-11"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2023-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 24,
       "vintage_date": "2023-07-11"
     },
     "sec_restructuring_usd.US": {
-      "n": 18,
+      "n": 24,
       "ref_period": "2023-Q1",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 4905780000,
+      "top": {
+        "cik": 1652044,
+        "name": "",
+        "share": 0.4969
+      },
+      "value": 5148140000,
       "vintage_date": "2023-07-11"
     }
   }

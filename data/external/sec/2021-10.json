@@ -1,6 +1,6 @@
 {
   "as_of": "2021-10-09",
-  "fetched_at": "2026-11-04T17:48:05Z",
+  "fetched_at": "2026-11-04T18:40:45Z",
   "month": "2021-10",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -16,7 +16,44 @@
       "vintage_date": "2021-10-09"
     },
     "sec_headcount_median_yoy.US": {
-      "n": 43,
+      "companies": [
+        2488,
+        6951,
+        8670,
+        16058,
+        28823,
+        70866,
+        97476,
+        320193,
+        712515,
+        718877,
+        723125,
+        789019,
+        796343,
+        804753,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        898293,
+        1002047,
+        1043604,
+        1058290,
+        1065088,
+        1097864,
+        1326801,
+        1336920,
+        1341439,
+        1402436,
+        1543151,
+        1571996,
+        1633917,
+        1652044,
+        1688568,
+        1730168
+      ],
+      "n": 35,
       "ref_period": "2021-07",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
       "value": 0.0362,
@@ -29,10 +66,47 @@
       "vintage_date": "2021-10-09"
     },
     "sec_headcount_panel.US": {
-      "n": 43,
+      "companies": [
+        2488,
+        6951,
+        8670,
+        16058,
+        28823,
+        70866,
+        97476,
+        320193,
+        712515,
+        718877,
+        723125,
+        789019,
+        796343,
+        804753,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        898293,
+        1002047,
+        1043604,
+        1058290,
+        1065088,
+        1097864,
+        1326801,
+        1336920,
+        1341439,
+        1402436,
+        1543151,
+        1571996,
+        1633917,
+        1652044,
+        1688568,
+        1730168
+      ],
+      "n": 35,
       "ref_period": "2021-07",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.1994,
+      "value": 0.0456,
       "vintage_date": "2021-10-09"
     },
     "sec_item_205_filings_panel.US": {
@@ -48,11 +122,23 @@
       "value": 0,
       "vintage_date": "2021-10-09"
     },
-    "sec_restructuring_usd.US": {
-      "n": 18,
+    "sec_restructuring_companies.US": {
+      "n": 49,
       "ref_period": "2021-Q2",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 650348000,
+      "value": 20,
+      "vintage_date": "2021-10-09"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 20,
+      "ref_period": "2021-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 723125,
+        "name": "MICRON TECHNOLOGY INC",
+        "share": 0.3681
+      },
+      "value": 1230662000,
       "vintage_date": "2021-10-09"
     }
   }

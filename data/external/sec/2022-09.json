@@ -1,6 +1,6 @@
 {
   "as_of": "2022-09-09",
-  "fetched_at": "2026-11-04T17:48:05Z",
+  "fetched_at": "2026-11-04T18:40:48Z",
   "month": "2022-09",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -16,10 +16,47 @@
       "vintage_date": "2022-09-09"
     },
     "sec_headcount_median_yoy.US": {
-      "n": 44,
+      "companies": [
+        2488,
+        6951,
+        8670,
+        70866,
+        97476,
+        320193,
+        712515,
+        718877,
+        789019,
+        796343,
+        804753,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        1002047,
+        1018724,
+        1032975,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1097864,
+        1326801,
+        1336920,
+        1341439,
+        1373715,
+        1402436,
+        1543151,
+        1571996,
+        1633917,
+        1652044,
+        1688568,
+        1730168
+      ],
+      "n": 35,
       "ref_period": "2022-07",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0953,
+      "value": 0.0833,
       "vintage_date": "2022-09-09"
     },
     "sec_headcount_meta.US": {
@@ -29,10 +66,47 @@
       "vintage_date": "2022-09-09"
     },
     "sec_headcount_panel.US": {
-      "n": 44,
+      "companies": [
+        2488,
+        6951,
+        8670,
+        70866,
+        97476,
+        320193,
+        712515,
+        718877,
+        789019,
+        796343,
+        804753,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        1002047,
+        1018724,
+        1032975,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1097864,
+        1326801,
+        1336920,
+        1341439,
+        1373715,
+        1402436,
+        1543151,
+        1571996,
+        1633917,
+        1652044,
+        1688568,
+        1730168
+      ],
+      "n": 35,
       "ref_period": "2022-07",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.1427,
+      "value": 0.1393,
       "vintage_date": "2022-09-09"
     },
     "sec_item_205_filings_panel.US": {
@@ -48,11 +122,23 @@
       "value": 7,
       "vintage_date": "2022-09-09"
     },
-    "sec_restructuring_usd.US": {
-      "n": 16,
+    "sec_restructuring_companies.US": {
+      "n": 49,
       "ref_period": "2022-Q1",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 268229000,
+      "value": 17,
+      "vintage_date": "2022-09-09"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 17,
+      "ref_period": "2022-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 47217,
+        "name": "HP INC",
+        "share": 0.2265
+      },
+      "value": 344300000,
       "vintage_date": "2022-09-09"
     }
   }

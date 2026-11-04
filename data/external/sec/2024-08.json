@@ -1,6 +1,6 @@
 {
   "as_of": "2024-08-09",
-  "fetched_at": "2026-11-04T17:48:05Z",
+  "fetched_at": "2026-11-04T18:40:54Z",
   "month": "2024-08",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -16,10 +16,50 @@
       "vintage_date": "2024-08-09"
     },
     "sec_headcount_median_yoy.US": {
-      "n": 45,
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        97476,
+        320193,
+        712515,
+        789019,
+        796343,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1097864,
+        1108524,
+        1326801,
+        1327567,
+        1336920,
+        1341439,
+        1373715,
+        1375365,
+        1512673,
+        1543151,
+        1559720,
+        1571996,
+        1633917,
+        1645590,
+        1652044,
+        1688568,
+        1730168,
+        1792789,
+        1867072
+      ],
+      "n": 38,
       "ref_period": "2024-06",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0,
+      "value": 0.0175,
       "vintage_date": "2024-08-09"
     },
     "sec_headcount_meta.US": {
@@ -29,10 +69,50 @@
       "vintage_date": "2024-08-09"
     },
     "sec_headcount_panel.US": {
-      "n": 45,
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        97476,
+        320193,
+        712515,
+        789019,
+        796343,
+        820313,
+        858877,
+        866374,
+        896878,
+        897723,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1097864,
+        1108524,
+        1326801,
+        1327567,
+        1336920,
+        1341439,
+        1373715,
+        1375365,
+        1512673,
+        1543151,
+        1559720,
+        1571996,
+        1633917,
+        1645590,
+        1652044,
+        1688568,
+        1730168,
+        1792789,
+        1867072
+      ],
+      "n": 38,
       "ref_period": "2024-06",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": -0.0206,
+      "value": -0.0208,
       "vintage_date": "2024-08-09"
     },
     "sec_item_205_filings_panel.US": {
@@ -48,11 +128,23 @@
       "value": 3,
       "vintage_date": "2024-08-09"
     },
-    "sec_restructuring_usd.US": {
-      "n": 20,
+    "sec_restructuring_companies.US": {
+      "n": 49,
       "ref_period": "2024-Q1",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 2276459000,
+      "value": 21,
+      "vintage_date": "2024-08-09"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 21,
+      "ref_period": "2024-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 858877,
+        "name": "CISCO SYSTEMS, INC.",
+        "share": 0.2284
+      },
+      "value": 2373251000,
       "vintage_date": "2024-08-09"
     }
   }

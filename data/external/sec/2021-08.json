@@ -1,6 +1,6 @@
 {
   "as_of": "2021-08-10",
-  "fetched_at": "2026-11-04T17:48:05Z",
+  "fetched_at": "2026-11-04T18:40:45Z",
   "month": "2021-08",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -16,10 +16,49 @@
       "vintage_date": "2021-08-10"
     },
     "sec_headcount_median_yoy.US": {
-      "n": 44,
+      "companies": [
+        2488,
+        6951,
+        8670,
+        16058,
+        28823,
+        70866,
+        97476,
+        320193,
+        712515,
+        718877,
+        723125,
+        789019,
+        796343,
+        804753,
+        820313,
+        827054,
+        858877,
+        866374,
+        896878,
+        897723,
+        898293,
+        1002047,
+        1043604,
+        1058290,
+        1065088,
+        1097864,
+        1326801,
+        1336920,
+        1341439,
+        1402436,
+        1543151,
+        1571996,
+        1633917,
+        1652044,
+        1688568,
+        1724670,
+        1730168
+      ],
+      "n": 37,
       "ref_period": "2021-06",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0344,
+      "value": 0.0326,
       "vintage_date": "2021-08-10"
     },
     "sec_headcount_meta.US": {
@@ -29,10 +68,49 @@
       "vintage_date": "2021-08-10"
     },
     "sec_headcount_panel.US": {
-      "n": 44,
+      "companies": [
+        2488,
+        6951,
+        8670,
+        16058,
+        28823,
+        70866,
+        97476,
+        320193,
+        712515,
+        718877,
+        723125,
+        789019,
+        796343,
+        804753,
+        820313,
+        827054,
+        858877,
+        866374,
+        896878,
+        897723,
+        898293,
+        1002047,
+        1043604,
+        1058290,
+        1065088,
+        1097864,
+        1326801,
+        1336920,
+        1341439,
+        1402436,
+        1543151,
+        1571996,
+        1633917,
+        1652044,
+        1688568,
+        1724670,
+        1730168
+      ],
+      "n": 37,
       "ref_period": "2021-06",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.1978,
+      "value": 0.0438,
       "vintage_date": "2021-08-10"
     },
     "sec_item_205_filings_panel.US": {
@@ -48,11 +126,23 @@
       "value": 1,
       "vintage_date": "2021-08-10"
     },
-    "sec_restructuring_usd.US": {
-      "n": 17,
+    "sec_restructuring_companies.US": {
+      "n": 49,
       "ref_period": "2021-Q1",
       "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
-      "value": 2689366000,
+      "value": 23,
+      "vintage_date": "2021-08-10"
+    },
+    "sec_restructuring_usd.US": {
+      "n": 23,
+      "ref_period": "2021-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 50863,
+        "name": "INTEL CORP",
+        "share": 0.7981
+      },
+      "value": 2767717000,
       "vintage_date": "2021-08-10"
     }
   }
