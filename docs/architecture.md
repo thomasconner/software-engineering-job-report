@@ -28,6 +28,7 @@ data/external/sec/  SEC panel per year, headcounts read from filings, one value 
 data/cache/sec/     raw EDGAR responses (submissions, company facts, frames, filing text, submissions.zip), gitignored
 site/               static GitHub Pages site (index.html + assets + data/)
 site/articles/      one Markdown article per month, YYYY-MM.md
+site/data/breakdowns/ one series file per breakdown, fetched by the page on demand (see Export contract)
 tests/
 ```
 
@@ -292,6 +293,8 @@ Regex and vocabulary rules on the hiring post's own text, applied to every month
 
 ## Export contract: `site/data/metrics.json`
 
+The export is split in two so the page loads only what an issue draws. `metrics.json` (the core) holds everything below except breakdown series: each breakdown keeps its labels, categories and other fields and gains `file`, the path of its series relative to `site/data` (`"breakdowns/work_mode.json"`). Each `site/data/breakdowns/<id>.json` is `{"id": "<id>", "series": [...]}`, the same series the core would otherwise carry. The page fetches a breakdown file only when a directive draws that breakdown, so a page that draws none loads the core alone. The values are identical either way, so point-in-time behavior doesn't change. `metrics.mock.json` keeps its breakdown series inline, which the page also accepts. Breakdown series were three quarters of the 4.2 MB file (the stack terms alone 0.9 MB); the core is 1.1 MB, 127 KB gzipped. Shown below as one document for readability:
+
 ```json
 {
   "generated_at": "2026-11-09T12:00:00Z",
@@ -360,7 +363,6 @@ month: 2026-11
 headline: "Remote work is losing, but not where you'd think"
 dek: "One-sentence standfirst under the headline."
 byline: "Software Engineering Jobs Report"
-ribbon: "external:indeed_software_postings.US"
 ---
 
 Body paragraphs…
@@ -397,13 +399,15 @@ Directive attributes:
 | `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
-| `layout` | line, bar, stacked-area, slope, dot | `float` (default) or `wide`. On screens 80rem (1280px) and wider a `float` chart sits beside its section's text, alternating right and left down the page, and is moved up to the start of the paragraphs it follows so that text wraps around it; on narrower screens it stays where it was written, at column width. `wide` spans the page instead. `::compare` and `small-multiples` are always wide and don't take `layout`. A chart with fewer than about 500 characters of paragraphs next to it stays in the column |
+| `width` | all, including ::compare | `column` (the text width, 40rem), `wide` (62.5rem) or `full` (75rem, the page). Every graphic is centered on the text's axis; nothing floats. Defaults: `wide` for `line`, `stacked-area`, `bar` with a scalar metric and `::compare`; `column` for `slope`, `dot` and `bar` with a breakdown; `full` for `small-multiples`. On phones every graphic runs edge to edge. `layout` is the float layout's attribute, accepted until the next release as a deprecated alias: `layout="wide"` means `width="wide"`, `layout="float"` means the type's default, and `layout` with `width` is an error |
 
 `bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack`, `stack_<group>`, `benefits`, `interview_style` and `region` must not be drawn as `stacked-area` (their shares don't sum to 1, even when a month's happen to stay under 1).
 
 A back issue clips every series to its front-matter `month`, so older issues never show later data.
 
-Front matter `ribbon` picks the masthead strip's series: a metric key or `external:<key>`, drawn as published. Without it, issues before November 2026 show `posts.hiring` (as they were published) and later issues show `external:indeed_software_postings.US`.
+A `::compare` written before the first `##` section head is the issue's topline: the page moves it up to sit right under the byline, before the lede. A strip written later stays where it is.
+
+Front matter `ribbon` is ignored. It picked the series for the masthead strip, which was dropped when the float layout was replaced (docs/spec.md, Decisions log), and old articles keep the key harmlessly.
 
 Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest last. Files starting with `_` are samples and never listed.
 

@@ -135,6 +135,6 @@ jobs:
           gh issue create --title "$title" --body "$(cat <<EOF
           $month is complete and exported, but \`site/articles/$month.md\` does not exist yet.
 
-          Write the column from \`site/data/metrics.json\` and \`site/data/samples/$month.json\`, following \`docs/style-guide.md\` and the article contract in \`docs/architecture.md\`. Every number must match \`metrics.json\`; a second agent fact-checks it before merge.
+          Write the column from \`site/data/metrics.json\`, the breakdown series in \`site/data/breakdowns/\` and \`site/data/samples/$month.json\`, following \`docs/style-guide.md\` and the article contract in \`docs/architecture.md\`. Every number must match the exported data; a second agent fact-checks it before merge.
           EOF
           )"

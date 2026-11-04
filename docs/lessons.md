@@ -77,3 +77,8 @@ These are mistakes already made, approaches already tried, and traps found in ea
 - **`pkill -f <pattern>` can kill the shell running it** when the pattern matches the command line. Kill by PID from `pgrep` instead.
 - **Branches that touch the shared fetch client, the monthly workflow and the docs conflict when merged.** Have the branch author merge main and resolve, since they know the code best, and keep defaults for other callers unchanged.
 - **Don't publish a column claim before checking it against outside data.** The October 2026 column called HN's trend a market trend and needed a correction. A red-team pass against outside sources is part of review.
+
+## Page layout
+
+- **Floating charts beside text were tried and rejected (CON-205).** Text wrapping a float changed measure mid-paragraph, gave the page three left edges, and needed a script to move charts above their paragraphs. Graphics sit on the text's axis at `column`, `wide` or `full` width instead. Check a layout change with screenshots at phone, iPad and 2560px widths before calling it done.
+- **Prose selectors must not reach into charts.** `.article-body p` and `.article-body h3` restyled chart subtitles, notes and titles (a chart title came out serif). Scope prose rules to the article's direct children (`.article-body > p`).
