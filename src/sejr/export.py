@@ -16,6 +16,7 @@ from sejr.sources import build as build_sources
 VALIDATION_PATH = SITE_DATA_DIR / "validation.json"
 from sejr.features import VERSION as FEATURES_VERSION
 from sejr.features.tokens import header_line
+from sejr.features.vocab import GROUP_TERMS
 
 # key → (label, unit, description). Descriptions are written for a newspaper reader.
 SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
@@ -189,6 +190,61 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
         "share",
         "Share of job posts that mention interns or internships anywhere in the text.",
     ),
+    # What employers ask for, and how the posts themselves read (features-4).
+    "years_required_median.hiring": (
+        "Typical years of experience asked for",
+        "years",
+        (
+            "Median across posts of the fewest years of experience each post asks for "
+            "(“3-5 years” counts as 3; a post with several roles counts its lowest), "
+            "among posts that state a number. Company age, runway and the team’s own years "
+            "are not counted."
+        ),
+    ),
+    "years_required_share.hiring": (
+        "Posts that state years of experience",
+        "share",
+        "Share of job posts that ask for a stated number of years of experience.",
+    ),
+    "degree_required_share.hiring": (
+        "Posts that ask for a degree",
+        "share",
+        (
+            "Share of job posts that require or prefer a degree (BS, MS, PhD, a CS degree) and "
+            "don’t say experience can stand in for it."
+        ),
+    ),
+    "degree_optional_share.hiring": (
+        "Posts that say a degree is optional",
+        "share",
+        (
+            "Share of job posts that say a degree isn’t needed or that equivalent "
+            "experience will do (“or equivalent experience”, “no degree "
+            "required”)."
+        ),
+    ),
+    "post_length_median.hiring": (
+        "Typical post length",
+        "count",
+        "Median length of a job post in characters, after HTML is stripped.",
+    ),
+    "interview_style_share.hiring": (
+        "Posts that describe the interview",
+        "share",
+        (
+            "Share of job posts that say how they interview: a take-home, no LeetCode or "
+            "whiteboard, a pair-programming session, or a paid trial."
+        ),
+    ),
+    "office_days_share.hiring": (
+        "Posts that state office days",
+        "share",
+        (
+            "Share of job posts that say how many days a week to be in the office "
+            "(“3 days a week in office”, “hybrid, 2 days”, "
+            "“onsite Mon–Fri”)."
+        ),
+    ),
 }
 
 # The 2011–12 posts are about half as long as later ones, so any "mentions X" share starts
@@ -200,6 +256,11 @@ for _key in (
     "salary_disclosed_share.hiring",
     "visa_share.hiring",
     "interns_token_share.hiring",
+    "years_required_share.hiring",
+    "degree_required_share.hiring",
+    "degree_optional_share.hiring",
+    "interview_style_share.hiring",
+    "office_days_share.hiring",
 ):
     _label, _unit, _description = SCALAR_TEXT[_key]
     SCALAR_TEXT[_key] = (_label, _unit, _description + SHORT_POSTS)
@@ -221,6 +282,8 @@ COMPARABLE_FROM = {
 }
 MIN_N_SALARY = 30
 MIN_N_SHARE = 50
+# A median of whole years, like a salary median, needs a few dozen posts behind it.
+MIN_N_MEDIAN = {"usd": MIN_N_SALARY, "years": MIN_N_SALARY}
 
 # 1 when a rise is good news for job seekers, -1 when bad; anything unlisted is neutral (0).
 POLARITY = {
@@ -249,7 +312,56 @@ BREAKDOWN_LABELS = {
     "seeker_region": "Where job seekers are, by region",
     "seniority_ai_native": "Which levels AI-native companies are hiring",
     "seniority_not_ai_native": "Which levels other companies are hiring",
+    "stack_language": "Programming languages job posts mention",
+    "stack_framework": "Frameworks job posts mention",
+    "stack_database": "Databases job posts mention",
+    "stack_cloud_devops": "Cloud and DevOps tools job posts mention",
+    "stack_data": "Data tools job posts mention",
+    "stack_ai_ml": "AI and ML tools job posts mention",
+    "stack_mobile": "Mobile platforms job posts mention",
+    "benefits": "Benefits job posts offer",
+    "years_required": "Years of experience asked for",
+    "interview_style": "How job posts say they interview",
 }
+# Breakdowns whose categories are separate yes/no questions, so shares don't sum to 1.
+MENTIONS = (
+    "Each category is its own share of hiring posts, so they do not add up to 100%. A mention "
+    "is not usage: a post can name a tool it is replacing or one it would like to try."
+)
+BREAKDOWN_DESCRIPTIONS = {
+    "stack": MENTIONS,
+    **{f"stack_{group}": MENTIONS for group in GROUP_TERMS},
+    "region": "A header can name several regions, so shares do not add up to 100%.",
+    "benefits": (
+        "Share of hiring posts that offer each benefit; posts that rule one out (“no "
+        "equity”, “we can’t sponsor visas”) don’t count. Vague "
+        "phrases (“great benefits”, “generous PTO”) don’t count "
+        "either. Paid time off, days stated means a number of days or weeks. Visa uses the same "
+        "rule as visa_share. Each category is its own share. Equity's rise since 2021 is mostly "
+        "disclosure: among posts that state pay, equity mentions held at 40–59%; most of the "
+        "rise comes from more posts stating pay (“$X + equity”)."
+    ),
+    "years_required": (
+        "Among posts that state years of experience, the share whose smallest stated number "
+        "falls in each band."
+    ),
+    "interview_style": (
+        "Share of hiring posts that mention each interview style. “No LeetCode” counts "
+        "posts that say they skip LeetCode, whiteboard or puzzle questions. Each category is "
+        "its own share."
+    ),
+}
+CATEGORY_LABELS = {
+    "equity": "Equity", "retirement": "401(k) or pension", "health_insurance": "Health insurance",
+    "dental_vision": "Dental or vision", "unlimited_pto": "Unlimited PTO",
+    "pto_days": "Paid time off, days stated", "parental_leave": "Parental leave",
+    "four_day_week": "Four-day week", "learning_budget": "Learning budget",
+    "remote_stipend": "Home-office stipend", "relocation": "Relocation help",
+    "sign_on_bonus": "Sign-on bonus", "bonus": "Bonus", "visa": "Visa sponsorship",
+    "0_2": "0–2 years", "3_4": "3–4 years", "5_7": "5–7 years", "8_plus": "8+ years",
+    "take_home": "Take-home", "no_leetcode": "No LeetCode or whiteboard",
+    "pair_programming": "Pair programming", "paid_trial": "Paid trial",
+}  # fmt: skip
 # Validation puts the sector shares about 0.13 off the hand labels; the site badges these.
 ROUGH = {"industry", "industry_known"}
 
@@ -272,8 +384,8 @@ def _sources(key: str) -> list[str]:
 
 
 def _min_n(key: str, unit: str) -> int:
-    if unit == "usd":
-        return MIN_N_SALARY
+    if unit in MIN_N_MEDIAN:
+        return MIN_N_MEDIAN[unit]
     return MIN_N_SHARE if unit == "share" else 0
 
 
@@ -303,6 +415,16 @@ def load_validation(path: Path = VALIDATION_PATH) -> dict[str, dict]:
             if scores.get("overall", {}).get("n"):
                 scored[question] = {"set": name, **scores["overall"]}
     return scored
+
+
+def _breakdown_text(name: str, b) -> dict:
+    """Optional description and display names, added only where a breakdown has them."""
+    text = {}
+    if name in BREAKDOWN_DESCRIPTIONS:
+        text["description"] = BREAKDOWN_DESCRIPTIONS[name]
+    if labels := {c: CATEGORY_LABELS[c] for c in b.categories if c in CATEGORY_LABELS}:
+        text["category_labels"] = labels
+    return text
 
 
 def _month(d) -> str:
@@ -380,6 +502,7 @@ def build(
             "confidence": "rough" if name in ROUGH else None,
             "series": [],
         }
+        | _breakdown_text(name, b)
         for name, b in ALL_BREAKDOWNS.items()
     }
     points: dict[tuple[str, str], dict] = {}
@@ -438,7 +561,7 @@ def _sample_answers(
     ).fetchall()
     answers: dict[int, dict] = {post_id: {} for post_id in post_ids}
     for post_id, question, value, label, probabilities in rows:
-        if question in ("stack", "region"):
+        if question in ("stack", "region", "benefits", "interview_style"):
             answers[post_id][question] = sorted(json.loads(probabilities))
         else:
             answers[post_id][question] = label if label is not None else value

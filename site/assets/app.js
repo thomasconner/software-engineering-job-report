@@ -416,7 +416,7 @@ function renderMethodology(data, until) {
     ...Object.entries(data.metrics).map(([, m]) => ({ label: m.label, text: m.description, method: m.method })),
     ...Object.entries(data.breakdowns).map(([key, b]) => ({
       label: b.label,
-      text: `${b.categories.map(categoryLabel).join(', ')}.${key === 'stack' ? ' Each term is its own share, so these do not add up to 100%.' : ' Shares add up to about 100% each month.'}`,
+      text: `${b.categories.map((c) => categoryLabel(c, b)).join(', ')}. ${b.description ?? (key === 'stack' ? 'Each term is its own share, so these do not add up to 100%.' : 'Shares add up to about 100% each month.')}`,
       method: b.method,
     })),
   ];

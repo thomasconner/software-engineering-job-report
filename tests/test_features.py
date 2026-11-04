@@ -8,7 +8,13 @@ from sejr.features import post_answers
 from sejr.features.company import company_name, normalize_company
 from sejr.features.salary import salary_summary
 from sejr.features.tokens import mentions_visa, onsite_token, remote_token
-from sejr.features.vocab import TERMS, stack_terms
+from sejr.features.vocab import (
+    FEATURES_3_TERMS,
+    GROUP_TERMS,
+    GROUPS,
+    TERMS,
+    stack_terms,
+)
 
 
 @pytest.mark.parametrize(
@@ -298,8 +304,86 @@ def test_stack_terms(text, present, absent):
     assert not (absent & found)
 
 
-def test_vocabulary_size():
-    assert 40 <= len(TERMS) <= 50
+def test_vocabulary_size_and_groups():
+    assert 100 <= len(TERMS) <= 120
+    assert len(FEATURES_3_TERMS) == 45
+    grouped = [name for terms in GROUP_TERMS.values() for name in terms]
+    assert sorted(grouped) == sorted(TERMS)  # every term in exactly one group
+    assert set(GROUP_TERMS) == set(GROUPS)
+
+
+@pytest.mark.parametrize(
+    ("text", "present", "absent"),
+    [
+        ("Stack: Python, Julia, C++", {"Julia"}, set()),
+        ("Email Julia at jobs@example.com", set(), {"Julia"}),
+        ("Java, Spring, Hibernate, MySQL", {"Spring"}, set()),
+        ("Spring 2024 internships in Java, Spring and Summer", set(), {"Spring"}),
+        ("Spring Discovery | Senior Software Engineers | Java", set(), {"Spring"}),
+        ("Tech stack: Node/Express, MongoDB", {"Express"}, set()),
+        ("Customers include Panda Express. We use Node.js", set(), {"Express"}),
+        ("Configuration management (Puppet, Chef, SaltStack)", {"Puppet", "Chef"}, set()),
+        ("Our professional chef cooks lunch", set(), {"Chef"}),
+        ("Green Chef | Software Engineer | Python, Docker", set(), {"Chef"}),
+        ("Hashicorp: Terraform, Consul, Nomad", {"Nomad"}, set()),
+        ("Digital nomad friendly, remote work", set(), {"Nomad"}),
+        ("Kubernetes and Helm charts", {"Helm"}, set()),
+        ("You'll be at the helm of our product", set(), {"Helm"}),
+        ("We use PyTorch, TensorFlow, JAX", {"JAX"}, set()),
+        ("Java EE with JAX-RS", set(), {"JAX"}),
+        ("Data warehouse: Snowflake, dbt, Airflow", {"Snowflake", "dbt", "Airflow"}, set()),
+        ("Snowflake | Software Engineer | San Mateo\n\nWe build Snowflake.", set(),
+         {"Snowflake"}),
+        ("Flutter Developer | Acme | Remote", {"Flutter"}, set()),
+        ("Datadog | SRE | NYC\n\nHelp us build Datadog with Go and Python", {"Go", "Python"},
+         {"Datadog"}),
+        ("Monitoring: Datadog, Prometheus, Grafana", {"Datadog", "Prometheus", "Grafana"}, set()),
+        ("Our founders are ex-Datadog and former Stripe engineers", set(), {"Datadog"}),
+        ("We raised our Series B from OpenAI and use Go", {"Go"}, {"OpenAI"}),
+        ("We call the OpenAI API and Anthropic models", {"OpenAI"}, set()),
+        ("$10M in funding from the Cloudflare CEO", set(), {"Cloudflare"}),
+        ("Steamship is building Vercel for AI", set(), {"Vercel"}),
+        ("Acme | Engineer\n\nNext.js on Vercel, Postgres with pgvector", {"Vercel", "Vector databases", "Postgres"},
+         set()),
+        ("iOS app in Objective-C and Swift", {"Objective-C", "Swift"}, {"C"}),
+        ("C#, F#, .NET Core on Azure", {"C#", "F#", ".NET"}, set()),
+        ("Contact us at jobs@example.net", set(), {".NET"}),
+        ("Ethereum smart contracts in Solidity", {"Solidity"}, set()),
+        ("We value financial Solidity and trust", set(), {"Solidity"}),
+        ("strong SQL skills; MySQL and PostgreSQL", {"SQL", "MySQL", "Postgres"}, set()),
+        ("NoSQL stores like DynamoDB", {"DynamoDB"}, {"SQL"}),
+        ("Python (Flask, FastAPI), Tailwind CSS, Svelte", {"Flask", "FastAPI", "Tailwind",
+         "Svelte"}, set()),
+        ("Economic tailwinds and a lab flask", set(), {"Tailwind", "Flask"}),
+        ("CI/CD: GitHub Actions, CircleCI, GitLab CI, Jenkins pipelines, ArgoCD",
+         {"GitHub Actions", "CircleCI", "GitLab CI", "Jenkins", "ArgoCD"}, set()),
+        ("Mobile: Flutter (Dart) and React Native", {"Flutter", "Dart", "React Native"}, set()),
+        ("Acme | ML Engineer\n\nLLM serving with vLLM, LangChain and Hugging Face, kernels in CUDA",
+         {"vLLM", "LangChain", "Hugging Face", "CUDA", "LLM"}, set()),
+        ("We use Cassandra and Kafka", {"Cassandra", "Kafka"}, set()),
+        ("Reach out to Cassandra, our recruiter", set(), {"Cassandra"}),
+        ("Acme | Eng\n\nOur API is backed by a MySQL database and Elasticsearch",
+         {"MySQL", "Elasticsearch"}, set()),
+        ("Acme | Eng\n\nWe are backed by Datadog and a16z", set(), {"Datadog"}),
+        ("Acme | Eng\n\nOur product is used by OpenAI, Datadog and Snowflake.", set(),
+         {"OpenAI", "Datadog", "Snowflake"}),
+        ("Acme | Eng\n\nOur stack: dbt, Snowflake, plus data coming from tools like Datadog",
+         {"Snowflake", "Datadog"}, set()),
+        ("Hugging Face | ML Engineer\n\nWork on the Hugging Face Hub", set(), {"Hugging Face"}),
+        ("Elastic Path | Engineer\n\nWe use Elasticsearch", {"Elasticsearch"}, set()),
+        ("CloudFlare https://www.cloudflare.com | SF\n\nCloudflare Workers in Rust", {"Rust"},
+         {"Cloudflare"}),
+    ],
+)  # fmt: skip
+def test_added_stack_terms(text, present, absent):
+    found = set(stack_terms(text))
+    assert present <= found
+    assert not (absent & found)
+
+
+def test_added_terms_keep_features_3_rules():
+    # Old terms never see the company-field rule, so their history doesn't move.
+    assert stack_terms("Docker | Engineer | SF\n\nWe use Go") == ["Go", "Docker"]
 
 
 def test_post_answers_shape():

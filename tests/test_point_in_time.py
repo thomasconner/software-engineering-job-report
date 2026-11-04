@@ -76,6 +76,27 @@ def test_noise_bars_are_the_same_with_or_without_later_months(
 
 
 REGION_METRICS = {"seekers_per_post_us", "seeker_us_share", "region", "seeker_region"}
+# CON-202: what employers ask for, and how the posts read.
+POST_TREND_METRICS = {
+    "years_required_median", "years_required_share", "degree_required_share",
+    "degree_optional_share", "post_length_median", "interview_style_share", "office_days_share",
+    "benefits", "years_required", "interview_style", "stack_language", "stack_cloud_devops",
+}  # fmt: skip
+
+
+def test_post_trend_metrics_are_the_same_with_or_without_later_months(db, tmp_path):
+    features.build(db)
+    seen = set()
+    for t in MONTHS:
+        cut = truncated_copy(db, tmp_path / f"trends-{t}.duckdb", t)
+        features.build(cut)
+        full = [r for r in aggregate.compute_month(db, t) if r[2] in POST_TREND_METRICS]
+        assert [
+            r for r in aggregate.compute_month(cut, t) if r[2] in POST_TREND_METRICS
+        ] == full
+        seen |= {r[2] for r in full}
+        cut.close()
+    assert seen == POST_TREND_METRICS
 
 
 def test_region_metrics_are_the_same_with_or_without_later_months(
@@ -492,7 +513,7 @@ def test_export_follows_contract(db, tmp_path, monkeypatch):
     months = [p["month"] for p in posts["series"]]
     assert "2024-04" not in months and f"{PENDING:%Y-%m}" not in months
     for metric in data["metrics"].values():
-        assert metric["unit"] in {"count", "share", "usd", "ratio", "score"}
+        assert metric["unit"] in {"count", "share", "usd", "ratio", "score", "years"}
         assert metric["method"] in {"count", "regex", "join", "jev"}
     assert data["metrics"]["new_company_share.hiring"]["polarity"] == 0
 
