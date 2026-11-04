@@ -23,7 +23,7 @@ The competition for those posts eased too. There were 2.4 people posting in "Who
 
 That month, 1,018 companies posted, the most since the hiring thread began in April 2011. It was the height of the pandemic-era hiring boom, so the 64% drop since then says as much about 2021 as about today.
 
-::chart{type="line" metric="posts.hiring" from="2019-01" title="Hiring posts are up from last year's low but just over a third of the 2021 peak" annotate="2022-03:First rate hike|2023-01:Big Tech layoffs"}
+::chart{type="line" metric="posts.hiring" from="2019-01" title="Hiring posts are up from last year's low but just over a third of the 2021 peak" annotate="2022-03:First rate hike;2023-01:Big Tech layoffs"}
 
 ## AI companies now write more than a third of the posts
 

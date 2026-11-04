@@ -212,7 +212,7 @@ Don't repeat the methodology footer in every note. Don't put an argument in a no
 
 Annotations mark real-world events so readers can line them up against the data. They don't claim the event caused the change (section 4). Rules:
 
-- Two annotations per chart at most. Pick the events relevant to this chart's claim. Separate two entries with `|`: `annotate="2022-03:First rate hike|2023-01:Big Tech layoffs"`.
+- Two annotations per chart at most. Pick the events relevant to this chart's claim. Separate two entries with `;`: `annotate="2022-03:First rate hike;2023-01:Big Tech layoffs"`.
 - Labels are four words or fewer, in sentence case: `2022-11:ChatGPT launches`.
 - Annotate the month the event happened. Each "Who is hiring?" thread goes up around the 1st to 3rd of its month, so any event after the thread's posting date first shows in the next month's thread. Don't write as if the thread reacted the same month.
 - Use the standard list below. An event not on the list needs a source in the ledger and a line added here in the same change.
@@ -439,7 +439,7 @@ The competition for those posts eased too. There were 2.4 people posting in "Who
 
 That month, 1,018 companies posted, the most since the hiring thread began in April 2011. It was the height of the pandemic-era hiring boom, so the 64% drop since then says as much about 2021 as about today.
 
-::chart{type="line" metric="posts.hiring" from="2019-01" title="Hiring posts are up from last year's low but just over a third of the 2021 peak" annotate="2022-03:First rate hike|2023-01:Big Tech layoffs"}
+::chart{type="line" metric="posts.hiring" from="2019-01" title="Hiring posts are up from last year's low but just over a third of the 2021 peak" annotate="2022-03:First rate hike;2023-01:Big Tech layoffs"}
 
 ## AI companies now write more than a third of the posts
 
