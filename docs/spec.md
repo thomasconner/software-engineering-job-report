@@ -55,7 +55,7 @@ A hand-labeled reference set of about 200 posts, sampled across years. Each meth
 
 ### Known biases (stated on the report)
 
-- Edited posts show the text as of the snapshot fetch. Deleted posts are missing, and the removed share rose from about 2–9% (2011–2023) to 13–23% (2026), so the post-count trend is shown alongside `removed_share`.
+- Edited posts show the text as of the snapshot fetch. Deleted posts are missing. For hiring threads the removed share held at 5–7% through 2022 and reached 14% in 2026; seeking threads run 10–27% throughout. The post-count trend is shown alongside `removed_share`.
 - HN skews toward US startups, engineering roles and the Bay Area.
 - One post can cover many roles, so post count is not job count.
 
