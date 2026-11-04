@@ -7,7 +7,7 @@ import duckdb
 import pytest
 from conftest import CLASSIFIED, MONTHS, NO_HIRING, NO_SEEKING, PENDING
 
-from sejr import aggregate, export, features
+from sejr import aggregate, export, features, noise
 from sejr.config import JEV_MODEL
 from sejr.db import connect
 
@@ -39,6 +39,40 @@ def test_month_is_the_same_with_or_without_later_months(db, tmp_path):
         features.build(cut)
         assert aggregate.compute_month(cut, t) == aggregate.compute_month(db, t), t
         cut.close()
+
+
+def _bars(data: dict) -> dict[tuple[str, str], dict]:
+    bars = {}
+    for group in ("metrics", "breakdowns"):
+        for key, series in data[group].items():
+            for p in series["series"]:
+                if "bar" in p:
+                    bars[(key, p["month"])] = p["bar"]
+    return bars
+
+
+def test_noise_bars_are_the_same_with_or_without_later_months(
+    db, tmp_path, monkeypatch
+):
+    features.build(db)
+    aggregate.run(db, Namespace(month=None, dry_run=False))
+    fallback = _bars(export.build(db))
+    # Seven fixture months never reach the real minimums, so lower them to exercise s².
+    monkeypatch.setattr(noise, "MIN_HISTORY", 1)
+    monkeypatch.setattr(noise, "MIN_MOVING", 1)
+    full = _bars(export.build(db))
+    assert full != fallback
+    compared = 0
+    for t in MONTHS:
+        cut = truncated_copy(db, tmp_path / f"bars-{t}.duckdb", t)
+        features.build(cut)
+        aggregate.run(cut, Namespace(month=None, dry_run=False))
+        for (key, month), bars in _bars(export.build(cut)).items():
+            if month == t.strftime("%Y-%m"):
+                assert full[(key, month)] == bars, (key, month)
+                compared += 1
+        cut.close()
+    assert compared
 
 
 def test_later_months_exist_in_full_db(db):

@@ -7,6 +7,7 @@ from pathlib import Path
 
 import duckdb
 
+from sejr import noise
 from sejr.aggregate import BREAKDOWNS, COMPLETE, COUNT_METRICS, INDUSTRY_KNOWN, SCALARS
 from sejr.config import JEV_MODEL, SITE_DATA_DIR
 
@@ -373,7 +374,7 @@ def build(
             point["values"][category] = round(value, 4)
 
     months = sorted({_month(r[0]) for r in rows})
-    return {
+    data = {
         "generated_at": _generated_at(con),
         "latest_month": months[-1] if months else None,
         "months": months,
@@ -381,6 +382,8 @@ def build(
         "metrics": metrics,
         "breakdowns": breakdowns,
     }
+    noise.attach(con, data)
+    return data
 
 
 SAMPLE_SIZE = 30
@@ -454,7 +457,8 @@ def write_samples(
 
 def write(data: dict, path: Path = SITE_DATA_DIR / "metrics.json") -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    # Compact: the per-point noise bars nearly triple the file when indented.
+    path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
     return path
 
 

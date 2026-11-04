@@ -103,14 +103,25 @@ function deltaText(now, then, unit) {
 const sum = (xs) => xs.reduce((t, x) => t + x, 0);
 
 /**
- * Sampling-noise test from the style guide's noise bar (docs/style-guide.md, "The noise bar").
+ * The noise test behind "≈" (docs/style-guide.md, "The noise bar").
  * Returns 'noise' when the move is within the bar, 'thin' when too few posts back a median, else 'clear'.
+ * 3m, 1y and 5y moves use the bar exported on the later point, which reflects the series' own
+ * month-to-month wobble. Other month pairs fall back to the sampling-only floors below.
  */
 function noiseTest(data, key, unit) {
   const value = (k, m) => data.metrics[k]?.series.find((p) => p.month === m)?.value;
+  const absolute = unit === 'share' || unit === 'score';
   return (then, now) => {
     const a = then.value;
     const b = now.value;
+    if (unit === 'usd' && (then.n < 30 || now.n < 30)) return 'thin';
+    const win = Object.keys(WINDOWS).find((w) => addMonths(now.month, -WINDOWS[w]) === then.month);
+    const bar = now.bar?.[win];
+    if (bar != null) {
+      // Counts, ratios and dollars carry their bar on the log scale: ln(now / then).
+      if (!absolute && !(a > 0 && b > 0)) return 'clear';
+      return (absolute ? Math.abs(b - a) : Math.abs(Math.log(b / a))) < bar ? 'noise' : 'clear';
+    }
     if (unit === 'share') {
       if (!then.n || !now.n) return 'clear';
       const p = (a + b) / 2;
@@ -122,10 +133,7 @@ function noiseTest(data, key, unit) {
       if (counts.some((c) => !c)) return 'clear';
       return Math.abs(b / a - 1) < 1.96 * Math.sqrt(sum(counts.map((c) => 1 / c))) ? 'noise' : 'clear';
     }
-    if (unit === 'usd') {
-      if (then.n < 30 || now.n < 30) return 'thin';
-      return Math.abs(b / a - 1) < 0.05 ? 'noise' : 'clear';
-    }
+    if (unit === 'usd') return Math.abs(b / a - 1) < 0.05 ? 'noise' : 'clear';
     if (unit === 'score') return Math.abs(b - a) < 0.2 ? 'noise' : 'clear';
     return 'clear';
   };
@@ -188,7 +196,10 @@ export function resolveSeries(data, { metric, metrics, breakdown, categories }, 
       key: c, label: categoryLabel(c), group: b.label, unit: 'share', method: b.method, description: b.label,
       polarity: b.polarity ?? 0, sources: b.sources ?? ['hiring'], confidence: b.confidence,
       noise: noiseTest(data, c, 'share'),
-      points: clip(b.series.map((s) => ({ month: s.month, value: s.values[c], n: s.n }))),
+      points: clip(b.series.map((s) => ({
+        month: s.month, value: s.values[c], n: s.n,
+        bar: s.bar && Object.fromEntries(Object.entries(s.bar).map(([w, bars]) => [w, bars[c]])),
+      }))),
     };
   });
 }
