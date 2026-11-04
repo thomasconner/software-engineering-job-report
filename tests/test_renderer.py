@@ -39,3 +39,11 @@ def test_outside_series_in_compare_and_external_only_lines():
         ],
         check=True,
     )
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node is not installed")
+def test_topline_placement_and_directive_mounting():
+    subprocess.run(
+        ["node", ROOT / "tests/js/directives.mjs", ROOT / "site/assets/directives.js"],
+        check=True,
+    )
