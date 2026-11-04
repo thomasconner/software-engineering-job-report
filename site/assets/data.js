@@ -220,14 +220,15 @@ export function resolveExternal(data, key, until) {
     key, label: e.label, group: e.label, unit: e.unit, method: 'external', description: e.description,
     polarity: 0, sources: [], credit: e.credit, url: e.source_url, license: e.license, licenseUrl: e.license_url,
     external: true, noise: () => 'clear',
-    // An unadjusted series would show its seasons as trend on an indexed line, so it is drawn as a
-    // 12-month trailing average instead.
-    smoothed: e.seasonally_adjusted === false,
-    points: e.seasonally_adjusted === false ? trailingYear(points) : points,
+    // A series flagged smooth_12m (unadjusted JOLTS) would show its seasons as trend on an indexed
+    // line, so it is drawn as a 12-month trailing average instead.
+    smoothed: Boolean(e.smooth_12m),
+    points: e.smooth_12m ? trailingYear(points) : points,
   };
 }
 
-// Mean of each month and the 11 before it; months without 12 consecutive values are dropped.
+// Mean of each HN month and the 11 before it; months without 12 consecutive values are dropped.
+// The window is 12 HN months, so the publisher months behind it can repeat or skip one.
 export function trailingYear(points) {
   const byMonth = new Map(points.map((p) => [p.month, p.value]));
   return points.flatMap((p) => {

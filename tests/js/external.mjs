@@ -35,7 +35,7 @@ assert.throws(() => data.indexTo(indexed, '2024-12'), data.AuthoringError);
 // An unadjusted series is drawn as a 12-month trailing average; months without a full year drop out.
 const year = Array.from({ length: 14 }, (_, i) => data.addMonths('2024-01', i));
 const seasonal = external({
-  seasonally_adjusted: false,
+  seasonally_adjusted: false, smooth_12m: true,
   series: year.map((month, i) => ({ month, value: i % 12 === 11 ? 130 : 100, ref_period: month, vintage_date: month })),
 });
 const smooth = data.resolveExternal(data.prepare({ months: year, metrics: {}, breakdowns: {}, external: { 'x.US': seasonal } }), 'x.US', '2025-02');
@@ -52,3 +52,8 @@ assert.match(error('metric="posts.hiring" base="2022-01"'), /base/);
 assert.match(error('metric="posts.hiring" external="x.US" base="2022"'), /base/);
 assert.match(error('metric="posts.hiring,posts.seeking" external="x.US" base="2022-01"'), /exactly one metric/);
 assert.match(parseArticle('::chart{type="bar" title="t" metric="posts.hiring" external="x.US" base="2022-01"}\n').directives[0].error.message, /does not take/);
+
+// Unadjusted but not flagged for smoothing (Indeed's remote and pay shares): drawn as published.
+const share = data.resolveExternal(prepared(external({ seasonally_adjusted: false })), 'x.US', '2025-04');
+assert.equal(share.smoothed, false);
+assert.equal(share.points.length, 4);

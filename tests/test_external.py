@@ -312,6 +312,10 @@ def test_export_section_shape_and_point_in_time_guard(tmp_path):
     assert postings["seasonally_adjusted"] is True
     assert "revisions are not applied" in postings["description"]
     assert section["jolts_hires_information.US"]["seasonally_adjusted"] is False
+    assert section["jolts_hires_information.US"]["smooth_12m"] is True
+    # Unadjusted shares are not smoothed: seasonality is minor and their history is short.
+    assert section["indeed_software_remote_share.US"]["seasonally_adjusted"] is False
+    assert section["indeed_software_remote_share.US"]["smooth_12m"] is False
     # September's value was published after its as-of date, and November isn't a listed month.
     assert postings["series"] == [
         {
@@ -477,3 +481,19 @@ def test_a_failing_source_warns_and_leaves_the_month_open(
     out = capsys.readouterr().out
     assert out.count("::warning::external: bls failed") == 1
     assert saved and all(source == "indeed" for source, _ in saved)
+
+
+def test_a_month_open_only_for_a_missing_series_is_not_a_backfill(
+    db, monkeypatch, capsys
+):
+    retry = {
+        "as_of": "2024-01-10",
+        "fetched_at": "2026-11-04T00:00:00Z",
+        "missing": ["x.US"],
+        "values": {},
+    }
+    monkeypatch.setattr(
+        external, "load", lambda source, month, *a: retry if month < "2024-07" else None
+    )
+    external.run(db, Namespace(month=None, limit=None, dry_run=True, backfill=False))
+    assert "would pull" in capsys.readouterr().out

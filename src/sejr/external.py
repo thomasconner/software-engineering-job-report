@@ -72,6 +72,10 @@ class Series:
     path: str = ""
     reader: str = ""  # 'postings' | 'remote' | 'pay'
     seasonally_adjusted: bool = True
+    # Drawn as a 12-month trailing average on indexed charts. Only JOLTS: its counts swing with
+    # the seasons. Indeed's remote and pay shares are unadjusted too, but their seasonality is
+    # minor and smoothing would cost a year of their short history.
+    smooth_12m: bool = False
     bls_id: str = ""
     fred_id: str = ""
 
@@ -149,6 +153,7 @@ def _jolts(name: str, bls_id: str, fred_id: str, label: str) -> Series:
         ),
         credit="U.S. Bureau of Labor Statistics, JOLTS; vintages via ALFRED",
         seasonally_adjusted=False,
+        smooth_12m=True,
         bls_id=bls_id,
         fred_id=fred_id,
     )
@@ -570,9 +575,12 @@ def run(con: duckdb.DuckDBPyConnection, args: argparse.Namespace) -> None:
     todo = plan(threads)
     if args.limit:
         todo = todo[: args.limit]
-    if len({m for _, m in todo}) > MAX_UNSCOPED_MONTHS and not (
-        args.backfill or args.month
-    ):
+    # A month already past its as-of date that is open only because a series is missing is a
+    # retry, not a backfill; a series gone for good must not block everything else.
+    retries = {(src, m) for src, m in todo if is_retry(load(src, m))}
+    if len({m for pair in todo if pair not in retries for m in pair[1:]}) > (
+        MAX_UNSCOPED_MONTHS
+    ) and not (args.backfill or args.month):
         raise SystemExit(
             f"external: {len(todo)} month pulls needed ({todo[0][1]} to {todo[-1][1]}); "
             "run `sejr external --backfill`"
@@ -613,6 +621,13 @@ def run(con: duckdb.DuckDBPyConnection, args: argparse.Namespace) -> None:
             source, month, as_of_date(created_at), values, fetched_at, missing=missing
         )
         print(f"  {month} {source}: {len(values)} values, {status}", flush=True)
+
+
+def is_retry(stored: dict | None) -> bool:
+    """Pulled after its as-of date but still missing a series."""
+    return bool(stored and stored.get("missing")) and date.fromisoformat(
+        stored["fetched_at"][:10]
+    ) > date.fromisoformat(stored["as_of"])
 
 
 def expected_missing(source: str, as_of: date, values: dict) -> list[str]:
@@ -672,6 +687,7 @@ def build_section(months: list[str], directory: Path = EXTERNAL_DIR) -> dict:
             "license_url": s.license[1],
             "unit": s.unit,
             "seasonally_adjusted": s.seasonally_adjusted,
+            "smooth_12m": s.smooth_12m,
             "description": f"{s.description} {FIRST_PUBLISHED}",
             "source_url": s.url,
             "series": points,

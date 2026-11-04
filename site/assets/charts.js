@@ -433,7 +433,7 @@ function timeChart(fig, series, attrs, until, data, mode) {
     }
     const startM = months[0];
     const endM = months.at(-1);
-    const smoothed = series.some((s) => s.smoothed) ? '; the benchmark is a 12-month average, as it is not seasonally adjusted' : '';
+    const smoothed = series.some((s) => s.smoothed) ? '; the benchmark is a 12-month average, as it is not seasonally adjusted and swings with the seasons' : '';
     const indexed = attrs.base ? `, indexed to ${monthLabel(attrs.base)} = 100${smoothed}` : '';
     fig.setSubtitle(`${subjectOf(series)}${indexed}, ${monthLabel(startM, 'long')} to ${monthLabel(endM, 'long')}`);
     const fmt = makeFormat(unit);
@@ -564,7 +564,8 @@ function timeChart(fig, series, attrs, until, data, mode) {
       // A benchmark names the period its number describes, which usually trails the HN month.
       const labelOf = (s) => {
         const ref = s.external && pointAt(s, m)?.ref_period;
-        return ref ? `${s.label} (${periodLabel(ref)} data)` : s.label;
+        if (!ref) return s.label;
+        return s.smoothed ? `${s.label} (12 months to ${periodLabel(ref)})` : `${s.label} (${periodLabel(ref)} data)`;
       };
       const rows = visible.map((s, i) => ({ color: colorOf(s, i), value: tipFmt(valueAt(s, m)), label: visible.length > 1 ? labelOf(s) : '', v: valueAt(s, m) ?? -1 }));
       if (mode === 'area') rows.reverse();

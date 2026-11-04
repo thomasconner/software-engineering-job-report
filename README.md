@@ -8,7 +8,7 @@ The design is in [docs/spec.md](docs/spec.md) and the data contracts are in [doc
 
 ## Data credits
 
-Benchmark lines use data from [Indeed Hiring Lab](https://github.com/hiring-lab) (job postings, remote and pay transparency trackers), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); this report indexes it to a base month and averages unadjusted series over 12 months. BLS JOLTS and CES data are public domain, with past vintages read from ALFRED (Federal Reserve Bank of St. Louis).
+Benchmark lines use data from [Indeed Hiring Lab](https://github.com/hiring-lab) (job postings, remote and pay transparency trackers), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); this report indexes it to a base month. BLS JOLTS and CES data are public domain (charts show JOLTS as a 12-month average), with past vintages read from ALFRED (Federal Reserve Bank of St. Louis).
 
 ## Run it locally
 
