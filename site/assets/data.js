@@ -20,7 +20,8 @@ const CATEGORY_LABELS = {
   ruby: 'Ruby', rails: 'Rails', java: 'Java', php: 'PHP', kubernetes: 'Kubernetes', aws: 'AWS', llm: 'LLM',
   agents: 'Agents',
 };
-export const categoryLabel = (c) => CATEGORY_LABELS[c] ?? c.charAt(0).toUpperCase() + c.slice(1).replaceAll('_', ' ');
+// A breakdown's own category_labels (from the export) win over the shared list.
+export const categoryLabel = (c, b) => b?.category_labels?.[c] ?? CATEGORY_LABELS[c] ?? c.charAt(0).toUpperCase() + c.slice(1).replaceAll('_', ' ');
 
 // Catch-all categories always sit at the end of a ranking or a stack, whatever their size.
 const CATCH_ALL = ['other', 'unstated', 'unknown', 'unspecified', 'unclear'];
@@ -76,12 +77,17 @@ export function makeFormat(unit, { precise = false } = {}) {
       case 'share': return `${(v * 100).toFixed(precise ? 1 : 0)}%`;
       case 'usd': return `$${int.format(Math.round(v / 1000) * 1000)}`;
       case 'count': return int.format(v);
+      // BLS publishes these in thousands; readers get the whole number, as the prose writes it.
+      case 'thousands': return int.format(Math.round(v * 1000));
       // A change over a year, as a fraction (SEC panel headcount).
       case 'change': return `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v * 100).toFixed(precise ? 1 : 0)}%`;
       default: return v.toFixed(precise ? 2 : 1);
     }
   };
 }
+
+// Units whose changes are printed in percent; shares change in points, scores and ratios in units.
+const RELATIVE = new Set(['count', 'usd', 'index', 'thousands']);
 
 // How a change is printed. Share gaps come from the printed (whole) percents so they match the prose.
 function deltaText(now, then, unit) {
@@ -90,7 +96,7 @@ function deltaText(now, then, unit) {
   if (unit === 'share') {
     diff = Math.round(now * 100) - Math.round(then * 100);
     text = `${Math.abs(diff)} pts`;
-  } else if (unit === 'count' || unit === 'usd') {
+  } else if (RELATIVE.has(unit)) {
     if (!then) return null;
     diff = ((now - then) / then) * 100;
     text = `${Math.abs(diff).toFixed(0)}%`;
@@ -116,7 +122,7 @@ function noiseTest(data, key, unit) {
   return (then, now) => {
     const a = then.value;
     const b = now.value;
-    if (unit === 'usd' && (then.n < 30 || now.n < 30)) return 'thin';
+    if ((unit === 'usd' || unit === 'years') && (then.n < 30 || now.n < 30)) return 'thin';
     const win = Object.keys(WINDOWS).find((w) => addMonths(now.month, -WINDOWS[w]) === then.month);
     const bar = now.bar?.[win];
     if (bar != null) {
@@ -137,11 +143,13 @@ function noiseTest(data, key, unit) {
     }
     if (unit === 'usd') return Math.abs(b / a - 1) < 0.05 ? 'noise' : 'clear';
     if (unit === 'score') return Math.abs(b - a) < 0.2 ? 'noise' : 'clear';
+    // A median of whole years moves in steps; with no exported bar, never call a step a move.
+    if (unit === 'years') return 'none';
     return 'clear';
   };
 }
 
-const WORD = { good: 'better', bad: 'worse', noise: 'about the same', thin: 'too few posts' };
+const WORD = { good: 'better', bad: 'worse', noise: 'about the same', thin: 'too few posts', none: 'no comparison' };
 
 /**
  * A change from `thenMonth` to `nowMonth`, ready to print: {sign, text, mark, tone, word}.
@@ -164,6 +172,7 @@ export const tickFormat = (unit) => {
     case 'share': return (v) => `${Math.round(v * 100)}%`;
     case 'usd': return (v) => `$${Math.round(v / 1000)}K`;
     case 'count': return (v) => (v >= 1000 ? `${+(v / 1000).toFixed(1)}K` : int.format(v));
+    case 'thousands': return (v) => (v >= 1000 ? `${+(v / 1000).toFixed(2)}M` : `${int.format(v)}K`);
     default: return (v) => (Number.isInteger(v) ? String(v) : v.toFixed(1));
   }
 };
@@ -195,7 +204,7 @@ export function resolveSeries(data, { metric, metrics, breakdown, categories }, 
   return cats.map((c) => {
     if (!b.categories.includes(c)) throw new AuthoringError(`Unknown category "${c}" in ${breakdown}`);
     return {
-      key: c, label: categoryLabel(c), group: b.label, unit: 'share', method: b.method, description: b.label,
+      key: c, label: categoryLabel(c, b), group: b.label, unit: 'share', method: b.method, description: b.label,
       polarity: b.polarity ?? 0, sources: b.sources ?? ['hiring'], confidence: b.confidence,
       noise: noiseTest(data, c, 'share'),
       points: clip(b.series.map((s) => ({
@@ -210,10 +219,11 @@ export const pointAt = (series, ym) => series.points.find((p) => p.month === ym)
 export const valueAt = (series, ym) => pointAt(series, ym)?.value ?? null;
 
 /**
- * An outside benchmark from metrics.json's `external` section, shaped like an HN series.
+ * An outside series from metrics.json's `external` section, shaped like an HN series.
  * `month` is the HN month; `ref_period` is the period the publisher's number describes.
+ * `smooth: false` keeps a smooth_12m series as published (the compare strip prints real values).
  */
-export function resolveExternal(data, key, until) {
+export function resolveExternal(data, key, until, { smooth = true } = {}) {
   const e = data.external?.[key];
   if (!e) throw new AuthoringError(`Unknown external series "${key}"`);
   const points = e.series.filter((p) => p.month <= until && !data.pending.has(p.month))
@@ -221,21 +231,64 @@ export function resolveExternal(data, key, until) {
   return {
     key, label: e.label, group: e.label, unit: e.unit, method: 'external', description: e.description,
     polarity: 0, sources: [], credit: e.credit, url: e.source_url, license: e.license, licenseUrl: e.license_url,
+    publisher: e.publisher, seasonallyAdjusted: e.seasonally_adjusted !== false,
+    // Outside series have no exported noise bar, so a change is printed as a plain change, never "≈".
     external: true, noise: () => 'clear',
-    // A series flagged smooth_12m (unadjusted JOLTS) would show its seasons as trend on an indexed
-    // line, so it is drawn as a 12-month trailing average instead.
-    smoothed: Boolean(e.smooth_12m),
-    points: e.smooth_12m ? trailingYear(points) : points,
+    // A series flagged smooth_12m (unadjusted JOLTS) would show its seasons as trend on a line,
+    // so charts draw it as a 12-month trailing average instead.
+    smoothed: smooth && Boolean(e.smooth_12m),
+    points: smooth && e.smooth_12m ? trailingYear(points) : points,
   };
 }
 
-// Mean of each HN month and the 11 before it; months without 12 consecutive values are dropped.
-// The window is 12 HN months, so the publisher months behind it can repeat or skip one.
+export const EXTERNAL_PREFIX = 'external:';
+
+/**
+ * The rows of a ::compare strip: HN metric ids and `external:<key>` ids, in the order written.
+ * External rows keep their published values (no smoothing, no indexing).
+ */
+export function resolveCompareRows(data, metrics, until) {
+  return metrics.split(',').map((s) => s.trim()).filter(Boolean).map((key) => (key.startsWith(EXTERNAL_PREFIX)
+    ? resolveExternal(data, key.slice(EXTERNAL_PREFIX.length).trim(), until, { smooth: false })
+    : resolveSeries(data, { metric: key }, until)[0]));
+}
+
+/**
+ * The series a ::chart draws. A line with `external` and a metric indexes both to `base`;
+ * a line with only `external` draws the outside series in its own unit.
+ */
+export function resolveChartSeries(data, attrs, until) {
+  if (attrs.external) {
+    // Before its first value an outside series has no history we can date; starting there implies a gap.
+    const first = data.external?.[attrs.external]?.series[0]?.month;
+    if (attrs.from && first && attrs.from < first) {
+      throw new AuthoringError(`from="${attrs.from}" is before ${attrs.external} starts (${first}); start at ${first} or later`);
+    }
+  }
+  if (attrs.external && !attrs.metric) return [resolveExternal(data, attrs.external, until)];
+  const series = resolveSeries(data, attrs, until);
+  if (!attrs.external) return series;
+  if (attrs.base > until) throw new AuthoringError(`base="${attrs.base}" is after ${monthLabel(until)}`);
+  return [...series, resolveExternal(data, attrs.external, until)].map((s) => indexTo(s, attrs.base));
+}
+
+// A smoothed point averages the distinct reference months in the 12 calendar months ending at its
+// own ref_period, each at the newest value known by that issue (later issues never leak back).
+// Issues repeat or skip reference months, so averaging 12 issues would double-count some months;
+// a window needs at least 10 of its 12 months, so one or two skipped releases don't blank a year.
+export const YEAR_MIN_READINGS = 10;
 export function trailingYear(points) {
-  const byMonth = new Map(points.map((p) => [p.month, p.value]));
-  return points.flatMap((p) => {
-    const window = Array.from({ length: 12 }, (_, k) => byMonth.get(addMonths(p.month, -k)));
-    return window.some((v) => v == null) ? [] : [{ ...p, value: sum(window) / 12 }];
+  const refOf = (p) => (p.ref_period ?? p.month).slice(0, 7);
+  return points.flatMap((p, i) => {
+    const end = refOf(p);
+    const start = addMonths(end, -11);
+    const known = new Map();
+    for (const q of points.slice(0, i + 1)) {
+      const ref = refOf(q);
+      if (ref >= start && ref <= end) known.set(ref, q.value);
+    }
+    if (known.size < YEAR_MIN_READINGS) return [];
+    return [{ ...p, value: sum([...known.values()]) / known.size, readings: known.size, refStart: [...known.keys()].sort()[0] }];
   });
 }
 
@@ -245,7 +298,7 @@ export function indexTo(series, base) {
   if (!at) throw new AuthoringError(`${series.label} has no value in ${monthLabel(base)} to index to`);
   const original = new Map(series.points.map((p) => [p.month, p]));
   return {
-    ...series, unit: 'index',
+    ...series, unit: 'index', indexed: true,
     points: series.points.map((p) => ({ ...p, value: (p.value / at) * 100 })),
     // The noise bar is judged on the real values, not the rebased ones.
     noise: (then, now) => series.noise(original.get(then.month), original.get(now.month)),
@@ -261,11 +314,57 @@ export const periodLabel = (ref) => {
   return ref.length > 7 ? dayFmt.format(new Date(`${ref}T00:00:00Z`)) : monthLabel(ref);
 };
 
+// The Hacker News part of a source line; empty when no series comes from HN.
 export function sourceLine(series) {
   const kinds = ['hiring', 'seeking'].filter((k) => series.some((s) => s.sources.includes(k)));
+  if (!kinds.length) return '';
   return `Source: HN ${kinds.map((k) => THREAD_NAME[k]).join(' and ')} threads, first 7 days.`;
 }
 
 // Said once per chart, and only when the author's note doesn't already say it.
 export const MODEL_NOTE = 'Estimated by a language model reading each post; see How we measure this.';
 export const needsModelNote = (series, note) => series.some((s) => s.method === 'jev') && !/model/i.test(note ?? '');
+
+/**
+ * One row of a ::compare strip, ready to print. An outside series names the reference period
+ * behind each value ("Aug 2026 data"), since it usually trails the HN month it is filed under.
+ * Its changes use the readings stored with the issue's own value (`compare`), which come from
+ * the same vintage, so a publisher's revision never reads as a market move. A not seasonally
+ * adjusted series whose two periods fall in different calendar months shows "seasonal" instead.
+ */
+export function compareCells(series, until, windows) {
+  const fmt = makeFormat(series.unit);
+  const ref = (p) => (series.external && p?.ref_period ? `${periodLabel(p.ref_period)} data` : null);
+  const now = pointAt(series, until);
+  const calendarMonth = (r) => r.slice(5, 7);
+  return {
+    value: fmt(now?.value ?? null),
+    ref: ref(now),
+    deltas: windows.map((window) => {
+      const month = addMonths(until, -WINDOWS[window]);
+      if (!series.external) {
+        const c = change(series, month, until);
+        return { window, month, change: c, was: c ? `from ${fmt(pointAt(series, month).value)}` : null };
+      }
+      const then = now?.compare?.[window];
+      if (!now) return { window, month, change: null, was: null, missing: 'No data' };
+      if (!then) return { window, month, change: null, was: null, missing: 'No same-month value' };
+      const was = `from ${fmt(then.value)}, ${ref(then)}`;
+      if (!series.seasonallyAdjusted && calendarMonth(then.ref_period) !== calendarMonth(now.ref_period)) {
+        return { window, month, change: null, was, seasonal: true };
+      }
+      const d = deltaText(now.value, then.value, series.unit);
+      if (!d) return { window, month, change: null, was: null, missing: 'No data' };
+      return { window, month, was, change: { ...d, mark: d.sign > 0 ? '▲' : d.sign < 0 ? '▼' : '', tone: 'flat', word: '' } };
+    }),
+  };
+}
+
+// The masthead ribbon's series: front matter `ribbon` (a metric id or external:<key>). Without one,
+// issues before November 2026 keep the HN hiring posts they were published with; later issues
+// show Indeed's US software postings.
+export const RIBBON_SWITCH = '2026-11';
+export function ribbonKey(meta) {
+  if (meta.ribbon) return meta.ribbon.trim();
+  return meta.month && meta.month < RIBBON_SWITCH ? 'posts.hiring' : `${EXTERNAL_PREFIX}indeed_software_postings.US`;
+}

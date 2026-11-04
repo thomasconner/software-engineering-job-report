@@ -15,8 +15,11 @@ import duckdb
 from sejr import config
 from sejr.db import insert_rows
 from sejr.features import VERSION as FEATURES_VERSION
+from sejr.features.benefits import CATEGORIES as BENEFITS
+from sejr.features.experience import BUCKETS
 from sejr.features.region import REGIONS
-from sejr.features.vocab import TERMS
+from sejr.features.traits import STYLE_NAMES
+from sejr.features.vocab import GROUP_TERMS, TERMS
 
 Row = tuple[date, str, str, str, float, int]
 
@@ -66,6 +69,20 @@ SCALARS = [
     AnswerMetric("seeker_us_share", "seeking", "region", "regex",
                  "avg((label = 'us')::DOUBLE) FILTER (WHERE label <> 'unknown')",
                  "nullif(label, 'unknown')"),
+    # What employers ask for and how posts read. years_required and office_days always have
+    # a row (NULL when the post states none), so their shares count every post.
+    AnswerMetric("years_required_median", "hiring", "years_required", "regex", "median(value)"),
+    AnswerMetric("years_required_share", "hiring", "years_required", "regex",
+                 "avg((value IS NOT NULL)::DOUBLE)", "post_id"),
+    AnswerMetric("degree_required_share", "hiring", "degree", "regex",
+                 "avg((label = 'required')::DOUBLE)", "label"),
+    AnswerMetric("degree_optional_share", "hiring", "degree", "regex",
+                 "avg((label = 'optional')::DOUBLE)", "label"),
+    AnswerMetric("post_length_median", "hiring", "post_length", "count", "median(value)"),
+    AnswerMetric("interview_style_share", "hiring", "interview_style", "regex",
+                 "avg((value > 0)::DOUBLE)"),
+    AnswerMetric("office_days_share", "hiring", "office_days", "regex",
+                 "avg((value IS NOT NULL)::DOUBLE)", "post_id"),
 ]  # fmt: skip
 
 SENIORITY = ("junior", "mid", "senior", "staff_plus", "unspecified")
@@ -85,6 +102,13 @@ BREAKDOWNS = [
               ("bootstrapped", "seed", "series_a", "series_b", "series_c_plus", "public_or_large",
                "venture_unspecified", "unknown")),
     Breakdown("stack", "hiring", "vocab", tuple(TERMS)),
+    *(Breakdown(f"stack_{group}", "hiring", "vocab", terms, "stack")
+      for group, terms in GROUP_TERMS.items()),
+    Breakdown("benefits", "hiring", "regex", BENEFITS),
+    # Among posts that state years: the post's smallest number, bucketed.
+    Breakdown("years_required", "hiring", "regex", tuple(name for name, _, _ in BUCKETS),
+              post_filter="a.value IS NOT NULL"),
+    Breakdown("interview_style", "hiring", "regex", STYLE_NAMES),
     # Hiring headers can name several regions, so these shares don't sum to 1.
     Breakdown("region", "hiring", "regex", REGIONS),
     Breakdown("seeker_region", "seeking", "regex", REGIONS, "region"),

@@ -32,16 +32,27 @@ assert.deepEqual(indexed.points.map((p) => +p.value.toFixed(2)), [83.33, 100, 11
 assert.equal(indexed.points[0].ref_period, '2025-01-03');
 assert.throws(() => data.indexTo(indexed, '2024-12'), data.AuthoringError);
 
-// An unadjusted series is drawn as a 12-month trailing average; months without a full year drop out.
+// An unadjusted series is drawn as a 12-month average of distinct reference months: issues that
+// repeat a reference month count it once, at the newest value known by that issue.
 const year = Array.from({ length: 14 }, (_, i) => data.addMonths('2024-01', i));
+// Issue 2024-06 repeats reference month 2024-05 (a delayed release); its newer value replaces the old one.
+const refs = year.map((m) => (m === '2024-06' ? '2024-05' : m));
 const seasonal = external({
   seasonally_adjusted: false, smooth_12m: true,
-  series: year.map((month, i) => ({ month, value: i % 12 === 11 ? 130 : 100, ref_period: month, vintage_date: month })),
+  series: year.map((month, i) => ({ month, value: month === '2024-06' ? 112 : i % 12 === 11 ? 130 : 100, ref_period: refs[i], vintage_date: month })),
 });
 const smooth = data.resolveExternal(data.prepare({ months: year, metrics: {}, breakdowns: {}, external: { 'x.US': seasonal } }), 'x.US', '2025-02');
 assert.equal(smooth.smoothed, true);
-assert.deepEqual(smooth.points.map((p) => p.month), ['2024-12', '2025-01', '2025-02']);
-assert.deepEqual(smooth.points.map((p) => p.value), [102.5, 102.5, 102.5]);
+// Windows need 10 distinct reference months; 2024-06 is never a reference month, so the window
+// ending 2024-11 has 10 (Jan..May, Jul..Nov) and qualifies.
+assert.deepEqual(smooth.points.map((p) => p.month), ['2024-11', '2024-12', '2025-01', '2025-02']);
+const at = (m) => smooth.points.find((p) => p.month === m);
+// 2024-12: 11 distinct months (no 2024-06); 2024-05 counted once at 112; December at 130.
+assert.equal(at('2024-12').readings, 11);
+assert.equal(+at('2024-12').value.toFixed(4), +((100 * 9 + 112 + 130) / 11).toFixed(4));
+assert.equal(at('2024-12').refStart, '2024-01');
+// 2025-02: window 2024-03..2025-02, still without 2024-06.
+assert.equal(at('2025-02').readings, 11);
 assert.deepEqual(data.trailingYear([{ month: '2024-01', value: 1 }]), []);
 
 // Directive checks: external needs base, base must be a month, and one metric only.

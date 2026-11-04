@@ -216,6 +216,8 @@ def test_bls_before_the_as_of_date_comes_from_the_api():
     assert values["jolts_openings_information.US"] == {
         "value": 122.0,
         "ref_period": "2026-09",
+        # The fixture's short history has no exact comparison months; see the same_vintage tests.
+        "compare": {},
         "vintage_date": "2026-10-05",
         "source_url": "https://data.bls.gov/timeseries/JTU510000000000000JOL",
     }
@@ -498,3 +500,91 @@ def test_a_month_open_only_for_a_missing_series_is_not_a_backfill(
     )
     external.run(db, Namespace(month=None, limit=None, dry_run=True, backfill=False))
     assert "would pull" in capsys.readouterr().out
+
+
+def test_same_vintage_readings_come_from_one_vintage():
+    monthly = [
+        ("2021-09", 2278.0),
+        ("2025-06", 2380.0),
+        ("2025-09", 2386.0),
+        ("2026-06", 2370.0),
+        ("2026-09", 2355.4),
+    ]
+    assert external.same_vintage(monthly, "2026-09") == {
+        "3m": {"ref_period": "2026-06", "value": 2370.0},
+        "1y": {"ref_period": "2025-09", "value": 2386.0},
+        "5y": {"ref_period": "2021-09", "value": 2278.0},
+    }
+    # Monthly periods must match exactly: a missing month is left out, never filled.
+    assert "1y" not in external.same_vintage(
+        [("2025-08", 1.0), ("2026-09", 2.0)], "2026-09"
+    )
+    # Daily readings: the latest on or before the target day, within a week.
+    daily = [("2025-09-30", 63.0), ("2026-07-02", 72.0), ("2026-10-02", 78.3)]
+    compare = external.same_vintage(daily, "2026-10-02")
+    assert compare["3m"] == {"ref_period": "2026-07-02", "value": 72.0}
+    assert compare["1y"] == {"ref_period": "2025-09-30", "value": 63.0}
+    assert "5y" not in compare
+    assert external.shift_period("2026-05-31", -3) == "2026-02-28"
+
+
+def test_alfred_value_carries_the_vintage_comparisons():
+    rows = "\n".join(
+        f"{m}-01,{v}"
+        for m, v in [
+            ("2021-08", 120),
+            ("2025-05", 83),
+            ("2025-08", 72),
+            ("2026-05", 85),
+            ("2026-08", 42),
+        ]
+    )
+    client = FakeClient(alfred={"JTU5100HIL": f"observation_date,X\n{rows}\n"})
+    hires = BY_KEY["jolts_hires_information.US"]
+    ref, value, compare = external.alfred_value(client, hires, date(2026, 10, 9))
+    assert (ref, value) == ("2026-08", 42.0)
+    assert compare["1y"] == {"ref_period": "2025-08", "value": 72.0}
+    assert compare["5y"] == {"ref_period": "2021-08", "value": 120.0}
+
+
+def test_add_compare_only_attaches_when_the_value_comes_back_unchanged(
+    tmp_path, monkeypatch
+):
+    stored = {
+        "jolts_hires_information.US": {
+            "value": 42.0,
+            "ref_period": "2026-08",
+            "vintage_date": "2026-10-09",
+        },
+        "jolts_openings_information.US": {
+            "value": 128.0,
+            "ref_period": "2026-08",
+            "vintage_date": "2026-10-09",
+        },
+    }
+    save("bls", "2026-10", date(2026, 10, 9), stored, "2026-11-04T00:00:00Z", tmp_path)
+    compare = {"1y": {"ref_period": "2025-08", "value": 72.0}}
+    fresh = {
+        "jolts_hires_information.US": {
+            "value": 42.0,
+            "ref_period": "2026-08",
+            "compare": compare,
+        },
+        "jolts_openings_information.US": {
+            "value": 130.0,
+            "ref_period": "2026-08",
+            "compare": {},
+        },
+    }
+    monkeypatch.setattr(external, "pull", lambda *a, **k: fresh)
+    external.add_compare(
+        {"2026-10": OCT_2026},
+        client=None,
+        repos=None,
+        today=date(2026, 11, 4),
+        directory=tmp_path,
+    )
+    values = load("bls", "2026-10", tmp_path)["values"]
+    assert values["jolts_hires_information.US"]["compare"] == compare
+    assert values["jolts_hires_information.US"]["value"] == 42.0
+    assert "compare" not in values["jolts_openings_information.US"]

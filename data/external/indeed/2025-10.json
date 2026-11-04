@@ -4,30 +4,100 @@
   "month": "2025-10",
   "values": {
     "indeed_software_pay_transparency.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-08",
+          "value": 0.3596
+        },
+        "3m": {
+          "ref_period": "2025-05",
+          "value": 0.3822
+        },
+        "5y": {
+          "ref_period": "2020-08",
+          "value": 0.0787
+        }
+      },
       "ref_period": "2025-08",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/pay-transparency/b3712d8c1724035a93fbf49d9438ee17a654db21/pay-transparency-sector.csv",
       "value": 0.3914,
       "vintage_date": "2025-09-15"
     },
     "indeed_software_postings.GB": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-10-03",
+          "value": 57.94
+        },
+        "3m": {
+          "ref_period": "2025-07-03",
+          "value": 60.33
+        },
+        "5y": {
+          "ref_period": "2020-10-03",
+          "value": 61.5
+        }
+      },
       "ref_period": "2025-10-03",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/00cf1f4acd46dfe8baa2ac7a3e55b34aeadafdaa/GB/job_postings_by_sector_GB.csv",
       "value": 59.47,
       "vintage_date": "2025-10-08"
     },
     "indeed_software_postings.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-10-03",
+          "value": 67.7
+        },
+        "3m": {
+          "ref_period": "2025-07-03",
+          "value": 64.63
+        },
+        "5y": {
+          "ref_period": "2020-10-03",
+          "value": 74.64
+        }
+      },
       "ref_period": "2025-10-03",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/00cf1f4acd46dfe8baa2ac7a3e55b34aeadafdaa/US/job_postings_by_sector_US.csv",
       "value": 63.57,
       "vintage_date": "2025-10-08"
     },
     "indeed_software_remote_share.GB": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-09-30",
+          "value": 0.479
+        },
+        "3m": {
+          "ref_period": "2025-06-30",
+          "value": 0.4898
+        },
+        "5y": {
+          "ref_period": "2020-09-30",
+          "value": 0.3074
+        }
+      },
       "ref_period": "2025-09-30",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/ea8529d4122f449fd0bd2a6e67981465fa3db3dd/remote_postings_sector.csv",
       "value": 0.4885,
       "vintage_date": "2025-10-08"
     },
     "indeed_software_remote_share.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2024-09-30",
+          "value": 0.348
+        },
+        "3m": {
+          "ref_period": "2025-06-30",
+          "value": 0.3166
+        },
+        "5y": {
+          "ref_period": "2020-09-30",
+          "value": 0.211
+        }
+      },
       "ref_period": "2025-09-30",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/ea8529d4122f449fd0bd2a6e67981465fa3db3dd/remote_postings_sector.csv",
       "value": 0.3272,

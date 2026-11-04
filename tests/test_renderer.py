@@ -26,3 +26,16 @@ def test_external_benchmark_helpers():
         ],
         check=True,
     )
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node is not installed")
+def test_outside_series_in_compare_and_external_only_lines():
+    subprocess.run(
+        [
+            "node",
+            ROOT / "tests/js/outside.mjs",
+            ROOT / "site/assets/data.js",
+            ROOT / "site/assets/article.js",
+        ],
+        check=True,
+    )

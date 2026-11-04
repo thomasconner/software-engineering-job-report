@@ -150,7 +150,7 @@ Raw files freeze once complete: fetch re-fetches a thread only while its stored 
 
 ## External benchmarks
 
-Outside series sit next to HN series so a column can say whether HN's thread moves with the wider market. Every series carries a `country` (ISO 3166 alpha-2: `US`, `GB`, …), so a US vs UK comparison needs no new contract. Keys are `<name>.<country>`.
+Outside series are sources of the report on the same footing as the HN series: the column synthesizes them, and HN is one panel among them. Every series carries a `country` (ISO 3166 alpha-2: `US`, `GB`, …), so a US vs UK comparison needs no new contract. Keys are `<name>.<country>`.
 
 | key | publisher | source | unit |
 |---|---|---|---|
@@ -179,11 +179,14 @@ Indeed comes from its GitHub repos, never FRED: FRED's copies of Indeed need Ind
 
 **One value per month.** Indeed's postings and remote series are daily 7-day trailing averages. Month *t* takes the reading dated on or before the thread's window end (`created_at` + 7 days); when the file reaches that day, the reading is exactly the mean over the thread's 7 days, so the benchmark covers the same week as the posts. Usually the file lags a few days (postings) or to the previous month end (remote), and `ref_period` says which day was used. Readings more than 31 days (postings) or 75 days (remote) older than the window end mean the file stopped updating, and the month gets no value. Pay transparency is monthly: the newest month on or before *t*. BLS: the newest month in the vintage, usually *t*−1 (CES) or *t*−2 (JOLTS). The value is plotted at HN month *t*, as known then.
 
+**Same-vintage comparisons.** Each stored value also carries `compare`: the same vintage's readings for the reference periods 3, 12 and 60 months before its `ref_period` (`{"3m": {"ref_period", "value"}, "1y": …, "5y": …}`). BLS takes them from the same ALFRED vintage CSV or BLS API pull (the API request covers six years), Indeed from the same file at the same commit. Monthly periods must match exactly; a daily Indeed period takes the latest reading on or before the same day, within a week. A window with no such reading is left out, never filled from another vintage. Comparing the values stored for two issues instead would mix vintages, so BLS revisions and benchmarks would read as market moves (CES September 2026 against September 2025 is −2.3% across vintages and −1.3% within one). Storing three extra numbers per value keeps to the rule for ALFRED and FRED: a few values per month, never an archived vintage. `sejr external --backfill` first gives frozen months without `compare` their readings by re-pulling them (deterministic: ALFRED at the as-of date, Indeed at the same commit) and attaches them only when the stored value comes back unchanged.
+
 **Storage.** `data/external/<source>/<YYYY-MM>.json`, `source` = `indeed` | `bls`:
 
 ```json
 {"month": "2026-10", "as_of": "2026-10-09", "fetched_at": "2026-11-04T15:19:31Z",
  "values": {"indeed_software_postings.US": {"value": 78.33, "ref_period": "2026-10-02",
+   "compare": {"3m": {"ref_period": "2026-07-02", "value": 72.9}, "1y": {"ref_period": "2025-10-02", "value": 63.6}, "5y": {…}},
    "vintage_date": "2026-10-06", "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/<sha>/US/job_postings_by_sector_US.csv"}}}
 ```
 
@@ -249,6 +252,13 @@ Scalar metrics (`category = ''`). Shares are 0–1. Jev-based shares are expecte
 | `seeker_strained_share` | seeking | jev | mean of P(level 0) + P(level 1) of seeker_mood |
 | `eng_leadership_share` | hiring | jev | Noul: the post hires engineering managers or leads |
 | `interns_token_share` | hiring | regex | INTERN(S) keyword present |
+| `years_required_median` | hiring | regex | median of each post's fewest stated years of experience, among posts that state any; n = those posts; unit `years` |
+| `years_required_share` | hiring | regex | share stating a number of years of experience |
+| `degree_required_share` | hiring | regex | share that require or prefer a degree, with no "or equivalent experience" |
+| `degree_optional_share` | hiring | regex | share that say a degree is optional ("or equivalent experience", "no degree required") |
+| `post_length_median` | hiring | count | median characters per live post (HTML stripped); unit `count` |
+| `interview_style_share` | hiring | regex | share naming at least one `interview_style` |
+| `office_days_share` | hiring | regex | share stating a number of in-office days a week |
 
 Breakdowns (`category` set, values sum to ~1 per month):
 
@@ -259,8 +269,26 @@ Breakdowns (`category` set, values sum to ~1 per month):
 | `industry` | jev | ai_ml, devtools_infra, fintech, health, climate_energy, security, commerce, media_consumer, enterprise_saas, hardware_robotics, other, unstated. `other` = described but no listed sector fits; `unstated` = the post doesn't say what the company does. Export also publishes shares renormalized over posts whose sector is known |
 | `funding_stage` | jev | bootstrapped, seed, series_a, series_b, series_c_plus, public_or_large, venture_unspecified, unknown. `seed` needs an explicitly named pre-seed/seed/angel round; an accelerator batch tag alone (e.g. "YC W12") is `unknown`; investors or amounts without a named round are `venture_unspecified` |
 | `stack` | vocab | one category per term in `features/vocab.py`; share of posts mentioning it (does not sum to 1) |
+| `stack_<group>` | vocab | the `stack` terms of one group: `language`, `framework`, `database`, `cloud_devops`, `data`, `ai_ml`, `mobile`. Same shares and category ids as `stack` |
+| `benefits` | regex | equity, retirement, health_insurance, dental_vision, unlimited_pto, pto_days, parental_leave, four_day_week, learning_budget, remote_stipend, relocation, sign_on_bonus, bonus, visa; share of posts offering each (does not sum to 1) |
+| `years_required` | regex | 0_2, 3_4, 5_7, 8_plus: the post's fewest stated years, among posts stating any (sums to 1) |
+| `interview_style` | regex | take_home, no_leetcode, pair_programming, paid_trial; share of posts naming each (does not sum to 1) |
 | `region` | regex | us, canada, uk, europe (non-UK), india, latam, asia_pacific, africa_mideast, unknown. Hiring posts; the header can name several regions, so shares do not sum to 1. Live posts |
 | `seeker_region` | regex | same categories, one per seeking post (sums to 1). Live posts |
+
+## What employers ask for (features-4)
+
+Regex and vocabulary rules on the hiring post's own text, applied to every month (spec rule 5), so each answer is point-in-time by construction.
+
+**Stack groups.** Every term in `features/vocab.py` belongs to one group (`GROUP_TERMS`). The 45 features-3 terms keep their rules exactly, so their answers don't move. The 62 added terms take the same care with ambiguous words: a first name, a season or an English word (Julia, Cassandra, Spring, Express, Chef, Puppet, Helm, Nomad, Jenkins, Prometheus, Solidity, JAX, dbt) needs a tech list or technical words within 80 characters. A term that is also a company (Snowflake, Datadog, Databricks, OpenAI, Grafana, Vercel, Cloudflare and others carry a `company` key) never counts in that company's own post: the header's company name (read with URLs removed) equals the key, with or without spaces and with a corporate suffix ("Grafana Labs", "HuggingFace"), but not a longer name ("Elastic Path"). It also doesn't count after a business cue within six words before it in the same sentence (ex-, former, raised from, investors, customers, acquired, founded, comes from), unless the sentence lists tools (stack, use, built with, powered by) and the cue is a weak one; "used by", "trusted by", "companies like", "teams at" and "customers" name the company even in a tool list; "backed by" is a cue only next to money words (VC, investors, funding, Series, raised), so "backed by a MySQL database" stays a stack mention. Nor does it count before "CEO", "founders" or "alumni", or as an analogy ("building Vercel for AI"). No added term counts inside the header's company field (the header up to its first separator, when it opens with a company name), so "Green Chef | Engineer" is not Chef. "Cloudflare" covers Workers, Pages and the CDN; "Vector databases" covers pgvector, vector DB or search and the named vector stores; "Elasticsearch" includes OpenSearch and ELK.
+
+**Benefits.** Each benefit is a set of patterns. A match counts unless its clause negates it ("no equity", "we can't offer relocation") or a product phrase covers it (diversity, private or health equity; "equity-free"; pension funds; software for 401(k)s; health insurance as the company's product or domain, "help employees pick the right health insurance"; leave-request software). A negation inside the match also rules it out ("Relocation not provided"; "non-trivial equity" is not a negation), and so does a move the candidate must make ("require (eventual) relocation to Japan", "relocation to Dubai is required", "willing to relocate"), but not "relocation support if required" or "open to providing relocation assistance". "Relocation to <Place>" needs a capitalized place. "Health care" alone counts only as an item in a benefits list, next to another benefit word, never in a list of industries. Equity mentions rose from about 8% (2021) to 20–22% (2025–26), but among posts that state pay they held at 40–59%; most of the rise is more posts stating pay ("$X + equity"), not more equity. Vague phrases ("great benefits", "generous PTO") count as nothing, and `pto_days` needs a stated number of days or weeks. `visa` is `mentions_visa`, so `benefits.visa` equals `visa_share`. `bonus` excludes "bonus points", "X is a bonus", "(bonus)" and a "Bonuses:" nice-to-have header, and counts "Bonus/Carry".
+
+**Years and degrees.** `years_required` is the post's smallest stated number across its roles ("3-5 years" is 3, "5+ YOE" and "5y+" are 5, "Two (2) years" is 2). A bare "N years" counts only next to experience words; "N+ years", ranges and "N years of/in/with X" count on their own. Company age (including "(20+ years)" right after a company or age word: company, business, established, founded; "Python (5+ years)" is a requirement), runway ("3+ years cash runway"), "N years in a row", "in N years", the team's, founders' or the writer's own years ("our team has", "most of us have", "founded by …", "Our CTO, with 15+ years at Google", "I've been"), maximums ("<= 2 years", "up to") and "4 year degree" never count. `degree` is `optional` when a degree mention is followed by "or equivalent experience" (or similar) or the post says one isn't needed, and `required` when the post asks for or prefers one (BS, MS, PhD, "CS degree", "degree in"). Team bios, students working toward a degree and idioms ("to an advanced degree") are not asks. The short forms BS, MS and BA are case-sensitive and need a field or "degree" after them.
+
+**Post traits.** `office_days` is the fewest in-office days a week stated ("3 days a week in office", "hybrid (2 days/wk)", "onsite (2/3 days p/w)", "onsite Mon-Fri"); a range ("2-3", "2/3", "two or three days") counts its lower number; work-from-home days and four-day weeks are not office days. `interview_style` has `take_home` (an explicit take-home or homework assignment), `no_leetcode` (the post says it skips LeetCode, whiteboards, brainteasers or algorithm puzzles), `pair_programming` (only next to interview words, since "we pair program daily" describes the job) and `paid_trial` (a paid trial, a paid take-home, "we pay for your time"). Roles per post is not measured: role lists are free text (bullets, "Engineers (backend, frontend)", bare links), and no rule tried on the dev sample counted them reliably.
+
+**Validation** (`tests/test_post_trends.py`; the fixtures in `tests/fixtures/post_trends/` keep only the lines the rules read). Rules were tuned on a seeded 240-post dev draw. Three other sets were labeled by hand before the rules ran on them: 120 random hiring posts (30 per era), 80 posts with a benefit, experience or interview keyword (20 per era), and the keyword sentences of 120 more posts (years, degree, office days, interview). First scores: benefits precision/recall 0.98/0.98 (random) and 1.00/0.90 (keyword); years stated precision 1.00, 0.93 and 0.95 with recall 1.00 on all three sets, and the smallest number exact in every post both found; degree accuracy 98–99%. Seven general misses found there were then fixed. An independent reviewer then drew and labeled 150 random posts and 100 keyword-dense posts; first scores there were benefits 0.94/0.90 and 0.97/0.90, years 1.00/0.89, office days 1.00/0.83, interview 1.00/0.75 and degree 150/150 on the random set. Their misses were fixed too (relocation and health phrasings, product health insurance, "N years in a row", runway, office-day ranges), so all five sets (569 posts) are partly in-sample. Current scores, precision/recall on positives: benefits 1.00/0.98 (random), 1.00/0.92 (keyword, where visa is 9 of 12 under the shared `visa_share` rule), 1.00/0.98 and 1.00/0.97 (reviewer's sets); years stated 0.99/1.00 with the smallest number exact in 65 of 66; office days 1.00/1.00 (10 posts); degree required 0.91/0.95, optional 1.00/0.87; interview style 0.91/0.71 (a "small programming assignment" is not called a take-home). The reviewer's third draw (seed 31337, 60 posts, benefits and years only) was scored before any rule saw it: benefits 0.99/0.90, years 9 of 9 stated and exact. Its misses were fixed in the next round (benefits now 0.99/1.00), so it too is partly in-sample; it is in the fixtures as `heldout`. A clean held-out number needs a fresh draw. Stack precision was judged on 30 matches per group drawn across all terms (30/30 except database and data at 29/30, both features-3 terms: "the founder of MongoDB" and a company named Spark) and on 20 per group from the added terms (20/20 except ai_ml 19/20 and cloud_devops 18/20 before the analogy, "raised from" and Chef Robotics rules). Tests hold floors on positives: benefits precision 0.95 and recall 0.85, years 0.9, degree 0.85/0.8, office days 0.9/0.85, interview 0.85/0.6, stack 0.9 per group. The fixtures replace personal emails with [email].
 
 ## Export contract: `site/data/metrics.json`
 
@@ -290,7 +318,7 @@ Breakdowns (`category` set, values sum to ~1 per month):
 }
 ```
 
-Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`: `1` when a rise is good news for job seekers, `-1` when bad, `0` when neutral; the exporter owns it. `pending` lists months whose snapshot is not complete; the site never shows a pending month (series end at the last complete month, and the newest article is for that month). Each metric and breakdown also carries `sources`: the thread kinds it draws on (e.g. `["hiring","seeking"]` for `seekers_per_post`), used for the chart source line. `n` is the number of posts the value is computed from (for salary medians: posts with a parsed salary). `bar` is the noise bar for the change into that point from 3, 12 and 60 months earlier (keys `3m`, `1y`, `5y`; a key is missing when the earlier month isn't in the series or its bar can't be computed). For `share` and `score` it bounds the absolute difference; for `count`, `ratio` and `usd` it bounds |ln(now / then)|, so a rise is noise under e^bar − 1 and a fall under 1 − e^−bar. Breakdown points nest it by window, then category. `noise.py` computes it as 1.96 × √(2s² + v_then + v_now): v is each month's sampling variance and s² the series' extra month-to-month variance, estimated from neighbor residuals using only months up to that point. `removed_share` has none; `usd` bars use the bootstrap alone; `score` bars have a 0.2 floor. The file is written compactly (no indentation). See docs/style-guide.md, "The noise bar". The mock file adds `"mock": true` and `"note"`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
+Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`: `1` when a rise is good news for job seekers, `-1` when bad, `0` when neutral; the exporter owns it. `pending` lists months whose snapshot is not complete; the site never shows a pending month (series end at the last complete month, and the newest article is for that month). Each metric and breakdown also carries `sources`: the thread kinds it draws on (e.g. `["hiring","seeking"]` for `seekers_per_post`), used for the chart source line. `n` is the number of posts the value is computed from (for salary medians: posts with a parsed salary). `bar` is the noise bar for the change into that point from 3, 12 and 60 months earlier (keys `3m`, `1y`, `5y`; a key is missing when the earlier month isn't in the series or its bar can't be computed). For `share` and `score` it bounds the absolute difference; for `count`, `ratio` and `usd` it bounds |ln(now / then)|, so a rise is noise under e^bar − 1 and a fall under 1 − e^−bar. Breakdown points nest it by window, then category. `noise.py` computes it as 1.96 × √(2s² + v_then + v_now): v is each month's sampling variance and s² the series' extra month-to-month variance, estimated from neighbor residuals using only months up to that point. `removed_share` has none; `usd` bars use the bootstrap alone; `score` bars have a 0.2 floor. The file is written compactly (no indentation). See docs/style-guide.md, "The noise bar". The mock file adds `"mock": true` and `"note"`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`, `years`. `years` bars, like `usd`, bound |ln(now / then)| and use the bootstrap of the median alone (whole years tie across months the way round salaries do); posts asking for zero years are kept, a bootstrap draw whose median is zero is clamped to half a year, and a month whose own median is zero gets no bar. The site never calls a `years` move a change when its bar is missing or either month has under 30 posts ("too few posts"); `post_length_median` (unit `count`) takes a bootstrap of the median instead of the Poisson variance, plus the neighbor-residual s². Breakdowns may carry `description` (how to read the shares, e.g. that they don't sum to 1) and `category_labels` (display names for category ids, which the site prefers over its own list). Months with no data are omitted from `series`, never null-filled.
 
 `external` (additive) holds the outside benchmarks, keyed by `<name>.<country>`, one entry for every series in the External benchmarks table, even when its series is empty:
 
@@ -301,12 +329,26 @@ Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`:
     "country": "US", "publisher": "Indeed Hiring Lab", "credit": "Indeed Hiring Lab, job postings tracker",
     "license": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/", "seasonally_adjusted": true,
     "unit": "index", "description": "…", "source_url": "https://github.com/hiring-lab/job_postings_tracker",
-    "series": [{"month": "2026-10", "value": 78.33, "ref_period": "2026-10-02", "vintage_date": "2026-10-06"}]
+    "series": [{"month": "2026-10", "value": 78.33, "ref_period": "2026-10-02", "vintage_date": "2026-10-06",
+                "compare": {"1y": {"ref_period": "2025-10-02", "value": 63.6}}}]
   }
 }
 ```
 
-`month` is the HN month (complete months only); `ref_period` is the day (`YYYY-MM-DD`), month (`YYYY-MM`) or quarter (`YYYY-Qn`, SEC restructuring) the publisher's number describes. A point may carry `n` (SEC series: companies behind the value), `top`, `annual_only`, `companies` and `dropped`. External units are `index`, `share` (0–1), `thousands`, `count`, `usd` or `change` (a fraction: −0.03 is a 3% fall). Indexed `external` lines suit levels; a count that can be zero (layoff filings) or a `change` series cannot be indexed to a base month, so those need their own chart type before an article uses them. Every description ends by saying values are as first published and later revisions are not applied, so a chart note can repeat it.
+`month` is the HN month (complete months only); `ref_period` is the day (`YYYY-MM-DD`), month (`YYYY-MM`) or quarter (`YYYY-Qn`, SEC restructuring) the publisher's number describes. A point may carry `n` (SEC series: companies behind the value), `top`, `annual_only`, `companies` and `dropped`. External units are `index`, `share` (0–1), `thousands`, `count`, `usd` or `change` (a fraction: −0.03 is a 3% fall). Indexed `external` lines suit levels; a count that can be zero (layoff filings) or a `change` series cannot be indexed to a base month, so those need their own chart type before an article uses them. Every description ends by saying values are as first published and later revisions are not applied, so a chart note can repeat it. A new outside source (SEC EDGAR, WARN, ONS) adds keys here with its own `publisher`; the renderer, the compare strip and the Sources block need no changes.
+
+`sources` (additive) lists the report's data sources in reading order for the page's Sources block: Hacker News first, then one row per outside source that has at least one value. BLS splits into JOLTS (`jolts_*` keys) and CES (`ces_*`); every other source is its `publisher`. Text is static in `src/sejr/sources.py`; coverage is computed from the exported series. A publisher with no text there still gets a row named after it, described by its series labels.
+
+```json
+"sources": [
+  {"id": "bls_jolts", "name": "BLS Job Openings and Labor Turnover Survey (JOLTS)", "measures": "…", "lag": "About two months…",
+   "caveat": "Industries, not occupations…", "credit": "U.S. Bureau of Labor Statistics, JOLTS; vintages via ALFRED",
+   "license": "public domain", "license_url": "…", "url": "https://www.bls.gov/jlt/",
+   "coverage_start": "2011-04", "coverage_end": "2026-10", "series": ["jolts_hires_information.US", "…"]}
+]
+```
+
+`coverage_start` and `coverage_end` are issue (HN) months: the first and last with a value in any of the source's series. The page reads the newest period each source carried in an issue from that source's series in `external`, so a back issue shows only the sources that existed by then and what they carried. `series` lists its `metrics` or `external` keys. `credit` is the series' own credit when they share one, else the publisher; `license` comes from the series.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
@@ -317,7 +359,8 @@ Markdown with front matter and chart directives. The site renders the newest art
 month: 2026-11
 headline: "Remote work is losing, but not where you'd think"
 dek: "One-sentence standfirst under the headline."
-byline: "Software Engineering Job Report"
+byline: "Software Engineering Jobs Report"
+ribbon: "external:indeed_software_postings.US"
 ---
 
 Body paragraphs…
@@ -326,9 +369,11 @@ Body paragraphs…
 
 ::chart{type="stacked-area" breakdown="work_mode" from="2020-01"}
 
-::compare{metrics="posts.hiring,seekers_per_post.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
+::compare{metrics="external:indeed_software_postings.US,posts.hiring,seekers_per_post.hiring" against="3m,1y,5y"}
 
 ::chart{type="line" metric="posts.hiring" external="indeed_software_postings.US" base="2022-01" from="2022-01"}
+
+::chart{type="line" external="ces_computer_systems_design.US" from="2019-01"}
 ```
 
 Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category).
@@ -344,17 +389,21 @@ Directive attributes:
 | `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
 | `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM`; default 5y on slope, 1y on dot |
 | `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
+| `metrics` | ::compare | comma list of rows, in order: metric keys (`posts.hiring`) and outside series written `external:<key>` (`external:indeed_software_postings.US`). An external row shows the published value (never smoothed or indexed), the period it describes ("Aug 2026 data"), "Not seasonally adjusted" when that applies, and its change against the same vintage's readings for the reference periods 3, 12 and 60 months earlier (`compare`), each with its reference period. A window without such a reading says "No same-month value". For a not seasonally adjusted series, a window whose two periods fall in different calendar months says "seasonal" instead of a change. External rows have no noise bar, so their change is a plain gray change with an arrow, never "≈" or better/worse. The source line credits each publisher with its license |
 | `against` | ::compare | comma list of windows, default `3m,1y,5y` |
 | `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
-| `external` | line | one key from metrics.json `external`, paired with the chart's single `metric`. Needs `base` |
-| `base` | line with `external` | `YYYY-MM`; both lines are indexed to 100 at this month. A benchmark with `smooth_12m: true` (JOLTS) is drawn as a 12-month trailing average (months without 12 consecutive values drop out), and the subtitle says so. The average runs over 12 HN months, not 12 reference months: each HN month carries the newest value published by its as-of date, so a reference month can appear twice or not at all (over JOLTS' 188 months, 33 repeat and 34 are skipped). The tooltip shows "12 months to <ref_period>" for a smoothed point. The source line adds the publisher's credit, a link to its license, and what this report changed ("indexed to Jan 2022 = 100 by this report") |
+| `external` | line | one key from metrics.json `external`. With a single `metric` it needs `base` and both lines are indexed. Without `metric` (and without `base`) the chart draws the outside series alone in its own unit (`index`, `share`, or `thousands` printed as whole numbers with K/M ticks), subtitled "as published by each issue's date"; the tooltip and table name each value's reference period |
+| `base` | line with `external` and `metric` | `YYYY-MM`; both lines are indexed to 100 at this month. On any chart, a series with `smooth_12m: true` (JOLTS) is drawn as a 12-month average, and the subtitle says so. Each issue's point averages the distinct reference months in the 12 calendar months ending at its own `ref_period`, each at the newest value known by that issue (later issues never leak back). Issues repeat or skip reference months (over JOLTS' 188 issues, 33 repeat one and 34 are skipped), so averaging 12 issues would count some months twice; a window needs at least 10 of its 12 months, so a skipped release or two doesn't blank a year. The tooltip shows "average of N monthly readings, <first> to <last>". `from` before the outside series' first value is an authoring error. The source line adds the publisher's credit, a link to its license, and what this report changed ("indexed to Jan 2022 = 100 by this report") |
 | `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
+| `layout` | line, bar, stacked-area, slope, dot | `float` (default) or `wide`. On screens 80rem (1280px) and wider a `float` chart sits beside its section's text, alternating right and left down the page, and is moved up to the start of the paragraphs it follows so that text wraps around it; on narrower screens it stays where it was written, at column width. `wide` spans the page instead. `::compare` and `small-multiples` are always wide and don't take `layout`. A chart with fewer than about 500 characters of paragraphs next to it stays in the column |
 
-`bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack` must not be drawn as `stacked-area` (its shares don't sum to 1).
+`bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack`, `stack_<group>`, `benefits`, `interview_style` and `region` must not be drawn as `stacked-area` (their shares don't sum to 1, even when a month's happen to stay under 1).
 
 A back issue clips every series to its front-matter `month`, so older issues never show later data.
+
+Front matter `ribbon` picks the masthead strip's series: a metric key or `external:<key>`, drawn as published. Without it, issues before November 2026 show `posts.hiring` (as they were published) and later issues show `external:indeed_software_postings.US`.
 
 Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest last. Files starting with `_` are samples and never listed.
 
@@ -391,6 +440,11 @@ The writer may quote only from these files and must put the item id in the ledge
 | `salary_currency` | regex | label: ISO code, `unknown` (bare k-range), or `none` (no salary found) |
 | `remote_token`, `onsite_token`, `mentions_visa`, `interns_token` | regex | value 0/1 |
 | `stack` | vocab | one row per post; `probabilities` holds the terms found |
+| `benefits`, `interview_style` | regex | hiring only, one row per post; `probabilities` holds the categories found, `value` their count |
+| `years_required` | regex | hiring only, one row per post: `value` = fewest stated years, `label` = its bucket; both NULL when none is stated, so the share counts every post |
+| `degree` | regex | hiring only, `label`: `required`, `optional` or `none` |
+| `office_days` | regex | hiring only, `value` = fewest in-office days a week stated, NULL when none |
+| `post_length` | count | hiring only, `value` = characters of `posts.text` |
 | `region` | regex | hiring: one row per post, `probabilities` holds every region the header line names (`unknown` when none); seeking: `label` is the region of the first place on the `Location:` line (`unknown` when there is no line or no recognized place) |
 | `open_to_us` | regex | hiring only, value 0/1: the header names a US place, or says remote with no region, a worldwide, North American, Americas or US-time-zone restriction. "REMOTE (EU)", "Berlin \| Remote" and "non-US" are 0. No row when the header names no place and doesn't say remote |
 | `new_company`, `returned_from_last_month` | join | value 0/1; not emitted when no earlier (or previous-month) hiring thread exists |
@@ -406,7 +460,7 @@ Completeness is per thread: a month whose hiring thread is complete publishes hi
 
 Samples contain hiring posts only. Seeking posts are never exported.
 
-Authoring mode (`?mock=1`, localhost) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only with `?mock=1&issue=_name`.
+Authoring mode (`?mock=1`, or a server on localhost/127.0.0.1) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only in authoring mode with `?issue=_name`; with `?mock=1` they read the mock data, on a local server the real export (`_sample-jobs-report` is the multi-source sample on the October 2026 data).
 
 `removed_share` depends on fetch age (history was fetched years later; new months at about day 8), so it is shown in the methodology only and never compared across months in an article. Shares (regex and Jev) are computed over live posts.
 

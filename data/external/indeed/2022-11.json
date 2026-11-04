@@ -4,12 +4,32 @@
   "month": "2022-11",
   "values": {
     "indeed_software_postings.GB": {
+      "compare": {
+        "1y": {
+          "ref_period": "2021-10-28",
+          "value": 126.19
+        },
+        "3m": {
+          "ref_period": "2022-07-28",
+          "value": 124.38
+        }
+      },
       "ref_period": "2022-10-28",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/c95460c0b3d3c1aedaaf38fed07aa1e9147c24c2/GB/job_postings_by_sector_GB.csv",
       "value": 112.69,
       "vintage_date": "2022-11-07"
     },
     "indeed_software_postings.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2021-10-28",
+          "value": 189.81
+        },
+        "3m": {
+          "ref_period": "2022-07-28",
+          "value": 193.3
+        }
+      },
       "ref_period": "2022-10-28",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/c95460c0b3d3c1aedaaf38fed07aa1e9147c24c2/US/job_postings_by_sector_US.csv",
       "value": 153.23,

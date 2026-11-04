@@ -26,7 +26,8 @@ HIRING_TEXTS = {
     "canonical": "Canonical | www.canonical.com | Remote (work from home) | Full Time | Developer, "
     "Project Manager\n\nWe write Go and Python. We are not able to sponsor visas.",
     "lambda": "Lambda | Senior Software Engineer | San Francisco, CA (Dogpatch) | Onsite | Full Time"
-    "\n\nKubernetes, Terraform, PyTorch.",
+    "\n\nKubernetes, Terraform, PyTorch. 5+ years of experience; BS in CS or equivalent experience."
+    " Equity, 401(k) match, take-home interview.",
     "spade": "Spade | Multiple Engineering, AI/ML Data Science, Revenue, and Ops Roles | ONSITE NYC "
     "or REMOTE (US/Can) | $130-240K+ (depending on role/level) + equity",
     "modash": "Modash.io | Senior Product Engineer | Remote (Europe) | Full-time | €75k–110k | "

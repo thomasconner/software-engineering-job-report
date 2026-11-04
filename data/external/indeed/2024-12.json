@@ -4,24 +4,72 @@
   "month": "2024-12",
   "values": {
     "indeed_software_postings.GB": {
+      "compare": {
+        "1y": {
+          "ref_period": "2023-12-06",
+          "value": 75.68
+        },
+        "3m": {
+          "ref_period": "2024-09-06",
+          "value": 57.83
+        }
+      },
       "ref_period": "2024-12-06",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/ceb4524c26ca00c7eb89d005dacd6450c168e69b/GB/job_postings_by_sector_GB.csv",
       "value": 58.52,
       "vintage_date": "2024-12-10"
     },
     "indeed_software_postings.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2023-12-06",
+          "value": 73.52
+        },
+        "3m": {
+          "ref_period": "2024-09-06",
+          "value": 68.02
+        }
+      },
       "ref_period": "2024-12-06",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/ceb4524c26ca00c7eb89d005dacd6450c168e69b/US/job_postings_by_sector_US.csv",
       "value": 66.93,
       "vintage_date": "2024-12-10"
     },
     "indeed_software_remote_share.GB": {
+      "compare": {
+        "1y": {
+          "ref_period": "2023-09-30",
+          "value": 0.51
+        },
+        "3m": {
+          "ref_period": "2024-06-30",
+          "value": 0.4999
+        },
+        "5y": {
+          "ref_period": "2019-09-30",
+          "value": 0.1241
+        }
+      },
       "ref_period": "2024-09-30",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/f2fb68c3eab5701c2c9497de78fcb771656ad8a7/remote_postings_sector.csv",
       "value": 0.4784,
       "vintage_date": "2024-10-15"
     },
     "indeed_software_remote_share.US": {
+      "compare": {
+        "1y": {
+          "ref_period": "2023-09-30",
+          "value": 0.3635
+        },
+        "3m": {
+          "ref_period": "2024-06-30",
+          "value": 0.3519
+        },
+        "5y": {
+          "ref_period": "2019-09-30",
+          "value": 0.0903
+        }
+      },
       "ref_period": "2024-09-30",
       "source_url": "https://raw.githubusercontent.com/hiring-lab/remote-tracker/f2fb68c3eab5701c2c9497de78fcb771656ad8a7/remote_postings_sector.csv",
       "value": 0.3454,
