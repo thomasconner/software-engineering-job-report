@@ -405,7 +405,7 @@ Directive attributes:
 
 A back issue clips every series to its front-matter `month`, so older issues never show later data.
 
-A `::compare` written before the first `##` section head is the issue's topline: the page moves it up to sit right under the byline, before the lede. An opening editor's note (a first paragraph that is entirely italic and starts with "Editor's note") stays above it. A strip written after the first section head, a strip whose directive has an error, and any strip in an article with no section head stay where they are. A directive's width is set before its data loads, and a breakdown chart holds a 20rem placeholder while its file arrives.
+A `::compare` written before the first `##` section head is the issue's topline: the page moves it up to sit right under the byline, before the lede. An opening editor's note (a first paragraph that is entirely italic and starts with "Editor's note") stays above it. A strip written after the first section head, a strip whose directive fails (to parse, or at render time, such as an unknown metric), and any strip in an article with no section head stay where they are. A directive's width is set before its data loads, and a breakdown chart holds a 20rem placeholder while its file arrives.
 
 Front matter `ribbon` is ignored. It picked the series for the masthead strip, which was dropped when the float layout was replaced (docs/spec.md, Decisions log), and old articles keep the key harmlessly.
 
