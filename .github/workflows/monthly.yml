@@ -1,0 +1,109 @@
+name: Monthly refresh
+
+on:
+  # The thread posts on the 1st and its 7-day snapshot completes around the 8th–9th.
+  # Fetch only touches threads still inside that window, so runs on days 1–12 cover
+  # publication (with slack for a late thread) and the rest of the month is idle.
+  schedule:
+    - cron: "0 17 1-12 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: monthly-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - run: uv sync --locked
+      - run: uv run pytest -q
+
+      - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: data/cache/jev
+          key: jev-${{ github.run_id }}
+          restore-keys: jev-
+
+      - run: uv run sejr fetch
+      - run: uv run sejr normalize
+      - run: uv run sejr features
+
+      # A newly complete month is over classify's 500-call unscoped guard, so each
+      # complete month with unanswered posts runs scoped. More than a few such months
+      # means a question or model change, which is a backfill to run by hand.
+      - name: Classify
+        id: classify
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          out=$(uv run sejr unanswered)
+          mapfile -t months < <(grep . <<< "$out" || true)
+          if [ ${#months[@]} -gt 3 ]; then
+            echo "::error::${#months[@]} months need classifying (${months[0]} to ${months[-1]}); run the backfill locally"
+            exit 1
+          fi
+          for month in "${months[@]}"; do
+            uv run sejr classify --month "$month"
+          done
+          uv run sejr classify
+
+      # Paid Jev work is kept even when a later step (or classify itself) fails.
+      - uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        if: always() && steps.classify.outcome != 'skipped'
+        with:
+          path: data/cache/jev
+          key: jev-${{ github.run_id }}
+      - name: Commit answers
+        if: always() && steps.classify.outcome != 'skipped'
+        run: .github/scripts/commit-data.sh data/answers
+
+      - run: uv run sejr aggregate
+      - run: uv run sejr export
+
+      - name: Commit data
+        id: commit
+        run: .github/scripts/commit-data.sh data/raw data/answers site/data
+
+      - name: Deploy the site
+        # A push made with GITHUB_TOKEN never triggers other workflows, so dispatch it.
+        if: steps.commit.outputs.site_changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
+
+      - name: Open an issue for the new column
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          month=$(jq -r '.latest_month // empty' site/data/metrics.json 2>/dev/null || true)
+          if [ -z "$month" ]; then
+            echo "metrics.json has no latest_month"
+            exit 0
+          fi
+          if [ -f "site/articles/$month.md" ]; then
+            echo "site/articles/$month.md already exists"
+            exit 0
+          fi
+          title="Write the $(date -u -d "$month-01" '+%B %Y') column"
+          # List instead of search: the search index lags, and a missed match would
+          # open a duplicate on the next day's run.
+          if gh issue list --state all --limit 1000 --json title --jq '.[].title' | grep -Fxq "$title"; then
+            echo "issue already exists: $title"
+            exit 0
+          fi
+          gh issue create --title "$title" --body "$(cat <<EOF
+          $month is complete and exported, but \`site/articles/$month.md\` does not exist yet.
+
+          Write the column from \`site/data/metrics.json\` and \`site/data/samples/$month.json\`, following \`docs/style-guide.md\` and the article contract in \`docs/architecture.md\`. Every number must match \`metrics.json\`; a second agent fact-checks it before merge.
+          EOF
+          )"

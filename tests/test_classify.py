@@ -310,3 +310,31 @@ def test_concurrency_is_bounded(con, dirs, monkeypatch):
     run(con, fake, dirs)
     assert fake.calls == 6
     assert peak == 2
+
+
+def test_incomplete_threads_are_not_classified(con, dirs):
+    con.execute(
+        "UPDATE threads SET fetched_at = snapshot_at - INTERVAL 1 HOUR WHERE thread_id = 3"
+    )
+    fake = FakeJev()
+    run(con, fake, dirs, month=None)
+    assert fake.calls == 2
+    assert not [k for k in answers(con) if k[0] == 30]
+    _, answers_dir = dirs
+    assert classify.unanswered_months(con, answers_dir) == []
+
+
+def test_text_change_reruns_only_that_post(con, dirs):
+    run(con, FakeJev(), dirs)
+    con.execute("UPDATE posts SET text = 'Acme | Rust | REMOTE' WHERE post_id = 10")
+    fake = FakeJev()
+    run(con, fake, dirs)
+    assert fake.calls == 1
+    assert [b["state"] for b in fake.bodies] == ["Acme | Rust | REMOTE"]
+
+
+def test_unanswered_months_lists_complete_months_with_gaps(con, dirs):
+    _, answers_dir = dirs
+    assert classify.unanswered_months(con, answers_dir) == ["2014-03", "2014-04"]
+    run(con, FakeJev(), dirs, month="2014-03")
+    assert classify.unanswered_months(con, answers_dir) == ["2014-04"]

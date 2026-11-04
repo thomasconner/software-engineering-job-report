@@ -78,9 +78,14 @@ def sha256(text: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()
 
 
+def request_digest(request: Request) -> str:
+    """Identifies the exact request: model, questions and post text."""
+    return sha256(canonical_json(request))
+
+
 def cache_path(cache_dir: Path, request: Request) -> Path:
     # Sharded by the first two hex characters so no directory holds 150k files.
-    digest = sha256(canonical_json(request))
+    digest = request_digest(request)
     return cache_dir / digest[:2] / f"{digest}.json"
 
 
