@@ -1,11 +1,7 @@
-import d3 from './d3.js';
-import { parseArticle } from './article.js';
+import { parseArticle, directiveWidth } from './article.js';
 import { renderChart } from './charts.js';
 import { renderCompare } from './compare.js';
-import {
-  AuthoringError, WINDOWS, addMonths, monthLabel, makeFormat, categoryLabel, METHOD_LABEL, prepare, resolveCompareRows,
-  periodLabel, ribbonKey,
-} from './data.js';
+import { AuthoringError, monthLabel, categoryLabel, METHOD_LABEL, prepare, periodLabel, loadBreakdown } from './data.js';
 
 const params = new URLSearchParams(location.search);
 const mock = params.get('mock') === '1';
@@ -40,7 +36,6 @@ async function main() {
   if (data.mock) $('#mock-banner').hidden = false;
   renderPicker(issues, issue);
   renderHeader(article.meta, until, data);
-  renderRibbon(data, until, ribbonKey(article.meta));
   renderBody(article, data, until);
   renderMethodology(data, until);
 }
@@ -61,7 +56,6 @@ function showError(message) {
   $('#glossary-title').hidden = true;
   $('#sources-title').hidden = true;
   $('#sources-intro').hidden = true;
-  $('.ribbon-figure').hidden = true;
 }
 
 function setupTheme() {
@@ -110,109 +104,15 @@ function renderHeader(meta, until, data) {
   document.title = `${headline} | Software Engineering Jobs Report`;
 }
 
-// Masthead strip: one series (front matter `ribbon`, see data.ribbonKey) for every complete month up
-// to this issue, with the comparison months marked.
-function renderRibbon(data, until, key) {
-  const wrap = $('#ribbon');
-  const caption = $('#ribbon-caption');
-  let series;
+const fetchData = (url) => fetchJson(url, `${url} could not be loaded.`);
+
+// Breakdown series load on demand (data.loadBreakdown), so a chart of one waits for its file.
+async function mountDirective(mount, name, attrs, data, until) {
   try {
-    [series] = resolveCompareRows(data, key, until);
-  } catch (err) {
-    if (authoring) console.warn(`ribbon: ${err.message}`);
-    $('.ribbon-figure').hidden = true;
-    return;
-  }
-  const pts = series.points;
-  if (!pts.length) {
-    $('.ribbon-figure').hidden = true;
-    return;
-  }
-  const marks = new Map(Object.entries(WINDOWS).map(([k, n]) => [addMonths(until, -n), k]));
-  const fmt = makeFormat(series.unit);
-  const what = series.external
-    ? `${series.label} in each issue since ${monthLabel(pts[0].month)}, as published by its date`
-    : `${series.label} in Hacker News's "Who is hiring?" thread each month since ${monthLabel(pts[0].month)}`;
-  const defaultCaption = `${what}. Marked bars show 5 years, 1 year and 3 months before ${monthLabel(until)}.`;
-  caption.textContent = defaultCaption;
-  wrap.setAttribute('aria-label', `${defaultCaption} Use the arrow keys to read each month.`);
-  let idx = pts.length - 1;
-  let x;
-
-  const read = (i, keyboard) => {
-    idx = Math.max(0, Math.min(pts.length - 1, i));
-    const p = pts[idx];
-    const text = series.external
-      ? `${monthLabel(p.month, 'long')} issue: ${fmt(p.value)} (${periodLabel(p.ref_period)} data)`
-      : `${monthLabel(p.month, 'long')}: ${fmt(p.value)} hiring posts on Hacker News`;
-    caption.textContent = text;
-    wrap.querySelector('.cursor')?.setAttribute('x', x(pts[idx].month));
-    wrap.querySelector('.cursor')?.removeAttribute('hidden');
-    if (keyboard) $('#ribbon-live').textContent = text;
-  };
-  const reset = () => {
-    caption.textContent = defaultCaption;
-    wrap.querySelector('.cursor')?.setAttribute('hidden', '');
-  };
-
-  const draw = () => {
-    const width = wrap.clientWidth;
-    if (!width) return;
-    const phone = width < 520;
-    const barsH = phone ? 50 : 62;
-    x = d3.scaleBand().domain(pts.map((p) => p.month)).range([0, width]).paddingInner(width / pts.length > 4 ? 0.25 : 0.1);
-    const y = d3.scaleLinear().domain([0, d3.max(pts, (p) => p.value)]).range([barsH, 4]);
-    const svg = d3.create('svg').attr('width', width).attr('aria-hidden', 'true');
-    svg.selectAll('rect.bar').data(pts).join('rect')
-      .attr('class', (p) => (p.month === until ? 'bar now' : marks.has(p.month) ? 'bar mark' : 'bar'))
-      .attr('x', (p) => x(p.month)).attr('width', Math.max(1, x.bandwidth()))
-      .attr('y', (p) => y(p.value)).attr('height', (p) => y(0) - y(p.value));
-    svg.append('rect').attr('class', 'cursor').attr('y', 0).attr('height', barsH).attr('width', Math.max(2, x.bandwidth())).attr('hidden', '');
-    wrap.replaceChildren(svg.node());
-    // The issue month is named above its own bar, so it never competes with the window labels underneath.
-    const now = pts.at(-1);
-    svg.append('text').attr('class', 'now').attr('x', width).attr('y', Math.max(10, y(now.value) - 5))
-      .attr('text-anchor', 'end').text(monthLabel(until));
-    // Window labels go on the first row that has room; the strip grows another row rather than dropping one.
-    const rows = [];
-    for (const [m, key] of [...marks].reverse()) {
-      if (x(m) == null) continue;
-      const cx = x(m) + x.bandwidth() / 2;
-      svg.append('line').attr('class', 'tick').attr('x1', cx).attr('x2', cx).attr('y1', barsH + 1).attr('y2', barsH + 5);
-      const t = svg.append('text').text(phone ? key : `${key} ago`);
-      const w = t.node().getComputedTextLength();
-      const left = Math.min(width - w, Math.max(0, cx - w / 2));
-      let r = rows.findIndex((row) => !row.some(([a, b]) => left < b + 6 && left + w > a - 6));
-      if (r === -1) r = rows.push([]) - 1;
-      rows[r].push([left, left + w]);
-      t.attr('x', left).attr('y', barsH + 16 + r * 13);
-    }
-    const height = barsH + 6 + rows.length * 13;
-    svg.attr('height', height).attr('viewBox', `0 0 ${width} ${height}`);
-  };
-
-  // pointerdown as well as pointermove, so a tap on a phone reads a month too.
-  const onPoint = (ev) => {
-    if (x) read(Math.floor((ev.clientX - wrap.getBoundingClientRect().left) / x.step()));
-  };
-  wrap.addEventListener('pointermove', onPoint);
-  wrap.addEventListener('pointerdown', onPoint);
-  wrap.addEventListener('pointerleave', reset);
-  wrap.addEventListener('focus', () => read(idx, true));
-  wrap.addEventListener('blur', () => { reset(); idx = pts.length - 1; });
-  wrap.addEventListener('keydown', (ev) => {
-    const step = { ArrowLeft: -1, ArrowRight: 1, Home: -Infinity, End: Infinity }[ev.key];
-    if (step == null) return;
-    read(idx + (Number.isFinite(step) ? step : step > 0 ? pts.length : -pts.length), true);
-    ev.preventDefault();
-  });
-  new ResizeObserver(() => requestAnimationFrame(draw)).observe(wrap);
-}
-
-function mountDirective(mount, name, attrs, data, until) {
-  try {
+    if (attrs.breakdown) await loadBreakdown(data, attrs.breakdown, fetchData);
     if (name === 'compare') renderCompare(mount, attrs, data, until);
     else renderChart(mount, attrs, data, until);
+    mount.dataset.width = directiveWidth(name, attrs);
   } catch (err) {
     showDirectiveError(mount, err);
   }
@@ -234,59 +134,21 @@ function showDirectiveError(mount, err) {
 function renderBody(article, data, until) {
   const body = $('#article-body');
   body.innerHTML = article.html;
-  for (const mount of body.querySelectorAll('.directive')) {
+  const mounts = [...body.querySelectorAll('.directive')];
+  // A ::compare written before the first section head is the issue's topline: it goes right under the byline,
+  // before the lede, so the page opens with the headline numbers and the text then reads without a break.
+  const firstHead = body.querySelector('h2');
+  const topline = mounts.find((m) => article.directives[m.dataset.directive].name === 'compare'
+    && !(firstHead && firstHead.compareDocumentPosition(m) & Node.DOCUMENT_POSITION_FOLLOWING));
+  if (topline) {
+    topline.classList.add('topline');
+    body.prepend(topline);
+  }
+  for (const mount of mounts) {
     const { name, attrs, error } = article.directives[mount.dataset.directive];
     if (error) showDirectiveError(mount, error);
     else mountDirective(mount, name, attrs, data, until);
   }
-  arrangeFigures(body, article.directives);
-}
-
-// On wide screens regular charts float beside the text, alternating right and left; the strip, small multiples
-// and `layout="wide"` charts span the page. Keep the breakpoint in step with style.css.
-const FLOAT_QUERY = matchMedia('(min-width: 80rem)');
-const MIN_PROSE = 500; // characters, about ten lines beside a float
-const isProse = (node) => ['P', 'UL', 'OL', 'BLOCKQUOTE'].includes(node?.tagName);
-
-function arrangeFigures(body, directives) {
-  const hoisted = [];
-  let floats = 0;
-  for (const mount of body.querySelectorAll('.directive')) {
-    const { name, attrs } = directives[mount.dataset.directive];
-    if (!mount.querySelector('.chart, .compare')) continue; // errors stay in the column
-    if (name === 'compare' || attrs.type === 'small-multiples' || attrs.layout === 'wide') {
-      mount.dataset.layout = 'wide';
-      continue;
-    }
-    // Articles put a chart after the paragraphs it backs. A float only wraps the text that follows it, so on
-    // wide screens the chart moves up to the start of that run of paragraphs and goes back on narrow ones.
-    // A sentence or two beside a chart leaves a hole under it, so a short run stays in the column.
-    let start = mount;
-    let text = 0;
-    while (isProse(start.previousElementSibling)) {
-      start = start.previousElementSibling;
-      text += start.textContent.length;
-    }
-    for (let next = mount.nextElementSibling; start === mount && isProse(next); next = next.nextElementSibling) {
-      text += next.textContent.length;
-    }
-    if (text < MIN_PROSE) continue;
-    mount.dataset.layout = 'float';
-    mount.dataset.side = floats++ % 2 ? 'left' : 'right';
-    if (start === mount) continue;
-    const anchor = document.createComment('chart');
-    mount.before(anchor);
-    hoisted.push({ mount, start, anchor });
-  }
-  if (!hoisted.length) return;
-  const place = () => {
-    for (const { mount, start, anchor } of hoisted) {
-      if (FLOAT_QUERY.matches) start.before(mount);
-      else anchor.after(mount);
-    }
-  };
-  FLOAT_QUERY.addEventListener('change', place);
-  place();
 }
 
 // Plain names for the Jev questions scored in validation.json, and the measures they feed.

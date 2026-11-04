@@ -44,11 +44,15 @@ function figureShell(mount, attrs, series) {
   const id = `chart-${++uid}`;
   const figure = el('figure', `chart chart-${attrs.type}`);
   const head = el('figcaption', 'chart-head');
+  const heading = el('div', 'chart-heading');
   const title = el('h3', 'chart-title', attrs.title);
   title.id = `${id}-title`;
   const sub = el('p', 'chart-sub', attrs.subtitle ?? '');
   sub.id = `${id}-sub`;
-  head.append(title, sub);
+  heading.append(title, sub);
+  // Range buttons sit at the top right of the chart, beside the title.
+  const presets = el('div', 'presets');
+  head.append(heading, presets);
   const legend = el('ul', 'legend');
   legend.hidden = true;
   const plot = el('div', 'chart-plot');
@@ -58,13 +62,12 @@ function figureShell(mount, attrs, series) {
   live.setAttribute('aria-live', 'polite');
 
   const foot = el('div', 'chart-foot');
-  const presets = el('div', 'presets');
   const source = sourceNode(series, attrs, (s) => [attrs.base && `indexed to ${monthLabel(attrs.base)} = 100`, s.smoothed && '12-month average']);
   const toggle = el('button', 'table-toggle', 'Show the numbers');
   toggle.type = 'button';
   toggle.setAttribute('aria-expanded', 'false');
   toggle.setAttribute('aria-controls', `${id}-table`);
-  foot.append(presets, source, toggle);
+  foot.append(source, toggle);
   const tableBox = el('div', 'chart-table');
   tableBox.id = `${id}-table`;
   tableBox.hidden = true;
@@ -163,8 +166,10 @@ function makeTooltip(plot) {
         return row;
       }), ...(foot ? [el('div', 'tip-foot', foot)] : []));
       tip.hidden = false;
-      const left = x + 14 + tip.offsetWidth > plot.clientWidth ? x - 14 - tip.offsetWidth : x + 14;
-      tip.style.left = `${Math.max(0, left)}px`;
+      // Flip to the left of the pointer near the right edge, and never past either edge of the plot.
+      const room = plot.clientWidth - tip.offsetWidth;
+      const left = x + 14 > room ? x - 14 - tip.offsetWidth : x + 14;
+      tip.style.left = `${Math.max(0, Math.min(room, left))}px`;
       tip.style.top = `${y}px`;
     },
     hide() { tip.hidden = true; },
@@ -426,7 +431,8 @@ function timeChart(fig, series, attrs, until, data, mode) {
     const fmt = makeFormat(unit);
     const tipFmt = makeFormat(unit, { precise: true });
     const phone = isPhone(width);
-    const height = mode === 'bar' ? (phone ? 220 : 260) : phone ? 250 : 320;
+    // Wide charts get taller so their slopes keep the same shape; capped so a chart fits a laptop screen.
+    const height = mode === 'bar' ? (phone ? 220 : 280) : phone ? 250 : Math.round(Math.max(300, Math.min(420, width * 0.42)));
     const start = monthDate(startM);
     const end = monthDate(endM);
     const svg = newSvg(fig, width, height);
@@ -658,7 +664,7 @@ function smallMultiples(fig, series, attrs, until) {
     }
     fig.setSubtitle(`${subjectOf(series)}, ${monthLabel(months[0], 'long')} to ${monthLabel(months.at(-1), 'long')}`);
     const fmtFor = (s) => makeFormat(s.unit);
-    const cols = width < 420 ? 2 : width < 640 ? 3 : 4;
+    const cols = width < 420 ? 2 : width < 640 ? 3 : width < 1100 ? 4 : 5;
     const gap = 16;
     const pw = Math.floor((width - gap * (cols - 1)) / cols);
     const top = annotations.length ? 18 : 6;

@@ -35,10 +35,12 @@ export function renderCompare(mount, attrs, data, until) {
 
   const figure = el('figure', 'compare');
   const head = el('figcaption', 'chart-head');
-  head.append(el('h3', 'chart-title', attrs.title));
+  const heading = el('div', 'chart-heading');
+  head.append(heading);
+  heading.append(el('h3', 'chart-title', attrs.title));
   const span = windows.map((a) => WINDOW_LABEL[a]).join(', ').replace(/, ([^,]*)$/, ' and $1');
   const outsideNote = outside ? ' Outside sources show the period their number describes and have no noise bar, so their changes carry no verdict; each change compares readings from the same release.' : '';
-  head.append(el('p', 'chart-sub', attrs.subtitle ?? `${monthLabel(until, 'long')} against ${span} earlier. Better and worse are from the point of view of people looking for work; moves within the noise are gray and marked \u2248 (about the same).${outsideNote}`));
+  heading.append(el('p', 'chart-sub', attrs.subtitle ?? `${monthLabel(until, 'long')} against ${span} earlier. Better and worse are from the point of view of people looking for work; moves within the noise are gray and marked \u2248 (about the same).${outsideNote}`));
 
   const table = el('table', 'compare-table');
   const hr = table.createTHead().insertRow();
@@ -80,7 +82,8 @@ export function renderCompare(mount, attrs, data, until) {
       tr.append(td);
     }
   }
-  const foot = sourceNode(series, attrs);
+  const foot = el('div', 'chart-foot');
+  foot.append(sourceNode(series, attrs));
   figure.append(head, table, foot);
   mount.replaceChildren(figure);
 }
