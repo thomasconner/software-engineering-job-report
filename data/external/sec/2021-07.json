@@ -1,0 +1,196 @@
+{
+  "as_of": "2021-07-09",
+  "fetched_at": "2026-11-04T19:48:37Z",
+  "month": "2021-07",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2021-03-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 139995,
+      "vintage_date": "2021-07-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2021-03-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 1271000,
+      "vintage_date": "2021-07-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        16058,
+        97476,
+        712515,
+        718877,
+        723125,
+        743988,
+        750004,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        827054,
+        883241,
+        896878,
+        946581,
+        1018724,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1124610,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1402436,
+        1418091,
+        1512673,
+        1604778,
+        1633917,
+        1652044,
+        1688568,
+        1724670,
+        1730168,
+        1759509
+      ],
+      "dropped": [
+        {
+          "cik": 1045810,
+          "reason": "8-K Item 2.01 filed 2020-04-27 (0001045810-20-000052)"
+        },
+        {
+          "cik": 1373715,
+          "reason": "8-K Item 2.01 filed 2021-01-14 (0001373715-21-000006)"
+        },
+        {
+          "cik": 1543151,
+          "reason": "8-K Item 2.01 filed 2020-01-21 (0001552781-20-000094)"
+        },
+        {
+          "cik": 1597033,
+          "reason": "8-K Item 2.01 filed 2020-12-17 (0001193125-20-320165)"
+        }
+      ],
+      "n": 41,
+      "ref_period": "2021-05",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0789,
+      "vintage_date": "2021-07-09"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2021-03-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 60654,
+      "vintage_date": "2021-07-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        16058,
+        97476,
+        712515,
+        718877,
+        723125,
+        743988,
+        750004,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        827054,
+        883241,
+        896878,
+        946581,
+        1018724,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1124610,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1402436,
+        1418091,
+        1512673,
+        1604778,
+        1633917,
+        1652044,
+        1688568,
+        1724670,
+        1730168,
+        1759509
+      ],
+      "dropped": [
+        {
+          "cik": 1045810,
+          "reason": "8-K Item 2.01 filed 2020-04-27 (0001045810-20-000052)"
+        },
+        {
+          "cik": 1373715,
+          "reason": "8-K Item 2.01 filed 2021-01-14 (0001373715-21-000006)"
+        },
+        {
+          "cik": 1543151,
+          "reason": "8-K Item 2.01 filed 2020-01-21 (0001552781-20-000094)"
+        },
+        {
+          "cik": 1597033,
+          "reason": "8-K Item 2.01 filed 2020-12-17 (0001193125-20-320165)"
+        }
+      ],
+      "n": 41,
+      "ref_period": "2021-05",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.2449,
+      "vintage_date": "2021-07-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2021-06",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2021-07-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2021-06",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 0,
+      "vintage_date": "2021-07-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2021-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 17,
+      "vintage_date": "2021-07-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [
+        827054
+      ],
+      "n": 16,
+      "ref_period": "2021-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 50863,
+        "name": "INTEL CORP",
+        "share": 0.8346
+      },
+      "value": 2646706000,
+      "vintage_date": "2021-07-09"
+    }
+  }
+}

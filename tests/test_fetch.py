@@ -2,6 +2,7 @@ import gzip
 import json
 import re
 
+import httpx
 import pytest
 
 from sejr import fetch
@@ -169,3 +170,39 @@ def test_threads_freeze_once_fetched_after_snapshot(tmp_path, monkeypatch):
     del meta["kids"]
     fetch.raw_paths(thread)[1].write_text(json.dumps(meta))
     assert fetch.plan([thread]) == [(thread, "kids")]
+
+
+def test_download_writes_the_file_only_when_complete(tmp_path):
+    bodies = iter([httpx.Response(404), httpx.Response(200, content=b"x" * 3_000_000)])
+    client = fetch.Client(min_interval=0, max_attempts=1)
+    client.http = httpx.Client(
+        transport=httpx.MockTransport(lambda request: next(bodies))
+    )
+    target = tmp_path / "big.zip"
+    with pytest.raises(httpx.HTTPStatusError):
+        client.download("https://example.com/big.zip", target)
+    assert not target.exists()
+    client.download("https://example.com/big.zip", target)
+    assert target.read_bytes() == b"x" * 3_000_000
+    assert not (tmp_path / "big.zip.part").exists()
+
+
+def test_one_403_is_throttling_and_is_retried_after_the_backoff():
+    responses = iter([httpx.Response(403), httpx.Response(200, text="ok")])
+    client = fetch.Client(min_interval=0, max_attempts=3, throttle_backoff=60)
+    client.http = httpx.Client(transport=httpx.MockTransport(lambda r: next(responses)))
+    slept = []
+    client.sleep = slept.append
+    assert client.get("https://example.com/x").text == "ok"
+    assert slept == [60]
+    # A second 403 is a real refusal.
+    responses = iter([httpx.Response(403), httpx.Response(403)])
+    with pytest.raises(httpx.HTTPStatusError):
+        client.get("https://example.com/x")
+    # Without a backoff (every other source), a 403 is final at once.
+    plain = fetch.Client(min_interval=0, max_attempts=3)
+    plain.http = httpx.Client(
+        transport=httpx.MockTransport(lambda r: httpx.Response(403))
+    )
+    with pytest.raises(httpx.HTTPStatusError):
+        plain.get("https://example.com/x")

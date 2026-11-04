@@ -1,0 +1,216 @@
+{
+  "as_of": "2016-10-11",
+  "fetched_at": "2026-11-04T19:48:35Z",
+  "month": "2016-10",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2016-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 66575,
+      "vintage_date": "2016-10-11"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2016-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 268900,
+      "vintage_date": "2016-10-11"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        50863,
+        97476,
+        356028,
+        712515,
+        718877,
+        723125,
+        743316,
+        743988,
+        746838,
+        769397,
+        789019,
+        796343,
+        804328,
+        827054,
+        877890,
+        883241,
+        896878,
+        1002517,
+        1011006,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1062047,
+        1065280,
+        1097864,
+        1108524,
+        1124610,
+        1288776,
+        1316360,
+        1326801,
+        1336920,
+        1341439,
+        1556148,
+        1597033
+      ],
+      "dropped": [
+        {
+          "cik": 4127,
+          "reason": "8-K Item 2.01 filed 2015-11-05 (0000004127-15-000031)"
+        },
+        {
+          "cik": 16058,
+          "reason": "8-K Item 2.01 filed 2016-02-03 (0001564590-16-012268)"
+        },
+        {
+          "cik": 23082,
+          "reason": "8-K Item 2.01 filed 2015-12-03 (0000023082-15-000083)"
+        },
+        {
+          "cik": 804753,
+          "reason": "8-K Item 2.01 filed 2015-02-02 (0000804753-15-000002)"
+        },
+        {
+          "cik": 849399,
+          "reason": "Symantec sold Veritas"
+        },
+        {
+          "cik": 1065088,
+          "reason": "PayPal spun off from eBay"
+        },
+        {
+          "cik": 1271024,
+          "reason": "8-K Item 2.01 filed 2015-05-15 (0001104659-15-038289)"
+        },
+        {
+          "cik": 1595262,
+          "reason": "8-K Item 2.01 filed 2015-04-01 (0001193125-15-116279)"
+        }
+      ],
+      "n": 39,
+      "ref_period": "2016-07",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0303,
+      "vintage_date": "2016-10-11"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        50863,
+        97476,
+        356028,
+        712515,
+        718877,
+        723125,
+        743316,
+        743988,
+        746838,
+        769397,
+        789019,
+        796343,
+        804328,
+        827054,
+        877890,
+        883241,
+        896878,
+        1002517,
+        1011006,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1062047,
+        1065280,
+        1097864,
+        1108524,
+        1124610,
+        1288776,
+        1316360,
+        1326801,
+        1336920,
+        1341439,
+        1556148,
+        1597033
+      ],
+      "dropped": [
+        {
+          "cik": 4127,
+          "reason": "8-K Item 2.01 filed 2015-11-05 (0000004127-15-000031)"
+        },
+        {
+          "cik": 16058,
+          "reason": "8-K Item 2.01 filed 2016-02-03 (0001564590-16-012268)"
+        },
+        {
+          "cik": 23082,
+          "reason": "8-K Item 2.01 filed 2015-12-03 (0000023082-15-000083)"
+        },
+        {
+          "cik": 804753,
+          "reason": "8-K Item 2.01 filed 2015-02-02 (0000804753-15-000002)"
+        },
+        {
+          "cik": 849399,
+          "reason": "Symantec sold Veritas"
+        },
+        {
+          "cik": 1065088,
+          "reason": "PayPal spun off from eBay"
+        },
+        {
+          "cik": 1271024,
+          "reason": "8-K Item 2.01 filed 2015-05-15 (0001104659-15-038289)"
+        },
+        {
+          "cik": 1595262,
+          "reason": "8-K Item 2.01 filed 2015-04-01 (0001193125-15-116279)"
+        }
+      ],
+      "n": 39,
+      "ref_period": "2016-07",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0833,
+      "vintage_date": "2016-10-11"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2016-09",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 1,
+      "vintage_date": "2016-10-11"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2016-09",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 2,
+      "vintage_date": "2016-10-11"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2016-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 22,
+      "vintage_date": "2016-10-11"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 22,
+      "ref_period": "2016-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 789019,
+        "name": "MICROSOFT CORP",
+        "share": 0.5257
+      },
+      "value": 953032000,
+      "vintage_date": "2016-10-11"
+    }
+  }
+}

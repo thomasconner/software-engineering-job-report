@@ -89,7 +89,8 @@ def test_sources_from_the_real_external_section():
     rows = {
         r["id"]: r for r in sources.build(METRICS, build_section(months, EXTERNAL_DIR))
     }
-    assert list(rows) == ["hn", "indeed", "bls_jolts", "bls_ces"]
+    assert list(rows) == ["hn", "indeed", "bls_jolts", "bls_ces", "sec"]
+    assert rows["sec"]["coverage_start"] == "2012-01"
     assert rows["indeed"]["coverage_start"] == "2021-06"
     assert rows["bls_jolts"]["coverage_end"] == "2026-10"
     assert rows["bls_ces"]["license"] == "public domain"

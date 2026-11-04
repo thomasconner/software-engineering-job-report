@@ -1,0 +1,218 @@
+{
+  "as_of": "2013-09-09",
+  "fetched_at": "2026-11-04T19:48:34Z",
+  "month": "2013-09",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2013-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1288776/",
+      "value": 44777,
+      "vintage_date": "2013-09-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2013-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 97000,
+      "vintage_date": "2013-09-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        4127,
+        6281,
+        6951,
+        8670,
+        16058,
+        23082,
+        50863,
+        97476,
+        356028,
+        703360,
+        712515,
+        718877,
+        723125,
+        743988,
+        746838,
+        768251,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        835729,
+        849399,
+        872448,
+        896878,
+        912093,
+        1018724,
+        1036960,
+        1045810,
+        1047127,
+        1062047,
+        1065088,
+        1065280,
+        1097864,
+        1124804,
+        1336920,
+        1337272,
+        1341439,
+        1468516
+      ],
+      "dropped": [
+        {
+          "cik": 877890,
+          "reason": "8-K Item 2.01 filed 2012-07-13 (0001193125-12-301517)"
+        },
+        {
+          "cik": 883241,
+          "reason": "8-K Item 2.01 filed 2012-12-03 (0001193125-12-488345)"
+        },
+        {
+          "cik": 1002517,
+          "reason": "8-K Item 2.01 filed 2012-06-07 (0001193125-12-263463)"
+        },
+        {
+          "cik": 1011006,
+          "reason": "8-K Item 2.01 filed 2012-09-19 (0001193125-12-395778)"
+        },
+        {
+          "cik": 1054374,
+          "reason": "8-K Item 2.01 filed 2012-02-17 (0001193125-12-066472)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2012-08-13 (0001193125-12-352751)"
+        },
+        {
+          "cik": 1124610,
+          "reason": "8-K Item 2.01 filed 2012-08-24 (0001124610-12-000026)"
+        },
+        {
+          "cik": 1288776,
+          "reason": "8-K Item 2.01 filed 2012-05-22 (0000903423-12-000297)"
+        }
+      ],
+      "n": 40,
+      "ref_period": "2013-06",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0291,
+      "vintage_date": "2013-09-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        4127,
+        6281,
+        6951,
+        8670,
+        16058,
+        23082,
+        50863,
+        97476,
+        356028,
+        703360,
+        712515,
+        718877,
+        723125,
+        743988,
+        746838,
+        768251,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        835729,
+        849399,
+        872448,
+        896878,
+        912093,
+        1018724,
+        1036960,
+        1045810,
+        1047127,
+        1062047,
+        1065088,
+        1065280,
+        1097864,
+        1124804,
+        1336920,
+        1337272,
+        1341439,
+        1468516
+      ],
+      "dropped": [
+        {
+          "cik": 877890,
+          "reason": "8-K Item 2.01 filed 2012-07-13 (0001193125-12-301517)"
+        },
+        {
+          "cik": 883241,
+          "reason": "8-K Item 2.01 filed 2012-12-03 (0001193125-12-488345)"
+        },
+        {
+          "cik": 1002517,
+          "reason": "8-K Item 2.01 filed 2012-06-07 (0001193125-12-263463)"
+        },
+        {
+          "cik": 1011006,
+          "reason": "8-K Item 2.01 filed 2012-09-19 (0001193125-12-395778)"
+        },
+        {
+          "cik": 1054374,
+          "reason": "8-K Item 2.01 filed 2012-02-17 (0001193125-12-066472)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2012-08-13 (0001193125-12-352751)"
+        },
+        {
+          "cik": 1124610,
+          "reason": "8-K Item 2.01 filed 2012-08-24 (0001124610-12-000026)"
+        },
+        {
+          "cik": 1288776,
+          "reason": "8-K Item 2.01 filed 2012-05-22 (0000903423-12-000297)"
+        }
+      ],
+      "n": 40,
+      "ref_period": "2013-06",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0576,
+      "vintage_date": "2013-09-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2013-08",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 1,
+      "vintage_date": "2013-09-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2013-08",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 1,
+      "vintage_date": "2013-09-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 50,
+      "ref_period": "2013-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 17,
+      "vintage_date": "2013-09-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 17,
+      "ref_period": "2013-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 23082,
+        "name": "COMPUTER SCIENCES CORP",
+        "share": 0.3477
+      },
+      "value": 440008005,
+      "vintage_date": "2013-09-09"
+    }
+  }
+}

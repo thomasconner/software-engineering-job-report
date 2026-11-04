@@ -350,7 +350,8 @@ def test_every_series_names_its_country_and_credit():
     assert {s.country for s in SERIES} == {"US", "GB"}
     assert len({s.key for s in SERIES}) == len(SERIES)
     for s in SERIES:
-        assert s.credit and s.publisher and s.unit in ("index", "share", "thousands")
+        assert s.credit and s.publisher
+        assert s.unit in ("index", "share", "thousands", "count", "usd", "change")
     # One BLS API request covers every BLS series (the keyless limit is 25 per request).
     assert sum(s.source == "bls" for s in SERIES) <= 25
     assert timedelta(days=external.AS_OF_DAYS) > timedelta(days=external.WINDOW_DAYS)

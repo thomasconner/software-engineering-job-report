@@ -49,8 +49,20 @@ RAW_GITHUB = "https://raw.githubusercontent.com/hiring-lab"
 
 INDEED = "Indeed Hiring Lab"
 BLS = "U.S. Bureau of Labor Statistics"
+SEC = "SEC EDGAR"
 CC_BY = ("CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/")
 PUBLIC_DOMAIN = ("public domain", "https://www.bls.gov/opub/copyright-information.htm")
+# "Information presented on sec.gov is considered public information and may be copied or
+# further distributed ... without the SEC's permission."
+SEC_PUBLIC = (
+    "public domain",
+    "https://www.sec.gov/about/privacy-information#dissemination",
+)
+PUBLISHERS = {
+    "indeed": (INDEED, CC_BY),
+    "bls": (BLS, PUBLIC_DOMAIN),
+    "sec": (SEC, SEC_PUBLIC),
+}
 FIRST_PUBLISHED = (
     "Each month shows the value as first published by that month's as-of date; later "
     "revisions are not applied."
@@ -66,9 +78,9 @@ SOFTWARE_SECTOR = {"Software Development", "techsoftware"}
 class Series:
     name: str
     country: str
-    source: str  # 'indeed' | 'bls'
+    source: str  # 'indeed' | 'bls' | 'sec'
     label: str
-    unit: str  # 'index' | 'share' | 'thousands'
+    unit: str  # 'index' | 'share' | 'thousands' | 'count' | 'usd' | 'change'
     description: str
     credit: str
     repo: str = ""
@@ -81,6 +93,7 @@ class Series:
     smooth_12m: bool = False
     bls_id: str = ""
     fred_id: str = ""
+    source_url: str = ""
 
     @property
     def key(self) -> str:
@@ -88,14 +101,16 @@ class Series:
 
     @property
     def publisher(self) -> str:
-        return INDEED if self.source == "indeed" else BLS
+        return PUBLISHERS[self.source][0]
 
     @property
     def license(self) -> tuple[str, str]:
-        return CC_BY if self.source == "indeed" else PUBLIC_DOMAIN
+        return PUBLISHERS[self.source][1]
 
     @property
     def url(self) -> str:
+        if self.source_url:
+            return self.source_url
         if self.source == "indeed":
             return f"{GITHUB}/{self.repo}"
         return f"https://data.bls.gov/timeseries/{self.bls_id}"
@@ -205,6 +220,136 @@ SERIES: list[Series] = [
         fred_id="CES6054150001",
     ),
 ]  # fmt: skip
+
+
+def _sec(name: str, label: str, unit: str, description: str, credit: str) -> Series:
+    return Series(
+        name=name,
+        country="US",
+        source="sec",
+        label=label,
+        unit=unit,
+        description=description,
+        credit=f"SEC EDGAR filings; {credit}",
+        seasonally_adjusted=False,
+        source_url="https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+    )
+
+
+PANEL = (
+    "the SEC panel (the 50 largest US software, internet and chip companies by revenue, "
+    "fixed each January; chips include Amkor, which packages and tests them, and leave out "
+    "solar makers)"
+)
+LATE_FILERS = (
+    "The same quarter is shown for three HN months, and its value can change between them "
+    "as late filers arrive."
+)
+MATCHED = (
+    "Each point lists the companies behind it (companies, as CIKs); the set changes from "
+    "month to month as 10-Ks arrive. A company that completed any deal between its two 10-Ks "
+    "or within 75 days after the later one (an 8-K with Items 2.01 and 9.01, its own Form 10, "
+    "or a hand-checked split such as HP's or eBay's PayPal spin-off) is left out when its "
+    "count also changed by more than 15%. That rule also drops some years whose growth was "
+    "mostly organic (Uber 2020, ServiceNow 2021, Meta 2014). A change of more than about "
+    "100% up or 50% down with no deal is treated as a misread count and left out too. Left-out "
+    "companies are listed with the reason (dropped)."
+)
+SERIES += [
+    _sec(
+        "sec_restructuring_usd",
+        "Restructuring and other charges, US public tech panel",
+        "usd",
+        "Restructuring and other charges for one calendar quarter, summed over "
+        f"{PANEL}. Each company-year uses the first of these XBRL tags it reported: "
+        "RestructuringCharges, SeveranceCosts1, RestructuringAndRelatedCostIncurredCost, "
+        "RestructuringSettlementAndImpairmentProvisions, RestructuringCosts, "
+        "RestructuringCostsAndAssetImpairmentCharges; some include impairments and other "
+        "exit costs, and a few carry other items (Intel's 2021-Q1 value includes the VLSI "
+        "patent litigation charge). Meta files its charges under its own XBRL element and is "
+        "left out. A charge reported only in the 10-K, with no quarter, counts in "
+        "sec_restructuring_companies but adds no dollars here (annual_only lists those "
+        "companies; Salesforce's $828 million for fiscal 2023 is one), so the sum understates. "
+        "n is the number of companies with dollars; top names the largest and its share of "
+        "the total. The quarter is the latest that every company had to file by the as-of date, "
+        f"so it trails the HN month by four to six months. {LATE_FILERS}",
+        "panel and sums by this report",
+    ),
+    _sec(
+        "sec_restructuring_companies",
+        "Panel companies reporting restructuring charges",
+        "count",
+        "Number of companies in "
+        f"{PANEL} that reported a restructuring or similar charge for the quarter (tags as in "
+        "sec_restructuring_usd; Meta, which uses its own element, is left out). A charge "
+        "reported only for the full year counts in the fiscal year's last quarter. Sturdier "
+        "than "
+        f"the dollar sum, which one large charge can dominate. n is the number of companies "
+        f"counted. {LATE_FILERS}",
+        "panel and counts by this report",
+    ),
+    _sec(
+        "sec_item_205_filings_panel",
+        "Layoff filings (8-K Item 2.05), US public tech panel",
+        "count",
+        "8-K filings (not amendments) that report Item 2.05, exit or disposal costs, with an "
+        f"EDGAR filing date in the calendar month before the HN month, by {PANEL}; n is the "
+        "panel size. Item 2.05 is required only for a committed plan with material costs, so "
+        "it rarely captures big tech layoffs: Meta's 11,000 job cuts in November 2022 came "
+        "with no Item 2.05 filing.",
+        "panel and counts by this report",
+    ),
+    _sec(
+        "sec_item_205_filings_software",
+        "Layoff filings (8-K Item 2.05), all software and IT-services filers",
+        "count",
+        "8-K filings (not amendments) that report Item 2.05, exit or disposal costs, with an "
+        "EDGAR filing date in the calendar month before the HN month, by any company whose "
+        "filing header carried SIC code 7370-7374 (computer programming, software, systems "
+        "design, data processing) when it filed. Item 2.05 rarely captures big tech layoffs "
+        "(Meta filed none for its November 2022 cuts).",
+        "counts by this report",
+    ),
+    _sec(
+        "sec_headcount_panel",
+        "Employees at US public tech panel companies, change over a year",
+        "change",
+        f"Year-over-year change in employees across {PANEL}, from the employee count in each "
+        "company's latest 10-K against its previous 10-K, over the companies that state both; "
+        "n is that number of companies. 10-Ks come once a year, so the series moves as each "
+        "company files. Amazon has about a third of the panel's employees, mostly warehouse "
+        "and delivery staff, so it drives this total; sec_headcount_median_yoy shows the "
+        f"typical company. {MATCHED}",
+        "counts read from 10-K text and summed by this report",
+    ),
+    _sec(
+        "sec_headcount_median_yoy",
+        "Employees at the median US public tech panel company, change over a year",
+        "change",
+        f"Median company's year-over-year change in employees across {PANEL}, from each "
+        "company's latest 10-K against its previous 10-K, over the companies that state both "
+        "(the same companies as sec_headcount_panel); n is that number. Unlike the total, no "
+        'single company drives it. Many companies round their count ("approximately '
+        '19,000") and some repeat it from year to year, so the median can sit at exactly '
+        f"zero for months at a time. {MATCHED}",
+        "counts read from 10-K text; median by this report",
+    ),
+    *(
+        _sec(
+            f"sec_headcount_{key}",
+            f"{name} employees",
+            "count",
+            f"{name}'s employee count at the end of the latest quarter, as stated in its "
+            "earnings release (8-K Exhibit 99.1).",
+            "count read from the release by this report",
+        )
+        for key, name in (
+            ("meta", "Meta"),
+            ("alphabet", "Alphabet"),
+            ("amazon", "Amazon"),
+        )
+    ),
+]
 SOURCES = ("indeed", "bls")
 
 
@@ -767,7 +912,7 @@ def build_section(months: list[str], directory: Path = EXTERNAL_DIR) -> dict:
     section = {}
     stored = {
         (source, month): load(source, month, directory)
-        for source in SOURCES
+        for source in {s.source for s in SERIES}
         for month in months
     }
     for s in SERIES:
@@ -778,14 +923,10 @@ def build_section(months: list[str], directory: Path = EXTERNAL_DIR) -> dict:
             # Defensive: a value published after the month's as-of date never reaches the site.
             if not entry or entry["vintage_date"] > record["as_of"]:
                 continue
-            point = {
-                "month": month,
-                "value": entry["value"],
-                "ref_period": entry["ref_period"],
-                "vintage_date": entry["vintage_date"],
+            # Everything stored except the fetch URL; SEC points add n, top and companies.
+            point = {"month": month} | {
+                k: v for k, v in entry.items() if k != "source_url"
             }
-            if "compare" in entry:
-                point["compare"] = entry["compare"]
             points.append(point)
         section[s.key] = {
             "id": s.key,

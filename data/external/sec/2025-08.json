@@ -1,0 +1,180 @@
+{
+  "as_of": "2025-08-09",
+  "fetched_at": "2026-11-04T19:48:38Z",
+  "month": "2025-08",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2025-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 187103,
+      "vintage_date": "2025-08-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2025-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 1546000,
+      "vintage_date": "2025-08-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        50863,
+        97476,
+        712515,
+        723125,
+        769397,
+        789019,
+        796343,
+        804328,
+        883241,
+        896878,
+        946581,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1108524,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1352010,
+        1373715,
+        1402436,
+        1512673,
+        1543151,
+        1559720,
+        1563190,
+        1564408,
+        1571123,
+        1585521,
+        1633917,
+        1650372,
+        1652044,
+        1759509,
+        1792789,
+        1800227,
+        1835632,
+        1867072
+      ],
+      "dropped": [
+        {
+          "cik": 1730168,
+          "reason": "8-K Item 2.01 filed 2023-11-22 (0001140361-23-054354)"
+        }
+      ],
+      "n": 45,
+      "ref_period": "2025-06",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0203,
+      "vintage_date": "2025-08-09"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2025-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 75945,
+      "vintage_date": "2025-08-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        50863,
+        97476,
+        712515,
+        723125,
+        769397,
+        789019,
+        796343,
+        804328,
+        883241,
+        896878,
+        946581,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1108524,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1352010,
+        1373715,
+        1402436,
+        1512673,
+        1543151,
+        1559720,
+        1563190,
+        1564408,
+        1571123,
+        1585521,
+        1633917,
+        1650372,
+        1652044,
+        1759509,
+        1792789,
+        1800227,
+        1835632,
+        1867072
+      ],
+      "dropped": [
+        {
+          "cik": 1730168,
+          "reason": "8-K Item 2.01 filed 2023-11-22 (0001140361-23-054354)"
+        }
+      ],
+      "n": 45,
+      "ref_period": "2025-06",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0117,
+      "vintage_date": "2025-08-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2025-07",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 1,
+      "vintage_date": "2025-08-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2025-07",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 1,
+      "vintage_date": "2025-08-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2025-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 20,
+      "vintage_date": "2025-08-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [
+        827054
+      ],
+      "n": 19,
+      "ref_period": "2025-Q1",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 2488,
+        "name": "ADVANCED MICRO DEVICES INC",
+        "share": 0.2138
+      },
+      "value": 870156000,
+      "vintage_date": "2025-08-09"
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "as_of": "2015-12-09",
+  "fetched_at": "2026-11-04T19:48:35Z",
+  "month": "2015-12",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2015-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 59976,
+      "vintage_date": "2015-12-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2015-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 222400,
+      "vintage_date": "2015-12-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        16058,
+        23082,
+        50863,
+        97476,
+        356028,
+        712515,
+        718877,
+        723125,
+        743316,
+        743988,
+        746838,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        827054,
+        849399,
+        877890,
+        883241,
+        896878,
+        946581,
+        1002517,
+        1011006,
+        1018724,
+        1045810,
+        1047127,
+        1054374,
+        1065088,
+        1065280,
+        1097864,
+        1108524,
+        1288776,
+        1316360,
+        1336920,
+        1341439,
+        1468516,
+        1556148
+      ],
+      "dropped": [
+        {
+          "cik": 4127,
+          "reason": "8-K Item 2.01 filed 2015-11-05 (0000004127-15-000031)"
+        },
+        {
+          "cik": 1062047,
+          "reason": "8-K Item 2.01 filed 2014-03-04 (0001193125-14-080988)"
+        },
+        {
+          "cik": 1124610,
+          "reason": "8-K Item 2.01 filed 2014-02-24 (0001124610-14-000004)"
+        },
+        {
+          "cik": 1326801,
+          "reason": "8-K Item 2.01 filed 2014-10-06 (0001326801-14-000037)"
+        },
+        {
+          "cik": 1337272,
+          "reason": "8-K Item 2.01 filed 2014-04-04 (0001193125-14-131791)"
+        }
+      ],
+      "n": 42,
+      "ref_period": "2015-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0287,
+      "vintage_date": "2015-12-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        16058,
+        23082,
+        50863,
+        97476,
+        356028,
+        712515,
+        718877,
+        723125,
+        743316,
+        743988,
+        746838,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        827054,
+        849399,
+        877890,
+        883241,
+        896878,
+        946581,
+        1002517,
+        1011006,
+        1018724,
+        1045810,
+        1047127,
+        1054374,
+        1065088,
+        1065280,
+        1097864,
+        1108524,
+        1288776,
+        1316360,
+        1336920,
+        1341439,
+        1468516,
+        1556148
+      ],
+      "dropped": [
+        {
+          "cik": 4127,
+          "reason": "8-K Item 2.01 filed 2015-11-05 (0000004127-15-000031)"
+        },
+        {
+          "cik": 1062047,
+          "reason": "8-K Item 2.01 filed 2014-03-04 (0001193125-14-080988)"
+        },
+        {
+          "cik": 1124610,
+          "reason": "8-K Item 2.01 filed 2014-02-24 (0001124610-14-000004)"
+        },
+        {
+          "cik": 1326801,
+          "reason": "8-K Item 2.01 filed 2014-10-06 (0001326801-14-000037)"
+        },
+        {
+          "cik": 1337272,
+          "reason": "8-K Item 2.01 filed 2014-04-04 (0001193125-14-131791)"
+        }
+      ],
+      "n": 42,
+      "ref_period": "2015-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0309,
+      "vintage_date": "2015-12-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2015-11",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 1,
+      "vintage_date": "2015-12-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2015-11",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 1,
+      "vintage_date": "2015-12-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2015-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 21,
+      "vintage_date": "2015-12-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 21,
+      "ref_period": "2015-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 789019,
+        "name": "MICROSOFT CORP",
+        "share": 0.5666
+      },
+      "value": 1411846000,
+      "vintage_date": "2015-12-09"
+    }
+  }
+}

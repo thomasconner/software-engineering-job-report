@@ -1,0 +1,184 @@
+{
+  "as_of": "2026-10-09",
+  "fetched_at": "2026-11-04T19:48:38Z",
+  "month": "2026-10",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2026-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 198933,
+      "vintage_date": "2026-10-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2026-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 1595000,
+      "vintage_date": "2026-10-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        97476,
+        275880,
+        712515,
+        723125,
+        769397,
+        789019,
+        796343,
+        804328,
+        896878,
+        946581,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1108524,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1352010,
+        1373715,
+        1402436,
+        1512673,
+        1543151,
+        1559720,
+        1564408,
+        1571123,
+        1633917,
+        1635327,
+        1650164,
+        1650372,
+        1652044,
+        1730168,
+        1751008,
+        1759509,
+        1792789,
+        1835632,
+        1867072
+      ],
+      "dropped": [
+        {
+          "cik": 883241,
+          "reason": "8-K Item 2.01 filed 2025-07-17 (0001140361-25-026139)"
+        },
+        {
+          "cik": 1563190,
+          "reason": "8-K Item 2.01 filed 2026-01-09 (0001563190-26-000019)"
+        }
+      ],
+      "n": 44,
+      "ref_period": "2026-09",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0293,
+      "vintage_date": "2026-10-09"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2026-06-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 75472,
+      "vintage_date": "2026-10-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        6281,
+        6951,
+        8670,
+        97476,
+        275880,
+        712515,
+        723125,
+        769397,
+        789019,
+        796343,
+        804328,
+        896878,
+        946581,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1108524,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1352010,
+        1373715,
+        1402436,
+        1512673,
+        1543151,
+        1559720,
+        1564408,
+        1571123,
+        1633917,
+        1635327,
+        1650164,
+        1650372,
+        1652044,
+        1730168,
+        1751008,
+        1759509,
+        1792789,
+        1835632,
+        1867072
+      ],
+      "dropped": [
+        {
+          "cik": 883241,
+          "reason": "8-K Item 2.01 filed 2025-07-17 (0001140361-25-026139)"
+        },
+        {
+          "cik": 1563190,
+          "reason": "8-K Item 2.01 filed 2026-01-09 (0001563190-26-000019)"
+        }
+      ],
+      "n": 44,
+      "ref_period": "2026-09",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0186,
+      "vintage_date": "2026-10-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2026-09",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 1,
+      "vintage_date": "2026-10-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2026-09",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 4,
+      "vintage_date": "2026-10-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2026-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 20,
+      "vintage_date": "2026-10-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 20,
+      "ref_period": "2026-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 1341439,
+        "name": "ORACLE CORP",
+        "share": 0.4582
+      },
+      "value": 1785354000,
+      "vintage_date": "2026-10-09"
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "as_of": "2021-12-09",
+  "fetched_at": "2026-11-04T19:48:37Z",
+  "month": "2021-12",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2021-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 150028,
+      "vintage_date": "2021-12-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2021-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 1468000,
+      "vintage_date": "2021-12-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        6951,
+        8670,
+        97476,
+        712515,
+        718877,
+        723125,
+        743988,
+        750004,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        883241,
+        946581,
+        1018724,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1124610,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1402436,
+        1418091,
+        1512673,
+        1604778,
+        1633917,
+        1652044,
+        1688568,
+        1730168,
+        1759509
+      ],
+      "dropped": [
+        {
+          "cik": 6281,
+          "reason": "8-K Item 2.01 filed 2021-08-26 (0001193125-21-257596)"
+        },
+        {
+          "cik": 896878,
+          "reason": "8-K Item 2.01 filed 2020-12-03 (0001193125-20-309090)"
+        },
+        {
+          "cik": 1045810,
+          "reason": "8-K Item 2.01 filed 2020-04-27 (0001045810-20-000052)"
+        },
+        {
+          "cik": 1373715,
+          "reason": "8-K Item 2.01 filed 2021-01-14 (0001373715-21-000006)"
+        },
+        {
+          "cik": 1543151,
+          "reason": "8-K Item 2.01 filed 2020-01-21 (0001552781-20-000094)"
+        },
+        {
+          "cik": 1597033,
+          "reason": "8-K Item 2.01 filed 2020-12-17 (0001193125-20-320165)"
+        }
+      ],
+      "n": 36,
+      "ref_period": "2021-09",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0805,
+      "vintage_date": "2021-12-09"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2021-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 68177,
+      "vintage_date": "2021-12-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        6951,
+        8670,
+        97476,
+        712515,
+        718877,
+        723125,
+        743988,
+        750004,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        883241,
+        946581,
+        1018724,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1124610,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1402436,
+        1418091,
+        1512673,
+        1604778,
+        1633917,
+        1652044,
+        1688568,
+        1730168,
+        1759509
+      ],
+      "dropped": [
+        {
+          "cik": 6281,
+          "reason": "8-K Item 2.01 filed 2021-08-26 (0001193125-21-257596)"
+        },
+        {
+          "cik": 896878,
+          "reason": "8-K Item 2.01 filed 2020-12-03 (0001193125-20-309090)"
+        },
+        {
+          "cik": 1045810,
+          "reason": "8-K Item 2.01 filed 2020-04-27 (0001045810-20-000052)"
+        },
+        {
+          "cik": 1373715,
+          "reason": "8-K Item 2.01 filed 2021-01-14 (0001373715-21-000006)"
+        },
+        {
+          "cik": 1543151,
+          "reason": "8-K Item 2.01 filed 2020-01-21 (0001552781-20-000094)"
+        },
+        {
+          "cik": 1597033,
+          "reason": "8-K Item 2.01 filed 2020-12-17 (0001193125-20-320165)"
+        }
+      ],
+      "n": 36,
+      "ref_period": "2021-09",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.2491,
+      "vintage_date": "2021-12-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2021-11",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2021-12-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2021-11",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 2,
+      "vintage_date": "2021-12-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2021-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 13,
+      "vintage_date": "2021-12-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 13,
+      "ref_period": "2021-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 723125,
+        "name": "MICRON TECHNOLOGY INC",
+        "share": 0.4256
+      },
+      "value": 1064381000,
+      "vintage_date": "2021-12-09"
+    }
+  }
+}

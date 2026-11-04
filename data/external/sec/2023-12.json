@@ -1,0 +1,180 @@
+{
+  "as_of": "2023-12-09",
+  "fetched_at": "2026-11-04T19:48:37Z",
+  "month": "2023-12",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2023-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 182381,
+      "vintage_date": "2023-12-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2023-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 1500000,
+      "vintage_date": "2023-12-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        4127,
+        6281,
+        6951,
+        8670,
+        97476,
+        712515,
+        723125,
+        769397,
+        789019,
+        796343,
+        804328,
+        883241,
+        896878,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1108524,
+        1124610,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1352010,
+        1373715,
+        1402436,
+        1543151,
+        1559720,
+        1563190,
+        1564408,
+        1585521,
+        1604778,
+        1609711,
+        1633917,
+        1652044,
+        1688568,
+        1730168,
+        1792789,
+        1835632
+      ],
+      "dropped": [
+        {
+          "cik": 2488,
+          "reason": "8-K Item 2.01 filed 2022-02-14 (0000002488-22-000031)"
+        },
+        {
+          "cik": 1512673,
+          "reason": "8-K Item 2.01 filed 2022-01-31 (0001193125-22-023529)"
+        }
+      ],
+      "n": 42,
+      "ref_period": "2023-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.064,
+      "vintage_date": "2023-12-09"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2023-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 66185,
+      "vintage_date": "2023-12-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        4127,
+        6281,
+        6951,
+        8670,
+        97476,
+        712515,
+        723125,
+        769397,
+        789019,
+        796343,
+        804328,
+        883241,
+        896878,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1108524,
+        1124610,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1352010,
+        1373715,
+        1402436,
+        1543151,
+        1559720,
+        1563190,
+        1564408,
+        1585521,
+        1604778,
+        1609711,
+        1633917,
+        1652044,
+        1688568,
+        1730168,
+        1792789,
+        1835632
+      ],
+      "dropped": [
+        {
+          "cik": 2488,
+          "reason": "8-K Item 2.01 filed 2022-02-14 (0000002488-22-000031)"
+        },
+        {
+          "cik": 1512673,
+          "reason": "8-K Item 2.01 filed 2022-01-31 (0001193125-22-023529)"
+        }
+      ],
+      "n": 42,
+      "ref_period": "2023-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0222,
+      "vintage_date": "2023-12-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2023-11",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2023-12-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2023-11",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 8,
+      "vintage_date": "2023-12-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2023-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 20,
+      "vintage_date": "2023-12-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 20,
+      "ref_period": "2023-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 50863,
+        "name": "INTEL CORP",
+        "share": 0.2159
+      },
+      "value": 926374000,
+      "vintage_date": "2023-12-09"
+    }
+  }
+}

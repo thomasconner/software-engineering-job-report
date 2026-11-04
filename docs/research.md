@@ -64,6 +64,7 @@ Build, in this order:
    - SEC requires a User-Agent with a real contact email.
    - Panel: US 10-K filers in SIC 7370–7374 plus named big tech in other codes, top ~50 by headcount, membership frozen each January from filings public by then.
    - Later, Jev can score filed text (Ex 99.1, 10-Q MD&A) for hiring intent and AI-efficiency language. Store scores, not text.
+   - Built 2026-11-04 (CON-174): `sejr sec` writes the panel, restructuring, Item 2.05 counts and headcount to `data/external/sec/` from 2012-01; see architecture.md, "SEC EDGAR panel". The panel is ranked by revenue, not headcount (headcount is untagged). The all-filer Item 2.05 count reads the nightly `submissions.zip`; EFTS full-text search was not needed.
 3. **WARN notices** via Big Local News (`biglocalnews/warn-github-flow`, `integrated.csv`; about 90k notices across about 40 states). Its `first_inserted_date` gives point-in-time from 2022-04. There's no industry field, so match company names against the panel and HN companies deterministically. Never ask Jev whether a company is tech from its name, because that uses model knowledge (rule 3).
 
 Later or context only: DOL H-1B LCA filings for software occupations (quarterly), Census business formation, GitHub Innovation Graph (CC0), Remote OK (backlink required), BLS OEWS.

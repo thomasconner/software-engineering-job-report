@@ -1,0 +1,218 @@
+{
+  "as_of": "2018-01-10",
+  "fetched_at": "2026-11-04T19:48:35Z",
+  "month": "2018-01",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2017-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 78101,
+      "vintage_date": "2018-01-10"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2017-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 541900,
+      "vintage_date": "2018-01-10"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        4127,
+        6951,
+        8670,
+        16058,
+        23082,
+        50863,
+        97476,
+        356028,
+        712515,
+        723125,
+        743316,
+        743988,
+        746838,
+        750004,
+        789019,
+        796343,
+        804328,
+        804753,
+        877890,
+        883241,
+        896878,
+        1011006,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1062047,
+        1065088,
+        1065280,
+        1087423,
+        1124610,
+        1326801,
+        1341439,
+        1418091,
+        1556148,
+        1597033,
+        1604778,
+        1633917,
+        1646383,
+        1649338
+      ],
+      "dropped": [
+        {
+          "cik": 6281,
+          "reason": "8-K Item 2.01 filed 2017-03-10 (0001193125-17-078934)"
+        },
+        {
+          "cik": 718877,
+          "reason": "8-K Item 2.01 filed 2016-02-29 (0001104659-16-101119)"
+        },
+        {
+          "cik": 827054,
+          "reason": "8-K Item 2.01 filed 2016-04-04 (0001193125-16-529460)"
+        },
+        {
+          "cik": 849399,
+          "reason": "8-K Item 2.01 filed 2016-08-01 (0001193125-16-666837)"
+        },
+        {
+          "cik": 1097864,
+          "reason": "8-K Item 2.01 filed 2016-09-19 (0001193125-16-713488)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2016-07-11 (0001108524-16-000069)"
+        },
+        {
+          "cik": 1336920,
+          "reason": "8-K Item 2.01 filed 2016-08-19 (0001336920-16-000116)"
+        }
+      ],
+      "n": 41,
+      "ref_period": "2017-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0774,
+      "vintage_date": "2018-01-10"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2017-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 23165,
+      "vintage_date": "2018-01-10"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        4127,
+        6951,
+        8670,
+        16058,
+        23082,
+        50863,
+        97476,
+        356028,
+        712515,
+        723125,
+        743316,
+        743988,
+        746838,
+        750004,
+        789019,
+        796343,
+        804328,
+        804753,
+        877890,
+        883241,
+        896878,
+        1011006,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1062047,
+        1065088,
+        1065280,
+        1087423,
+        1124610,
+        1326801,
+        1341439,
+        1418091,
+        1556148,
+        1597033,
+        1604778,
+        1633917,
+        1646383,
+        1649338
+      ],
+      "dropped": [
+        {
+          "cik": 6281,
+          "reason": "8-K Item 2.01 filed 2017-03-10 (0001193125-17-078934)"
+        },
+        {
+          "cik": 718877,
+          "reason": "8-K Item 2.01 filed 2016-02-29 (0001104659-16-101119)"
+        },
+        {
+          "cik": 827054,
+          "reason": "8-K Item 2.01 filed 2016-04-04 (0001193125-16-529460)"
+        },
+        {
+          "cik": 849399,
+          "reason": "8-K Item 2.01 filed 2016-08-01 (0001193125-16-666837)"
+        },
+        {
+          "cik": 1097864,
+          "reason": "8-K Item 2.01 filed 2016-09-19 (0001193125-16-713488)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2016-07-11 (0001108524-16-000069)"
+        },
+        {
+          "cik": 1336920,
+          "reason": "8-K Item 2.01 filed 2016-08-19 (0001336920-16-000116)"
+        }
+      ],
+      "n": 41,
+      "ref_period": "2017-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.1269,
+      "vintage_date": "2018-01-10"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2017-12",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2018-01-10"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2017-12",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 2,
+      "vintage_date": "2018-01-10"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2017-Q3",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 18,
+      "vintage_date": "2018-01-10"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 18,
+      "ref_period": "2017-Q3",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 1341439,
+        "name": "ORACLE CORP",
+        "share": 0.4538
+      },
+      "value": 273269000,
+      "vintage_date": "2018-01-10"
+    }
+  }
+}

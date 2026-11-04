@@ -1,0 +1,200 @@
+{
+  "as_of": "2019-12-10",
+  "fetched_at": "2026-11-04T19:48:36Z",
+  "month": "2019-12",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2019-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 114096,
+      "vintage_date": "2019-12-10"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2019-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 750000,
+      "vintage_date": "2019-12-10"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        4127,
+        6281,
+        6951,
+        8670,
+        16058,
+        50863,
+        97476,
+        712515,
+        718877,
+        723125,
+        743988,
+        746838,
+        750004,
+        789019,
+        791915,
+        804328,
+        804753,
+        849399,
+        877890,
+        883241,
+        896878,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1087423,
+        1097864,
+        1124610,
+        1326801,
+        1336920,
+        1341439,
+        1418091,
+        1442145,
+        1512673,
+        1556148,
+        1597033,
+        1604778,
+        1609711,
+        1633917,
+        1652044,
+        1688568
+      ],
+      "dropped": [
+        {
+          "cik": 796343,
+          "reason": "8-K Item 2.01 filed 2018-11-05 (0000796343-18-000177)"
+        },
+        {
+          "cik": 827054,
+          "reason": "8-K Item 2.01 filed 2018-05-29 (0001193125-18-176340)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2018-05-02 (0001193125-18-147733)"
+        },
+        {
+          "cik": 1327811,
+          "reason": "8-K Item 2.01 filed 2018-08-01 (0001193125-18-234903)"
+        }
+      ],
+      "n": 44,
+      "ref_period": "2019-11",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0882,
+      "vintage_date": "2019-12-10"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2019-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 43030,
+      "vintage_date": "2019-12-10"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        4127,
+        6281,
+        6951,
+        8670,
+        16058,
+        50863,
+        97476,
+        712515,
+        718877,
+        723125,
+        743988,
+        746838,
+        750004,
+        789019,
+        791915,
+        804328,
+        804753,
+        849399,
+        877890,
+        883241,
+        896878,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1087423,
+        1097864,
+        1124610,
+        1326801,
+        1336920,
+        1341439,
+        1418091,
+        1442145,
+        1512673,
+        1556148,
+        1597033,
+        1604778,
+        1609711,
+        1633917,
+        1652044,
+        1688568
+      ],
+      "dropped": [
+        {
+          "cik": 796343,
+          "reason": "8-K Item 2.01 filed 2018-11-05 (0000796343-18-000177)"
+        },
+        {
+          "cik": 827054,
+          "reason": "8-K Item 2.01 filed 2018-05-29 (0001193125-18-176340)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2018-05-02 (0001193125-18-147733)"
+        },
+        {
+          "cik": 1327811,
+          "reason": "8-K Item 2.01 filed 2018-08-01 (0001193125-18-234903)"
+        }
+      ],
+      "n": 44,
+      "ref_period": "2019-11",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0826,
+      "vintage_date": "2019-12-10"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2019-11",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2019-12-10"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2019-11",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 0,
+      "vintage_date": "2019-12-10"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2019-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 19,
+      "vintage_date": "2019-12-10"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 19,
+      "ref_period": "2019-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 50863,
+        "name": "INTEL CORP",
+        "share": 0.2717
+      },
+      "value": 677166000,
+      "vintage_date": "2019-12-10"
+    }
+  }
+}

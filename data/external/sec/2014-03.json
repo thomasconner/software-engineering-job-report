@@ -1,0 +1,174 @@
+{
+  "as_of": "2014-03-09",
+  "fetched_at": "2026-11-04T19:48:34Z",
+  "month": "2014-03",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2013-12-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1288776/",
+      "value": 47756,
+      "vintage_date": "2014-03-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2013-12-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 117300,
+      "vintage_date": "2014-03-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        4127,
+        6281,
+        6951,
+        8670,
+        16058,
+        23082,
+        50863,
+        97476,
+        356028,
+        703360,
+        712515,
+        718877,
+        723125,
+        743316,
+        743988,
+        746838,
+        768251,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        827054,
+        849399,
+        877890,
+        883241,
+        896878,
+        912093,
+        1002517,
+        1011006,
+        1018724,
+        1045810,
+        1047127,
+        1054374,
+        1062047,
+        1065088,
+        1065280,
+        1097864,
+        1124610,
+        1288776,
+        1326801,
+        1336920,
+        1337272,
+        1341439,
+        1468516
+      ],
+      "dropped": [
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2013-07-15 (0001193125-13-289921)"
+        }
+      ],
+      "n": 46,
+      "ref_period": "2013-12",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0309,
+      "vintage_date": "2014-03-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        4127,
+        6281,
+        6951,
+        8670,
+        16058,
+        23082,
+        50863,
+        97476,
+        356028,
+        703360,
+        712515,
+        718877,
+        723125,
+        743316,
+        743988,
+        746838,
+        768251,
+        769397,
+        789019,
+        796343,
+        804328,
+        804753,
+        827054,
+        849399,
+        877890,
+        883241,
+        896878,
+        912093,
+        1002517,
+        1011006,
+        1018724,
+        1045810,
+        1047127,
+        1054374,
+        1062047,
+        1065088,
+        1065280,
+        1097864,
+        1124610,
+        1288776,
+        1326801,
+        1336920,
+        1337272,
+        1341439,
+        1468516
+      ],
+      "dropped": [
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2013-07-15 (0001193125-13-289921)"
+        }
+      ],
+      "n": 46,
+      "ref_period": "2013-12",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0489,
+      "vintage_date": "2014-03-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2014-02",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2014-03-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2014-02",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 0,
+      "vintage_date": "2014-03-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2013-Q3",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 22,
+      "vintage_date": "2014-03-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 22,
+      "ref_period": "2013-Q3",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 50863,
+        "name": "INTEL CORP",
+        "share": 0.4341
+      },
+      "value": 285639000,
+      "vintage_date": "2014-03-09"
+    }
+  }
+}

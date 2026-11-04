@@ -1,0 +1,194 @@
+{
+  "as_of": "2020-12-09",
+  "fetched_at": "2026-11-04T19:48:36Z",
+  "month": "2020-12",
+  "values": {
+    "sec_headcount_alphabet.US": {
+      "ref_period": "2020-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/",
+      "value": 132121,
+      "vintage_date": "2020-12-09"
+    },
+    "sec_headcount_amazon.US": {
+      "ref_period": "2020-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/",
+      "value": 1125300,
+      "vintage_date": "2020-12-09"
+    },
+    "sec_headcount_median_yoy.US": {
+      "companies": [
+        2488,
+        4127,
+        6281,
+        6951,
+        8670,
+        16058,
+        50863,
+        97476,
+        712515,
+        718877,
+        723125,
+        743988,
+        746838,
+        750004,
+        789019,
+        796343,
+        804328,
+        804753,
+        827054,
+        877890,
+        883241,
+        896878,
+        946581,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1124610,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1402436,
+        1418091,
+        1512673,
+        1597033,
+        1604778,
+        1609711,
+        1633917,
+        1652044,
+        1688568,
+        1724670
+      ],
+      "dropped": [
+        {
+          "cik": 849399,
+          "reason": "8-K Item 2.01 filed 2019-11-08 (0000849399-19-000017)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2019-08-01 (0001193125-19-209951)"
+        },
+        {
+          "cik": 1730168,
+          "reason": "8-K Item 2.01 filed 2019-11-04 (0001193125-19-282605)"
+        }
+      ],
+      "n": 45,
+      "ref_period": "2020-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.0387,
+      "vintage_date": "2020-12-09"
+    },
+    "sec_headcount_meta.US": {
+      "ref_period": "2020-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/",
+      "value": 56653,
+      "vintage_date": "2020-12-09"
+    },
+    "sec_headcount_panel.US": {
+      "companies": [
+        2488,
+        4127,
+        6281,
+        6951,
+        8670,
+        16058,
+        50863,
+        97476,
+        712515,
+        718877,
+        723125,
+        743988,
+        746838,
+        750004,
+        789019,
+        796343,
+        804328,
+        804753,
+        827054,
+        877890,
+        883241,
+        896878,
+        946581,
+        1018724,
+        1045810,
+        1047127,
+        1058290,
+        1065088,
+        1065280,
+        1097864,
+        1124610,
+        1326801,
+        1327811,
+        1336920,
+        1341439,
+        1402436,
+        1418091,
+        1512673,
+        1597033,
+        1604778,
+        1609711,
+        1633917,
+        1652044,
+        1688568,
+        1724670
+      ],
+      "dropped": [
+        {
+          "cik": 849399,
+          "reason": "8-K Item 2.01 filed 2019-11-08 (0000849399-19-000017)"
+        },
+        {
+          "cik": 1108524,
+          "reason": "8-K Item 2.01 filed 2019-08-01 (0001193125-19-209951)"
+        },
+        {
+          "cik": 1730168,
+          "reason": "8-K Item 2.01 filed 2019-11-04 (0001193125-19-282605)"
+        }
+      ],
+      "n": 45,
+      "ref_period": "2020-10",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/",
+      "value": 0.1087,
+      "vintage_date": "2020-12-09"
+    },
+    "sec_item_205_filings_panel.US": {
+      "n": 50,
+      "ref_period": "2020-11",
+      "source_url": "https://data.sec.gov/submissions/",
+      "value": 0,
+      "vintage_date": "2020-12-09"
+    },
+    "sec_item_205_filings_software.US": {
+      "ref_period": "2020-11",
+      "source_url": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+      "value": 2,
+      "vintage_date": "2020-12-09"
+    },
+    "sec_restructuring_companies.US": {
+      "n": 49,
+      "ref_period": "2020-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "value": 20,
+      "vintage_date": "2020-12-09"
+    },
+    "sec_restructuring_usd.US": {
+      "annual_only": [],
+      "n": 20,
+      "ref_period": "2020-Q2",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/",
+      "top": {
+        "cik": 849399,
+        "name": "Gen Digital Inc.",
+        "share": 0.1999
+      },
+      "value": 635275000,
+      "vintage_date": "2020-12-09"
+    }
+  }
+}

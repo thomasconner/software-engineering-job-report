@@ -111,6 +111,7 @@ class Client:
         max_attempts: int = MAX_ATTEMPTS,
         timeout: float = 60,
         follow_redirects: bool = False,
+        throttle_backoff: float = 0,
     ) -> None:
         self.http = httpx.Client(
             headers={"User-Agent": user_agent},
@@ -120,6 +121,11 @@ class Client:
         self.min_interval = min_interval
         self.max_attempts = max_attempts
         self.last_request = 0.0
+        # SEC answers a burst with 403 rather than 429. With a backoff set, one 403 per
+        # request is treated as throttling and retried after that many seconds.
+        self.throttle_backoff = throttle_backoff
+        self.sleep = time.sleep
+        self.clock = time.monotonic
 
     def get(self, url: str, params: dict | None = None) -> httpx.Response:
         return self.request("GET", url, params=params)
@@ -127,15 +133,45 @@ class Client:
     def post(self, url: str, json: dict) -> httpx.Response:
         return self.request("POST", url, json=json)
 
-    def request(self, method: str, url: str, **kwargs) -> httpx.Response:
+    def download(self, url: str, path: Path) -> httpx.Response:
+        """GET a large file straight to disk. `path` appears only once the body is complete."""
+        return self.request("GET", url, sink=path)
+
+    def _stream(self, method: str, url: str, sink: Path, **kwargs) -> httpx.Response:
+        with self.http.stream(method, url, **kwargs) as response:
+            if response.is_success:
+                sink.parent.mkdir(parents=True, exist_ok=True)
+                part = sink.with_name(sink.name + ".part")
+                with part.open("wb") as out:
+                    for chunk in response.iter_bytes(1 << 20):
+                        out.write(chunk)
+                part.replace(sink)
+        return response
+
+    def request(
+        self, method: str, url: str, sink: Path | None = None, **kwargs
+    ) -> httpx.Response:
         transport = False
+        throttled = False
         for attempt in range(self.max_attempts):
-            wait = self.last_request + self.min_interval - time.monotonic()
+            wait = self.last_request + self.min_interval - self.clock()
             if wait > 0:
-                time.sleep(wait)
-            self.last_request = time.monotonic()
+                self.sleep(wait)
+            self.last_request = self.clock()
             try:
-                response = self.http.request(method, url, **kwargs)
+                if sink is None:
+                    response = self.http.request(method, url, **kwargs)
+                else:
+                    response = self._stream(method, url, sink, **kwargs)
+                if (
+                    response.status_code == 403
+                    and self.throttle_backoff
+                    and not throttled
+                ):
+                    throttled = True
+                    print(f"  {url}: HTTP 403, retrying in {self.throttle_backoff}s")
+                    self.sleep(self.throttle_backoff)
+                    continue
                 if response.status_code != 429 and response.status_code < 500:
                     response.raise_for_status()
                     return response
@@ -144,7 +180,7 @@ class Client:
                 error, transport = repr(e), True
             backoff = 2**attempt
             print(f"  {url}: {error}, retrying in {backoff}s")
-            time.sleep(backoff)
+            self.sleep(backoff)
         raise GaveUp(
             f"giving up on {url} after {self.max_attempts} attempts", transport
         )
