@@ -20,7 +20,8 @@ const CATEGORY_LABELS = {
   ruby: 'Ruby', rails: 'Rails', java: 'Java', php: 'PHP', kubernetes: 'Kubernetes', aws: 'AWS', llm: 'LLM',
   agents: 'Agents',
 };
-export const categoryLabel = (c) => CATEGORY_LABELS[c] ?? c.charAt(0).toUpperCase() + c.slice(1).replaceAll('_', ' ');
+// A breakdown's own category_labels (from the export) win over the shared list.
+export const categoryLabel = (c, b) => b?.category_labels?.[c] ?? CATEGORY_LABELS[c] ?? c.charAt(0).toUpperCase() + c.slice(1).replaceAll('_', ' ');
 
 // Catch-all categories always sit at the end of a ranking or a stack, whatever their size.
 const CATCH_ALL = ['other', 'unstated', 'unknown', 'unspecified', 'unclear'];
@@ -193,7 +194,7 @@ export function resolveSeries(data, { metric, metrics, breakdown, categories }, 
   return cats.map((c) => {
     if (!b.categories.includes(c)) throw new AuthoringError(`Unknown category "${c}" in ${breakdown}`);
     return {
-      key: c, label: categoryLabel(c), group: b.label, unit: 'share', method: b.method, description: b.label,
+      key: c, label: categoryLabel(c, b), group: b.label, unit: 'share', method: b.method, description: b.label,
       polarity: b.polarity ?? 0, sources: b.sources ?? ['hiring'], confidence: b.confidence,
       noise: noiseTest(data, c, 'share'),
       points: clip(b.series.map((s) => ({

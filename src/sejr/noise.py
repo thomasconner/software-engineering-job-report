@@ -1,12 +1,13 @@
 """Noise bars: how large a change must be before we call it a move.
 
 A bar is the 95% half-width of the change into month t from 3, 12 or 60 months earlier,
-on the log scale for counts, ratios and dollars and on the value itself for shares and
-scores. Each month's value varies by its sampling variance v (Poisson for counts, binomial
-for shares, a bootstrap for salary medians) plus an extra variance s² that is the same
-for every month of a series: the wobble sampling can't explain. s² is estimated from how
-far each month strays from the average of its two neighbors, using only months <= t, so a
-bar never changes once its month is published. The bar is 1.96 * sqrt(2 s² + v_then + v_now).
+on the log scale for counts, ratios, dollars and years and on the value itself for shares
+and scores. Each month's value varies by its sampling variance v (Poisson for counts,
+binomial for shares, a bootstrap for medians: salary, years asked for, post length) plus
+an extra variance s² that is the same for every month of a series: the wobble sampling
+can't explain. s² is estimated from how far each month strays from the average of its two
+neighbors, using only months <= t, so a bar never changes once its month is published. The
+bar is 1.96 * sqrt(2 s² + v_then + v_now).
 """
 
 import math
@@ -42,24 +43,35 @@ SCORE_FLOOR = 0.2
 SKIP = {"removed_share.hiring", "removed_share.seeking"}
 
 ANSWER_METRICS = {f"{m.metric}.{m.kind}": m for m in SCALARS}
+# Medians whose sampling variance comes from a bootstrap of the month's posts. Years asked for
+# are whole numbers that tie across months like round salaries, so they get the bootstrap
+# alone too; post length varies smoothly, so it keeps the neighbor-residual s².
+BOOTSTRAP_UNITS = ("usd", "years")
+BOOTSTRAP_KEYS = ("post_length_median.hiring",)
 
 
 def _relative(unit: str) -> bool:
-    """Counts, ratios and dollars are compared by relative change; shares and scores by difference."""
-    return unit in ("count", "ratio", "usd")
+    """Counts, ratios, dollars and years compare by relative change; shares and scores by difference."""
+    return unit in ("count", "ratio", "usd", "years")
+
+
+def _bootstrapped(key: str, unit: str) -> bool:
+    return unit in BOOTSTRAP_UNITS or key in BOOTSTRAP_KEYS
 
 
 def _log_variance(key: str, unit: str, value: float, n: int, extra: float | None):
     """Sampling variance of ln(value) for one month."""
     if value <= 0 or not n:
         return None
+    if _bootstrapped(key, unit):
+        return extra  # bootstrap variance of the log median
     if unit == "count":
         return 1 / value
     if key.startswith("seekers_per_post"):
         return 1 / (value * n) + 1 / n  # 1/S + 1/H, with H = n and S = value * n
     if key.startswith("replies_per_post"):
         return 1 / (value * n)  # Poisson total replies
-    return extra  # usd: bootstrap variance of the log median
+    return extra
 
 
 def _abs_variance(unit: str, p: float, n: int, extra: float | None):
@@ -137,11 +149,11 @@ def excess_variances(
 ) -> list[float | None]:
     """s² for each point, or None (use the fallback) when history is too short.
 
-    Salary medians get 0: the median of a few dozen round-number salaries often ties
+    Salary and years medians get 0: the median of a few dozen round numbers often ties
     across months, so neighbor residuals are mostly zero and say nothing. Their bar is the
     bootstrap alone.
     """
-    if unit == "usd":
+    if unit in BOOTSTRAP_UNITS:
         return [0.0] * len(pts)
     found = residuals(key, unit, pts, extras)
     out: list[float | None] = []
@@ -218,8 +230,10 @@ def _post_values(con: duckdb.DuckDBPyConnection, key: str, month: str) -> list[f
     return [v for (v,) in rows]
 
 
-def _month_variance(unit: str, values: list[float], seed: str) -> float | None:
-    if unit == "usd":
+def _month_variance(
+    key: str, unit: str, values: list[float], seed: str
+) -> float | None:
+    if _bootstrapped(key, unit):
         return log_median_variance(values, seed)
     return statistics.variance(values) / len(values) if len(values) > 1 else None
 
@@ -227,13 +241,13 @@ def _month_variance(unit: str, values: list[float], seed: str) -> float | None:
 def month_extras(
     con: duckdb.DuckDBPyConnection, key: str, unit: str, months: Iterable[str]
 ) -> dict[str, float]:
-    """Per-month sampling variances that need the posts: salary medians and mood scores."""
-    if unit not in ("usd", "score"):
+    """Per-month sampling variances that need the posts: medians and mood scores."""
+    if unit != "score" and not _bootstrapped(key, unit):
         return {}
     extras = {}
     for month in months:
         values = _post_values(con, key, month)
-        if (v := _month_variance(unit, values, f"{key}:{month}")) is not None:
+        if (v := _month_variance(key, unit, values, f"{key}:{month}")) is not None:
             extras[month] = v
     return extras
 
