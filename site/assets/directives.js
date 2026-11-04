@@ -30,14 +30,18 @@ export function toplinePlan(blocks) {
 /**
  * Mount one directive. The width is set before anything waits, so a wide chart is laid out at its own width
  * from the start instead of drawing at the text width and then jumping. A breakdown's series are fetched
- * first (data.loadBreakdown); `render` draws, and `onError` shows a failure in place.
+ * first (data.loadBreakdown); `render` draws, and `onError` shows a failure in place. Resolves to true when
+ * the directive drew and false when it failed, so a caller can treat a render-time failure (an unknown metric,
+ * say) the same as a parse error.
  */
 export async function mountDirective(mount, name, attrs, data, until, { render, fetchJson, onError }) {
   mount.dataset.width = directiveWidth(name, attrs);
   try {
     if (attrs.breakdown) await loadBreakdown(data, attrs.breakdown, fetchJson);
     render(mount, name, attrs, data, until);
+    return true;
   } catch (err) {
     onError(mount, err);
+    return false;
   }
 }

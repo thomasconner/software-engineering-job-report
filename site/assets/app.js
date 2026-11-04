@@ -37,7 +37,7 @@ async function main() {
   if (data.mock) $('#mock-banner').hidden = false;
   renderPicker(issues, issue);
   renderHeader(article.meta, until, data);
-  renderBody(article, data, until);
+  await renderBody(article, data, until);
   renderMethodology(data, until);
 }
 
@@ -57,6 +57,7 @@ function showError(message) {
   $('#glossary-title').hidden = true;
   $('#sources-title').hidden = true;
   $('#sources-intro').hidden = true;
+  $('#removed-chart').hidden = true;
 }
 
 function setupTheme() {
@@ -125,17 +126,29 @@ function showDirectiveError(mount, err) {
   mount.replaceChildren(box);
 }
 
-function renderBody(article, data, until) {
+async function renderBody(article, data, until) {
   const body = $('#article-body');
   body.innerHTML = article.html;
   const mounts = [...body.querySelectorAll('.directive')];
+  const entryOf = (mount) => article.directives[mount.dataset.directive];
+  const mount = (el) => {
+    const { name, attrs, error } = entryOf(el);
+    if (!error) return mountDirective(el, name, attrs, data, until);
+    showDirectiveError(el, error);
+    return false;
+  };
+  // Strips are drawn before the topline is chosen, so one that fails at render time (an unknown metric) is
+  // skipped like one that failed to parse. They need no data files, so this doesn't hold up the page.
+  const strips = mounts.filter((el) => entryOf(el).name === 'compare');
+  await Promise.all(strips.map(mount));
+  const failed = (el) => Boolean(el.querySelector('.directive-error, .directive-unavailable'));
   // A ::compare written before the first section head is the issue's topline (see directives.toplinePlan).
   const blocks = [...body.children];
   const plan = toplinePlan(blocks.map((el) => {
-    const entry = el.classList.contains('directive') ? article.directives[el.dataset.directive] : null;
+    const entry = el.classList.contains('directive') ? entryOf(el) : null;
     const only = el.childElementCount === 1 ? el.firstElementChild : null;
     return {
-      tag: el.tagName, name: entry?.name, error: Boolean(entry?.error),
+      tag: el.tagName, name: entry?.name, error: Boolean(entry && (entry.error || failed(el))),
       editorsNote: isEditorsNote({ tag: el.tagName, text: el.textContent, allItalic: only?.tagName === 'EM' && only.textContent.trim() === el.textContent.trim() }),
     };
   }));
@@ -144,11 +157,7 @@ function renderBody(article, data, until) {
     strip.classList.add('topline');
     if (plan.from !== plan.to) blocks[plan.to].before(strip);
   }
-  for (const mount of mounts) {
-    const { name, attrs, error } = article.directives[mount.dataset.directive];
-    if (error) showDirectiveError(mount, error);
-    else mountDirective(mount, name, attrs, data, until);
-  }
+  for (const el of mounts) if (!strips.includes(el)) mount(el);
 }
 
 // Plain names for the Jev questions scored in validation.json, and the measures they feed.
@@ -265,6 +274,7 @@ function renderMethodology(data, until) {
   renderSources(data, until);
   renderValidation(data).catch(() => { /* the table is optional; the prose still explains the checks */ });
   const removed = ['removed_share.hiring', 'removed_share.seeking'].filter((k) => data.metrics[k]);
+  $('#removed-chart').hidden = !removed.length;
   if (removed.length) {
     mountDirective($('#removed-chart'), 'chart', {
       type: 'line',
