@@ -64,11 +64,13 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
         "US job seekers per hiring post open to US workers",
         "ratio",
         (
-            "Posts in “Who wants to be hired?” whose Location line is in the US, divided by "
-            "hiring posts whose first line names a US place or offers remote work US workers "
-            "can take (no region stated, or the US, North America, the Americas, worldwide or "
-            "US time zones). Both counts include posts later deleted: deleted posts have no "
-            "text to read a location from, so we assume they split the same way as the rest."
+            "Job seekers per hiring post, counting only seekers whose Location line is in the "
+            "US and hiring posts whose first line names a US place or offers remote work US "
+            "workers can take (no region stated, or the US, North America, the Americas, "
+            "worldwide or US time zones). Both counts include posts later deleted. Deleted "
+            "posts, seekers whose location we can't place, and hiring posts that name no place "
+            "and don't mention remote work are assumed to split the same way as the rest. "
+            "Shown only when at least 50 seekers have a known location."
         ),
     ),
     "replies_per_post.hiring": (

@@ -56,8 +56,10 @@ def post_answers(post_id: int, text: str, kind: str = "hiring") -> list[Answer]:
             float(len(regions)),
             probabilities=json.dumps(dict.fromkeys(regions, 1.0)),
         ),
-        row("open_to_us", "regex", float(open_to_us)),
     ]
+    # No row when the header names no place and doesn't say remote.
+    if open_to_us is not None:
+        rows.append(row("open_to_us", "regex", float(open_to_us)))
     if low is not None:
         rows.append(row("salary_min_usd", "regex", low))
     if high is not None:

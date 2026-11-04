@@ -40,6 +40,8 @@ HIRING_TEXTS = {
 SEEKING_TEXTS = [
     "Location: Berlin, Germany\nRemote: Yes\nWilling to relocate: No\n\nTechnologies: Python",
     "Location: Austin, TX\nRemote: Yes\nWilling to relocate: No\n\nTechnologies: Go",
+    # No recognized place, so the seeker's region is unknown.
+    "Location: Remote\nRemote: Yes\nWilling to relocate: No\n\nTechnologies: Rust",
 ]
 
 MONTHS = [date(2024, m, 1) for m in range(1, 8)]
@@ -92,7 +94,7 @@ def populate(con: duckdb.DuckDBPyConnection) -> None:
                 texts = [HIRING_TEXTS[c] for c in companies]
             else:
                 count = rng.randint(4, 9)
-                texts = [SEEKING_TEXTS[i % 2] for i in range(count)]
+                texts = [SEEKING_TEXTS[i % 3] for i in range(count)]
             for i, text in enumerate(texts):
                 # Every month a couple of posts land after the 7-day snapshot.
                 hours = 24 * 9 if i >= len(texts) - 2 else rng.uniform(0, 24 * 6)

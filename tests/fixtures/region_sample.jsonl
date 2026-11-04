@@ -176,8 +176,8 @@
 {"kind": "hiring", "month": "2014-11", "text": "SEGA / Three Rings Design - San Francisco, Madison, and Philadelphia", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2014-10", "text": "MIT Lincoln Laboratory -- Lexington, MA (Boston) - Full Time (US Citizens)", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2014-08", "text": "SPINS LLC - http://www.spins.com Chicago and Schaumburg, IL", "regions": ["us"], "open_to_us": true}
-{"kind": "hiring", "month": "2011-10", "text": "MobileWorks (YCS11) is hiring Platform engineers/Platform interns http://www.mobileworks.com/jobs.html", "regions": ["unknown"], "open_to_us": false}
-{"kind": "hiring", "month": "2012-04", "text": "Entelo is hiring: http://www.entelo.com/jobs", "regions": ["unknown"], "open_to_us": false}
+{"kind": "hiring", "month": "2011-10", "text": "MobileWorks (YCS11) is hiring Platform engineers/Platform interns http://www.mobileworks.com/jobs.html", "regions": ["unknown"], "open_to_us": null}
+{"kind": "hiring", "month": "2012-04", "text": "Entelo is hiring: http://www.entelo.com/jobs", "regions": ["unknown"], "open_to_us": null}
 {"kind": "hiring", "month": "2014-06", "text": "Understory - http://www.understoryweather.com - Boston, MA", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2014-08", "text": "WebAction - Downtown Palo Alto, CA", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2013-12", "text": "High Tech Campus, Eindhoven, Netherlands", "regions": ["europe"], "open_to_us": false}
@@ -200,7 +200,7 @@
 {"kind": "hiring", "month": "2019-05", "text": "Citio | Full-time | ONSITE | Paris", "regions": ["europe"], "open_to_us": false}
 {"kind": "hiring", "month": "2015-10", "text": "Spire Global (http://www.spire.com)| Locations: Glasgow; San Francisco; Singapore | VISA OK | Onsite only", "regions": ["us", "uk", "asia_pacific"], "open_to_us": true}
 {"kind": "hiring", "month": "2016-11", "text": "ScriptDash | San Francisco, CA | Software Engineer | Full Time - Onsite | https://www.scriptdash.com", "regions": ["us"], "open_to_us": true}
-{"kind": "hiring", "month": "2017-09", "text": "Pivotal | Engineers, Designers, Product Managers, Pre/Post-Sales Engineers, Ops, Sales, Admin | Locations worldwide | ONSITE", "regions": ["unknown"], "open_to_us": false}
+{"kind": "hiring", "month": "2017-09", "text": "Pivotal | Engineers, Designers, Product Managers, Pre/Post-Sales Engineers, Ops, Sales, Admin | Locations worldwide | ONSITE", "regions": ["unknown"], "open_to_us": null}
 {"kind": "hiring", "month": "2015-07", "text": "MedTech Exchange, Inc. -- Atlanta, GA", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2019-10", "text": "SEAS Education | Ruby on Rails Developer | Conway, AR | Remote or Onsite | Full-time", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2015-08", "text": "500 Miles Inc., | Full Time | Palo Alto, CA | http://500miles.io", "regions": ["us"], "open_to_us": true}
@@ -210,7 +210,7 @@
 {"kind": "hiring", "month": "2017-01", "text": "Bodyport (YC S15) | Senior Data Engineer | San Francisco, CA | ONSITE - http://www.bodyport.com", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2018-05", "text": "Longshot Systems | Senior Machine Learning Engineer | Marylebone, London, UK | ONSITE | Full time | £70k-£85k", "regions": ["uk"], "open_to_us": false}
 {"kind": "hiring", "month": "2017-05", "text": "PeerStreet | Ruby Engineers | Los Angeles, CA | Full-time, Onsite & Remote", "regions": ["us"], "open_to_us": true}
-{"kind": "hiring", "month": "2018-09", "text": "Waypoint is hiring. We are a SaaS analytics and workflow application for Commercial Real Estate. Our platform uses Laravel for the backend and React for the front end.", "regions": ["unknown"], "open_to_us": false}
+{"kind": "hiring", "month": "2018-09", "text": "Waypoint is hiring. We are a SaaS analytics and workflow application for Commercial Real Estate. Our platform uses Laravel for the backend and React for the front end.", "regions": ["unknown"], "open_to_us": null}
 {"kind": "hiring", "month": "2017-10", "text": "SiteSpect | Various Web Developer, Sys Admin and Web Optimization roles | Boston | ONSITE | https://www.sitespect.com", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2017-11", "text": "Spaceflight Industries | Software Development Engineer in Test | Herndon VA | ONSITE | Full-time | http://www.spaceflightindustries.com", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2016-02", "text": "StatusPage (YC S13) | San Francisco or Denver | Full-time | ONSITE", "regions": ["us"], "open_to_us": true}
@@ -223,7 +223,7 @@
 {"kind": "hiring", "month": "2019-03", "text": "The Infatuation & Zagat | New York, NY | Platform & Product Engineers | On-site | Full-Time", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2017-06", "text": "Split | http://www.split.io | Frontend / Backend / Data Engineers, Support, Marketing & Sales Roles | SF/Redwood City | Full time", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2017-04", "text": "Digirati | Software Engineer (PHP) | Glasgow (UK) | Full-Time | Onsite", "regions": ["uk"], "open_to_us": false}
-{"kind": "hiring", "month": "2017-01", "text": "I'll post to this thread because this is very relevant for the hiring companies.", "regions": ["unknown"], "open_to_us": false}
+{"kind": "hiring", "month": "2017-01", "text": "I'll post to this thread because this is very relevant for the hiring companies.", "regions": ["unknown"], "open_to_us": null}
 {"kind": "hiring", "month": "2021-10", "text": "Replit | Remote (must overlap 4 hours with US Pacific Time) | Full-time | Multiple Positions", "regions": ["unknown"], "open_to_us": true}
 {"kind": "hiring", "month": "2020-09", "text": "Jane | Santa Cruz, CA | Onsite | https://www.iheartjane.com", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2022-06", "text": "Command Zero | Clojure Developer | Remote US/Canada | Full Time", "regions": ["us", "canada"], "open_to_us": true}
@@ -248,7 +248,7 @@
 {"kind": "hiring", "month": "2020-01", "text": "Volley (YC W18) | San Francisco | ONSITE", "regions": ["us"], "open_to_us": true}
 {"kind": "hiring", "month": "2021-06", "text": "CitizenLab | Brussels | Full-time | REMOTE or ONSITE https://www.citizenlab.co", "regions": ["europe"], "open_to_us": false}
 {"kind": "hiring", "month": "2020-12", "text": "Roadster | Backend & Fullstack Engineers | Palo Alto, San Francisco, or remote", "regions": ["us"], "open_to_us": true}
-{"kind": "hiring", "month": "2021-12", "text": "1/2", "regions": ["unknown"], "open_to_us": false}
+{"kind": "hiring", "month": "2021-12", "text": "1/2", "regions": ["unknown"], "open_to_us": null}
 {"kind": "hiring", "month": "2020-07", "text": "newline (formerly Fullstack.io) | Course author | Remote | Part Time | https://www.newline.co/write-with-us", "regions": ["unknown"], "open_to_us": true}
 {"kind": "hiring", "month": "2021-08", "text": "Beige Tech | https://beige.tech | Whangarei, New Zealand | Full-time | Software Engineer | Onsite", "regions": ["asia_pacific"], "open_to_us": false}
 {"kind": "hiring", "month": "2020-07", "text": "# FreightFlows (Currently MassChallenge 2020 cohort) | Sr. Data Engineer, Jr. Software Engineer | Boston, MA USA | ONSITE or REMOTE | Full-time #", "regions": ["us"], "open_to_us": true}

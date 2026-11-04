@@ -41,20 +41,20 @@ CODES = {
 # Countries, continents and groupings, matched case-insensitively.
 AREAS = {
     "us": r"united states(?: of america)?|(?<!north )(?<!south )(?<!latin )(?<!central )"
-    r"america(?!s)|puerto rico",
+    r"(?<!of )america(?!s)|puerto rico",
     "canada": r"canada",
     "uk": r"united kingdom|great britain|britain|england|scotland|(?<!new south )wales"
     r"|northern ireland",
     "europe": r"europe(?:an union)?|european|eea|schengen|germany|deutschland|france"
-    r"|spain|portugal|italy|(?:the )?netherlands|belgium|switzerland|austria|sweden|norway"
+    r"|spain|espa[nñ]a|portugal|italy|italia|(?:the )?netherlands|belgium|switzerland|austria|sweden|norway"
     r"|denmark|finland|iceland|(?<!northern )ireland|poland|czechia|czech republic"
     r"|slovakia|slovenia|croatia|serbia|bosnia|montenegro|albania|macedonia|kosovo"
     r"|hungary|romania|bulgaria|greece|estonia|latvia|lithuania|ukraine|belarus|moldova"
     r"|russia|luxembourg|malta|cyprus",
     "india": r"india",
-    "latam": r"latin america|south america|central america|latam|mexico|brazil|brasil"
-    r"|argentina|chile|colombia|peru|ecuador|uruguay|paraguay|bolivia|venezuela"
-    r"|costa rica|panama|guatemala|honduras|el salvador|nicaragua|dominican republic"
+    "latam": r"latin america|south america|central america|latam|m[eé]xico|brazil|brasil"
+    r"|argentina|chile|colombia|per[uú]|ecuador|uruguay|paraguay|bolivia|venezuela"
+    r"|costa rica|panam[aá]|guatemala|honduras|el salvador|nicaragua|dominican republic"
     r"|cuba|jamaica|caribbean",
     "asia_pacific": r"asia|apac|oceania|australia|new zealand|singapore|japan|china"
     r"|hong kong|taiwan|(?:south )?korea|philippines|vietnam|thailand|malaysia"
@@ -79,7 +79,7 @@ CITIES = {
     r"|washington|miami|portland|san diego|san jos[eé](?!,?\s*costa rica)|palo alto"
     r"|mountain view|menlo park|redwood city|san mateo|sunnyvale|santa clara|cupertino"
     r"|oakland|berkeley|santa monica|irvine|pasadena|sacramento|philadelphia|pittsburgh"
-    r"|houston|dallas|phoenix|minneapolis|detroit|ann arbor|nashville|raleigh|durham"
+    r"|houston|dallas|(?<!elixir/)phoenix(?!\s*/?\s*liveview)|minneapolis|detroit|ann arbor|nashville|raleigh|durham"
     r"|salt lake city|baltimore|columbus|cleveland|cincinnati|st\.? louis|kansas city"
     r"|tampa|orlando|charlotte|new orleans|las vegas|honolulu|indianapolis|milwaukee"
     r"|madison|providence|new haven|somerville|waltham|jersey city|hoboken|soma|socal"
@@ -131,7 +131,10 @@ CITIES = {
 # Case-sensitive abbreviations: "us" is a pronoun and "LA" is only a place in capitals.
 ABBREVIATIONS = {
     "us": r"USA|US|U\.S\.(?:A\.)?|SF|NYC|NY|LA|DC|D\.C\.|ATX|PDX",
-    "canada": r"CAN|GTA|(?<=US/)CA|(?<=US & )CA|(?<=USA/)CA",
+    # CA and CAN are Canada only beside the US ("US/CA", "US & CAN"); alone, CA is
+    # California and CAN is a word ("CAN OFFER VISA").
+    "canada": r"GTA|(?:(?<=US/)|(?<=US & )|(?<=US, )|(?<=USA/)|(?<=USA, )|(?<=US and ))"
+    r"(?:CA|CAN|Can)|(?:CAN|Can)(?=/)",
     "uk": r"UK|U\.K\.",
     "europe": r"EU",
     "asia_pacific": r"NZ|ANZ|APAC",
@@ -139,19 +142,24 @@ ABBREVIATIONS = {
     "latam": r"LATAM|LatAm",
 }
 
-CITY_CODE = re.compile(r",?\s*([A-Z]{2})\b(?![\w'’-])")
-# A code after an unknown town: "Fargo, ND", "Eindhoven, NL", or "Irvine CA" at the end
-# of a field. Without a comma only US state codes count, since "Acme IT" or "Acme SA" is
-# a company name.
+CITY_CODE = re.compile(r",?\s*([A-Z]{2})\b(?!['’])")
+# A code after an unknown town: "Fargo, ND", "Eindhoven, NL", "Royal Oak, Mi", or "Irvine
+# CA" at the end of a field. Without a comma only US state codes count, since "Acme IT" or
+# "Acme SA" is a company name.
 CODE_AFTER_TOWN = re.compile(
     r"(?P<town>[A-Z][\w.'’-]{2,})"
     r"(?P<sep>,\s*|\s+(?=[A-Z]{2}\s*(?:$|[,|;/)\]·•.(]|[-–—]\s)))"
-    r"(?P<code>[A-Z]{2})\b(?![\w'’-])"
+    r"(?P<code>[A-Z][A-Za-z])\b(?!['’])"
 )
 LEGAL_SUFFIXES = {"AB", "AG", "AS", "BV", "OY", "SA"}
+# State codes that are also words: "FULL-TIME, OR CONTRACT", "H1B OK", "Mi" but not "Or".
+WORD_CODES = {"OR", "IN", "ME", "OK", "HI", "OH"}
+TITLE_WORDS = {"Or", "In", "Me", "Ok", "Hi", "Oh", "Co", "De", "La", "Al", "Id"}
+WORD_AFTER = re.compile(r"\s+(?!USA?\b)[A-Za-z]")
 NOT_A_TOWN = re.compile(
-    r"^(?:remote|onsite|on-site|hybrid|visa|relocation|interns?|time|contract|yes|no"
-    r"|only|full|part|and|or)$",
+    r"^(?:remote|onsite|on-site|hybrid|visa|relocation|interns?|time|full|part"
+    r"|full-?time|part-?time|contract|contractors?|yes|no|only|and|or|ok|h-?1-?bs?"
+    r"|engineers?|developers?|senior|junior|equity|salary|python)$",
     re.IGNORECASE,
 )
 # "Remote (non-US)", "outside the EU": the place is excluded, not named.
@@ -202,7 +210,7 @@ LOCATION_CHARS = 100
 
 def _alternation(names: dict[str, str], flags: int) -> list[tuple[re.Pattern, str]]:
     return [
-        (re.compile(rf"(?<![\w-])(?:{pattern})(?![\w-])", flags), region)
+        (re.compile(rf"(?<!\w)(?:{pattern})(?!\w)", flags), region)
         for region, pattern in names.items()
     ]
 
@@ -211,17 +219,16 @@ AREA_PATTERNS = _alternation(AREAS, re.IGNORECASE)
 MULTI_PATTERN = re.compile(rf"\b(?:{'|'.join(MULTI)})\b", re.IGNORECASE)
 CITY_PATTERNS = _alternation(CITIES, re.IGNORECASE)
 ABBREVIATION_PATTERNS = [
-    (re.compile(rf"(?<![\w.-])(?:{pattern})(?![\w-])"), region)
+    (re.compile(rf"(?<![\w.])(?:{pattern})(?!\w)"), region)
     for region, pattern in ABBREVIATIONS.items()
 ]
 
 
 def _city_region(region: str, code: str) -> str:
+    """A city's region given the code after it: "Paris, TX" is US, "Durham, UK" is UK."""
     if code in CODES.get(region, set()):
         return region
-    if code in US_STATES:
-        return "us"
-    return "canada" if code in CODES["canada"] else region
+    return _code_region(code) or region
 
 
 def _code_region(code: str) -> str | None:
@@ -262,19 +269,29 @@ def place_mentions(text: str) -> list[tuple[int, tuple[str, ...]]]:
         ):
             taken.append((start, stop))
             continue
+        # A city takes the code after it ("Berlin, DE"). A country or region only swallows
+        # a state code ("Europe, ME"), so "EU, UK" and "US, CA" stay two places.
         code = CITY_CODE.match(text, stop)
-        if code and _code_region(code.group(1)):
-            end = code.end()
+        if code and _code_region(c := code.group(1)):
             if is_city:
-                regions = (_city_region(regions[0], code.group(1)),)
+                end = code.end()
+                regions = (_city_region(regions[0], c),)
+            elif c in US_STATES and c != "CA":
+                end = code.end()
         taken.append((start, end))
         mentions.append((start, regions))
     for m in CODE_AFTER_TOWN.finditer(text):
-        code_at = m.start("code")
-        if NOT_A_TOWN.match(m["town"]) or any(a <= code_at < b for a, b in taken):
+        code_at, code, comma = m.start("code"), m["code"], "," in m["sep"]
+        if code in LEGAL_SUFFIXES or any(a <= code_at < b for a, b in taken):
             continue
-        code = m["code"]
-        if code in LEGAL_SUFFIXES or ("," not in m["sep"] and code not in US_STATES):
+        if not code.isupper():
+            if not comma or code in TITLE_WORDS:
+                continue
+            code = code.upper()
+        job_word = NOT_A_TOWN.match(m["town"])
+        if not comma and (code not in US_STATES or code in WORD_CODES or job_word):
+            continue
+        if code in WORD_CODES and (job_word or WORD_AFTER.match(text, m.end())):
             continue
         if region := _code_region(code):
             mentions.append((code_at, (region,)))
@@ -304,12 +321,13 @@ def seeker_region(text: str) -> str:
     return "unknown"
 
 
-def hiring_regions(text: str) -> tuple[list[str], bool]:
+def hiring_regions(text: str) -> tuple[list[str], bool | None]:
     """Regions the header names, and whether the post is open to US workers.
 
     A remote post is open to US workers when it names a US place, or a worldwide, North
     American, Americas or US-time-zone restriction, or no place at all. "REMOTE (EU)" or
-    "Berlin | Remote" is not.
+    "Berlin | Remote" is not. A header with no place and no "remote" says nothing, so
+    openness is None, like a seeker with no recognized location.
     """
     header = header_line(text)
     regions = sorted(
@@ -317,8 +335,10 @@ def hiring_regions(text: str) -> tuple[list[str], bool]:
     )
     if "us" in regions:
         return regions, True
-    if not remote_token(text) or NOT_US.search(header):
+    if NOT_US.search(header):
         return regions or ["unknown"], False
+    if not remote_token(text):
+        return regions or ["unknown"], (False if regions else None)
     open_to_us = bool(
         WORLDWIDE.search(header)
         or US_TIME.search(header)

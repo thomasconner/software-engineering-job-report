@@ -197,20 +197,26 @@ def _count_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     return rows
 
 
+# Fewer located seekers than this and the US share is too noisy to scale the ratio by; the
+# same floor as export.MIN_N_SHARE.
+MIN_KNOWN_SEEKERS = 50
+
+
 def _us_ratio_rows(
     con: duckdb.DuckDBPyConnection, month: date, counts: list[Row]
 ) -> list[Row]:
     """US-located seekers per hiring post open to US workers, on the submitted basis.
 
     Region needs the text, which removed posts don't have, so the US shares come from live
-    posts and scale seekers_per_post, assuming removed posts share the live posts' mix.
-    Counting live posts directly would let each thread's removed share, which depends on
-    fetch age, move the ratio.
+    posts and scale seekers_per_post. Both shares leave out posts whose location is unknown
+    (no recognized seeker location; a header with no place and no "remote"), so both
+    assume those split like the rest, as removed posts are assumed to. Counting live posts
+    directly would let each thread's removed share, which depends on fetch age, move it.
     """
     ratio = next((r[4] for r in counts if r[2] == "seekers_per_post"), None)
     if ratio is None:
         return []
-    us_seekers, known_seekers, open_posts, hiring = con.execute(
+    us_seekers, known_seekers, open_posts, known_hiring = con.execute(
         SNAPSHOT
         + """
         SELECT
@@ -226,9 +232,9 @@ def _us_ratio_rows(
         """,
         {"month": month, "version": FEATURES_VERSION},
     ).fetchone()
-    if not (known_seekers and open_posts):
+    if known_seekers < MIN_KNOWN_SEEKERS or not open_posts:
         return []
-    us_ratio = ratio * (us_seekers / known_seekers) / (open_posts / hiring)
+    us_ratio = ratio * (us_seekers / known_seekers) / (open_posts / known_hiring)
     return [(month, "hiring", "seekers_per_post_us", "", us_ratio, open_posts)]
 
 
