@@ -205,11 +205,11 @@ Directive attributes:
 | `categories` | breakdown charts | comma list; a subset of the breakdown's categories |
 | `highlight` | multi-series charts | comma list of series drawn in the story color; the rest gray |
 | `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
-| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM` |
+| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM`; default 5y on slope, 1y on dot |
 | `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
 | `against` | ::compare | comma list of windows, default `3m,1y,5y` |
 | `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
-| `title` | all | the finding, stated |
+| `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
 
@@ -239,3 +239,27 @@ Real posts the article may quote, so the column never invents color. Export writ
 ```
 
 The writer may quote only from these files and must put the item id in the ledger. Quote job posts, not individual job seekers (seeking posts are used for paraphrase-free mood examples only when the person's name and contact details are removed).
+
+## Question ids in `answers`
+
+| question | method | stored as |
+|---|---|---|
+| `company` | regex | label: normalized company name |
+| `salary_min_usd`, `salary_max_usd` | regex | value |
+| `salary_currency` | regex | label: ISO code, `unknown` (bare k-range), or `none` (no salary found) |
+| `remote_token`, `onsite_token`, `mentions_visa`, `interns_token` | regex | value 0/1 |
+| `stack` | vocab | one row per post; `probabilities` holds the terms found |
+| `new_company`, `returned_from_last_month` | join | value 0/1; not emitted when no earlier (or previous-month) hiring thread exists |
+| `work_mode`, `seniority`, `industry`, `funding_stage` | jev | Choice: label, probabilities (category → p), confidence |
+| `industry_stated`, `industry_fits`, `ai_native`, `new_grad`, `eng_leadership` | jev | Noul: value |
+| `seeker_mood` | jev | Score: value, probabilities keyed "0"–"4", confidence |
+
+`salary_disclosed_share` counts any currency, including `unknown`; the salary medians use USD only.
+
+Extra breakdowns: `industry_known` (sector shares among posts whose sector is stated), `seniority_ai_native` and `seniority_not_ai_native` (seniority shares among posts with ai_native ≥ 0.5 and < 0.5). Stack categories use display names ("C++", "Next.js", "AI agents").
+
+Completeness is per thread: a month whose hiring thread is complete publishes hiring metrics even if its seeking thread is still pending; `seekers_per_post` needs both.
+
+Samples contain hiring posts only. Seeking posts are never exported.
+
+Authoring mode (`?mock=1`, localhost) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only with `?mock=1&issue=_name`.
