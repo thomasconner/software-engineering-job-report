@@ -36,7 +36,7 @@ export function renderCompare(mount, attrs, data, until) {
   const head = el('figcaption', 'chart-head');
   head.append(el('h3', 'chart-title', attrs.title));
   const span = windows.map((a) => WINDOW_LABEL[a]).join(', ').replace(/, ([^,]*)$/, ' and $1');
-  head.append(el('p', 'chart-sub', attrs.subtitle ?? `${monthLabel(until, 'long')} against ${span} earlier. Better and worse are from the point of view of people looking for work; moves within sampling noise are gray and marked \u2248 (about the same).`));
+  head.append(el('p', 'chart-sub', attrs.subtitle ?? `${monthLabel(until, 'long')} against ${span} earlier. Better and worse are from the point of view of people looking for work; moves within the noise are gray and marked \u2248 (about the same).`));
 
   const table = el('table', 'compare-table');
   const hr = table.createTHead().insertRow();

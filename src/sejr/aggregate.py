@@ -15,6 +15,7 @@ import duckdb
 from sejr import config
 from sejr.db import insert_rows
 from sejr.features import VERSION as FEATURES_VERSION
+from sejr.features.region import REGIONS
 from sejr.features.vocab import TERMS
 
 Row = tuple[date, str, str, str, float, int]
@@ -61,6 +62,10 @@ SCALARS = [
                  """avg(coalesce(json_extract(probabilities, '$."0"')::DOUBLE, 0)
                       + coalesce(json_extract(probabilities, '$."1"')::DOUBLE, 0))""",
                  "probabilities"),
+    # Among seekers whose Location line names a region.
+    AnswerMetric("seeker_us_share", "seeking", "region", "regex",
+                 "avg((label = 'us')::DOUBLE) FILTER (WHERE label <> 'unknown')",
+                 "nullif(label, 'unknown')"),
 ]  # fmt: skip
 
 SENIORITY = ("junior", "mid", "senior", "staff_plus", "unspecified")
@@ -80,6 +85,9 @@ BREAKDOWNS = [
               ("bootstrapped", "seed", "series_a", "series_b", "series_c_plus", "public_or_large",
                "venture_unspecified", "unknown")),
     Breakdown("stack", "hiring", "vocab", tuple(TERMS)),
+    # Hiring headers can name several regions, so these shares don't sum to 1.
+    Breakdown("region", "hiring", "regex", REGIONS),
+    Breakdown("seeker_region", "seeking", "regex", REGIONS, "region"),
     # Cross-tab: seniority mix of posts judged AI-native (ai_native >= 0.5) and of the rest.
     Breakdown("seniority_ai_native", "hiring", "jev", SENIORITY, "seniority",
               AI_NATIVE_POSTS.format(">=")),
@@ -189,6 +197,47 @@ def _count_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     return rows
 
 
+# Fewer located seekers than this and the US share is too noisy to scale the ratio by; the
+# same floor as export.MIN_N_SHARE.
+MIN_KNOWN_SEEKERS = 50
+
+
+def _us_ratio_rows(
+    con: duckdb.DuckDBPyConnection, month: date, counts: list[Row]
+) -> list[Row]:
+    """US-located seekers per hiring post open to US workers, on the submitted basis.
+
+    Region needs the text, which removed posts don't have, so the US shares come from live
+    posts and scale seekers_per_post. Both shares leave out posts whose location is unknown
+    (no recognized seeker location; a header with no place and no "remote"), so both
+    assume those split like the rest, as removed posts are assumed to. Counting live posts
+    directly would let each thread's removed share, which depends on fetch age, move it.
+    """
+    ratio = next((r[4] for r in counts if r[2] == "seekers_per_post"), None)
+    if ratio is None:
+        return []
+    us_seekers, known_seekers, open_posts, known_hiring = con.execute(
+        SNAPSHOT
+        + """
+        SELECT
+          count(*) FILTER (WHERE s.kind = 'seeking' AND a.question = 'region'
+                           AND a.label = 'us'),
+          count(*) FILTER (WHERE s.kind = 'seeking' AND a.question = 'region'
+                           AND a.label <> 'unknown'),
+          count(*) FILTER (WHERE s.kind = 'hiring' AND a.question = 'open_to_us'
+                           AND a.value = 1),
+          count(*) FILTER (WHERE s.kind = 'hiring' AND a.question = 'open_to_us')
+        FROM snapshot s JOIN answers a USING (post_id)
+        WHERE a.method = 'regex' AND a.version = $version
+        """,
+        {"month": month, "version": FEATURES_VERSION},
+    ).fetchone()
+    if known_seekers < MIN_KNOWN_SEEKERS or not open_posts:
+        return []
+    us_ratio = ratio * (us_seekers / known_seekers) / (open_posts / known_hiring)
+    return [(month, "hiring", "seekers_per_post_us", "", us_ratio, open_posts)]
+
+
 def _covered(
     con: duckdb.DuckDBPyConnection, month: date, m: AnswerMetric | Breakdown
 ) -> bool:
@@ -264,8 +313,12 @@ def _breakdown_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
 
 def compute_month(con: duckdb.DuckDBPyConnection, month: date | str) -> list[Row]:
     month = _as_date(month)
+    counts = _count_rows(con, month)
     return (
-        _count_rows(con, month) + _scalar_rows(con, month) + _breakdown_rows(con, month)
+        counts
+        + _us_ratio_rows(con, month, counts)
+        + _scalar_rows(con, month)
+        + _breakdown_rows(con, month)
     )
 
 

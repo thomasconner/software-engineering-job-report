@@ -274,6 +274,7 @@ These apply to every sentence. The fact-checker enforces them.
 - **Posts aren't jobs.** One "Who is hiring?" post can list one role or 20. Write "hiring posts" or "companies posting". Never write "jobs", "openings" or "roles" for a post count. A role level can describe which posts ("posts for senior engineers").
 - **Seeking posts aren't all job seekers.** "Who wants to be hired?" posts come from people who chose to post on Hacker News. On first mention write "people posting in 'Who wants to be hired?'". After that, "job seekers posting" or "job seekers" is fine.
 - **Hacker News isn't the job market.** The threads skew toward venture-backed startups, engineering roles and the Bay Area. Say "on Hacker News", "in the thread" or "among companies posting on HN". Never "tech hiring rose" or "the job market recovered". When you want to say something wider, say that HN agrees or disagrees with a named outside measure, and cite it in the ledger.
+- **The threads aren't the US market either.** In 2026 only about a third to two fifths of the people posting in "Who wants to be hired?" gave a US location, and hiring posts include European, Canadian and remote-anywhere companies. The column describes HN's threads. "US" claims rest on `seeker_us_share`, `seekers_per_post_us` or the `region` breakdowns, never on the whole-thread numbers.
 - **The snapshot is seven days.** Every month counts posts in the first seven days of its thread. Late posts don't count, past or present. Don't compare our counts to someone else's thread totals.
 - **Survivorship.** Deleted posts are missing and edited posts show their latest text. Older months have had more time to lose posts, so counts from earlier years are a floor.
 - **Series starts.** The hiring series runs from April 2011 with no gaps (July and December 2011 use replacement threads). The seeking series starts in May 2014. The first seeking thread was posted by the user jader201, and the whoishiring account took it over in July 2014.
@@ -283,7 +284,7 @@ These apply to every sentence. The fact-checker enforces them.
 - **Jev estimates, shares:** `ai_native_share`, `new_grad_share`, `work_mode`, `seniority`, `industry`, `funding_stage`. These are expected values: the sum of the model's probabilities divided by the number of posts. Say "by our classifier's estimate" or similar once per article, the first time one appears.
 - **Jev estimate, score:** `seeker_mood` is a mean score from 0 (discouraged) to 4 (upbeat). It isn't a share and doesn't take points-of-share language.
 - **Counts:** `posts`, `seekers_per_post`, `replies_per_post`.
-- **Regex:** `salary_disclosed_share`, `salary_min_median_usd`, `salary_max_median_usd`, `remote_token_share`, `onsite_token_share`, `visa_share`. These are exact counts of what the text says, but regex can miss unusual formats.
+- **Regex:** `salary_disclosed_share`, `salary_min_median_usd`, `salary_max_median_usd`, `remote_token_share`, `onsite_token_share`, `visa_share`, `seeker_us_share`, `seekers_per_post_us`, `region`, `seeker_region`. These are exact counts of what the text says, but regex can miss unusual formats. Region comes from the seeker's `Location:` line and the hiring post's first line; posts that name no place are `unknown`. `seekers_per_post_us` is `seekers_per_post` scaled by the US shares of live posts, so both ratios count submitted posts and can be compared directly. It assumes deleted posts, seekers with no recognized location and hiring posts that name no place and don't say remote split the same way as the rest.
 - **Join:** `new_company_share`, `returning_company_share`. These depend on company names pulled from the header line by regex, so a renamed company or a typo counts as new. They also need history: in 2011 every company is "new". Don't use their 2011 values.
 - **Vocab:** `stack`. This is the share of posts mentioning each term from a fixed list. Terms overlap and don't sum to 1.
 
@@ -296,28 +297,25 @@ These apply to every sentence. The fact-checker enforces them.
 
 ### The noise bar
 
-Until `metrics.json` carries intervals, use these rules. They cover sampling error only, so they're a floor, and classifier error sits on top.
+Every point in `metrics.json` carries `bar`: the noise bar for the change into that month from 3 months, 1 year and 5 years earlier (`{"3m": 0.342, "1y": 0.338, "5y": 0.329}` for hiring posts in October 2026). Breakdown points carry one per category (`bar["1y"]["remote"]`). Read the bar from the later month's point and put it in the ledger. Its scale follows the unit:
 
-**Shares.** For a change between month 1 and month 2, the bar in points is
+| Unit | Bar is on | A move is inside the bar when |
+|---|---|---|
+| `share` | the difference, as a 0 to 1 share | the gap is smaller: 0.095 means 9.5 points |
+| `count`, `ratio`, `usd` | the log ratio, ln(now / then) | a rise is under e^bar − 1, a fall under 1 − e^−bar: 0.338 means a rise under 40% or a fall under 29% |
+| `score` | the difference | the gap is smaller |
 
-> 1.96 × √(p(1 − p)(1/n₁ + 1/n₂)) × 100
+How it is built: each month's value varies by its sampling error (Poisson for counts, binomial for shares, a bootstrap of the median for salaries, the spread of scores for mood) plus an extra variance s² that sampling can't explain and that is the same for every month of a series. s² comes from how far each month sits from the average of its two neighbors, over the last 36 such comparisons (36 months for a series with no gaps), using a median so one odd month doesn't widen every later bar. The bar is 1.96 × √(2s² + sampling variance of the earlier month + that of the later month). In late 2026 that makes the post-count bars about twice the old Poisson ones (hiring about −29% to +40% for a year-on-year change, not ±14%), while most shares stay near the binomial bar because they wobble about as much as sampling predicts. A month's bar uses only that month and earlier ones, so it never changes after publication. A series with fewer than 12 comparisons gets a deliberately wide bar (extra noise nine times its sampling variance). Comparisons where a share is 0 in all three months count toward those 12 but not toward s², and s² needs at least 6 comparisons with some movement. A stack term that sat at 0% for years therefore leaves the wide bar about six months after it catches on, with s² measured on its own wobble rather than on the zeros.
 
-where p is the average of the two shares. Quick reference for two months of about 300 posts each:
+The bar still covers only the series' own month-to-month noise. Classifier error sits on top, so a Jev share near its bar gets the hedge.
 
-| Share near | Noise bar (points) |
-|---|---|
-| 5% | 3.5 |
-| 10% | 5 |
-| 20% | 6.5 |
-| 30% to 50% | 7.5 to 8 |
+Rules that stay:
 
-**Counts.** Treat post counts as Poisson. The bar for a change from n₁ (the reference month) to n₂, as a fraction of n₁, is 1.96 × √(n₁ + n₂) / n₁. Near 300 posts that's about 17%. Near 1,000 it's about 9%. Real counts swing more than Poisson (holidays, the day the thread goes up), so this is a floor too.
-
-**Ratios.** For `seekers_per_post`, the bar is relative: 1.96 × √(1/S₁ + 1/H₁ + 1/S₂ + 1/H₂), where S is seeking posts and H is hiring posts in each month (S = ratio × H). With about 300 hiring posts and 800 seeking posts, that's about 18%.
-
-**Salary medians.** Use a median only when at least 30 posts disclosed pay in each month compared. Treat changes under 5% as noise. That 5% is a convention until the export carries intervals.
-
-**Mood.** Treat changes in `seeker_mood` under 0.2 points as noise until the export carries its standard deviation.
+- **Salary medians.** Use a median only when at least 30 posts disclosed pay in each month compared. Months under 30 have no bar and the page shows "too few posts". The bar is the bootstrap alone (s² = 0): salaries cluster on round numbers, so neighboring medians often tie exactly and the neighbor comparison can't measure their wobble.
+- **Other month pairs.** A comparison that isn't 3 months, 1 year or 5 years (a chart with explicit `months`) has no exported bar. The page then falls back to the sampling-only floors (Poisson, binomial, 5% for salaries, 0.2 for mood); treat those as too narrow and hedge anything close.
+- **Mood.** `seeker_mood` bars never go below 0.2 points. Its sampling and dispersion bar is only about 0.02 to 0.04, but it leaves out classifier error, which dominates a Jev score.
+- **US-only ratio.** `seekers_per_post_us` gets its bar the same way as `seekers_per_post`, with S = value × n and H = n (hiring posts open to US workers). Fewer posts on each side make it wider, about 30% before dispersion.
+- `removed_share` has no bar: it is never compared across months.
 
 **Many comparisons.** Each article looks at dozens of numbers across three windows, so some will clear the bar by chance. Prefer moves that persist: the 1y window, or a three-month average against the same three months a year earlier. Treat a 3m move that the 1y window doesn't confirm as suspect. Counting directions is allowed and often more honest than one comparison: "the share has risen in 10 of the last 12 months".
 
@@ -361,9 +359,11 @@ At the end of the article file, after the kicker, add an HTML comment listing ev
 ```markdown
 <!-- ledger
 rounding: shares to whole %, point gaps from printed shares, % change from unrounded values
-362 hiring posts            posts.hiring 2026-10 = 362
-up 22% from a year ago      posts.hiring 2025-10 = 296; 362/296 = 1.223; bar 17%
-most since July 2024        posts.hiring max(2024-08..2026-09) = 331; 2024-07 = 371
+289 hiring posts            posts.hiring 2026-10 = 289
+about the same as a year ago posts.hiring 2025-10 = 351; ln(289/351) = -0.194; bar 1y = 0.338; inside
+685 people looking for work posts.seeking 2026-10 = 685
+up 70% from a year ago      posts.seeking 2025-10 = 404; 685/404 = 1.696; ln = 0.528; bar 1y = 0.299; outside
+most on record              posts.seeking max(2014-05..2026-09) < 685
 ChatGPT launches            event table, 2022-11
 "We hire for slope..."      samples/2026-10.json, HN item 45123456
 -->
@@ -497,7 +497,7 @@ Two drafts went through the `humanizer` checklist and a fact-check before this v
 | "Job seekers got a little breathing room too" | Skipped the required first-mention phrasing | "people posting in 'Who wants to be hired?'" on first mention |
 | Headline "Startups are hiring again, but the entry-level door keeps narrowing" | Speaks for all startups, not the thread | Names the thread. |
 
-The draft also failed the noise bar. Its 16% one-year rise in posts and 17% drop in the seeker ratio both sat under the Poisson bar (about 17% and 18%), so the example's numbers were changed to ones that clear it rather than describing noise as a rise. In a real month the fix would go the other way: the prose would call those moves flat.
+The draft also failed the noise bar. Its 16% one-year rise in posts and 17% drop in the seeker ratio both sat under the Poisson bar (about 17% and 18%), so the example's numbers were changed to ones that clear it rather than describing noise as a rise. In a real month the fix would go the other way: the prose would call those moves flat. The worked example predates the exported `bar` and uses the sampling-only formulas in its ledger. With the exported bars of late 2026 (a rise under about 40% is noise for hiring posts), its 22% and 20% rises would also be flat; a real ledger cites `bar` instead, as in section 4.
 
 ### The ledger for the example
 
@@ -560,6 +560,7 @@ Noise and claims
 - [ ] Every move described as a change clears the noise bar for its `n` (section 4). Moves below it are called flat or left out.
 - [ ] Verbs of size match the table in section 4.
 - [ ] Relative changes on shares only for large moves, with both endpoints printed.
+- [ ] Before a change in `seekers_per_post` is called "doubled", a surge or any large move, the checker compares `seekers_per_post_us` over the same months. If the US ratio moved much less, the text says so (for example, "most of the rise came from people outside the US"), and the ledger carries both ratios.
 - [ ] No causal verbs with a measure, and no motives. Annotated events are described as timing.
 
 Vocabulary of the data
@@ -651,4 +652,4 @@ AI tells
 
 ## Changes within noise on the page
 
-The renderer applies the same noise bars as this guide. A move inside the bar is shown gray with "≈" and read as "about the same"; salary medians with fewer than 30 posts show "too few posts". `replies_per_post` uses the count bar on its post counts. The prose must agree with the page: never call a ≈ move a rise or fall.
+The renderer reads the exported `bar` (section 4, "The noise bar"), so the page and the ledger use the same number. A move inside the bar is shown gray with "≈" and read as "about the same"; salary medians with fewer than 30 posts show "too few posts". The prose must agree with the page: never call a ≈ move a rise or fall.

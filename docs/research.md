@@ -49,3 +49,30 @@ Point-in-time rule: month *t* uses only the outside values that had been publish
 - Also: ej29-r3d/hacker-news-hiring-trends, the Pragmatic Engineer's "drop in software engineer job openings" analysis, mljar's remote-Python series, hacker-hirings.com, hnhiring.com/trends.
 - HN's own critiques of these ratios (item 35440348): posts aren't jobs, employed people don't post publicly, and early-month readings flip as late posts arrive.
 - No academic paper using these threads was found.
+
+## More sources: filings, layoffs, job boards (researched 2026-11-04)
+
+Build, in this order:
+
+1. **Company job boards (ATS).** Greenhouse, Ashby, Lever and SmartRecruiters publish open jobs as public JSON with no key. The October 2026 hiring thread links to about 46 distinct company boards, mostly Ashby and Greenhouse. A monthly snapshot of those boards plus a fixed big-tech/YC panel gives open engineering roles per company, and "share of HN posters still hiring 3 months later". There is no history before the first run, so start early. Publish counts, never job text.
+2. **SEC EDGAR panel.**
+   - Headcount is almost never machine-tagged: 0 of 46 large tech companies tag it in XBRL. It comes from text instead: the 10-K "Human Capital" section (annual) and the earnings press release, Exhibit 99.1 (quarterly, for Meta, Alphabet and Amazon only).
+   - Restructuring and severance costs are tagged quarterly (`RestructuringCharges` at 31 of 46).
+   - 8-K Item 2.05 (exit and restructuring costs) is a dated layoff signal.
+   - Every value has an acceptance timestamp, so the panel is exactly point-in-time.
+   - SEC requires a User-Agent with a real contact email.
+   - Panel: US 10-K filers in SIC 7370–7374 plus named big tech in other codes, top ~50 by headcount, membership frozen each January from filings public by then.
+   - Later, Jev can score filed text (Ex 99.1, 10-Q MD&A) for hiring intent and AI-efficiency language. Store scores, not text.
+3. **WARN notices** via Big Local News (`biglocalnews/warn-github-flow`, `integrated.csv`; about 90k notices across about 40 states). Its `first_inserted_date` gives point-in-time from 2022-04. There's no industry field, so match company names against the panel and HN companies deterministically. Never ask Jev whether a company is tech from its name, because that uses model knowledge (rule 3).
+
+Later or context only: DOL H-1B LCA filings for software occupations (quarterly), Census business formation, GitHub Innovation Graph (CC0), Remote OK (backlink required), BLS OEWS.
+
+Cite only, never ingest:
+- **LinkedIn:** the user agreement bans scraping, the hiQ case ended with that ban enforced, and there's no data download.
+- **TrueUp:** its terms ban scraping and benchmarking.
+- **Earnings call transcripts:** copyrighted, so use filed Ex 99.1 text instead.
+- **layoffs.fyi:** reuse with attribution is allowed, but there's no export or reliable date-added field.
+- **Challenger and Dice:** PDF reports only.
+- **Levels.fyi:** its terms couldn't be read, so treat it as cite-only until they are.
+- **Wellfound, Built In, Welcome to the Jungle, YC Work at a Startup:** no public data. Their companies are reached through ATS links instead.
+- **Dead:** Stack Overflow Jobs, Hired, Google Jobs.
