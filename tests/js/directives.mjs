@@ -61,3 +61,22 @@ await mountDirective(failed, 'chart', { type: 'stacked-area', breakdown: 'senior
 });
 assert.deepEqual(errors, ['offline']);
 assert.equal(failed.dataset.width, 'wide');
+
+// A strip that parses but fails when drawn (an unknown metric) reports failure, and the topline skips it for a
+// working strip after it, as app.renderBody does with the result.
+const shown = [];
+const broken = { dataset: {} };
+const ok = await mountDirective(broken, 'compare', { metrics: 'nope.metric' }, {}, '2026-10', {
+  fetchJson: () => assert.fail('fetched'),
+  render: () => { throw new Error('Unknown metric "nope.metric"'); },
+  onError: (_, err) => shown.push(err.message),
+});
+assert.equal(ok, false);
+assert.deepEqual(shown, ['Unknown metric "nope.metric"']);
+assert.equal(broken.dataset.width, 'wide');
+const working = await mountDirective({ dataset: {} }, 'compare', { metrics: 'posts.hiring' }, {}, '2026-10', {
+  fetchJson: () => assert.fail('fetched'), render: () => {}, onError: () => assert.fail('error'),
+});
+assert.equal(working, true);
+assert.deepEqual(toplinePlan([p, { ...strip, error: !ok }, { ...strip, error: !working }, h2]), { from: 2, to: 0 });
+assert.equal(toplinePlan([p, { ...strip, error: !ok }, h2]), null);
