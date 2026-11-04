@@ -1,4 +1,4 @@
-"""Deterministic answers (regex, vocab, joins) for hiring posts."""
+"""Deterministic answers (regex, vocab, joins) for hiring and seeking posts."""
 
 import argparse
 import json
@@ -8,6 +8,7 @@ import duckdb
 
 from sejr.db import insert_rows
 from sejr.features.company import company_name
+from sejr.features.region import hiring_regions, seeker_region
 from sejr.features.salary import salary_summary
 from sejr.features.tokens import (
     interns_token,
@@ -18,18 +19,21 @@ from sejr.features.tokens import (
 from sejr.features.vocab import stack_terms
 
 # Bump whenever a rule or the vocabulary changes; aggregate reads only this version.
-VERSION = "features-2"
+VERSION = "features-3"
 LOOKBACK_MONTHS = 24
 
 Answer = tuple[int, str, str, str, float | None, str | None, str | None, float | None]
 
 
-def post_answers(post_id: int, text: str) -> list[Answer]:
+def post_answers(post_id: int, text: str, kind: str = "hiring") -> list[Answer]:
     def row(
         question: str, method: str, value=None, label=None, probabilities=None
     ) -> Answer:
         return (post_id, question, method, VERSION, value, label, probabilities, None)
 
+    if kind == "seeking":
+        return [row("region", "regex", label=seeker_region(text))]
+    regions, open_to_us = hiring_regions(text)
     low, high, currency = salary_summary(text)
     terms = stack_terms(text)
     rows = [
@@ -45,7 +49,17 @@ def post_answers(post_id: int, text: str) -> list[Answer]:
             float(len(terms)),
             probabilities=json.dumps(dict.fromkeys(terms, 1.0)),
         ),
+        # A header can name several regions; each gets 1, like stack terms.
+        row(
+            "region",
+            "regex",
+            float(len(regions)),
+            probabilities=json.dumps(dict.fromkeys(regions, 1.0)),
+        ),
     ]
+    # No row when the header names no place and doesn't say remote.
+    if open_to_us is not None:
+        rows.append(row("open_to_us", "regex", float(open_to_us)))
     if low is not None:
         rows.append(row("salary_min_usd", "regex", low))
     if high is not None:
@@ -89,14 +103,14 @@ WHERE EXISTS (SELECT 1 FROM hiring_months h WHERE h.month = t.month - INTERVAL 1
 """.replace("LOOKBACK", str(LOOKBACK_MONTHS))
 
 
-def _hiring_posts(
+def _posts(
     con: duckdb.DuckDBPyConnection, month: date | None
-) -> list[tuple[int, str]]:
+) -> list[tuple[int, str, str]]:
     return con.execute(
         """
-        SELECT p.post_id, p.text
+        SELECT p.post_id, p.text, t.kind
         FROM posts p JOIN threads t USING (thread_id)
-        WHERE t.kind = 'hiring' AND ($month IS NULL OR t.month = $month)
+        WHERE $month IS NULL OR t.month = $month
         ORDER BY p.post_id
         """,
         {"month": month},
@@ -110,7 +124,7 @@ def _delete(con: duckdb.DuckDBPyConnection, month: date | None) -> None:
         WHERE version = $version AND method IN ('regex', 'vocab')
           AND post_id IN (
             SELECT p.post_id FROM posts p JOIN threads t USING (thread_id)
-            WHERE t.kind = 'hiring' AND ($month IS NULL OR t.month = $month)
+            WHERE $month IS NULL OR t.month = $month
           )
         """,
         {"version": VERSION, "month": month},
@@ -126,8 +140,8 @@ def build(con: duckdb.DuckDBPyConnection, month: date | None = None) -> int:
     """Rewrite this version's regex/vocab answers for one month (or all), then every join."""
     rows = [
         r
-        for post_id, text in _hiring_posts(con, month)
-        for r in post_answers(post_id, text)
+        for post_id, text, kind in _posts(con, month)
+        for r in post_answers(post_id, text, kind)
     ]
     con.begin()
     _delete(con, month)
@@ -140,9 +154,9 @@ def build(con: duckdb.DuckDBPyConnection, month: date | None = None) -> int:
 def run(con: duckdb.DuckDBPyConnection, args: argparse.Namespace) -> None:
     month = date.fromisoformat(f"{args.month}-01") if args.month else None
     if args.dry_run:
-        posts = _hiring_posts(con, month)[: args.limit or 20]
-        for post_id, text in posts:
-            print(post_id, post_answers(post_id, text))
+        posts = _posts(con, month)[: args.limit or 20]
+        for post_id, text, kind in posts:
+            print(post_id, post_answers(post_id, text, kind))
         return
     count = build(con, month)
     print(f"features: {count} regex/vocab answers plus joins, version {VERSION}")

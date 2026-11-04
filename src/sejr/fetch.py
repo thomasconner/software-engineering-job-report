@@ -106,8 +106,8 @@ class Client:
 
     def __init__(
         self,
-        user_agent: str = USER_AGENT,
         min_interval: float = MIN_INTERVAL,
+        user_agent: str = USER_AGENT,
         max_attempts: int = MAX_ATTEMPTS,
         timeout: float = 60,
         follow_redirects: bool = False,
@@ -122,6 +122,12 @@ class Client:
         self.last_request = 0.0
 
     def get(self, url: str, params: dict | None = None) -> httpx.Response:
+        return self.request("GET", url, params=params)
+
+    def post(self, url: str, json: dict) -> httpx.Response:
+        return self.request("POST", url, json=json)
+
+    def request(self, method: str, url: str, **kwargs) -> httpx.Response:
         transport = False
         for attempt in range(self.max_attempts):
             wait = self.last_request + self.min_interval - time.monotonic()
@@ -129,7 +135,7 @@ class Client:
                 time.sleep(wait)
             self.last_request = time.monotonic()
             try:
-                response = self.http.get(url, params=params)
+                response = self.http.request(method, url, **kwargs)
                 if response.status_code != 429 and response.status_code < 500:
                     response.raise_for_status()
                     return response

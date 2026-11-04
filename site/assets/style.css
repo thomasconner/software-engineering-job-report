@@ -254,6 +254,8 @@ h1 {
 
 .chart-source { margin: 10px 0 0; font: 400 0.8125rem/1.45 var(--sans); color: var(--muted); }
 .chart-note { color: var(--ink-2); }
+.chart-credit { color: var(--muted); }
+.chart-credit a { color: var(--ink-2); text-decoration-color: var(--muted); text-underline-offset: 2px; }
 .chart-table { margin-top: 6px; font: 400 0.8125rem var(--sans); }
 .table-scroll { max-height: 22rem; overflow: auto; margin-top: 8px; border: 1px solid var(--rule); border-radius: 6px; }
 .chart-table table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }

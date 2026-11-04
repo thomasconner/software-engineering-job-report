@@ -73,11 +73,17 @@ jobs:
         run: .github/scripts/commit-data.sh data/answers
 
       - run: uv run sejr aggregate
+      # Outside benchmarks are nice to have; a failure here must not stop the HN refresh.
+      - run: uv run sejr external
+        continue-on-error: true
+        env:
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
       - run: uv run sejr export
 
       - name: Commit data
         id: commit
-        run: .github/scripts/commit-data.sh data/raw data/answers data/external/ats site/data
+        # data/external includes the job-board snapshots in data/external/ats.
+        run: .github/scripts/commit-data.sh data/raw data/answers data/external site/data
 
       - name: Deploy the site
         # A push made with GITHUB_TOKEN never triggers other workflows, so dispatch it.

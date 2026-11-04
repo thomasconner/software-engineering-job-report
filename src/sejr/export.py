@@ -9,7 +9,8 @@ import duckdb
 
 from sejr import noise
 from sejr.aggregate import BREAKDOWNS, COMPLETE, COUNT_METRICS, INDUSTRY_KNOWN, SCALARS
-from sejr.config import JEV_MODEL, SITE_DATA_DIR
+from sejr.config import EXTERNAL_DIR, JEV_MODEL, SITE_DATA_DIR
+from sejr.external import build_section as build_external
 
 VALIDATION_PATH = SITE_DATA_DIR / "validation.json"
 from sejr.features import VERSION as FEATURES_VERSION
@@ -59,6 +60,19 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
         (
             "Posts from people who want work divided by posts from companies hiring, in the "
             "same month. Both counts include posts later deleted."
+        ),
+    ),
+    "seekers_per_post_us.hiring": (
+        "US job seekers per hiring post open to US workers",
+        "ratio",
+        (
+            "Job seekers per hiring post, counting only seekers whose Location line is in the "
+            "US and hiring posts whose first line names a US place or offers remote work US "
+            "workers can take (no region stated, or the US, North America, the Americas, "
+            "worldwide or US time zones). Both counts include posts later deleted. Deleted "
+            "posts, seekers whose location we can't place, and hiring posts that name no place "
+            "and don't mention remote work are assumed to split the same way as the rest. "
+            "Shown only when at least 50 seekers have a known location."
         ),
     ),
     "replies_per_post.hiring": (
@@ -153,6 +167,14 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
             "a long search, a layoff, urgency or money worries, as judged by a language model."
         ),
     ),
+    "seeker_us_share.seeking": (
+        "Job seekers in the US",
+        "share",
+        (
+            "Share of “Who wants to be hired?” posts whose Location line is in the US, among "
+            "posts whose Location line names a place we recognize."
+        ),
+    ),
     "eng_leadership_share.hiring": (
         "Hiring engineering leads",
         "share",
@@ -204,6 +226,7 @@ POLARITY = {
     "posts.hiring": 1,
     "posts.seeking": -1,
     "seekers_per_post.hiring": -1,
+    "seekers_per_post_us.hiring": -1,
     "salary_disclosed_share.hiring": 1,
     "salary_min_median_usd.hiring": 1,
     "salary_max_median_usd.hiring": 1,
@@ -221,6 +244,8 @@ BREAKDOWN_LABELS = {
     "industry_known": "What hiring companies do, among posts that say",
     "funding_stage": "How far along hiring companies are",
     "stack": "Technologies job posts mention",
+    "region": "Where hiring posts are, by region",
+    "seeker_region": "Where job seekers are, by region",
     "seniority_ai_native": "Which levels AI-native companies are hiring",
     "seniority_not_ai_native": "Which levels other companies are hiring",
 }
@@ -234,12 +259,15 @@ ALL_BREAKDOWNS = {b.metric: b for b in [*BREAKDOWNS, INDUSTRY_KNOWN]}
 def _method(key: str) -> str:
     if key in ANSWER_METRICS:
         return ANSWER_METRICS[key].method
+    if key == "seekers_per_post_us.hiring":
+        return "regex"
     return "count" if key.split(".")[0] in COUNT_METRICS else ""
 
 
 def _sources(key: str) -> list[str]:
     metric, kind = key.split(".")
-    return ["hiring", "seeking"] if metric == "seekers_per_post" else [kind]
+    both = metric in ("seekers_per_post", "seekers_per_post_us")
+    return ["hiring", "seeking"] if both else [kind]
 
 
 def _min_n(key: str, unit: str) -> int:
@@ -300,7 +328,9 @@ def _publishable(key: str, month: str, n: int, min_n: int) -> bool:
 
 
 def build(
-    con: duckdb.DuckDBPyConnection, validation_path: Path = VALIDATION_PATH
+    con: duckdb.DuckDBPyConnection,
+    validation_path: Path = VALIDATION_PATH,
+    external_dir: Path = EXTERNAL_DIR,
 ) -> dict:
     pending = [
         _month(m)
@@ -381,6 +411,7 @@ def build(
         "pending": pending,
         "metrics": metrics,
         "breakdowns": breakdowns,
+        "external": build_external(months, external_dir),
     }
     noise.attach(con, data)
     return data
@@ -405,7 +436,7 @@ def _sample_answers(
     ).fetchall()
     answers: dict[int, dict] = {post_id: {} for post_id in post_ids}
     for post_id, question, value, label, probabilities in rows:
-        if question == "stack":
+        if question in ("stack", "region"):
             answers[post_id][question] = sorted(json.loads(probabilities))
         else:
             answers[post_id][question] = label if label is not None else value

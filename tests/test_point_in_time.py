@@ -75,6 +75,86 @@ def test_noise_bars_are_the_same_with_or_without_later_months(
     assert compared
 
 
+REGION_METRICS = {"seekers_per_post_us", "seeker_us_share", "region", "seeker_region"}
+
+
+def test_region_metrics_are_the_same_with_or_without_later_months(
+    db, tmp_path, monkeypatch
+):
+    monkeypatch.setattr(aggregate, "MIN_KNOWN_SEEKERS", 0)
+    features.build(db)
+    seen = set()
+    for t in MONTHS:
+        cut = truncated_copy(db, tmp_path / f"region-{t}.duckdb", t)
+        features.build(cut)
+        full = [r for r in aggregate.compute_month(db, t) if r[2] in REGION_METRICS]
+        assert [
+            r for r in aggregate.compute_month(cut, t) if r[2] in REGION_METRICS
+        ] == full
+        seen |= {r[2] for r in full}
+        cut.close()
+    assert seen == REGION_METRICS
+
+
+def test_us_seeker_ratio_is_on_the_submitted_basis(db, monkeypatch):
+    monkeypatch.setattr(aggregate, "MIN_KNOWN_SEEKERS", 0)
+    t = date(2024, 3, 1)
+    # A header with no place and no "remote" has no open_to_us status, like the
+    # "Location: Remote" seekers have no region; both drop out of their shares.
+    db.execute(
+        """
+        INSERT INTO posts
+        SELECT 999001, thread_id, 'a', created_at, 'Acme | Engineer | ONSITE',
+               'Acme | Engineer | ONSITE', true
+        FROM threads WHERE month = ? AND kind = 'hiring'
+        """,
+        [t],
+    )
+    db.execute(
+        """
+        UPDATE threads SET removed_in_snapshot = CASE kind WHEN 'hiring' THEN 50 ELSE 7 END
+        WHERE month = ?
+        """,
+        [t],
+    )
+    features.build(db)
+    metrics = _metrics(aggregate.compute_month(db, t))
+    (us_seekers, known_seekers, open_posts, known_hiring) = db.execute(
+        """
+        SELECT
+          count(*) FILTER (WHERE t.kind = 'seeking' AND p.text LIKE 'Location: Austin%'),
+          count(*) FILTER (WHERE t.kind = 'seeking'
+                           AND p.text NOT LIKE 'Location: Remote%'),
+          count(*) FILTER (WHERE t.kind = 'hiring' AND a.value = 1),
+          count(*) FILTER (WHERE t.kind = 'hiring' AND p.post_id <> 999001)
+        FROM posts p JOIN threads t USING (thread_id)
+        LEFT JOIN answers a ON a.post_id = p.post_id AND a.question = 'open_to_us'
+          AND a.version = $v
+        WHERE p.in_snapshot AND t.month = $m
+        """,
+        {"m": t, "v": features.VERSION},
+    ).fetchone()
+    assert known_seekers < metrics[("seeking", "posts", "")][1]
+    ratio, _ = metrics[("hiring", "seekers_per_post", "")]
+    expected = ratio * (us_seekers / known_seekers) / (open_posts / known_hiring)
+    assert metrics[("hiring", "seekers_per_post_us", "")] == (
+        pytest.approx(expected),
+        open_posts,
+    )
+    assert metrics[("seeking", "seeker_us_share", "")] == (
+        pytest.approx(us_seekers / known_seekers),
+        known_seekers,
+    )
+
+
+def test_us_seeker_ratio_needs_enough_located_seekers(db):
+    features.build(db)
+    # Fixture months have fewer than MIN_KNOWN_SEEKERS located seekers.
+    metrics = _metrics(aggregate.compute_month(db, date(2024, 3, 1)))
+    assert ("hiring", "seekers_per_post", "") in metrics
+    assert ("hiring", "seekers_per_post_us", "") not in metrics
+
+
 def test_later_months_exist_in_full_db(db):
     # Guard against a vacuous point-in-time test: the full DB must hold data after each t.
     (latest,) = db.execute("SELECT max(month) FROM threads").fetchone()
@@ -261,7 +341,7 @@ def test_removed_posts_change_counts_but_not_shares(db):
         after[("hiring", "seekers_per_post", "")]
         != before[("hiring", "seekers_per_post", "")]
     )
-    counts = {"posts", "seekers_per_post", "removed_share"}
+    counts = {"posts", "seekers_per_post", "seekers_per_post_us", "removed_share"}
     assert {k: v for k, v in after.items() if k[1] not in counts} == {
         k: v for k, v in before.items() if k[1] not in counts
     }
@@ -547,3 +627,19 @@ def test_month_by_month_build_matches_full_build(db, tmp_path):
     for t in reversed(MONTHS):
         features.build(db, t)
     assert _answer_rows(db) == full
+
+
+def test_export_carries_region_metrics(db, tmp_path, monkeypatch):
+    monkeypatch.setattr(aggregate, "MIN_KNOWN_SEEKERS", 0)
+    features.build(db)
+    aggregate.run(db, Namespace(month=None, dry_run=False, limit=None))
+    data = export.build(db, tmp_path / "missing.json")
+    ratio = data["metrics"]["seekers_per_post_us.hiring"]
+    assert (ratio["unit"], ratio["method"], ratio["polarity"]) == ("ratio", "regex", -1)
+    assert ratio["sources"] == ["hiring", "seeking"]
+    assert ratio["series"]
+    assert data["metrics"]["seeker_us_share.seeking"]["sources"] == ["seeking"]
+    for name, kind in [("region", "hiring"), ("seeker_region", "seeking")]:
+        breakdown = data["breakdowns"][name]
+        assert breakdown["sources"] == [kind]
+        assert breakdown["categories"][-1] == "unknown"

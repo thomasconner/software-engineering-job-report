@@ -6,6 +6,10 @@ Read it at https://thomasconner.github.io/software-engineering-job-report/.
 
 The design is in [docs/spec.md](docs/spec.md) and the data contracts are in [docs/architecture.md](docs/architecture.md).
 
+## Data credits
+
+Benchmark lines use data from [Indeed Hiring Lab](https://github.com/hiring-lab) (job postings, remote and pay transparency trackers), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); this report indexes it to a base month. BLS JOLTS and CES data are public domain (charts show JOLTS as a 12-month average), with past vintages read from ALFRED (Federal Reserve Bank of St. Louis).
+
 ## Run it locally
 
 You need [uv](https://docs.astral.sh/uv/). Classification calls the Typesafe API, so put your key in `.env` (gitignored):
@@ -24,6 +28,7 @@ uv run sejr ats          # company job boards -> data/external/ats (once a month
 uv run sejr features     # regex and vocabulary answers
 uv run --env-file .env sejr classify   # Jev answers for posts not yet answered
 uv run sejr aggregate    # monthly metrics, each month as it looked at the time
+uv run sejr external     # Indeed and BLS benchmarks -> data/external, as published at the time
 uv run sejr export       # site/data/*.json
 uv run pytest
 ```
@@ -32,6 +37,7 @@ Flags:
 
 - `fetch`, `normalize`: `--month YYYY-MM`, `--limit N`, `--dry-run`.
 - `classify`: the same, plus `--backfill`. It only answers posts from complete threads (past their 7-day snapshot) and skips posts whose stored answers match the current questions and text. Without `--month` or `--backfill` it refuses a run of more than 500 API calls. `--dry-run` prints the call count and estimated cost.
+- `external`: `--month`, `--limit`, `--dry-run`, `--backfill`. Without `--backfill` or `--month` it refuses to pull more than three months. It clones the Indeed Hiring Lab repos (blobless) into `data/cache/external/`, and reads `BLS_API_KEY` from the environment if set (the keyless BLS API allows 25 queries a day).
 - `uv run sejr unanswered` prints the complete months that still have posts to classify.
 - `uv run --env-file .env sejr validate` scores Jev against the hand-labeled reference set (`data/labels/`) and writes `site/data/validation.json`. `--dry-run` shows what it would classify first.
 
@@ -47,7 +53,7 @@ To view the site, serve `site/` (for example `python -m http.server -d site`).
 2. fetches and normalizes, snapshots company job boards (`sejr ats`; it fetches until the month has a snapshot, and a failure there doesn't stop the run), and computes features;
 3. classifies each complete month that has unanswered posts (`--month`), then runs a guarded unscoped classify. If more than three months need classifying, it stops: that is a question or model change, and the backfill is run by hand;
 4. commits `data/answers` straight away, even if a later step fails, so paid answers aren't lost;
-5. aggregates, exports, and commits `data/raw`, `data/answers`, `data/external/ats` and `site/data` as `data: refresh YYYY-MM`;
+5. aggregates, pulls the outside benchmarks, exports, and commits `data/raw`, `data/answers`, `data/external` (benchmarks and the job-board snapshots in `data/external/ats`) and `site/data` as `data: refresh YYYY-MM`;
 6. redeploys the site when `site/` changed.
 
 Expect a commit on most of days 1–12 while the current thread fills in, and none for the rest of the month.

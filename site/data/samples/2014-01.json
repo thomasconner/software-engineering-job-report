@@ -19,6 +19,10 @@
         "new_company": 0.0,
         "new_grad": 0.4,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
@@ -47,6 +51,11 @@
         "new_company": 0.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "uk",
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -77,6 +86,10 @@
         "new_company": 1.0,
         "new_grad": 0.98,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "unknown"
+        ],
         "remote_token": 1.0,
         "returned_from_last_month": 0.0,
         "seniority": "junior",
@@ -106,6 +119,11 @@
         "new_company": 0.0,
         "new_grad": 0.98,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "europe",
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
@@ -133,6 +151,10 @@
         "new_company": 1.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -160,6 +182,10 @@
         "mentions_visa": 0.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "seniority": "mid",
         "stack": [
@@ -187,6 +213,10 @@
         "mentions_visa": 0.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "open_to_us": 0.0,
+        "region": [
+          "canada"
+        ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [
@@ -214,6 +244,10 @@
         "new_company": 1.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -241,6 +275,10 @@
         "mentions_visa": 0.0,
         "new_grad": 0.03,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [],
@@ -265,6 +303,9 @@
         "new_company": 1.0,
         "new_grad": 0.03,
         "onsite_token": 0.0,
+        "region": [
+          "unknown"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -290,6 +331,9 @@
         "new_company": 0.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "region": [
+          "unknown"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
@@ -315,6 +359,9 @@
         "new_company": 1.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "region": [
+          "unknown"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "salary_min_usd": 110000.0,
@@ -341,6 +388,10 @@
         "new_company": 1.0,
         "new_grad": 0.96,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -366,6 +417,10 @@
         "new_company": 1.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -393,6 +448,10 @@
         "new_company": 0.0,
         "new_grad": 0.03,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -420,6 +479,10 @@
         "mentions_visa": 0.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 0.0,
+        "region": [
+          "uk"
+        ],
         "remote_token": 1.0,
         "seniority": "unspecified",
         "stack": [
@@ -449,6 +512,10 @@
         "mentions_visa": 0.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "unknown"
+        ],
         "remote_token": 1.0,
         "seniority": "senior",
         "stack": [
@@ -475,6 +542,10 @@
         "new_company": 0.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
@@ -504,6 +575,10 @@
         "new_company": 1.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -532,6 +607,10 @@
         "new_company": 1.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 1.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -562,6 +641,10 @@
         "new_company": 1.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "open_to_us": 0.0,
+        "region": [
+          "uk"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -593,6 +676,10 @@
         "new_company": 0.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "senior",
@@ -622,6 +709,9 @@
         "new_company": 0.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "region": [
+          "unknown"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -651,6 +741,10 @@
         "new_company": 0.0,
         "new_grad": 0.02,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -675,6 +769,10 @@
         "mentions_visa": 0.0,
         "new_grad": 0.02,
         "onsite_token": 1.0,
+        "open_to_us": 0.0,
+        "region": [
+          "europe"
+        ],
         "remote_token": 0.0,
         "seniority": "unspecified",
         "stack": [
@@ -703,6 +801,10 @@
         "new_company": 0.0,
         "new_grad": 0.8,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 1.0,
         "seniority": "unspecified",
@@ -737,6 +839,10 @@
         "new_company": 0.0,
         "new_grad": 0.09,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 0.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -766,6 +872,10 @@
         "new_company": 1.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 1.0,
         "returned_from_last_month": 0.0,
         "seniority": "unspecified",
@@ -795,6 +905,9 @@
         "mentions_visa": 0.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "region": [
+          "unknown"
+        ],
         "remote_token": 0.0,
         "seniority": "senior",
         "stack": [
@@ -822,6 +935,10 @@
         "new_company": 1.0,
         "new_grad": 0.01,
         "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "region": [
+          "us"
+        ],
         "remote_token": 1.0,
         "returned_from_last_month": 0.0,
         "seniority": "senior",
