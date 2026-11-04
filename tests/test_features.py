@@ -362,6 +362,15 @@ def test_vocabulary_size_and_groups():
          {"vLLM", "LangChain", "Hugging Face", "CUDA", "LLM"}, set()),
         ("We use Cassandra and Kafka", {"Cassandra", "Kafka"}, set()),
         ("Reach out to Cassandra, our recruiter", set(), {"Cassandra"}),
+        ("Acme | Eng\n\nOur API is backed by a MySQL database and Elasticsearch",
+         {"MySQL", "Elasticsearch"}, set()),
+        ("Acme | Eng\n\nWe are backed by Datadog and a16z", set(), {"Datadog"}),
+        ("Acme | Eng\n\nOur stack: dbt, Snowflake, plus data coming from tools like Datadog",
+         {"Snowflake", "Datadog"}, set()),
+        ("Hugging Face | ML Engineer\n\nWork on the Hugging Face Hub", set(), {"Hugging Face"}),
+        ("Elastic Path | Engineer\n\nWe use Elasticsearch", {"Elasticsearch"}, set()),
+        ("CloudFlare https://www.cloudflare.com | SF\n\nCloudflare Workers in Rust", {"Rust"},
+         {"Cloudflare"}),
     ],
 )  # fmt: skip
 def test_added_stack_terms(text, present, absent):

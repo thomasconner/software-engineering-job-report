@@ -26,13 +26,27 @@ NOT_A_LANGUAGE = re.compile(
 )
 CONTEXT_CHARS = 80
 # A product that is also a company ("Datadog", "Snowflake") is often named as an investor,
-# a customer, an acquirer or a former employer rather than as a tool. These cues, earlier
-# in the same sentence, mean the name is the company.
+# a customer, an acquirer or a former employer rather than as a tool. These cues, a few
+# words before the name in the same sentence, mean the name is the company.
 COMPANY_CUE = re.compile(
-    r"\b(?:ex|former(?:ly)?|alumni|alums?|backed|acquired|acquisition|invest(?:ed|ors?|ment)"
-    r"|funded|customers?|clients?|partners?|partnered|used by|trusted by|brands?|founders?"
+    r"\b(?:ex|former(?:ly)?|alumni|alums?|acquired|acquisition|invest(?:ed|ors?|ment)"
+    r"|funded|customers?|partners?|partnered|used by|trusted by|brands?|founders?"
     r"|veterans?|worked at|(?:comes?|came|coming) from|engineers from|folks from|people from"
     r"|leaders from|researchers|companies like|teams at|team at|like at|(?:co-?)?founded|sold|raised)\b",
+    re.IGNORECASE,
+)
+CUE_WORDS = 6
+# "backed by" is a cue only next to money: "backed by a MySQL database" is a stack.
+BACKED_BY = re.compile(r"\bbacked\s+by\b", re.IGNORECASE)
+INVESTOR_WORDS = re.compile(
+    r"\b(?:vcs?|venture|ventures|investors?|funding|funded|series\s+[a-f]|raised|seed|capital"
+    r"|angels?|a16z|y\s?combinator|yc)\b",
+    re.IGNORECASE,
+)
+# A sentence that lists tools is a stack, whatever cue words it holds ("coming from SaaS tools").
+TECH_LIST = re.compile(
+    r"\b(?:stack|tech|tools?|tooling|uses?|using|used|built\s+(?:with|on)|powered\s+by|runs?\s+on"
+    r"|running\s+on|deploy\w*\s+(?:on|to)|integrat\w*|languages?|frameworks?|databases?)\b",
     re.IGNORECASE,
 )
 # "Cloudflare CEO", "OpenAI alumni".
@@ -329,7 +343,7 @@ def _counts(text: str, term: Term, m: re.Match[str], company_end: int) -> bool:
     return not (
         term.company
         and (
-            COMPANY_CUE.search(_sentence_before(text, m.start()))
+            _company_cue(text, m)
             or COMPANY_AFTER.search(text[m.end() : m.end() + 30])
             or (
                 ANALOGY_BEFORE.search(text[max(0, m.start() - 30) : m.start()])
@@ -337,6 +351,14 @@ def _counts(text: str, term: Term, m: re.Match[str], company_end: int) -> bool:
             )
         )
     )
+
+
+def _company_cue(text: str, m: re.Match[str]) -> bool:
+    sentence = _sentence_before(text, m.start())
+    near = " ".join(sentence.split()[-CUE_WORDS:])
+    if BACKED_BY.search(near):
+        return bool(INVESTOR_WORDS.search(sentence + text[m.end() : m.end() + 60]))
+    return bool(COMPANY_CUE.search(near)) and not TECH_LIST.search(sentence)
 
 
 def _mentions(text: str, term: Term, company_end: int) -> bool:
@@ -355,11 +377,25 @@ URL = re.compile(r"https?://\S+|www\.\S+", re.IGNORECASE)
 HEADER_FIELD = re.compile(r"\||\s[-–—]\s|\(|,|:")
 
 
+# A company key matches the post's own name with or without spaces ("Hugging Face",
+# "huggingface") and with a corporate suffix, but not a longer name ("Elastic Path").
+OWN_SUFFIX = r"(?:\s+(?:labs?|inc|technologies|technology|ai|io|hq|cloud|computing|software|systems|nv|bv|co))?"
+
+
+def _is_own(key: str, own: str) -> bool:
+    squeeze = key.replace(" ", "")
+    return any(
+        re.fullmatch(re.escape(k) + OWN_SUFFIX, name)
+        for k in (key, squeeze)
+        for name in (own, own.replace(" ", ""))
+    )
+
+
 def stack_terms(text: str) -> list[str]:
     # A post by Datadog is not a vote for Datadog: an added term never counts in the post's
     # own company name or in the header's company field.
-    own = company_name(text) or ""
     text = URL.sub(" ", text)
+    own = company_name(text) or ""
     lead = len(text) - len(text.lstrip())
     field = HEADER_FIELD.search(header_line(text))
     # Only a header that opens with a company name has a company field.
@@ -367,6 +403,6 @@ def stack_terms(text: str) -> list[str]:
     return [
         name
         for name, term in TERMS.items()
-        if not (term.company and term.company in own)
+        if not (term.company and _is_own(term.company, own))
         and _mentions(text, term, company_field_end if name in ADDED_TERMS else 0)
     ]
