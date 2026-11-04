@@ -206,6 +206,7 @@ Directive attributes:
 | `highlight` | multi-series charts | comma list of series drawn in the story color; the rest gray |
 | `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
 | `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM` |
+| `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
 | `against` | ::compare | comma list of windows, default `3m,1y,5y` |
 | `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
 | `title` | all | the finding, stated |
