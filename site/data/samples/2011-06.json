@@ -1,0 +1,779 @@
+{
+  "month": "2011-06",
+  "posts": [
+    {
+      "id": 2608640,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2608640",
+      "header": "Long Island, NY",
+      "text": "Long Island, NY\nGeneral Sentiment\nSoftware Engineer / User Interface Team Lead\nWe're looking to hire a software engineer to build out our web-based front-end and manage a team of developers in India.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.96,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.08,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2631559,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2631559",
+      "header": "HotShotMedia is hiring:http://hotshotmedia.com/",
+      "text": "HotShotMedia is hiring:http://hotshotmedia.com/",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.11,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.09,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.09,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 2607603,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607603",
+      "header": "Amazon and especially Amazon Web Services are hiring.",
+      "text": "Amazon and especially Amazon Web Services are hiring.\n\nLooking to work on a very large distributed system and the opportunity to impact a huge customer base? Come join S3! https://us-amazon.icims.com/jobs/103943/job, for more of our open positions see http://aws.amazon.com/s3-jobs/",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.07,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.61,
+        "industry_stated": 0.47,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 2607086,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607086",
+      "header": "London, UK: Software Developer (C#, ASP.NET MVC, NHibernate)",
+      "text": "London, UK: Software Developer (C#, ASP.NET MVC, NHibernate)\n\nhttp://www.voiceflex.com/jobs/csharpdeveloper",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.06,
+        "industry_stated": 0.33,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.11,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C#"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607208,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607208",
+      "header": "Columbus, OH",
+      "text": "Columbus, OH\n\neRetailing Associates (www.eretailing.com), a Columbus, OH-based e-commerce company, is currently seeking a full time Software Developer (entry level is okay, but you should be a complete ninja). Join our innovative small team, and work in a casual but focused and hard-working atmosphere on some of the leading personalization-on-demand websites online today.\n\nSome technologies (and other stuff) you might be involved in or should have some interest in are: Perl, PHP, Flash, HTML5, MySql, performance tuning, writing beautiful software, doing things ‘the right way’, OOP, learning, r",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.66,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.98,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "junior",
+        "stack": [
+          "AWS",
+          "MySQL",
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607698,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607698",
+      "header": "New York, New York",
+      "text": "New York, New York\n\nCB Insights (www.cbinsights.com) - Front End Developer\n\nFull description here (or read below): http://www.cbinsights.com/jobs/Front-End%20Developer%20-%20CB%20Insights.pdf\n\nContact career@cbinsights.com if interested.\n\nCB Insights Front-End Developer will be responsible for conceptualizing, designing and developing web-based applications for our production platform, including product presentation, data, search, and visualization capabilities.\n\nCB Insights is a technology-driven information services company that offers comprehensive information, intelligence and insights abo",
+      "answers": {
+        "ai_native": 0.71,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.72,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2609321,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2609321",
+      "header": "New York City (Ruby on Rails)",
+      "text": "New York City (Ruby on Rails)\n\nAt Harvest, we're making it super easy for people to track time and send invoices online. We're looking for a Rails developer to join our growing team.\n\nhttp://www.getharvest.com/careers/rails-developer\n\nRails Dev? Read about our Rails 3 upgrade experience from earlier this year: http://www.getharvest.com/blog/2011/01/harvest-is-running-rails-3/",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.94,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607716,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607716",
+      "header": "Adcloud, Cologne, Germany",
+      "text": "Adcloud, Cologne, Germany\nNode.JS, PHP, UI\nhttp://jobvite.com/m?3Iy34fw7 http://adcloud.com\n\nEdit: And if you are a NoSQL (Redis, Riak, Couch) Expert. You are basically hired. ;-)",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.08,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Node.js",
+          "PHP",
+          "Redis"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607375,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607375",
+      "header": "New York City",
+      "text": "New York City\nUI/UX Designer\nAllmenus.com + Campusfood.com\n\nWe're a Quantcast top 500 property with a sticky product and over 16 million orders placed.\n\nReach out to me through jshamenski@allmenus.com\nMore positions viewable @ http://dotmenu.catsone.com/careers/?portal",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.21,
+        "industry_stated": 0.38,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2608808,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2608808",
+      "header": "Anywhere (San Francisco preferred, REMOTE, or H1B considered)",
+      "text": "Anywhere (San Francisco preferred, REMOTE, or H1B considered)\n\nHi, I'm Amit, the Founder of Photojojo! (http://photojojo.com/). We're on a mission to make photography fun for everyone, and we're looking for two web developers to work on the most FUN online shop ever.\n\nAbout us:\n\n* Office in Mission district in San Francisco, half of us work remotely\n\n* Profitable and growing quickly. But like being small!\n\n* Our work gets talked about at places like 37 Signals, FOWA, and Hacker News -> http://news.ycombinator.com/item?id=764802\n\n* We take the company on a yearly workcation. This year, 3 weeks ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.89,
+        "funding_stage": "bootstrapped",
+        "industry": "commerce",
+        "industry_fits": 0.96,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.96,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "JavaScript",
+          "PHP"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 2608632,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2608632",
+      "header": "Leads360.com",
+      "text": "Leads360.com\n\nEl Segundo, CA (in the Los Angeles area near LAX)\n\nSoftware Engineer - full-time, local only\n\nWe need developers who are comfortable with the .NET stack. We have hired three devs from MySpace and are looking for more.\n\nOur product is a B2B web app for salespeople to manage their leads. We aim to be the cutting edge solution in the space, so there are lots of interesting problems to work on.\n\nWe're experiencing lots of growth. This is a great time to join. Email Bill at bpaetzke@leads360.com.",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2611584,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2611584",
+      "header": "Helsinki, Finland",
+      "text": "Helsinki, Finland\n\nGrey Area / Shadow Cities is hiring great web & mobile developers and server engineers http://www.greyarealabs.com/jobs/\n\nWork on new, growing location based iOS MMO game. We just launched in the US this week http://www.shadowcities.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.97,
+        "industry_stated": 0.93,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607112,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607112",
+      "header": "Any chance to move this up before 9:00AM EST (possibly doing it at 12:00AM UTC?)? A dupe got a number of postings + votes this morning.",
+      "text": "Any chance to move this up before 9:00AM EST (possibly doing it at 12:00AM UTC?)? A dupe got a number of postings + votes this morning.\n\nAlso, what about a second thread, say on the 15th, for \"Who's Looking For Work\" ?",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.12,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.08,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.11,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 2609533,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2609533",
+      "header": "Los Altos, CA – Wimm Labs",
+      "text": "Los Altos, CA – Wimm Labs\n\nhttp://wimm.com/\n\nAbout us:\n\"We're a well-funded stealth company building a revolutionary consumer product with an emphasis on a unique, connected user experience. Our founders are leaders from Intel, Zing/Dell, WebTV/Microsoft, Apple, Netflix/Roku, Palm, and Rambus, who all share a passion for building really cool stuff. We offer competitive salaries and benefits.\"\n\nWe're hiring in a number of positions, including, but not limited to:\n\n* Marketing Manager/Director\n\n* Software Program Manager\n\n* Developer Relations Engineer\n\nThe job descriptions are up on our LinkedI",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.06,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.62,
+        "industry_stated": 0.86,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2608095,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2608095",
+      "header": "San Francisco, CA (actually, Burlingame, CA), full-time, Web Application Engineer",
+      "text": "San Francisco, CA (actually, Burlingame, CA), full-time, Web Application Engineer\n\nI'm the software architect at a Burlingame-based event management company. We're looking to hire a new developer to build on and maintain our highly configurable registration management platform.\n\nHere's a few things about our team:\n\n* A massive Zend-Framework based PHP application\n\n* Replicated MySQL solution\n\n* jQuery on the front end\n\n* Git for version control\n\n* Agile shop distributed over both East and West coast\n\n* Semi-monthly maintenance sprints that include peer testing and code review\n\nPlease get in to",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.87,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MySQL",
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2609140,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2609140",
+      "header": "Vancouver, Canada - iOS, Android, Ruby/Rails",
+      "text": "Vancouver, Canada - iOS, Android, Ruby/Rails\n\nTingle is an iPhone App (and soon Android) that helps you find singles at places in your neighbourhood. It takes the best features of mobile (BBM style messaging, Skype style VoIP) and combines them with the best of location (Foursquare places, etc).\n\nYou may be a kick-ass UI/UX programmer. You've read everything by Don Norman and Edward Tufte and you know UIKit, Core Animation cold.\n\nYou may be a kick-ass systems programmer. You know the pros and cons of SIP vs Jabber/Jingle. You are a NAT traversing ninja. You live in code profilers and memory op",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "media_consumer",
+        "industry_fits": 0.99,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Android",
+          "MongoDB",
+          "MySQL",
+          "Rails",
+          "Ruby",
+          "Scala",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607901,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607901",
+      "header": "Chicago, IL",
+      "text": "Chicago, IL\n\nBraintree ( http://www.braintreepayments.com/braintree-careers )\n\nchallenging problems: a payment gateway is mission critical\n\nweb scale: we're growing quickly and working on scaling\n\namazing team: I'm working with 7 of the 10 best devs I've worked with in my career\n\ntop compensation: the best devs should have the best compensation",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.06,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.9,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2608132,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2608132",
+      "header": "Lot18, New York, NY",
+      "text": "Lot18, New York, NY\n\nWe're an agile technology startup based in New York City. Lot18 is a marketplace for wineries to sell direct to consumers.\n\nOpen Software Engineering Positions:\n\nBack-end Lead\n\nBack-end Developer\n\nWeb Application Lead\n\nWeb Application Developer\n\nFront End Developer\n\nMobile Application Developer\n\nTechnical Project Manager\n\nFull list with descriptions: http://www.lot18.com/careers\n\nWhy you should work here:\n\n- Well funded. We’ve raised $13M from tier one investors.\n\n- People actually use our product. Over 250k users have joined since we launched in October.\n\n- It’s not socia",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.85,
+        "funding_stage": "venture_unspecified",
+        "industry": "commerce",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2610781,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2610781",
+      "header": "San Francisco (Financial District)",
+      "text": "San Francisco (Financial District)\n\nAdRoll is hiring for a number of positions:\n\nhttp://www.adroll.com/why/careers\n\nScalability Engineer: http://adroll.jobscore.com/jobs/adroll/scalability-engineer/d0eRBmq9Cr4ihCeJe4bk1X\n\nFront-end Engineer: http://adroll.jobscore.com/jobs/adroll/front-end-engineer/cI3vgwq9Sr4lDreJe4bk1X\n\nAI Engineer: http://adroll.jobscore.com/jobs/adroll/ai-engineer/atUo04o0Gr3QeaeJe4axtb\n\nLead Visual Designer: http://adroll.jobscore.com/jobs/adroll/lead-visual-designer/bZ-ckgnxqr4kg3eJe4bk1X\n\nGraphic Design Intern: http://adroll.jobscore.com/jobs/adroll/graphic-design-inter",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.07,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.83,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607294,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607294",
+      "header": "London (UK) and Boston (US). H1B.",
+      "text": "London (UK) and Boston (US). H1B.\n\nWe're a 90-person financial-software firm committed to learning and improvement as well as great web software and agile development. Some of you may know us from our sponsorship of Hacker News meetups in London. We're hiring developers and other smart folks of many kinds. See https://dev.youdevise.com and http://www.youdevise.com/careers.\n\nWhile we don't have remote workers, we do help successful candidates relocate to London or Boston including arranging visas where needed. For example, last year we hired HN readers from Denmark and the US, and we moved a Po",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.76,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607477,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607477",
+      "header": "Atlanta, GA",
+      "text": "Atlanta, GA\n\nEndgame Systems is hiring! If you are an exceptionally gifted engineer we want to speak to you.\n\nWe're hiring for a web developer position, ideally with this kind of experience:\n\n  * Python\n\n  * Django\n\n  * MySQL, Cassandra\n\n  * JavaScript, especially JQuery\n\n  * CSS and grid-based layouts\n\n  * Linux, shell scripting, git, sys admin chops\n\nWe're lean, have a well funded and managed operation, and we're leaders in the space. Join us.\n\nPlease get in touch with us at careers @ endgamesystems.com.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.12,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "JavaScript",
+          "MySQL",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2608180,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2608180",
+      "header": "Santa Barbara, CA: AppFolio inc. (Applicants must be willing to relocate to Santa Barbara, CA)",
+      "text": "Santa Barbara, CA: AppFolio inc. (Applicants must be willing to relocate to Santa Barbara, CA)\n\nHiring for two positions: A front-end Javascript/CSS specialist, and for smart and versatile software engineer generalists comfortable working in many languages (today primarily Rails)\n\nAbout AppFolio: AppFolio is the fastest growing provider of online property management software. Our company was founded by a team of technology leaders with many years of experience developing Software-as-a-Service applications (previously created the GoToMyPC and GoToMeeting family of SaaS applications). We believe",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.6,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "JavaScript",
+          "MySQL",
+          "Rails",
+          "Ruby",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607232,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607232",
+      "header": "Austin, Tx - Fulltime",
+      "text": "Austin, Tx - Fulltime\n\nGowalla (http://gowalla.com) We're the best way to keep up with your friends and discover new places ^_^ Looking for iPhone and Android developers. Hit us up jobs@gowalla.com, and mention that Richard sent you.",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2608515,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2608515",
+      "header": "REMOTE Austin, TX preferred.",
+      "text": "REMOTE Austin, TX preferred.\n\nStormpulse is looking for:\n\n(1) Front-end engineer\n\n(1) Back-end engineer\n\n(2) \"Inside\"/corporate sales reps\n\nWe are Python + AWS. Our team is composed of 3 technical founders and 1 jack-of-all-trades.\n\nWe're the #1 search result for \"storm tracking\" and are actively selling to the Fortune 500.\n\nBootstrapped startup, ergo engineer positions equity + cash (read: profit-based) compensation along the way. Sales will receive commission or commission+equity split.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "bootstrapped",
+        "industry": "other",
+        "industry_fits": 0.51,
+        "industry_stated": 0.92,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Python"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 2608625,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2608625",
+      "header": "Mountain View, CA. BloomReach. Full time.",
+      "text": "Mountain View, CA. BloomReach. Full time.\n\nDo you pine for the days when people wrote their own map-reduces rather than relying on clunky porcine languages? Are you just aching to translate a regular ML algorithm to a distributed one? Do you wish you could implement that paper on data compression to see if it may solve the problem you're facing?\n\nWell, this post may be just for you! *\n\nWhat? Building high throughput systems at very large scale, mining data streams, and machine learning.\n\nWho? People with a strong computer science background with interests in solving hard problems with practica",
+      "answers": {
+        "ai_native": 0.1,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.14,
+        "industry_stated": 0.57,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607151,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607151",
+      "header": "Silicon Valley, CA and Sheffield, UK -- WANdisco",
+      "text": "Silicon Valley, CA and Sheffield, UK -- WANdisco\n\nWe are a fast growing bootstrapped software company with a start-up culture, looking to fill plenty of roles.\n\nFor more information see:\n\nhttp://www.wandisco.com/careers",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.08,
+        "funding_stage": "bootstrapped",
+        "industry": "unstated",
+        "industry_fits": 0.08,
+        "industry_stated": 0.44,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607312,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607312",
+      "header": "Burlington, MA - C++ software development of engineering desktop products.",
+      "text": "Burlington, MA - C++ software development of engineering desktop products.\n\nExa Corp (www.exa.com) is a CAE software company (primarily used for automotive design). We have a variety of positions open on our website, but I'm particularly focused on filling a couple of spots in my group. Here's the posting:\n\n   http://exa.com/pages/company/job_postings/11_Swe_Engr_CAE_MA.html\n\nI manage a team of three (including me) and I'm looking to add two developers to support our rapid growth (including a couple of big upcoming projects). Note that the job description lists 5-7 years experience, but becaus",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.77,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.18,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "C++"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607168,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607168",
+      "header": "Conshohocken, PA - Monetate",
+      "text": "Conshohocken, PA - Monetate\n\nWe're hiring at Monetate. We've hired great people from HN.\n\nWe're a SAAS provider of testing, targeting and personalization tools (i.e. segmentation, A/B testing, MVT). We've got existing high-volume customers.\n\nhttp://jobs.monetate.com/\n\n* We're looking for backend engineers who want to work on data and web problems at scale.\n\n* We're also hiring front-end developers who want to help build and test experiments and own our client-facing UI. Javascript all around!\n\nFeel free to email me any questions - tom at monetate com.",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.28,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607181,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607181",
+      "header": "New York, NY",
+      "text": "New York, NY\n\nCell Division is a Pharma to Physician medical education company. We are primarily a LAMP based shop but also use Node.js, MongoDB, Perl, Nginx, Gearman, and various other technologies. Our team is very easy to work with and all around intelligent guys.\n\nWe are looking for a quick turnaround for a new senior level PHP developer. Competitive salary based on experience.\n\nEmail: carlson@celldivision.com",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.17,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "MongoDB",
+          "Node.js",
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2607160,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2607160",
+      "header": "New York, NY (Chelsea) -- Full-time + Freelance",
+      "text": "New York, NY (Chelsea) -- Full-time + Freelance\n\nhttp://www.sypartners.com\nSY Partners is hiring Interaction and Application Developers full-time. Both are heavy javascript, with the application developer also doing Ruby and node.js work.\n\nQuestions: whoughton@sypartners.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Node.js",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

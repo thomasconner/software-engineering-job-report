@@ -1,0 +1,820 @@
+{
+  "month": "2013-02",
+  "posts": [
+    {
+      "id": 5151876,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151876",
+      "header": "Vimeo – NY, NY (Chelsea)",
+      "text": "Vimeo – NY, NY (Chelsea)\n\nCheck out all our jobs: www.vimeo.com/jobs\n\n    * PHP Engineers (full-stack & backend)\n    * Sr iOS Engineer\n    * Site Reliability Engineer\n    * MySQL DBA\n    * Statistician\n    * Web Analyst Manager\n    * Digital Project Manager\n\nStuff we use: PHP, Python, MySQL, Mongo, Redis, AWS, Solr, Hadoop, nginx, node, Vertica. And pretty much any mobile platform.\n\nFeel free to email our Tech Recruiter, tyler at vimeo dot com.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.07,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "MongoDB",
+          "MySQL",
+          "PHP",
+          "Python",
+          "Redis",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5152485,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5152485",
+      "header": "Enthought - Austin TX, NYC, London, Cambridge, Mumbai",
+      "text": "Enthought - Austin TX, NYC, London, Cambridge, Mumbai\n\n==============================================\n\nWork with Python hackers building next generation Python development tools. Help create next generation IDE's, UI frameworks and data analysis platforms for Python.\n\nAmong other things we are looking for a Lead Web Services Developer to build the services serving our IDE. Additional information is available about this position at:\n\nhttp://www.enthought.com/company/lead_web_services_developer.php\n\nWe also have multiple openings for Senior Software Developers focusing on Data Analysis. You coul",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.44,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.97,
+        "industry_stated": 0.93,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "C",
+          "C++",
+          "Machine learning",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5151898,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151898",
+      "header": "Stockholm, Sweden - Shapeup Club (shapeupclub.com)",
+      "text": "Stockholm, Sweden - Shapeup Club (shapeupclub.com)\nLooking for iOS Engineers.\n\nShapeup Club is a team of 8 behind the iPhone and Android application of the same name. We have over 2 million registered users, 250,000+ monthly active users who are using the apps to loose or gain weight while also connecting it with their favorite training app (RunKeeper, Withings, ...). ShapeupClub is one of the top 10 grossing (iPhone) apps in Scandinavia.\n\nThe team started growing a month ago and we have big plans for 2013 with important product upgrades, new partner integrations with quantified self apps (Fit",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5152717,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5152717",
+      "header": "StorageRoom - Berlin, Germany - H1b",
+      "text": "StorageRoom - Berlin, Germany - H1b\n-----------------------------------\n\nWe’re building a cloud-based Content Management platform that’s targeted at developers. We just received funding from prestigious VCs (unannounced).\n\nYou say Content Management sucks? That’s exactly what we think, and we see a huge opportunity to do something completely different that plays well with HTML5/JS and native mobile apps. The initial version of our platform is already used by hundreds of customers, from major global media companies to small development agencies (e.g. Viacom).\n\nWe already have a team of incredib",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.93,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5151093,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151093",
+      "header": "Qubit - London",
+      "text": "Qubit - London\n\nQuBit is Series A backed, and has the first platform that combines analytics, personalization and automation.\n\nWe use a cutting edge technology stack - Java, Scala, Hadoop, Storm, Kafka and Hive backed by Cassandra, Redis and MySQL DBs, all set up via Puppet. Our infrastructure handles 2 billion pageviews per month and we're always growing!\n\nWe are heavily invested in JavaScript as well - from our measurement tools, to our visualisation and serving tools - we use node, ruby and quite a custom Backbone stack.\n\nWe also have a team of Web Developers. If you’re a recent grad and go",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "series_a",
+        "industry": "other",
+        "industry_fits": 0.24,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.97,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java",
+          "JavaScript",
+          "Kafka",
+          "MySQL",
+          "Redis",
+          "Ruby",
+          "Scala"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5151236,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151236",
+      "header": "Bloomberg - New York, NY and Washington DC - Full Time Ruby on Rails related dev jobs (I'm not from Bloomberg, just noticed it on their careers site)",
+      "text": "Bloomberg - New York, NY and Washington DC - Full Time Ruby on Rails related dev jobs (I'm not from Bloomberg, just noticed it on their careers site)\n\nhttp://jobs.bloomberg.com/search?q=ruby&location=\n\n(the dates indicate when the job was posted)\n\nRuby on Rails Developer - Bloomberg Institute Job New York, NY, US\nDec 14, 2012\n\nRuby on Rails Developer Job Washington, DC, US\nDec 27, 2012\n\nRuby on Rails Developer Job New York, NY, US\nDec 23, 2012\n\nBloomberg Government - Web Developer Internship Job Washington, DC, US\nJan 8, 2013\n\nWeb Front-End Software Engineer Job New York, NY, US\nDec 6, 2012\n\nS",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.04,
+        "industry_stated": 0.11,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.64,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Java",
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5154255,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5154255",
+      "header": "NetDNA / MaxCDN",
+      "text": "NetDNA / MaxCDN\n\nLos Angeles, CA\n\nWe're looking for:\n1) Full Time Linux DevOps / Sys Admin\n2) Level 2 Technical Support\n\nNetDNA is a Content Delivery Network (CDN) based in Los Angeles with hundreds of servers deployed across 3 continents. In the office preferred, but remote is a possibility depending on experience.\n\nOur Stack:\nCent OS\nNginx\nMySQL\nPython / Perl\n\nRecommended Experience (for DevOps):\n• Experience with maintaining, managing and monitoring servers running Linux (Cent OS).\n• Experience with Nginx web servers and modules.\n• Knowledge of Anycast, BGP, HTTP HTTPS protocols, caching pr",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.97,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MySQL",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5152196,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5152196",
+      "header": "New York - Full time or intern Rails devs",
+      "text": "New York - Full time or intern Rails devs\n\nAidin's mission is to bring transparency to the healthcare system and empower patients with data to make more informed decisions on where they receive care. We're backed by the best institutional investors in both consumer internet http://techcrunch.com/2012/06/15/aidin-seed-round/. Aidin was born out of Blueprint Health (3% acceptance rate), a Techstars affiliated healthcare IT accelerator. We're surrounded by amazing talent as we currently reside in Dogpatch Labs (http://dogpatchlabs.com/), a highly selective co-working space housing the best startu",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "seed",
+        "industry": "health",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.95,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Rails"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5151649,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151649",
+      "header": "Team Coco (teamcoco.com)",
+      "text": "Team Coco (teamcoco.com)\n\nLocation: Burbank, CA\n\nPosition: Web Developer, Full Time\n\nDetails: http://teamcoco.com/content/web-developer",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.08,
+        "industry_stated": 0.28,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.13,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5151452,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151452",
+      "header": "Artisan (http://useartisan.com)",
+      "text": "Artisan (http://useartisan.com)\n\nPhiladelphia, PA - Full-time\n\nWe're building tools to help companies unleash the full power of their apps, the first of which is \"Optimize\", allowing our customers to A/B test native iOS apps, without changing any code.\n\nIf you love mobile, we have no shortage of interesting problems to solve, and we're in a really cool office in the heart of Old City.\n\nWe have positions for iOS, Rails, and Android developers, as well as Dev/Ops and QA. Check out our jobs page (http://useartisan.com/jobs/) for more info.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.84,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Rails",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5182351,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5182351",
+      "header": "Smarkets, London, Software Engineer, Python, Erlang & Mobile",
+      "text": "Smarkets, London, Software Engineer, Python, Erlang & Mobile\n\nSmarkets is disrupting the global betting industry by offering a modern betting exchange with significantly lower transaction fees than the competition. We're a well-funded company with a small, agile development team. We've handled over £250 million of bets since launching in 2010.\n\nOur office near Old Street in London is shared with other exciting startups and has a pool table, foosball table, and fully stocked fridge.\n\nWe're heavily driven by user-focused design and a focus on technology and engineering as a first class disciplin",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Postgres",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5150937,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5150937",
+      "header": "BOSTON, MA - @RiparianData - Full Time",
+      "text": "BOSTON, MA - @RiparianData - Full Time\n\nRiparian Data is a small, Boston based startup devoted to building a better mobile email app for today's overloaded office workers.\n\nWe're running a Meteor stack on top of Node.js, with straight Ruby for services on the back end. This is all supported by a Mongo database.\n\nHiring: Product Owner and Software Engineer\nMore details: http://www.ripariandata.com/jobs/\nemail us: hr@ripariandata.com",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.89,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MongoDB",
+          "Node.js",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5152646,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5152646",
+      "header": "Vancouver, BC (or remote)",
+      "text": "Vancouver, BC (or remote)\n\nAxiom Zen is always looking for sharp, talented, and experienced people to join our fast-growing team. Most of us are in Vancouver or San Francisco. Ideal candidates are comfortable working with a small and fast-paced team, taking on significant responsibilities, and pushing the boundaries of what's possible with code.\n\nWe're looking for folks in the following roles:\n\n* Software Engineer, Javascript (node), Ruby, others\n\n* Mobile Engineer, iOS\n\n* Frontend Developer, HTML5/CSS3/JS\n\n* System Administrator, experienced Devops\n\n* Data engineer, machine learning/NLP/analy",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.08,
+        "industry_stated": 0.82,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Machine learning",
+          "Ruby",
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 5153018,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5153018",
+      "header": "Menlo Park, CA (Full Time)",
+      "text": "Menlo Park, CA (Full Time)\n\nIntuit is hiring Front End Engineers (JavaScript, HTML, CSS) and Back End Engineers to work on our award-winning product Mint.com and our Banking Solutions products. Check out http://bit.ly/YlZNIt to learn more.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.56,
+        "industry_stated": 0.86,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5152158,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5152158",
+      "header": "San Francisco, CA. Wikia, Inc. Jobs in data engineering, backend scaling, and LAMP development. http://www.wikia.com/Careers",
+      "text": "San Francisco, CA. Wikia, Inc. Jobs in data engineering, backend scaling, and LAMP development. http://www.wikia.com/Careers",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.09,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.07,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.04,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5150874,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5150874",
+      "header": "London, UK and San Francisco, CA",
+      "text": "London, UK and San Francisco, CA\n\nCloudFlare is hiring for our new London office and for the HQ in San Francisco: https://www.cloudflare.com/join-our-team",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.13,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.04,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5151338,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151338",
+      "header": "Oxford, UK",
+      "text": "Oxford, UK\n\nNaturalMotion (http://www.naturalmotion.com/) is a leading game technology\nand development company creating animation software used in AAA titles such\nas Rockstar Games' Grand Theft Auto IV and Irrational Games' BioShock\nInfinity.\n\nWe're looking for talented C++ programmers to join our team building\nour industry leading animation tools.\n\nIf you want to help make game characters come to life, get in touch.\n\nhttp://www.naturalmotion.com/company/careers/\n\nPeter",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.86,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C++"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5154573,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5154573",
+      "header": "Metamarkets - http://www.metamarkets.com/ - San Francisco, CA",
+      "text": "Metamarkets - http://www.metamarkets.com/ - San Francisco, CA\nLooking for: Interns, Full-Time, H1B transfer-friendly\n\nMetamarkets is looking for people who are excited by data.\n\nWe have a number of different engineering positions open both on the front-end and the back-end.\n\nOn the front-end we're running entirely in JavaScript/CoffeeScript with Node.js for our server-side along with a framework called DVL that builds on top of D3.js.\n\nOn the back-end we're using everything from Java, Scala, R, Hadoop, Pig, ZooKeeper, to Memcached. This is all to help run our own distributed, column-oriented a",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.3,
+        "industry_stated": 0.59,
+        "interns_token": 1.0,
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.98,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java",
+          "JavaScript",
+          "Node.js",
+          "Scala"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5153194,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5153194",
+      "header": "Yodle, NYC, Team Lead Software Engineer (Java)",
+      "text": "Yodle, NYC, Team Lead Software Engineer (Java)\nYodle’s goal is to help small businesses across the US and Canada grow their business through online marketing. Yodle's Engineering team of 45 powers our 900 person, 130MM company that serves over 30,000 customers.\n\nAs a Team Lead at Yodle you are taking on the challenge of leading a talented group of engineers to success as a team, as individuals and most importantly as a critical part of our business. You’ll work closely with your Product Manager to make sure that the projects your team works on are knocked out of the park and that the products ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.99,
+        "funding_stage": "public_or_large",
+        "industry": "other",
+        "industry_fits": 0.25,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5170004,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5170004",
+      "header": "London, UK - Glow is Hiring Python and JavaScript Developers",
+      "text": "London, UK - Glow is Hiring Python and JavaScript Developers\n\nhttp://thisisglow.com/\n\nGlow is on a rapid growth curve and are currently looking to assemble a super team of great developers to work in our West End office. We’ll do everything we can to make you feel at home. We have fun challenges to offer, playing with big data, scalability, machine learning, analytics, user interface and we're always willing to learn new things.\nWe cook with Python, Javascript, a large dose of other cutting edge technologies and a healthy mix of social and advertising APIs. If you think you can hack it, we'd l",
+      "answers": {
+        "ai_native": 0.07,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.05,
+        "industry_stated": 0.19,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Machine learning",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5153386,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5153386",
+      "header": "Divshot (http://divshot.com/)",
+      "text": "Divshot (http://divshot.com/)\n\nLos Angeles, CA (or remote)\n\nWe're building tools to make web development fitter, happier, and more productive and we're looking to hire full-stack and front-end web engineers.\n\nIf you love working with bleeding-edge browser technologies, shipping open source, attending hackathons, and lots and lots of JavaScript (Ruby too? Bonus!) let us know!\n\njobs@divshot.com\n\nH1B, REMOTE, and INTERN positions available for the right candidates.",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.89,
+        "industry_stated": 0.95,
+        "interns_token": 1.0,
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.96,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Ruby"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 5152565,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5152565",
+      "header": "Any one hiring for hardware or linux device drivers/firmware positions?",
+      "text": "Any one hiring for hardware or linux device drivers/firmware positions?",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.03,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.04,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 5153341,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5153341",
+      "header": "NeoSmart Technologies (http://neosmart.net/ and http://systemdiscs.com)",
+      "text": "NeoSmart Technologies (http://neosmart.net/ and http://systemdiscs.com)\n\nChicago (REMOTE)\n\nLooking for business development and marketing specialist to help our small but very profitable startup enter new markets and establish new connections with large corporations, computer repair chains, resellers, and affiliates for our very powerful and very popular system recovery and repair products and utilities.\n\nEmail us at neosmart@neosmart.net",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.01,
+        "funding_stage": "bootstrapped",
+        "industry": "devtools_infra",
+        "industry_fits": 0.84,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 5152346,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5152346",
+      "header": "FullContact - Denver, CO",
+      "text": "FullContact - Denver, CO\n\nLooking for a Senior AWS System Admin/DevOps Engineer and an Integration Product Manager.\n\n-----------\n\nAbout Us:\n\nWe’re solving the world’s contact information problem. As we like to say: “If you’ve got an address book, you’ve got an address book problem.” Most people have duplicate, partial, and out-of-date contacts - and they’re scattered everywhere. It’s a mess. Businesses have the same problem, but it’s actually worse when you consider that a company has a bunch of employees, CRMs, Marketing Automation systems, Billing platforms, Help Desk applications.\n\nAs Dropb",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.92,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5154030,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5154030",
+      "header": "San Francisco, CA",
+      "text": "San Francisco, CA\n\nVoxer has multiple job opportunities for Engineers who are looking for an exciting new career. If you have skills in iOS app development, Hadoop, HBase, Node.js, Web Design or QA Automation, we'd love to talk to you. We're also looking for a Visual Designer, if that's your passion.\n\nhttp://voxer.theresumator.com/\n\nSome information about Voxer, and what we're up to!\n\nVoxer is more than just a walkie-talkie app, it is one of the most used Push-to-Talk and messaging applications in the world. Voxer iOS and Android apps allow tens of millions of users across the world to communi",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Node.js",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5160100,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5160100",
+      "header": "San Francisco, Seattle: JavaScript, Rails, and Clojure / Java engineers",
+      "text": "San Francisco, Seattle: JavaScript, Rails, and Clojure / Java engineers\n\nThe Climate Corporation’s mission is to help all the world’s people and businesses manage and adapt to climate change. To achieve our mission, we have built a unique technology platform to enable, for the first time, the real-time pricing and purchasing of customizable weather insurance. Managing over 200 TB of data, including 34 trillion+ weather simulation data points, 150 billion soil type observations, and more than 3 million daily weather measurements, we are one of the largest users of Amazon Web Services.\n\nThe Clim",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.02,
+        "funding_stage": "series_c_plus",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Java",
+          "JavaScript",
+          "Rails"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5154276,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5154276",
+      "header": "Seeking talented software developers who thinks big and wants to make a difference to improve customer experience in Amazon globally.",
+      "text": "Seeking talented software developers who thinks big and wants to make a difference to improve customer experience in Amazon globally.\n\nLocation: Amazon, Seattle, WA (FT, H1B)\n\nMore information and apply here:\nhttp://www.amazon.com/gp/jobs/194775",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.06,
+        "industry_stated": 0.2,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5151959,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151959",
+      "header": "Jobvite is hiring for multiple engineering positions: front end, backend, analytics, reporting, QA & operations.",
+      "text": "Jobvite is hiring for multiple engineering positions: front end, backend, analytics, reporting, QA & operations.\n\nhttp://hire.jobvite.com/CompanyJobs/Careers.aspx?c=qHV9Vfwq&s=HackerNews",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.07,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.09,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.05,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 5173809,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5173809",
+      "header": "Palo Alto, Skype",
+      "text": "Palo Alto, Skype\n\nWe are hiring to help us build massive distributed systems from the ground up on C#/F#/Azure. We run elastic systems backed by a nosqlish data store, async replication, and, in general, do a lot of async programming. We are doing devops, building systems to support Skype's amazing user base and move functionality, so our engineers get to do full lifecycle in an agile environment. It is somewhat like a startup with a lot of money, food, dogs, but we do have a few more managers. My team is smart, experienced, not risk averse, and in control of their own destiny. You can't ask f",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.85,
+        "industry_stated": 0.88,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Azure",
+          "C#"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 5151530,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=5151530",
+      "header": "iTriage Health -- Denver, CO. Full-time | Ruby Developers, JS Developers & Node.js Developers.",
+      "text": "iTriage Health -- Denver, CO. Full-time | Ruby Developers, JS Developers & Node.js Developers.\n\nJoin us in creating mobile and web applications that empower consumers to make better health care decisions. We have a very talented tram and are looking for additional talent to join the team.\n\nemail: jwaldrip@itriagehealth.com\n\nsite: http://about.itriagehealth.com/careers/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.97,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Node.js",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

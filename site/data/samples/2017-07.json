@@ -1,0 +1,822 @@
+{
+  "month": "2017-07",
+  "posts": [
+    {
+      "id": 14694532,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14694532",
+      "header": "DriveWorks | Manchester (closer to Warrington), UK | ONSITE / REMOTE",
+      "text": "DriveWorks | Manchester (closer to Warrington), UK | ONSITE / REMOTE\n\nWe are currently looking for experienced and passionate software developers to join our team. We are looking for people that:\n\n- Have 3 or more years professional experience (or just done a lot of code). Quality is more important than quantity though.\n\n- Are able to be a little independent of guidance and think for themselves.\n\n- Can solve problems and explain their solutions clearly.\n\n- Will be excited to join us and will fit in with the team!\n\nWe are a close-knit development team and although small, we operate all over the",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.22,
+        "industry_stated": 0.92,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "mid",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14703053,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14703053",
+      "header": "Privacy Labs | Bellevue, Wa | Onsite | Cloud Services Engineer",
+      "text": "Privacy Labs | Bellevue, Wa | Onsite | Cloud Services Engineer\n\nWe are building a new product category that will define the future of consumer privacy and security. Our purpose is to help people be free, private and secure online. The last two major computing revolutions brought us desktops on every desk and a mobile phone in every pocket. We are on the verge of a new computing revolution – one that puts the user and their data first by decentralizing the net. Join us and help drive this exciting transformation.\n\nWe're looking for a software engineer that can take full ownership of our backend",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.97,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14692717,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14692717",
+      "header": "Feature Labs, Inc. | Software Engineer | Boston, MA | Full-time | On-site | http://www.featurelabs.com",
+      "text": "Feature Labs, Inc. | Software Engineer | Boston, MA | Full-time | On-site | http://www.featurelabs.com\n\nFeature Labs is a predictive analytics platform to make data science automation a part of any organization. Using Feature Labs, teams can accelerate data science endeavors to deploy new products or services, find insights, and understand what their data says about the future of their business.\n\nWe’re growing our technical team with engineers interested in pushing the boundaries of data science automation. Our team is motivated by pursuing true innovation in AI / machine learning and we regul",
+      "answers": {
+        "ai_native": 0.93,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "ai_ml",
+        "industry_fits": 0.96,
+        "industry_stated": 0.99,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.93,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14713482,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14713482",
+      "header": "Omm It Solutions |Java Developer | Baltimore, MD | Onsite | Longterm Contract |",
+      "text": "Omm It Solutions |Java Developer | Baltimore, MD | Onsite | Longterm Contract |\n\nOmm is a Columbia, MD based Information Technology Solutions and Professional Services provider. We provide custom solutions and services while keeping focus on the goals and objectives of our clients in mind. Our team consists of leaders who provide a unique balance of expertise, vision and humility. At Omm, we strongly believe in what we do and how we do it, consistently delivering results with integrity, focus, teamwork, and respect.\n\nWe are looking for a Java/ J2EE Architect level person who has great expertis",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "Angular",
+          "Java",
+          "Node.js"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14690266,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14690266",
+      "header": "Snapdocs | Rails Engineers & Data Scientists & Product Managers | San Francisco, CA | ONSITE | https://www.snapdocs.com",
+      "text": "Snapdocs | Rails Engineers & Data Scientists & Product Managers | San Francisco, CA | ONSITE | https://www.snapdocs.com\n\nSnapdocs (YC W14, SV Angel) is an early stage, rapidly growing company looking to fill a variety of roles. (Growth, amiright?) We're a small team tackling the absolutely massive mortgage market. We're bringing modern, elegant software to a field that still relies on fax machines and manilla envelopes. We bring security, efficiency and joy to a paper-based pillar of the US economy.\n\nThe type of problems we're tackling involve workflow, product design, data, and computer visio",
+      "answers": {
+        "ai_native": 0.12,
+        "eng_leadership": 0.04,
+        "funding_stage": "venture_unspecified",
+        "industry": "fintech",
+        "industry_fits": 0.84,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Rails"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14690623,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14690623",
+      "header": "FetLife (https://fetlife.com) | REMOTE | Product Designer",
+      "text": "FetLife (https://fetlife.com) | REMOTE | Product Designer\n\nMore about FetLife:\n- Largest kinky social network this side of the Milky Way\n- Nearly 6 million members and growing every day\n- We grew 100% by word-of-mouth\n- A top 600 website in most English speaking countries\n- Serve over a couple of billion requests a month\n\nMore info about the role: https://weworkremotely.com/jobs/4904-product-designer",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.06,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14689940,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14689940",
+      "header": "Latently | Deep Learning | Boulder, CO | REMOTE",
+      "text": "Latently | Deep Learning | Boulder, CO | REMOTE\n\nHave some time on your hands and interested in implementing scientific papers for a stealth-mode deep learning startup? Contact brian@latent.ly More info: https://goo.gl/HhvxLO",
+      "answers": {
+        "ai_native": 0.29,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.12,
+        "industry_stated": 0.29,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14690933,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14690933",
+      "header": "Findify | Sales Development Representative | US | Full-time, Remote",
+      "text": "Findify | Sales Development Representative | US | Full-time, Remote\n\nFindify is a Machine Learning powered search & Discovery solution for e-commerce sites. We have 1000+ e-commerce businesses in more than 50 countries around the world deliver a better experience to their customers, and increase their sales.\n\nThis role in Findify is more than the classic SDR definition. The Sales Development Representative (SDR) holds a critical position at the top of the sales funnel for the entire company. The SDR is often our customer’s first experience with Findify. Lead generation, relationship building a",
+      "answers": {
+        "ai_native": 0.98,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.83,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 14689831,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14689831",
+      "header": "MyFitnessPal | San Francisco, CA | ONSITE",
+      "text": "MyFitnessPal | San Francisco, CA | ONSITE\n\nSr. Product Manager | Engineering - Web, Android, iOS, Backend, Data Science | Product Designer\n\nUnder Armour has teamed up with MyFitnessPal and MapMyFitness to create UACF - the largest online health and fitness community with 200 million current users!\n\nMyFitnessPal is looking for extraordinary teammates who want to focus on challenges impacting the daily lives of the world’s largest fitness community. We’re serious about individual growth and you’d be working with awesome people in a truly inspiring culture.\n\nIf you're interested, please apply her",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.94,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14692326,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14692326",
+      "header": "eBay | www.ebay.com | New York | NYC | Full Time | ONSITE | jobs@ebaynyc.com | VISA ok",
+      "text": "eBay | www.ebay.com | New York | NYC | Full Time | ONSITE | jobs@ebaynyc.com | VISA ok\nWe are looking for deep learning experts who can make sense of eBay's 1+ billion items. We'll use that technology to target ads, recommend items and help our sellers succeed. Our interview consists of two phone screens. Then you come onsite to meet the team and do a code test. 5+ years of Machine Learning experience preferred. jobs@ebaynyc.com | Ask for Adam",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.93,
+        "industry_stated": 0.81,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14693415,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14693415",
+      "header": "Donation Spring | Sales/Account Executive | REMOTE",
+      "text": "Donation Spring | Sales/Account Executive | REMOTE\n\nDonation Spring (https://www.donationspring.com) is a fundraising platform that enables a wide variety of online giving directly from a nonprofit or church's existing website.\n\nWe're in need of sales and account executives! Details:\n\n- Both part-time and full-time are acceptable. This is a super flexible, at-your-own-pace position.\n\n- A sales or account executive background is helpful, but not necessarily a requirement -- we'll consider anyone with relevant history and personality/passion alignment.\n\n- Experience/familiarity with the nonprofi",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.67,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.28,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14689151,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14689151",
+      "header": "Contentful | https://www.contentful.com | Berlin, Germany | full time | (VISA)",
+      "text": "Contentful | https://www.contentful.com | Berlin, Germany | full time | (VISA)\n\nContentful is a content management platform for web applications, mobile apps and connected devices.\nIt allows you to create, edit & manage content in the cloud and publish it anywhere via API.\n\nWe raised our Series B lead with Benchmark https://www.contentful.com/blog/2016/05/26/contentful-series-b/\n\nWe have several positions open in Berlin, Germany or in SF USA https://www.contentful.com/careers/\n\nJoin a rapidly growing developer-centric company with lots of amazing international customers. We count people like A",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 1.0,
+        "funding_stage": "series_b",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14688715,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14688715",
+      "header": "Blue Vision Labs | London, United Kingdom | Onsite, Interns, Visa, http://www.bluevisionlabs.com/",
+      "text": "Blue Vision Labs | London, United Kingdom | Onsite, Interns, Visa, http://www.bluevisionlabs.com/\n\nStealth startup working on self-driving cars, augmented reality and robotics.\n\nFounded in a Y-Combinator Fellowship and backed by Accel (Facebook, Dropbox) and Horizons Ventures (DeepMind, Siri).\n\nOur team comprises PhDs from top universities, hackers, competitive programmers, and accomplished entrepreneurs. We offer a full range of benefits, a friendly and dynamic atmosphere where everyone learns, grows and contributes to real, deliverable products.\n\nWe are seeking talented people to join our te",
+      "answers": {
+        "ai_native": 0.46,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.97,
+        "industry_stated": 0.98,
+        "interns_token": 1.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.71,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Machine learning",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14689420,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14689420",
+      "header": "Minodes (https://www.minodes.com/) | Berlin, Germany (ONSITE) | full-time & interns | Visa | Software/Data/Systems Engineers",
+      "text": "Minodes (https://www.minodes.com/) | Berlin, Germany (ONSITE) | full-time & interns | Visa | Software/Data/Systems Engineers\n\nMinodes is a startup in the retail analytics space. Based in the heart of Berlin, we provide (offline) retailers innovative solutions to understand their business better, enhance their customers' in-store shopping experience, and bridge the gap between online and offline using machine learning approaches.\n\nFrom a technology perspective, we have thousands of our sensors installed in our customers' retail stores around the world and a server infrastructure to manage these",
+      "answers": {
+        "ai_native": 0.75,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.97,
+        "industry_stated": 0.98,
+        "interns_token": 1.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.97,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Go",
+          "JavaScript",
+          "Machine learning",
+          "Postgres",
+          "Python",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14700657,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14700657",
+      "header": "Sequel | Microsoft Stack developer, devops and testers | Malaga, Spain | ONSITE, REMOTE with some F2F | Full-time",
+      "text": "Sequel | Microsoft Stack developer, devops and testers | Malaga, Spain | ONSITE, REMOTE with some F2F | Full-time\n\nSequel is a leading provider of insurance software, specialized in the Lloyd's market, headquartered in London, UK. We are recruiting a number of positions for our development hub in Malaga, south of Spain.\n\nMore details: https://www.linkedin.com/pulse/sequel-m%C3%A1laga-we-hiring-javier-garc%C3%ADa-magna\n\nFeel free to get in touch with any questions recruitmentspain@sequel.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 14690541,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14690541",
+      "header": "US Digital Service | Software Engineers, Designers, Product Managers | Washington, DC | ONSITE https://usds.gov",
+      "text": "US Digital Service | Software Engineers, Designers, Product Managers | Washington, DC | ONSITE https://usds.gov\n\nWe're the group of geeks that worked on healthcare.gov. We have projects to help veterans, doctors, immigrants, and soldiers--all kinds of federal computer systems need help. The work on a day-to-day basis is less about coding and more about bringing proven industry practices into government. Apply at https://www.usds.gov/join",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14690744,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14690744",
+      "header": "Wealthport.com | Senior Computer Science Researcher, Data Preparation Expert | Zurich | SALARY: 110k-130k CHF | ONSITE",
+      "text": "Wealthport.com | Senior Computer Science Researcher, Data Preparation Expert | Zurich | SALARY: 110k-130k CHF | ONSITE\n\nUsing machine learning an nlp we merge trashy, badly-labeled excel sheets into useable, categorised and normalized data. We are obsessed with functional programming. We use mainly Scala and Javascript and we are researching a lot on NLP and ML. We look for:\n\n- Senior Computer Science Researcher - you will read & write papers on nlp and ml and implement algorithms in our core product.\n\n- Data Preparation Export (Data Science) - you will help our customers adjust their data to ",
+      "answers": {
+        "ai_native": 0.56,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.42,
+        "industry_stated": 0.87,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "JavaScript",
+          "Machine learning",
+          "Scala"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14689243,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14689243",
+      "header": "Lemonade | Django Engineer | Taipei, Taiwan | Onsite",
+      "text": "Lemonade | Django Engineer | Taipei, Taiwan | Onsite\n\nLemonade is a platform for online advertising and influencer marketing. We are a small team in Taipei, Beijing, and San Francisco. Our toolsets are Python, Django, AWS, and Git. If you have questions or interest, please email us at join@trylemonade.com!",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Django",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14691622,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14691622",
+      "header": "Octopus Energy | Software Engineer | Soho, London, UK | ONSITE, FULL TIME",
+      "text": "Octopus Energy | Software Engineer | Soho, London, UK | ONSITE, FULL TIME\n\nWe are a tech-focused energy supplier for the UK market and we're looking for diligent software engineers (especially with Python experience) to join us.\n\nWe're building a modern, event-driven infrastructure for interacting with both consumers (via the web, mobile and smart-meters) and the industry (eg data flows, consumption forecasting, trading on the wholesale market).\n\nOn the server-side, we mainly use Python. Our public site is powered by Django and the Django-REST-framework - we also use Pandas, Numpy and Jupyter ",
+      "answers": {
+        "ai_native": 0.08,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Django",
+          "Machine learning",
+          "Python",
+          "React",
+          "Terraform"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14689827,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14689827",
+      "header": "Phantom | Front End Developer | London, UK | ONSITE, Full-Time, http://phantom.land",
+      "text": "Phantom | Front End Developer | London, UK | ONSITE, Full-Time, http://phantom.land\n\nPhantom is a forward thinking digital creative agency based in Old Street, London, United Kingdom. We are currently on the hunt for mid/senior front end developers, especially those with a more creative side.\nWe don't put our developers in a box, but expect them to be involved from strategy to delivery, working collaboratively with the entire team to find unique solutions to some amazing briefs. To help facilitate this we have our own bar in the office (with no locks on the fridge!) and the cupboards are alway",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.94,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Angular",
+          "Django"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14689953,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14689953",
+      "header": "Ascendify | Scala Engineer | San Francisco, CA | FULLTIME, ONSITE | https://talent.ascendify.com/careers/jobs/backend-scala-engineer-san-francisco-ca-usa-1",
+      "text": "Ascendify | Scala Engineer | San Francisco, CA | FULLTIME, ONSITE | https://talent.ascendify.com/careers/jobs/backend-scala-engineer-san-francisco-ca-usa-1\n\nAscendify is a rapidly growing, silicon valley, venture-backed company based in downtown San Francisco that delivers talent solutions to large, global companies. Ascendify’s end-to-end talent platform leverages artificial intelligence to help enterprise companies attract, select, develop and grow talent.\n\nAs a Scala Engineer you will work with a Team Lead to build new and maintain existing projects. You must be capable of working in a fast",
+      "answers": {
+        "ai_native": 0.94,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.71,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Scala"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14710586,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14710586",
+      "header": "MongoDB -- NYC | Senior Product Designer | Full-Time | Base + Pre-IPO Stock Options",
+      "text": "MongoDB -- NYC | Senior Product Designer | Full-Time | Base + Pre-IPO Stock Options\n\nWe're hiring a Senior Product Designer to join our Engineering team! MongoDB designs and develops all products with the user in mind and our Product Design team plays a vital role in the process.\n\nWe're looking for candidates that have an impressive design portfolio, technical skills with HTML/CSS and basic JavaScript, and a methodical approach to research.\n\nAny interest? Please reach out to me directly at Matt.Leva@MongoDB.com, or apply at http://grnh.se/lgw3tf1.",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "series_c_plus",
+        "industry": "unstated",
+        "industry_fits": 0.11,
+        "industry_stated": 0.23,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "JavaScript",
+          "MongoDB"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14718384,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14718384",
+      "header": "FullContact (https://fullcontact.com) | Denver, Boulder | Full-Time | On-site",
+      "text": "FullContact (https://fullcontact.com) | Denver, Boulder | Full-Time | On-site\n\nFullContact’s mission is to help the world stay fully connected, master its contacts, and be awesome with people. (& yes - all roles include $7,500 Paid PAID Vacation: https://www.fullcontact.com/blog/paid-paid-vacation/)\n\nWe are currently hiring:\n\n* Senior Software Engineer - Identity Resolution on Data Platform\n\nMore details about the open positions: https://www.fullcontact.com/about/careers/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.57,
+        "industry_stated": 0.89,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14704958,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14704958",
+      "header": "MAARK | Senior Web Developer | Cambridge, MA | Full-time | Onsite",
+      "text": "MAARK | Senior Web Developer | Cambridge, MA | Full-time | Onsite\n\nMAARK, a strategic marketing and innovation agency, is hiring a Senior Web Developer who can develop and implement responsive/MVC web apps and websites with a high degree of focus on the visual design and the overall UX. As a dev team, we work on creative projects, utilize a wide variety of fullstack technologies (e.g., React, Marrionette, Node.js, Laravel), and empower our developers to create innovative solutions and explore/learn emerging tech.\n\nWe are hiring primarily for a full time role in our Cambridge, MA office, with c",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Node.js",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14718690,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14718690",
+      "header": "Barrett Technology | Software Engineer | Newton, MA",
+      "text": "Barrett Technology | Software Engineer | Newton, MA\n\nBarrett Technology | Firmware Engineer | Newton, MA\n\nBarrett Technology | Electrical Engineer | Newton, MA\n\nBarrett Technology is a robotics company which concentrates on robotic arms and hands. Our current focus is burt a haptic device used for upper body rehabilitation and therapy for stroke patients. We also have a lot of motor control based work going on with our Puck Motor Controllers. And that work is with some exciting customers. We are looking for software, robotics, game developers and firmware engineers and we use Git, C++, C# with",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C#",
+          "C++",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14690428,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14690428",
+      "header": "Burner | Los Angeles, CA | Dev-ops Engineer | Full-time",
+      "text": "Burner | Los Angeles, CA | Dev-ops Engineer | Full-time\n\nBurner (Ad Hoc Labs, Inc.) Burner is empowering people to take control over their primary channel of communication – the phone number.\n\nAs DevOps Engineer, you will be a key member of a team building the next generation of mobile privacy tools, working closely with the platform team to upgrade and maintain existing infrastructure while helping to design and deploy the next generation of services to power the Burner mobile apps.\n\nDetails & apply: https://www.burnerapp.com/careers/devops-engineer",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.97,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14703962,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14703962",
+      "header": "Geocaching | Senior Android Developer | Seattle, WA | Full-time, ONSITE (with remote options), Relocation Offered for Out-of-State Candidate",
+      "text": "Geocaching | Senior Android Developer | Seattle, WA | Full-time, ONSITE (with remote options), Relocation Offered for Out-of-State Candidate\n\nPerks: 6 Time Winner of \"Best Place to Work\" from Outside Magazine, Health Insurance Premiums covered 100%, Unlimited Ski Lift Tickets, Outdoor Gear Closet, and great work/life balance.\n\nwww.geocaching.com/careers\n\nAbout Geocaching HQ:\nWe are the global headquarters for the game of geocaching. Our apps and Geocaching.com website allow a global community of millions of people to join in a real-world treasure hunt.\n\nOur mission (and yours should you choose",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.68,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Android"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14704008,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14704008",
+      "header": "LetsLunch.com | Co-founders|Full time, part time negotiable| Onsite|San Francisco, CA",
+      "text": "LetsLunch.com | Co-founders|Full time, part time negotiable| Onsite|San Francisco, CA\n\nLetsLunch http://LetsLunch.com is launching a new service that helps job seekers meet with hiring managers at company cafeterias, tour the company experience the culture and meet future coworkers. Its like lunch date with employers.\nWe are looking for cofounders in the role of UX/UI designer and someone to help us get companies on board\nAny questions feel free to reach out to me at Syed@LetsLunch.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.49,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14692073,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14692073",
+      "header": "Apple, Inc. | Cupertino",
+      "text": "Apple, Inc. | Cupertino\n\nApple’s Siri is looking for exceptional engineers, designers, and project managers well versed in machine learning, natural language, speech recognition, server automation, and/or mobile software development. Siri is used on countless iOS, tvOS and watchOS devices and handles over a billion requests per week.\n\nIf you’re passionate about music, Natural Language Processing, building internal tools or one of a variety of our open positions, you’ll be right at home!\n\nApply online or send a resume and a feature request to brittanyd@apple.com.",
+      "answers": {
+        "ai_native": 0.97,
+        "eng_leadership": 0.24,
+        "funding_stage": "unknown",
+        "industry": "ai_ml",
+        "industry_fits": 0.83,
+        "industry_stated": 0.93,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14693182,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14693182",
+      "header": "Frameshift Genomics | Backend Engineers, Frontend Web Developers | Boston, MA",
+      "text": "Frameshift Genomics | Backend Engineers, Frontend Web Developers | Boston, MA\n\nFrameshift Genomics (http://frameshift.io) is hiring backend engineers and web developers to work on the iobio project (http://iobio.io), building a real­-time genomics analysis platform.\n\nWeb developers will be creating web applications with functionality ranging from visualizing terabytes of biological data to fine grained interrogation of disease­ causing mutations that open the world of complex genomic analysis to medical professionals and scientists with limited or no experience in computational analysis. These",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.96,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

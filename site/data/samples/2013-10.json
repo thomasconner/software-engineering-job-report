@@ -1,0 +1,836 @@
+{
+  "month": "2013-10",
+  "posts": [
+    {
+      "id": 6480420,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6480420",
+      "header": "Mauritius",
+      "text": "Mauritius\n\nA web startup relocating to Mauritius is looking to fill four software developer positions, bringing the development team to a total of six members. The positions involve back-end development, web front-end development and the programming of web scrapers.\n\nAs part of our team you will be responsible for one or more aspects of our in-house technology stack. Depending on your particular area of expertise you will work on data visualization, data manipulation, machine learning, user interfaces tailored for speed of use, web APIs, numerical optimization, a world-class web scraping infra",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.05,
+        "industry_stated": 0.22,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.64,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Machine learning",
+          "Postgres",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6478174,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6478174",
+      "header": "The Monkey Inferno - idea lab based in SOMA, SF. Best office in SF, inhouse chef, masseuse, full bar, and all the perks. Most importantly, work with really effing smart people.",
+      "text": "The Monkey Inferno - idea lab based in SOMA, SF. Best office in SF, inhouse chef, masseuse, full bar, and all the perks. Most importantly, work with really effing smart people.\n\nOpen position - Lead iOS engineer.\n\nCome build Bebo - already 200k+ people on the waiting list!\n\nvisit the site, www.monkeyinferno.com and email bananas@monkeyinferno.com to apply!",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.91,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.08,
+        "industry_stated": 0.64,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476374,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476374",
+      "header": "Manchester, UK. Skylab: http://www.studioskylab.com/ - Senior Developer & developers.",
+      "text": "Manchester, UK. Skylab: http://www.studioskylab.com/ - Senior Developer & developers.\n\nWe develop innovative and exciting web projects for both clients and ourselves.\n\nWe're looking for people who take pride in their work and get excited by the industry they work in, people who work well with others, people with a good eye for detail.\n\nWe work with technologies such as:\n\n  - HTML 5\n  - CSS 3 and SASS\n  - Responsive design\n  - Amazon Web Services\n  - Git\n  - Symfony 2\n  - Puppet\n  - Auto-scaling server infrastructures\n\nWhy you might want to work here:\n\n  Training — Dedicated time set aside to t",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.49,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "JavaScript",
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6477999,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6477999",
+      "header": "Patientco - Atlanta, GA (midtown) - FT Software Engineer",
+      "text": "Patientco - Atlanta, GA (midtown) - FT Software Engineer\n\nApply here: http://www.patientco.com/careers/\n\n(put \"hn\" in the notes field for priority review)\n\n---------------\n\nPatientco simplifies the challenge of understanding healthcare expenses for patients so they pay their healthcare providers faster. Already 1M+ patients securely receive, pay and track their healthcare expenses via Patientco.\n\nFounded in 2009 by a team of Georgia Tech graduates and led by an Atlanta based serial entrepreneur, Patientco has experienced huge growth over the last few years and is financially backed by BlueCros",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "health",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MongoDB",
+          "MySQL",
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476547,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476547",
+      "header": "London, UK - Wigwamm, apps to make Real Estate simple",
+      "text": "London, UK - Wigwamm, apps to make Real Estate simple\n\nCO-FOUNDER WANTED\n\nTech team and funding in place. We have great domain expertise, but I am personally missing the influence of a strong co-founder.\n\nIf you're interested, just say hi at +44 77 952 73 552 or rayhan@wigwamm.com\n\nThere is plenty of effort toward making the Real Estate searching experience better.\n\nBut the underlying data sucks. So our first product is a Listing App that helps answer the questions people genuinely ask when looking for a new home: http://wigwamm.com\n\nReal Estate is the only thing you cannot confidently researc",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.23,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 6479851,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6479851",
+      "header": "San Francisco, CA and Cambridge, MA - Locu is hiring Frontend Engineers, Backend Engineers and Visual Designers - Full-time; H-1B OK",
+      "text": "San Francisco, CA and Cambridge, MA - Locu is hiring Frontend Engineers, Backend Engineers and Visual Designers - Full-time; H-1B OK\n\nLocu helps local businesses be found. With a patent-pending technology platform that digitizes and structures real-world data, Locu is building tools that help businesses connect with customers. Locu’s content platform is the easiest way for merchants to keep business information, menus and price lists updated and distributed across the Web, and Locu’s API gives developers access to the world's largest real-time, structured repository of local business data. Ove",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.72,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Django",
+          "Machine learning",
+          "Node.js",
+          "Postgres",
+          "Python",
+          "Redis"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6477904,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6477904",
+      "header": "Impermium (https://www.impermium.com) - Redwood City, CA",
+      "text": "Impermium (https://www.impermium.com) - Redwood City, CA\n\nImpermium is a leader in web security, protecting against account compromise, counterfeit registrations, and malicious activity. We generate a real-time risk profile for user activity, enabling sites to take immediate, proactive action against abuse.\n\nOn the engineering side, we are primarily a Python shop, although we use the Hadoop ecosystem extensively so there is some Java and we're playing around with Scala. We are a small company of about 15 who are easy-going and super fun to be around.\n\nWe're hiring for a couple positions right ",
+      "answers": {
+        "ai_native": 0.69,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Java",
+          "Python",
+          "Scala"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476539,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476539",
+      "header": "San Francisco, CA- Life360 (life360.com)",
+      "text": "San Francisco, CA- Life360 (life360.com)\n\nWe've got an awesome opportunity to work with a small team on scaling a really large solution! At Life360 we are dealing with over 350 million new location points every day (that number is growing quickly) from our over 45 million users. We are looking for somebody to help us build out our platform and solve some challenging problems at scale. Life360 offers the chance to wear many hats and to have a major impact on the organization.\nWe're looking for experienced (4+ years) backend engineers knowledgeable in scripting languages (PHP/Python) and who are",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.83,
+        "industry_stated": 0.85,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "mid",
+        "stack": [
+          "PHP",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476532,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476532",
+      "header": "Charlotte, NC - PassportParking",
+      "text": "Charlotte, NC - PassportParking\nWe are bringing parking into the 21st century. Always building and inventing and have a product that has an actual revenue model. Small team where everyone is highly driven.\n\nWe've got a programming challenge out there to weed out people that won't put in the effort to join an amazing opportunity.\nhttp://passportparking.info/PassportProgrammingTest\n\nShoot me an email if you want to chat.\n\nbrad.powers@passportparking.com\nhttp://passportparking.com",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.26,
+        "industry_stated": 0.88,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6479516,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6479516",
+      "header": "LiveRamp | Multiple Engineering Positions Available | www.LiveRamp.com/careers | San Francisco, CA | H1B, INTERN",
+      "text": "LiveRamp | Multiple Engineering Positions Available | www.LiveRamp.com/careers | San Francisco, CA | H1B, INTERN\n\nAbout us: LiveRamp’s leading data onboarding solution empowers marketers to activate their CRM data in their choice of online advertising platform for targeting, attribution, content optimization and more. We see relevancy as the world's largest optimization problem, and are excited to contribute to building a future where marketing is predominantly informative, engaging, and even appreciated for their usefulness to consumers through the use of data. Imagine that!\n\nWe're well funde",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 1.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.99,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476561,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476561",
+      "header": "Concrete Data (www.concretedata.com) - Durham, NC - Local only please",
+      "text": "Concrete Data (www.concretedata.com) - Durham, NC - Local only please\n\nWe're a small company (2 partners, 2-3 employees) looking to hire an experienced .NET developer for systems integration and ground-up development projects. Our clients come from heavy industry -- civil engineering, construction, shipping, manufacturing, etc. -- where information technology stagnated a decade ago. This is our opportunity. We've built a business around providing modern, user-centric web and mobile applications to replace their aging and clunky desktop programs. Enterprise doesn't have to suck.\n\nBeing a small ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.1,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476968,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476968",
+      "header": "Two Sigma, http://www.twosigma.com/careers.html, NYC",
+      "text": "Two Sigma, http://www.twosigma.com/careers.html, NYC\nsee https://news.ycombinator.com/item?id=6367973\nfor discussion",
+      "answers": {
+        "ai_native": 0.08,
+        "eng_leadership": 0.24,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.2,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.25,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476253,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476253",
+      "header": "Lacoda - Philadelphia, PA",
+      "text": "Lacoda - Philadelphia, PA\n\nhttp://www.lacoda.com/jobs\n\nLacoda is hiring Python developers! We're passionate about Python, and we use test-driven development extensively.\n\nWe're building a web application that does loan management for real estate lending. Our product makes it possible for lenders to do business faster, so they can fund more construction that creates better homes for real people.\n\nSend us an email: jobs@lacoda.com",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.91,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6478128,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6478128",
+      "header": "San Francisco, CA",
+      "text": "San Francisco, CA\n\nMany problems and opportunities facing humanity require science-based solutions:\n\n- Diseases: Curing Alzheimer's, Parkinson's, Cancer, HIV, Malaria\n- Energy: We need to to find cheap and clean sources of energy\n- Computing: Computers and robots can achieve so much more than they do now\n\nThe scientific process is much less efficient than it could be. Academia.edu's goal is to fix the problems in science so that science becomes faster and more open. We want to get every science pdf ever written on the internet, accessible for free.\n\nAcademia.edu is a platform where a scientist",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "other",
+        "industry_fits": 0.09,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MongoDB",
+          "Postgres",
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6479204,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6479204",
+      "header": "Worldwide Telecommute / REMOTE Automattic is currently hiring for a variety of positions including for new VIP Wranglers",
+      "text": "Worldwide Telecommute / REMOTE Automattic is currently hiring for a variety of positions including for new VIP Wranglers\n\nWe are passionate about making the web a better place and are strong believers in Open Source. We build WordPress.com, contribute to the WordPress Open Source project (http://wordpress.org) and work on a lot of other really cool stuff including Gravatar and Akismet. Join us if you are passionate about making the web a better place.\n\nThrough our WordPress.com VIP program, we provide support, hosting, training, and other services to some of the biggest and best WordPress site",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.69,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Go"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 6478568,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6478568",
+      "header": "Lucidchart is building world class graphical applications in the browser and on mobile devices. Lucid is startup founded by Karl Sun, a former Google exec, and Ben Dilts, our CTO. We're profitable and",
+      "text": "Lucidchart is building world class graphical applications in the browser and on mobile devices. Lucid is startup founded by Karl Sun, a former Google exec, and Ben Dilts, our CTO. We're profitable and rapidly growing in every dimension of the business and need people to join our team. For fun we raft river rapids on company retreats, have Friday BBQs, and eat lots of pizza. Talent and ability to learn are more important than specific skills.\n\nBACKEND SOFTWARE ENGINEER (all experience levels)\n- Lucidchart runs with various decoupled services in a Linux environment using Scala, MongoDB, AWS, and",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "bootstrapped",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.77,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.76,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Android",
+          "Java",
+          "JavaScript",
+          "MongoDB",
+          "MySQL",
+          "Scala",
+          "iOS"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 6478091,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6478091",
+      "header": "Streem (YC S12, VC Backed) - Hiring Engineer #1 - https://www.streem.com - San Francisco, CA - FULLTIME, INTERN, H1B",
+      "text": "Streem (YC S12, VC Backed) - Hiring Engineer #1 - https://www.streem.com - San Francisco, CA - FULLTIME, INTERN, H1B\n\nStreem is a personal cloud storage and streaming solution for your videos. We automatically store, transcode, and organize your content for instant playback on any device. We participated in YC S12 and have raised venture funding from top-notch investors.\n\nAbout us:\n\n+ Team: Young, 2-person, fully-technical team (Twitter, Microsoft, Berkeley EE/CS)\n\n+ Tech stack: Meteor.js, MongoDB, Ruby, Python, Java, Amazon S3/CloudFront/Beanstalk/EC2/ELB/Auto Scaling, scalable video transcod",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 1.0,
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.99,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java",
+          "MongoDB",
+          "Python",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476191,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476191",
+      "header": "Custommade (http://www.custommade.com/) - Cambridge, MA",
+      "text": "Custommade (http://www.custommade.com/) - Cambridge, MA\n\nFull-time devs. Frontend Backbone.js / jquery. Backend Python work, would likely be working with Django.\n\nWe're a two-sided marketplace that does matchmaking between professional artisans / craftsmen and buyers. You post your dreams, we find someone to make it real. People come up with some crazy ideas like a custom made quidditch set / proposal ring: http://blog.custommade.com/portfolio/a-very-harry-potter-proposal/\n\nOr and r2d2 engagement ring: http://blog.custommade.com/portfolio/r2d2-engagement-ring/\n\nOr a portal one: http://blog.cus",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "series_b",
+        "industry": "commerce",
+        "industry_fits": 0.96,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6481176,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6481176",
+      "header": "Kailua, Hawaii - Real Geeks - Full-stack Rails dev",
+      "text": "Kailua, Hawaii - Real Geeks - Full-stack Rails dev\n\nReal Geeks is looking for a top-notch Rails developer to help it expand its business. We are a small team with big ideas taking the online real estate world by storm.\n\nOur CRM is built in Ruby on Rails and we have some ambitious ideas to take it to the next level. We run hundreds of real estate websites running a CMS built in Python+Django with a MySQL datastore.\n* Real estate data is all stored in MongoDB, served up over an HTTP API written in Python/Tornado\n* Varnish for our front-end caching as well as load-balancing our MongoDB servers\n* ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.18,
+        "industry_stated": 0.94,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "Go",
+          "JavaScript",
+          "MongoDB",
+          "MySQL",
+          "Python",
+          "Rails",
+          "Redis",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476919,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476919",
+      "header": "The Weather Channel | Atlanta, San Francisco, Madison, Boston (Andover)",
+      "text": "The Weather Channel | Atlanta, San Francisco, Madison, Boston (Andover)\n\nWe are hiring:\n\n  * Application developers\n  * Systems engineers\n  * UX designers\n  * and more...\n\nOur technology impacts hundreds of millions of people a day across:\n\n  * Our mobile and web properties\n  * B2B services for retailers\n  * the FAA and majority of U.S. airlines\n  * top social networks\n  * and more...\n\nOur technology ranges from:\n\n  * Linux to Windows\n  * Java to C++\n  * iOS to Android\n  * MySQL to Riak to Cassandra\n  * and more...\n\nhttp://www.weather.com/careers/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.79,
+        "industry_stated": 0.88,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "C++",
+          "Java",
+          "MySQL",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476440,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476440",
+      "header": "Austin, TX - Datafiniti (https://www.datafiniti.net)",
+      "text": "Austin, TX - Datafiniti (https://www.datafiniti.net)\n\nDatafiniti is the world's only search engine for data. We crawl and index close to 1 million websites each month to create structured, searchable data. Right now we have over 70,000,000 records on businesses, people, and products - and growing.\n\nBuild bleeding-edge technology with a team that's all good people. We're looking for experienced or junior-level sales and back-end developers. See https://www.datafiniti.net/home/careers to learn more.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.87,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.97,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476390,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476390",
+      "header": "San Francisco - Software Engineer (H1B welcome, Intern positions available)",
+      "text": "San Francisco - Software Engineer (H1B welcome, Intern positions available)\n\nThumbtack is a new way to find and hire local services like DJs, photographers, house cleaners, and contractors. Over 250k small businesses around the country have joined Thumbtack, and we're making real money in the local services marketplace. We're backed by great VCs like Sequoia Capital.\n\nThe team is full of down-to-earth, practical, and intelligent people. Everyday for lunch we all sit down to a meal cooked by our in-house chef. On Wednesday nights, we stay late for a hot dinner, some wine, guests, and great conv",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "commerce",
+        "industry_fits": 0.62,
+        "industry_stated": 0.99,
+        "interns_token": 1.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.98,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6475914,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6475914",
+      "header": "Streak (San Francisco, CA)",
+      "text": "Streak (San Francisco, CA)\n\nhttp://www.streak.com/jobs\n\nWe are looking for a front end developer who is comfortable slinging javascript in a hostile environment (extending GMail). You should like underscore.js and be comfortable with jQuery.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.1,
+        "industry_stated": 0.35,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6477571,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6477571",
+      "header": "Oracle - Berlin, Germany",
+      "text": "Oracle - Berlin, Germany\n\nI know Oracle is not the typical company looking for candidates on HN, but we're actually a small company recently acquired by Oracle, and we're mostly maintaining our way of working and mentality. We're currently looking for Python and Javascript developers. If there are any hackers looking for a stable and well paid job in Berlin, please write me at the address from my profile.",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "public_or_large",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.07,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6477874,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6477874",
+      "header": "Factual is currently hiring engineers and data lovers of all levels in the SF Bay Area, Los Angeles, and Shanghai.",
+      "text": "Factual is currently hiring engineers and data lovers of all levels in the SF Bay Area, Los Angeles, and Shanghai.\nFactual’s location platform enriches mobile location signals with definitive global data, enabling personalized and contextually relevant mobile experiences. Built from billions of inputs, the data is constantly updated by Factual’s real-time data stack. We were recently named one of \"50 Disruptive Companies in 2013\" by MIT Technology Review. We have a terrific team that is still fairly small and an incredible CEO who was previously the co-founder of Applied Semantics (which was b",
+      "answers": {
+        "ai_native": 0.07,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "other",
+        "industry_fits": 0.31,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.46,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6514389,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6514389",
+      "header": "Twenty Recruitment - New York, NY",
+      "text": "Twenty Recruitment - New York, NY\n\nWe are a recruitment firm, focused solely in NYC's startup, digital & tech space. We strategically support businesses at various stages of development, from inception through late series funding, to pre & post-IPO.\n\nAs many organizations in this space are competing for the best engineering talent, we help to accurately represent both company and opportunity to the potential candidate. We are flexible to our client's needs, taking on as much of the process as requested, including pre-screening and meeting each candidate before presentation.\n\nSome of our curren",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.99,
+        "funding_stage": "series_b",
+        "industry": "other",
+        "industry_fits": 0.04,
+        "industry_stated": 0.75,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Java",
+          "JavaScript",
+          "Node.js",
+          "PHP",
+          "Python"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 6479412,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6479412",
+      "header": "Twitch - Software Engineers - San Francisco, CA",
+      "text": "Twitch - Software Engineers - San Francisco, CA\n\n2 years ago the idea of watching live video games online was a crazy notion, now it is big business. We've just raised a new round to continue our scale (http://tcrn.ch/1dSbFH4), which will accelerate even more as we're being shipped in both the xbox one and PS4 this Christmas.\n\nWe're looking for smart and passionate engineers to help us get there. We're in the process of incrementally rebuilding our architecture to support the near 50 million MAU we have on our site for hours each and every day. We're using Go (we've found some interesting bugs",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "venture_unspecified",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Go"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6477528,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6477528",
+      "header": "Axial - New York, NY (Flatiron)",
+      "text": "Axial - New York, NY (Flatiron)\n\nPublic site: http://www.axial.net\n\nAxial Corps engineering blog: http://www.axialcorps.com\n\nAxial is an online marketplace that connects private companies with potential investors, lenders or acquirers. Over 200 private companies every week, ranging from hyper growth software companies raising a series A or B to mature companies pursuing an exit, use Axial to find partners, sources of funding and establish their exit strategy. Our long-term vision is to create commercial opportunity for every member of the Entrepreneurial Economy, empowering entrepreneurs, thei",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.72,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476949,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476949",
+      "header": "London, UK -- CarbonCulture (http://carbonculture.net)",
+      "text": "London, UK -- CarbonCulture (http://carbonculture.net)\n\nWe're looking for a front-end developer to help us make changes and impact sustainability in some big places, including the UK's Parliament and major UK cities.\n\nWe're based in the Open Data Institute (http://www.theodi.org/) near Old Street, rubbing shoulders with some other really interesting and influential start-ups - many with an interest in sustainability and all with an interest in open data.\n\nCheck out the full spec: http://www.carbonculture.net/blog/2013/09/19/front-end-visualisation-developer/\n\nLooking forward to hearing from yo",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.16,
+        "industry_stated": 0.34,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 6476999,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=6476999",
+      "header": "Whisper (http://whisper.sh - but download the app to see what it really is) - Santa Monica, CA - Use Erlang, Node, Ruby, Python, and Cassandra. Help us grow from 2.5 BILLION pageviews/month to 25 Bill",
+      "text": "Whisper (http://whisper.sh - but download the app to see what it really is) - Santa Monica, CA - Use Erlang, Node, Ruby, Python, and Cassandra. Help us grow from 2.5 BILLION pageviews/month to 25 Billion. We're a team of 8 devs and need a lot more - in data science, functional programming, iOS and Android. Come work in a house two blocks from the beach. (Sequoia and Lightspeed funded) - chad@whisper.sh",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "venture_unspecified",
+        "industry": "other",
+        "industry_fits": 0.1,
+        "industry_stated": 0.52,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Node.js",
+          "Python",
+          "Ruby",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

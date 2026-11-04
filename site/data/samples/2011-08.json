@@ -1,0 +1,798 @@
+{
+  "month": "2011-08",
+  "posts": [
+    {
+      "id": 2832532,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832532",
+      "header": "New York, NY",
+      "text": "New York, NY\n\nCoursekit is trying to kill an entrenched incumbent (http://blackboard.com/) and bring social networking to education, and we want you to help build it.\n\nWe're looking for an engineer who is excited about joining a young team that's shaking up how education works. We always try using the best tool for the job. For now, we use CoffeeScript, Python, Node.js, Redis, as well as a still-unreleased CoffeeScript framework. If working with these technologies excites you, talk to us.\n\nApply here: http://coursekit.theapplicants.com/j-11-222\nOr if you have any questions, shoot me an email a",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Node.js",
+          "Python",
+          "Redis"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832572,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832572",
+      "header": "Palo Alto, CA",
+      "text": "Palo Alto, CA\n\nQuora\n\nWe're continuing to build out the core team developing www.quora.com hiring software engineers and product designers: http://www.quora.com/jobs\nWith less than 30 employees, this is a chance to join at a stage where everyone's work will have a huge impact on the technology, the product, and the culture of the company. A unique opportunity to solve challenging problems and play a big part in building a highly visible consumer internet product.\nandy@quora.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.1,
+        "industry_stated": 0.48,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832526,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832526",
+      "header": "Providence, RI",
+      "text": "Providence, RI\n\nTracelytics is hiring\n\n* Software engineer: C/C++ systems hacker and python aficionado.\n\n* Product Marketing Manager: contribute to strategy, and execute marketing campaigns\n\nEmail us: jobs@tracelytics.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.04,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C",
+          "C++",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832544,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832544",
+      "header": "Skookum Digital Works: Charlotte, NC",
+      "text": "Skookum Digital Works: Charlotte, NC\n\n--- WHO WE ARE ---\n\nSkookum Digital Works is a custom mobile and web applications development company. We love working with startups and entrepreneurs; using agile methodologies and the lean startup movement to deliver minimal viable products. Delivery is key, so we look for performers who love taking control of projects and require minimal management.\n\nhttp://skookum.com\n\n--- WHO WE WANT ---\n\nSkookum Digital Works is hiring both seasoned developers (mid to senior) as well as a junior dev.\n\nWe do not target specific languages per say, as great programmers ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.97,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "JavaScript",
+          "Node.js",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2843873,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2843873",
+      "header": "REMOTE",
+      "text": "REMOTE\nOur Location: New York City or Los Angeles\n\n>> iOS development & Android development (2 location finder apps + 1 bubble-bobble style game = 6 apps total).\n\n>> Server and API development (faceted searching with Solr or ElasticSearch, database design with MongoDB or postgres spatial.) You choose the language (python or ruby preferred) and help set the roadmap / timetable.\n\nReasonable, but not generous compensation, however, we have plenty of work through the end of the year at a minimum to keep you busy. Payment via oDesk or PayPal, no visa required.\n\nTeams welcome (preferred).",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.07,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.17,
+        "industry_stated": 0.28,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "MongoDB",
+          "Postgres",
+          "Python",
+          "Ruby",
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 2832290,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832290",
+      "header": "New York, NY (SoHo)",
+      "text": "New York, NY (SoHo)\nkikin Inc - http://www.kikin.com/jobs\n\n- iOS Engineer - http://www.kikin.com/jobs#mobile\n\n- UI Designer - http://www.kikin.com/jobs#ui\n\n- Fall Engineering Intern - http://www.kikin.com/jobs#hack_intern\n\n- Search Engineer - http://www.kikin.com/jobs#server",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.06,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.93,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832329,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832329",
+      "header": "Delhi, India",
+      "text": "Delhi, India\n\nVisual Website Optimizer http://visualwebsiteoptimizer.com/careers.php\n\nWe require engineers to work on our LAMP stack based application. We work on scale (1300 requests/second) and use advanced JavaScript/CSS techniques to make A/B testing work. Join us if you want to make a dent on website optimization space.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.44,
+        "industry_stated": 0.89,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832749,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832749",
+      "header": "Ableton in Berlin is hiring C and Python developers:",
+      "text": "Ableton in Berlin is hiring C and Python developers:\n\nhttp://www.ableton.com/jobs",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.07,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.07,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.09,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832137,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832137",
+      "header": "Software Engineers (Santa Barbara, CA) (Candidates must be willing to relocate to Santa Barbara. H1B candidates are welcome.)",
+      "text": "Software Engineers (Santa Barbara, CA) (Candidates must be willing to relocate to Santa Barbara. H1B candidates are welcome.)\n\nAppFolio is the fastest growing provider of online property management software. Our company was founded by a team of technology leaders with many years of experience developing Software-as-a-Service applications. We believe that a small group of passionate people can deliver extraordinary results. We believe in focus and know we can only do a few things really, really well. Our company is experienced and built to last.\n\nAppFolio software engineers work to build scalab",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.69,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "JavaScript",
+          "MySQL",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2833787,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2833787",
+      "header": "San Francisco, CA - Mixpanel (YCS09, Sequoia funded)",
+      "text": "San Francisco, CA - Mixpanel (YCS09, Sequoia funded)\n\nhttp://mixpanel.com/\n\nWe're currently 8 people, all engineers. We're looking for hackers who want to scale.\n\nWe just built a new data store that lets us process hundreds of millions of items in realtime with unlimited filtering and segmentation, and we want to build lots of products on top of it.\n\nIt's a fascinating problem space and a fun team.\n\nCheck out http://mixpanel.com/jobs to apply",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.67,
+        "industry_stated": 0.78,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832026,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832026",
+      "header": "Amsterdam, The Netherlands",
+      "text": "Amsterdam, The Netherlands\n\nFunda is looking for a full-time User Experience Designer and Front-end Developer. Both positions will be in our current User Experience team, where we already have three designers.\n\nEspecially for the front-end developer we are looking for someone to head our front-end code, take responsibility and take the quality of the code to the next level. Feeling for interaction design would be an added bonus, as part of your time you'll be working along with our designers.\n\nAll design (3 people) and development (12 developers) is done in-house. The company itself counts abo",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.79,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.01,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2851321,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2851321",
+      "header": "San Francisco, CA",
+      "text": "San Francisco, CA\n\nStealth funded startup in the local/travel space looking for backend engineers. A couple of areas that we're currently working on include smart search and recommendation engines, social and game mechanics, and sorting and filtering capabilities. We will also be expanding into the mobile space shortly.\n\nOur tools: Ruby on Rails, MySQL, AWS, Git, nginx\n\nThe pay is competitive and the equity is generous. If you are an experienced engineer who enjoys being active, than this is the startup for you.\n\nMore Info:\n- We don't care too much for formal degrees\n- We're very flexible peop",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.67,
+        "industry_stated": 0.81,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "MySQL",
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 2831904,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2831904",
+      "header": "Amsterdam, NL",
+      "text": "Amsterdam, NL\n\nBoth INTERN and full-time positions.\nWe recently launched Skylines at Techcrunch disrupt, and our mission is to organize the world's real time photos.\nWe currently process over a million pictures a day, and generate a lot of data in the process.\nWe're looking for people who can help us scale and analyse this data. Mostly backend developers on various technologies, ranging from SOLR, Hadoop to PHP, MySQL and Redis.\nWe're also looking for a front-end developer to help us build cool products around this data.\nWe're based in the center of beautiful Amsterdam in an active startup com",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.91,
+        "industry_stated": 0.98,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.96,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MySQL",
+          "PHP",
+          "Redis"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2833015,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2833015",
+      "header": "San Francisco, CA -- Weebly is hiring for these impressive business card titles:",
+      "text": "San Francisco, CA -- Weebly is hiring for these impressive business card titles:\n\nSpam Domination Engineer\n\nSuper-senior Front-end Web Developer\n(this position has a fun challenge to solve!)\n\nMore here:\nhttp://www.weebly.com/jobs.php",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2831882,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2831882",
+      "header": "Anyone hiring in Japan?",
+      "text": "Anyone hiring in Japan?",
+      "answers": {
+        "ai_native": 0.08,
+        "eng_leadership": 0.09,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.1,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 2833206,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2833206",
+      "header": "New York, NY - Software Engineer , fulltime",
+      "text": "New York, NY - Software Engineer , fulltime\n\nTrendrr is a real-time data processing engine that powers Trendrr.com, Trendrr.tv, and other media experiences. We are a small, lean startup. Our stack is built on open source, and we believe in giving back wherever possible. This is a very small development team, and you will have a hand in everything.\n\nFor more information about the position see: http://blog.trendrr.com/2011/05/24/software-engineer-wanted-.... or contact me directly, I am a developer at Trendrr and am happy to answer your questions",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.88,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2833167,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2833167",
+      "header": "OnSite: Moscow, Russia, Visa support/accommodation will be provided. 6 month contract, leading to permanent possible in SF / Bay.",
+      "text": "OnSite: Moscow, Russia, Visa support/accommodation will be provided. 6 month contract, leading to permanent possible in SF / Bay.\n\nRuby on Rails with Javascript(jQuery/Sencha) [Fontend]\nRuby on Rails with PostgreSQL / NoSQL [Backend]\n\npavel.v.zaitsev@gmail.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Postgres",
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2835769,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2835769",
+      "header": "Rockefeller Center NYC, onsite: #1 looking for #2",
+      "text": "Rockefeller Center NYC, onsite: #1 looking for #2\n\nBootstrapped prop ultra low latency trading firm (as opposed to a firm which originally had investors and later kicked them out), and I'm willing to cut significant equity. see http://news.ycombinator.com/item?id=2835656 for some discussion of what I do.\n\nI'm not a traditional finance guy, and I'm definitely not looking for a banking drone. Most of those tasks are handled by cron anyway. Sanctity of weekends are preserved.\n\nthe ideal candidate: mastery, to the level of obsession, with C/Python/coreutils; insatiable curiosity; inquisitive to a ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.05,
+        "funding_stage": "bootstrapped",
+        "industry": "fintech",
+        "industry_fits": 0.95,
+        "industry_stated": 0.91,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2833158,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2833158",
+      "header": "Raleigh, NC; Westford, MA; Mountain View, CA; New York, NY; Tysons Corner, VA (full time): Red Hat",
+      "text": "Raleigh, NC; Westford, MA; Mountain View, CA; New York, NY; Tysons Corner, VA (full time): Red Hat\n\nSeveral positions available. Information on open positions at https://careers.redhat.com/ext/search\n\nWorking at Red Hat means working beyond the borders of obvious and ordinary. This is a global company growing fast and bringing open source into the mainstream.",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.08,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.39,
+        "industry_stated": 0.85,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832019,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832019",
+      "header": "Ottawa, Ontario, Canada",
+      "text": "Ottawa, Ontario, Canada\n\nGazaro is hiring 2 full-time Python developers and a QA Engineer. (http://www.gazaro.com/careers)\n\nGazaro specializes in gathering prices from retail products, matching products from different retailers, compiling the data and performing statistical analysis. We have a consumer based website and an b2b product.\n\nDrop me an email careers@gazaro.com attention \"Dominic\" if you're interested.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.88,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2833306,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2833306",
+      "header": "San Francisco, CA",
+      "text": "San Francisco, CA\n\nJustin.tv / TwitchTV hiring programmers to build the future of competitive gaming.\n\nBy leveraging our existing video infrastructure, which includes an international CDN and the world’s highest quality live video, Justin.tv has become the world's largest site for live competitive gaming. We now need developers to join us in building out TwitchTV - our new website dedicated to competitive gaming. Our goal is to connect people around the games they love.\n\nWe are looking for talented engineers who are excited about the future of gaming. We are still small, but growing extremely ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2831699,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2831699",
+      "header": "LinkUp.com Search Engine - Minneapolis, MN ($5,000 to relocate, $2,000 referral bonus) - Lead PHP developer focusing on new feature developlemnt",
+      "text": "LinkUp.com Search Engine - Minneapolis, MN ($5,000 to relocate, $2,000 referral bonus) - Lead PHP developer focusing on new feature developlemnt\n\nRecently finished a large round of funding, looking for a 80% onsite developer to lead our small, but amazing, development staff and pursue new features to help jobseekers make their task suck less! Work can involve whatever seems necessary or interesting (from iPhone to Facebook to 2-page standalone domains for a specific feature.) We use git, Solr, many Amazon AWS services - come join our team!!! (Or email eric@linkup.com if you have more questions",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.96,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.26,
+        "industry_stated": 0.79,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832129,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832129",
+      "header": "San Francisco, CA",
+      "text": "San Francisco, CA\n\nHotPads - http://hotpads.com/pages/jobs.htm\n\nWe're looking for software engineers, web user interface developers and interns of either persuasion. We're a small company looking for driven individuals who want make a big impact on the way people find housing.\n\ndpeters@hotpads.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.92,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.98,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832472,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832472",
+      "header": "San Francisco, CA - Yammer",
+      "text": "San Francisco, CA - Yammer\n\nYammer is an awesome tech startup masquerading as an enterprise software vendor. We're building an enterprise social network (an internal communication and collaboration tool. Like Facebook.) and we need your help.\n\nWe build our product with insight and wisdom gained from the consumer social networking space, but we charge enterprise prices (and our customers pay them!) We're fighting some big serious competitors (Salesforce/Chatter, Jive, and VMWare/Socialcast) and this space has never been more exciting.\n\nYammer is really changing the way people get work done. We ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C#",
+          "JavaScript",
+          "Node.js",
+          "Rails",
+          "Ruby",
+          "Scala",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2833202,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2833202",
+      "header": "Atlanta, GA - Vitrue",
+      "text": "Atlanta, GA - Vitrue\n\nWe're a social media company building a platform for corporate clients to manage their presences on Facebook/Twitter and the like. We're primarily a Rails shop. Having said that, we do have projects in other languages, and we're more than willing to hire someone smart with no Rails experience and bring them up to speed.\n\nStuff we use: Ruby, Rails, MySQL, PostgreSQL, MongoDB, Node.js, jQuery, AWS/Scalr/Engine Yard, and more.\n\nFor open positions and a better idea of what we do, take a look at our job page here: http://vitrue.com/jobs (don't let the site design dissuade you,",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.4,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.33,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "MongoDB",
+          "MySQL",
+          "Node.js",
+          "Postgres",
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2831731,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2831731",
+      "header": "Pune, India - we are looking for guys/girls who are smart and get things done.",
+      "text": "Pune, India - we are looking for guys/girls who are smart and get things done.\n\nWe are building a search engine for fashion. We have an office in Model Colony. Currently we are 10 people (CEO, CTO, adviser, web designer, 6 content creators), with lots of work to be done and not enough of us to go around.\n\nThe main thing we need now is a general purpose developer. In the past month or so I've crunched half a TB of data in hadoop, build an html5/canvas app, and build a system for human oracles to properly categorize our data. We use javascript, python/django, and hadoop, though we really don't c",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.8,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.36,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "JavaScript",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2837772,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2837772",
+      "header": "Delafield, WI Montage is hiring a permanent full-time employee.",
+      "text": "Delafield, WI Montage is hiring a permanent full-time employee.\nMontage, a rapidly growing technology company, is hiring a Senior User Experience/Interface Developer. Design and development of a web-based application for the HR/Recruitment industry. Put your footprint on applications that will be used by millions of users! Responsible for designing a new web application in ASP.NET MVC3 as well as helping to support an existing ASP.NET web application. You will be working with product managers, architects and users to enhance the application’s feature set & improve usability & appearance. C# & ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.88,
+        "industry_stated": 0.86,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "C#"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2832753,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2832753",
+      "header": "Qwiki is looking for backend, android and devops engineers in SF. We are currently using Ruby/Scala for most of the server side code.",
+      "text": "Qwiki is looking for backend, android and devops engineers in SF. We are currently using Ruby/Scala for most of the server side code.\n\nWe are developing a platform to allow people to experience information in a compelling manner(visual, audio, story). We need your help to deliver this experience to the world. There's a lot of interesting challenges(text mining, media processing, scalable and performant services) to be solved.\n\nfeel free to email me direct at t at qwiki dot com.\n\nhttp://www.qwiki.com/about-us\nhttp://www.qwiki.com/work-here",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.68,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Ruby",
+          "Scala"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2846591,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2846591",
+      "header": "San Francisco, CA.",
+      "text": "San Francisco, CA.\n\nBoku is looking for a web developer. Need to be an experienced one. Will be dealing with PHP (Symfony framework), JQuery, HTML, CSS, REST APIs. Mobile UI development experience is a plus.\n\nhttp://www.boku.com/about/jobs/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.09,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 2831829,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=2831829",
+      "header": "Washington, DC",
+      "text": "Washington, DC\n\nThreespot - http://threespot.com\n\nThreespot is a mid-sized digital communications agency that focuses on the do-gooding world: typically nonprofits, foundations, and government agencies. We're a tight-knit bunch of whip smart folks trying to do great things through our incredible array of clients, which includes: ACLU, Amnesty International, Brookings Institution, Conservation International, Humane Society, Knight Foundation, MacArthur Foundation, National Park Service, Peace Corps, Planned Parenthood, and Smithsonian Institution.\n\nIn the technology department we're hiring mult",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.05,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "Rails"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

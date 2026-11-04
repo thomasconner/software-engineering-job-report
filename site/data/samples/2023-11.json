@@ -1,0 +1,842 @@
+{
+  "month": "2023-11",
+  "posts": [
+    {
+      "id": 38102782,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38102782",
+      "header": "LifeCheq | Data Engineer | Remote OR Cape Town, South Africa | Contract | https://lifecheq.freshteam.com/jobs/6CJ1yaXjv5Uy/data-engineer-remote",
+      "text": "LifeCheq | Data Engineer | Remote OR Cape Town, South Africa | Contract | https://lifecheq.freshteam.com/jobs/6CJ1yaXjv5Uy/data-engineer-remote\n\nLifeCheq’s mission is to give everyone access to high quality, personalised, holistic financial advice.\n\nWe are looking for a Data Engineer with Databricks and AWS. Join us to help underserved customers get the financial advice they deserve. Interesting problems, great culture.\n\nWe need you to be fluent in English, and be able to work core hours (10:00 to 16:00) for a GMT+2 time zone.\n\nUse the link to apply or reach out to me directly: tomek.walkuski ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38102775,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38102775",
+      "header": "Electric Hydrogen | eh2.com | Full-stack Software Engineer, Senior Data Engineer, Network System Engineer | San Carlos, CA; Natick, MA; or Hybrid Remote | Full-time | Visa",
+      "text": "Electric Hydrogen | eh2.com | Full-stack Software Engineer, Senior Data Engineer, Network System Engineer | San Carlos, CA; Natick, MA; or Hybrid Remote | Full-time | Visa\n\nElectric Hydrogen builds 100MW hydrogen electrolyzer using modular & integrated design to radically lower the cost of green hydrogen production and increase global adoption. We just raises $380M in Series C financing, claiming the title of the first $1B green hydrogen start-up as recently covered by WSJ and TechCrunch.\n\nThe software team is responsible for building applications from supporting internal R&D experiments using",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.03,
+        "funding_stage": "series_c_plus",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.23,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "C++",
+          "GCP",
+          "JavaScript",
+          "Python",
+          "React"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 38106039,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38106039",
+      "header": "Writ | Founding Back-end / Full-stack Engineer | Full-time | SF | https://writ.so",
+      "text": "Writ | Founding Back-end / Full-stack Engineer | Full-time | SF | https://writ.so\n\nWe're a well-funded seed-stage startup, building a new collaborative tool for data-driven teams.\n\nIf building tools that incorporate real-time collaboration, search, data and machine learning excite you, we'd love to chat.\n\nPlease reach out at jobs@writ.so if interested",
+      "answers": {
+        "ai_native": 0.14,
+        "eng_leadership": 0.04,
+        "funding_stage": "seed",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.93,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 38119249,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38119249",
+      "header": "SEEKING FREELANCERS | Global, REMOTE",
+      "text": "SEEKING FREELANCERS | Global, REMOTE\n\nContentLab® is a technical content marketing agency that creates content developers want to read. We're trusted by leading tech firms like Microsoft, Adobe, Meta, HubSpot, and more.\n\nWe're looking for freelance technical writers with expertise in any of these areas: Android, IOS, OpenShift and Ansible.\n\nIf you’re interested, go to our website to fill out our application form: https://contentlab.com/writeforus/\n\nThank you!",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38132729,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38132729",
+      "header": "Vidrovr | https://vidrovr.com | Senior FE/Full Stack Engineer | REMOTE | Full-time",
+      "text": "Vidrovr | https://vidrovr.com | Senior FE/Full Stack Engineer | REMOTE | Full-time\n\nVidrovr makes video useful. We use machine learning to turn disorganized heaps of media and tangles of live feeds into beautifully structured metadata to drive actions and business decisions for our users. We enable previously impossible applications, at previously impossible scales.\n\nWe are a small team with self-sustaining - and growing - revenues. Our notable major partners include The AP, the USAF, CNBC, the German Marshall Fund, DHS, FOX sports, and more.\n\nVidrovr fosters an open, supportive engineering cu",
+      "answers": {
+        "ai_native": 0.98,
+        "eng_leadership": 0.02,
+        "funding_stage": "bootstrapped",
+        "industry": "other",
+        "industry_fits": 0.65,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38107028,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38107028",
+      "header": "Playboy | USA (Los Angeles) or REMOTE | Full-time | SWE and Design Roles | https://www.playboy.com/app",
+      "text": "Playboy | USA (Los Angeles) or REMOTE | Full-time | SWE and Design Roles | https://www.playboy.com/app\n\nPlayboy is an iconic brand recognized globally as a trailblazer in the realms of adult entertainment, style, and culture for over seven decades.\n\nWe are seeking skilled Software Engineers and Designers eager to influence and evolve our digital presence. Our technical environment thrives on Ruby on Rails/PostgreSQL, React/Next.js/TypeScript/Redux, and AWS. We encourage a culture of innovation, continuous learning, and collaboration to create a compelling user-centric experience.\n\nOpen roles:\n",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.95,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.05,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "Next.js",
+          "Postgres",
+          "Rails",
+          "React",
+          "Ruby",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38109638,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38109638",
+      "header": "Nominet | Senior Front-end engineer | Full-Time | ONSITE / Hybrid (Oxford, UK) | £55k - £75k plus bonus and great benefits",
+      "text": "Nominet | Senior Front-end engineer | Full-Time | ONSITE / Hybrid (Oxford, UK) | £55k - £75k plus bonus and great benefits\n\nAbout us: We run DNS for the .uk domain space, and a growing number of other TLDs as well. My team is currently working on a complete re-write of our flagship customer UIs used by domain owners, sellers and TLD admins.\n\nStack: At the moment we're an Angular / TypeScript / Java shop (but I'm secretly not convinced about Angular so I'd be happy to hear from people with experience in other frameworks and even happier to hear from people who've done migrations!).\n\nRole: This ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.81,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Angular",
+          "Java",
+          "TypeScript"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 38111077,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38111077",
+      "header": "Octocom | Remote | Europe | Full-time | Full Stack Developer | $50k-90k salary + Substantial Equity",
+      "text": "Octocom | Remote | Europe | Full-time | Full Stack Developer | $50k-90k salary + Substantial Equity\n\nWe’re a well-funded startup building a solution to streamline the online shopping experience, guiding customers to their ideal product choice using conversational agents. Essentially, our vision is to replicate the experience of in-store expert shopping advisors, but online.\n\nWe’ve launched our product and already have paying clients. So far we are growing substantially fast (3x revenue from past quarter) and our biggest bottleneck is product development speed.\n\nWe are looking for a generalist ",
+      "answers": {
+        "ai_native": 0.91,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.95,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.58,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "LLM",
+          "Postgres",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38102912,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38102912",
+      "header": "Cylitic Security | Remote (US Only) | Full Time | Senior Python Developer",
+      "text": "Cylitic Security | Remote (US Only) | Full Time | Senior Python Developer\n\nWe are a managed security services company that helps enterprises ensure that their smaller business partners are secure from cyber threats. We are a profitable company but operate like an early stage start up. Our environment is pretty fluid, and our challenges span across multiple domains.\n\nWe are currently looking for a senior python developer who has extensive experience designing and building modern customer facing web applications, and ideally has experience with ingesting, parsing, and unifying multiple data sour",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.86,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Django",
+          "Postgres",
+          "Python"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38099899,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38099899",
+      "header": "Bold Penguin | Remote (US)* | Full Time | Software Engineers",
+      "text": "Bold Penguin | Remote (US)* | Full Time | Software Engineers\nBold Penguin products help insurance agencies successfully quote and bind small business insurance policies with the click of button! We are growing fast and expanding our teams. Use Linux, macOS, or Windows along with whatever tools you enjoy using (Slack, Zoom, your choice IDE, etc.)\n\nIf you don’t meet all of the qualifications please don’t worry. Apply anyway! If you’re a current SWE that doesn’t mean we wouldn’t consider you for a senior position. We don’t bite ;)\n\nSome current open roles:\n\n  Software Engineer ~> https://www.theg",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.11,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38105769,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38105769",
+      "header": "Hackensack Meridian Health | Remote (ESTish preferred) | Full Time | Sr. Software Engineer",
+      "text": "Hackensack Meridian Health | Remote (ESTish preferred) | Full Time | Sr. Software Engineer\n\nHMH is NJ's largest healthcare provider, has a strategic partnership with Google Cloud, and is leading the country in building cloud-native tools and solutions to improve healthcare provider experiences and patient care.\n\nWe are looking for a seasoned developer and engineer to join our team and help us build out our data pipelines, full-stack web applications, and AI solutions in Python and Typescript on Google Cloud. Lots of opportunities here to make a difference in improving the lives of healthcare p",
+      "answers": {
+        "ai_native": 0.09,
+        "eng_leadership": 0.02,
+        "funding_stage": "public_or_large",
+        "industry": "health",
+        "industry_fits": 0.98,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "GCP",
+          "Python",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38102575,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38102575",
+      "header": "46elks | Social Web Developer | Sweden/Finland | Part or full time | ONSITE",
+      "text": "46elks | Social Web Developer | Sweden/Finland | Part or full time | ONSITE\n\nWe are looking for an additional community builder for our two-way SMS and phone calls API service. Finland most urgent but we are open to additions in Sweden too.\n\nA lot of the work can be done remotely, but going to events (meetups, hackathons) require physical attendence.\n\nPart time can be a good start if you are unsure if you enjoy looking up from the keyboard as much as community building requires.\n\nEmail me at johannesl at 46elks dot com if you want to apply or are curious about the position.",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.98,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.03,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 38115958,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38115958",
+      "header": "Dagster Labs | Software Eng - Platform ; Developer Success Eng ; Eng Manager | Remote First, US | Full-time",
+      "text": "Dagster Labs | Software Eng - Platform ; Developer Success Eng ; Eng Manager | Remote First, US | Full-time\n\nAbout Dagster:\nDagster is an orchestration platform for the development, production, and observation of data assets. Dagster is used internationally and by a rapidly growing number of top tier companies.\n\nAbout Dagster Labs:\nWe’re a well-funded startup team with a proven track record of shipping open source software with global adoption. Our goal is to make Dagster the de facto solution for structuring data platforms.\nCheck out dagsterlabs.com to learn more.\n\nAbout the roles:\nWe are loo",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.99,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "GraphQL",
+          "Python",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38100852,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38100852",
+      "header": "Ride with GPS | Experienced Linux Systems Engineer & Senior Rails Developer | Systems Engineer within 2 hours of Portland OR, Rails Developer Remote OK | Full Time | https://ridewithgps.com/about",
+      "text": "Ride with GPS | Experienced Linux Systems Engineer & Senior Rails Developer | Systems Engineer within 2 hours of Portland OR, Rails Developer Remote OK | Full Time | https://ridewithgps.com/about\nWe are the world's largest library of bike routes, and we enable cyclists to go on better rides, more often. We have a website and mobile apps that allow people to discover the best riding in their area, and get turn by turn navigation using either our mobile apps or the bike computer of their choosing. Come join us in taking Ride with GPS to the next level! We have one opening right now:\n\n- Linux Sys",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.95,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Rails"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38107730,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38107730",
+      "header": "Stainless | Founding Engineer | NYC ONSITE | Full-time",
+      "text": "Stainless | Founding Engineer | NYC ONSITE | Full-time\n\nStainless is building the platform for high-quality, easy-to-use APIs.\n\nOur first product is SDKs as a service – you send us your OpenAPI spec, and we generate packages in all the major languages and publish them to npm/pypi/etc (e.g., `npm install openai`, which is a package we produce).\n\nThese SDKs are world-class: you get an idiomatic wrapper with autocomplete, types, etc. (I built a version of this at Stripe for their SDKs, and am now building a better version for everyone.)\n\nNext, we want to make it easy to build amazing REST APIs. R",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "GraphQL",
+          "Next.js"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 38122775,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38122775",
+      "header": "SINCERE | REMOTE | US + Canada (Boston HQ) | Full-Time | sincere.com",
+      "text": "SINCERE | REMOTE | US + Canada (Boston HQ) | Full-Time | sincere.com\n\nWe build technology that brings you closer and helps show you care to the people who matter the most in your life. With 30+ years of combined innovation, our brands represent the leading platform for family milestones, celebrations, and memories. We are home to Punchbowl, Timehop (our recent acquisition), and Memento. Acquisition news on Built in Boston: https://bit.ly/sincere-acquires-timehop\n\nOur Company is remote with team members in multiple states/provinces. We maintain an office in Greater Boston (Framingham, MA), but ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.09,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.89,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38100341,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38100341",
+      "header": "solo.io | Senior Backend Software Engineer | Boston, MA (Cambridge), or fully remote (NA) | Full-time",
+      "text": "solo.io | Senior Backend Software Engineer | Boston, MA (Cambridge), or fully remote (NA) | Full-time\n\nSolo is an application networking company working with open source, cloud native technologies. If you are passionate about technologies like containers, Kubernetes/k8s, Istio service mesh, Envoy proxy, GraphQL, Cilium, eBPF, WASM (server side), serverless functions, and more, then Solo.io is the place for you! We strive to productize the bleeding edge of cloud technologies, contribute back to the open source community, and build solutions which scale globally. If you're interested in presenti",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.98,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Go",
+          "GraphQL",
+          "Kubernetes"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38167438,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38167438",
+      "header": "Monterra | Full Stack Engineer| Full Time | San Francisco HYBRID",
+      "text": "Monterra | Full Stack Engineer| Full Time | San Francisco HYBRID\n\nI'm Kelson, the co-founder. We're an early stage climatetech company building design & proposal software for EV charging projects. Our goal is to accelerate the deployment of clean, reliable, and efficient infrastructure by building software for electricians, contractors, and developers. We recently raised a $2.5M seed round, and we're hiring our second Full Stack Engineer.\n\nRead more & apply @ https://monterra.notion.site/Full-Stack-Engineer-09864d6a25d740aba7635d63c2323582?pvs=4",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.01,
+        "funding_stage": "seed",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 38128148,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38128148",
+      "header": "Cleverbase, Vidua | https://cleverbase.com | The Hague, the Netherlands, hybrid options | iOS / Android native mobile app engineer",
+      "text": "Cleverbase, Vidua | https://cleverbase.com | The Hague, the Netherlands, hybrid options | iOS / Android native mobile app engineer\n\nWe deliver identity wallets and trust services. Users can sign documents on mobile with the same legal value as paper signatures, but higher security. Users can identify online in cases where physical presence or showing a passport would otherwise be needed. And the wallet is a strong multi-factor customer authenticator.\n\nWe founded Cleverbase in 2016, aiming to enable everyone to do easy and secure business online. Since 2018 we operate under Dutch government sup",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 38101239,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38101239",
+      "header": "Uncountable | SF, NYC, Munich (In-Person) | Full-Stack Engineering",
+      "text": "Uncountable | SF, NYC, Munich (In-Person) | Full-Stack Engineering\n\nhttps://www.uncountable.com/hiring/hn\n\nUncountable accelerates R&D for industrial scientists across leading materials, chemicals, and life sciences organizations. With our SaaS solution, our customers get better products to the market in half the time. Uncountable was founded by MIT and Stanford engineers and has been profitable since 2016. Our team has grown from 20 to 50 over the last two years.\n\nFull-Stack Engineers | $120k - $220k + Equity\n\n---> Uncountable is looking for engineers who can spearhead the development of the ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.08,
+        "funding_stage": "bootstrapped",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.72,
+        "industry_stated": 0.99,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.96,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 220000.0,
+        "salary_min_usd": 120000.0,
+        "seniority": "staff_plus",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 38105415,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38105415",
+      "header": "REMOTE | Product Marketing Manager & Sales Ops | EU",
+      "text": "REMOTE | Product Marketing Manager & Sales Ops | EU\n\nEdusign automates admin processes for Higher Education institutions, training organizations & company universities.\n\nWe are a team of 30 people happily working in full remote.\n\nOur growth is mostly organic, and we need to scale our marketing & sales efforts beyond what works today, seo & a great product.\n\nhttps://edusign.com/fr/emplois/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.11,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38188178,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38188178",
+      "header": "umob | Onsite | Netherlands | Full-time | Senior Backend Software Engineer",
+      "text": "umob | Onsite | Netherlands | Full-time | Senior Backend Software Engineer\n\nWe believe sustainable mobility should be for everyone, therefore it shouldn't hard for anyone. Users shouldn't have to struggle with dozens of apps, accounts, processes just to get to where they want. We want to empower users with choice, take the hassle out of the process and make it simple so that together we create more liveable cities. We want to do this on a large scale (Europe and beyond). We recently raised 6m€ to scale up and build our core tech team. If you have any questions please feel free to ask!\n\nYou can",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "commerce",
+        "industry_fits": 0.79,
+        "industry_stated": 0.94,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 38107258,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38107258",
+      "header": "pganalyze | Head of Sales | REMOTE (US/CA time zones) | Full-time | base $120-150k + commission/bonus + equity | https://pganalyze.com",
+      "text": "pganalyze | Head of Sales | REMOTE (US/CA time zones) | Full-time | base $120-150k + commission/bonus + equity | https://pganalyze.com\n\nAt pganalyze, we build observability and automation tools for optimizing the performance of Postgres databases. Our product helps customers such as Atlassian, Robinhood and DoorDash to understand complex Postgres problems and solve performance issues. We are bootstrapped, profitable, with over 500 customers, small and large.\n\nAs we're growing and moving from founder-led sales to a repeatable sales motion, we're looking to make the first hire for a dedicated sa",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.01,
+        "funding_stage": "bootstrapped",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 150000.0,
+        "salary_min_usd": 120000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Postgres"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 38099110,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38099110",
+      "header": "Phileas Energy | Vienna / Austria On-Site | Principal / Senior Data Scientist | Full-Time 45-90k Euro | employee stock options",
+      "text": "Phileas Energy | Vienna / Austria On-Site | Principal / Senior Data Scientist | Full-Time 45-90k Euro | employee stock options\n\nWe are a young startup developing forecasting algorithms for wind and solar power production. We’re applying bleeding-edge ML to reduce costs for green energy producers. You have the opportunity to make a tangible impact towards sustainable energy!\n\n* Be the third in our small, ambitious, tech-driven team\n\n* Shape the future of our company and grow with us together\n\n* If you consider yourself a junior data scientist, but are experienced with meteorology modelling, ple",
+      "answers": {
+        "ai_native": 0.94,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.69,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "AWS",
+          "Machine learning",
+          "PyTorch",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 38126785,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38126785",
+      "header": "FareHarbor (Booking Holdings) | Amsterdam, SF, Denver (+Remote) | Full Time (Visa + Relocation support) https://fareharbor.com/careers/jobs/",
+      "text": "FareHarbor (Booking Holdings) | Amsterdam, SF, Denver (+Remote) | Full Time (Visa + Relocation support) https://fareharbor.com/careers/jobs/\nWe're FareHarbor, a company that's part of Booking Holdings, and we're currently hiring for a variety of engineering roles! We're looking for talented individuals who are passionate about using technology to make experiences better for everyone.\n\nOur company was founded in Hawaii in 2013 and acquired by Booking Holdings in 2018. We create powerful tools that enable our clients (which include boat rentals, museums, food tours, events, and more!) to operate",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "public_or_large",
+        "industry": "commerce",
+        "industry_fits": 0.83,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38110938,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38110938",
+      "header": "JUPUS GmbH | Senior Python/Django Developer | Remote | Full-time | Europe | 70-90k",
+      "text": "JUPUS GmbH | Senior Python/Django Developer | Remote | Full-time | Europe | 70-90k\n\nAt JUPUS we are doing client onboarding for lawyers for the German market. Currently in seed stage, got funding earlier this year. Product launched in may, great traction so far. Our tech stack is Python/Django (ninja API) + TypeScript/Vue.js.\n\nWe are looking for a senior developer. Ideally someone who is experienced and wants to build a team of software engineers for the next stages of the company. Proficiency in German is required ~B2/C1.\n\nContact me directly at jannis.gebauer@jupus.de",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.27,
+        "funding_stage": "seed",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.86,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Django",
+          "Python",
+          "TypeScript",
+          "Vue"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38110719,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38110719",
+      "header": "TalkJS (https://talkjs.com) | REMOTE (Europe / Middle East / Africa)",
+      "text": "TalkJS (https://talkjs.com) | REMOTE (Europe / Middle East / Africa)\n\nTalkJS lets developers build a perfect chat feature in mere minutes. We power communication in online marketplaces, community sites, multiplayer apps, trading platforms and so on. We're product driven and we care tremendously about quality.\n\nWe're headquartered in the Netherlands and our team is spread across the Central European Timezone +/- 3h.\n\nCurrently particularly looking for:\n\n    * Mobile SDK Developer (iOS/Android/React Native/Flutter)\n    * Full-stack Developer (TypeScript/Elixir/Postgres)\n\nIf you enjoy crafting pe",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "bootstrapped",
+        "industry": "devtools_infra",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Elixir",
+          "Postgres",
+          "React",
+          "TypeScript",
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38102677,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38102677",
+      "header": "Minerva Project | Senior Full Stack Engineer | Full time | REMOTE (global, EU or Middle East preferred) | 120-205k USD + Equity",
+      "text": "Minerva Project | Senior Full Stack Engineer | Full time | REMOTE (global, EU or Middle East preferred) | 120-205k USD + Equity\n\nMinerva prepares students for leadership and innovation across all disciplines. We integrate advanced classroom technology with research-backed pedagogy and curriculum to help institutions of all types and sizes to improve learning outcomes for their students, including Minerva University, our accredited four-year undergraduate institution which has been ranked Ranked #1 Most Innovative University in the World.\n\nWe have a full-time, fully remote team of 12 engineers,",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.01,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 205000.0,
+        "salary_min_usd": 120000.0,
+        "seniority": "senior",
+        "stack": [
+          "Django",
+          "Kubernetes",
+          "Node.js",
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38103499,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38103499",
+      "header": "AI Meeting Assistant Startup | bliro.io | Remote | Europe | Full-time or Internship | Frontend & Fullstack",
+      "text": "AI Meeting Assistant Startup | bliro.io | Remote | Europe | Full-time or Internship | Frontend & Fullstack\n\nHey HN community! We're at the forefront of Germany's conversation intelligence market, transforming meetings with AI. We're seeking engineers eager to innovate in AI communication.\n\nWhy Join? Collaborate with our dedicated, tight-knit software team committed to product excellence and innovation. We carefully select team players that are individually extremely talented and have highest expectations of themselves and co-workers.\n\nGot expertise in frontend or full stack development and fee",
+      "answers": {
+        "ai_native": 0.98,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.92,
+        "industry_stated": 0.97,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.96,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 38102352,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=38102352",
+      "header": "Steadily.com | Landlord Insurance | Greenhouse Career Page: https://grnh.se/1ae817344us",
+      "text": "Steadily.com | Landlord Insurance | Greenhouse Career Page: https://grnh.se/1ae817344us\n\nSeries B, company is growing rapidly. Open to remote or hybrid in Austin, TX. Several full stack developer roles (no insurance experience needed) and lots of non-developer roles if you have an insurance background.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.05,
+        "funding_stage": "series_b",
+        "industry": "fintech",
+        "industry_fits": 0.87,
+        "industry_stated": 0.73,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.3,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    }
+  ]
+}

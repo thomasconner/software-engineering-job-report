@@ -1,0 +1,853 @@
+{
+  "month": "2024-07",
+  "posts": [
+    {
+      "id": 40850142,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40850142",
+      "header": "Junior | Founding (full-stack) Engineer | NYC | Full time",
+      "text": "Junior | Founding (full-stack) Engineer | NYC | Full time\n\nIn the top 10% for seed B2B SaaS growth and top 1% for traction. We're growing rapidly and have ambitious plans to shape the future of knowledge work at the forefront of genAI. On a mission to transform private M&A deal-making by eliminating all of the donkey / process work done by deal teams and their advisors.\n\nFull JD here: https://myjunior.notion.site/Founding-Engineer-Eradicator-of-Inefficiencies-1125b0ce969c4d9685108876c2836380",
+      "answers": {
+        "ai_native": 0.61,
+        "eng_leadership": 0.03,
+        "funding_stage": "seed",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.91,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.96,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "junior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 40847931,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40847931",
+      "header": "Wormhole Labs | Multiple Positions | Remote (US ET work hours) | https://wormholelabs.xyz/ | $150-225K + token grant + discretionary performance bonus",
+      "text": "Wormhole Labs | Multiple Positions | Remote (US ET work hours) | https://wormholelabs.xyz/ | $150-225K + token grant + discretionary performance bonus\n\nWormhole Labs is a software company that specializes in building open source blockchain technology. We contribute to the Wormhole cross-chain messaging protocol and other protocols interested in expanding to different ecosystems.\n\nWe are looking to hire a Senior Frontend Engineer and a Smart Contract Engineer.\n\nThe Senior Frontend Engineer would contribute to the Wormhole TS SDK (https://github.com/wormhole-foundation/wormhole-sdk-ts) and Wormh",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 225000.0,
+        "salary_min_usd": 150000.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40848759,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40848759",
+      "header": "Tandem | Founding Software Engineer | Remote | Full-time | $120k – $180k • 0.25% – 0.75%",
+      "text": "Tandem | Founding Software Engineer | Remote | Full-time | $120k – $180k • 0.25% – 0.75%\n\nTandem is reimagining the employer-employee relationship by making employer-sponsored training accessible to any employer with the imperative to grow.\n\nRole: As a Founding Software Engineer, you'll shape our platform's tech backbone and drive technical direction. You'll influence a high-impact startup from the ground up, contributing to strategic decisions and hands-on coding.\n\nResponsibilities:\n- Develop scalable software solutions across our full stack\n- Participate in all software development lifecycle",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.07,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.31,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 180000.0,
+        "salary_min_usd": 120000.0,
+        "seniority": "mid",
+        "stack": [
+          "AWS",
+          "Azure",
+          "Docker",
+          "GCP",
+          "MongoDB",
+          "Next.js",
+          "Postgres",
+          "Python",
+          "React",
+          "TypeScript",
+          "Vue"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40905242,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40905242",
+      "header": "Salable (part of The Adaptavist Group)| Technical Product Marketing Manager | Fulltime | Remote UK or Spain",
+      "text": "Salable (part of The Adaptavist Group)| Technical Product Marketing Manager | Fulltime | Remote UK or Spain\n\nSalable - a brand under The Adaptavist Group, that simplifies the monetisation and licensing of SaaS products.\nhttps://www.salable.app/\n\nThe Adaptavist Group - a rapidly growing tech company with over 1,000+ employees and a great culture (4.8 on Glassdoor). We are global triple platinum partners to Atlassian and partner with some of the world’s most trusted technology ecosystems, including Atlassian, AWS, Slack, GitLab, Monday.com and many more.\nhttps://www.theadaptavistgroup.com/\n\nThe ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "public_or_large",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.77,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40880219,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40880219",
+      "header": "(TOP SALARY + 3-4% EQUITY) Carma (YC W24) Hiring an 10X Founding Full-Stack Engineer | FULLTIME | REMOTE (US) | San Francisco, CA, USA",
+      "text": "(TOP SALARY + 3-4% EQUITY) Carma (YC W24) Hiring an 10X Founding Full-Stack Engineer | FULLTIME | REMOTE (US) | San Francisco, CA, USA\n\nOur Stack: React / React Native / Node.js / NestJS\n\nHN friends, Carma’s business is growing rapidly and we are in urgent need of an exceptional 10X full-stack founding software engineer (100% remote). We raised a top seed and were one of the highest-revenue generating companies in our batch.\n\nWe are offering $150K-$175K + 3.00%-4.00% for a best-in-class first engineering hire. We want this engineer to be fully bought-in and develop into a Head of Engineering r",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.32,
+        "funding_stage": "seed",
+        "industry": "unstated",
+        "industry_fits": 0.04,
+        "industry_stated": 0.11,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "salary_max_usd": 175000.0,
+        "salary_min_usd": 150000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Node.js",
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40847873,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40847873",
+      "header": "Layer | Founding Front End & Fullstack Eng | San Francisco In-Person | Full-Time",
+      "text": "Layer | Founding Front End & Fullstack Eng | San Francisco In-Person | Full-Time\n\nWe’re building SMB accounting software API-first so that it can be integrated directly into software platforms where business owners already work. Our customers are vertical software platforms in the vein of Toast, MindBody or Housecall Pro that help small business owners start, run and scale their business with workflows and financial products. We help them serve their customers who are stuck exporting all their data out of these systems into CSVs and importing it back into other accounting software.\n\nIntegratin",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 40852626,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40852626",
+      "header": "Kensho Technologies | Engineers across the stack | Full-time/Hybrid| (Cambridge/Boston)/NYC",
+      "text": "Kensho Technologies | Engineers across the stack | Full-time/Hybrid| (Cambridge/Boston)/NYC\n\nAt Kensho, we leverage S&P Global’s world-class data to research, develop, and implement leading AI and machine learning capabilities that drive fact-based, objective decision making. From deep learning speech recognition and transcription to advanced visualizations, entity recognition, state-of-the-art search, and an AI-driven research platform, the Kensho team brings actionable insight and order to complex data. Our products power S&P Global and deliver innovative solutions and capabilities to their ",
+      "answers": {
+        "ai_native": 0.99,
+        "eng_leadership": 0.04,
+        "funding_stage": "public_or_large",
+        "industry": "ai_ml",
+        "industry_fits": 0.68,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 40855955,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40855955",
+      "header": "ROCKSTAR GAMES | NYC-San Diego-New England| FULL-TIME | .NET SOFTWARE ENGINEERS | Existing Visa Transfers Welcome",
+      "text": "ROCKSTAR GAMES | NYC-San Diego-New England| FULL-TIME | .NET SOFTWARE ENGINEERS | Existing Visa Transfers Welcome\n\nA career at Rockstar Games is about being part of a team working on some of the most creatively rewarding and ambitious projects to be found in any entertainment medium. You would be welcomed to a dedicated and inclusive environment where you can learn, and collaborate with some of the most talented people in the industry.\n\nRESPONSIBILITIES\n\nDevelop highly scalable server-side features for our online game console clients using object-oriented development in C#, ASP.NET, and SQL Se",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.96,
+        "industry_stated": 0.86,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "C#"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 40854184,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40854184",
+      "header": "Agenta | Hybrid (Berlin) | Full Time",
+      "text": "Agenta | Hybrid (Berlin) | Full Time\n\nAgenta is an open-source LLM developer platform that provides all the necessary tools for rapidly building reliable LLM applications. Features include prompt management, evaluation, human feedback, and observability. Find out more about us at https://github.com/agenta-ai/agenta\n\nOur tech stack includes Python, FastAPI, MongoDB, Typescript, ReactJS, and NextJS.\n\nWe are hiring:\n\nFounding Product Engineer - Frontend: Ideally, you have previously worked in early-stage startups, can manage features from design to production, and have some background in LLMs.\n\nY",
+      "answers": {
+        "ai_native": 0.99,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "LLM",
+          "MongoDB",
+          "Next.js",
+          "Python",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 40848101,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40848101",
+      "header": "Company: Planeto (early stage cleantech startup)",
+      "text": "Company: Planeto (early stage cleantech startup)\n\nPlaneto develops next generation software for design and operation of clean district heating and cooling networks, to accelerate adoption of renewable energies for zero emissions cities.\n\nHiring a Senior Software Engineer, REMOTE (EU/UK/CH, head office in Geneva, Switzerland)\n\nhttps://cord.co/u/planeto-/jobs/125274-senior-software-engineer",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40850236,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40850236",
+      "header": "Quasar AI | Go Software Engineer | Remote | Full Time | https://www.quasar.ai/",
+      "text": "Quasar AI | Go Software Engineer | Remote | Full Time | https://www.quasar.ai/\n\nQuasar AI seeks a Go software engineer to work on our components, extensions, and tooling.\n\nQuasar AI is a software platform that helps businesses find opportunities in their data, leading to better outcomes.\n\nWe have several other opportunities open! https://apply.workable.com/quasar/",
+      "answers": {
+        "ai_native": 0.11,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.82,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Go"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40846789,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40846789",
+      "header": "Empower Delivery | Engineering | Remote (US ony) | Full-time",
+      "text": "Empower Delivery | Engineering | Remote (US ony) | Full-time\n\nWe're a restaurant tech company on a mission to make restaurants better for everyone. We offer a full end-to-end product that allows customers to run their own online ordering, process the orders using our kitchen suite and deliver the orders using their own dedicated fleet of drivers. We strive to give restaurants back the control they've lost to the third party middlemen.\n\nWe run a monorepo Elixir/Phoenix LV codebase backed by Postgres. We maintain a couple native apps that leverage KMM and SwiftUI/Jetpack.\n\nWe're a small remote-f",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "Elixir",
+          "Postgres",
+          "Swift",
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40856307,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40856307",
+      "header": "Electric Twin | Multiple Roles | ONSITE LONDON | Full-time",
+      "text": "Electric Twin | Multiple Roles | ONSITE LONDON | Full-time\n\nElectric Twin is building advanced systems to predict human behaviour leveraging LLM technology. Founded by ex-Chief advisor on Digital and Data to the Prime Minister and ex-commanding SAS Officer, we are looking to scale our team across software engineering, data science and AI / ML engineering\n\nSoftware Engineer: https://apply.workable.com/electric-twin-ltd/j/FB92BB6785/\n\nData Science: Work on improving the accuracy of the Electric Twin engine and play a central role in our work with customers.\n\nML Engineer: Design and implement sta",
+      "answers": {
+        "ai_native": 0.99,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "ai_ml",
+        "industry_fits": 0.8,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "LLM",
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 40847243,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40847243",
+      "header": "Senior Full-Stack Software Engineer",
+      "text": "Senior Full-Stack Software Engineer\n\nLocation: Toronto\n\nEmployment: Full-time, Hybrid\n\nJob Summary\n\nYou will design and implement solutions that process and analyze financial data streams, contributing to the operational back and user-facing front end.\n\nKey Responsibilities\n\nYou will be a crucial player in our engineering team, handling everything from data engineering to DevOps, back-end to front-end.\n\n- Lead diverse development tasks, including system architecture, data engineering, and full-stack development.\n\n- Build and deploy scalable systems tailored for data-driven\n\n- Direct DevOps ini",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.14,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.32,
+        "industry_stated": 0.36,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Docker",
+          "Terraform"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 40851526,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40851526",
+      "header": "Curipod | Software engineer | ONSITE in Oslo, Norway | https://curipod.com",
+      "text": "Curipod | Software engineer | ONSITE in Oslo, Norway | https://curipod.com\n\nWe are reimagining how learning happens in the classroom with GenAI, eradicating teacher burnout and reigniting student curiosity.\n\nCurrently one of the fastest growing edtech startups in the world. Solidly backed by SF VC edtech specialist, Reach Capital\n\nTo learn more check out https://curipod.com/careers\n\nIf you have any questions feel free to reach me at frikk@curipod.com (co-founder & cto)",
+      "answers": {
+        "ai_native": 0.96,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 40856094,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40856094",
+      "header": "Spider Strategies | Senior Java/Web Developer | REMOTE (USA) | Full-time, 4-day work week (8-hour days) | https://www.spiderstrategies.com/overview",
+      "text": "Spider Strategies | Senior Java/Web Developer | REMOTE (USA) | Full-time, 4-day work week (8-hour days) | https://www.spiderstrategies.com/overview\n\nSpider Strategies is seeking passionate full stack engineers to join our rapidly growing team. We’re the creators of Spider Impact, the leading Balanced Scorecard software in the market. As we expand into the broader business intelligence market and AI, we're looking for talented individuals to help take our company to the next level.\n\nWe believe in the importance of work-life balance, which is why we offer a 4-day work week with 8-hour days and f",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Java",
+          "JavaScript",
+          "Kotlin"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40853274,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40853274",
+      "header": "Mattermost | Senior Software Design Engineer | US Remote | FT | $127,000 - $170,000",
+      "text": "Mattermost | Senior Software Design Engineer | US Remote | FT | $127,000 - $170,000\n\nMattermost provides secure, workflow-centric collaboration for technical and operational teams that need to meet nation-state-level security and trust requirements. We serve technology, public sector, national defense, and financial services industries with customers ranging from tech giants to the world’s largest banks, to the U.S. Department of Defense and governmental agencies around the world.\n\nWe are looking for a remote, US-based Senior SDE with a strong background in Go and SQL, who can work collaborati",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.95,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 170000.0,
+        "salary_min_usd": 127000.0,
+        "seniority": "senior",
+        "stack": [
+          "Go"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40853087,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40853087",
+      "header": "Ideogram | Full-time | NYC, Toronto | Onsite/ Hybrid | ideogram.ai",
+      "text": "Ideogram | Full-time | NYC, Toronto | Onsite/ Hybrid | ideogram.ai\n\nIdeogram is an AI company on a mission to help people become more creative. The company is developing state-of-the-art AI tools that will make creative expression more accessible, fun, and efficient. It's pushing the limits of what’s possible with AI, with a focus on creativity and a high standard for trust and safety. The company has built its own foundation models for text to image synthesis and as a result, Ideogram models have unique capabilities, such as rendering coherent text into images.\n\nWe believe everyone has an inn",
+      "answers": {
+        "ai_native": 1.0,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "ai_ml",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 40848417,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40848417",
+      "header": "Stealth | San Francisco, CA (hybrid: M-W-F ONSITE) | Full-time | Backend Engineer",
+      "text": "Stealth | San Francisco, CA (hybrid: M-W-F ONSITE) | Full-time | Backend Engineer\n\nWe're building a product in the cost management space (yes, another one), but this one is being built by the founders of The Duckbil Group (Corey Quinn & Mike Julian), an AWS-focused cost management consultancy.\n\nWe're looking for someone to join as second engineer to help build out the product. Mostly looking for backend expertise. Past experience with AWS billing or Clickhouse are a huge bonuses.\n\nTech stack: Python (Flask), React, Typescript, Postgres, Clickhouse, AWS\n\nWe can sponsor the transfer of an existi",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.82,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Postgres",
+          "Python",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 40849351,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40849351",
+      "header": "** Trunk Tools | Engineers | Full-Time | US REMOTE or ONSITE NYC **",
+      "text": "** Trunk Tools | Engineers | Full-Time | US REMOTE or ONSITE NYC **\n\nTrunk Tools creates software to make construction more efficient and cost effective, we have significant revenue and are growing extremely quickly! We're a team with prior experience at SpaceX, PlanGrid, Carta, LinkedIn, Uber, etc.\n\nWe spent the last few years building the brain behind construction. Now we are deploying workflows/ agents, starting with Q&A document chatbot, to be ingrained in construction teams’ workflows, ultimately to automate construction. Given our immense traction with several Fortune 500 construction co",
+      "answers": {
+        "ai_native": 0.96,
+        "eng_leadership": 0.69,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Machine learning",
+          "Node.js",
+          "Python",
+          "RAG",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40865400,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40865400",
+      "header": "LocalStack | Multiple Roles | REMOTE | Full-Time",
+      "text": "LocalStack | Multiple Roles | REMOTE | Full-Time\n\nLocalStack (52k+ Github stars, 240M+ Docker pulls, growing global customer base) is on a mission to build the world's leading dev platform for local cloud development, team collaboration, and CI analytics. We are looking for top-notch engineers, product leads, and GTM leaders to get on board and join us in this exciting journey!\n\nTech stack is (mainly): Python, Docker, React.js, Unix/system engineering, Cloud APIs (AWS/Azure/Snowflake). Occasionally some Java/Node.js/Go. Security expertise is a plus.\n\nAs we're entering our next growth phase, we",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.35,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "AWS",
+          "Azure",
+          "Docker",
+          "Go",
+          "Java",
+          "Node.js",
+          "Python",
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40847725,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40847725",
+      "header": "MaFi Games | Senior SWE/game dev | Contract or full-time | $70-110k | Remote | C#",
+      "text": "MaFi Games | Senior SWE/game dev | Contract or full-time | $70-110k | Remote | C#\n\nEDIT: This posting is no longer active, thanks for all the applicants for applying!\n\nI’m the co-founder of MaFi Games – an indie studio behind the game Captain of Industry. We are a small but passionate team who gave up their jobs at Google/Nvidia to pursue building the best factory simulation game possible, and we need more hands!\n\nWe are looking for an experienced software engineer to grow the team and accelerate our progress. We strongly prefer candidates with a background in game development or with experien",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 110000.0,
+        "salary_min_usd": 70000.0,
+        "seniority": "senior",
+        "stack": [
+          "C#"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40847606,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40847606",
+      "header": "Medplum (https://www.medplum.com/) | Founding Developer Experience Engineer | SF | Full time",
+      "text": "Medplum (https://www.medplum.com/) | Founding Developer Experience Engineer | SF | Full time\n\nMedplum (YC S22) is an open source, API first, healthcare developer platform. \"Headless EHR\", we take care of the security, compliance, and regulatory burdens of healthcare software development. Well funded and growing fast.\n\nWe're hiring an amazing Dev-Ex / Dev-Rel engineer to delight customers, build sample apps, and promote the Medplum platform.\n\nTech stack: TypeScript, React, Node.js, AWS\n\nLearn more: https://www.medplum.com/careers/devex-engineer",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Node.js",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 40873965,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40873965",
+      "header": "Friendly Captcha | Integrations Engineer | REMOTE within EU | PART-TIME or FULL-TIME | Office in Munich, Germany | https://friendlycaptcha.com",
+      "text": "Friendly Captcha | Integrations Engineer | REMOTE within EU | PART-TIME or FULL-TIME | Office in Munich, Germany | https://friendlycaptcha.com\n\nAt Friendly Captcha we do one thing and we do it well: we protect websites from malicious actors and bots.\n\nWe provide privacy-friendly and accessible anti-bot solutions that don’t annoy users with tasks like clicking fire hydrants. We make the internet a bit better every day by winning over customers currently using Google reCAPTCHA.\n\nWe’re a fast-growing, profitable, fully bootstrapped company. Our revenue mostly comes from medium to large European e",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "bootstrapped",
+        "industry": "security",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Go",
+          "Postgres",
+          "Redis",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40869591,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40869591",
+      "header": "VDX.tv (http://www.vdx.tv) | Remote Engineers & Developers | Full-time | REMOTE Established company (20+ years) looking for mature generalists to contribute remotely. You can be anywhere in the world ",
+      "text": "VDX.tv (http://www.vdx.tv) | Remote Engineers & Developers | Full-time | REMOTE Established company (20+ years) looking for mature generalists to contribute remotely. You can be anywhere in the world so long as you:\n\n● Are self-motivated and can work independently\n\n● Have experience with many languages but can be effective in any language\n\n● Appreciate that all mature software solutions accumulate technical debt and understand how to continually reduce debt and complexity\n\n● Understand how to build highly reliable systems and be responsible for taking code to production\n\n● Understand that code",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.06,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C",
+          "Java"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40849893,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40849893",
+      "header": "Norm | New York City (NYC) + Remote | Multiple engineering roles | Full-Time | https://www.norm.ai",
+      "text": "Norm | New York City (NYC) + Remote | Multiple engineering roles | Full-Time | https://www.norm.ai\n\nNorm is building AI that understands regulations for regulatory compliance. Our AI currently automates compliance determinations for federally regulated financial content, though our vision is to build a platform that can handle any regulation in any industry. As AI begins to permeate our society, Norm aims to become a critical building block for other AI systems that need regulatory intelligence. You can read more about our vision here: https://www.norm.ai/post/building-regulatory-ai-agents\n\nWe",
+      "answers": {
+        "ai_native": 0.99,
+        "eng_leadership": 0.05,
+        "funding_stage": "series_a",
+        "industry": "fintech",
+        "industry_fits": 0.89,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40854921,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40854921",
+      "header": "Better Stack | https://betterstack.com | /^(Full-?stack|Frontend) Engineer$/i | EU in UTC ± 3h",
+      "text": "Better Stack | https://betterstack.com | /^(Full-?stack|Frontend) Engineer$/i | EU in UTC ± 3h\n\nWe are software builders at :heart:\n\nCEO is a software engineer, COO is a software engineer and you guessed it; CTO is an engineer, too.\n\nWe're helping developers in building a better internet. If you love building amazing software, you're at the right address.\n\nHow we operate:\n\n- https://betterstack.com/careers/engineering\n\n- https://juraj.blog\n\napply at https://betterstack.com/careers/fullstack-engineer",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.39,
+        "industry_stated": 0.85,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40848800,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40848800",
+      "header": "Lingo | Senior Frontend Engineer | Remote | Full-time | $145 - $155k",
+      "text": "Lingo | Senior Frontend Engineer | Remote | Full-time | $145 - $155k\n\nLingo is a user-friendly brand management platform that seamlessly integrates digital asset management and digital brand guidelines into a single, intuitive platform. Developed by Noun Project, we enable teams at renowned companies such as Duolingo, Reddit, Eurorail, and Snap to maintain brand consistency on a large scale through a centralized brand hub.\n\nIn the role of Senior Engineer, you will be involved in all aspects of web development. This will involve close collaboration with our other web engineers as well as our ba",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.86,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 155000.0,
+        "salary_min_usd": 145000.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 40846920,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40846920",
+      "header": "Make Waves | https://makewaves.fm | Lead developer & Marketing Manager | FULLTIME | ONSITE / HYBRID (>= one day in the office a week) | Amsterdam, NL",
+      "text": "Make Waves | https://makewaves.fm | Lead developer & Marketing Manager | FULLTIME | ONSITE / HYBRID (>= one day in the office a week) | Amsterdam, NL\n\nMake Waves was founded in 2021 by two brothers with a track record in the music and tech industry. We’re building a kinder, more helpful platform for independent artists to release their music and build a following. By providing artists with easy-to-understand tools and insights in a notoriously over-complicated industry, we want to empower DIY artists to control their careers without making concessions.\n\nIn the last years we’ve built the platfo",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.91,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.91,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 40851263,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=40851263",
+      "header": "Cartesian Systems (MIT Startup) | Lead Mobile Engineer (Android) | Boston (on-site) | Full-time",
+      "text": "Cartesian Systems (MIT Startup) | Lead Mobile Engineer (Android) | Boston (on-site) | Full-time\n\nI’m the CEO of Cartesian Systems, a seed-stage MIT startup on a mission to map the physical world at unprecedented scale and precision. We're looking for a lead mobile engineer to complement and amplify our core team at Cartesian, as we transition our product to scale.\n\nHere's some info about us and the role:\n\n- Cartesian spun out of my lab at MIT in 2023 after 7 years of award-winning research/IP development in indoor mapping & localization. Since then, we have built our first product, deployed it",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.98,
+        "funding_stage": "seed",
+        "industry": "other",
+        "industry_fits": 0.59,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "Kotlin"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

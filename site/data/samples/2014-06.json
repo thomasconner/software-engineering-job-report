@@ -1,0 +1,827 @@
+{
+  "month": "2014-06",
+  "posts": [
+    {
+      "id": 7836819,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7836819",
+      "header": "SAN FRANCISCO - FULL TIME - ON SITE - ANDROID ENGINEER @ WEARABLE INTELLIGENCE",
+      "text": "SAN FRANCISCO - FULL TIME - ON SITE - ANDROID ENGINEER @ WEARABLE INTELLIGENCE\n\nAPPLY VIA LINK: http://www.thesourcery.com/jobs/756\n\nWe’re looking for a capable, curious and smart Android Engineer to join our team. You’re a tinkerer and an aesthete, and you like to write code that gives mobile and wearable devices magic abilities. You have a passion for building great products that are robust and enjoyable, and you’re interested in stretching the boundaries of what’s possible on wearable hardware.\n\nAs one of our early team members, you’ll work directly with our leadership team to develop softw",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.7,
+        "industry_stated": 0.72,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.12,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "junior",
+        "stack": [
+          "Android",
+          "C++",
+          "Java"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7860091,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7860091",
+      "header": "Recently funded SOMA-based startup looking for front-end &/or full-stack, where stack presently==django+AWS. If interested, please contact dan.miller at orgstars.com",
+      "text": "Recently funded SOMA-based startup looking for front-end &/or full-stack, where stack presently==django+AWS. If interested, please contact dan.miller at orgstars.com",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.18,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Django"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 7830380,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830380",
+      "header": "LinkRisk, Leeds / Manchester, UK http://linkrisk.com/jobs",
+      "text": "LinkRisk, Leeds / Manchester, UK http://linkrisk.com/jobs\n\nWe are building distributed systems to crawl the web and help people build better websites.\n\nWe use Ruby / Rails, MySQL, Elasticsearch, Redis, Sidekiq and are looking for other technologies to help us scale in the few months. (Hbase, Hadoop and Riak).\n\nWe are looking for Ruby developers or database engineers with experience in scalable document storage and querying.\n\nI'm CTO so if you have any questions, dom(at)linkrisk(dOt)com, no recruiters please.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.54,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MySQL",
+          "Rails",
+          "Redis",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7852469,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7852469",
+      "header": "Hubbub.co.uk, London",
+      "text": "Hubbub.co.uk, London\n\nHubbub is looking for front-end developers to help save the high street by letting independent food shops compete with the supermarkets.\n\nWe're giving a year's supply of free bacon to successful candidates. If you love food, we're right up your street.\n\nFull details at http://developers.hubbub.co.uk/",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.76,
+        "industry_stated": 0.87,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7836581,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7836581",
+      "header": "Thinkful – New York, NY – EdTech – Several roles",
+      "text": "Thinkful – New York, NY – EdTech – Several roles\n\nFounded in 2012 in New York City, Thinkful is on a mission to reinvent education. We are building a school that trains the workforce in the technology skills necessary to sustain innovation and growth in the economy. We are developing a method of online learning that emphasizes practical, sustainable skills and prepares students to achieve their career goals.\n\nThe company will be growing from 13 people to 40 this year and we are hiring for a variety of roles:\n\n* Course Developer — http://goo.gl/8TURBl\n\n* Student Support — http://goo.gl/CaICO8\n\n",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Angular",
+          "Postgres",
+          "Python",
+          "Redis",
+          "iOS"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 7836396,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7836396",
+      "header": "San Francisco, CA",
+      "text": "San Francisco, CA\nH1B\n\nTwitter is hiring! https://about.twitter.com/careers\n\n(Team-specific listing) 1. Want to work on Twitter for Android? 2. Want to help shape the user experience on Twitter? We are a team of full-stack, iOS, and Android engineers who work together to run experiments and launch new features in order to create the best user experience for new and returning users. Write code and deploy to hundreds of millions of users on a weekly basis.\n\nContact me: jyip at twitter dot com. Feel free to ping me regarding other engineering positions as well.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.65,
+        "industry_stated": 0.69,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7831467,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7831467",
+      "header": "Sift Science - San Francisco, CA. Full-time.",
+      "text": "Sift Science - San Francisco, CA. Full-time.\nSift Science (http://siftscience.com) uses large-scale machine learning to fight online fraud. It's a problem that cost U.S. merchants > $10B last year, and 70% of it is organized crime. Attacks have rapidly evolved in breadth and depth, but current rule-based systems don't scale. We're looking for engineers of all flavors -- distributed systems, web development, data visualization, and of course, machine learning. We're a tight-knit team that likes board games, yummy food, and solving challenging technical problems. Check out https://siftscience.co",
+      "answers": {
+        "ai_native": 0.97,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7831344,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7831344",
+      "header": "Kindling, New York City, NY - Full Time",
+      "text": "Kindling, New York City, NY - Full Time\n\nAt Kindling our mission is to modernize the enterprise experience with software people enjoy using. For us this means a design-oriented and engineering-conscious approach based on clarity, coherence, and simplicity. We build innovation software which empowers members of an organization to contribute to the life and growth of that organization.\n\nThere are currently two roles that HN readers might be interested in!\n\n1. Lead Application Developer\n\nThis is a pretty broad server-side development role for someone of a senior or lead level. Part of this role i",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.7,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.8,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7829729,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7829729",
+      "header": "Braintree -- Chicago, San Francisco. We'll pay for relocation.",
+      "text": "Braintree -- Chicago, San Francisco. We'll pay for relocation.\n\nWe're hiring software and production engineers of all skill levels.\n\nBraintree makes awesome payments APIs for developers. You've almost certainly used our product; we power payments for companies like GitHub, Uber, Dropbox, Heroku and CloudFlare.\n\nWe're not an early-stage startup anymore -- we were acquired by PayPal for $800 million in December 2013. Partnering with PayPal gives us the resources to grow faster than ever, both in the US and internationally. I joined the company about 22 months ago, and we've more than quadrupled ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "public_or_large",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.55,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7829340,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7829340",
+      "header": "Littlelines (DAYTON, OH) http://littlelines.com",
+      "text": "Littlelines (DAYTON, OH) http://littlelines.com\n\nThings are getting even bigger and better for us, so we’re looking for talented and passionate developers to join the team (at our headquarters) and support the continued growth of Littlelines.\n\n- Ruby Developer - Ruby is our bread and butter. Littlelines is hiring experienced Ruby on Rails developers to work on-site at our Dayton headquarters.\n\n- Front-end Developer - Having front-end developers who know and appreciate the power of design and can translate designs into seamless webpages.\n\nGet in touch!\n\nhttp://littlelines.com/careers",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.06,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7829295,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7829295",
+      "header": "Eponym (New York, NY, USA)",
+      "text": "Eponym (New York, NY, USA)\nhttp://www.eponymous.co\n\nWe're an eyewear company looking for engineers to help architect and build our API, which powers eyeglass orders for fashion brands. We are also looking for people to help us build our whitelabel eyewear software, and iterate on new UX features.\n\nOur stack is Python (Flask) and MongoDB, including bits of Celery, nginx, and uwsgi. We do a lot of integration with the UPS (in fact, we maintain an open-source UPS library [1]).\n\nWe're building our API and internal dashboards (which we use heavily to process orders, eyewear prescriptions, customer ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MongoDB",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7829738,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7829738",
+      "header": "Sharethrough - Full Time - San Francisco, CA http://engineering.sharethrough.com/",
+      "text": "Sharethrough - Full Time - San Francisco, CA http://engineering.sharethrough.com/\n\nDigital advertising is a challenging and complex world. Whatever your interests, there's a unique set of challenges advertising brings. Bring your passion for technology, systems thinking and solving problems at scale and we'll bring you into the fold.\n\nWe pride ourselves on aggressively and responsibly productionalizing new technology. Real-time decisioning at scale with Scala, 3rd-party JavaScript/CoffeeScript deployed on some of the most trafficked sites on the Internet, and streaming 100GB/day with Spark are",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.9,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Rails",
+          "Scala",
+          "Spark"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7834572,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7834572",
+      "header": "TechEmpower - Los Angeles area, California (El Segundo, near LAX)",
+      "text": "TechEmpower - Los Angeles area, California (El Segundo, near LAX)\n\nYou may recognize us from the Web Framework Benchmarks that have been discussed on HN periodically: http://www.techempower.com/benchmarks/\n\nHere's the job:\n\nTechEmpower, a small custom software development firm located in El Segundo, seeks developers with good object-oriented experience, preferably in Java, JavaScript, Python, and/or Ruby. We specialize in web application development but look for well-rounded application developers. If you are a solid programmer and a team player, this is an opportunity for you. Even if you don",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.05,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "mid",
+        "stack": [
+          "AWS",
+          "Android",
+          "C#",
+          "Django",
+          "Java",
+          "JavaScript",
+          "MongoDB",
+          "MySQL",
+          "Node.js",
+          "PHP",
+          "Postgres",
+          "Python",
+          "Rails",
+          "Ruby",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7830127,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830127",
+      "header": "CopThis - San Francisco",
+      "text": "CopThis - San Francisco\n\nCopThis is the online retailer for music merchandise. We help fans discover and buy authentic gear from thousands of amazing artists; from the Beatles and Guns N Roses to Kanye West and Lady Gaga.\n\nWho are we?\n\nA diverse team of technical experts, fans, hustlers, perfectionists and friends. We love collaborating, moving fast and shipping products.\n\nYou\n\nYou aren't a rockstar. We work with plenty of them and they typically don't make great engineers.\n\nYou are a web or mobile engineer that can help us build great products for iOS, Android and the web. You are collaborati",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 7834345,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7834345",
+      "header": "Palantir Technologies | Software Engineer, Internal Tools | Palo Alto, CA",
+      "text": "Palantir Technologies | Software Engineer, Internal Tools | Palo Alto, CA\n\nPalantir is causing a paradigm shift in analysis, a fundamental change in the way that people approach and utilize data and we’re doing it in the heart of Silicon Valley. In addition to being right across the street from the Palo Alto Caltrain Station, we are situated in the midst of its thriving downtown area, a stone’s throw east of Stanford and a short jaunt south of San Francisco.\n\nThe Internal Tools team is comprised of the experts that spend their time building, maintaining, and improving the glue that holds our d",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.59,
+        "industry_stated": 0.9,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7829112,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7829112",
+      "header": "The Institute of Electrical and Electronics Engineers (IEEE)",
+      "text": "The Institute of Electrical and Electronics Engineers (IEEE)\nOn-site in Piscataway, NJ or remote for extremely strong candidates\n\nMultiple exciting roles are available for technical innovators who can drive product design and then make their vision come to fruition.\n\nYou would be working within a team dedicated experimentation and research and development. Some of our ideas stick, others do not. You should be comfortable working in an environment where priorities rapidly change - and you must be able to manage yourself.\n\nInterested individuals should email innovation@ieee.org and include the t",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.14,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7830356,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830356",
+      "header": "Dublin, Ireland",
+      "text": "Dublin, Ireland\n\nAYLIEN (http://aylien.com) is seeking to hire an Account Executive & Business Development Manager who will run and maintain company's business development and sales activities with respect to its B2B APIs and solutions.\n\nResponsibilities:\n\n* Sales\n\n- Creating and managing sales pipeline\n\n- Generating new leads, plus managing current customers and prospects/leads\n\n- Creating and maintaining a sales pitch and presentation, online demos\n\n- CRM setup and maintenance\n\n- Holding online presentations and webinars\n\n- Analytics and reports\n\n* Business Development\n\n- Discovering new mar",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.49,
+        "industry_stated": 0.73,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 7831652,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7831652",
+      "header": "Uken Games in downtown Toronto - http://www.uken.com",
+      "text": "Uken Games in downtown Toronto - http://www.uken.com\n\nUken is looking for talented developers to help us build amazing mobile games. We are a profitable startup experiencing massive growth, with hundreds of thousands of players a day across iOS, Android, and Facebook.\n\nIn particular, we are looking for a front-end web developer with a passion for pixel perfect user experiences. Uken is at the forefront of HTML5 development and is creating highly performant browsed based games. AngularJS experience is a plus but not required.\n\nMore info and full job description on our website",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "bootstrapped",
+        "industry": "media_consumer",
+        "industry_fits": 0.99,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Angular",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7833171,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7833171",
+      "header": "London, UK - Droplet",
+      "text": "London, UK - Droplet\n\nDroplet is a fast growing and funded mobile payments platform. We are looking to hire engineers to join our small team based in London. We are mostly Ruby/Go at the moment but generalists and quick learners are more than welcome!\n\nYou:\n\n    - have experience building, testing and deploying Ruby applications\n\n    - have strong understanding of object-oriented programming\n\n    - enjoy finding the right solution for the problem at hand\n\n    - are able to talk confidently about choices you make\n\n    - are highly self-motivated\n\n    - think like a hacker\n\nExperience in the fol",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Go",
+          "Ruby"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 7830432,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830432",
+      "header": "Austin, TX / AndrewHarper.com / Full-Time / No Remote",
+      "text": "Austin, TX / AndrewHarper.com / Full-Time / No Remote\n\nFor 34 years, Andrew Harper has been the leader in high-end, unbiased, luxury travel reviews. We’re starting a new chapter in our business geared toward changing the way travelers research, book, and enjoy extraordinary travel.\n\nOn the technology front this translates to ambitious projects centered around our core data and exposed via an open API. Leveraging these two assets we’re building a suite of rich HTML5 apps, intelligent machine learning algorithms, and creating cutting edge products and services for the sophisticated traveler.\n\nWe",
+      "answers": {
+        "ai_native": 0.26,
+        "eng_leadership": 0.21,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.95,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Machine learning",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7831060,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7831060",
+      "header": "Codeship - Boston, MA or Vienna, Austria",
+      "text": "Codeship - Boston, MA or Vienna, Austria\n\nAt Codeship we build a continuous Deployment service. Our mission is to make software teams more productive by helping them to release early, often and safe. We're building for the builders.\n\nWe've been in production release for several years, have thousands of developers using the service and are growing rapidly. We've closed our Series A earlier this year.\n\nWe're looking for Rails Developers and SysAdmins/DevOps who love building tools for other developers.\n\nRead more about us on our Jobs Page: https://codeship.io/jobs\nAnd how we work in our Blogpost",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "series_a",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Rails"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7829252,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7829252",
+      "header": "ROLI – London, UK – Full Time – https://www.roli.com",
+      "text": "ROLI – London, UK – Full Time – https://www.roli.com\n\n------------------------------\n\nHead of Finance\n\nHead of Marketing\n\nProduct Manager\n\nSenior Software Engineer\n\n+14 other roles [1]\n\n------------------------------\n\nWe are a design-led technology start-up based in Dalston, London. Founded in 2009 by Roland Lamb, we make hardware and software products and services designed to increase the bandwidth of interaction between people and technology.\n\nOur first product offering, the Seaboard GRAND series, is the first demonstration of our patent-pending SEA Interface technology, and recently won the",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "series_a",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7829776,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7829776",
+      "header": "Keypr - Los Angeles, CA",
+      "text": "Keypr - Los Angeles, CA\n\nKeypr is redefining the guest experience at hotels worldwide!\n\nWe are a startup in the hospitality industry. Our stack is Python/Flask/Angular/iOS/Android. We are looking for talented engineers to join our growing team.\n\nIf you want to change the way we do hotels, please send a short note to charles@keypr.com and tell us one thing you'd change. Be sure to include links to your code or any relevant work (GitHub, App Store, etc.)\n\nCheers!",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.51,
+        "industry_stated": 0.93,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Angular",
+          "Python",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7830023,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830023",
+      "header": "New York, NY - Full Time.",
+      "text": "New York, NY - Full Time.\n\nhttp://www.thehackerati.com\n\nSoftware developers at all experience levels. Front end web, back end, big data, iOS/Android. We don't care what languages you know, as long as you're highly skilled in at least one. We use agile and tend to use the same kinds of technologies you'd see in your typical YC startup.\n\nWe're currently especially looking to hire several iOS and Android developers.\n\nYou can apply here: http://hackeriam.theresumator.com/apply",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.07,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.42,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7830908,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830908",
+      "header": "ExtraHop Networks. Seattle, WA. jobs+hn@extrahop.com",
+      "text": "ExtraHop Networks. Seattle, WA. jobs+hn@extrahop.com\n\nDeep L7 protocol analysis at scale.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.06,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.83,
+        "industry_stated": 0.92,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7829835,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7829835",
+      "header": "Palo Alto, CA",
+      "text": "Palo Alto, CA\n\nINFER, INC.\n\n- Team: 10 engineers from MIT, Berkeley, CMU, Google/Google Research, Facebook, Y Combinator, Microsoft Research, Palantir, Jane Street, IBM Research, Yahoo Research, ...\n\n- Investors: Red Point, a16z, SHV, Social Capital, ...\n\n- Customers: Box, Jive, Microsoft, Tableau, Zendesk, AdRoll, Nitro, and many more\n\n- Product: machine learning applications for non-technical users to help their businesses more effectively win and retain customers\n\n- Looking for: strong engineers excited to join an early-stage startup to help grow & shape the company\n\nEXAMPLES OF RESPONSIBIL",
+      "answers": {
+        "ai_native": 0.99,
+        "eng_leadership": 0.05,
+        "funding_stage": "venture_unspecified",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.87,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.04,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7830795,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830795",
+      "header": "Afoundria - Austin, TX full-time, permanent",
+      "text": "Afoundria - Austin, TX full-time, permanent\n\nHello, HN. Afoundria is hiring a Front-End Developer in Austin, Texas. Afoundria is a healthcare startup headquartered in Austin, Texas with three product lines:\n\nEmergency department nurse and physician charting, post-acute charting and transition of care,\ndata services (mostly moving large blocks of HL7 data from one party to another)\n\nWe have offices in Austin and Dallas and the usual startup perks like daily ping-pong; bowling, roller skating, and TopGolf outings; and a fridge full of beer. Many of us have worked together 10-15 years or longer b",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 100000.0,
+        "salary_min_usd": 85000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "MySQL"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7830987,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830987",
+      "header": "SeatGeek — New York, NY — Full Time — We're a search engine for tickets and live events. Think \"Kayak for sports/music/theater tickets.\"",
+      "text": "SeatGeek — New York, NY — Full Time — We're a search engine for tickets and live events. Think \"Kayak for sports/music/theater tickets.\"\n\nWeb Engineer — We're looking for someone who loves building for the web. Everything else (professional experience, where in the stack you fit, the languages you've used) is up for grabs. Details here: http://seatgeek.com/jobs/web_engineer/\n\nAndroid Engineer — Our Android app is at a nascent stage, with just one fulltime engineer working on it. Our iOS app is used by millions; we want our Android app to get there too. We're looking for someone to help make th",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.14,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7830263,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7830263",
+      "header": "Euclid Inc - San Francisco's Mission District, Four full-time Positions, (euclidanalytics.com)",
+      "text": "Euclid Inc - San Francisco's Mission District, Four full-time Positions, (euclidanalytics.com)\n\nEuclid is Google Analytics for the physical world. Euclid is leveling the playing field for brick and mortar retailers and changing the the way top retailers use consumer behavioral data.\n\nAs a Data Engineer, you will help solve some of the most vexing questions we have today.\n\nAs a Full Stack Engineer at Euclid, you will be building Rails applications and APIs, from our cloud-based databases and back-end services to our dynamic JavaScript front-end.\n\nThe Front End engineer is a key technical lead i",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.65,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.93,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Rails"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 7831659,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=7831659",
+      "header": "LaunchPad Central - San Francisco, CA — Full Time",
+      "text": "LaunchPad Central - San Francisco, CA — Full Time\n\nLaunchPad Central (https://www.launchpadcentral.com/) helps enterprises, universities, investors, and governments scale their entrepreneurship and innovation programs.\n\nWe're looking for engineers and designers interested in Ed-Tech and Enterprise. As a part of our team, you will get to work with thought leaders like Steve Blank to build the SaaS platform that is changing the way entrepreneurship is taught and innovation is created.\n\nThe company is 2 years old. We are a tight-knit team of 10 focused on making a \"dent in the universe\". You can ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.04,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

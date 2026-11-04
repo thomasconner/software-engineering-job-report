@@ -1,0 +1,833 @@
+{
+  "month": "2015-02",
+  "posts": [
+    {
+      "id": 8990870,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8990870",
+      "header": "Dolby Labs - Sunnyvale, Full time (Embedded Software Engineer)",
+      "text": "Dolby Labs - Sunnyvale, Full time (Embedded Software Engineer)\n\nDolby Laboratories creates technologies that enhance the entertainment experience.\n\nWe are looking for Embedded Systems Software Engineers in the Advanced Imaging Group at Dolby. On this team you will revolutionize how people create, deliver, and enjoy entertainment worldwide on PCs, gaming consoles and mobile devices. To do that, we need the absolute best talent, including insatiably curious engineers and scientists.\n\nAt Dolby, science meets art, and high tech means more than computer code. As a member of the Dolby team, you’ll s",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.9,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8984686,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8984686",
+      "header": "Slate Magazine - Washington, DC",
+      "text": "Slate Magazine - Washington, DC\n\nSlate Magazine is hiring developers with experience with iOS, Django, and AngularJS (and/or other front-end platforms).\n\nSee tech job postings at https://jobs-slate.icims.com/jobs/search?ss=1&searchCategory=21183\n\nAll jobs (editorial, business, etc) at http://slate.com/jobs\n\nQuestions? Email me at doug.harris AT slate.com",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.12,
+        "industry_stated": 0.11,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Angular",
+          "Django",
+          "iOS"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 8985470,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8985470",
+      "header": "Microsoft - Linux/Docker/IPython devs in Redmond/Seattle, Local or Remote",
+      "text": "Microsoft - Linux/Docker/IPython devs in Redmond/Seattle, Local or Remote\n\nThe Python/R team at Microsoft is building a \"Data Studio\" service centered around IPython/Jupyter which will be targeted at anyone that needs a decent REPL in the sky (eg Data Scientists and beyond). This will be a cloud/browser based service built on Linux/Docker (not a typo!) I'm looking for experienced backend & frontend dev that can help build this service.\n\n2 positions available - Linux/Docker: 5+ years experience in building scalable web based solutions.\n\n1 position available - IPython/Jupyter: direct experience ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.8,
+        "industry_stated": 0.89,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Docker",
+          "Python",
+          "R"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 8980849,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980849",
+      "header": "RINSE - www.rinse.com - Design District, San Francisco, CA",
+      "text": "RINSE - www.rinse.com - Design District, San Francisco, CA\n\nRinse is a technology-enabled dry cleaning and laundry delivery service. We've been growing our service at an exponential rate for the past year, and our customers love us! We have a number of open positions, and have hired a significant portion of our team via Hacker News.\n\nFOUR positions:\n\n  1) Software Engineer\n  2) Special Operations Associate\n  3) Customer Service Specialist\n  4) Business Development Manager\n\nRinse is hiring Software Engineers to develop our functionality across the stack. We have hybrid mobile apps for both Andr",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.05,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Django",
+          "Postgres",
+          "Python",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8981033,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8981033",
+      "header": "Senior Python Data Scientist and Senior Software Engineer - Recursion Pharmaceuticals",
+      "text": "Senior Python Data Scientist and Senior Software Engineer - Recursion Pharmaceuticals\n\nQuestion for you: What's the most challenging, most impactful set of data problems you could be working on?\n\nWe’re a small and fast-growing biotech startup with an amazing set of advisors including the Broad’s Anne Carpenter, and we're using high throughput genetic perturbation experiments in human cells, automated image segmentation and quantitation of hundreds of features for every cell, and machine learning and statistics to find new treatments for rare genetic diseases faster than anyone has previously t",
+      "answers": {
+        "ai_native": 0.16,
+        "eng_leadership": 0.09,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Machine learning",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8982937,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8982937",
+      "header": "Iotum Global Holdings - Los Angeles - Full Time",
+      "text": "Iotum Global Holdings - Los Angeles - Full Time\n\nWe are a software company in need of a rock-star Systems Engineer with DevOps leanings to join our team.\n\n  You eat/sleep/breathe technology.\n  Technology is your passion, your hobby, your lifestyle.\n  You are a tinkerer, driven by the desire to innovate.\n  Repetitive manual tasks are your pet peeve, and you derive satisfaction out of automation.\n  You are OS agnostic.\n  You are connected to and involved in the tech community.\n  You love participating in hack-a-thons.\n  Nerf dart guns are your weapon of choice.\n\nDoes this describe you? If so, we",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.9,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 9000850,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=9000850",
+      "header": "Udemy - San Francisco, CA, Dublin, Ireland & Ankara, Turkey.",
+      "text": "Udemy - San Francisco, CA, Dublin, Ireland & Ankara, Turkey.\n\nWe’re the world’s online learning marketplace, where more than 5 million students are taking courses in everything from programming to yoga to photography–and much, much more. Each of our 22,000+ courses is taught by an expert instructor, and every course is available on-demand, so students can learn at their own pace, on their own time, and on any device.\n\nWe're seeking fullstack developers, mobile and backend developers to join the team in all three locations.\n\nApply online at https://about.udemy.com/careers/",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8983654,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8983654",
+      "header": "CosmoCode - Berlin, full-time/part-time, Systems Administration",
+      "text": "CosmoCode - Berlin, full-time/part-time, Systems Administration\n\nWe're a small software company mainly creating specialized web applications and web sites (Python Django, Typo 3, Wikis, ...) for individual customers and larger agencies.\n\nWe're looking for a Linux Administrator to help with our own as well as customer's servers.\n\nMore details at: http://www.cosmocode.de/de/ueber-uns/stellenangebote/11/sysadministrator-berlin-gesucht/",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.07,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8981806,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8981806",
+      "header": "Shippo is hiring | https://goshippo.com",
+      "text": "Shippo is hiring | https://goshippo.com\n\nShippo is an API that simplifies shipping for e-commerce stores. Our API streamlines the shipping process by connecting to all different shipping providers at the same time via one unified platform. We are an API first company and our tech team is the backbone of the company. We are focused on the scalability of the API to smoothly onboard some of our larger customers as well as making use of our large set of shipping data.\n\n- Software Engineer ( https://goshippo.com/jobs/software-engineer/ )\n\n- UX Engineer ( https://goshippo.com/jobs/ux-engineer/ )\n\nAl",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8981694,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8981694",
+      "header": "RideCell(YC W12) - Senior Backend Engineer - San Francisco, CA",
+      "text": "RideCell(YC W12) - Senior Backend Engineer - San Francisco, CA\n\nYou wouldn't believe how inefficient most transportation systems are!\n\nAt RideCell, we build transportation automation software that helps large corporations, public transit agencies and Universities optimize, manage, and scale their transportation systems.\n\nOur software has already moved almost 10 million people but that's just the beginning. We're working on much higher impact things that will fundamentally change the way logistics is done. Doing this requires solving some pretty interesting engineering problems ranging from opt",
+      "answers": {
+        "ai_native": 0.11,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.94,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "Angular",
+          "Django",
+          "Postgres",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8980857,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980857",
+      "header": "Chicago. Full-Stack (primarily Python, Django, Angular) engineers.",
+      "text": "Chicago. Full-Stack (primarily Python, Django, Angular) engineers.\n\nKnowledgeHound (knowledgehound.com) is a data search and visualization tool used by Fortune 500 companies to make better decisions using survey data they already have.\n\nWe're a small shop (looking for engineers 3 & 4), focus on user experience and design. Ideal candidate knows our stack, but more importantly is a lifelong learner.\n\nemail me at john@knowledgehound.com if you'd like to talk more.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.96,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Angular",
+          "Django",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8980614,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980614",
+      "header": "Nilas | https://www.nilas.com/ | San Francisco, CA (Mission) | Frontend (JS), Design, Backend (Systems+Ops)",
+      "text": "Nilas | https://www.nilas.com/ | San Francisco, CA (Mission) | Frontend (JS), Design, Backend (Systems+Ops)\n\nHi! We're Nilas (previously known as Inbox)[0] and we're looking for help building the next generation email platform. We're building a missing piece of Internet infrastructure and are looking for frontend engineers and designers and backend systems and infrastructure/operations engineers to join us.\n\nCompanies are building their core businesses around our email API right now, and that means we have to be reliable, up all the time, and fast. We have more data for a single user than in m",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.15,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.92,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "JavaScript",
+          "MySQL",
+          "Node.js",
+          "Python",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8984384,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8984384",
+      "header": "Solarcentury - London - Multiple software development positions (Java, HTML, CSS and JavaScript)",
+      "text": "Solarcentury - London - Multiple software development positions (Java, HTML, CSS and JavaScript)\n\nSolarcentury has been around since the early days of the solar industry. Founded in 1998, we’ve been part of the evolution that has made PV the attractive investment it is today. We’ve put solar on more types of sites than any other company in the industry, and have won multiple awards for product innovation.\n\nWe provide a range of software based services to its customers and internal staff. The systems and services are a vital part of Solarcentury’s brand and position in the marketplace. Our serv",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "climate_energy",
+        "industry_fits": 0.92,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java",
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8984262,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8984262",
+      "header": "CodeWeavers in St Paul, MN",
+      "text": "CodeWeavers in St Paul, MN\n\nhttps://www.codeweavers.com/about/general/jobs/\n\nYou might recognize CodeWeavers as the main force behind the Wine project. We're a small company, fewer than 20 people in our main office.\n\nWe're looking for a quality C programmer to do Linux systems programming work. Specifically stuff like mail servers (Dovecot, Postfix), display technologies (X server, SPICE), and just general open source systems programming.\n\nIt's a very fun workplace. I've been employed here more than five years and I can't imagine a better work environment. Link above contains the full job list",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.68,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8980702,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980702",
+      "header": "OpenTable is hiring | http://opentable.com",
+      "text": "OpenTable is hiring | http://opentable.com\n\nOpenTable is a global company dedicated to continually solving new problems to help create amazing dining experiences. We enable restaurants around the world to delight their guests with every meal. We are the leaders in restaurant technology, constantly reinventing ourselves and the products we offer so restaurants can thrive and improve their businesses\n\nInterns\n\n- Product (http://hire.jobvite.com/m?3Zoq1hwA)\n\n- Engineering (http://hire.jobvite.com/m?3foq1hwQ)\n\nMany other roles, including:\n\n- Principal Security Engineer ( http://hire.jobvite.com/m?",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.88,
+        "industry_stated": 0.98,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.98,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8981328,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8981328",
+      "header": "The Common Job App For Programmers",
+      "text": "The Common Job App For Programmers\n\nOur goal is to fix a broken hiring system. Too often, talented programmers don’t get the chance they deserve, just because they don't have the typical resume companies look for. We think that’s wrong.\n\nSo, we are working with a number of startups, including some from Y Combinator, on a new way to hire programmers. Without resumes. Open to anyone. Letting your work speak for itself.\n\nHere's how it goes:\n\n1. No resumes. Apply with code.\nTo get started, we send you a few real coding problems. You write out your answers and we manually review it.\n\n2. Pair progra",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.04,
+        "industry_stated": 0.85,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.07,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 8980999,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980999",
+      "header": "Alpha Theory is looking for a DBA with experience using both MS SQL Server and PostgreSQL. (REMOTE but prefer candidates near our office in Charlotte, NC)",
+      "text": "Alpha Theory is looking for a DBA with experience using both MS SQL Server and PostgreSQL. (REMOTE but prefer candidates near our office in Charlotte, NC)\n\nhttps://www.alphatheory.com/home#/dba-position\n\nAlpha Theory, an award-winning leader in improving investment decision discipline and performance for some of the world's most respected investment managers, is looking for a Senior DBA with experience in PostgreSQL and Microsoft SQL Server. Alpha Theory provides SaaS which allows investment managers to optimize their position sizes and the composition of their portfolios. We're a small compan",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Postgres"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 8982706,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8982706",
+      "header": "Job posters: there is something like 300 advertised threads currently. Please list the names of the positions you have open and not just your jobs URL, so candidates can do a text search for position ",
+      "text": "Job posters: there is something like 300 advertised threads currently. Please list the names of the positions you have open and not just your jobs URL, so candidates can do a text search for position titles. Providing names of tools used will also help.\n\nThanks",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.08,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.06,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.04,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 8987977,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8987977",
+      "header": "Vevo - SF - Fulltime Frontend/Backend/iOS/Android",
+      "text": "Vevo - SF - Fulltime Frontend/Backend/iOS/Android\n\nHere at Vevo, we love rocking out to music while working hard to deliver HD music videos to millions of fans around the world. Our goal is to help our fans stay on top of their favorite artists and watch their favorite videos anytime, anywhere. With backing from the major music labels (UMG, Sony, Abu Dhabi) and Google, we are expanding rapidly and we need your help to continue our growth and make our products even better. We also have plenty of\n\n  > Lunch and snacks\n\n  > Pongstars (ping pong pros)\n\n  > All kinds of beverages (check our bevmo c",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "media_consumer",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Angular",
+          "C#",
+          "Node.js",
+          "React",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8980561,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980561",
+      "header": "Chengbao - Hong Kong - http://chengbao.com.hk/",
+      "text": "Chengbao - Hong Kong - http://chengbao.com.hk/\n\nWant to move to Hong Kong? We'll help the right candidate get a visa to relocate here. We make high quality web and native apps related to security. We have an awesome office, a great international team and we are growing fast.\n\nWe have the following positions available at our office in Hong Kong:\nUX Designer/Developer (Web)\nSenior Android and/or iOS Developer\nSenior Software Developer (Ruby)\n\nDrop me an email at heidar@chengbao.com.hk or leave a comment if you're interested or have any questions. :)",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.9,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "Ruby",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 9015130,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=9015130",
+      "header": "REMOTE",
+      "text": "REMOTE\n\nGingr - Boulder, CO, USA - Full time - Engineer #1\n\nGingr is a SaaS for dog kennels, daycares, groomers & trainers. It helps them manage every aspect of their business; managing customers, reservations, schedules, marketing/interaction tools, and payment collection.\n\nWe're at MVP, have >20 customers, growing weekly, and are actively engaged with multiple investors. Our 6 month development roadmap is planned.\n\nI'm Lee, the founder of Gingr and the technical person on the product. Currently, I'm the sole developer on the project. We use PHP, Bootstrap 3, jQuery and some React.js (lots mo",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "PHP",
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 8981944,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8981944",
+      "header": "Smarkets, London, UK. Sorry, no remote.",
+      "text": "Smarkets, London, UK. Sorry, no remote.\n\nWe're always looking for generalist, python-happy software engineers. If you know, or want to learn erlang, even better.\n\nSmarkets is a modern betting exchange with significantly lower transaction fees than the competition. We're a well-funded company with a small, agile development team, and our platform has handled over £600 million of bets since launching in 2010. Smarkets has been featured in publications such as Wired, The Wall Street Journal and TechCrunch and was recently selected as part of the Startups 100.\n\nWe are taking on the big players in ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Postgres",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8981279,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8981279",
+      "header": "CloudFlare are hiring in both SF and London.",
+      "text": "CloudFlare are hiring in both SF and London.\n\nWe have a range of positions, most of which can be found on our website, but if you happen to be great at any of the following just get in touch:\n\n* Lua\n\n* Go\n\n* C\n\n* Docker architectures for microservices (Mesos, Marathon, etc)\n\n* JavaScript (think of ES6 and core stuff)\n\nYou don't need all of that, we welcome specialists in a big way though awareness of how things glue together and core HTTP is a good thing.\n\nWe don't welcome agencies or recruiting firms, at CloudFlare engineers hire engineers. You'll find our contact details easily enough, or pi",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C",
+          "Docker",
+          "Go",
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8985513,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8985513",
+      "header": "ShareProgress hiring Backend Developer (SF, REMOTE)",
+      "text": "ShareProgress hiring Backend Developer (SF, REMOTE)\nhttp://shareprogress.org\n\nIf you're a developer looking for an opportunity to work on progressive causes you care about...\n\nAt ShareProgress, our mission is to help progressive organizations achieve success through the use of data and technology. Innovations in these fields have made it possible to organize and campaign more effectively than ever before, but most groups don't have the knowledge or ability to take advantage of these advances. We help organizations like Greenpeace, Sierra Club, CREDO, Compassion & Choices, AFL harness these inn",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.38,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Postgres",
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 8980584,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980584",
+      "header": "Lonely Planet - Nashville, TN, USA - Web Operations Engineer",
+      "text": "Lonely Planet - Nashville, TN, USA - Web Operations Engineer\n\nThe Web Operations team are responsible for working alongside developers to ensure that lonelyplanet.com can efficiently deliver a stable and fast product to travellers. You might be a good fit if you\n\n* Embrace continuous delivery and dev ops’ practices\n\n* Understand how to deliver highly-available and performant infrastructure\n\n* Know what’s what with Linux and AWS\n\n* Have experienced the challenges of running web applications at scale\n\n* Can’t live without source code management and infrastructure as code\n\n* Happy to work closely",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.84,
+        "industry_stated": 0.9,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Postgres",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8980236,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980236",
+      "header": "Clue: Berlin, Germany",
+      "text": "Clue: Berlin, Germany\n\nWe're a Berlin-based startup, dealing with (mostly) female reproductive health - bringing dignity to the space, and dragging it into the 21st century with apps (iOS: https://itunes.apple.com/us/app/clue-period-tracker/id657189652?ls=1&mt=8, Android: https://play.google.com/store/apps/details?id=com.clue.android), as well as a hardware project in the works.\n\nWe're looking for on-site, but we're happy to help with visas.\n\n-> Android Engineer\n\nClue for Android just launched and already has over 100K downloads in the Google Play store. Clue is making a dent in the history of",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.94,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 8980411,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980411",
+      "header": "DataStax - https://hire.jobvite.com/j?cj=oVGf0fwA&s=Hacker_News:_Matt - REMOTE",
+      "text": "DataStax - https://hire.jobvite.com/j?cj=oVGf0fwA&s=Hacker_News:_Matt - REMOTE\n\nDataStax, the company that powers the online applications that transform business, is looking for a talented full-stack Developer to work on the OpsCenter team.\n\nWe hack in Python, Clojure, and JavaScript. And Cassandra of course. Mega bonus points for Spark, Solr, Elasticsearch, Hadoop experience.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.88,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Python",
+          "Spark"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 8980256,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980256",
+      "header": "Artoo http://www.artoo.in: #FinTech #BigData - Bangalore, India - Full Time",
+      "text": "Artoo http://www.artoo.in: #FinTech #BigData - Bangalore, India - Full Time\n\nArtoo is improving access to financial services for the world's poor. Today, through its partners, Artoo disburses more than loans worth $ 3 million every month, increasing at the rate of 25% month on month.\n\nInterested in making an impact? Improving people's lives using technology? Take a look at our jobs at https://angel.co/artoo/jobs\n\n* Android\n\n* Emberjs / FrontEnd JavaScript\n\n* Nodejs / FullStack JavaScript\n\n* CouchDB, RabbitMQ, AWS / DevOps\n\n* Designer",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Android",
+          "JavaScript",
+          "Node.js"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 9007164,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=9007164",
+      "header": "FarApp - Los Angeles area - Full Time Remote",
+      "text": "FarApp - Los Angeles area - Full Time Remote\n\nWe're a small company that automates business processes (pushing product data, importing orders and exporting shipment data) to eCommerce platforms and marketplaces. We're looking for an entry-level software engineer to help on the many different projects we're working on. We're improving our service and implementing new features and also implementing customizations for customers who need them.\n\nYou can read all about the position here: http://farapp.workable.com/jobs/34228",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.94,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.96,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "junior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 8980677,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=8980677",
+      "header": "AvantCredit - Chicago, IL - Software Engineer",
+      "text": "AvantCredit - Chicago, IL - Software Engineer\n\nJust got a $225M Series D making us the fastest growing company in Chicago. You'll be working with technologies like Ruby on Rails, Angular, CoffeeScript, Heroku, Resque, Postgres, and REDIS on a team focusing on the customer application process, admin portal backend, loan servicing, fraud fighting, deep learning neural network modeling, infrastructure, or quality assurance.\n\n* Very flat, unstructured organization with high transparency\n\n* Really challenging problems to be solved as we scale into new markets/products\n\n* Full benefits, unlimited PT",
+      "answers": {
+        "ai_native": 0.09,
+        "eng_leadership": 0.02,
+        "funding_stage": "series_c_plus",
+        "industry": "fintech",
+        "industry_fits": 0.76,
+        "industry_stated": 0.54,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Angular",
+          "Postgres",
+          "Rails",
+          "Redis",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

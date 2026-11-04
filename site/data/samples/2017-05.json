@@ -1,0 +1,861 @@
+{
+  "month": "2017-05",
+  "posts": [
+    {
+      "id": 14244634,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14244634",
+      "header": "CrazyGames | Software engineer | Leuven, Belgium | Hiring Full-time and Part-time",
+      "text": "CrazyGames | Software engineer | Leuven, Belgium | Hiring Full-time and Part-time\n\nCrazyGames.com is a browser games portal reaching 5 million people per month, based in Leuven, Belgium.\n\nWe're looking for a first full-time employee. The qualifications we're looking for are frontend software engineering and some game development experience (ideally in Unity). Note that since you're the first full-time employee you'll have a lot of freedom and responsibility. Our stack is React.js and Python running on AWS.\n\nIf you are interested or know someone who might be, you can reach out to raf@crazygames",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Python",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14242388,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14242388",
+      "header": "Improbable | Software Engineer | San Francisco, London | https://improbable.io",
+      "text": "Improbable | Software Engineer | San Francisco, London | https://improbable.io\n\nI'm a software engineer at Improbable. We're building SpatialOS, a distributed operating system that facilitates simulation on an unprecedented scale. My team is responsible for taking SpatialOS and helping corporations and governments ask huge, \"what if\" questions of the real world. We're backed by A16Z and partnered with Google.\n\nIn addition to a wide range of engineering roles in our rapidly growing London office, we've just opened a new office in San Francisco where we're building a new analytics team focused o",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.95,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14241571,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14241571",
+      "header": "Courex - www.storeviva.com | Senior Engineer | Singapore | Full Time(40% remote)",
+      "text": "Courex - www.storeviva.com | Senior Engineer | Singapore | Full Time(40% remote)\n\n# What the company does\n\nCourex is an 8 year old ecommerce logistics company driven by technology. We help our customers manage their supply chain so they can focus on selling. We do the following\n\n  - last mile delivery\n  - warehousing\n  - omnichannel integration\n\nOur operations is driven by technology. Some interesting stuff\n\n  - We run a hybrid crowd-sourced(uber style) + fixed fleet model.\n  - We built an automated parcel dimension measurement machine using Kinect\n  - We have autonomous robots coming in 2017 ",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.05,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Haskell",
+          "React"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 14246527,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14246527",
+      "header": "thelab | New York, NY (NYC) | Sr. Backend Developer | http://thelabnyc.com | Full-Time | Onsite",
+      "text": "thelab | New York, NY (NYC) | Sr. Backend Developer | http://thelabnyc.com | Full-Time | Onsite\n\nWe're looking for a senior backend software developer to assist in development on a mid-sized e-commerce site, with a focus on developing and maintaining several open-source projects we own and contribute to. Most development would be on server-side code, but some experience with front-end technologies is a plus, as would be experience with DevOps.\n\nTo apply, please email your resume, links, and cover letter to jobs.dev@thelabnyc.com\n\nLanguages / Frameworks\n\n- Python / Django\n\n- Typescript / React\n",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.3,
+        "industry_stated": 0.74,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Django",
+          "Kubernetes",
+          "Postgres",
+          "Python",
+          "React",
+          "Redis",
+          "TypeScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14240151,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14240151",
+      "header": "Swiftype | Software Engineer | San Francisco, CA | ONSITE | Relocation Assistance",
+      "text": "Swiftype | Software Engineer | San Francisco, CA | ONSITE | Relocation Assistance\n\nSwiftype builds a search platform that powers hundreds of millions of queries a month. We are a small team of generalist software developers and we are looking to grow our team in order to build new products and maintain our existing search platform. Come join us in our newly expanded office!\n\nEmail us at jobs+hn@swiftype.com or check out https://swiftype.com/jobs for more information.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.91,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14247953,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14247953",
+      "header": "SumUp | Fullstack Javascript Engineer | Berlin | ON-SITE, Visa | http://sumup.co.uk (or http://sumup.de if you speak German already!)",
+      "text": "SumUp | Fullstack Javascript Engineer | Berlin | ON-SITE, Visa | http://sumup.co.uk (or http://sumup.de if you speak German already!)\n\nI am looking for someone who loves JavaScript to join the team. Our fullstack position is frontend-heavy, so it's also perfect for someone who is UI/UX-oriented but also wants to become better rounded. It can also work for someone who is traditionally a backend-er and wants to see what all the hype in the frontend is about. Our base expectation is a solid foundation in programming, and we're off to a great start. You'll fit in perfectly to our team if:\n\n- You n",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.97,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Angular",
+          "JavaScript",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14245107,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14245107",
+      "header": "AUTO1 (https://www.auto1.com/en) | Berlin, Germany | Java |Full-time, Onsite | Visa Sponsor",
+      "text": "AUTO1 (https://www.auto1.com/en) | Berlin, Germany | Java |Full-time, Onsite | Visa Sponsor\n\nAUTO1 is looking for REST and microservices enthusiasts to join the fastest engineering team of 2016 in Berlin.\n\nMore details here: https://app.jobvite.com/j?cj=oTdE4fwy&s=Hacker_News\n\nSend your CV to: bianca.alves@auto1.com\n\nWe have several Engineering job openings (PHP, Frontend, QA, Mobile), check our career page: https://www.auto1.com/en/jobs",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java",
+          "PHP"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14238088,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14238088",
+      "header": "Arundo | Multiple roles | Houston, Oslo | Full-Time | ONSITE",
+      "text": "Arundo | Multiple roles | Houston, Oslo | Full-Time | ONSITE\n\nArundo is a startup building a data platform for industries with sensor-laden equipment, such as oil and gas, shipping, renewables, utilities, and transportation. Our platform and associated tools allow customers to easily create streaming data pipelines and build and deploy machine learning models. We are a distributed team with offices in Houston, Texas, Oslo, Norway, and Palo Alto, California and work with customers around the world.\n\nWe are currently expanding our team by more than 50% and hiring for roles across the company, in",
+      "answers": {
+        "ai_native": 0.59,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14239588,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14239588",
+      "header": "SoundCloud | Senior Software Engineer, iOS / Engineering Manager | NYC | Onsite, Full-time",
+      "text": "SoundCloud | Senior Software Engineer, iOS / Engineering Manager | NYC | Onsite, Full-time\n\nSoundCloud is an open platform enabling everyone to share and discover audio content all over the world.\nHere at SoundCloud NYC we’re expanding our monetization & growth engineering team (currently a team of 23) who help build the platform that helps creators make money from their content, listeners gain access to the world's music, and brands engage with SoundCloud's unique audience. We’re looking to add a Senior Software Engineer, iOS and an Engineering Manager to our growing team!\n\nIf you’re interest",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.99,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14243381,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14243381",
+      "header": "Southeast USA including: Texas (Austin and San Antonio), Virginia (Arlington and Dulles), Alabama (Huntsville),",
+      "text": "Southeast USA including: Texas (Austin and San Antonio), Virginia (Arlington and Dulles), Alabama (Huntsville),\nFlorida (beach east of Melbourne), South Carolina (Greenville),\nMaryland (Annapolis Junction), and possibly others, all ONSITE.\nCitizenship is a job requirement.\n\nWe do emulators, JIT, hypervisors, stuff like valgrind, debuggers,\nmanual disassembly, binary static analysis, parsers, and assembly.\nWe write our own low-level tools, frequently in C99 to run on Linux.\nWe also use IDA Pro, qemu, Simics, JTAG debuggers, gdb, Coverity,\nKlocWork, LLVM, and so on. Easily transferable skills in",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.27,
+        "industry_stated": 0.67,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.07,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14244592,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14244592",
+      "header": "Techincal Cofounder | San Francisco Bay Area, CA | Tixit | Full Time or Half Time | Equity: 10-20% + ~$40k salary | REMOTE welcome",
+      "text": "Techincal Cofounder | San Francisco Bay Area, CA | Tixit | Full Time or Half Time | Equity: 10-20% + ~$40k salary | REMOTE welcome\n\nWe're a small (9 person) team building a lightening fast extensible project management system. We're looking for a 2nd technical cofounder to accelerate the development of our product. You'd be working with me (the other technical cofounder) in designing and implementing the core backend as well the web frontend. We value our test-driven development, clear internal and external documentation, and doing things right to build and maintain momentum. Our stack is node",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.37,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.95,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "salary_max_usd": 40000.0,
+        "salary_min_usd": 40000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MongoDB",
+          "Node.js"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14241187,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14241187",
+      "header": "Ona (https://ona.io/) | Nairobi, Kenya | Senior Android/Java Engineer | ONSITE | Full-time",
+      "text": "Ona (https://ona.io/) | Nairobi, Kenya | Senior Android/Java Engineer | ONSITE | Full-time\n\nWe build a data management platform and tablet health application used globally to improve child and maternal health, governance, agriculture, access to infrastructure, and government accountability. E.g. our software routed patients during the ebola crisis in West Africa, counted votes during a Libyan election, is surveying national infrastructure post-earthquake in Nepal, and scheduling vaccines in Bangladesh, Indonesia, Pakistan, Indonesia, Zambia, and other places soon.\n\nThe stack you'll work with d",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.57,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "Django",
+          "Java"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14238553,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14238553",
+      "header": "Opus One Energy Solutions | DevOps, Software, and QA developers | Toronto or Richmond Hill, ON | ONSITE, FULLTIME | https://www.opusonesolutions.com/",
+      "text": "Opus One Energy Solutions | DevOps, Software, and QA developers | Toronto or Richmond Hill, ON | ONSITE, FULLTIME | https://www.opusonesolutions.com/\n\nCome help build the future of the electricity grid! We are a talented cross disciplinary team of engineers and developers building software solutions for electrical utilities. Our platform enables better planning for renewable resource integration and provides real-time operational views of the electrical grid in order to maximize clean & sustainable electricity.\n\nOur Tech Stack\n\n  * Python\n  * React\n  * Docker\n\nInterview Process\n\n  1. Phone scr",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Docker",
+          "Python",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14241653,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14241653",
+      "header": "Prodo.AI | Developer & AI research roles | London, UK | ONSITE http://prodo.ai",
+      "text": "Prodo.AI | Developer & AI research roles | London, UK | ONSITE http://prodo.ai\n\nHumans spend too much time writing code for machines.\nWe make machines write code for humans.\n\nWe’re hiring for several technical roles/profiles:\n- front-end-minded devs to work on our product (smarter, more automated code reviews)\n- AI researchers to work on applying deep learning and NLP to code\n- full-stack all-rounders to mix between the two\n\nMore info at http://prodo.ai/#jobs\n\nWhy us?\n- fun and inspiring mission: teaching machines to code\n- positive impact: simplifying software and technocracy\n- freedom to wor",
+      "answers": {
+        "ai_native": 0.95,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.97,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14242529,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14242529",
+      "header": "Moz Local | Software Engineer | Seattle, WA | Full Time | REMOTE",
+      "text": "Moz Local | Software Engineer | Seattle, WA | Full Time | REMOTE\n\nhttp://moz.com/local\n\nMoz Local is a SaaS tool for managing data that powers listings for businesses in local search results. We're hiring engineers who can contribute to every part of product development. We value quality, customer-focus, and commitment to getting things done. We welcome learning and growth as a team and as individuals.\n\nCore tech stack for us: Node + React, RethinkDB, Postgres, NSQ, Docker, lots of other interesting stuff.\n\nApply to this position:\nhttps://boards.greenhouse.io/moz/jobs/659334?gh_jid=659334#.WQf",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.76,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Docker",
+          "Node.js",
+          "Postgres",
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14238666,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14238666",
+      "header": "Human API | Software Engineer, DevOps, Data Engineer | Redwood City, CA | Full time (ONSITE) https://humanapi.co/",
+      "text": "Human API | Software Engineer, DevOps, Data Engineer | Redwood City, CA | Full time (ONSITE) https://humanapi.co/\n\nMake a difference with technology: specifically, by helping to fix healthcare. We're building a real-time data network that allows getting health data from anywhere to anywhere in close to realtime. We roll up this data in a clean RESTful API that developers use to build apps that make peoples' lives better.\n\nWe have a whole pile of fun, interesting problems, and a team of smart, passionate people that love working on them. We like to work iteratively in small teams, and to give p",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Docker",
+          "Kafka",
+          "Machine learning",
+          "MongoDB",
+          "Node.js",
+          "Python",
+          "React",
+          "Redis",
+          "Terraform"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14242190,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14242190",
+      "header": "Senior Fullstack Engineer | Javascript, Node, Mongo, SPA | San Francisco (SF) | Onsite / Remote | Visa",
+      "text": "Senior Fullstack Engineer | Javascript, Node, Mongo, SPA | San Francisco (SF) | Onsite / Remote | Visa\n\nAt Localize we're creating a new way for companies to expand their products and services into new markets by simplifying the translation of websites and applications. Small startup offering the perks and stability of a big company.\n\nApply: https://bit.ly/localize-apply | jobs@localizejs.com\n\n3x revenue growth in 2016 (7-figure). 8 person team. We value positive work culture and sustainable business models fueled by customer growth (we love our investors as much as we love customers who inves",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.61,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "JavaScript",
+          "MongoDB",
+          "Node.js",
+          "Redis"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14239360,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14239360",
+      "header": "Inductive Automation | https://www.inductiveautomation.com | Software Engineer | Folsom, CA",
+      "text": "Inductive Automation | https://www.inductiveautomation.com | Software Engineer | Folsom, CA\n\nCome help develop the future of software used in industrial automation. In this position, you would join our core product development team. Together, we work to build our primary product, Ignition.\n\nThis position is focused on implementing and maintaining network protocols for communicating with industrial controllers (PLCs, RTUs, etc…) as well as the system responsible for bridging data from those implementations into the Ignition platform. Responsibilities include new feature and protocol development",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.86,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Java"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14240904,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14240904",
+      "header": "Smyte (YC W15) | San Francisco, CA | Full time | Onsite",
+      "text": "Smyte (YC W15) | San Francisco, CA | Full time | Onsite\n\nWe're hiring for a variety of technical roles at Smyte. Check out our \"jobs repo\" here: https://github.com/smyte/careers\n\nWhy Smyte?\n\n* We stop the victimization of innocent people online.\n\n* We are the highest-quality product in this space.\n\n* We have a seemingly endless supply of interesting technical problems and not enough people to work on them all.\n\n* We have the strongest team tackling this problem (founded by ex FB and Google engineers working on spam and fraud, and I was part of the original React.js team)\n\n* We just raised a se",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.09,
+        "funding_stage": "series_a",
+        "industry": "security",
+        "industry_fits": 0.9,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14238821,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14238821",
+      "header": "Lazada eLogistics | Regional Head of Data | Singapore | Onsite | Full-time",
+      "text": "Lazada eLogistics | Regional Head of Data | Singapore | Onsite | Full-time\n\nSee the full JD here: https://sg.linkedin.com/jobs/view/274806975.\n\nApply by emailing your solution to the below filter to irene.ling@lazada.com. Please have “[your name] - Regional Head of Data - HN” as the subject line.\n\nTechnical Questions\n\nHere (http://i.imgur.com/ImdVZBI.png) is a simplified model of the systems used by a fictional online retailer. Their three systems track the flow of an order placed on their website, through their warehouse, and to the point of delivery. Each system uses its own database (MySQL ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.18,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.69,
+        "industry_stated": 0.26,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MySQL",
+          "Postgres",
+          "Redis"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14240539,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14240539",
+      "header": "Infinite Food | Hackers / Mechanical Engineers / Applied Materials Scientists / Food Scientists and Technologists / Multilingual Multiplatform Mobile App Developers | Shenzhen | $neg + equity availabl",
+      "text": "Infinite Food | Hackers / Mechanical Engineers / Applied Materials Scientists / Food Scientists and Technologists / Multilingual Multiplatform Mobile App Developers | Shenzhen | $neg + equity available | Full-time or REMOTE | http://8-food.com/\n\nWork on what you want, within reason. Help define the company and take ownership of your chosen field.\n\nRegistered in Hong Kong, we are a small, mainland China based, international team in the mid prototyping phase, approaching prep-for-manufacturing on a novel series of distributed food service locations supporting automated food preparation and retai",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14238781,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14238781",
+      "header": "Grand Rounds | Staff Data Platform Engineer | SF, CA| ONSITE | FULLTIME | https://grandrounds.com",
+      "text": "Grand Rounds | Staff Data Platform Engineer | SF, CA| ONSITE | FULLTIME | https://grandrounds.com\nWe are starting to build a near-real-time healthcare delivery and analysis platform to significantly change how healthcare is delivered. We are looking for experienced candidates to build this data platform using Kafka, Spark, Cassandra, Presto, and more. We've raised over $100M, are a small team of 12 data engineers and are looking to expand. If you want to work on something impactful and work in a mature startup environment, ping me at bashir@grandrounds.com or apply https://jobs.lever.co/grandr",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "health",
+        "industry_fits": 0.96,
+        "industry_stated": 0.9,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "Kafka",
+          "Spark"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14245093,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14245093",
+      "header": "Zerocopter - https://www.zerocopter.com | Amsterdam, NL | Fulltime, REMOTE / ONSITE",
+      "text": "Zerocopter - https://www.zerocopter.com | Amsterdam, NL | Fulltime, REMOTE / ONSITE\n\nZerocopter is an Amsterdam-based company specialized in helping companies secure their (web) applications. We expose vulnerabilities using a dedicated worldwide crew of white-hat hackers, advanced scanners and running responsible disclosure programs.\n\nWe are a team of 14 people based in Amsterdam and Assen. Don't let our size fool you: we are providing solutions to companies (very) big and small. Security has become a top-of-mind topic in boardrooms and Zerocopter has established itself as a trusted and highly",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.7,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "Python",
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14240175,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14240175",
+      "header": "Blackstorm | Engineer | SALARY: $140k - $220k | San Francisco Bay area (SF) | Tokyo, Japan | VISA REMOTE",
+      "text": "Blackstorm | Engineer | SALARY: $140k - $220k | San Francisco Bay area (SF) | Tokyo, Japan | VISA REMOTE\n\nBlackstorm is building the world's most advanced javascript game engine, among other cool products like an IDE (js.io)\nWe are hiring senior engineers who can tackle architecture and APIs for our game engine on a small team of 3-4 folks. Blackstorm has raised more then $30M, and we have more than a million users per engineer at the company.\n\nFor flavor: our last project was to use redux as a server state timeline for 10M+ active players; before that we used code mods to port it from our pro",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.44,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.96,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 220000.0,
+        "salary_min_usd": 140000.0,
+        "seniority": "senior",
+        "stack": [
+          "JavaScript",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 14241546,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14241546",
+      "header": "ZestFinance | Sr. Devops Engineer | Los Angeles, CA | ONSITE , https://www.zestfinance.com/careers.html",
+      "text": "ZestFinance | Sr. Devops Engineer | Los Angeles, CA | ONSITE , https://www.zestfinance.com/careers.html\n\nResponsibilities\n\n   * Serve as a primary point responsible the overall health, performance, and capacity of our business systems\n   * Assist in the roll-out and deployment of new releases to facilitate our rapid iteration and constant growth\n   * Develop tools to improve our ability to rapidly deploy and effectively monitor our application stack.\n   * Work closely with software engineers to ensure our applications are designed with \"operability\" in mind\n   * Participate in a 24x7 on call r",
+      "answers": {
+        "ai_native": 0.97,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "C",
+          "GCP",
+          "Java",
+          "Machine learning",
+          "Python",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14239043,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14239043",
+      "header": "Full-Stack Software Engineer | Doctible | ONSITE | Fulltime | San Diego, CA",
+      "text": "Full-Stack Software Engineer | Doctible | ONSITE | Fulltime | San Diego, CA\nDoctible is a growth & automation platform for the healthcare industry. We make tools for healthcare practices like Dentists, Optometrists and Chiropractors that simplify their lives, help them reduce tedious manual work and make their patients happy! We’re also one of the few fast growing startups in San Diego, CA.\nWe're looking for an experienced Full-Stack engineer that primarily deal with Rails, ReactJS and PostgreSQL in the past 5-6 years.\n\nInterview Process: Quick phone call to start, then we're interested to mee",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Postgres",
+          "Rails",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14248441,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14248441",
+      "header": "POWr.io | SF | Full-time, onsite | https://www.powr.io/jobs",
+      "text": "POWr.io | SF | Full-time, onsite | https://www.powr.io/jobs\n\nWe help small businesses grow online. We’re a small team with a big user base. ie Tons of opportunity to make an impact & grow your skillset. We have never raised a VC round and we’re profitable.\n\nHiring:\n\n- Junior full-stack engineer\n\n- Senior full-stack engineer\n\n- Junior UX Designer\n\n- Front end engineer\n\n- Business development\n\n- Customer support specialist\n\nJavascript, Rails, Node, Backbone, React, Redux\n\nPlease apply at powr.io/jobs",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "bootstrapped",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.59,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.98,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "JavaScript",
+          "Node.js",
+          "Rails",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14238711,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14238711",
+      "header": "Vitally | Senior Javascript Engineer (First Hire) | New York | Onsite",
+      "text": "Vitally | Senior Javascript Engineer (First Hire) | New York | Onsite\n\nVitally.io is looking for a first engineering hire to join us before we go though Techstars this summer.\n\nWhat we're looking for: An ideal teammate for us is a front-end focused senior developer who is quick learning and adaptable. We'd like you to initially own a good amount of our front-end and dive in where ever else is needed (back-end, devops, etc).\n\nOur tech stack is evolving quickly, but we're building the front-end in React/Redux + Typescript, the backend in Node + Typescript w/ Postgres + Redis, and will be hosting",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.11,
+        "funding_stage": "venture_unspecified",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "JavaScript",
+          "Node.js",
+          "Postgres",
+          "React",
+          "Redis",
+          "TypeScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14261170,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14261170",
+      "header": "Matterport | Sunnyvale/SF,CA | Full-Time,Onsite | https://matterport.com",
+      "text": "Matterport | Sunnyvale/SF,CA | Full-Time,Onsite | https://matterport.com\n\nMatterport makes a 3D camera that allows users to easily capture physical spaces. That has resulted in the world’s largest dataset of aligned RGB-D images--200 million images from 300,000 different locations, and we want you to help us work with it. We have a broad research agenda focusing on 3D reconstruction and deep learning that includes semantic labeling and segmentation, 3D object classification and pose estimation, depth from RGB, estimation of unseen 3D surfaces, texture/depth in-filling, photogrammetry, SLAM, ke",
+      "answers": {
+        "ai_native": 0.21,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.91,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 14291870,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=14291870",
+      "header": "Mindera | Senior JavaScript Developer | Leicester UK | Full-Time | Onsite (with flexible working)| £40,000 to £50,000 | www.mindera.com",
+      "text": "Mindera | Senior JavaScript Developer | Leicester UK | Full-Time | Onsite (with flexible working)| £40,000 to £50,000 | www.mindera.com\n\nHere at Mindera, we are continuously developing a fantastic team, and would love it for you to join us.\n\nAs a Senior Front-End Software Developer you will be responsible for building fluid and responsive user interfaces for multiple platforms and devices.\n\nWe are looking for an experienced Front-End Developer with an appetite for solving complex problems and build seamless user interactions to world-class standards.\n\nYou Rock at:\n\nMore than one programming la",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Java",
+          "JavaScript",
+          "Scala"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

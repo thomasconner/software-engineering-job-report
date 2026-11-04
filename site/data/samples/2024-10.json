@@ -1,0 +1,830 @@
+{
+  "month": "2024-10",
+  "posts": [
+    {
+      "id": 41734533,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41734533",
+      "header": "PredictionHealth | Full Stack Engineer (Backend or Frontend Focus) | REMOTE in US (HQ in Nashville) | $125K-$200K",
+      "text": "PredictionHealth | Full Stack Engineer (Backend or Frontend Focus) | REMOTE in US (HQ in Nashville) | $125K-$200K\nWe’re a mission-driven startup using AI to improve the quality of medical care. We’re already slashing documentation time and optimizing coding/compliance for hundreds of US organizations. Our team of 30 passionate, hardworking, and friendly innovators (8 in eng/R&D) grew 6x last year, and we're just getting started. Seeking one backend and one frontend focused full stack engineer to tackle our toughest challenges.\n\nBackend Focus: Golang, Python, PostgreSQL, AWS, BigQuery, GCP - Sc",
+      "answers": {
+        "ai_native": 0.99,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 200000.0,
+        "salary_min_usd": 125000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "GCP",
+          "Go",
+          "Postgres",
+          "Python",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41721239,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41721239",
+      "header": "Nothing | https://nothing.tech | AI Engineer | London | Full-time On-Site",
+      "text": "Nothing | https://nothing.tech | AI Engineer | London | Full-time On-Site\n\nWe’re looking for a talented AI Engineer to join the R&D team at Nothing, where we’re laying the foundation for the next wave of innovative interactions across our smartphones and earbuds.\n\nThis is a chance to work on on-device models, generative UIs, AI-centric interfaces, hardware, and more.\n\nYou can apply at https://careers.nothing.tech/?gh_jid=4331415101\n\nMake sure to mention you come from HN!",
+      "answers": {
+        "ai_native": 0.76,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.91,
+        "industry_stated": 0.88,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 41710449,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41710449",
+      "header": "ONSITE in Prague, Czech Republic",
+      "text": "ONSITE in Prague, Czech Republic\n\nLinux C++ Engineer for Camera Development\n\nMosaic is seeking an experienced Linux C++ developer to assist our team in developing advanced industrial 360º camera systems. Our small team is located mostly in Prague. Our company is focused on building 3D scanning and 360º imaging solutions for street mapping, autonomous vehicle training, VFX, and other industrial and commercial applications. Mosaic counts among its customers the world’s largest, best-known names in their respective sectors.\n\nThe successful candidate will ideally have an interest in photography an",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.97,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C++",
+          "Python"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41709378,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41709378",
+      "header": "Rockstar Games | UK | ONSITE | https://www.rockstargames.com/careers",
+      "text": "Rockstar Games | UK | ONSITE | https://www.rockstargames.com/careers\n\nRockstar's Creator Platform is a small initiative within Rockstar Games building the future of UGC and modding, including the FiveM and RedM multiplayer modding platforms and other R&D projects.\n\nWe’re a small, ambitious team building technology and tools to support content creation around our world-famous franchises, Grand Theft Auto and Red Dead Redemption.\n\nWe’re scaling up our technology team and are looking for a few driven and talented people passionate about games, games modding, and building community-facing creator ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C++"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 41732379,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41732379",
+      "header": "BetterBrain | Software Engineer | Hybrid (Boulder, Colorado, USA)",
+      "text": "BetterBrain | Software Engineer | Hybrid (Boulder, Colorado, USA)\n\nAbout\nBetterBrain BetterBrain (https://www.betterbrain.com) is at the forefront of dementia prevention. We offer the most comprehensive platform to help our members prevent neurodegenerative diseases and optimize their cognition.\n\nRole Overview\nWe're rapidly growing and are seeking a talented Software Engineer to join our team and help shape the future of preventative neurology. As a full-stack engineer with experience in high-growth startups and building AI products, you’ll play a key role in our development.\n\nKey Responsibili",
+      "answers": {
+        "ai_native": 0.12,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Next.js",
+          "Python",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 41720283,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41720283",
+      "header": "Remote Senior Software Engineer",
+      "text": "Remote Senior Software Engineer\n\nhttps://solace.health\n\nSolace is a healthcare advocacy marketplace that connects patients and families to experts who help them understand and take charge of their personal health.\n\nAs a Full Stack Engineer, you’ll join a spectacularly talented team of fellow engineers—but you will also be expected to independently own your product workflow from initial design requirements through deployment. You will be expected to move aggressively, and you will commit code daily, but you’ll get that rush of seeing your work in the wild with live users on a regular basis as y",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.95,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Next.js",
+          "Postgres",
+          "React",
+          "Redis",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41712116,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41712116",
+      "header": "Konvu | https://konvu.com/ | Java Instrumentation Engineer & Software Engineer | Full-time | ONSITE | Paris, France",
+      "text": "Konvu | https://konvu.com/ | Java Instrumentation Engineer & Software Engineer | Full-time | ONSITE | Paris, France\nAt Konvu, we’re on a mission to make security invisible. As we move towards a future dominated by code automatically generated, tested, and deployed by AIs, we need a new paradigm for application security. We need vulnerabilities to be automatically detected, prioritized and remediated.\n\nBehind Konvu are founders with deep roots in the security industry. As part of the founding team at Sqreen (YC W18), a notable security startup acquired by Datadog, we have firsthand experience i",
+      "answers": {
+        "ai_native": 0.26,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.99,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 41718310,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41718310",
+      "header": "Queueco | HFT | London, UK | Full time on-site | Visa sponsor",
+      "text": "Queueco | HFT | London, UK | Full time on-site | Visa sponsor\n\nWe are a proprietary trading firm operating in conventional as well as cutting-edge alternative markets. Our strategies run 24/7 without manual intervention powered by low-latency infrastructure and the latest machine learning techniques. We're a meritocratic and lean team of highly-motivated scientists and developers and as such value technical ability more than politics: what matters is how good your code is, not how well you sell yourself. We spend no time dealing with clients, customers or investors and instead focus on growing",
+      "answers": {
+        "ai_native": 0.38,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 41773797,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41773797",
+      "header": "Ai-RGUS | Senior Full Stack Developer | https://ai-rgus.com | Las Vegas, Nevada, USA | Full time | Fully Remote | US candidates only | $174k-$250k + health insurance",
+      "text": "Ai-RGUS | Senior Full Stack Developer | https://ai-rgus.com | Las Vegas, Nevada, USA | Full time | Fully Remote | US candidates only | $174k-$250k + health insurance\n\nAi-RGUS is a spinoff of Duke University that has been developing AI software since 2017 to address security camera system health maintenance. We have an online user interface and API, making our software user-friendly and hassle-free. We are deployed on over 100,000 cameras with customers in the US & abroad including 2 Fortune 100 companies.\n\nWe are a small team with a few engineers and looking to add an experienced backend softw",
+      "answers": {
+        "ai_native": 0.59,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.9,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 250000.0,
+        "salary_min_usd": 174000.0,
+        "seniority": "senior",
+        "stack": [
+          "JavaScript",
+          "PHP"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41718220,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41718220",
+      "header": "https://kombo.dev (YC S22) | Product-minded Engineers | Berlin | In-office (with flexibility) | 60k-100k",
+      "text": "https://kombo.dev (YC S22) | Product-minded Engineers | Berlin | In-office (with flexibility) | 60k-100k\n\nWe are a small (~25), fast-growing (we went from $1M -> $2.5M ARR in the last 6-months) team building a unified API for HR systems. Right now, we are struggling to keep up with customer demand and desperately need to add more engineering power.\n\nWe are hiring multiple (product-minded) engineers and support/solution engineers of all experience levels. Jobs are here: https://jobs.ashbyhq.com/Kombo\n\nFeel free to contact me at arne@kombo.dev - I'm the CTO and leading the hiring process!",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.93,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.58,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 41719413,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41719413",
+      "header": "Roam.lol |SF, US |Founding AI/ ML & Python Engineer |Full-Time |ONSITE",
+      "text": "Roam.lol |SF, US |Founding AI/ ML & Python Engineer |Full-Time |ONSITE\n\nHey everyone! Roam is the TikTok for games; a game-driven social app, where every creator, artist & influencer can make unique multiplayer games for their fans in minutes with the help of AI. We work with Rick & Morty, Batman, Harry Potter, Lego Movie, Tom & Jerry, 64 similar IPs as well as > 300 Content Creators with 138M+ audience reach who have committed to making games on Roam and are signing new creators & IPs daily.\n\nUnlike UEFN or Roblox, which are limited to technical game developers, Roam provides tools for anyone",
+      "answers": {
+        "ai_native": 0.94,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 41710052,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41710052",
+      "header": "Skydio | Cloud / Web / Robotics Engineers | San Mateo, CA or Hybrid | Typescript / Python / C++",
+      "text": "Skydio | Cloud / Web / Robotics Engineers | San Mateo, CA or Hybrid | Typescript / Python / C++\n\nSkydio is the leading U.S. drone company and world leader in autonomous flight. Today our products are flown at scale in complex, unknown environments by a wide range of customers to capture incredible video, inspect critical infrastructure, and save lives in emergency response scenarios. We’ve raised $220M at a $2.2B valuation led by a16z.\n\nIf you’re interested in being a core member of a 150+ person world-class engineering and research team that is defining the future of a major emerging industry",
+      "answers": {
+        "ai_native": 0.32,
+        "eng_leadership": 0.28,
+        "funding_stage": "venture_unspecified",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "C++",
+          "Python",
+          "TypeScript"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 41728172,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41728172",
+      "header": "FareHarbor (Booking Holdings) | Amsterdam, SF, Denver (+Remote) | Full Time (Visa + Relocation support) https://fareharbor.com/careers/jobs/",
+      "text": "FareHarbor (Booking Holdings) | Amsterdam, SF, Denver (+Remote) | Full Time (Visa + Relocation support) https://fareharbor.com/careers/jobs/\n\nWe're FareHarbor, a company that's part of Booking Holdings, and we're currently hiring for a variety of engineering roles! We're looking for talented individuals who are passionate about using technology to make experiences better for everyone.\n\nOur company was founded in Hawaii in 2013 and acquired by Booking Holdings in 2018. We create powerful tools that enable our clients (which include boat rentals, museums, food tours, events, and more!) to operat",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "public_or_large",
+        "industry": "commerce",
+        "industry_fits": 0.72,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Python",
+          "Vue"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41711760,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41711760",
+      "header": "Nango | Full-stack | Remote (Americas/Europe)",
+      "text": "Nango | Full-stack | Remote (Americas/Europe)\n\nLet developers build product integrations 10x faster. Developer infrastructure / open source. Y Combinator (W23), seed stage, founded in 2022. Fully remote (Americas & Europe), 5 team members. Fast-growing revenues, 300+ companies in prod, 4.5k GH stars, community of 2k developers.\n\nApply here: https://nango.dev/jobs",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "seed",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41714328,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41714328",
+      "header": "Column (https://column.com/) | Software Eng (Infrastructure), Software Eng (Backend), Software Eng (Product) | San Francisco, CA (ONSITE) | Full Time",
+      "text": "Column (https://column.com/) | Software Eng (Infrastructure), Software Eng (Backend), Software Eng (Product) | San Francisco, CA (ONSITE) | Full Time\n\nColumn is the first nationally chartered bank built from the ground up for developers. We provide an API first, modern banking experience for our customers, replacing the bloated middleware and legacy software that currently powers most financial companies.\n\nStarted by the co-founder of Plaid, Column has a team of <10 experienced engineers and is currently processing hundreds of billions in payments annually, supporting some of the largest and m",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 41734521,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41734521",
+      "header": "Pittsburgh Supercomputing Center (https://www.psc.edu/) | Pittsburgh, PA, USA | Full-time | Onsite or Hybrid",
+      "text": "Pittsburgh Supercomputing Center (https://www.psc.edu/) | Pittsburgh, PA, USA | Full-time | Onsite or Hybrid\n\nThe Pittsburgh Supercomputing Center (PSC) is a joint research center of Carnegie Mellon University and the University of Pittsburgh. Established in 1986, for nearly 40 years we’ve provided university, government, and industrial researchers access to several of the most powerful computational systems in the country for unclassified research. The work done at PSC advances science across a wide variety of fields, including artificial intelligence, medical imaging, weather modeling, cell ",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.04,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 41725174,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41725174",
+      "header": "EnergyHub | Senior Security Engineer | Remote (US Only) | Full-time | $145-170k",
+      "text": "EnergyHub | Senior Security Engineer | Remote (US Only) | Full-time | $145-170k\n\nApply here for Security Engineer: https://grnh.se/2b4d68ae2us\n\nSee all our open roles here: https://grnh.se/30f1ece22us\n\nWant to work on helping to decarbonize the electric grid and transportation in the US? (the two biggest sectors for impact)\n\nWant to do it at scale? (we control over one million devices across the US making up over 1.8 gigawatts of electrical load for utilities that service 1/3rd of the entire US population)\n\nEnergyHub’s software makes it easy for millions of smart device owners to partner with ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 170000.0,
+        "salary_min_usd": 145000.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41710056,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41710056",
+      "header": "Uncountable | NY, SF, London & Munich (In-Person) | Full-Stack Engineering",
+      "text": "Uncountable | NY, SF, London & Munich (In-Person) | Full-Stack Engineering\nhttps://www.uncountable.com/hiring/hn\n\nUncountable accelerates R&D for industrial scientists across leading materials, chemicals, and life sciences organizations. With our SaaS solution, our customers get better products to the market in half the time. Uncountable was founded by MIT and Stanford engineers and has been profitable since 2016. Our team has grown from 30 to 70 over the last two years.\n\nFull-Stack Engineers | $120k - $220k + Equity\n\n---> Uncountable is looking for engineers who can spearhead the development ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "bootstrapped",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.77,
+        "industry_stated": 0.98,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.95,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 180000.0,
+        "salary_min_usd": 105000.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 41722410,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41722410",
+      "header": "Supabase (YC S20) || Remote || Full-time || supabase.com Supabase is an open-source Backend platform offering a Postgres database, vector extensions, auth, real-time functionality, storage, restful AP",
+      "text": "Supabase (YC S20) || Remote || Full-time || supabase.com Supabase is an open-source Backend platform offering a Postgres database, vector extensions, auth, real-time functionality, storage, restful APIs, and edge functions.\n\nWe're seeking a Cloud Platform / Site Reliability Engineer:\n\nhttps://jobs.ashbyhq.com/supabase/3b26b2c9-1e30-4e15-ae31-0cd07f4c530d\n\nMore open jobs here https://supabase.com/careers, we manually check and respond to all the applications.",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Postgres"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41741250,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41741250",
+      "header": "SOLARYS Software | Software Engineers (PHP/Java) | REMOTE (AT,DE) | https://solarys.com | Full-time",
+      "text": "SOLARYS Software | Software Engineers (PHP/Java) | REMOTE (AT,DE) | https://solarys.com | Full-time\n\nSolarys offers an integrated software suite tailored to emergency services like volunteer fire departments, municipal authorities, and specialized rescue teams. Our flagship tools, syBOS and blaulichtSMS, streamline the entire workflow—from precise personnel and resource management to reliable, instant alerting.\n\nWe help organizations focus on what truly matters: protecting and serving their communities with reliable technology and data security at the forefront.\n\nInterested? Contact us on jobs",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.46,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java",
+          "PHP"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41711041,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41711041",
+      "header": "Baseten | Tech Leads, Software Engineers, and more | SF, NY, Remote | Full-time",
+      "text": "Baseten | Tech Leads, Software Engineers, and more | SF, NY, Remote | Full-time\n\n2 years and 8 months ago, I joined Baseten after seeing them in a \"Who is Hiring\" post on HN. Doing so was one of the three best decisions I've ever made in my life.\n\nBaseten is now a fast-growing Series B AI infrastructure startup focused on inference. We have PMF and are growing fast in a highly competitive market.\n\nWe are actively hiring for 10+ roles at https://jobs.ashbyhq.com/baseten, and are especially focused on hiring:\n\n- Tech lead, model performance (SF only): https://jobs.ashbyhq.com/baseten/ce8f46eb-40",
+      "answers": {
+        "ai_native": 0.96,
+        "eng_leadership": 0.99,
+        "funding_stage": "series_b",
+        "industry": "ai_ml",
+        "industry_fits": 0.95,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41741866,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41741866",
+      "header": "Fingerprint - https://fingerprint.com/ | Backend Engineer (Data Science skills), Engineering Manager - Dashboard, Senior R&D Engineer | Full Time | Remote |",
+      "text": "Fingerprint - https://fingerprint.com/ | Backend Engineer (Data Science skills), Engineering Manager - Dashboard, Senior R&D Engineer | Full Time | Remote |\n\nFingerprint empowers developers to stop online fraud at the source. We work on turning radical new ideas in the fraud detection space into reality. Our products are developer-focused and our clients range from solo developers to publicly traded companies. 100% Remote, Global (GMT-8 to GMT+3), flexible schedule, direct contract, competitive salary\nWe are looking for:\n\nEngineering Manager - Dashboard - https://grnh.se/ad8ab59a4us Backend En",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.99,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.95,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41709451,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41709451",
+      "header": "Velo | Quantitative Trader/Developer | Remote | Full-time",
+      "text": "Velo | Quantitative Trader/Developer | Remote | Full-time\n\nWe are building a crypto broker platform on top of centralized and decentralized exchanges.\n\nCandidates should be comfortable writing software to facilitate user trades with minimal latency and management of positions across multiple exchanges.\n\nCandidates should be comfortable writing servers and with scaling horizontally.\n\nPrior quantitative trading / development experience is a requirement. NodeJS experience is a plus.\n\nIf this sounds interesting, email me at fredrick@velo.xyz!",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Node.js"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41709442,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41709442",
+      "header": "Teaching Lab | Senior Software Engineer | REMOTE (US) | Full-Time | $125,000 - $164,889",
+      "text": "Teaching Lab | Senior Software Engineer | REMOTE (US) | Full-Time | $125,000 - $164,889\n\nWe're a nonprofit on a mission to make research-backed learning strategies (such as spaced repetition) accessible in K-12 classrooms through our web app, Podsie. You'll have significant ownership and impact on our product.\n\nIdeal candidates:\n\n- Are passionate about improving education (bonus if you're a former teacher!)\n\n- Have a strong bias for action and entrepreneurial spirit\n\n- Are technically strong across the full-stack\n\n- Have experience in smaller startups or roles with significant product ownershi",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.01,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 164889.0,
+        "salary_min_usd": 125000.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41714987,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41714987",
+      "header": "FusionAuth | Senior Java Software Engineer, Solutions Engineer, Technical Support Engineer, Senior Director of Growth Marketing and more | Denver, CO, USA ONSITE or REMOTE in USA (location reqs listed",
+      "text": "FusionAuth | Senior Java Software Engineer, Solutions Engineer, Technical Support Engineer, Senior Director of Growth Marketing and more | Denver, CO, USA ONSITE or REMOTE in USA (location reqs listed on the job desc) | Salaries listed on job req\n\nOur mission is to make authentication and authorization simple and secure for every developer building web and mobile applications. We want devs to stop worrying about auth and focus on building something awesome.\n\nThere are a lot of companies in this space, but we feel like we have something special:\n\n* a unique deployment model (self-host or run in",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.05,
+        "funding_stage": "venture_unspecified",
+        "industry": "security",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Docker",
+          "Java",
+          "Kubernetes",
+          "MySQL",
+          "Postgres"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41725380,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41725380",
+      "header": "Writer is hiring across Engineering!",
+      "text": "Writer is hiring across Engineering!\n\nCareers page: https://jobs.ashbyhq.com/writer?utm_source=M9bx43gaR2\n\nWe're the full-stack generative AI platform for enterprises. Our integrated system of LLMs, graph-based RAG, AI guardrails, and development tools makes it easy for organizations to deploy AI apps and workflows that deliver impactful ROI. Founded in 2020, we raised $100 million last year in our Series B, and we’re revenue-positive. Our customers include world-class companies such as Uber, L’Oreal, Vanguard, Accenture, and Johnson & Johnson.\n\nVideo about Writer: https://bit.ly/4fdkBMi",
+      "answers": {
+        "ai_native": 0.99,
+        "eng_leadership": 0.1,
+        "funding_stage": "series_b",
+        "industry": "ai_ml",
+        "industry_fits": 0.95,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "LLM",
+          "RAG"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 41723098,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41723098",
+      "header": "Privy | Onsite NYC (Preferred) or Remote | Staff Frontend, Full-Stack, React Native Roles | Full-Time | https://privy.io",
+      "text": "Privy | Onsite NYC (Preferred) or Remote | Staff Frontend, Full-Stack, React Native Roles | Full-Time | https://privy.io\n\nHi, I'm Asta, CTO at the digital identity startup Privy. We build an authentication and key management SDK that hundreds of companies integrate in order to onboard (11M+) users onto products built with blockchain infra and distributed systems.\n\nWe believe that when users own cryptographic keys, we shift the status quo so that users control more of their data and assets online. Privacy is fundamentally about ownership and revocation. User experience is our North Star, becaus",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "venture_unspecified",
+        "industry": "security",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41710593,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41710593",
+      "header": "Gruntwork (https://gruntwork.io) | Golang Engineer - Open Source | Worldwide Remote | Contract",
+      "text": "Gruntwork (https://gruntwork.io) | Golang Engineer - Open Source | Worldwide Remote | Contract\n\nGruntwork is hiring a senior Golang engineer to focus specifically on Open Source projects, primarily OpenTofu but also Terragrunt and other tools.\n\nWork collaboratively with the open source community to design and implement innovative new features at the frontier of devops tooling.\n\nHelp maintain and improve the quality of our codebase, infrastructure, and documentation.\n\nReview and provide feedback on pull requests from the community and team members.\n\nhttps://jobs.ashbyhq.com/Gruntwork/a6b852e6-2",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.58,
+        "industry_stated": 0.54,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Go"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 41714011,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41714011",
+      "header": "Outfit Labs | West Loop, Chicago IL - Hybrid | https://outfitlabs.com | Frontend/Backend/ML",
+      "text": "Outfit Labs | West Loop, Chicago IL - Hybrid | https://outfitlabs.com | Frontend/Backend/ML\n\nWe're a venture-backed startup in Chicago exploring how AI can transform people's experiences.\n\nAlthough we’re still pre-market, we’re building products to help people see themselves in the world around them. We believe the following:\n\n  * That humans are unique and deserve to be heard and listened to\n  * That where folks choose to go - or stay, or eat, or work, or play, you get the idea - ought to be a reflection of who they are as a person\n  * That new advancements in technology can make our collecti",
+      "answers": {
+        "ai_native": 0.89,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "media_consumer",
+        "industry_fits": 0.63,
+        "industry_stated": 0.93,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Kotlin",
+          "Machine learning",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 41711624,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=41711624",
+      "header": "env0/OpenTofu | Remote | Europe/Americas | Full-time | Open Source Software Engineer",
+      "text": "env0/OpenTofu | Remote | Europe/Americas | Full-time | Open Source Software Engineer\n\nWe’re a funded startup, building a platform that helps you automate and manage your IaC operations across different IaC frameworks. env0 helps you rolling out developer self-service, enhancing security and reliability of your IaC runs, all while accelerating deployments and lowering costs\n\nWe are also one of the companies behind the OpenTofu[0] initiative, and are now hiring engineers to the OpenTofu core team. We’re looking for self-sufficient mid-to-senior software engineers, ideally with experience maintai",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    }
+  ]
+}

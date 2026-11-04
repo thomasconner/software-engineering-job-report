@@ -1,0 +1,853 @@
+{
+  "month": "2021-02",
+  "posts": [
+    {
+      "id": 25991719,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25991719",
+      "header": "Roadie.io | Javascript engineer | Remote Europe",
+      "text": "Roadie.io | Javascript engineer | Remote Europe\n\nRoadie helps companies manage their internal services by making it easy to adopt Backstage. Backstage is a service catalog which was created inside Spotify and has been battle-tested in production since 2016. Every day, thousands of Spotify employees use Backstage to do critical development and operations work.\n\nfor more details visit https://roadie.io/careers/javascript-engineer/",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25991689,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25991689",
+      "header": "QUOBYTE Engineering | Berlin, Germany | Full-time | Onsite | https://www.quobyte.com/",
+      "text": "QUOBYTE Engineering | Berlin, Germany | Full-time | Onsite | https://www.quobyte.com/\n\nQuobyte is developing a software storage system for file, block and object, built around a parallel file system core. Customers use our Data Center File System for HPC clusters in industry and academia, k8s and OpenStack infrastructures, post production, origin and CGI clusters, and as a scalable backend for SaaS products.\n\nThe Quobyte Data Center File System is a full-stack storage system, which means that engineering work covers everything from kernel development over database design to distributed systems",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Kubernetes"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 25993846,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25993846",
+      "header": "Blackbird Studios | Hiring two roles: Sr PM and Sr Fullstack Developer | San Francisco or Remote, US Only | Contract to hire",
+      "text": "Blackbird Studios | Hiring two roles: Sr PM and Sr Fullstack Developer | San Francisco or Remote, US Only | Contract to hire\n\nBlackbird is a full service digital product studio. We specialize in a holistic approach to launching new software products inspired by Human Centered Design and Lean UX. We partner with top innovation and design firms (like IDEO) to bring startup best practices in launching ambitious new products into market. Our teams include CTO consulting, Software Development, UX/UI, team building, and \"Build, Measure, Learn\" Product Management. We work with large and small compani",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.06,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "C#",
+          "Elixir",
+          "GraphQL",
+          "Kotlin",
+          "Rails",
+          "React",
+          "Swift",
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25997032,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25997032",
+      "header": "Narrator | New York, NY | Full-time | Remote |",
+      "text": "Narrator | New York, NY | Full-time | Remote |\nhttps://www.narrator.ai\n\nNarrator (YC S19) is a library of expert-written data analyses that anyone can run instantly on top of their data.\n\nOur stack is python, react\n\nWe're looking for a senior data engineer and senior software engineer to continue to build out our unique data platform.\n\nhttps://www.workatastartup.com/companies/12598",
+      "answers": {
+        "ai_native": 0.14,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.89,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Python"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25997674,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25997674",
+      "header": "St. Jude Children's Research Hospital | Multiple Positions | Memphis, TN | ONSITE or REMOTE | https://www.stjude.cloud/",
+      "text": "St. Jude Children's Research Hospital | Multiple Positions | Memphis, TN | ONSITE or REMOTE | https://www.stjude.cloud/\n\nThe St. Jude Cloud (https://stjude.cloud) project is hiring multiple different positions and technical backgrounds. We work on the forefront of computational genomics by applying advanced computational techniques to analyzing genomics data then sharing that data with the world. Come join the world's largest pediatric cancer data repository and apply your skills to advance cures for children around the world. Please see the positions below.\n\nYou can learn a little about our m",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.98,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.15,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.08,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "mid",
+        "stack": [
+          "PHP"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25992597,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25992597",
+      "header": "Cradlepoint | Boise, ID and Los Gatos, CA USA | Embedded Linux, Web Development, SaaS, DevOps | https://cradlepoint.com/about-us/careers/",
+      "text": "Cradlepoint | Boise, ID and Los Gatos, CA USA | Embedded Linux, Web Development, SaaS, DevOps | https://cradlepoint.com/about-us/careers/\n\nAt Cradlepoint we build embedded Linux routers which highly integrated carrier network support as a failover solution. We use a large web software stack to manage thousands of routers in the field. Retail location will use our routers as a failover to cellular if their primary DSL/Cable goes down. We also build vehicle mounted routers. City buses use our routers to provide customer Wi-Fi. FEMA uses our routers in the field to provide Internet in disaster ar",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 25989868,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25989868",
+      "header": "Airwallex (https://www.airwallex.com/) | B2B Fintech unicorn | Multiple positions | US, EU, AU, CN | Full-Time",
+      "text": "Airwallex (https://www.airwallex.com/) | B2B Fintech unicorn | Multiple positions | US, EU, AU, CN | Full-Time\n\nAirwallex is building global financial infrastructure and applications to help our customers to grow in every corner of the world.\n\nVideo Intro: https://vimeo.com/353494108\n\nNews about us:\nhttps://www.smh.com.au/business/small-business/atlassian-co-founder-backs-airwallex-as-it-raises-another-56m-20200928-p55zwl.html\n\nRoles we are hiring for:\n\n  - Engineering Director\n  - Engineering Lead\n  - Senior/Software Engineers (Full-stack)\n\nTech Stack:\nKotlin, Java, React, Kafka, GraphQL, GCP",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.99,
+        "funding_stage": "venture_unspecified",
+        "industry": "fintech",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "GCP",
+          "GraphQL",
+          "Java",
+          "Kafka",
+          "Kotlin",
+          "Kubernetes",
+          "React"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 25991228,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25991228",
+      "header": "Latchel (YC W19) | REMOTE | UI/UX Designer | Full-Time | https://latchel.com",
+      "text": "Latchel (YC W19) | REMOTE | UI/UX Designer | Full-Time | https://latchel.com\n\nLatchel offers 24/7 automated maintenance coordination for property managers and home concierge services to residents. We are searching for our first UI/UX Designer to help solve our B2B design challenges and also lay the foundation for growing our design team.\n\nOur platform has heavy operations components, so human operators need to access and make sense of lots of information. If organizing and presenting large amounts of information excites you, this is a great position for you.\n\nLatchel services over 60,000 homes",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.35,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 26039594,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=26039594",
+      "header": "645 Ventures | Senior Full Stack Engineer | Full-time | REMOTE (NY or SF office, any US timezone) http://645ventures.com",
+      "text": "645 Ventures | Senior Full Stack Engineer | Full-time | REMOTE (NY or SF office, any US timezone) http://645ventures.com\n\nIf software is eating the world, then what happens when it eats venture capital, too? Come help us find out. You'll be shaping the product direction of our software, play around with large data sets, as well as getting paid time each week to work on open source projects, speak at conferences, etc. Our stack is Rails + React, Postgres + Redis, hosted on Heroku.\n\nFull description: https://645ventures.com/join-the-645-engineering-team-as-a-senior-full-stack-engineer-remote\nApp",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.27,
+        "industry_stated": 0.5,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Postgres",
+          "Rails",
+          "React",
+          "Redis"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25995154,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25995154",
+      "header": "Looped | Remote (US) | Full-time | Senior Software Engineers | 130-170k USD + equity",
+      "text": "Looped | Remote (US) | Full-time | Senior Software Engineers | 130-170k USD + equity\n\nLooped is building the future of virtual events.\n\nWe are on a mission to deepen audience participation in live virtual events. By joining the Looped team, you're giving back to creators who have seen much of their live performance revenue dry up due to the pandemic.\n\nJoin the team at a unique moment. Our userbase has been growing quickly over the last few months, opening the doors to countless opportunities for high impact projects. Over 1000 top creators run events through Looped, including Lin-Manuel Mirand",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.88,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 170000.0,
+        "salary_min_usd": 130000.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25994406,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25994406",
+      "header": "BookNook - (Fully) REMOTE -- Full Time -- Product Designer https://www.booknooklearning.com/",
+      "text": "BookNook - (Fully) REMOTE -- Full Time -- Product Designer https://www.booknooklearning.com/\n\nBookNook is on a mission to reinvent the where, how, and who of small group learning for elementary school students. We offer easy-to-use tools for educators and caring adults, that empower them to provide powerful in-person reading instruction that gets great results. Our small team has already helped tens of thousands of students become literate, and we are growing fast.\n\nAs a product designer at BookNook, you’ll help brainstorm big ideas. You’ll turn small ideas into delightful games. You’ll design",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25994917,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25994917",
+      "header": "Altus Assessments | https://altusassessments.com/careers/ | Canada | Full Time | Remote(EST ±3)",
+      "text": "Altus Assessments | https://altusassessments.com/careers/ | Canada | Full Time | Remote(EST ±3)\n\nAltus empowers higher education institutions to look beyond book smarts, and to identify and nurture exceptional professionals by using unique data to generate meaningful insight that influence key academic decisions.\n\nWe’re a quirky, vibrant, and diverse group of 60+ working collaboratively to tackle some tough problems (like how to evaluate empathy in someone who wants to train to become a doctor), and some less tough ones (like how to answer that bonus question on Trivia Night).\n\nWe're a team of",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.99,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.1,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "JavaScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25999099,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25999099",
+      "header": "Resi | London On-site | Mid-Level Ruby Dev | Full-time |",
+      "text": "Resi | London On-site | Mid-Level Ruby Dev | Full-time |\n\nWe are Resi, a London based team that is changing how residential architecture works in the UK. We're a well-funded company of close to 100 people. Usually based in Brixton when not in lockdown.\n\nWe are looking to add a back-end engineer to work on our Ruby on Rails tech stack. You would be joining a small team of other engineers and designers working across the consumer and business products.\n\nhttps://resi.freshteam.com/jobs/Cp5GHrt2OFlm/mid-level-ruby-developer",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "other",
+        "industry_fits": 0.28,
+        "industry_stated": 0.94,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "mid",
+        "stack": [
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 26003246,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=26003246",
+      "header": "LambdaInsight | Frontend Engineer | Elm, Tailwind, Parcel | Part-time | Remote Only",
+      "text": "LambdaInsight | Frontend Engineer | Elm, Tailwind, Parcel | Part-time | Remote Only\n\nWe are working on a financial, analytical platform to help companies reduce CO2 and optimize their energy spendings.\n\nIf you are interested in working with us and have some experience with the following drop an email to us:\n\n- Elm (or any ML family language, SML, Haskell, F#, etc.)\n\n- Tailwind (any CSS knowledge will do)\n\n- AWS (not a must)\n\n- Parcel.js\n\nistvan @ lambdainsight.com\n\nhttps://www.lambdainsight.com/",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Haskell",
+          "Machine learning"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 26001904,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=26001904",
+      "header": "Embraer (Beacon) | Senior Back-End Engineer (Clojure) | 100% REMOTE (but, for legal reasons, US or Brazil only)",
+      "text": "Embraer (Beacon) | Senior Back-End Engineer (Clojure) | 100% REMOTE (but, for legal reasons, US or Brazil only)\n\nEmbraer, the third-largest producer of civil aircraft, is hiring. We’re building https://beacon.works, a tool for airlines and mechanics to manage unscheduled aircraft maintenance. This has the potential to be a very high-value product for the aviation industry and could make air travel much better for everyone.\n\nWe have multiple (functional JS and TS) React and React Native frontends and a GraphQL API backend in Clojure. Our engineering team is small but very experienced, passionat",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.06,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.93,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "GCP",
+          "GraphQL",
+          "JavaScript",
+          "Postgres",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25989947,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25989947",
+      "header": "Tapad | Full-Time | Starting Remote, hopes to be onsite: NYC & OSLO | Open Compensation",
+      "text": "Tapad | Full-Time | Starting Remote, hopes to be onsite: NYC & OSLO | Open Compensation\n\nTapad is known for inventing and introducing the Tapad Graph™ to the industry. At the heart of it, we’re a big data company.\n\nTapad's Open Source tech stack (below) handle:\n___________________________________________\n\nGoogle Cloud Platform (GCP), Google Dataflow/Beam, SQL, BigQuery\nScala, sbt, cats, http4s, fs2\nSpark ML, TensorFlow, Kubeflow, Python, PyTorch\nAirflow, Kubernetes\n___________________________________________\n\nHere are our open roles in Engineering:\n\nSoftware Engineer (NYC & Oslo): https://grnh",
+      "answers": {
+        "ai_native": 0.07,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.09,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "GCP",
+          "Kubernetes",
+          "Machine learning",
+          "PyTorch",
+          "Python",
+          "Scala",
+          "Spark",
+          "TensorFlow"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25994148,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25994148",
+      "header": "Ovia Health | Multiple | Remote (US) | Full-time",
+      "text": "Ovia Health | Multiple | Remote (US) | Full-time\n\nOvia helps women and families navigate their most important moments with personalized and data-driven solutions for fertility, pregnancy, and parenting.\n\nWe're looking for hard-working, passionate people who share our vision of supporting families on the parenthood journey.\n\nOur open roles:\n\n- Sr Backend Engineer -https://apply.workable.com/ovuline/j/032C23F111/\n\n- iOS Engineer - https://apply.workable.com/ovuline/j/FAE19AD5AA/\n\n- Sr. Solutions Engineer - https://apply.workable.com/ovuline/j/B9F7BCE42D/\n\n- Sr. Cloud Infrastructure Engineer - ht",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.97,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25994224,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25994224",
+      "header": "newline | Course author | Remote | Part Time | https://www.newline.co/write-with-us 7 out of our last 10 authors made $50k+ (each). We’re the authors of Fullstack React, ng-book, Fullstack Vue and we’",
+      "text": "newline | Course author | Remote | Part Time | https://www.newline.co/write-with-us 7 out of our last 10 authors made $50k+ (each). We’re the authors of Fullstack React, ng-book, Fullstack Vue and we’re looking to work with authors like you to write a few new courses this year. Our books & courses sell very well because: - We go way beyond API docs and teach everything you need to know to build real apps. - We guarantee they're up-to-date. - We invest in marketing the books (and have an active email list of over 100k) - We love the topics we write about and aim to create something remarkable e",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_min_usd": 50000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Angular",
+          "Elixir",
+          "Go",
+          "Java",
+          "JavaScript",
+          "Node.js",
+          "Python",
+          "React",
+          "Rust",
+          "Vue"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25992836,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25992836",
+      "header": "Pinecone | Software Engineer: Distributed Data Systems, Infrastructure & Tools, Frontend | New York, NY (NYC) & San Francisco Bay Area, CA (SF) & Tel Aviv, Israel | Full-time | https://grnh.se/a6f4b32",
+      "text": "Pinecone | Software Engineer: Distributed Data Systems, Infrastructure & Tools, Frontend | New York, NY (NYC) & San Francisco Bay Area, CA (SF) & Tel Aviv, Israel | Full-time | https://grnh.se/a6f4b3203us\n\nPinecone (https://www.pinecone.io/) is building a vector database for machine learning applications. We're a distributed team with offices in New York, San Mateo, and Tel Aviv. At Pinecone you will work with world-class scientists and engineers who have built large scale ML applications and platforms (including Amazon SageMaker) at leading companies and cloud providers. We are passionate abo",
+      "answers": {
+        "ai_native": 0.78,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 25990885,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25990885",
+      "header": "Bridebook | Full-stack Developer | Europe | Remote-EU",
+      "text": "Bridebook | Full-stack Developer | Europe | Remote-EU\n\nWe're hiring: https://bridebookcouk.homerun.co/mid-weight-full-stack-engineer/en\n\nBridebook is the UK’s leading wedding planning app and website, providing planning tools, advice and a directory of venues and suppliers to engaged couples. We are bringing wedding planning into the modern age, using technology to make it as stress-free and rewarding as it should be. We have 2/3 of engaged couples in the UK using Bridebook and are present in 101 countries. This is just the beginning.\n\nWe are seeking a Full-stack Developer to help shape the fu",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.79,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "mid",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25990057,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25990057",
+      "header": "Intellijoint Surgical | Kitchener, Ontario, Canada | ONSITE",
+      "text": "Intellijoint Surgical | Kitchener, Ontario, Canada | ONSITE\n\nHiring a senior full stack / generalist programmer.\n\nDo you want to improve medical outcomes?\n\nIntellijoint products are used by orthopaedic surgeons to perform accurate hip/knee replacement surgeries. Our products have been used to perform over 15000 surgerios since we entered the market 5 years ago.\n\nJoin our small programming team to build apps for pre- and post-op!\n\nThe company leadership are UWaterloo mechanical engineers who founded the company. It's a 10 year old company. The company is small and nimble!\n\nJob posting: https://",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 25999874,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25999874",
+      "header": "https://nested.com | Senior Data Engineer, Senior Software Engineer, Analytics Engineer, Senior Analytics Engineer | London, UK | ONSITE | VISA available",
+      "text": "https://nested.com | Senior Data Engineer, Senior Software Engineer, Analytics Engineer, Senior Analytics Engineer | London, UK | ONSITE | VISA available\n\nNested are a property company, redefining estate agency in the UK.\n\nWe are looking for data professionals who want to run a data warehouse and play the more product focused roles where you solve problems with data end to end.\n\nWe're a small team so you'll wear many hats across the data function.\n\nHere's an example job spec if you'd like more info on us.\nhttps://apply.workable.com/nested/j/DF4687FAF6/\n\nTech stack Python, Airflow, DBT, GCP & B",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "GCP",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 25992045,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25992045",
+      "header": "Taskade (https://taskade.com) | Remote / Singapore / San Francisco",
+      "text": "Taskade (https://taskade.com) | Remote / Singapore / San Francisco\n\nWe are hiring:\n\n  * Product Engineer\n\n  * Full-Stack Engineer\n\n  * Customer Success Manager\n\nMore info and how to apply: https://taskade.com/jobs/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.04,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25989770,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25989770",
+      "header": "Spacelift | Remote | Europe | Full-time | Mid-Senior Software Engineer | $50-120k",
+      "text": "Spacelift | Remote | Europe | Full-time | Mid-Senior Software Engineer | $50-120k\n\nStack: Go, AWS, PostgreSQL, Terraform, IaC, React, GraphQL\n\nWe’re a VC-funded startup building an automation platform for Infrastructure-as-Code, adding a Policy-as-Code layer above it, in order to make IaC usable in bigger companies, where you have to take care of state consistency, selective permissions, a usable git flow, etc. We also try to understand the managed resources as part of our meta-abstractions, in order to provide insights to our customers.\n\nOn the backend we’re using 100% Go with AWS primitives.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "Go",
+          "GraphQL",
+          "Postgres",
+          "React",
+          "Terraform"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25993183,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25993183",
+      "header": "PostHog | Remote (US/Europe timezones) | Senior full-stack engineer / SRE | https://posthog.com PostHog is open-source product analytics. Graduated YC W20, we were the most popular B2B software HN lau",
+      "text": "PostHog | Remote (US/Europe timezones) | Senior full-stack engineer / SRE | https://posthog.com PostHog is open-source product analytics. Graduated YC W20, we were the most popular B2B software HN launch since 2012. Our GitHub repo [0] has 3.6k stars and a growing and active community. We've raised significant funding with 10 years of runway and are growing quickly. We're 10+ people.\nWe're looking for a full-stack engineer, someone who knows what a good product should look like. Our stack is Django/React/Redux (Kea -- main contributor works at PostHog too!).\n\nAlso looking for an SRE to take ca",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.07,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Django",
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25993172,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25993172",
+      "header": "Torqata | Data Engineer, Software Engineer, Automation Engineer | Remote | Full Time",
+      "text": "Torqata | Data Engineer, Software Engineer, Automation Engineer | Remote | Full Time\n\nWe're building SaaS tools to help car tire sales shops improve their profitability. https://torqata.com/\n\nOur frontend stack is Angular. Our backend API stack is Python, FastAPI, and PostgreSQL. Our data stack is Google BigQuery, Airflow, Kubernetes, Pandas and Python. We're on the Google Cloud Platform.\n\nJobs are posted in Charlotte, NC and the rest of the team is there but hires can work remotely permanently.\n\nSenior Data Engineer https://boards.greenhouse.io/bcgdv/jobs/4849026002\n\nSenior Python Software En",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Angular",
+          "GCP",
+          "Kubernetes",
+          "Postgres",
+          "Python"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 25990049,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25990049",
+      "header": "Arcesium | Distributed Systems Engineer | Product Manager | Product Support Consultant | Software Engineer | Summer Software Engineer Intern ¬| Technical Relationship Manager | New York, NY | Onsite |",
+      "text": "Arcesium | Distributed Systems Engineer | Product Manager | Product Support Consultant | Software Engineer | Summer Software Engineer Intern ¬| Technical Relationship Manager | New York, NY | Onsite | Full-Time | Visa\n\nArcesium is a technology and tech-enabled services company. We deliver front, middle, and back office solutions to some of the world’s most sophisticated institutional asset managers, hedge funds, asset allocators, and banks. Through a combination of advanced automation, innovative data management tools, and anomaly-resolution workflows, Arcesium’s clients can achieve a single s",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "public_or_large",
+        "industry": "fintech",
+        "industry_fits": 0.96,
+        "industry_stated": 0.99,
+        "interns_token": 1.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.97,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 25996902,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25996902",
+      "header": "Fastmail | Onsite | Melbourne | Data Scientist",
+      "text": "Fastmail | Onsite | Melbourne | Data Scientist\n\nWe’re looking for a Data Scientist to take Fastmail to the next level! You’ll work in our Melbourne CBD office, building a data reporting and visualization platform to empower the teams building the privacy-forward email service we all deserve.\n\nThis is a new role, and you will have the leeway to shape it.\n\nhttps://www.fastmail.com/about/jobs/2021-01-data-scientist/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "security",
+        "industry_fits": 0.86,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 25998563,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=25998563",
+      "header": "Podaris | https://www.podaris.com/ | London, UK / REMOTE",
+      "text": "Podaris | https://www.podaris.com/ | London, UK / REMOTE\n\nPodaris is changing the way the world plans its cities. Our aim is to bring together all the stakeholders in the urban development process -- planners, engineers, transport technology vendors, public interest groups, property developers, and more -- in a shared modelling environment, where ideas can be iterated in a rapid and agile fashion. We have created an web-based collaborative modelling tool which incorporates aspects of GIS, BIM, transport simulation, and more. It is already being used by customers around the world.\n\nWe're a smal",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.81,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 26012375,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=26012375",
+      "header": "Senior iOS Engineer & Senior Android Engineer | Poland/ UK/ Portugal | Full-time | Remote (must be based in Poland, UK or Portugal) https://tigerspike.com",
+      "text": "Senior iOS Engineer & Senior Android Engineer | Poland/ UK/ Portugal | Full-time | Remote (must be based in Poland, UK or Portugal) https://tigerspike.com\n\nAre you looking for a well established global company that offers variety of projects and the chance to work on solving interesting problems?\n\nWe focus on quality (TTD, SOLID, Clean Code)- and ensure we use the right tool for the job with clients such as Emirates, The UN and 7-eleven.\nYou’ll enjoy autonomy, mutual trust and respect, flexible hours and the chance to work with new technology, PLUS many other benefits.\n\nIf you want to work in ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.45,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    }
+  ]
+}

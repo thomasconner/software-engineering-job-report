@@ -1,0 +1,842 @@
+{
+  "month": "2018-03",
+  "posts": [
+    {
+      "id": 16493334,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16493334",
+      "header": "EDITED | Engineering Positions | London, UK | Onsite | Full-Time",
+      "text": "EDITED | Engineering Positions | London, UK | Onsite | Full-Time\n\nWe’re currently hiring for front-end, back-end, data scientists and DevOps Engineers. Our stack is primarily Python & JavaScript, with frameworks like Django/Flask and react.js/d3. We aren’t afraid to integrate new tech and like to keep exploring what’s out there.\n\nWe're an established startup, focused on doing important things for retail, the fourth biggest industry in the world, helping them reduce waste and be more efficient. We have a beautiful web app, used everyday by hundreds of people at Topshop, Saks Fifth Avenue, GAP a",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.94,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "JavaScript",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16496241,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16496241",
+      "header": "Memrise | Software Engineers, Data Scientists, UX Lead | London UK | Full-Time, Onsite, Visa sponsorship and relocation available | https://www.memrise.com",
+      "text": "Memrise | Software Engineers, Data Scientists, UX Lead | London UK | Full-Time, Onsite, Visa sponsorship and relocation available | https://www.memrise.com\n\nMemrise gives people learning superpowers. We aim to help anyone achieve confident, real-world language skills in just a few short months; our product is innovative and fun, and it delivers the goods.\n\nLast year, we won the \"App of the Year 2017\" at the Google Play Awards. With near zero marketing spend we've grown organically to tens of millions of users, and we're already profitable with a team of 55 (comprising 37 nationalities).\n\nEngin",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.04,
+        "funding_stage": "bootstrapped",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "Django",
+          "Java",
+          "Kubernetes",
+          "Machine learning",
+          "MySQL",
+          "Python",
+          "React",
+          "Swift",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16493724,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16493724",
+      "header": "Auth0 (https://auth0.com/) | Seattle - Buenos Aires - Remote | Full-time | Engineering",
+      "text": "Auth0 (https://auth0.com/) | Seattle - Buenos Aires - Remote | Full-time | Engineering\n\nAuth0 is a Series C/285 employee company with major growth plans for 2018. Our vision is to provide the simplest and most secure identity platform for developers, to make the internet safer. Ultimately, we strive for an internet with fewer passwords. We're looking for people to join us on this journey.\n\nOpen jobs:\n\nEngineer, Analytics: https://jobs.lever.co/auth0/e93f6e9f-dda3-4719-8a9b-cc2bf8dff5f6?lever-origin=applied&lever-source%5B%5D=Hacker%20News\n\nEngineer, Appliance Tooling and Infrastructure: https:",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.93,
+        "funding_stage": "series_c_plus",
+        "industry": "security",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 16494834,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494834",
+      "header": "UX Designer (Full Time) | NetDocuments | Salt Lake City or Atlanta",
+      "text": "UX Designer (Full Time) | NetDocuments | Salt Lake City or Atlanta\n\nNetDocuments provides professional firms and organizations with secure cloud storage, hosting billions of files and supporting some of the largest law firms on the globe. You'll have a lead role in designing interfaces across a suite of product offerings, working with customers and product teams.\n\nIf interested, email me at dhauck (at) netdocuments (dot) com. Thanks!",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16494692,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494692",
+      "header": "Servall Development | Full Stack Web Developer | Calgary, AB, Canada | Full Time, Onsite | https://servalldev.com",
+      "text": "Servall Development | Full Stack Web Developer | Calgary, AB, Canada | Full Time, Onsite | https://servalldev.com\n\nServall Development is a custom software provider, who has been working in the field of custom software development and ID scanning for the past 8 years. We created and continue to maintain the most widely used ID scanning software used throughout North America, UK and Australia. We work with other companies and government agencies to create custom hardware + software solutions, educational games and iOS and Android apps. We are based out of Calgary, right in the foothills of the ",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.18,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Docker",
+          "Node.js",
+          "Postgres",
+          "React",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16494571,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494571",
+      "header": "Sauce Labs (San Francisco, CA, Vancouver, B.C., Berlin, Germany and/or Warsaw, Poland)",
+      "text": "Sauce Labs (San Francisco, CA, Vancouver, B.C., Berlin, Germany and/or Warsaw, Poland)\n\nSauce Labs provides the world’s largest cloud-based platform for the automated testing of web and mobile applications. Its award-winning service eliminates the time and expense of maintaining an in-house testing infrastructure, freeing development teams of any size to innovate and release better software, faster.\n\nWe are currently looking for:\n\nBackend Engineer, Core Services http://grnh.se/y5kamn1\n\nData Scientist, Machine Learning https://grnh.se/qx5dhnuw1\n\nJava Software Engineer (m/f) http://grnh.se/4je3r",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.96,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java",
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16495066,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16495066",
+      "header": "eBay | www.ebay.com | New York | NYC | Full Time | ONSITE | jobs@ebaynyc.com | VISA ok We are hiring experienced data scientists to change the way eBay does advertising. eBay's old advertising strateg",
+      "text": "eBay | www.ebay.com | New York | NYC | Full Time | ONSITE | jobs@ebaynyc.com | VISA ok We are hiring experienced data scientists to change the way eBay does advertising. eBay's old advertising strategy was 3rd party focused (Ads that sent people off eBay). Our CEO said that strategy has changed. We need ads that keep people on eBay and offer better choices for our buyers. We are the team blowing up the old strategy and doing something better. You can move the needle when it comes to eBay's profit. We are a small team in a growing remote office. This is a unique opportunity to learn search engi",
+      "answers": {
+        "ai_native": 0.07,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.9,
+        "industry_stated": 0.91,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning",
+          "Spark"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16507347,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16507347",
+      "header": "Org | NYC, Zug, World | Blockchain, AI, Financial Engineering, P2P | ONSITE, REMOTE | https://org.network",
+      "text": "Org | NYC, Zug, World | Blockchain, AI, Financial Engineering, P2P | ONSITE, REMOTE | https://org.network\nOrg is reinventing the nature of the firm, through a new platform allowing easier creation of proper unstoppable DAOs.\n\nhttps://org.network/jobs/",
+      "answers": {
+        "ai_native": 0.06,
+        "eng_leadership": 0.14,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.96,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 16495699,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16495699",
+      "header": "Liferay Software Engineer | Saga Healthcare IT | Location - Remote",
+      "text": "Liferay Software Engineer | Saga Healthcare IT | Location - Remote\nTalented software engineer with strong Liferay Portal 7 CE experience.\n\nCore competencies:\n\n2+ years of experience in design and development of Liferay applications involving hooks, themes, layouts, portlets (JSR-168/JSR-286 Portlet development), and external Plug-ins.\n\nExperience with securing Liferay servers (Enable audit logging, assign correct roles to users)\n\nStrong knowledge on SOAP and Restful web services and Configuring WS-Security.\n\nA strong understanding of Liferay best practices, portal standards and governance proc",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.06,
+        "industry_stated": 0.11,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "mid",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 16494315,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494315",
+      "header": "Poynt | Senior Software Engineers, Software Engineers | Palo Alto ONSITE | VISA | https://poynt.com",
+      "text": "Poynt | Senior Software Engineers, Software Engineers | Palo Alto ONSITE | VISA | https://poynt.com\n\nPoynt is a start-up in Palo Alto seeking a full-time Android Engineer that knows how to make her/his way around the AOSP stack.\nOur company is a well-funded start-up with investment from Oak Investment Partners, Matrix Partners, and Google Ventures. We assembled a team of multi-talented engineers composed of ex-PayPal, Google, Amazon, Fitbit'ers, who designed and built the Poynt Smart Terminal and the new Poynt 5. Our devices are integrated Android-based Payment Terminals that are on their way ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Android"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16493847,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16493847",
+      "header": "G2 Crowd | Mid/Senior full-stack developers | Onsite: downtown Chicago, IL",
+      "text": "G2 Crowd | Mid/Senior full-stack developers | Onsite: downtown Chicago, IL\n\nWe collect and analyze software and service reviews in the interest of bringing transparency to B2B software buying:\nhttps://www.g2crowd.com/\n\nWell funded by founders and major investors. Growing rapidly and hiring in most positions:\nhttps://blog.g2crowd.com/careers/\n\nDev team stuff:\n\n  * Small team with mix of jr/mid/senior people\n  * Everyone codes in all parts of the applications\n  * Lots of pair programming and peer review\n  * No QA or ops staff (developers all code, review, deploy)\n  * Rails 5 with ES6\n  * Heroku ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.55,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.11,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Rails"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16494760,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494760",
+      "header": "Innovative Architects | https://www.innovativearchitects.com/ | Data Platform & .Net Dev positions | Atlanta, GA & West Palm Beach, FL | Onsite | Full Time",
+      "text": "Innovative Architects | https://www.innovativearchitects.com/ | Data Platform & .Net Dev positions | Atlanta, GA & West Palm Beach, FL | Onsite | Full Time\n\nInnovative Architects is a Microsoft Gold Partner consulting firm headquartered in Duluth, GA. We have a great small company culture and pride ourselves with hiring smart people that do not suck. We are currently interviewing for the following positions...\n\n* Microsoft Data Platform Specialist\n\n* .Net Developer\n\nMy twitter and email contact info is listed in my profile. Please reach out if interested or need more information.\nThanks,\nPrest",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.89,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16497980,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16497980",
+      "header": "Superhuman | iOS Engineer, QA Lead, and Product Manager | Early-Stage | Full-time | San Francisco | Onsite | $120-160k + equity",
+      "text": "Superhuman | iOS Engineer, QA Lead, and Product Manager | Early-Stage | Full-time | San Francisco | Onsite | $120-160k + equity\n\n• Product: The fastest email experience in the world. Beautiful, powerful, and programmable.\n\n• Why: 900M people spend 3hrs+ per day on email. Augment their productivity with brilliance and superpowers.\n\n• Traction: Most wanted product on Product Hunt. 85k+ on our waitlist. Beloved by users (https://twitter.com/SuperhumanCo/timelines/911278863216340992)\n\n• $10M+ Funding: First Round Capital, Sam Altman, Gary Vaynerchuk, founders of Gmail/Stripe/Intercom/Parse/Angelli",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.1,
+        "funding_stage": "venture_unspecified",
+        "industry": "media_consumer",
+        "industry_fits": 0.82,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 160000.0,
+        "salary_min_usd": 120000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Go",
+          "JavaScript",
+          "React",
+          "Swift",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16497405,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16497405",
+      "header": "Centric Technology Solutions | Westminster, CO (Denver/Boulder area) | REMOTE or ONSITE",
+      "text": "Centric Technology Solutions | Westminster, CO (Denver/Boulder area) | REMOTE or ONSITE\n\nCentric is looking for a full-stack web developer to help us disrupt the real estate appraisal industry. We build software to simplify the complex appraisal process, including tracking orders, filling out forms, compliance, and quality assurance.\n\nYou'll be working with MongoDB, .NET (Core and 4.6), as well as Angular (1-5).\n\nSee more information about the position here: https://www.builtincolorado.com/job/engineer/full-stack-software-engineer-net-and-angular/36545\n\nTo apply, send your resume to careers@ce",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.09,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Angular",
+          "MongoDB"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 16497032,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16497032",
+      "header": "Synapse Technology | Palo Alto | Onsite, full-time | Deep Learning & Computer Vision, Full Stack",
+      "text": "Synapse Technology | Palo Alto | Onsite, full-time | Deep Learning & Computer Vision, Full Stack\n\nWe're making security checkpoints worldwide more automated and efficient through software and algorithms; particularly at airports, office buildings, and other high-security areas.\n\nWe're actively working with global airports, regulators, X-ray OEMs, governments, and system integrators to get our technology into highly regulated environments that see little innovation and startup attention. There are opportunities to work with never-before-explored datasets! We're also supported by world-class adv",
+      "answers": {
+        "ai_native": 0.86,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "security",
+        "industry_fits": 0.9,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16497419,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16497419",
+      "header": "Brex (YC W17) | Software Engineer, Frontend and Backend | Full Time, Onsite | https://brex.com/",
+      "text": "Brex (YC W17) | Software Engineer, Frontend and Backend | Full Time, Onsite | https://brex.com/\n\nBrex is rebuilding B2B financial products, starting with a corporate credit card for technology companies. We're looking for strong frontend and backend engineers to join our small but talented team.\n\nCheck out our openings on AngelList: https://angel.co/brex/jobs",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16494858,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494858",
+      "header": "HomeLight is changing the face of real estate one homeowner at a time. We empower consumers to use real agent performance data to make a more informed choice on the biggest financial decision of their",
+      "text": "HomeLight is changing the face of real estate one homeowner at a time. We empower consumers to use real agent performance data to make a more informed choice on the biggest financial decision of their lives. Our proprietary, machine learning algorithms analyze over 30 million transactions from 2 million agents to determine the best agents to meet clients' specific home buying or selling needs.\n\nWe're hiring for the following roles:\n\n- Full Stack Engineers,\n\n- Data Engineers,\n\n- Software Engineers,\n\n- UI & Visual Designer.\n\nOur Stack: Ruby on Rails, Heroku, Postgres, Redis, Ember\n\nIf you're int",
+      "answers": {
+        "ai_native": 0.9,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning",
+          "Postgres",
+          "Rails",
+          "Redis",
+          "Ruby"
+        ],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 16496344,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16496344",
+      "header": "Phreesia - Patient Intake Software | Ottawa, Ontario | Full Time | Software Engineer (New Grad) | https://www.phreesia.com/",
+      "text": "Phreesia - Patient Intake Software | Ottawa, Ontario | Full Time | Software Engineer (New Grad) | https://www.phreesia.com/\n\nPhreesia is a healthcare SaaS company and the nation’s leading patient intake management platform. The company offers healthcare organizations a range of robust applications to manage the intake process and streamline front-office workflow, including online appointment scheduling, mobile registration, eligibility and benefits verification, and automated patient payment options.\n\nhttps://www.phreesia.com/company/careers/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.97,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "junior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16500314,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16500314",
+      "header": "Cogent Labs | Software Engineer, Research Engineer, Research Scientist, Product Manager, Project Manager | Tokyo, Japan | ONSITE, FULLTIME, VISA",
+      "text": "Cogent Labs | Software Engineer, Research Engineer, Research Scientist, Product Manager, Project Manager | Tokyo, Japan | ONSITE, FULLTIME, VISA\n\nCogent Labs ( www.cogent.co.jp/en/ ) is a well funded artificial intelligence startup located in the heart of Tokyo. We provide easy-to-use and intuitive solutions to solve real-world problems that improve people’s quality of work and life. The company conducts advanced fundamental and applied AI research to create business solutions, leveraging expertise across many fields including time-series forecasting, information extraction, natural language a",
+      "answers": {
+        "ai_native": 0.74,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.49,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16495896,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16495896",
+      "header": "Ada Support | Front-End, Back-End, Web, and Machine Learning Developers | Toronto, Ontario | Full-Time & On-Site",
+      "text": "Ada Support | Front-End, Back-End, Web, and Machine Learning Developers | Toronto, Ontario | Full-Time & On-Site\n\nAda Support is a venture-backed customer support automation company that enables teams to easily leverage machine learning to provide instant answers to their questions in chat. Companies like Coinbase, Medium, Shopify and Telus are already using Ada to automate millions of conversations. We’re growing quickly and are looking for driven, thoughtful and kind people to join us on this journey. Our team is small, but extremely capable. We build beautiful and functional products that w",
+      "answers": {
+        "ai_native": 0.99,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "ai_ml",
+        "industry_fits": 0.93,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16498697,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16498697",
+      "header": "Holberton School | Sr. Software engineer | Full-Time, onsite | San Francisco, CA",
+      "text": "Holberton School | Sr. Software engineer | Full-Time, onsite | San Francisco, CA\n\nStack: Ruby, Rails, Python, Bash, React & Redux, MySQL, PostgreSQL, Redis, Elasticsearch, AWS, Docker\n\nApply: https://www.holbertonschool.com/jobs/senior-software-engineer\n\nHolberton School offers a two-year higher-education program to become a full-stack Software Engineer. Through project-based and peer learning, Holberton School’s students unleash their creativity and naturally learn how to work as a team to solve practical challenges.\n\nAt Holberton our students do not take on debt and do not pay us anything be",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "Docker",
+          "MySQL",
+          "Postgres",
+          "Python",
+          "Rails",
+          "React",
+          "Redis",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16498196,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16498196",
+      "header": "Astranis (YC W16) | San Francisco, CA | Full-Time | Onsite | US Citizen or Green Card",
+      "text": "Astranis (YC W16) | San Francisco, CA | Full-Time | Onsite | US Citizen or Green Card\n\nFour billion people do not have access to the internet. Astranis is going to change that.\n\nWe are building the next generation of smaller, lower-cost telecommunications satellites to bring the world online.\n\nJoin us and work with top engineers who have flown things in space before. We are a well-funded team that moves fast.\n\nRoles we’re hiring for include:\n\n* Embedded software -- write mission critical software that runs the spacecraft. Should have experience with microcontroller driver-level code and basic ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16493005,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16493005",
+      "header": "Lyft | San Francisco, Seattle, NYC | ONSITE, FULL-TIME",
+      "text": "Lyft | San Francisco, Seattle, NYC | ONSITE, FULL-TIME\n\nIt matters how you get there! Hiring senior positions across the board: iOS, Android, backend Python, Go, frontend React, data science. At this time focusing on candidates with >4 years professional experience. Most summer intern spots are already taken, but we're still looking for PhD-level data scientist interns. Hit me up if you have any questions! Resumes to aderewecki@lyft.com.",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.05,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.85,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Android",
+          "Go",
+          "Python",
+          "React",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16494249,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494249",
+      "header": "IDEO | Creative Technologist to Full-stack Developer | Palo Alto, CA | Onsite, Full Time",
+      "text": "IDEO | Creative Technologist to Full-stack Developer | Palo Alto, CA | Onsite, Full Time\n\nIDEO Palo Alto is in search of a Software Designer who will leverage an understanding of software to design and deliver innovative solutions that address core user needs. We count on Software Designers to inspire teams of the possibilities enabled by software, computing, and programmatic thinking, providing unorthodox ways to push design. They first-hand enact our mission of humanizing technology: starting from first principles to ask the right questions, of people, technology, and systems.\n\nOne or more b",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.64,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16497546,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16497546",
+      "header": "Oasis Digital - St. Louis, MO. | Full Time | ONSITE | https://oasisdigital.com/careers",
+      "text": "Oasis Digital - St. Louis, MO. | Full Time | ONSITE | https://oasisdigital.com/careers\n\nOasis Digital is a leading user and teacher of Angular. We create great front ends for our customers, and teach other people how to do so.\n\nWe are looking to hire folks who at least know one of the major front end SPA frameworks, all the way up through deep experienced guru. Come join us, you will be immersed in our collaborative work, learn at an unprecedented rate, and share your expertise with others.\n\nOn the page noted above, we have a short video about working here. Questions are welcome (See site cont",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.04,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.22,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Angular"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16518988,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16518988",
+      "header": "Nod Labs - https://nod.com - Mountain View CA - Full Time",
+      "text": "Nod Labs - https://nod.com - Mountain View CA - Full Time\n\nWe build intelligent spatial sensing hardware and software to enable new paradigms of Human Machine Interaction. We believe our motion tracking technology will fundamentally change how we interact with machines. Our first product is the Intelligent Spatial Sensing “Rover” Module and 6DoF Controller for VR/AR devices.\n\nWe are looking for :\n\na. Computer Vision / Machine Intelligence Engineers\n\n   * SLAM implementation experience is a plus\n\n   * Deep understanding of Tensorflow is desirable\n\nb. Embedded (DSP / VLIW) Engineers -\n\n   * Boar",
+      "answers": {
+        "ai_native": 0.82,
+        "eng_leadership": 0.06,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning",
+          "TensorFlow"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16494708,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494708",
+      "header": "LetsLunch.com |PHP Developer|part time negotiable| Remote|San Francisco, CA",
+      "text": "LetsLunch.com |PHP Developer|part time negotiable| Remote|San Francisco, CA\n\nLetsLunch http://LetsLunch.com helps job seekers meet with hiring managers at company cafeterias, tour the company experience the culture and meet future coworkers. Its like lunch date with employers.\n\nWe have setup over 100,000 lunches between entrepreneurs and are now opening the site for brands/companies to host networking lunches.\n\nWe are looking for an Engineer with YII framework, PHP, LAMP, AWS, Varnish, Linkedin/Google API's and mysql.\n\nAny questions feel free to reach out to me at Syed@LetsLunch.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.51,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "MySQL",
+          "PHP"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 16499994,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16499994",
+      "header": "TomTom | Harsum/Hanover (Germany) | Onsite | Visa & Relocation",
+      "text": "TomTom | Harsum/Hanover (Germany) | Onsite | Visa & Relocation\n\nWant to build the Navigation Map Standard used by millions of (autonomous driving) cars in the future?\n\nAre you the Java Engineer to build the Navigation Map Standard for the future? TomTom’s Navigation Data Standards (NDS) is a continuously evolving map format which allows for universally applicable navigation maps. In Harsum we are building the solution which allows TomTom to stream the updated maps in real-time to our customers. Our customers are car manufacturers, mobile phone manufactures and navigation solution providers. As",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.88,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16494584,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16494584",
+      "header": "Eyenuk, Inc. | Software Engineers | Los Angeles, CA | ONSITE | VISA | Full-time |",
+      "text": "Eyenuk, Inc. | Software Engineers | Los Angeles, CA | ONSITE | VISA | Full-time |\n\nJoin us in building software platform to apply deep learning and robotics to help prevent blindness across the world. Eyenuk is an exciting medical software startup that has developed a powerful retinal image analysis AI platform for screening of diseases such as diabetic retinopathy and agre-related macular degeneration.\n\nAnyone with diabetes is vulnerable to blindness that progresses without any pain or discomfort. Despite it's preventable nature, the condition, called diabetic retinopathy, is the leading caus",
+      "answers": {
+        "ai_native": 1.0,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 16493610,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=16493610",
+      "header": "Profitap | Mid- or Senior Full-Stack Developer | Eindhoven, The Netherlands | Onsite, Fulltime | www.profitap.com",
+      "text": "Profitap | Mid- or Senior Full-Stack Developer | Eindhoven, The Netherlands | Onsite, Fulltime | www.profitap.com\n\nOur hardware and software engineers develop cutting edge network monitoring equipment and network analysis software. We are looking for an experienced Full-Stack Developer that will support our team of engineers in creating the best network monitoring equipment on the market. Besides your frontend and backend programming skills, you also have an eye for usability and user experience design.\n\nWe like to see experience with:\n\n- NodeJS\n\n- AngularJS\n\n- TypeScript\n\n- HTML/CSS\n\n- Elasti",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Angular",
+          "Node.js",
+          "TypeScript"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

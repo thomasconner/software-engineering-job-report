@@ -1,0 +1,830 @@
+{
+  "month": "2016-04",
+  "posts": [
+    {
+      "id": 11406600,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406600",
+      "header": "MJD Interactive Agency | San Diego, CA (felxible REMOTE, local preferred, US only) | Full-time (plus freelance gigs sometimes)",
+      "text": "MJD Interactive Agency | San Diego, CA (felxible REMOTE, local preferred, US only) | Full-time (plus freelance gigs sometimes)\n\nSmall but growing agency with high profile customers like Disney, GoPro, and the Grammys. Our M.O. is to pitch awesome new user experiences, and build them from the ground up when we can. We have a number of openings in Engineering, Design, and PM. We especially are interested in Android engineers with serious chops.\n\nWe are pretty flexible about working remotely, but would prefer to have people who can come in at least twice a week, plus for any specific meetings alo",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.93,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 11405520,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11405520",
+      "header": "San Francisco, CA - ONSITE || EasyPost",
+      "text": "San Francisco, CA - ONSITE || EasyPost\n\nCome work on the EasyPost API and build the future of logistics. The EasyPost API is used by Fortune 5 companies as well as many other public companies and startups. With 1000s of companies across the world, you'll have one of the most robust logistics datasets to work with.\n\nWe're hiring for the following roles:\n\nOps, Backend, Frontend, Support, Sales\n\nPerks: Company is profitable\n\nIf there's not a role that fits your technical skills on our jobs page, email us directly at work@easypost.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.97,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11448700,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11448700",
+      "header": "springML Inc, http://www.springml.com / ONSITE (Sterling VA, Pleasanton, CA) / VISA sponsorship available",
+      "text": "springML Inc, http://www.springml.com / ONSITE (Sterling VA, Pleasanton, CA) / VISA sponsorship available\n\nWe are a well funded, fast growing analytics start up head quartered in the bay area.\n\nWe are looking for Data Analysts and Architects. Please apply at http://www.springml.com/careers/.\n\nTechnologies we use: Salesforce, Spark, SQL, R, Python, Docker, AWS",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.3,
+        "industry_stated": 0.7,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Docker",
+          "Python",
+          "R",
+          "Spark"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11406121,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406121",
+      "header": "Front End Developer | HealthSparq | Portland, OR | ONSITE",
+      "text": "Front End Developer | HealthSparq | Portland, OR | ONSITE\n\nWe are looking to add talented engineers to our UI development team! We build and maintain an application that enables people to make better decisions about their healthcare and get better care for lower cost. We get to use state of the art technology to build an app that truly helps people. If this sounds like something you'd like to be a part of, give us a look! http://healthsparq.com/about/careers\n\nApplicants should have a minimum of 3 years experience with JavaScript, experience with a framework like Ember or React is a very big pl",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.97,
+        "industry_stated": 0.96,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "mid",
+        "stack": [
+          "JavaScript",
+          "Node.js",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11406932,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406932",
+      "header": "Top Hat | Toronto, ON, Canada | Full-time",
+      "text": "Top Hat | Toronto, ON, Canada | Full-time\n\nTop Hat is hiring for a couple roles: mobile dev (native iOS, Android), full-stack web developer (Python, Django, Javascript, React.js, NodeJS), and test engineer (test automation framework management; mobile and web). We also hire interns so please feel free to apply for that as well. Salary ranges based on experience from $70k to $100k.\n\nWe're a profitable (and valley VC funded by some of the best funds in the world) education startup that helps make class more engaging. We've got some really cool problems to work on and your work would be impacting",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.97,
+        "interns_token": 1.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.98,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "Django",
+          "JavaScript",
+          "Node.js",
+          "Python",
+          "React",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11406590,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406590",
+      "header": "Pixlee | San Francisco, CA | Full Time | ONSITE",
+      "text": "Pixlee | San Francisco, CA | Full Time | ONSITE\n\nPixlee is revolutionizing the relationship between people and brands. We help companies leverage customer photos/videos from social media to improve marketing.\n\nWe work with over 100+ customers, including top brands such as Converse, Kenneth Cole, UGG Australia, Mattel, Charlotte Russe, Marriott Hotels, and AMC Theatres, to drive higher online conversion, increase performance of owned media, and create a more authentic brand experience. A graduate of the Stanford StartX accelerator, Pixlee is an Andreessen Horowitz and XSeed Capital portfolio co",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "other",
+        "industry_fits": 0.2,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.05,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Postgres",
+          "Python",
+          "Scala"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11406515,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406515",
+      "header": "Locus | Full Time | ONSITE, VISA (Bangalore, India) | http://locus.sh/",
+      "text": "Locus | Full Time | ONSITE, VISA (Bangalore, India) | http://locus.sh/\n\nLocus is hiring Engineers and Data Scientists. At Locus we have an ambitious goal of Scheduling & Tracking the World transport movement. We are aware of how audacious the goal is, but we have made our initial strong footholds and have the path to move forward. Founded by a team of ex-AWS engineers, comprising of graduates from premier Indian Tech/Science Institutes (IIT/BITS-Pilani/TIFR), Locus is funded & mentored by the most respected investors and ex-entrepreneurs and have product validation with actual paying customers",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "commerce",
+        "industry_fits": 0.97,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11405572,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11405572",
+      "header": "Convoy | https://convoy.com | Seattle, WA | Relocation | ONSITE",
+      "text": "Convoy | https://convoy.com | Seattle, WA | Relocation | ONSITE\n\nJavascript, Node.js, React, React Native, Redux, iOS, Android. Frontend, Backend, Mobile.\n\nWe're optimizing the trucking and logistics industry; automating what is, today, a $749B industry that still runs on fax machines and phone calls. Currently backed by top tier investors. Read about us: http://www.nytimes.com/2016/03/23/technology/convoy-sees-itself-as-the-uber-of-local-trucking.html\n\nI'm employee #3 at this company, having worked at big companies like Google and small startups before I can say I've never had a bigger opport",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "commerce",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "JavaScript",
+          "Node.js",
+          "React",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11405729,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11405729",
+      "header": "Collage.com | Sr. Full Stack | REMOTE",
+      "text": "Collage.com | Sr. Full Stack | REMOTE\n\nCollage.com is a technology company that makes custom products easy for everyone. We are a profitable, 100% bootstrapped company with about 40 employees that has rapidly grown from zero to $22M annual revenue over the past five years. We are seeking ambitious, nice individuals to join us in our quest to bring great custom products to the world.\nYour job will be working on our core software for designing and ordering custom photo products. You will work on a Backbone.js / Handlebars / HTML5 canvas front-end that communicates via REST with a PHP/MySQL backe",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "bootstrapped",
+        "industry": "commerce",
+        "industry_fits": 0.97,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "JavaScript",
+          "MySQL",
+          "Node.js",
+          "PHP",
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 11407872,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11407872",
+      "header": "Sr. Software Developer - Paperless Post NYC ONSITE",
+      "text": "Sr. Software Developer - Paperless Post NYC ONSITE\n\nSenior Software Engineer\nPaperless Post is seeking senior software engineers to help build and refine a sophisticated platform with a deep network of over 100 million users. You’ll work on all parts of the development cycle, in many different areas of code, and on constantly releasing features as part of a deeply collaborative team with a robust development process. Working with a cross-disciplinary team, you’ll build and support a reliable, scalable product while balancing requirements and complexity.\n\nThere are several different tracks open",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.11,
+        "industry_stated": 0.44,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11452379,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11452379",
+      "header": "Oscar Insurance is a healthcare startup using technology, data & design to change the way people find and access care. We are disrupting the healthcare industry by putting people first, not business a",
+      "text": "Oscar Insurance is a healthcare startup using technology, data & design to change the way people find and access care. We are disrupting the healthcare industry by putting people first, not business and cost. www.hioscar.com We're currently hiring for a variety of Full-time/Onsite roles here in our New York City location.\n\nSoftware Engineer: Data https://www.hioscar.com/about/jobs/16268?gh_jid=16268\n\nSoftware Engineer: iOS https://www.hioscar.com/about/jobs/52063?gh_jid=52063\n\nSoftware Engineer: Android https://www.hioscar.com/about/jobs/13585?gh_jid=13585\n\nSoftware Engineer:Platform: https://",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "health",
+        "industry_fits": 0.99,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11405472,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11405472",
+      "header": "Metabase | http://www.metabase.com/ | San Francisco, CA | ONSITE | FULL-TIME",
+      "text": "Metabase | http://www.metabase.com/ | San Francisco, CA | ONSITE | FULL-TIME\n\nWe're a small team building open source business intelligence tools with a strong focus on user experience.\n\nClojure backend, React + Redux + ES6 + etc frontend.\nNearly all of the work we do is open source.\n\nWe're looking to hire strong frontend, backend, or generalist engineers. http://www.metabase.com/jobs/\n\nFeel free to contact me directly with questions or resumes (email address in my HN profile)",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.95,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11405256,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11405256",
+      "header": "A friendly reminder. The items listed here are available on the map on https://whoishiring.io",
+      "text": "A friendly reminder. The items listed here are available on the map on https://whoishiring.io\nDirect link to \"Who is hiring? (April 2016)\"\n\nhttps://whoishiring.io/#!/search/16.49719236865712/-44.47265625/2/?exclude=so&exclude=gh&exclude=be&exclude=fj&exclude=se&exclude=ww&exclude=aj&exclude=lj&exclude=cf&exclude=wh&order=distance",
+      "answers": {
+        "ai_native": 0.07,
+        "eng_leadership": 0.19,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.04,
+        "industry_stated": 0.15,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.15,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 11406703,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406703",
+      "header": "SeatGeek — New York, NY — Full Time — We're a mobile marketplace for tickets and live events.",
+      "text": "SeatGeek — New York, NY — Full Time — We're a mobile marketplace for tickets and live events.\n\nWeb Engineer — We're looking for someone who loves building for the web. Everything else (professional experience, where in the stack you fit, the languages you've used) is up for grabs. Details here: http://seatgeek.com/jobs/web_engineer/\n\niOS Engineer, marketing roles, and lots more here: https://seatgeek.com/jobs",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "commerce",
+        "industry_fits": 0.95,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.13,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11405942,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11405942",
+      "header": "Captain401 (YC S15) | San Francisco, CA | Full Time | ONSITE",
+      "text": "Captain401 (YC S15) | San Francisco, CA | Full Time | ONSITE\n\nWe're building the perfect retirement savings plan for startups and small businesses. We make essential HR administration a snap for businesses large and small, and sound investing strategy accessible to everyone.\n\nWe also just closed a substantial seed round from top investors, and were recently covered in the Wall Street Journal: http://blogs.wsj.com/venturecapital/2016/02/24/captain401-raises-3-5-million-to-help-small-business-employees-save-for-retirement/. If you’ve been wanting to dive into an early stage startup, this is the ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "seed",
+        "industry": "fintech",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11405329,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11405329",
+      "header": "Software Engineer | True Link Financial | San Francisco, CA (onsite)",
+      "text": "Software Engineer | True Link Financial | San Francisco, CA (onsite)\n\nA YC company in 2013, True Link Financial is an SF-based financial services company that believes in quality financial services for all: from protecting grandma’s money from scammers to providing supplemental financial tools that support disabled Veterans.\n\n85% of our work is in Rails, 10% is in Java, and about 5% is DevOps—AWS, multiple SSL & IPSec VPNs, encryption, security, etc.\n\nOur technology suite is complex, geographically distributed, and must be both secure and robust to protect our customers, more so than your typi",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "junior",
+        "stack": [
+          "AWS",
+          "Java",
+          "Rails",
+          "React",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11421690,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11421690",
+      "header": "London, UK | Priory Solutions | Full Time ONSITE",
+      "text": "London, UK | Priory Solutions | Full Time ONSITE\n\n------------------------------------------------\n\nWe're looking for a talented mid-range or senior software engineer to join our team working on core product development. We're based in Shoreditch, we're a small software company that builds great products and we have a good time doing it. Our stack is C#, AngularJS, MVC, webapi, SQL Server, and a little bit of lots of other things.\n\nIf you like to create software, solve problems, write code, be challenged in your work and keep on learning then get in touch: rory.kingan(at)priorysolutions.com\n\nh",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.06,
+        "industry_stated": 0.43,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Angular",
+          "C#"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11409314,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11409314",
+      "header": "NoRedInk | San Francisco, CA (or REMOTE for Sr., up to 6h difference from Pacific)",
+      "text": "NoRedInk | San Francisco, CA (or REMOTE for Sr., up to 6h difference from Pacific)\n\nFull stack rails engineer, backend / infrastructure engineers and frontend engineers wanted to make sure that grammer is taught good. Every one's revolutioneyesing educaton but while some student's cant even right the write words.\nThen there was NoRedInk.\n\nNoRedInk helps students quickly improve their grammar and writing skills. We've got a small, technically excellent engineering team.\n\nWe're gradually porting all of our React.js and Flux code to Elm, and are really active in the Elm community.\n\nOn the backend",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "MySQL",
+          "Rails",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11408723,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11408723",
+      "header": "Gladly | San Francisco, CA | Fulltime onsite only",
+      "text": "Gladly | San Francisco, CA | Fulltime onsite only\n\nSoftware Engineer | $125-175k\n\nWe've had a lot of great folks find us from this post on HN, and we're still hiring for the following roles: devops/platform engineer, engineers with security expertise and voip experts.\n\n- We have a modern tech stack (React/Node/GoLang/Docker) and product architecture (real-time pubsub microservices)\n\n- We're super early (~25 people), but well-funded with an experienced founding team of B2B serial entrepreneurs\n\n- We have an environment of mutual respect, mentorship and learning from peers\n\nI'm an engineer at Gl",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "unstated",
+        "industry_fits": 0.04,
+        "industry_stated": 0.12,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 175000.0,
+        "salary_min_usd": 125000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Docker",
+          "Go",
+          "Node.js",
+          "React"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11406622,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406622",
+      "header": "Remix | San Francisco, CA (ONSITE) | Full-time",
+      "text": "Remix | San Francisco, CA (ONSITE) | Full-time\n\nToday, cities use pen and paper to make planning decisions that affect millions of people's lives. We think there's a better way. We've built a web-based platform that helps city planners make much smarter decisions.\n\nWe're working with 100+ cities including Oakland, Baltimore, San Antonio, Miami, Calgary, and Melbourne. All in one year.\n\nThe easiest way to understand what we're doing is this two minute demo: https://www.youtube.com/watch?v=o-JpgoUKr5I\n\nWe're hiring across the board, but especially looking for:\n\n- Product Designers\n- Product Mark",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.37,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11409514,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11409514",
+      "header": "Software Engineer (Full Stack) | PMG Advertising Agency | Fort Worth, Texas | www.pmg.com",
+      "text": "Software Engineer (Full Stack) | PMG Advertising Agency | Fort Worth, Texas | www.pmg.com\nONSITE - Full Time\nWe are a development team working within an ad agency to create the next awesome big data platform.\nSend your resume to jobs@pmg.com.",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.8,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11409854,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11409854",
+      "header": "Viv Labs | San Jose, CA | Full-time | ONSITE",
+      "text": "Viv Labs | San Jose, CA | Full-time | ONSITE\n\nViv is the next-generation virtual personal assistant, brought to you by the team that created Siri. In addition to being far more capable and intelligent, Viv will provide a truly open platform and marketplace that lets any developer extend Viv's capabilities with new services. VentureBeat named Viv one of the top 15 interesting startups to watch in 2016 (http://bit.ly/1NSHobJ). Check out this article in Wired Magazine to learn more (http://www.wired.com/2014/08/viv/).\n\nOpen Positions: - Lead iOS Engineer - Senior Frontend Engineer - Senior UX Des",
+      "answers": {
+        "ai_native": 0.91,
+        "eng_leadership": 0.8,
+        "funding_stage": "unknown",
+        "industry": "ai_ml",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11406708,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406708",
+      "header": "Ultimate Software - http://ultimatesoftware.com - FT LAUDERDALE, FL | ATLANTA, GA | TORONTO | VIRTUAL",
+      "text": "Ultimate Software - http://ultimatesoftware.com - FT LAUDERDALE, FL | ATLANTA, GA | TORONTO | VIRTUAL\n\nUltimate Software is hiring for a large number of full time, onsite development positions, including:\n\n- Software Engineers (Java, C#, Golang, Python)\n\n- Software Test Engineers, and more.\n\nAbout 15% of our Product Development team works from home. We have an unbelievable benefits/401K package, so apply to Fortune’s #1 Best Tech Company to Work For in 2016 today.\n\nHere is a link to our Java Software Engineer role we have available, but feel free to check out the other opportunities on our sit",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.04,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C#",
+          "Go",
+          "Java",
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11413268,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11413268",
+      "header": "Grofers.com | Staff Engineer Backend, Mobile | G-town, India | $100,00 - $150,000 | Work at the biggest hyper-local marketplace in South-Asia | ONSITE",
+      "text": "Grofers.com | Staff Engineer Backend, Mobile | G-town, India | $100,00 - $150,000 | Work at the biggest hyper-local marketplace in South-Asia | ONSITE\n\nAre you ready for a crazy, wild, roller-coaster ride - grofers.com/blog/first-days-grofers-abhinav-desor/?\n\nWhy move to India!! - This is the time to be in India - you will be solving some of the most challenging problem on earth which can only be solved by technology. The problem set, sheer scale and market size ($600 Billion) is unique to India. Pirates wanted! You will greeted with amazing peers, tough and impactful problems to code on and b",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.04,
+        "funding_stage": "venture_unspecified",
+        "industry": "commerce",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "Android",
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11406569,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406569",
+      "header": "Sauce Labs (San Francisco, CA)",
+      "text": "Sauce Labs (San Francisco, CA)\n\nSauce Labs provides the world’s largest cloud-based platform for the automated testing of web and mobile applications. Its award-winning service eliminates the time and expense of maintaining an in-house testing infrastructure, freeing development teams of any size to innovate and release better software, faster.\n\nWe are currently looking for:\n\nEngineering Manager – PaaS\n\nSenior Network Engineers\n\nSenior Software Engineers (Core)\n\nSenior Software Engineers (Full Stack Web)\n\nSenior Software Engineers (New Product)\n\nSenior Software Engineers (Rest API)\n\nSoftware E",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.99,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11406611,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11406611",
+      "header": "StatusPage.io | San Francisco or Denver | Full Time | ONSITE",
+      "text": "StatusPage.io | San Francisco or Denver | Full Time | ONSITE\n\nHiring developer and technical operations leads. Senior level to help us build an incredible infrastructure and development team.\n\nhttps://jobs.lever.co/statuspageio/",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.9,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.04,
+        "industry_stated": 0.09,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11422948,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11422948",
+      "header": "Front End JavaScript Developer | http://www.thinkbrownstone.com/ | Philadelphia, PA | Contract (9 months) | Full-time ONSITE",
+      "text": "Front End JavaScript Developer | http://www.thinkbrownstone.com/ | Philadelphia, PA | Contract (9 months) | Full-time ONSITE\n\nWilling to relocate the right candidates. Looking for someone with experience developing client-side apps with frameworks like Angular or React, able to rapidly pick up Polymer.js for this 9-month contract.\n\nAuthor dynamic front-end widgets that will appear in web applications, native mobile and TV interfaces. Integrate with our client's Ruby on Rails team to build an app framework that will be used by the rest of this large multimedia/telecommunications company. Advise",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.06,
+        "industry_stated": 0.27,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Angular",
+          "JavaScript",
+          "Node.js",
+          "Rails",
+          "React",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11407274,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11407274",
+      "header": "ShapeBlue | REMOTE | Full Time | Software Engineer",
+      "text": "ShapeBlue | REMOTE | Full Time | Software Engineer\n\nJoin us at the intersection of cloud computing, DevOps, and distributed systems to build infrastructure automation and datacenter optimization tools. We actively contribute to the Apache CloudStack Infrastructure-as-a-Service (IaaS) project -- building new features driven by the needs of our customers and the user community. In addition to our open source work, we are developing products atop CloudStack to create a datacenter management platform.\n\nOur work involves deep knowledge of hypervisors, storage, and/or networking. We are a polyglot\ne",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.98,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Elixir",
+          "Java",
+          "Python"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 11405485,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11405485",
+      "header": "AXA Technology Services Advanced Engineering Lab www.axa.com | Lausanne, CH | ONSITE | DevOps",
+      "text": "AXA Technology Services Advanced Engineering Lab www.axa.com | Lausanne, CH | ONSITE | DevOps\n\n* Environnement\n\nThe Lab is located is located on the EPFL campus in Lausanne. The Lab was created in 2014 to contribute to a global strategic program of digital transformation at AXA Group level. The Lab is not only an innovation lab but also, and above all, an engineering team helping AXA entities to “test and learn” their digital “ideas”. We respect the “learning by doing” rule and believe we have the right to fail: we can make mistakes and learn from them in order to innovate in a better way with",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.03,
+        "funding_stage": "public_or_large",
+        "industry": "other",
+        "industry_fits": 0.22,
+        "industry_stated": 0.63,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 11409246,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=11409246",
+      "header": "Nativ Mobile | Chicago, IL | ONSITE | FULL-TIME",
+      "text": "Nativ Mobile | Chicago, IL | ONSITE | FULL-TIME\n\nWe are building our new product, Pairade (http://angel.co/pairade). At Pairade, we look at apps as a media channel, and the way we consume and think about apps will change in the near future; downloading will become streaming. Thus, we are creating a central hub for these apps, services, and content: a single app platform that allows you to access all your favorite stuff, instantly. It's all inside a Card.\n\niOS Engineer: https://angel.co/pairade/jobs/120805-ios-engineer\n\nEmail me directly (co-founder/CTO): kiran@nativ.com",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.95,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "onsite"
+      }
+    }
+  ]
+}

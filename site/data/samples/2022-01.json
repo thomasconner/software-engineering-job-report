@@ -1,0 +1,841 @@
+{
+  "month": "2022-01",
+  "posts": [
+    {
+      "id": 29784803,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29784803",
+      "header": "Sinch (Chatlayer) | Software Engineers (Full Stack, Backend) | Europe: Belgium (Antwerp), The Netherlands (Amsterdam); Brasil (São Paulo); India (Chennai) | ONSITE & REMOTE",
+      "text": "Sinch (Chatlayer) | Software Engineers (Full Stack, Backend) | Europe: Belgium (Antwerp), The Netherlands (Amsterdam); Brasil (São Paulo); India (Chennai) | ONSITE & REMOTE\nAs a leader in CPaaS (Communications Platform as a Service provider), Sinch allows businesses to send text messages and make video and voice calls through strong APIs.\n\nWe are looking for software engineers to join the Sinch Chatlayer product team. Chatlayer empowers smart businesses to have authentic, valuable conversations with their customers - through the power of AI. Our clients are global leaders in their fields, usin",
+      "answers": {
+        "ai_native": 0.96,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.96,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29784181,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29784181",
+      "header": "Finale Inventory | Software Engineers | Fulltime | REMOTE",
+      "text": "Finale Inventory | Software Engineers | Fulltime | REMOTE\n\nWe’re a fully bootstrapped company that has built a thriving business on SaaS inventory management system for ecommerce companies. We have a team of a dozen engineers working remotely across the Americas and Europe. We make remote work work by trusting each other, collaborating with each other, and focusing on results over process. We ask questions, answer them, and learn from each other.\n\nThe major components of our technology stack are Node.js, React, MySQL, Redis, Linux, and AWS. Our JavaScript code uses modern idioms such as functi",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "bootstrapped",
+        "industry": "commerce",
+        "industry_fits": 0.97,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "JavaScript",
+          "MySQL",
+          "Node.js",
+          "React",
+          "Redis"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29784685,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29784685",
+      "header": "Cox Automotive | Software Engineer (entry Level welcome) | Permanently Remote (US East/Central timezones)",
+      "text": "Cox Automotive | Software Engineer (entry Level welcome) | Permanently Remote (US East/Central timezones)\n\nJoin a close knit team that owns their domain from infrastructure to frontend. Write good code in React/Scala and automate everything with Kubernetes/Terraform in AWS.\n\nLevel 1: https://jobs.coxenterprises.com/job/14448897/software-engineer-i-us-nationwide\n\nLevel 2: https://jobs.coxenterprises.com/job/14206950/software-engineer-ii-remote\n\nLevel 3: https://jobs.coxenterprises.com/job/14202971/senior-software-engineer-remote",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.98,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Kubernetes",
+          "React",
+          "Scala",
+          "Terraform"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29826675,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29826675",
+      "header": "Etsy is the global marketplace for unique and creative goods. With more than 100 million buyers, and over 5 million sellers, we are an ecommerce company at scale. As part of our mission to offer a bes",
+      "text": "Etsy is the global marketplace for unique and creative goods. With more than 100 million buyers, and over 5 million sellers, we are an ecommerce company at scale. As part of our mission to offer a best in class personalized search experience, our Search Engineering teams continue to grow. I include links to a couple of our live roles, and we welcome applicants from all across the US & Canada for these positions.\n\nEngineering Manager, Search Platform: https://careers.etsy.com/global/en/job/JR1042/Engineering-Manager-Search-Platform\nSenior Software Engineer II, Search Indexing: https://careers.e",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.99,
+        "funding_stage": "public_or_large",
+        "industry": "commerce",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "unclear"
+      }
+    },
+    {
+      "id": 29791524,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29791524",
+      "header": "Clay | Backend Engineer, Frontend Engineer, Senior Backend Engineer, iOS Engineer, Data Engineer, Product Design, Growth | Full-time | Remote | https://clay.earth",
+      "text": "Clay | Backend Engineer, Frontend Engineer, Senior Backend Engineer, iOS Engineer, Data Engineer, Product Design, Growth | Full-time | Remote | https://clay.earth\n\nClay is a beautiful and private home for the people and relationships in your professional life. Connect your email, calendar, Twitter, and Linkedin, and Clay will bring in the people you know, remind you how you know them, and help you be more thoughtful with them over time.\n\nWe just announced our $8 million seed round led by Forerunner Ventures (investors in brands like Glossier, Warby Parker, and Chime) and General Catalyst (inve",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.04,
+        "funding_stage": "seed",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.95,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.03,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Django",
+          "Kubernetes",
+          "Postgres",
+          "Python",
+          "React",
+          "Redis",
+          "Swift",
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29785434,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29785434",
+      "header": "Tuple | Senior Linux App Developer | Full-time | Remote",
+      "text": "Tuple | Senior Linux App Developer | Full-time | Remote\n\nTuple is a native macOS/Linux application for doing low-latency remote pair programming. We were discussed recently here on HN: https://news.ycombinator.com/item?id=29641907\n\nWe are a bootstrapped, profitable, distributed team of nine very friendly humans.\n\nWe're looking for a strong C++ dev with experience creating great Linux apps to lead development of our new client (currently in alpha – launching publicly soon).\n\nFull job description here: https://tuple.app/jobs/senior-linux-app-developer.\n\nIf you think you might be a fit, we'd love",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.4,
+        "funding_stage": "bootstrapped",
+        "industry": "devtools_infra",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "C++"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29786266,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29786266",
+      "header": "Orkes | Software Engineers, Developer Relations | 100% Remote | US or International | Full-time | https://orkes.io/",
+      "text": "Orkes | Software Engineers, Developer Relations | 100% Remote | US or International | Full-time | https://orkes.io/\n\nWe are a developer first company with a mission to change how developers build distributed applications. We are looking for people who are passionate about solving real world problems and loves working with other developers across the globe.\n\nWe are building a cloud hosted version of Netflix Conductor (https://github.com/Netflix/conductor) and taking it to developers and companies across the world.\n\nInterested in building SaaS platform and challenges of distributed systems? Love",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29792981,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29792981",
+      "header": "Pabio | REMOTE | Senior Full-stack JavaScript/TypeScript Engineer",
+      "text": "Pabio | REMOTE | Senior Full-stack JavaScript/TypeScript Engineer\n\nPabio (YC S21) offers personalized interior design and rent-to-own furniture in Europe. At Pabio, we want to disrupt the furniture industry and change how people live by offering a better, more sustainable, and more affordable alternative to traditional furniture retail. We've raised $3M+ and are looking for an experienced JavaScript engineer who is comfortable across the stack to help build our product.\n\nMore info + apply here: https://careers.pabio.com\n\nHappy to answer questions: anand@pabio.com",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "commerce",
+        "industry_fits": 0.89,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "JavaScript",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29792380,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29792380",
+      "header": "Kitemaker (YC W21) | Fullstack engineer | Remote | Full-time",
+      "text": "Kitemaker (YC W21) | Fullstack engineer | Remote | Full-time\nKitemaker is reinventing the product development tool to help every team work like the world's best product teams. We're looking for founding members who can not only help us shape our product, but also shape the company itself. We're building everything in TypeScript top-to-bottom (Node, React), our API uses GraphQL and we're working on a bunch of fun integrations (GitHub, GitLab, Slack, etc.).\n\nFully remote but should have some decent workday overlap with GMT+1 timezone.\n\nFind out more at https://careers.kitemaker.co\n\nYou can check",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.91,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "GraphQL",
+          "Node.js",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29782737,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29782737",
+      "header": "I work for Clubhouse.",
+      "text": "I work for Clubhouse.\n\nI only ever speak for myself on boards and social media so it really is just me talking when I say that the team is awesome.\n\nONSITE California and REMOTE USA, with some wiggle room for Canadians here and there.\n\nLots technical and non-technical positions:\n\nhttps://www.clubhouse.com/jobs",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.19,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.05,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29784457,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29784457",
+      "header": "Wisk | High-Integrity Embedded Flight Software; Autonomy Path Planning, Perception and Flight Management Software | Remote | Full Time | https://wisk.aero/careers",
+      "text": "Wisk | High-Integrity Embedded Flight Software; Autonomy Path Planning, Perception and Flight Management Software | Remote | Full Time | https://wisk.aero/careers\n\nWe’re looking for a senior engineer to focus on the flight management and behavior logic for our self-flying taxi. You will design, build, and test the algorithms which fundamentally control the high level intent of the vehicle. You will develop logic to manage responses to contingency scenarios, avoid hazards, and perform autonomous landing approaches. You will develop architectures that support the concurrent execution of various ",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.97,
+        "industry_stated": 0.94,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29786176,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29786176",
+      "header": "Web3 Social Media - Alvin5.com | Web | Remote | https://alvin5.com",
+      "text": "Web3 Social Media - Alvin5.com | Web | Remote | https://alvin5.com\n\nDeveloping “Web3 Social Media”\n\nOpen and community-owned (on-chain DAO) social media platform initially focusing on short-form video and web3 community. Also available as a white-label, embeddable solution for businesses/startups. Think open Tiktok/Instagram, for people and businesses.\n\nDAO with governance/ownership/incentive token.\n\nI would love to meet with people interested in building this.\n\n- Web/WebApp (Think developing Tiktop/IG as a webapp) LatestWebArchitecture/Browser/React/PWA/SW/Video/Canvas/WebRTC\n\n-Backend - DevO",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Node.js",
+          "React"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29789581,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29789581",
+      "header": "Yard Stick PBC | Lead Hardware Engineer, Senior Electrical Engineer | ONSITE / HYBRID (Oakland)",
+      "text": "Yard Stick PBC | Lead Hardware Engineer, Senior Electrical Engineer | ONSITE / HYBRID (Oakland)\n\nAt Yard Stick, we value climate impact above all else. We help farmers get paid to fight climate change.\n\nRemoving CO2 from the atmosphere will be necessary to avoid the worst effects of climate change. Among the possible methods for CO2 removal, sequestration in soils is widely seen as the most affordable and scalable, and comes with the valuable co-benefit of improving soil health. However, current methods for actually measuring increases in soil carbon are prohibitively expensive and frankly med",
+      "answers": {
+        "ai_native": 0.48,
+        "eng_leadership": 0.77,
+        "funding_stage": "unknown",
+        "industry": "climate_energy",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 29789028,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29789028",
+      "header": "Caris Life Sciences | Devops, Javascript Developers, Java Developers | Dallas, Phoenix or REMOTE (US based) | Full-Time | https://www.carisls.com",
+      "text": "Caris Life Sciences | Devops, Javascript Developers, Java Developers | Dallas, Phoenix or REMOTE (US based) | Full-Time | https://www.carisls.com\n\nSome roles are a little more remote flexible. We will support relocation packages to DFW and PHX as needed as well.\n\n====\n\nSoftware Developer - Ruby on Rails (Dallas, TX, Phoenix, AZ, US REMOTE) - https://www.paycomonline.net/v4/ats/web.php/jobs/ViewJobDetails?job=32081&clientkey=4823C2A74806CE15F96102604CCA957D\n\nLead Information Security Engineer (Dallas, TX) - https://www.paycomonline.net/v4/ats/web.php/jobs/ViewJobDetails?job=32203&clientkey=4823",
+      "answers": {
+        "ai_native": 0.05,
+        "eng_leadership": 0.96,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.04,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.78,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Java",
+          "JavaScript",
+          "Machine learning",
+          "Rails",
+          "Ruby"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 29790363,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29790363",
+      "header": "BrightHire | Fully Remote | Full-time | https://brighthire.ai/careers/",
+      "text": "BrightHire | Fully Remote | Full-time | https://brighthire.ai/careers/\n\nThere is nothing more important to a company than building the right team.\n\nAt BrightHire, we’re transforming the quality of hiring—by helping people run better interviews, and helping teams hire faster with less bias. We’re humbled by the impact we’re having on our customers and their candidates.\n\nWe’ve recently closed a $20.5M Series B led by 01 Advisors with participation from Index Ventures and Zoom Apps Fund.\n\nWe couldn’t be more excited about what’s next.\n\n- Senior Machine Learning Engineer: https://jobs.lever.co/bri",
+      "answers": {
+        "ai_native": 0.26,
+        "eng_leadership": 0.99,
+        "funding_stage": "series_b",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29786387,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29786387",
+      "header": "Tenzir | C++, ReasonML, Rust, Python | Remote - EU | Open-source | Full-time | https://tenzir.com",
+      "text": "Tenzir | C++, ReasonML, Rust, Python | Remote - EU | Open-source | Full-time | https://tenzir.com\n\nTenzir is a funded seed-stage startup that builds a next generation data-plane for plug-and-play security operations. Our mission is to empower defenders with an open platform to perform automated data-driven investigations through combination best-of-breed solutions. Our stack consists of the high-performance C++20 telemetry engine VAST (https://github.com/tenzir/vast), a Rust API, and a ReasonML-based frontend.\n\nOur open engineering positions include:\n\n- Lead Frontend: https://tenzir.workable.c",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.5,
+        "funding_stage": "seed",
+        "industry": "security",
+        "industry_fits": 0.99,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C++",
+          "Python",
+          "Rust"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29801602,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29801602",
+      "header": "Twisp | Distributed Systems Engineer | Portland, OR | Full-Time | Remote | https://twisp.com",
+      "text": "Twisp | Distributed Systems Engineer | Portland, OR | Full-Time | Remote | https://twisp.com\n\nAt Twisp, we’re a team of fintech veterans developing primitives to help engineers confidently build systems that handle financial transactions, balances, and insights at any scale. We’re a fully remote company with a mission to transform arcane financial protocols and complex ledger systems into simple, well-crafted developer experiences.\n\nWe’re fully funded and backed by top investors in our domain.\n\nCheck out our openings at https://jobs.lever.co/twisp\nHappy to answer questions and meet you virtual",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "venture_unspecified",
+        "industry": "fintech",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29784343,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29784343",
+      "header": "LollipopAI | London, UK | Multiple Positions | Open to Remote within +/- 4hrs GMT | Salary range £70K - £100K + EMI options",
+      "text": "LollipopAI | London, UK | Multiple Positions | Open to Remote within +/- 4hrs GMT | Salary range £70K - £100K + EMI options\n\nWe're building a new way to shop here at Lollipop. People really hate the weekly shop, and we're working out how to make it faster, more fun and better; for them as well as society and the planet.. We're a diverse team who have built businesses such as Monzo and Curve, and our backers have scaled the likes of Ocado, Innocent, Babylon and Deliveroo.\n\nI'm an engineer on the newly formed meals squad but recently helped ship our MVP mobile app. As a company we are all-in on ",
+      "answers": {
+        "ai_native": 0.04,
+        "eng_leadership": 0.03,
+        "funding_stage": "seed",
+        "industry": "commerce",
+        "industry_fits": 0.97,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29830647,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29830647",
+      "header": "Getaround | Senior Backend Software Engineer (Python) [Multiple Openings] | Full-Time | Remote-first with San Francisco, CA HQ Collaborative Space (US, near Pacific Time) | getaround.com",
+      "text": "Getaround | Senior Backend Software Engineer (Python) [Multiple Openings] | Full-Time | Remote-first with San Francisco, CA HQ Collaborative Space (US, near Pacific Time) | getaround.com\n\nGetaround connects safe, convenient, and affordable cars with people who need them to live and work. Our community includes guests who rely on our cars for on-demand mobility and hosts who share cars on our platform including those who operate their own car sharing businesses. Our connected car technology allows guests to book and unlock a wide variety of vehicles directly from our app without ever having to ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.32,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Python"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29788484,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29788484",
+      "header": "3Box Labs | Remote (Global) | Remote | https://3boxlabs.com",
+      "text": "3Box Labs | Remote (Global) | Remote | https://3boxlabs.com\n\n3Box Labs is transforming the web's relationship with data. Our sovereign data network is used by 1500 of the world's most ambitious applications to power their products and help users regain agency over their digital lives. We are creating the building blocks that will let millions of developers reinvent how they manage data and usher in a more open web.\n\nTo learn more about who we are, our engineering culture, and whether this is the right place for you, read our Key Values profile: https://www.keyvalues.com/3box-labs\n\nOur open pos",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.9,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.96,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Go",
+          "JavaScript",
+          "Rust",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29797119,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29797119",
+      "header": "TypeScript Engineer | Polecat (https://www.polecat.com) | REMOTE in UK or Poland",
+      "text": "TypeScript Engineer | Polecat (https://www.polecat.com) | REMOTE in UK or Poland\n\nPolecat is looking for a TypeScript developer to join the team working on our reputation intelligence SaaS product.\n\nOur product analyses the media impact of big organisations to show them how different topics affect their reputation. This is a fast-growing market as more and more organisations start to take Environmental, Social and Governance (ESG) concerns seriously.\n\nThe frontend is a TypeScript SPA speaking to a GraphQL API. If you'd like to work with Apollo/GraphQL and Next.js, please check us out! We're al",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.92,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.04,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "GraphQL",
+          "JavaScript",
+          "Next.js",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29786962,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29786962",
+      "header": "Calyptia | REMOTE | Full-time | https://calyptia.com",
+      "text": "Calyptia | REMOTE | Full-time | https://calyptia.com\n\nCalyptia is the company primary funding the OSS projects Fluent Bit[0] and Fluentd[1], CNCF graduated projects.\n\nWe are looking for talented individuals with outstanding discipline to work on solving challenges associated with data processing and scalability. We are looking for candidates for the following teams:\n\n- Backend & Ops: Golang, Kubernetes, CI/CD\n\n- Frontend: Javascript, Typescript (mandatory), React\n\n- Fluent Bit OSS: C, Linux and familiar with networking, event loop, syscalls, protocols, etc.\n\nFeel free to send me your github pr",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.74,
+        "industry_stated": 0.81,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "C",
+          "Go",
+          "JavaScript",
+          "Kubernetes",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29784953,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29784953",
+      "header": "Looking for a new field? What about Construction Tech?! | Hiring in San Francisco, around the US and France | Onsite and Remote within the US, Fulltime",
+      "text": "Looking for a new field? What about Construction Tech?! | Hiring in San Francisco, around the US and France | Onsite and Remote within the US, Fulltime\n\nFieldwire is a construction field management software building world-class tech to disrupt the $10 trillion construction industry! With 1M projects worldwide, we have partnered with over 4000+ clients in 100+ countries and 14 languages. We raised $33.5M in Series C round of funding led by Menlo Ventures back in 2019! If you are looking to disrupt and modernize an industry that has been neglected by tech for years, feel free to apply!\n\nStaff. F",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "series_c_plus",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "iOS"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29782399,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29782399",
+      "header": "Predictive Index | Boston or Remote (US) | Full Time",
+      "text": "Predictive Index | Boston or Remote (US) | Full Time\n\nOur mission is \"Better work, Better world,\" and we take great pride in PI’s power to supercharge workplace relationships and culture to achieve the unthinkable. We’re our own best case study! You’ll be working toward a mission that inspires you, and you’ll be surrounded by fun, smart, driven people day in and day out.\n\nYou can learn more about us and all our open roles here: https://www.predictiveindex.com/company/careers-at-pi/\n\nCurrent technologies include .NET (Framework and Core), Angular, Node.js, TypeScript, and Azure.\n\n* Engineering ",
+      "answers": {
+        "ai_native": 0.03,
+        "eng_leadership": 0.93,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.76,
+        "industry_stated": 0.85,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Angular",
+          "Azure",
+          "Node.js",
+          "TypeScript"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29809136,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29809136",
+      "header": "ThanksBen | Frontend Developer | Berlin | Hybrid Onsite/Remote | Full time | Equity",
+      "text": "ThanksBen | Frontend Developer | Berlin | Hybrid Onsite/Remote | Full time | Equity\n\nWe're a fast growing B2B FinTech startup on the lookout for a FrontEnd Developer to join our fantastic team in Berlin. Ben is built on Python 3, Django, PostgreSQL and React. We run on AWS and follow engineering best practices.\n\nYou'll have full autonomy to own your role and drive it forward, and have a direct impact on the success of the business. We're a small team, so everyone has a say in what we do and how we work.\n\nIf this sounds like something you'd be keen to learn more about, please get in touch at jo",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.01,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.69,
+        "industry_stated": 0.64,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Django",
+          "Postgres",
+          "Python",
+          "React"
+        ],
+        "work_mode": "hybrid"
+      }
+    },
+    {
+      "id": 29785368,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29785368",
+      "header": "Monadical | Multiple Engineering roles | Full-time | Remote | monadical.com",
+      "text": "Monadical | Multiple Engineering roles | Full-time | Remote | monadical.com\n\nWe're a fully-remote development consultancy that is growing quickly. Looking for developers with experience in Unity/gaming, Rust, frontend/React, or full-stack + dev ops. Project management or sales experience is a strong plus, but anyone doing PM or sales work here also codes.\n\nMostly looking for developers outside the US (most of us are in Canada or Colombia).\n\nWe have a healthy culture that emphasizes personal growth & learning, work-life balance, and professionalism. Work on a variety of projects. See more about",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.94,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "React",
+          "Rust"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29782116,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29782116",
+      "header": "Deno Land Inc. | Head of Growth | Remote | Full-time | https://deno.com | https://deno.land",
+      "text": "Deno Land Inc. | Head of Growth | Remote | Full-time | https://deno.com | https://deno.land\n\nDeno Land is a startup founded by creators of Node.js, the runtime used by millions of developers that laid the foundations for the modern web. We are continuing to innovate with our new runtime called Deno, which is already one of the most popular projects on GitHub [1].\n\nBy repurposing web browser technology for the server software, we aim to accelarate a new generation of extreme low-latency edge applications. Our nascent commercial product [2] is cloud service for hosting software built with Deno; ",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Node.js"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29784840,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29784840",
+      "header": "International Research Institute for Climate and Society, Columbia Climate School | Intermediate Software Developer | Palisades, New York (near NYC) | ONSITE | VISA",
+      "text": "International Research Institute for Climate and Society, Columbia Climate School | Intermediate Software Developer | Palisades, New York (near NYC) | ONSITE | VISA\n\nThe IRI Data Library team curates and provides access to data related to the Earth's climate and its effects on human populations, and builds web applications that present such data in forms that are needed by decision makers at government agencies and NGOs worldwide. Most of our current work is related to agriculture and food security in the developing world.\n\nWe're looking for an intermediate-level software developer (3-5 years ",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.05,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "mentions_visa": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 0.0,
+        "seniority": "mid",
+        "stack": [
+          "Python"
+        ],
+        "work_mode": "onsite"
+      }
+    },
+    {
+      "id": 29783651,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29783651",
+      "header": "Lightrains Technolabs - On-site/Remote",
+      "text": "Lightrains Technolabs - On-site/Remote\n\nBlockchain Development, AMM, DeFi and NFTs, Smart Contract Development\n\n- Software Engineer - Blockchain: https://lightrains.com/careers/blockchain-developer\n- Rust Developer https://lightrains.com/careers/rustlang-developers\n\nAll open positions : https://lightrains.com/about/careers",
+      "answers": {
+        "ai_native": 0.01,
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.11,
+        "industry_stated": 0.42,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "onsite_token": 1.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Rust"
+        ],
+        "work_mode": "remote"
+      }
+    },
+    {
+      "id": 29787264,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=29787264",
+      "header": "Nightwatch.io | Remote | Full-time & Part-time | Ruby / Ember / Elixir",
+      "text": "Nightwatch.io | Remote | Full-time & Part-time | Ruby / Ember / Elixir\n\nWe’re helping organizations to track their search engine rankings accurately on 100,000+ locations worldwide.\n\nWe’ve been bootstrapping our products without subscribing to the 9-to-5 corporate protocols and minimum bureaucracy.\n\nThe ideal candidates should have rich experience in building performant, easy to use, well monitored and tested APIs, creating and maintaining robust web applications, designing data processing and visualization workflows, and communicating clearly.\n\nFront-end Developer (Ember.js): https://nightwat",
+      "answers": {
+        "ai_native": 0.02,
+        "eng_leadership": 0.03,
+        "funding_stage": "bootstrapped",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.82,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "onsite_token": 0.0,
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Elixir",
+          "Go",
+          "Ruby",
+          "Rust"
+        ],
+        "work_mode": "remote"
+      }
+    }
+  ]
+}
