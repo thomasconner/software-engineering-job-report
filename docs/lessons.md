@@ -51,6 +51,11 @@ These are mistakes already made, approaches already tried, and traps found in ea
 - **EDGAR's present-day metadata rewrites the past.** Yahoo/Altaba has a blank SIC, and Compass moved from 7371 to 6531. Take SIC from the filing, never from today's submissions file.
 - **EDGAR timestamps differ by copy.** The data.sec.gov API gives true UTC, but `submissions.zip` often gives Eastern time labeled "Z". Bucket months by `filingDate`.
 - **Revenue tags change over time, and named lists carry hindsight.** AMD's first-filed revenue was `SalesRevenueGoodsNet`, and Broadcom had an older CIK. Check that each expected company lands in each year's panel, and prefer mechanical membership rules to lists of today's winners.
+- **EDGAR's `-index-headers.html` doesn't exist for filings before about 2014; `{accn}.hdr.sgml` does.** Never cache a 404 as a value. After any change to how a panel is built, check that every year still has its full size. In CON-174 the 2012–14 panels shrank to 3–4 companies while all tests passed.
+- **Untagged 10-Qs don't mean zero.** Putting a 10-K-only charge into Q4 was right 5 times and wrong about 11 times when checked against later comparatives. Dell had $160M of nine-month severance that landed in Q4.
+- **A size threshold isn't a corporate-action detector.** Dropping year-over-year changes over 30% removed Amazon's 2020 hiring and Compass's layoffs along with HP's split. Detect corporate actions explicitly (8-K Item 2.01, Form 10, a documented list).
+- **A guard against unit slips needs a sound reference.** Comparing against the smallest revenue tag let a goods-only component ($4.3M) replace $3.3B of revenue.
+- **Widening SIC ranges changes what a panel measures.** Adding 3570–79 and 3670–79 brought in contract manufacturers and solar makers and pushed out Qualcomm and design-software companies. Check the membership diff before accepting a rule change.
 - **Moderators detach off-topic subthreads into top-level comments.** These look like posts and should be dropped (CON-169).
 - **HN thread rules changed over time:** 2015-09, 2017-06, 2018-02 (one post per company), 2024-04, 2024-11, and the Freelancer thread was retired in 2025-11. Annotate charts and don't compare across these breaks silently.
 
