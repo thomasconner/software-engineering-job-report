@@ -34,7 +34,8 @@ PIPE_BEFORE = re.compile(r"(?:^|\||\n)\s*$")
 PIPE_AFTER = re.compile(r"^\s*(?:\||\n|$)")
 # A visa the candidate must already hold is a requirement, not an offer.
 VISA_HELD = re.compile(
-    r"^\s*holders?\b|^\s*on your own\b|(?:valid|own|existing work|current)\s+(?:work\s+)?$",
+    r"^\s*holders?\b|^\s*on your own\b|(?:valid|own|existing work|current)\s+(?:work\s+)?$"
+    r"|\bhave\s+(?:a\s+)?(?:valid\s+)?(?:work\s+)?$",
     re.IGNORECASE,
 )
 
@@ -90,6 +91,8 @@ def interns_token(text: str) -> bool:
 
 def _is_visa_offer(text: str, m: re.Match[str]) -> bool:
     after = text[m.end() : m.end() + 30]
+    if VISA_COMPANY.match(m.group()) and re.match(r"\s+Inc\b", after):
+        return False
     if VISA_COMPANY.match(m.group()) and not (
         VISA_OFFER_AFTER.search(after)
         or m.end() <= header_end(text)

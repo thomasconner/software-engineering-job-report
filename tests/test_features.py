@@ -44,6 +44,12 @@ from sejr.features.vocab import TERMS, stack_terms
         ("Looking for a commercial co-founder | Europe / US Remote", None),
         ("I'm applying for the Growth Lead / Expansion & Lifecycle role", None),
         ("SAN FRANCISCO, CA", None),
+        ("Palo Alto, CA - Box.net", "box"),
+        ("San Francisco, CA - Kontagent", "kontagent"),
+        ("Santa Barbara, CA: AppFolio inc.", "appfolio"),
+        ("Groupon is hiring in Palo Alto, CA & Chicago, IL", "groupon"),
+        ("New York, NY - Software Engineer , fulltime", None),
+        ("San Mateo, CA", None),
         ("Hey founder of Notion here. You can think of it as the next generation", None),
     ],
 )  # fmt: skip
@@ -137,6 +143,7 @@ def test_non_usd_salary_is_counted_but_not_in_usd(text, currency):
         "Fixed-fee project ($12K, milestone-based) + equity tied to ARR",
         "we've helped over 100 million Americans save over $15 billion to date",
         "Thinknum | Senior Engineer | New York | 55K",
+        "no traffic or commute, surfing, and houses that commonly go for $150,000 to $450,000.",
     ],
 )
 def test_not_a_salary(text):
@@ -210,6 +217,8 @@ def test_mentions_visa(text):
         "REMOTE (US only, US time zones; no visa sponsorship) | Full-time | $170k–$210k",
         "We're not able to offer relocation or visa sponsorship.",
         "We help trial sponsors recruit quickly.",
+        "Visa Inc | Platform Engineer | Kubernetes / OpenShift",
+        "I'm moving to the Bay Area in November (I have work visa)",
     ],
 )
 def test_no_visa_offer(text):

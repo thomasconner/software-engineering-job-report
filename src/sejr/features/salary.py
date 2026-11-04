@@ -58,7 +58,8 @@ NOT_ANNUAL_AFTER = re.compile(
 )
 NOT_SALARY_BEFORE = re.compile(
     r"\b(?:raised?|raising|funding|funded|series [a-f]|seed|valuation|revenue|arr|mrr|fund"
-    r"|grants?|budget|prize|bounty|invest\w*|backed|acquired|worth|assets|aum|stipend|bonus)\b",
+    r"|grants?|budget|prize|bounty|invest\w*|backed|acquired|worth|assets|aum|stipend|bonus"
+    r"|houses?|homes?|rent|apartments?|prices?|costs?)\b",
     re.IGNORECASE,
 )
 UP_TO = re.compile(r"\bup to\s*~?\s*$", re.IGNORECASE)

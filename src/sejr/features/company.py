@@ -27,8 +27,11 @@ LEGAL_SUFFIX = re.compile(
 DOMAIN_SUFFIX = re.compile(
     r"\.(?:com|io|ai|dev|co|app|net|org|so|xyz|tech|us|uk|de|me)\b", re.IGNORECASE
 )
-# "Grand Rapids, MI - Hiring ..." opens with a location, not a company.
-US_LOCATION_FIRST = re.compile(r"^[^,|()\-–—]+,\s*(?!AG|SA|BV|AB|OY)[A-Z]{2}\b")
+# 2011-era headers often open with a location ("Palo Alto, CA - Box.net"); the name, if
+# any, follows it after a separator.
+US_LOCATION_FIRST = re.compile(
+    r"^(?:[A-Z][\w.]*\s?){1,4},\s*(?!AG|SA|BV|AB|OY)[A-Z]{2}\b\.?\s*(?P<sep>[-–—:|]{1,2})?"
+)
 MAX_WORDS = 5
 
 
@@ -43,8 +46,10 @@ def normalize_company(name: str) -> str | None:
 
 def company_name(text: str) -> str | None:
     header = header_line(text)
-    if US_LOCATION_FIRST.match(header):
-        return None
+    if location := US_LOCATION_FIRST.match(header):
+        if not location["sep"]:
+            return None
+        header = header[location.end() :].strip()
     segment = SEPARATOR.split(header, maxsplit=1)[0].strip()
     segment = LEADING_AT.sub("", segment)
     if m := ROLE_AT_COMPANY.search(segment):
