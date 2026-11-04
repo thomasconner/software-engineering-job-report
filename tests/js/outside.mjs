@@ -142,11 +142,6 @@ assert.equal(data.valueAt(paired[1], '2025-10'), 100);
 assert.throws(() => data.resolveChartSeries(raw, { type: 'line', external: 'indeed_software_postings.US', from: '2021-01' }, '2026-10'), /before indeed_software_postings.US starts/);
 assert.equal(data.resolveChartSeries(raw, { type: 'line', external: 'indeed_software_postings.US', from: '2021-10' }, '2026-10').length, 1);
 
-// The masthead ribbon: front matter wins; otherwise HN before November 2026, Indeed from then on.
-assert.equal(data.ribbonKey({ month: '2026-10' }), 'posts.hiring');
-assert.equal(data.ribbonKey({ month: '2026-11' }), 'external:indeed_software_postings.US');
-assert.equal(data.ribbonKey({ month: '2026-10', ribbon: 'external:ces_computer_systems_design.US' }), 'external:ces_computer_systems_design.US');
-
 // Units: thousands print as whole numbers and ticks in K or M.
 assert.equal(data.makeFormat('thousands')(2355.4), '2,355,400');
 assert.equal(data.tickFormat('thousands')(2400), '2.4M');
@@ -155,9 +150,37 @@ assert.equal(data.tickFormat('thousands')(150), '150K');
 assert.equal(data.sourceLine(only), '');
 assert.match(data.sourceLine(rows), /Who is hiring\?/);
 
-// layout: float or wide on regular charts; the strip and small multiples are always wide and don't take it.
+// width: column, wide or full on any directive, with a default per type. layout is a deprecated alias
+// (wide stays wide, float falls back to the default) that can't be combined with width.
+const { directiveWidth } = await import(process.argv[3]);
+assert.equal(error('::chart{type="line" metric="posts.hiring" title="t" width="full"}'), null);
+assert.equal(error('::compare{title="t" metrics="posts.hiring" width="column"}'), null);
+assert.match(error('::chart{type="line" metric="posts.hiring" title="t" width="half"}'), /column, wide or full/);
 assert.equal(error('::chart{type="line" metric="posts.hiring" title="t" layout="wide"}'), null);
 assert.equal(error('::chart{type="dot" breakdown="industry" title="t" layout="float"}'), null);
-assert.match(error('::chart{type="line" metric="posts.hiring" title="t" layout="left"}'), /float or wide/);
-assert.match(error('::chart{type="small-multiples" breakdown="stack" title="t" layout="float"}'), /does not take "layout"/);
-assert.match(error('::compare{title="t" metrics="posts.hiring" layout="wide"}'), /does not take "layout"/);
+assert.match(error('::chart{type="line" metric="posts.hiring" title="t" layout="left"}'), /deprecated/);
+assert.match(error('::chart{type="line" metric="posts.hiring" title="t" layout="wide" width="wide"}'), /width alone/);
+assert.equal(directiveWidth('chart', { type: 'line' }), 'wide');
+assert.equal(directiveWidth('chart', { type: 'stacked-area' }), 'wide');
+assert.equal(directiveWidth('chart', { type: 'bar', metric: 'posts.hiring' }), 'wide');
+assert.equal(directiveWidth('chart', { type: 'bar', breakdown: 'industry' }), 'column');
+assert.equal(directiveWidth('chart', { type: 'slope' }), 'column');
+assert.equal(directiveWidth('chart', { type: 'dot', layout: 'float' }), 'column');
+assert.equal(directiveWidth('chart', { type: 'dot', layout: 'wide' }), 'wide');
+assert.equal(directiveWidth('chart', { type: 'small-multiples' }), 'full');
+assert.equal(directiveWidth('compare', {}), 'wide');
+assert.equal(directiveWidth('chart', { type: 'line', width: 'column' }), 'column');
+
+// Breakdown series load from their own file, once, and only when asked for.
+const fetched = [];
+const split = data.prepare({
+  months, metrics: {},
+  breakdowns: { work_mode: { label: 'Work mode', categories: ['remote'], file: 'breakdowns/work_mode.json' } },
+});
+assert.throws(() => data.resolveSeries(split, { breakdown: 'work_mode' }, '2026-10'), /not been loaded/);
+const fakeFetch = async (url) => { fetched.push(url); return { series: [{ month: '2026-10', n: 10, values: { remote: 0.5 } }] }; };
+await Promise.all([data.loadBreakdown(split, 'work_mode', fakeFetch), data.loadBreakdown(split, 'work_mode', fakeFetch)]);
+assert.deepEqual(fetched, ['data/breakdowns/work_mode.json']);
+assert.equal(data.resolveSeries(split, { breakdown: 'work_mode' }, '2026-10')[0].points[0].value, 0.5);
+// Inline series (the mock file) need no fetch.
+await data.loadBreakdown({ breakdowns: { x: { series: [] } } }, 'x', () => assert.fail('fetched'));

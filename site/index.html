@@ -30,16 +30,11 @@
         <button id="theme-toggle" class="theme-toggle" type="button">Switch theme</button>
       </div>
     </div>
-    <figure class="ribbon-figure">
-      <div id="ribbon" class="ribbon" role="img" tabindex="0"></div>
-      <figcaption id="ribbon-caption" class="ribbon-caption"></figcaption>
-      <p id="ribbon-live" class="sr-only" aria-live="polite"></p>
-    </figure>
   </header>
 
   <main>
     <article>
-      <header class="article-head">
+      <header class="article-head spine">
         <h1 id="headline">Loading this month's issue</h1>
         <p id="dek" class="dek"></p>
         <p class="meta">
@@ -48,10 +43,10 @@
           <span id="data-stamp"></span>
         </p>
       </header>
-      <div id="article-body" class="article-body"></div>
+      <div id="article-body" class="article-body spine"></div>
     </article>
 
-    <section class="methodology" aria-labelledby="method-title">
+    <section class="methodology spine" aria-labelledby="method-title">
       <h2 id="method-title">How we measure this</h2>
       <p>This report tracks the US software engineering job market each month by putting several public sources side by side. Each one sees a different part of the market: job postings, job openings, hires and layoffs, employment, and what companies and job seekers write in Hacker News's monthly threads. No single source stands in for the market, so every number names where it came from, and when sources disagree we say so.</p>
 
@@ -77,8 +72,8 @@
       <h3>Shares are expected values</h3>
       <p>When Jev answers, it gives a probability for each option rather than one guess. A post that is 70% likely remote and 30% likely hybrid adds 0.7 to remote and 0.3 to hybrid. Monthly shares are those probabilities added up and divided by the number of posts. This keeps uncertain posts from being forced into one bucket, so shares move smoothly instead of jumping when a borderline post flips.</p>
 
-      <h3>Then and now</h3>
-      <p>Comparisons put this month next to the same month 3 months, 1 year and 5 years earlier. Shares change in percentage points. Counts, salaries and outside indexes change in percent. A change is marked better or worse when it is good or bad news for people looking for engineering work, and left unmarked when it is neither. For the Hacker News measures, a change smaller than ordinary month-to-month noise is marked about the same (≈) and shown in gray, whichever way it went. Outside sources have no noise allowance from us, so their changes are shown plainly and carry no verdict. Hollow circles inside the charts mark the same three earlier months.</p>
+      <h3 id="then-and-now">Then and now</h3>
+      <p>Comparisons put this month next to the same month 3 months, 1 year and 5 years earlier. Shares change in percentage points. Counts, salaries and outside indexes change in percent. A change is marked better or worse when it is good or bad news for people looking for engineering work, and left unmarked when it is neither. For the Hacker News measures, a change smaller than ordinary month-to-month noise is marked about the same (≈) and shown in gray, whichever way it went. Outside sources have no noise allowance from us, so their changes are shown plainly and carry no verdict. Each outside value names the period it describes, such as “Aug 2026 data”, and each outside change compares two readings from the same release, so a publisher's later revision never reads as a market move. Hollow circles inside the charts mark the same three earlier months.</p>
 
       <h3>What this data can't tell you</h3>
       <ul>
@@ -88,14 +83,14 @@
         <li>Edited posts show their text as of our snapshot. Deleted posts are missing. In the hiring thread deletions stayed under about a tenth of posts a month for most of its history and have risen since 2023; the job-seeker thread has always lost more, often a fifth or a quarter of its posts. Many are spam or posts that broke the thread's rules. We count them but don't add them back into post counts, and show the removed share below so you can judge the post-count trend for yourself.</li>
         <li>Salary figures come only from posts that state one, and the share that do has changed a lot as pay transparency laws spread.</li>
       </ul>
-      <div id="removed-chart" class="directive"></div>
+      <div id="removed-chart" class="directive" data-width="wide"></div>
 
       <h3 id="glossary-title">What each measure means</h3>
       <dl id="glossary" class="glossary"></dl>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer spine">
     <p>The Software Engineering Jobs Report is built from public sources: Indeed Hiring Lab (CC BY 4.0), the U.S. Bureau of Labor Statistics and Hacker News's monthly hiring threads. Not affiliated with Hacker News or Y Combinator, Indeed or the BLS. Code and data on <a href="https://github.com/thomasconner/software-engineering-job-report">GitHub</a>.</p>
   </footer>
 </body>

@@ -611,10 +611,38 @@ def write_samples(
         )
 
 
-def write(data: dict, path: Path = SITE_DATA_DIR / "metrics.json") -> Path:
-    path.parent.mkdir(parents=True, exist_ok=True)
+BREAKDOWN_DIR = "breakdowns"
+
+
+def _dump(data: dict, path: Path) -> None:
     # Compact: the per-point noise bars nearly triple the file when indented.
     path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
+
+
+def write(data: dict, path: Path = SITE_DATA_DIR / "metrics.json") -> Path:
+    """Write metrics.json plus one file per breakdown series.
+
+    Breakdown series are three quarters of the export (the stack terms alone are about 0.9 MB),
+    and the page draws them only when an article has a chart of one. metrics.json keeps each
+    breakdown's labels and categories, which the glossary needs, and names its series file in
+    `file`; the page fetches that file when a directive asks for the breakdown.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    folder = path.parent / BREAKDOWN_DIR
+    folder.mkdir(exist_ok=True)
+    core = {**data, "breakdowns": {}}
+    for name, breakdown in data["breakdowns"].items():
+        rel = f"{BREAKDOWN_DIR}/{name}.json"
+        core["breakdowns"][name] = {
+            **{k: v for k, v in breakdown.items() if k != "series"},
+            "file": rel,
+        }
+        _dump({"id": name, "series": breakdown["series"]}, path.parent / rel)
+    # A breakdown dropped from the export leaves no stale file behind.
+    for old in folder.glob("*.json"):
+        if old.stem not in data["breakdowns"]:
+            old.unlink()
+    _dump(core, path)
     return path
 
 

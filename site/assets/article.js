@@ -9,18 +9,36 @@ const FENCE = /^\s*(```|~~~)/;
 const ATTR = /([\w-]+)\s*=\s*(?:"((?:\\.|[^"\\])*)"|'((?:\\.|[^'\\])*)'|\u201C([^\u201D]*)\u201D|\u2018([^\u2019]*)\u2019)/g;
 
 // Which attributes each directive accepts (docs/architecture.md, "Directive attributes").
-const COMMON = ['title', 'subtitle', 'note'];
+// `layout` is the float layout's attribute, kept for one release as a deprecated alias of `width`.
+const COMMON = ['title', 'subtitle', 'note', 'width', 'layout'];
 const TIME = ['from', 'to', 'annotate'];
-// Small multiples and ::compare always span the page, so they don't take `layout`.
 const ALLOWED = {
-  line: ['metric', 'highlight', 'external', 'base', 'layout', ...TIME],
-  'stacked-area': ['metric', 'breakdown', 'categories', 'highlight', 'layout', ...TIME],
+  line: ['metric', 'highlight', 'external', 'base', ...TIME],
+  'stacked-area': ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
   'small-multiples': ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
-  slope: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'months', 'layout'],
-  dot: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'layout'],
-  bar: ['metric', 'breakdown', 'categories', 'highlight', 'layout', ...TIME],
+  slope: ['metric', 'breakdown', 'categories', 'highlight', 'vs', 'months'],
+  dot: ['metric', 'breakdown', 'categories', 'highlight', 'vs'],
+  bar: ['metric', 'breakdown', 'categories', 'highlight', ...TIME],
   compare: ['metrics', 'against'],
 };
+
+// Every graphic is centered on the text's axis at one of three widths; nothing floats.
+export const WIDTHS = ['column', 'wide', 'full'];
+
+/**
+ * The width a directive is drawn at: its own `width`, else the default for its type. Time series and the
+ * strip need room along the x-axis, so they default to wide; ranked rows (slope, dot, bars by category) read
+ * best at the text width; small multiples get the full page. The deprecated `layout="wide"` still means wide,
+ * and `layout="float"` falls back to the default.
+ */
+export function directiveWidth(name, attrs) {
+  if (WIDTHS.includes(attrs.width)) return attrs.width;
+  if (attrs.layout === 'wide') return 'wide';
+  if (name === 'compare') return 'wide';
+  if (attrs.type === 'small-multiples') return 'full';
+  if (attrs.type === 'slope' || attrs.type === 'dot' || (attrs.type === 'bar' && attrs.breakdown)) return 'column';
+  return 'wide';
+}
 
 const unescape = (s) => s.replace(/\\(.)/g, '$1');
 
@@ -55,6 +73,9 @@ function checkDirective(name, attrs) {
   const unknown = Object.keys(attrs).filter((k) => !allowed.has(k));
   if (unknown.length) throw new AuthoringError(`${type} does not take ${unknown.map((k) => `"${k}"`).join(', ')}`);
   if (!attrs.title) throw new AuthoringError(`${type} needs a title that states the finding`);
+  if (attrs.width && !WIDTHS.includes(attrs.width)) throw new AuthoringError(`width="${attrs.width}" must be column, wide or full`);
+  if (attrs.layout && !['float', 'wide'].includes(attrs.layout)) throw new AuthoringError(`layout="${attrs.layout}" is deprecated; write width="column", "wide" or "full"`);
+  if (attrs.layout && attrs.width) throw new AuthoringError('layout is the deprecated name for width; write width alone');
   if (name === 'compare') {
     if (!attrs.metrics) throw new AuthoringError('compare needs metrics');
     const ids = attrs.metrics.split(',').map((s) => s.trim());
@@ -66,9 +87,6 @@ function checkDirective(name, attrs) {
     const bad = (attrs.against ?? '').split(',').map((s) => s.trim()).filter((a) => a && !WINDOWS[a]);
     if (bad.length) throw new AuthoringError(`against takes 3m, 1y, 5y, not ${bad.join(', ')}`);
     return;
-  }
-  if (attrs.layout && !['float', 'wide'].includes(attrs.layout)) {
-    throw new AuthoringError(`layout="${attrs.layout}" must be float or wide`);
   }
   // A line can draw an outside series on its own (raw values) or paired with one HN metric (both indexed to base).
   const externalOnly = attrs.external && !attrs.metric && !attrs.breakdown;

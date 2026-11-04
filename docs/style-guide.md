@@ -120,7 +120,7 @@ The paragraph that tells the reader what the whole article argues and why they s
 
 ### The data turn
 
-Right after the nut graf comes the `::compare` strip. It has a fixed core so readers can compare months at a glance. The core mixes sources, outside series first:
+Right after the nut graf comes the `::compare` strip. The page shows it as the topline, under the byline and above the lede (section 3, "Choosing the chart type"), so the lede and nut graf must read on their own. It has a fixed core so readers can compare months at a glance. The core mixes sources, outside series first:
 
 ```markdown
 ::compare{title="Postings rose on Indeed while BLS employment and openings fell" metrics="external:indeed_software_postings.US,external:jolts_openings_information.US,external:ces_computer_systems_design.US,posts.hiring,seekers_per_post.hiring,seekers_per_post_us.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
@@ -284,7 +284,14 @@ Rules that follow from the data:
 - Bars start at zero. Lines can start above zero, but the renderer's y-axis rules decide that, not the writer.
 - Pick `from` to fit the claim, not to exaggerate it. A "lowest since" claim shows enough history to see the earlier low. A short-term claim can start in 2019, which keeps COVID and the 2021 peak in view. Starting a line in mid-2022 to make a drop look steeper is not allowed.
 - One chart per section. If a section needs two charts, it's two findings, so it's two sections.
-- On wide screens a chart floats beside its section's text, so a section needs enough prose to sit next to it: two or three paragraphs. Use `layout="wide"` for a chart that needs the full page width, such as a long history with annotations close together.
+- Charts never float; text never wraps around a chart. Each graphic is centered on the text's axis at one of three widths, set with `width`:
+  - `column`, the text width (36rem, 576px). The default for `slope`, `dot` and `bar` by category, whose rows read best close to the text.
+  - `wide`, about 1,000px. The default for `line`, `stacked-area`, monthly `bar` and the `::compare` strip: time needs room along the x-axis.
+  - `full`, the page (about 1,200px). The default for `small-multiples`; use it for a rare hero chart, such as a long history with annotations close together.
+
+  Leave `width` out unless the default is wrong for this chart. On phones every graphic runs edge to edge. `layout` is the old float layout's attribute and is deprecated.
+- A `::compare` strip written before the first section head becomes the topline: the page shows it right under the byline, ahead of the lede. Write the lede so it doesn't refer to "the table below".
+- Range buttons (since a year, 1Y, 5Y, All) sit at the chart's top right. The note, the source line and "Show the numbers" sit together under the chart, so a note of one or two sentences reads at text width.
 - An outside chart's title states the same-release change its end badge shows (1y, else 5y, else 3m), never a change read off the drawn line, which mixes releases. The note says the change is computed within one release.
 - JOLTS is flagged `smooth_12m`, so every chart draws it as a 12-month trailing average, and the subtitle says so. A chart title about JOLTS describes the average, not the latest month; the prose can cite the latest month as long as it says which.
 - An outside series starts where its point-in-time history starts (Indeed postings June 2021). Don't set `from` earlier and imply the gap is zero.
@@ -419,7 +426,7 @@ The data shows when things moved, not why. Annotated events are context.
 
 ### Every number is checkable
 
-- Every number in the prose, headline, dek, chart titles and notes comes from `site/data/metrics.json` for a named key and month, or is computed from those values with the rounding rules in section 1. Outside values are cited by their `external` key, issue month and `ref_period`.
+- Every number in the prose, headline, dek, chart titles and notes comes from `site/data/metrics.json` (breakdown series: `site/data/breakdowns/<id>.json`) for a named key and month, or is computed from those values with the rounding rules in section 1. Outside values are cited by their `external` key, issue month and `ref_period`.
 - Derived numbers (percent changes, point differences, expected counts, "a third of", "fourth straight month") get a ledger line showing the inputs.
 - Shape words count as claims: "last year's low", "the 2021 peak", "the height of the boom", "started climbing in early 2023". Each gets a ledger line pointing at the series.
 - Outside facts (event dates, laws, company layoffs, what an industry includes) come only from the event table in section 3 or carry a source in the ledger.
@@ -501,7 +508,6 @@ month: 2026-10
 headline: "Software job ads rose, but computer systems design employment slipped"
 dek: "Indeed's index of US software job postings rose 22% in a year, while the BLS counted 1% fewer people working at computer systems design firms."
 byline: "Software Engineering Jobs Report"
-ribbon: "external:indeed_software_postings.US"
 ---
 
 Ads for software work rose this year. Indeed's index of US software development job postings rose 22% over the year to early October. Employment at computer systems design firms went the other way. The Bureau of Labor Statistics counted 1% fewer people working there in September than a year earlier.

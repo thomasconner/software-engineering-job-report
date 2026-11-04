@@ -51,4 +51,4 @@ Senior and staff posts took the share that junior posts lost.
 
 Ruby faded over a decade. LLM went from zero to about a third of posts in three years.
 
-::chart{type="small-multiples" breakdown="stack" categories="llm,agents,python,typescript,rust,go,ruby,javascript" highlight="llm,agents" from="2016-01" annotate="2022-11:ChatGPT launches" title="LLM went from nowhere to a third of posts in three years"}
+::chart{type="small-multiples" breakdown="stack" categories="LLM,AI agents,Python,TypeScript,Rust,Go,Ruby,JavaScript" highlight="LLM,AI agents" from="2016-01" annotate="2022-11:ChatGPT launches" title="LLM went from nowhere to a third of posts in three years"}

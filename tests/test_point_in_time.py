@@ -537,6 +537,31 @@ def test_export_follows_contract(db, tmp_path, monkeypatch):
     assert data["breakdowns"]["stack"]["validation"] is None
 
 
+def test_write_puts_breakdown_series_in_their_own_files(tmp_path):
+    series = [{"month": "2026-10", "n": 10, "values": {"remote": 0.6, "onsite": 0.4}}]
+    data = {
+        "months": ["2026-10"],
+        "metrics": {"posts.hiring": {"label": "Hiring posts", "series": []}},
+        "breakdowns": {"work_mode": {"label": "Work mode", "categories": ["remote", "onsite"], "series": series}},
+    }  # fmt: skip
+    stale = tmp_path / "breakdowns" / "gone.json"
+    stale.parent.mkdir()
+    stale.write_text("{}")
+
+    path = export.write(data, tmp_path / "metrics.json")
+
+    core = json.loads(path.read_text())
+    assert core["metrics"] == data["metrics"]
+    assert core["breakdowns"]["work_mode"] == {
+        "label": "Work mode", "categories": ["remote", "onsite"], "file": "breakdowns/work_mode.json",
+    }  # fmt: skip
+    part = json.loads((tmp_path / "breakdowns" / "work_mode.json").read_text())
+    assert part == {"id": "work_mode", "series": series}
+    assert not stale.exists()
+    # The in-memory export is untouched, so callers still see whole breakdowns.
+    assert data["breakdowns"]["work_mode"]["series"] == series
+
+
 def test_validation_falls_back_to_reference_then_null(db, tmp_path):
     reference = export.load_validation(
         _validation_file(tmp_path, {"reference": _scores(0.9)})

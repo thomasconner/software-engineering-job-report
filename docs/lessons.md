@@ -77,3 +77,12 @@ These are mistakes already made, approaches already tried, and traps found in ea
 - **`pkill -f <pattern>` can kill the shell running it** when the pattern matches the command line. Kill by PID from `pgrep` instead.
 - **Branches that touch the shared fetch client, the monthly workflow and the docs conflict when merged.** Have the branch author merge main and resolve, since they know the code best, and keep defaults for other callers unchanged.
 - **Don't publish a column claim before checking it against outside data.** The October 2026 column called HN's trend a market trend and needed a correction. A red-team pass against outside sources is part of review.
+
+## Page layout
+
+- **Floating charts beside text were tried and rejected (CON-205).** Text wrapping a float changed measure mid-paragraph, gave the page three left edges, and needed a script to move charts above their paragraphs. Graphics sit on the text's axis at `column`, `wide` or `full` width instead. Check a layout change with screenshots at phone, iPad and 2560px widths before calling it done.
+- **Measure line length in the browser with the real fonts loaded.** An estimate of 70 characters at 40rem was 75 by median and up to 87 once Newsreader loaded. Count characters per rendered line after `document.fonts.ready`, not from an average glyph width.
+- **Sweep widths around every breakpoint, not just device sizes.** Device screenshots at 390, 834 and 1194 missed a strip that scrolled sideways from 641 to 684px. Sweep 320–3840px in 10px steps and assert `scrollWidth` equals `clientWidth`.
+- **Set the layout width before async data arrives.** A chart mounted at the text width and widened only after its breakdown file loaded, so it drew twice and the page jumped. Set `data-width` before the first `await` and give empty mounts a placeholder height.
+- **A rule about errored directives must cover render-time failures, not only parse errors.** The topline skip checked only the parser's flag, so a strip with an unknown metric took the top slot. Draw strips first and treat a mount that ends in an error box as failed.
+- **Prose selectors must not reach into charts.** `.article-body p` and `.article-body h3` restyled chart subtitles, notes and titles (a chart title came out serif). Scope prose rules to the article's direct children (`.article-body > p`).

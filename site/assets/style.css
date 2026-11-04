@@ -10,7 +10,7 @@
   --axis: #b4b8b1;
   --deemph: #868a83;
   --then: #8d9189;
-  --ribbon: #cdd1ca;
+  --fill-soft: #cdd1ca;
   --bar-soft: #86b6ef;
   --accent: #1c5cab;
   --good: #006300;
@@ -23,20 +23,26 @@
 
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
   --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  /* The page is two columns' worth of room: a float of about half the page plus text beside it. Full-width text
-     stops at --measure (about 100 characters); text beside a float gets about 55. */
-  --page: 96rem;
-  --measure: 52rem;
-  --gutter: 16px;
-  --float: 46%;
-  --float-gap: 2.5rem;
+
+  /* One spine: everything is centered on the same axis at one of three widths. Text runs at --text
+     (measured with Newsreader loaded: 20px serif lines run a median 68 characters, 65 to 74 for most, 77 at most); graphics are --text, --wide or --full; nothing floats. */
+  --text: 36rem;
+  --wide: 62.5rem;
+  --full: 75rem;
+  --gutter: 20px;
+  /* Spacing scale. It is in rem, so it grows with the type on big screens. */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2.5rem;
+  --sp-5: 4rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --paper: #16181c; --raised: #1f2228; --ink: #eceee9; --ink-2: #b9bdb6; --muted: #8e939b;
-    --rule: #2f333a; --grid: #252930; --axis: #3d424a; --deemph: #686e77; --then: #7b8089; --ribbon: #33373e; --bar-soft: #1c5cab;
+    --rule: #2f333a; --grid: #252930; --axis: #3d424a; --deemph: #686e77; --then: #7b8089; --fill-soft: #33373e; --bar-soft: #1c5cab;
     --accent: #86b6ef; --good: #0ca30c; --bad: #e66767; --banner: #3a3214;
     --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
     --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
@@ -45,22 +51,24 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --paper: #16181c; --raised: #1f2228; --ink: #eceee9; --ink-2: #b9bdb6; --muted: #8e939b;
-  --rule: #2f333a; --grid: #252930; --axis: #3d424a; --deemph: #686e77; --then: #7b8089; --ribbon: #33373e; --bar-soft: #1c5cab;
+  --rule: #2f333a; --grid: #252930; --axis: #3d424a; --deemph: #686e77; --then: #7b8089; --fill-soft: #33373e; --bar-soft: #1c5cab;
   --accent: #86b6ef; --good: #0ca30c; --bad: #e66767; --banner: #3a3214;
   --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
   --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-/* Big desktop screens are read from further away: type and the page grow together, up to 18px at 2240px wide. */
-html { -webkit-text-size-adjust: 100%; font-size: clamp(100%, 0.3125vw + 68.75%, 112.5%); }
-@media (min-width: 600px) { :root { --gutter: 32px; } }
+/* Bigger monitors get the same page, slightly larger, with even margins: the root grows from 16px at 1600px wide
+   to 17px at 2560px, and every width and space is in rem, so lines keep their length and the page tops out near
+   1,275px. */
+html { -webkit-text-size-adjust: 100%; font-size: clamp(100%, 89.583% + 0.1042vw, 106.25%); }
+@media (min-width: 37.5rem) { :root { --gutter: 32px; } }
 @media (min-width: 80rem) { :root { --gutter: 48px; } }
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 400 1.1875rem/1.62 var(--serif);
+  font: 400 1.25rem/1.6 var(--serif);
   font-optical-sizing: auto;
   text-rendering: optimizeLegibility;
 }
@@ -70,111 +78,119 @@ a:hover { text-decoration-thickness: 2px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .skip { position: absolute; left: -999px; }
 .skip:focus { left: 16px; top: 8px; z-index: 10; background: var(--raised); padding: 6px 10px; font: 600 0.875rem var(--sans); }
+[hidden] { display: none !important; }
 
 .mock-banner {
   margin: 0; padding: 8px 16px; text-align: center;
   background: var(--banner); color: var(--ink); font: 500 0.875rem/1.4 var(--sans);
 }
 
+/* ---------- the spine ---------- */
+/* Children of a spine container are centered at the text width unless they say otherwise. Rules for those
+   children set margin-block only, so nothing knocks them off the axis. */
+.spine { width: min(100% - 2 * var(--gutter), var(--full)); margin-inline: auto; }
+.spine > * { max-width: var(--text); margin-inline: auto; }
+.spine > [data-width="wide"] { max-width: var(--wide); }
+.spine > [data-width="full"] { max-width: none; }
+
 /* ---------- masthead ---------- */
-/* Everything shares one container; text inside it is centered at --measure. */
-.masthead, .article-head, .article-body, .methodology, .site-footer {
-  width: min(100% - 2 * var(--gutter), var(--page)); margin-inline: auto;
-}
+.masthead { border-bottom: 1px solid var(--rule); }
 .masthead-bar {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px;
-  padding: 14px 0 12px;
+  width: min(100% - 2 * var(--gutter), var(--wide)); margin-inline: auto;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-1) var(--sp-2);
+  padding-block: 10px;
 }
-.wordmark {
-  font: 750 1.0625rem/1.2 var(--sans); letter-spacing: -0.01em; color: var(--ink); text-decoration: none;
-}
+.wordmark { font: 750 1rem/1.2 var(--sans); letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
 .masthead-tools { display: flex; align-items: center; gap: 12px; font: 400 0.875rem var(--sans); }
-.picker { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+.picker { display: flex; align-items: center; gap: 6px; min-width: 0; color: var(--muted); }
+.picker select { min-width: 0; max-width: 100%; text-overflow: ellipsis; }
 .picker select, .theme-toggle {
   font: 500 0.875rem var(--sans); color: var(--ink); background: var(--raised);
   border: 1px solid var(--rule); border-radius: 6px; padding: 5px 8px; min-height: 32px;
 }
-.theme-toggle { cursor: pointer; }
+.theme-toggle { cursor: pointer; white-space: nowrap; }
 .theme-toggle:hover, .picker select:hover { border-color: var(--axis); }
 
-.ribbon-figure { margin: 0; border-top: 2px solid var(--ink); padding-top: 10px; }
-.ribbon { width: 100%; min-height: 63px; touch-action: pan-y; cursor: crosshair; }
-.ribbon:focus-visible { outline-offset: 4px; }
-.ribbon svg { display: block; overflow: visible; }
-.ribbon rect.bar { fill: var(--ribbon); }
-.ribbon rect.mark { fill: var(--ink-2); }
-.ribbon rect.now { fill: var(--s1); }
-.ribbon rect.cursor { fill: none; stroke: var(--ink); stroke-width: 1.5; }
-.ribbon line.tick { stroke: var(--ink-2); }
-.ribbon text { font: 500 11px var(--sans); fill: var(--muted); }
-.ribbon text.now { fill: var(--ink); font-weight: 650; paint-order: stroke; stroke: var(--paper); stroke-width: 3px; }
-.ribbon-caption { font: 400 0.8125rem/1.4 var(--sans); color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
-
-/* ---------- article column: text at --measure, charts floating beside it or spanning the page ---------- */
-/* The body is block flow because grid items can't float; the head and methodology have no floats and use a grid,
-   so their own margin shorthands can't knock them off center. */
-.article-head, .methodology { display: grid; grid-template-columns: 1fr min(var(--measure), 100%) 1fr; }
-.article-head > *, .methodology > * { grid-column: 2; min-width: 0; }
-.article-body { display: flow-root; }
-.article-body > * { max-width: var(--measure); margin-inline: auto; }
-
-.article-head { padding: 48px 0 8px; }
+/* ---------- article head ---------- */
+.article-head { padding-top: var(--sp-5); }
 h1 {
-  margin: 0;
-  font: 650 clamp(2.25rem, 1.4rem + 3.6vw, 3.75rem)/1.04 var(--serif);
+  margin-block: 0;
+  font: 650 clamp(2.25rem, 1.6rem + 2.2vw, 3.25rem)/1.07 var(--serif);
   letter-spacing: -0.018em;
   text-wrap: balance;
 }
 .dek {
-  margin: 18px 0 0;
-  font: 400 clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem)/1.38 var(--serif);
+  margin-block: var(--sp-2) 0;
+  font: 400 1.375rem/1.4 var(--serif);
   color: var(--ink-2);
   text-wrap: pretty;
 }
 .meta {
-  display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 22px 0 0;
+  display: flex; flex-wrap: wrap; gap: 4px 18px; margin-block: var(--sp-3) 0;
   font: 400 0.875rem/1.4 var(--sans); color: var(--muted);
 }
 .meta #byline { color: var(--ink); font-weight: 600; }
 
-.article-body { padding-bottom: 24px; }
-.article-body p, .article-body li { text-wrap: pretty; }
-.article-body > p:first-of-type { font-size: 1.3rem; line-height: 1.55; }
-.article-body h2 {
-  margin-block: 2.2em 0.3em;
-  clear: both;
-  font: 650 1.75rem/1.15 var(--serif);
+/* ---------- article body ---------- */
+.article-body { padding-block: var(--sp-4) var(--sp-3); }
+/* Prose rules are for the article's own children, so they never reach inside a chart. */
+.article-body > p, .article-body > :is(ul, ol) li { text-wrap: pretty; }
+.article-body > p { margin-block: 0 1em; }
+.article-body > :is(ul, ol) { margin-block: 0 1em; padding-left: 1.2em; }
+.article-body > :is(ul, ol) li + li { margin-top: 0.35em; }
+.article-body > h2 {
+  margin-block: var(--sp-5) var(--sp-2);
+  font: 650 1.75rem/1.2 var(--serif);
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
-.article-body blockquote { margin-block: 1.4em; padding-left: 18px; border-left: 3px solid var(--s1); color: var(--ink-2); font-style: italic; }
-.directive { margin-block: 28px 36px; min-width: 0; }
+.article-body > h3 { margin-block: var(--sp-4) var(--sp-1); font: 650 1.25rem/1.3 var(--serif); }
+.article-body > blockquote { margin-block: var(--sp-3); padding-left: 18px; border-left: 3px solid var(--s1); color: var(--ink-2); font-style: italic; }
+.article-body > hr { margin-block: var(--sp-4); border: 0; border-top: 1px solid var(--rule); }
+.directive { margin-block: var(--sp-4); min-width: 0; }
+.article-body > .directive:first-child { margin-top: 0; }
+/* The topline strip: the article's first ::compare, moved up under the byline (below an editor's note, if any). */
+.article-body > .topline { margin-block: 0 var(--sp-5); }
+.article-body > p + .topline { margin-top: var(--sp-4); }
+/* A chart waiting for its breakdown file holds roughly its place, so the page doesn't jump when it arrives. */
+.article-body > .directive:empty { min-height: 20rem; }
 .directive-error, .load-error {
   font: 500 0.9375rem/1.5 var(--sans); color: var(--bad);
-  border: 1px solid currentColor; border-radius: 6px; padding: 10px 12px; margin: 24px 0;
+  border: 1px solid currentColor; border-radius: 6px; padding: 10px 12px; margin-block: var(--sp-3);
 }
 .load-error { color: var(--ink-2); border-color: var(--rule); background: var(--raised); }
 .directive-unavailable, .chart-empty {
   font: 400 0.9375rem/1.5 var(--sans); color: var(--muted); margin: 0;
   border: 1px dashed var(--rule); border-radius: 6px; padding: 16px; text-align: center;
 }
-[hidden] { display: none !important; }
 
-/* ---------- chart chrome ---------- */
+/* ---------- chart head and foot ---------- */
+/* Title and subtitle on the left, the range buttons at the top right, as FiveThirtyEight does. */
+.chart-head {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--sp-3); align-items: start;
+  margin-bottom: var(--sp-2);
+}
+.chart-heading { min-width: 0; }
+.chart-title { margin: 0; font: 700 1.125rem/1.3 var(--sans); letter-spacing: -0.005em; text-wrap: balance; color: var(--ink); }
+.chart-sub { margin: calc(var(--sp-1) / 2) 0 0; font: 400 0.9375rem/1.45 var(--sans); color: var(--muted); max-width: var(--text); text-wrap: pretty; }
+.presets:empty { display: none; }
+/* The strip's subtitle is one line; it may run the strip's full width. */
+.compare .chart-sub { max-width: none; }
+/* Notes, source and the table toggle sit in one block under the chart, at a readable measure. */
+.chart-foot {
+  margin-top: var(--sp-2); padding-top: var(--sp-1); border-top: 1px solid var(--grid);
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1);
+}
+.chart-foot .chart-source { margin: 0; max-width: var(--text); }
+/* ---------- chart internals ---------- */
 .chart, .compare { margin: 0; font-family: var(--sans); }
-.chart-head { margin-bottom: 10px; }
-.chart-title { margin: 0; font: 680 1.1875rem/1.3 var(--sans); letter-spacing: -0.005em; text-wrap: balance; }
-.chart-sub { margin: 4px 0 0; font: 400 0.9375rem/1.45 var(--sans); color: var(--ink-2); max-width: var(--measure); }
-.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 8px; padding: 0; list-style: none; font: 500 0.8125rem/1.4 var(--sans); color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: calc(var(--sp-1) / 2) var(--sp-2); margin: 0 0 var(--sp-1); padding: 0; list-style: none; font: 500 0.8125rem/1.4 var(--sans); color: var(--ink-2); }
 .legend li { display: flex; align-items: center; gap: 6px; }
 .key { display: inline-block; flex: none; background: var(--key); }
 .key-line { width: 14px; height: 3px; border-radius: 2px; }
 .key-rect { width: 11px; height: 11px; border-radius: 3px; }
 .key-dot { width: 10px; height: 10px; border-radius: 50%; }
 .legend li:nth-child(2) .key-dot { background: transparent; box-shadow: inset 0 0 0 2px var(--key); }
-.presets:empty { display: none; }
-.chart-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 10px; }
-.chart-foot .chart-source { flex: 1 1 18rem; margin: 0; }
 .table-toggle {
   font: 500 0.8125rem var(--sans); color: var(--accent); background: none; border: 0; padding: 4px 0;
   cursor: pointer; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em;
@@ -195,7 +211,7 @@ h1 {
 .grid text, .xaxis text { fill: var(--muted); }
 /* A paper-colored halo keeps tick labels readable where a line passes behind them. */
 .grid text, .annotation text, .ref-label, .annotation-text { paint-order: stroke; stroke: var(--paper); stroke-width: 3px; stroke-linejoin: round; }
-.band-other { fill: var(--ribbon); fill-opacity: 1; }
+.band-other { fill: var(--fill-soft); fill-opacity: 1; }
 .xaxis line { stroke: var(--axis); }
 .line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
 .wash { fill-opacity: 0.1; }
@@ -236,7 +252,6 @@ h1 {
 .connector { stroke: var(--axis); stroke-width: 2; }
 .then-dot { fill: var(--paper); stroke: var(--then); stroke-width: 2; }
 .slope-then { fill: var(--paper); stroke-width: 2; }
-.chart-slope .chart-plot, .chart-dot .chart-plot, .chart-bar:has(.dot-row) .chart-plot { max-width: 46rem; }
 
 .multiples { display: grid; gap: 18px 16px; }
 .multiples:focus-visible { outline-offset: 6px; }
@@ -259,7 +274,6 @@ h1 {
 .tip-row strong.d-bad { color: var(--bad); }
 .tip-foot { margin-top: 4px; color: var(--muted); font-size: 0.75rem; }
 
-.chart-source { margin: 10px 0 0; font: 400 0.8125rem/1.45 var(--sans); color: var(--muted); }
 .chart-note { color: var(--ink-2); }
 .chart-credit { color: var(--muted); }
 .chart-credit a { color: var(--ink-2); text-decoration-color: var(--muted); text-underline-offset: 2px; }
@@ -270,97 +284,121 @@ h1 {
 .chart-table thead th { position: sticky; top: 0; background: var(--raised); color: var(--ink); font-weight: 600; }
 .chart-table tbody th { text-align: left; font-weight: 500; color: var(--ink-2); }
 
-/* ---------- then-vs-now strip ---------- */
+.chart-source { font: 400 0.8125rem/1.5 var(--sans); color: var(--muted); }
+
+/* ---------- topline strip (::compare) ---------- */
 .compare-table { width: 100%; border-collapse: collapse; font: 400 0.9375rem/1.3 var(--sans); }
 .compare-table thead th {
-  font: 600 0.8125rem/1.3 var(--sans); color: var(--muted); text-align: right; padding: 0 10px 8px;
-  border-bottom: 2px solid var(--ink); white-space: nowrap;
+  font: 600 0.8125rem/1.3 var(--sans); color: var(--muted); text-align: right; padding: 0 12px 8px;
+  border-bottom: 2px solid var(--ink); white-space: nowrap; vertical-align: bottom;
 }
 .compare-table thead th.c-measure { text-align: left; padding-left: 0; }
 .compare-table thead th.c-trend { text-align: left; }
 .compare-table thead th.c-now { color: var(--ink); }
 .compare-table tbody tr { border-bottom: 1px solid var(--rule); }
-.compare-table td, .compare-table tbody th { padding: 11px 10px; vertical-align: middle; text-align: right; }
-.compare-table tbody th { padding-left: 0; text-align: left; font-weight: 600; }
-.compare-table td.c-trend { text-align: left; padding-right: 4px; }
+.compare-table td, .compare-table tbody th { padding: 12px; vertical-align: middle; text-align: right; }
+.compare-table tbody th { padding-left: 0; text-align: left; font-weight: 600; color: var(--ink); width: 30%; }
+.compare-table td.c-trend { text-align: left; padding-right: 4px; width: 1%; }
+.compare-table td:last-child, .compare-table thead th:last-child { padding-right: 0; }
 .spark { display: block; overflow: visible; }
 .spark path { fill: none; stroke: var(--deemph); stroke-width: 1.5; }
 .spark circle.then { fill: var(--ink-2); }
 .spark circle.now { fill: var(--s1); stroke: var(--paper); stroke-width: 1.5; }
-td.c-now { font: 680 1.375rem/1 var(--sans); letter-spacing: -0.01em; }
-.c-delta { white-space: nowrap; }
+td.c-now { font: 700 1.625rem/1 var(--sans); letter-spacing: -0.015em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.c-delta { white-space: nowrap; font-size: 1rem; }
+.compare-table .d { flex-wrap: nowrap; }
 .d { display: inline-flex; align-items: baseline; flex-wrap: wrap; justify-content: flex-end; gap: 0 4px; font-weight: 650; font-variant-numeric: tabular-nums; }
 .d-arrow { font-size: 0.7em; }
 .d-good { color: var(--good); }
 .d-bad { color: var(--bad); }
 .d-flat { color: var(--ink-2); font-weight: 500; }
-.d-was { display: block; margin-top: 3px; font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: normal; }
+.d-was { display: block; margin-top: 3px; font: 400 0.75rem/1.3 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; white-space: normal; }
 .d-word { font-size: 0.75em; font-weight: 600; }
 .d-none { color: var(--muted); font-size: 0.8125rem; }
 .d-seasonal { font-style: italic; font-weight: 400; }
+.c-ref, .c-flag { display: block; font: 400 0.6875rem/1.3 var(--sans); color: var(--muted); letter-spacing: 0; }
+.c-ref { margin-top: 4px; }
+.c-flag { margin-top: 2px; }
+
+/* Between the card layout and a laptop the wide width is the screen, so the "from" lines wrap and the cells tighten. */
+@media (min-width: 45.0625rem) and (max-width: 64rem) {
+  .compare-table td, .compare-table tbody th { padding-inline: 8px; }
+  .compare-table tbody th { padding-left: 0; }
+  .compare-table td.c-delta { white-space: normal; }
+  /* The verdict word gets its own line rather than breaking word by word. */
+  .compare-table .d { display: block; text-align: right; white-space: nowrap; }
+  .compare-table .d-word { display: block; }
+  .compare-table .d-arrow { margin-right: 3px; }
+  td.c-now { font-size: 1.375rem; }
+}
 
 /* ---------- methodology ---------- */
-.methodology { margin-top: 40px; padding-bottom: 24px; font-size: 1.0625rem; line-height: 1.6; }
-.methodology h2 { margin-block: 0 12px; padding-top: 32px; border-top: 2px solid var(--ink); font: 650 1.75rem/1.15 var(--serif); }
-.methodology h3 { margin-block: 1.6em 0.2em; font: 650 1.0625rem/1.3 var(--sans); }
-.methodology p { margin-block: 0.4em 0.8em; }
-.methodology ul { padding-left: 1.1em; }
+.methodology { padding-block: var(--sp-5) var(--sp-3); font-size: 1.0625rem; line-height: 1.6; }
+.methodology > h2 { margin-block: 0 var(--sp-2); padding-top: var(--sp-4); border-top: 2px solid var(--ink); font: 650 1.75rem/1.2 var(--serif); }
+.methodology > h3 { margin-block: var(--sp-4) var(--sp-1); font: 650 1.0625rem/1.3 var(--sans); }
+.methodology > p { margin-block: 0 0.9em; }
+.methodology > ul { margin-block: 0 1em; padding-left: 1.1em; }
 .validation-table { width: 100%; border-collapse: collapse; margin: 12px 0 4px; font: 400 0.9375rem/1.4 var(--sans); font-variant-numeric: tabular-nums; }
 .validation-table th, .validation-table td { padding: 7px 8px; border-bottom: 1px solid var(--rule); text-align: right; }
 .validation-table th:first-child { text-align: left; padding-left: 0; font-weight: 500; }
 .validation-table thead th { font-weight: 600; font-size: 0.8125rem; color: var(--muted); border-bottom: 2px solid var(--ink); }
 .validation-note { font: 400 0.8125rem/1.5 var(--sans); color: var(--muted); }
 .badge { display: inline-block; padding: 0 6px; border: 1px solid var(--axis); border-radius: 999px; font-size: 0.75rem; color: var(--ink-2); vertical-align: 1px; }
-.glossary { margin: 8px 0 0; font: 400 0.9375rem/1.45 var(--sans); }
+.glossary { margin-block: var(--sp-1) 0; font: 400 0.9375rem/1.45 var(--sans); }
 .glossary dt { font-weight: 650; margin-top: 14px; }
 .glossary dd { margin: 2px 0 0; color: var(--ink-2); }
 .glossary .method { display: inline-block; margin-left: 2px; color: var(--muted); font-size: 0.8125rem; }
 .sources dd p { margin: 2px 0; }
 .sources .source-field { color: var(--muted); font-size: 0.8125rem; }
-.c-ref, .c-flag { display: block; font: 400 0.6875rem/1.3 var(--sans); color: var(--muted); }
-.c-flag { font-weight: 400; margin-top: 2px; }
 
-.site-footer { max-width: var(--measure); padding: 24px 0 48px; font: 400 0.8125rem/1.5 var(--sans); color: var(--muted); }
+.site-footer { padding-block: var(--sp-3) var(--sp-5); border-top: 1px solid var(--rule); font: 400 0.8125rem/1.5 var(--sans); color: var(--muted); }
+.site-footer > p { margin-block: 0; }
 
-/* ---------- wide screens: floats and full-page elements ---------- */
-@media (min-width: 80rem) {
-  .article-body > .directive[data-layout="wide"] { max-width: none; clear: both; }
-  /* A float sits at the page edge and overlaps the centered text column, so the lines beside it stay long enough
-     to read while the text below it returns to the full measure. */
-  .article-body > .directive[data-layout="float"] {
-    float: right; clear: both; width: var(--float); max-width: none;
-    margin: 6px 0 28px var(--float-gap);
-  }
-  .article-body > .directive[data-layout="float"][data-side="left"] { float: left; margin-inline: 0 var(--float-gap); }
-  /* Lists and quotes draw markers and rules at their left edge, which a left float would cover. */
-  .article-body > :is(ul, ol, blockquote) { display: flow-root; }
-  .methodology > .glossary { columns: 2; column-gap: 2.5rem; }
+/* The glossary is a reference list, not prose: on wide screens it runs in two columns at the wide width. */
+@media (min-width: 64rem) {
+  .methodology > #glossary { max-width: var(--wide); columns: 2; column-gap: var(--sp-4); }
   .glossary dt { break-after: avoid; }
   .glossary dd { break-inside: avoid; }
 }
 
 /* ---------- phone ---------- */
-@media (max-width: 640px) {
+@media (max-width: 40rem) {
   body { font-size: 1.125rem; }
-  .article-head { padding-top: 32px; }
-  .article-body > p:first-of-type { font-size: 1.1875rem; }
-  .masthead-tools { width: 100%; justify-content: space-between; }
-  /* On a phone the strip becomes a two-column grid of small cards. Headers stay for screen readers; each cell
+  .article-head { padding-top: var(--sp-4); }
+  h1 { font-size: 2.125rem; }
+  .dek { font-size: 1.1875rem; }
+  .article-body > h2, .methodology > h2 { font-size: 1.5rem; }
+  .article-body > h2 { margin-top: 3.25rem; }
+  .masthead-tools { width: 100%; justify-content: space-between; min-width: 0; }
+  /* Graphics run edge to edge; their words keep the text gutter, the plot keeps a few pixels. */
+  .spine > .directive { max-width: none; margin-inline: calc(-1 * var(--gutter)); }
+  .chart-head, .legend, .chart-foot, .chart-table { margin-inline: var(--gutter); }
+  .chart-plot { margin-inline: 6px; }
+  .chart-head { grid-template-columns: minmax(0, 1fr); row-gap: var(--sp-1); }
+  .compare .compare-table { margin-inline: 8px; width: calc(100% - 16px); }
+  .directive-error, .directive-unavailable { margin-inline: var(--gutter); }
+}
+
+/* ---------- compare cards ---------- */
+/* Below about 720px the strip's seven columns don't fit (outside rows carry long "from" lines), so it becomes
+   cards. This starts above the phone breakpoint on purpose: a table between 641px and 720px scrolled sideways. */
+@media (max-width: 45rem) {
+  /* The strip becomes a two-column grid of small cards. Headers stay for screen readers; each cell
      shows its own short label instead. */
   .compare-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .compare-table tbody { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .compare-table tbody tr {
     display: flex; flex-direction: column; gap: 3px; padding: 10px; border: 1px solid var(--rule); border-radius: 8px;
   }
-  .compare-table td, .compare-table tbody th { padding: 0; text-align: left; }
+  .compare-table td, .compare-table tbody th { padding: 0; text-align: left; width: auto; }
   .compare-table tbody th { font-size: 0.8125rem; line-height: 1.25; }
   .compare-table td.c-trend, .compare-table .d-was { display: none; }
-  .compare-table td.c-now { font-size: 1.25rem; margin: 2px 0 4px; }
+  .compare-table td.c-now { font-size: 1.375rem; margin: 2px 0 4px; white-space: normal; }
   .compare-table .c-ref { display: none; }
   .compare-table td.c-now::after { content: " " attr(data-label); font: 400 0.6875rem var(--sans); color: var(--muted); letter-spacing: 0; }
   .compare-table td.c-delta { display: flex; gap: 6px; font-size: 0.8125rem; white-space: normal; }
   .compare-table td.c-delta::before { content: attr(data-label); flex: none; width: 1.5em; color: var(--muted); }
-  .compare-table .d { justify-content: flex-start; }
+  .compare-table .d { justify-content: flex-start; flex-wrap: nowrap; }
   .compare-table .d-word { font-size: 0.6875rem; }
   /* The ≈ mark already says "about the same", and the subtitle defines it; the word would double the card. */
   .compare-table .d-word-quiet { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }

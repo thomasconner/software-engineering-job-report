@@ -200,6 +200,7 @@ export function resolveSeries(data, { metric, metrics, breakdown, categories }, 
   }
   const b = data.breakdowns[breakdown];
   if (!b) throw new AuthoringError(`Unknown breakdown "${breakdown}"`);
+  if (!b.series) throw new Error(`The data for ${breakdown} has not been loaded`);
   const cats = categories ? categories.split(',').map((s) => s.trim()) : b.categories;
   return cats.map((c) => {
     if (!b.categories.includes(c)) throw new AuthoringError(`Unknown category "${c}" in ${breakdown}`);
@@ -213,6 +214,18 @@ export function resolveSeries(data, { metric, metrics, breakdown, categories }, 
       }))),
     };
   });
+}
+
+/**
+ * metrics.json carries each breakdown's labels and categories but not its series, which sit in their own file
+ * (`file`, relative to site/data) and are fetched only when a directive draws that breakdown. Fills `series`
+ * in place, once; a breakdown that already has a series (the mock file) needs no fetch.
+ */
+export function loadBreakdown(data, id, fetchJson) {
+  const b = data.breakdowns?.[id];
+  if (!b || b.series || !b.file) return Promise.resolve();
+  b.loading ??= fetchJson(`data/${b.file}`).then((part) => { b.series = part.series; });
+  return b.loading;
 }
 
 export const pointAt = (series, ym) => series.points.find((p) => p.month === ym);
@@ -358,13 +371,4 @@ export function compareCells(series, until, windows) {
       return { window, month, was, change: { ...d, mark: d.sign > 0 ? '▲' : d.sign < 0 ? '▼' : '', tone: 'flat', word: '' } };
     }),
   };
-}
-
-// The masthead ribbon's series: front matter `ribbon` (a metric id or external:<key>). Without one,
-// issues before November 2026 keep the HN hiring posts they were published with; later issues
-// show Indeed's US software postings.
-export const RIBBON_SWITCH = '2026-11';
-export function ribbonKey(meta) {
-  if (meta.ribbon) return meta.ribbon.trim();
-  return meta.month && meta.month < RIBBON_SWITCH ? 'posts.hiring' : `${EXTERNAL_PREFIX}indeed_software_postings.US`;
 }
