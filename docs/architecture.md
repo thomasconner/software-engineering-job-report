@@ -32,7 +32,7 @@ Run everything with `uv run sejr <command>`. Tests: `uv run pytest`.
 
 `month` is the month named in the title, not the creation date.
 
-A re-fetch writes a new file only when the content changed. The newest file wins in normalize.
+One file per thread; a re-fetch overwrites it only when content changed, and git history keeps earlier versions. The sidecar also records `checked_at` (last fetch, changed or not) and the thread's Firebase `kids` list, used to count removed posts.
 
 ## DuckDB schema
 
@@ -43,7 +43,10 @@ CREATE TABLE threads (
   month       DATE NOT NULL,             -- first day of the named month
   title       VARCHAR NOT NULL,
   created_at  TIMESTAMPTZ NOT NULL,
-  snapshot_at TIMESTAMPTZ NOT NULL       -- created_at + INTERVAL 7 DAY
+  snapshot_at TIMESTAMPTZ NOT NULL,      -- created_at + 168 hours (computed in UTC)
+  fetched_at  TIMESTAMPTZ NOT NULL,      -- last fetch whose content was stored or confirmed unchanged
+  removed_in_snapshot INTEGER,           -- top-level comments (Firebase kids) in the window that Algolia omits as deleted/dead
+  UNIQUE (kind, month)
 );
 
 CREATE TABLE posts (                      -- top-level comments only
@@ -100,6 +103,10 @@ Every metric for month *t* may read only:
 - posts and replies with `in_snapshot = true` from threads with `month <= t`;
 - answers for those posts.
 
+A month is complete only when its thread's `fetched_at >= snapshot_at`. Aggregate skips incomplete months (the export lists them as `pending`).
+
+Raw files freeze once complete: fetch re-fetches a thread only while its stored `fetched_at < snapshot_at`. Later edits and deletions never change a published month.
+
 `aggregate.compute_month(con, t)` must return the same rows whether the database holds all months or only months `<= t`. `tests/test_point_in_time.py` enforces this.
 
 ## Metric ids
@@ -109,6 +116,7 @@ Scalar metrics (`category = ''`). Shares are 0–1. Jev-based shares are expecte
 | metric | kind | method | meaning |
 |---|---|---|---|
 | `posts` | hiring, seeking | count | top-level posts in snapshot |
+| `removed_share` | hiring, seeking | count | removed_in_snapshot ÷ (posts + removed_in_snapshot); shown in methodology |
 | `seekers_per_post` | hiring | count | seeking posts ÷ hiring posts, same month |
 | `replies_per_post` | hiring | count | mean direct replies per post |
 | `salary_disclosed_share` | hiring | regex | share with a parseable salary |
@@ -163,7 +171,7 @@ Breakdowns (`category` set, values sum to ~1 per month):
 }
 ```
 
-Scalar keys are `<metric>.<kind>`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
+Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`: `1` when a rise is good news for job seekers, `-1` when bad, `0` when neutral; the exporter owns it. `pending` lists months whose snapshot is not complete; the site never shows a pending month (series end at the last complete month, and the newest article is for that month). Each metric and breakdown also carries `sources`: the thread kinds it draws on (e.g. `["hiring","seeking"]` for `seekers_per_post`), used for the chart source line. `n` is the number of posts the value is computed from (for salary medians: posts with a parsed salary). The mock file adds `"mock": true` and `"note"`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
@@ -186,7 +194,30 @@ Body paragraphs…
 ::compare{metrics="posts.hiring,seekers_per_post.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
 ```
 
-Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category). Every directive accepts `title` and `note`.
+Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category).
+
+Directive attributes:
+
+| attribute | applies to | meaning |
+|---|---|---|
+| `metric` | all charts | one metric key, or a comma list for multi-series lines |
+| `breakdown` | stacked-area, small-multiples, slope, dot, bar | breakdown id |
+| `categories` | breakdown charts | comma list; a subset of the breakdown's categories |
+| `highlight` | multi-series charts | comma list of series drawn in the story color; the rest gray |
+| `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
+| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM` |
+| `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
+| `against` | ::compare | comma list of windows, default `3m,1y,5y` |
+| `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
+| `title` | all | the finding, stated |
+| `subtitle` | all | optional; defaults to the metric label + date range |
+| `note` | all | text after the source line |
+
+`bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack` must not be drawn as `stacked-area` (its shares don't sum to 1).
+
+A back issue clips every series to its front-matter `month`, so older issues never show later data.
+
+Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest last. Files starting with `_` are samples and never listed.
 
 ## Jev answers storage
 
@@ -198,3 +229,13 @@ Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two mont
 ## Validation set
 
 `data/labels/reference.jsonl`: about 240 posts stratified by era (2011–14, 2015–19, 2020–22, 2023–26) and kind, labeled independently. Each Jev question reports accuracy and Brier score per era before its metric is published; the export carries those scores per metric as `validation`.
+
+## Sample posts: `site/data/samples/YYYY-MM.json`
+
+Real posts the article may quote, so the column never invents color. Export writes, for each complete month, a deterministic sample (seeded by month) of up to 30 in-snapshot hiring posts and 20 seeking posts:
+
+```json
+{"month": "2026-11", "posts": [{"id": 50340012, "kind": "hiring", "url": "https://news.ycombinator.com/item?id=50340012", "header": "first line", "text": "first 600 characters", "answers": {"work_mode": "remote", "new_grad": 0.91}}]}
+```
+
+The writer may quote only from these files and must put the item id in the ledger. Quote job posts, not individual job seekers (seeking posts are used for paraphrase-free mood examples only when the person's name and contact details are removed).
