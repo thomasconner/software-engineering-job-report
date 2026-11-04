@@ -25,8 +25,8 @@
   --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* One spine: everything is centered on the same axis at one of three widths. Text runs at --text
-     (about 70 characters of 20px serif); graphics are --text, --wide or --full; nothing floats. */
-  --text: 40rem;
+     (measured with Newsreader loaded: 20px serif lines run a median 68 characters, 65 to 74 for most, 77 at most); graphics are --text, --wide or --full; nothing floats. */
+  --text: 36rem;
   --wide: 62.5rem;
   --full: 75rem;
   --gutter: 20px;
@@ -149,8 +149,11 @@ h1 {
 .article-body > hr { margin-block: var(--sp-4); border: 0; border-top: 1px solid var(--rule); }
 .directive { margin-block: var(--sp-4); min-width: 0; }
 .article-body > .directive:first-child { margin-top: 0; }
-/* The topline strip: the article's first ::compare, moved up under the byline. */
+/* The topline strip: the article's first ::compare, moved up under the byline (below an editor's note, if any). */
 .article-body > .topline { margin-block: 0 var(--sp-5); }
+.article-body > p + .topline { margin-top: var(--sp-4); }
+/* A chart waiting for its breakdown file holds roughly its place, so the page doesn't jump when it arrives. */
+.directive:empty { min-height: 20rem; }
 .directive-error, .load-error {
   font: 500 0.9375rem/1.5 var(--sans); color: var(--bad);
   border: 1px solid currentColor; border-radius: 6px; padding: 10px 12px; margin-block: var(--sp-3);
@@ -165,22 +168,23 @@ h1 {
 /* Title and subtitle on the left, the range buttons at the top right, as FiveThirtyEight does. */
 .chart-head {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--sp-3); align-items: start;
-  margin-bottom: 12px;
+  margin-bottom: var(--sp-2);
 }
 .chart-heading { min-width: 0; }
 .chart-title { margin: 0; font: 700 1.125rem/1.3 var(--sans); letter-spacing: -0.005em; text-wrap: balance; color: var(--ink); }
-.chart-sub { margin: 4px 0 0; font: 400 0.9375rem/1.45 var(--sans); color: var(--muted); max-width: var(--text); text-wrap: pretty; }
-.chart-head .presets { padding-top: 2px; }
+.chart-sub { margin: calc(var(--sp-1) / 2) 0 0; font: 400 0.9375rem/1.45 var(--sans); color: var(--muted); max-width: var(--text); text-wrap: pretty; }
 .presets:empty { display: none; }
+/* The strip's subtitle is one line; it may run the strip's full width. */
+.compare .chart-sub { max-width: none; }
 /* Notes, source and the table toggle sit in one block under the chart, at a readable measure. */
 .chart-foot {
-  margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--grid);
-  display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  margin-top: var(--sp-2); padding-top: var(--sp-1); border-top: 1px solid var(--grid);
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1);
 }
 .chart-foot .chart-source { margin: 0; max-width: var(--text); }
 /* ---------- chart internals ---------- */
 .chart, .compare { margin: 0; font-family: var(--sans); }
-.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 8px; padding: 0; list-style: none; font: 500 0.8125rem/1.4 var(--sans); color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: calc(var(--sp-1) / 2) var(--sp-2); margin: 0 0 var(--sp-1); padding: 0; list-style: none; font: 500 0.8125rem/1.4 var(--sans); color: var(--ink-2); }
 .legend li { display: flex; align-items: center; gap: 6px; }
 .key { display: inline-block; flex: none; background: var(--key); }
 .key-line { width: 14px; height: 3px; border-radius: 2px; }
@@ -316,8 +320,8 @@ td.c-now { font: 700 1.625rem/1 var(--sans); letter-spacing: -0.015em; font-vari
 .c-ref { margin-top: 4px; }
 .c-flag { margin-top: 2px; }
 
-/* Between a phone and a laptop the wide width is the screen, so the "from" lines wrap and the cells tighten. */
-@media (max-width: 64rem) {
+/* Between the card layout and a laptop the wide width is the screen, so the "from" lines wrap and the cells tighten. */
+@media (min-width: 45.0625rem) and (max-width: 64rem) {
   .compare-table td, .compare-table tbody th { padding-inline: 8px; }
   .compare-table tbody th { padding-left: 0; }
   .compare-table td.c-delta { white-space: normal; }
@@ -370,11 +374,15 @@ td.c-now { font: 700 1.625rem/1 var(--sans); letter-spacing: -0.015em; font-vari
   .spine > .directive { max-width: none; margin-inline: calc(-1 * var(--gutter)); }
   .chart-head, .legend, .chart-foot, .chart-table { margin-inline: var(--gutter); }
   .chart-plot { margin-inline: 6px; }
-  .chart-head { grid-template-columns: minmax(0, 1fr); row-gap: 10px; }
-  .chart-head .presets { padding-top: 0; }
+  .chart-head { grid-template-columns: minmax(0, 1fr); row-gap: var(--sp-1); }
   .compare .compare-table { margin-inline: 8px; width: calc(100% - 16px); }
   .directive-error, .directive-unavailable { margin-inline: var(--gutter); }
+}
 
+/* ---------- compare cards ---------- */
+/* Below about 720px the strip's seven columns don't fit (outside rows carry long "from" lines), so it becomes
+   cards. This starts above the phone breakpoint on purpose: a table between 641px and 720px scrolled sideways. */
+@media (max-width: 45rem) {
   /* The strip becomes a two-column grid of small cards. Headers stay for screen readers; each cell
      shows its own short label instead. */
   .compare-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
@@ -390,7 +398,7 @@ td.c-now { font: 700 1.625rem/1 var(--sans); letter-spacing: -0.015em; font-vari
   .compare-table td.c-now::after { content: " " attr(data-label); font: 400 0.6875rem var(--sans); color: var(--muted); letter-spacing: 0; }
   .compare-table td.c-delta { display: flex; gap: 6px; font-size: 0.8125rem; white-space: normal; }
   .compare-table td.c-delta::before { content: attr(data-label); flex: none; width: 1.5em; color: var(--muted); }
-  .compare-table .d { justify-content: flex-start; }
+  .compare-table .d { justify-content: flex-start; flex-wrap: nowrap; }
   .compare-table .d-word { font-size: 0.6875rem; }
   /* The ≈ mark already says "about the same", and the subtitle defines it; the word would double the card. */
   .compare-table .d-word-quiet { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
