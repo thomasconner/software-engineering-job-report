@@ -317,3 +317,12 @@ def test_post_answers_shape():
     assert answers[("onsite_token", "regex")][0] == 0.0
     assert answers[("mentions_visa", "regex")][0] == 1.0
     assert json.loads(answers[("stack", "vocab")][2]) == {"Python": 1.0, "Rust": 1.0}
+    assert json.loads(answers[("region", "regex")][2]) == {"us": 1.0}
+    assert answers[("open_to_us", "regex")][0] == 1.0
+
+
+def test_seeking_posts_get_only_a_region():
+    answers = post_answers(2, "Location: Toronto, ON\nRemote: Yes", "seeking")
+    assert [(q, label) for _, q, _, _, _, label, _, _ in answers] == [
+        ("region", "canada")
+    ]
