@@ -27,13 +27,29 @@ const raw = data.prepare({
       seasonally_adjusted: true, smooth_12m: false,
       series: [
         at('2021-10', 177.99, { ref_period: '2021-10-01' }), at('2025-10', 63.57, { ref_period: '2025-10-03' }),
-        at('2026-07', 72.51, { ref_period: '2026-06-26' }), at('2026-10', 78.33, { ref_period: '2026-10-02' }),
+        at('2026-07', 72.51, { ref_period: '2026-06-26' }),
+        // The issue's own vintage carries its comparison readings; they differ from the values
+        // stored for those earlier issues (63.57, 177.99) because the publisher revised them.
+        at('2026-10', 78.33, {
+          ref_period: '2026-10-02',
+          compare: { '3m': { ref_period: '2026-07-02', value: 72.9 }, '1y': { ref_period: '2025-10-02', value: 64.0 }, '5y': { ref_period: '2021-10-01', value: 175.0 } },
+        }),
       ],
     },
     'jolts_openings_information.US': {
       label: 'Job openings, information sector', unit: 'thousands', publisher: 'U.S. Bureau of Labor Statistics',
       credit: 'BLS, JOLTS', license: 'public domain', seasonally_adjusted: false, smooth_12m: true,
-      series: months.map((m, i) => at(m, i === 60 ? 128 : 169, { ref_period: data.addMonths(m, -2) })),
+      series: months.map((m, i) => at(m, i === 60 ? 128 : 169, {
+        ref_period: data.addMonths(m, -2),
+        // No same-month 5y reading in this vintage (a skipped release).
+        ...(i === 60 ? { compare: { '3m': { ref_period: '2026-05', value: 65 }, '1y': { ref_period: '2025-08', value: 160 } } } : {}),
+      })),
+    },
+    'ces_computer_systems_design.US': {
+      label: 'Employment in computer systems design', unit: 'thousands', publisher: 'U.S. Bureau of Labor Statistics',
+      credit: 'BLS, CES', license: 'public domain', seasonally_adjusted: true, smooth_12m: false,
+      // The newest issue has no value yet.
+      series: [at('2026-07', 2374.6, { ref_period: '2026-06' })],
     },
   },
 });
@@ -53,20 +69,36 @@ const indeed = data.compareCells(rows[0], '2026-10', windows);
 assert.equal(indeed.value, '78.3');
 assert.equal(indeed.ref, 'Oct 2, 2026 data');
 const [, y1, y5] = indeed.deltas;
-// A plain change in percent with no verdict: no "≈", no better/worse word.
-assert.equal(y1.change.text, '+23%');
+// A plain change in percent with no verdict: no "≈", no better/worse word. It uses the
+// same-vintage reading (64.0), not the value first published for October 2025 (63.57).
+assert.equal(y1.change.text, '+22%');
 assert.equal(y1.change.mark, '▲');
 assert.equal(y1.change.tone, 'flat');
 assert.equal(y1.change.word, '');
-assert.equal(y1.was, 'from 63.6, Oct 3, 2025 data');
-assert.equal(y5.change.text, '−56%');
+assert.equal(y1.was, 'from 64.0, Oct 2, 2025 data');
+assert.equal(y5.change.text, '−55%');
 assert.notEqual(y5.change.mark, '≈');
 
 const jolts = data.compareCells(rows[2], '2026-10', windows);
 assert.equal(jolts.value, '128,000');
 assert.equal(jolts.ref, 'Aug 2026 data');
-assert.equal(jolts.deltas[1].change.text, '−24%');
-assert.equal(jolts.deltas[1].was, 'from 169,000, Aug 2025 data');
+// Unadjusted, and May against August: the 3m cell says "seasonal" rather than a change.
+assert.equal(jolts.deltas[0].seasonal, true);
+assert.equal(jolts.deltas[0].change, null);
+assert.equal(jolts.deltas[0].was, 'from 65,000, May 2026 data');
+// Same calendar month a year apart: a plain change.
+assert.equal(jolts.deltas[1].change.text, '−20%');
+assert.equal(jolts.deltas[1].was, 'from 160,000, Aug 2025 data');
+// No same-month reading in this vintage.
+assert.equal(jolts.deltas[2].change, null);
+assert.equal(jolts.deltas[2].missing, 'No same-month value');
+
+// An outside series with no value for the issue month.
+const [ces] = data.resolveCompareRows(raw, 'external:ces_computer_systems_design.US', '2026-10');
+const missing = data.compareCells(ces, '2026-10', windows);
+assert.equal(missing.value, 'n/a');
+assert.equal(missing.ref, null);
+assert.ok(missing.deltas.every((d) => d.change === null && d.missing === 'No data'));
 
 // The HN row keeps its noise verdict and has no reference period.
 const hn = data.compareCells(rows[1], '2026-10', windows);
@@ -79,6 +111,10 @@ const error = (src) => parseArticle(`${src}\n`).directives[0].error?.message ?? 
 assert.equal(error('::compare{title="t" metrics="external:indeed_software_postings.US,posts.hiring"}'), null);
 assert.match(error('::compare{title="t" metrics="posts.hiring,external:"}'), /empty id/);
 assert.match(error('::compare{title="t" metrics="posts.hiring,,posts.seeking"}'), /empty id/);
+assert.equal(error('::compare{title="t" metrics="external: indeed_software_postings.US"}'), null);
+assert.equal(data.resolveCompareRows(raw, 'external: indeed_software_postings.US', '2026-10')[0].key, 'indeed_software_postings.US');
+assert.match(error('::compare{title="t" metrics="External:indeed_software_postings.US"}'), /lowercase external:/);
+assert.match(error('::chart{type="line" title="t" external="a.US,b.US"}'), /one key/);
 
 // An external-only line: no metric, no base, values in the series' own unit.
 assert.equal(error('::chart{type="line" title="t" external="indeed_software_postings.US"}'), null);
@@ -101,6 +137,15 @@ assert.equal(+data.valueAt(smooth[0], '2026-10').toFixed(2), +((169 * 11 + 128) 
 const paired = data.resolveChartSeries(raw, { type: 'line', metric: 'posts.hiring', external: 'indeed_software_postings.US', base: '2025-10' }, '2026-10');
 assert.deepEqual(paired.map((s) => s.unit), ['index', 'index']);
 assert.equal(data.valueAt(paired[1], '2025-10'), 100);
+
+// from before an outside series' first value is an authoring error.
+assert.throws(() => data.resolveChartSeries(raw, { type: 'line', external: 'indeed_software_postings.US', from: '2021-01' }, '2026-10'), /before indeed_software_postings.US starts/);
+assert.equal(data.resolveChartSeries(raw, { type: 'line', external: 'indeed_software_postings.US', from: '2021-10' }, '2026-10').length, 1);
+
+// The masthead ribbon: front matter wins; otherwise HN before November 2026, Indeed from then on.
+assert.equal(data.ribbonKey({ month: '2026-10' }), 'posts.hiring');
+assert.equal(data.ribbonKey({ month: '2026-11' }), 'external:indeed_software_postings.US');
+assert.equal(data.ribbonKey({ month: '2026-10', ribbon: 'external:ces_computer_systems_design.US' }), 'external:ces_computer_systems_design.US');
 
 // Units: thousands print as whole numbers and ticks in K or M.
 assert.equal(data.makeFormat('thousands')(2355.4), '2,355,400');
