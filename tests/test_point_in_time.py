@@ -184,14 +184,53 @@ def test_old_jev_versions_are_ignored(db):
     assert value < 1.0  # the jev-1.12.0 rows are all 1.0
 
 
-def test_counts_use_only_snapshot_posts(db):
+def _removed(db, month: date, kind: str) -> int:
+    (removed,) = db.execute(
+        "SELECT coalesce(removed_in_snapshot, 0) FROM threads WHERE month = ? AND kind = ?",
+        [month, kind],
+    ).fetchone()
+    return removed
+
+
+def test_counts_use_only_snapshot_posts_plus_removed(db):
     features.build(db)
     t = date(2024, 1, 1)
     metrics = _metrics(aggregate.compute_month(db, t))
     # Every fixture month has 6 hiring posts, the last 2 posted after the snapshot.
-    assert metrics[("hiring", "posts", "")] == (4.0, 4)
+    hiring = 4 + _removed(db, t, "hiring")
+    assert metrics[("hiring", "posts", "")] == (float(hiring), hiring)
     seeking, _ = metrics[("seeking", "posts", "")]
-    assert metrics[("hiring", "seekers_per_post", "")][0] == pytest.approx(seeking / 4)
+    assert metrics[("hiring", "seekers_per_post", "")] == (
+        pytest.approx(seeking / hiring),
+        hiring,
+    )
+    assert metrics[("hiring", "replies_per_post", "")][1] == 4  # live posts only
+
+
+def test_removed_posts_change_counts_but_not_shares(db):
+    features.build(db)
+    t = date(2024, 3, 1)
+    db.execute("UPDATE threads SET removed_in_snapshot = 0 WHERE month = ?", [t])
+    before = _metrics(aggregate.compute_month(db, t))
+    db.execute(
+        "UPDATE threads SET removed_in_snapshot = 6 WHERE month = ? AND kind = 'hiring'",
+        [t],
+    )
+    after = _metrics(aggregate.compute_month(db, t))
+
+    assert after[("hiring", "posts", "")][0] == before[("hiring", "posts", "")][0] + 6
+    seeking, _ = after[("seeking", "posts", "")]
+    assert after[("hiring", "seekers_per_post", "")][0] == pytest.approx(
+        seeking / after[("hiring", "posts", "")][0]
+    )
+    assert (
+        after[("hiring", "seekers_per_post", "")]
+        != before[("hiring", "seekers_per_post", "")]
+    )
+    counts = {"posts", "seekers_per_post", "removed_share"}
+    assert {k: v for k, v in after.items() if k[1] not in counts} == {
+        k: v for k, v in before.items() if k[1] not in counts
+    }
 
 
 def test_no_join_metrics_without_history(db):
@@ -283,10 +322,10 @@ def test_removed_share(db):
     assert rows
     for month, kind, removed in rows:
         metrics = _metrics(aggregate.compute_month(db, month))
-        posts, _ = metrics[(kind, "posts", "")]
+        submitted, _ = metrics[(kind, "posts", "")]
         assert metrics[(kind, "removed_share", "")] == (
-            pytest.approx(removed / (posts + removed)),
-            posts + removed,
+            pytest.approx(removed / submitted),
+            submitted,
         )
     no_count = db.execute(
         "SELECT month, kind FROM threads WHERE removed_in_snapshot IS NULL"
@@ -334,7 +373,8 @@ def test_export_follows_contract(db, tmp_path, monkeypatch):
         "comparable_from", "validation", "series",
     }  # fmt: skip
     assert posts["unit"] == "count" and posts["method"] == "count"
-    assert posts["series"][0] == {"month": "2024-01", "value": 4, "n": 4}
+    january = 4 + _removed(db, date(2024, 1, 1), "hiring")
+    assert posts["series"][0] == {"month": "2024-01", "value": january, "n": january}
     months = [p["month"] for p in posts["series"]]
     assert "2024-04" not in months and f"{PENDING:%Y-%m}" not in months
     for metric in data["metrics"].values():

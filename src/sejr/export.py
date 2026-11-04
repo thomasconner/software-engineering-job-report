@@ -21,7 +21,9 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
         "share",
         (
             "Share of hiring posts from the first 7 days that were deleted or killed before we "
-            "fetched the thread. Shown so readers can judge how much is missing."
+            "fetched the thread. It depends on how long after the window we fetched (years for "
+            "old months, about a day for new ones), so it is for the methodology note only and "
+            "not comparable across months."
         ),
     ),
     "removed_share.seeking": (
@@ -29,28 +31,33 @@ SCALAR_TEXT: dict[str, tuple[str, str, str]] = {
         "share",
         (
             "Share of “Who wants to be hired?” posts from the first 7 days that were deleted or "
-            "killed before we fetched the thread."
+            "killed before we fetched the thread. It depends on how long after the window we "
+            "fetched, so it is for the methodology note only and not comparable across months."
         ),
     ),
     "posts.hiring": (
         "Hiring posts",
         "count",
         (
-            "Top-level posts in the monthly Hacker News “Who is hiring?” thread during its first "
-            "7 days. One post often covers several roles, so this counts posts, not jobs."
+            "Top-level posts in the first 7 days of the monthly Hacker News “Who is hiring?” "
+            "thread, including ones later deleted. One post often covers several roles, so this "
+            "counts posts, not jobs."
         ),
     ),
     "posts.seeking": (
         "People looking for work",
         "count",
-        "Posts in the monthly “Who wants to be hired?” thread during its first 7 days.",
+        (
+            "Top-level posts in the first 7 days of the monthly “Who wants to be hired?” "
+            "thread, including ones later deleted."
+        ),
     ),
     "seekers_per_post.hiring": (
         "Job seekers per hiring post",
         "ratio",
         (
-            "People posting that they want work, divided by companies posting that they are hiring, "
-            "in the same month."
+            "Posts from people who want work divided by posts from companies hiring, in the "
+            "same month. Both counts include posts later deleted."
         ),
     ),
     "replies_per_post.hiring": (

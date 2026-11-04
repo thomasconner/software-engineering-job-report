@@ -115,9 +115,9 @@ Scalar metrics (`category = ''`). Shares are 0–1. Jev-based shares are expecte
 
 | metric | kind | method | meaning |
 |---|---|---|---|
-| `posts` | hiring, seeking | count | top-level posts in snapshot |
+| `posts` | hiring, seeking | count | top-level posts submitted in the snapshot window, including ones later deleted or removed (posts + removed_in_snapshot). Live counts depend on how long after the window a thread was fetched; submitted counts don't |
 | `removed_share` | hiring, seeking | count | removed_in_snapshot ÷ (posts + removed_in_snapshot); shown in methodology |
-| `seekers_per_post` | hiring | count | seeking posts ÷ hiring posts, same month |
+| `seekers_per_post` | hiring | count | submitted seeking posts ÷ submitted hiring posts, same month |
 | `replies_per_post` | hiring | count | mean direct replies per post |
 | `salary_disclosed_share` | hiring | regex | share with a parseable salary |
 | `salary_min_median_usd` | hiring | regex | median lower bound, USD annual, among disclosed |
@@ -264,3 +264,5 @@ Completeness is per thread: a month whose hiring thread is complete publishes hi
 Samples contain hiring posts only. Seeking posts are never exported.
 
 Authoring mode (`?mock=1`, localhost) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only with `?mock=1&issue=_name`.
+
+`removed_share` depends on fetch age (history was fetched years later; new months at about day 8), so it is shown in the methodology only and never compared across months in an article. Shares (regex and Jev) are computed over live posts.
