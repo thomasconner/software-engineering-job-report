@@ -74,9 +74,22 @@ def canonical_json(request: Request) -> str:
     return json.dumps(request, ensure_ascii=False, separators=(",", ":"))
 
 
+def sha256(text: str) -> str:
+    return hashlib.sha256(text.encode()).hexdigest()
+
+
 def cache_path(cache_dir: Path, request: Request) -> Path:
-    digest = hashlib.sha256(canonical_json(request).encode()).hexdigest()
-    return cache_dir / f"{digest}.json"
+    # Sharded by the first two hex characters so no directory holds 150k files.
+    digest = sha256(canonical_json(request))
+    return cache_dir / digest[:2] / f"{digest}.json"
+
+
+@cache
+def question_set_hash(kind: str) -> str:
+    """Identifies the model plus every question for a kind; any edit re-runs those posts."""
+    return sha256(
+        canonical_json({"model": JEV_MODEL, "questions": wire_questions(kind)})
+    )
 
 
 def estimate_tokens(request: Request) -> int:
@@ -122,17 +135,34 @@ async def ask(
     response = json.loads(result.raw_http_response.content)
     check_version(response)
     entry = {"request": request, "response": response}
+    path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(f".tmp{os.getpid()}")
     tmp.write_text(json.dumps(entry, ensure_ascii=False))
     tmp.replace(path)
     return response, True
 
 
-def with_other(industry: dict[str, Any], fits: float) -> dict[str, float]:
-    """Fold the companion Noul into the sector Choice: P(other) = 1 - P(any sector fits)."""
-    probabilities = {k: p * fits for k, p in industry["probabilities"].items()}
-    probabilities["other"] = 1.0 - fits
-    return probabilities
+def fold_industry(
+    answers: dict[str, Any],
+) -> tuple[str, dict[str, float], float | None]:
+    """Fold the two companion Nouls into the sector Choice (docs/architecture.md).
+
+    P(sector) = P(fits) * P(sector | Choice); the rest splits into `other` (the post says
+    what the company does) and `unstated` (it doesn't). Returns (label, probabilities,
+    confidence), where confidence is the Choice's only when a sector is the label.
+    """
+    choice = answers["industry"]
+    try:
+        fits = answers["industry_fits"]["noul"]
+        stated = answers["industry_stated"]["noul"]
+    except KeyError as missing:
+        raise ValueError(f"industry answer without companion Noul {missing}") from None
+    probabilities = {k: p * fits for k, p in choice["probabilities"].items()}
+    probabilities["other"] = (1 - fits) * stated
+    probabilities["unstated"] = (1 - fits) * (1 - stated)
+    label = max(probabilities, key=probabilities.__getitem__)
+    confidence = choice["confidence"] if label in choice["probabilities"] else None
+    return label, probabilities, confidence
 
 
 def answer_rows(post_id: int, response: Response) -> list[AnswerRow]:
@@ -142,11 +172,10 @@ def answer_rows(post_id: int, response: Response) -> list[AnswerRow]:
     for question, a in answers.items():
         value = label = probabilities = confidence = None
         match a["type"]:
+            case "choice" if question == "industry":
+                label, probabilities, confidence = fold_industry(answers)
             case "choice":
                 label, probabilities = a["choice"], a["probabilities"]
-                if question == "industry" and "industry_fits" in answers:
-                    probabilities = with_other(a, answers["industry_fits"]["noul"])
-                    label = max(probabilities, key=probabilities.__getitem__)
                 confidence = a["confidence"]
             case "score":
                 value, probabilities = a["score"], a["probabilities"]

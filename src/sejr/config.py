@@ -3,6 +3,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RAW_DIR = ROOT / "data" / "raw"
 JEV_CACHE_DIR = ROOT / "data" / "cache" / "jev"
+ANSWERS_DIR = ROOT / "data" / "answers"
 DB_PATH = ROOT / "data" / "sejr.duckdb"
 SITE_DATA_DIR = ROOT / "site" / "data"
 

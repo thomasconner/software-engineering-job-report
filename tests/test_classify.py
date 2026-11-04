@@ -13,20 +13,38 @@ from sejr.classify.questions import QUESTIONS
 from sejr.config import JEV_MODEL
 from sejr.db import connect
 
-HIRING_TEXT = "Acme Robotics | Senior Backend Engineer | Boston, ONSITE | Series A\n\nWe build warehouse robots."
+HIRING_TEXT = (
+    "Acme Robotics | Senior Backend Engineer | Boston, ONSITE | Series A\n\n"
+    "We build warehouse robots."
+)
 SEEKING_TEXT = "Location: Lisbon\nRemote: Yes\nTechnologies: Go, Postgres"
+APRIL_TEXT = "Beta Corp | Engineer | REMOTE"
 
 
 class FakeJev:
     """A fake TypeSafe API behind the real SDK client, so tests exercise the SDK too."""
 
-    def __init__(self, model: str = JEV_MODEL, rate_limit_first: int = 0) -> None:
+    def __init__(
+        self,
+        model: str = JEV_MODEL,
+        rate_limit_first: int = 0,
+        nouls: dict[str, float] | None = None,
+        reject: str | None = None,
+        drop: str | None = None,
+        usage: dict | None = None,
+    ) -> None:
         self.model = model
         self.rate_limit_first = rate_limit_first
+        self.nouls = nouls or {}
+        self.reject = reject  # a state containing this gets a 400
+        self.drop = drop  # an answer id left out of every response
+        self.usage = (
+            {"input_tokens": 100, "output_tokens": 5} if usage is None else usage
+        )
         self.bodies: list[dict] = []
         self.calls = 0
 
-    def answer(self, question: dict) -> dict:
+    def answer(self, name: str, question: dict) -> dict:
         match question["type"]:
             case "choice":
                 options = list(question["criteria"])
@@ -51,7 +69,7 @@ class FakeJev:
                     },
                 }
             case "noul":
-                return {"type": "noul", "noul": 0.8}
+                return {"type": "noul", "noul": self.nouls.get(name, 0.8)}
 
     async def handle(self, request: httpx2.Request) -> httpx2.Response:
         self.calls += 1
@@ -61,15 +79,16 @@ class FakeJev:
                 429, headers={"retry-after-ms": "0"}, json={"error": "slow down"}
             )
         body = json.loads(request.content)
+        if self.reject and self.reject in body["state"]:
+            return httpx2.Response(400, json={"error": "bad post"})
         self.bodies.append(body)
-        answers = {name: self.answer(q) for name, q in body["questions"].items()}
+        answers = {
+            name: self.answer(name, q)
+            for name, q in body["questions"].items()
+            if name != self.drop
+        }
         return httpx2.Response(
-            200,
-            json={
-                "model": self.model,
-                "answers": answers,
-                "usage": {"input_tokens": 100, "output_tokens": 5},
-            },
+            200, json={"model": self.model, "answers": answers, "usage": self.usage}
         )
 
     def client(self) -> AsyncTypeSafeClient:
@@ -81,13 +100,16 @@ class FakeJev:
         )
 
 
-@pytest.fixture
-def con(tmp_path: Path):
-    con = connect(tmp_path / "test.duckdb")
+def make_db(path: Path):
+    con = connect(path)
     con.execute(
         """INSERT INTO threads VALUES
-        (1, 'hiring', DATE '2014-03-01', 'Ask HN: Who is hiring? (March 2014)', TIMESTAMPTZ '2014-03-03 15:00:00Z', TIMESTAMPTZ '2014-03-10 15:00:00Z'),
-        (2, 'seeking', DATE '2014-03-01', 'Ask HN: Who wants to be hired? (March 2014)', TIMESTAMPTZ '2014-03-03 15:00:00Z', TIMESTAMPTZ '2014-03-10 15:00:00Z')"""
+        (1, 'hiring', DATE '2014-03-01', 'Ask HN: Who is hiring? (March 2014)',
+         TIMESTAMPTZ '2014-03-03 15:00:00Z', TIMESTAMPTZ '2014-03-10 15:00:00Z'),
+        (2, 'seeking', DATE '2014-03-01', 'Ask HN: Who wants to be hired? (March 2014)',
+         TIMESTAMPTZ '2014-03-03 15:00:00Z', TIMESTAMPTZ '2014-03-10 15:00:00Z'),
+        (3, 'hiring', DATE '2014-04-01', 'Ask HN: Who is hiring? (April 2014)',
+         TIMESTAMPTZ '2014-04-01 15:00:00Z', TIMESTAMPTZ '2014-04-08 15:00:00Z')"""
     )
     con.executemany(
         "INSERT INTO posts VALUES (?, ?, 'a', TIMESTAMPTZ '2014-03-04 10:00:00Z', '', ?, ?)",
@@ -95,24 +117,41 @@ def con(tmp_path: Path):
             (10, 1, HIRING_TEXT, True),
             (11, 2, SEEKING_TEXT, True),
             (12, 1, "Late post", False),
+            (30, 3, APRIL_TEXT, True),
         ],
     )
+    return con
+
+
+@pytest.fixture
+def con(tmp_path: Path):
+    con = make_db(tmp_path / "test.duckdb")
     yield con
     con.close()
 
 
-def run(con, fake: FakeJev, cache_dir: Path, **kwargs) -> None:
+@pytest.fixture
+def dirs(tmp_path: Path) -> tuple[Path, Path]:
+    return tmp_path / "cache", tmp_path / "answers"
+
+
+def run(con, fake: FakeJev, dirs: tuple[Path, Path], **kwargs) -> None:
     args = Namespace(
-        month=kwargs.get("month"),
+        month=kwargs.get("month", "2014-03"),
         limit=kwargs.get("limit"),
         dry_run=kwargs.get("dry_run", False),
+        backfill=kwargs.get("backfill", False),
     )
-    classify.run(con, args, client=fake.client(), cache_dir=cache_dir)
+    cache_dir, answers_dir = dirs
+    classify.run(
+        con, args, client=fake.client(), cache_dir=cache_dir, answers_dir=answers_dir
+    )
 
 
 def answers(con) -> dict[tuple[int, str], tuple]:
     rows = con.execute(
-        "SELECT post_id, question, method, version, value, label, probabilities, confidence FROM answers"
+        "SELECT post_id, question, method, version, value, label, probabilities, "
+        "confidence FROM answers"
     ).fetchall()
     return {(r[0], r[1]): r[2:] for r in rows}
 
@@ -125,6 +164,20 @@ def test_request_has_all_questions_for_kind_and_pinned_model():
     assert set(jev.build_request("seeking", SEEKING_TEXT)["questions"]) == {
         "seeker_mood"
     }
+
+
+def test_golden_request_hash(tmp_path: Path):
+    # Fails on any change to the questions, the state cleaning or the model pin. If the
+    # change was deliberate, update the hash: every post of that kind will re-run.
+    path = jev.cache_path(tmp_path, jev.build_request("hiring", HIRING_TEXT))
+    assert path.relative_to(tmp_path).as_posix() == (
+        "ff/ffcdb2be05c088cb765a7506add66df1d52502da9a99669d7bd6e3e9e408d2fd.json"
+    )
+
+
+def test_fits_sector_list_comes_from_industry_options():
+    fits = jev.wire_questions("hiring")["industry_fits"]["instructions"]["sectors"]
+    assert fits == jev.wire_questions("hiring")["industry"]["criteria"]
 
 
 def test_state_is_cleaned_and_truncated():
@@ -140,14 +193,11 @@ def test_question_change_changes_cache_key(tmp_path: Path):
     edited = json.loads(json.dumps(request))
     edited["questions"]["new_grad"]["instructions"] += " Edited."
     assert jev.cache_path(tmp_path, request) != jev.cache_path(tmp_path, edited)
-    assert jev.cache_path(tmp_path, request) == jev.cache_path(
-        tmp_path, jev.build_request("hiring", HIRING_TEXT)
-    )
 
 
-def test_only_in_snapshot_posts_and_no_dates_in_request(con, tmp_path: Path):
+def test_only_in_snapshot_posts_and_no_dates_in_request(con, dirs):
     fake = FakeJev()
-    run(con, fake, tmp_path)
+    run(con, fake, dirs)
     assert sorted(b["state"] for b in fake.bodies) == sorted(
         [HIRING_TEXT, SEEKING_TEXT]
     )
@@ -158,22 +208,50 @@ def test_only_in_snapshot_posts_and_no_dates_in_request(con, tmp_path: Path):
             assert leak not in sent
 
 
-def test_second_run_makes_zero_calls(con, tmp_path: Path):
+def test_second_run_makes_zero_calls(con, dirs):
     first = FakeJev()
-    run(con, first, tmp_path)
+    run(con, first, dirs)
     assert first.calls == 2
     before = answers(con)
-    cached = json.loads(next(tmp_path.glob("*.json")).read_text())
+    cache_dir, _ = dirs
+    cached = json.loads(next(cache_dir.glob("*/*.json")).read_text())
     assert set(cached) == {"request", "response"}
 
     second = FakeJev()
-    run(con, second, tmp_path)
+    run(con, second, dirs)
     assert second.calls == 0
     assert answers(con) == before
 
 
-def test_answer_rows_for_each_primitive(con, tmp_path: Path):
-    run(con, FakeJev(), tmp_path)
+def test_fresh_checkout_loads_durable_answers(con, dirs, tmp_path: Path):
+    run(con, FakeJev(), dirs)
+    expected = answers(con)
+    cache_dir, answers_dir = dirs
+    assert [f.name for f in (answers_dir / JEV_MODEL).iterdir()] == ["2014-03.parquet"]
+
+    fresh = make_db(tmp_path / "fresh.duckdb")
+    for f in cache_dir.glob("*/*.json"):
+        f.unlink()
+    fake = FakeJev()
+    run(fresh, fake, dirs)
+    assert fake.calls == 0
+    assert answers(fresh) == expected
+
+
+def test_question_set_change_reruns_answered_posts(con, dirs, monkeypatch):
+    run(con, FakeJev(), dirs)
+    monkeypatch.setattr(classify, "question_set_hash", lambda kind: "edited")
+    fake = FakeJev(nouls={"ai_native": 0.1})
+    cache_dir, _ = dirs
+    for f in cache_dir.glob("*/*.json"):
+        f.unlink()
+    run(con, fake, dirs)
+    assert fake.calls == 2
+    assert answers(con)[(10, "ai_native")][2] == 0.1
+
+
+def test_answer_rows_for_each_primitive(con, dirs):
+    run(con, FakeJev(), dirs)
     rows = answers(con)
 
     method, version, value, label, probabilities, confidence = rows[(10, "work_mode")]
@@ -197,57 +275,125 @@ def test_answer_rows_for_each_primitive(con, tmp_path: Path):
     }
 
     assert rows[(10, "ai_native")][2:] == (0.8, None, None, None)
-
-    # The companion Noul folds into industry as the `other` category.
-    _, _, _, label, probabilities, _ = rows[(10, "industry")]
-    industry = json.loads(probabilities)
-    assert industry["other"] == pytest.approx(0.2)
-    assert industry["ai_ml"] == pytest.approx(0.56)
-    assert sum(industry.values()) == pytest.approx(1.0)
-    assert label == "ai_ml"
-    assert rows[(10, "industry_fits")][2] == 0.8
-
     assert {q for p, q in rows if p == 10} == set(QUESTIONS["hiring"])
 
 
-def test_version_mismatch_fails_loudly_and_caches_nothing(con, tmp_path: Path):
+def test_industry_folds_both_companion_nouls(con, dirs):
+    run(con, FakeJev(nouls={"industry_fits": 0.8, "industry_stated": 0.75}), dirs)
+    _, _, _, label, probabilities, confidence = answers(con)[(10, "industry")]
+    industry = json.loads(probabilities)
+    assert industry["enterprise_saas"] == pytest.approx(0.56)
+    assert industry["other"] == pytest.approx(0.15)
+    assert industry["unstated"] == pytest.approx(0.05)
+    assert sum(industry.values()) == pytest.approx(1.0)
+    assert (label, confidence) == ("enterprise_saas", 0.6)
+
+
+def test_folded_unstated_label_has_no_confidence(con, dirs):
+    run(con, FakeJev(nouls={"industry_fits": 0.1, "industry_stated": 0.2}), dirs)
+    _, _, _, label, _, confidence = answers(con)[(10, "industry")]
+    assert (label, confidence) == ("unstated", None)
+
+
+def test_version_mismatch_fails_loudly_and_caches_nothing(con, dirs):
     with pytest.raises(ExceptionGroup) as raised:
-        run(con, FakeJev(model="jev-9.9.9"), tmp_path)
+        run(con, FakeJev(model="jev-9.9.9"), dirs)
     assert raised.group_contains(jev.JevVersionMismatch)
-    assert list(tmp_path.glob("*.json")) == []
+    cache_dir, answers_dir = dirs
+    assert list(cache_dir.glob("*/*.json")) == []
     assert answers(con) == {}
+    assert not answers_dir.exists()
 
 
-def test_rate_limit_is_retried(con, tmp_path: Path):
+def test_partial_failure_writes_the_rest_and_exits_nonzero(con, dirs, capsys):
+    with pytest.raises(SystemExit) as raised:
+        run(con, FakeJev(reject="Acme"), dirs)
+    assert raised.value.code != 0
+    assert "post 10:" in capsys.readouterr().err
+    rows = answers(con)
+    assert (11, "seeker_mood") in rows
+    assert not any(p == 10 for p, _ in rows)
+
+
+def test_missing_industry_companion_fails_that_post(con, dirs, capsys):
+    with pytest.raises(SystemExit):
+        run(con, FakeJev(drop="industry_fits"), dirs)
+    assert "industry_fits" in capsys.readouterr().err
+    assert (11, "seeker_mood") in answers(con)
+
+
+def test_missing_usage_tokens_count_as_zero(con, dirs, capsys):
+    run(con, FakeJev(usage={}), dirs)
+    assert "0 input tokens" in capsys.readouterr().out
+
+
+def test_stale_jev_rows_are_deleted_and_other_methods_kept(con, dirs):
+    con.execute(
+        """INSERT INTO answers VALUES
+        (10, 'retired_question', 'jev', 'jev-1.13.0', 1, NULL, NULL, NULL),
+        (10, 'mentions_visa', 'regex', 'v1', 1, NULL, NULL, NULL)"""
+    )
+    run(con, FakeJev(), dirs)
+    rows = answers(con)
+    assert (10, "retired_question") not in rows
+    assert (10, "mentions_visa") in rows
+
+
+def test_month_run_leaves_other_months_alone(con, dirs):
+    run(con, FakeJev(), dirs, month="2014-04")
+    april = {k: v for k, v in answers(con).items() if k[0] == 30}
+    _, answers_dir = dirs
+    april_file = answers_dir / JEV_MODEL / "2014-04.parquet"
+    april_bytes = april_file.read_bytes()
+
+    run(con, FakeJev(nouls={"ai_native": 0.1}), dirs, month="2014-03")
+    assert {k: v for k, v in answers(con).items() if k[0] == 30} == april
+    assert april_file.read_bytes() == april_bytes
+    assert (answers_dir / JEV_MODEL / "2014-03.parquet").exists()
+
+
+def test_rate_limit_is_retried(con, dirs):
     fake = FakeJev(rate_limit_first=1)
-    run(con, fake, tmp_path, limit=1)
+    run(con, fake, dirs, limit=1)
     assert fake.calls == 2
     assert (10, "work_mode") in answers(con)
 
 
-def test_month_and_limit_filters(con, tmp_path: Path):
+def test_month_and_limit_filters(con, dirs):
     fake = FakeJev()
-    run(con, fake, tmp_path, month="2014-04")
+    run(con, fake, dirs, month="2014-05")
     assert fake.calls == 0
-    run(con, fake, tmp_path, limit=1)
+    run(con, fake, dirs, limit=1)
     assert fake.calls == 1
 
 
-def test_dry_run_estimates_without_calling(con, tmp_path: Path, capsys):
+def test_unscoped_run_needs_backfill_flag(con, dirs, monkeypatch):
+    monkeypatch.setattr(classify, "MAX_UNSCOPED_CALLS", 2)
     fake = FakeJev()
-    run(con, fake, tmp_path, dry_run=True)
+    with pytest.raises(SystemExit, match="--backfill"):
+        run(con, fake, dirs, month=None)
+    assert fake.calls == 0
+    run(con, fake, dirs, month=None, backfill=True)
+    assert fake.calls == 3
+
+
+def test_dry_run_estimates_without_calling(con, dirs, capsys):
+    fake = FakeJev()
+    run(con, fake, dirs, dry_run=True)
     assert fake.calls == 0
     out = capsys.readouterr().out
     tokens = sum(
         jev.estimate_tokens(jev.build_request(k, t))
         for k, t in [("hiring", HIRING_TEXT), ("seeking", SEEKING_TEXT)]
     )
-    assert "requests: 2 (0 cached, 2 to send)" in out
+    assert "2 requests to send" in out
     assert f"estimated input tokens: {tokens:,}" in out
     assert f"${tokens / 1e6 * 0.042:.4f}" in out
+    _, answers_dir = dirs
+    assert not answers_dir.exists()
 
 
-def test_concurrency_is_bounded(con, tmp_path: Path, monkeypatch):
+def test_concurrency_is_bounded(con, dirs, monkeypatch):
     monkeypatch.setattr(classify, "CONCURRENCY", 2)
     con.executemany(
         "INSERT INTO posts VALUES (?, 1, 'a', TIMESTAMPTZ '2014-03-04 10:00:00Z', '', ?, true)",
@@ -264,11 +410,13 @@ def test_concurrency_is_bounded(con, tmp_path: Path, monkeypatch):
         nonlocal in_flight, peak
         in_flight += 1
         peak = max(peak, in_flight)
-        await pair.wait()
+        # A broken pool would leave a request waiting for a partner forever; fail instead.
+        async with asyncio.timeout(5):
+            await pair.wait()
         in_flight -= 1
         return await handle(request)
 
     fake.handle = gated
-    run(con, fake, tmp_path)
+    run(con, fake, dirs)
     assert fake.calls == 6
     assert peak == 2

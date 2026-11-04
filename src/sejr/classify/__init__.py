@@ -2,14 +2,24 @@
 
 import argparse
 import asyncio
+import sys
+from dataclasses import dataclass, field
 from pathlib import Path
 
 import duckdb
-from typesafe_sdk import AsyncTypeSafeClient
+from typesafe_sdk import (
+    AsyncTypeSafeClient,
+    TypeSafeAuthenticationError,
+    TypeSafeError,
+    TypeSafePermissionDeniedError,
+)
 
+from sejr.classify import store
 from sejr.classify.jev import (
     CHARS_PER_TOKEN,
     CONCURRENCY,
+    AnswerRow,
+    JevVersionMismatch,
     Request,
     answer_rows,
     ask,
@@ -17,17 +27,42 @@ from sejr.classify.jev import (
     cache_path,
     estimate_tokens,
     make_client,
+    question_set_hash,
 )
-from sejr.config import JEV_CACHE_DIR, JEV_USD_PER_MTOK
+from sejr.config import ANSWERS_DIR, JEV_CACHE_DIR, JEV_USD_PER_MTOK
 
 PROGRESS_EVERY = 1000
+# Without --month, a run this large is almost certainly a backfill by accident.
+MAX_UNSCOPED_CALLS = 500
+# Errors that would hit every post the same way; stop instead of logging each one.
+FATAL = (JevVersionMismatch, TypeSafeAuthenticationError, TypeSafePermissionDeniedError)
+# Errors that belong to one post (an API error after retries, a malformed answer, a cache
+# write): log them, keep going, and exit non-zero at the end.
+PER_POST = (TypeSafeError, ValueError, KeyError, OSError)
+
+
+@dataclass
+class Post:
+    post_id: int
+    kind: str
+    month: str
+    request: Request
+
+
+@dataclass
+class Outcome:
+    rows: list[AnswerRow] = field(default_factory=list)
+    done: list[Post] = field(default_factory=list)
+    failed: list[int] = field(default_factory=list)
+    calls: int = 0
+    input_tokens: int = 0
 
 
 def select_posts(
     con: duckdb.DuckDBPyConnection, month: str | None, limit: int | None
-) -> list[tuple[int, str, str]]:
+) -> list[Post]:
     sql = """
-        SELECT p.post_id, t.kind, p.text
+        SELECT p.post_id, t.kind, strftime(t.month, '%Y-%m'), p.text
         FROM posts p JOIN threads t USING (thread_id)
         WHERE p.in_snapshot AND t.kind IN ('hiring', 'seeking')
     """
@@ -39,73 +74,69 @@ def select_posts(
     if limit is not None:
         sql += " LIMIT ?"
         params.append(limit)
-    return con.execute(sql, params).fetchall()
+    return [
+        Post(post_id, kind, month, build_request(kind, text))
+        for post_id, kind, month, text in con.execute(sql, params).fetchall()
+    ]
 
 
-def print_estimate(requests: list[tuple[int, Request]], cache_dir: Path) -> None:
-    todo = [r for _, r in requests if not cache_path(cache_dir, r).exists()]
-    tokens = sum(estimate_tokens(r) for r in todo)
+def print_estimate(posts: list[Post], skipped: int, uncached: list[Post]) -> None:
+    tokens = sum(estimate_tokens(p.request) for p in uncached)
+    cost = tokens / 1e6 * JEV_USD_PER_MTOK
     print(
-        f"requests: {len(requests)} ({len(requests) - len(todo)} cached, {len(todo)} to send)"
+        f"posts: {len(posts) + skipped} ({skipped} already answered, "
+        f"{len(posts) - len(uncached)} cached, {len(uncached)} requests to send)"
     )
     print(
         f"estimated input tokens: {tokens:,} (~{CHARS_PER_TOKEN} characters per token)"
     )
-    cost = tokens / 1e6 * JEV_USD_PER_MTOK
     print(
         f"estimated cost: ${cost:.4f} at ${JEV_USD_PER_MTOK} per million input tokens"
     )
 
 
 async def classify(
-    con: duckdb.DuckDBPyConnection,
-    requests: list[tuple[int, Request]],
+    posts: list[Post], client: AsyncTypeSafeClient | None, cache_dir: Path
+) -> Outcome:
+    outcome = Outcome()
+    limit = asyncio.Semaphore(CONCURRENCY)
+
+    async def one(post: Post) -> None:
+        try:
+            response, called = await ask(client, post.request, cache_dir, limit)
+            outcome.rows.extend(answer_rows(post.post_id, response))
+        except FATAL:
+            raise
+        except PER_POST as error:
+            print(
+                f"post {post.post_id}: {type(error).__name__}: {error}", file=sys.stderr
+            )
+            outcome.failed.append(post.post_id)
+            return
+        outcome.done.append(post)
+        if called:
+            outcome.calls += 1
+            outcome.input_tokens += response["usage"].get("input_tokens") or 0
+            if outcome.calls % PROGRESS_EVERY == 0:
+                print(f"  {outcome.calls} API calls so far")
+
+    # A fatal error cancels the remaining tasks; responses cached so far are kept.
+    async with asyncio.TaskGroup() as tg:
+        for post in posts:
+            tg.create_task(one(post))
+    return outcome
+
+
+async def classify_with_client(
+    posts: list[Post],
     client: AsyncTypeSafeClient | None,
     cache_dir: Path,
-) -> None:
-    needs_api = any(not cache_path(cache_dir, r).exists() for _, r in requests)
-    own_client = client is None and needs_api
-    if own_client:
-        client = make_client()
-    limit = asyncio.Semaphore(CONCURRENCY)
-    rows = []
-    calls = input_tokens = 0
-
-    async def one(post_id: int, request: Request) -> None:
-        nonlocal calls, input_tokens
-        response, called = await ask(client, request, cache_dir, limit)
-        rows.extend(answer_rows(post_id, response))
-        if called:
-            calls += 1
-            input_tokens += response["usage"]["input_tokens"]
-            if calls % PROGRESS_EVERY == 0:
-                print(f"  {calls} API calls so far")
-
-    try:
-        # A TaskGroup cancels the rest on the first failure, so a version mismatch or a
-        # non-retryable API error stops the run. Responses already cached are kept.
-        async with asyncio.TaskGroup() as tg:
-            for post_id, request in requests:
-                tg.create_task(one(post_id, request))
-    finally:
-        if own_client:
-            await client.aclose()
-
-    post_ids = [post_id for post_id, _ in requests]
-    con.begin()
-    # One Jev version per post: drop older Jev answers before writing the new ones.
-    con.execute(
-        "DELETE FROM answers WHERE method = 'jev' AND list_contains(?, post_id)",
-        [post_ids],
-    )
-    if rows:
-        con.executemany("INSERT INTO answers VALUES (?, ?, ?, ?, ?, ?, ?, ?)", rows)
-    con.commit()
-    print(
-        f"classified {len(requests)} posts: {calls} API calls, "
-        f"{len(requests) - calls} from cache, {len(rows)} answers, "
-        f"{input_tokens:,} input tokens (${input_tokens / 1e6 * JEV_USD_PER_MTOK:.4f})"
-    )
+    needs_api: bool,
+) -> Outcome:
+    if client is not None or not needs_api:
+        return await classify(posts, client, cache_dir)
+    async with make_client() as own:
+        return await classify(posts, own, cache_dir)
 
 
 def run(
@@ -114,11 +145,42 @@ def run(
     *,
     client: AsyncTypeSafeClient | None = None,
     cache_dir: Path = JEV_CACHE_DIR,
+    answers_dir: Path = ANSWERS_DIR,
 ) -> None:
-    posts = select_posts(con, args.month, args.limit)
-    requests = [(post_id, build_request(kind, text)) for post_id, kind, text in posts]
+    qsets = store.read_qsets(con, answers_dir)
+    selected = select_posts(con, args.month, args.limit)
+    posts = [p for p in selected if qsets.get(p.post_id) != question_set_hash(p.kind)]
+    skipped = len(selected) - len(posts)
+    uncached = [p for p in posts if not cache_path(cache_dir, p.request).exists()]
+    too_many = (
+        not args.month and not args.backfill and len(uncached) > MAX_UNSCOPED_CALLS
+    )
     if args.dry_run:
-        print_estimate(requests, cache_dir)
+        print_estimate(posts, skipped, uncached)
+        if too_many:
+            print(f"a real run would refuse: over {MAX_UNSCOPED_CALLS} API calls")
         return
-    cache_dir.mkdir(parents=True, exist_ok=True)
-    asyncio.run(classify(con, requests, client, cache_dir))
+    if too_many:
+        raise SystemExit(
+            f"refusing {len(uncached)} API calls without --month; "
+            "pass --backfill to classify the full history"
+        )
+
+    store.load(con, answers_dir)
+    outcome = asyncio.run(
+        classify_with_client(posts, client, cache_dir, bool(uncached))
+    )
+    store.replace(con, [p.post_id for p in outcome.done], outcome.rows)
+    qsets.update({p.post_id: question_set_hash(p.kind) for p in outcome.done})
+    store.save(con, answers_dir, {p.month for p in outcome.done}, qsets)
+
+    cost = outcome.input_tokens / 1e6 * JEV_USD_PER_MTOK
+    print(
+        f"classified {len(outcome.done)} posts ({skipped} already answered): "
+        f"{outcome.calls} API calls, {len(outcome.rows)} answers, "
+        f"{outcome.input_tokens:,} input tokens (${cost:.4f})"
+    )
+    if outcome.failed:
+        raise SystemExit(
+            f"{len(outcome.failed)} posts failed (see errors above); rerun to retry them"
+        )
