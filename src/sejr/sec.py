@@ -18,6 +18,7 @@ import gzip
 import html
 import itertools
 import json
+import math
 import os
 import re
 import zipfile
@@ -1220,6 +1221,10 @@ CORPORATE_ACTIONS = {
     849399: [("2016-01-29", "Symantec sold Veritas")],
 }
 SPIN_OFF_FORMS = {"10-12B", "10-12G"}
+# A corporate action excludes a company only when its count also moved by more than this in
+# log terms (about 16% up or 14% down). Item 2.01 is common: Microsoft and Salesforce file one
+# most years, and a small deal doesn't distort a change of a few percent.
+DEAL_LOG_CHANGE = 0.15
 
 
 def corporate_action(company: Company, after: str, through: str) -> str | None:
@@ -1245,8 +1250,9 @@ def matched_headcounts(
 ) -> tuple[list[tuple[int, int, int, str]], dict[int, str]]:
     """(cik, latest, previous, latest fiscal year end) for panel companies whose latest two
     10-Ks (accepted by the as-of date, the newer within a year or so) both state a count about
-    a year apart, and the companies left out for a corporate action between the two (cik →
-    reason). Organic growth and layoffs stay in, however large."""
+    a year apart, and the companies left out (cik → reason): those with a corporate action
+    between the two 10-Ks whose count also moved by more than DEAL_LOG_CHANGE in log terms.
+    Organic growth and layoffs stay in, however large."""
     cut = cutoff(as_of)
     matched, dropped = [], {}
     for c in companies:
@@ -1258,7 +1264,8 @@ def matched_headcounts(
             continue
         if not 300 <= days(prior["period"], latest["period"]) <= 430:
             continue
-        if why := corporate_action(c, prior["period"], latest["period"]):
+        moved = abs(math.log(latest["value"] / prior["value"])) > DEAL_LOG_CHANGE
+        if moved and (why := corporate_action(c, prior["period"], latest["period"])):
             dropped[c.cik] = why
             continue
         matched.append((c.cik, latest["value"], prior["value"], latest["period"]))

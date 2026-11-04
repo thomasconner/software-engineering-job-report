@@ -245,8 +245,9 @@ MATCHED = (
     "Each point lists the companies behind it (companies, as CIKs); the set changes from "
     "month to month as 10-Ks arrive. Companies that completed an acquisition, disposition or "
     "spin-off between their two 10-Ks (an 8-K Item 2.01, a Form 10, or a hand-checked list "
-    "such as HP's split and eBay's PayPal spin-off) are left out and listed (dropped), "
-    "because their change mixes the deal with hiring and layoffs. Organic growth and layoffs "
+    "such as HP's split and eBay's PayPal spin-off) and whose count moved by more than about "
+    "15% are left out and listed (dropped), because their change mixes the deal with hiring "
+    "and layoffs; a small deal beside a small change stays in. Organic growth and layoffs "
     "stay in, however large."
 )
 SERIES += [

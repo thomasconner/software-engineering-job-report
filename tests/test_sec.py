@@ -796,6 +796,8 @@ def test_a_corporate_action_is_left_out_and_organic_growth_stays(tmp_path):
         5: (1_000, 1_400),
         1018724: (798_000, 1_298_000),
         3: (1_000, 1_100),
+        # Microsoft-like: an Item 2.01 most years, but a change of a few percent. Kept.
+        6: (100_000, 105_000),
     }
     counts.rows = ten_k_rows(sizes)
     deal = Filing(
@@ -817,6 +819,7 @@ def test_a_corporate_action_is_left_out_and_organic_growth_stays(tmp_path):
         Company(5, [deal], {}, {}),
         Company(1018724, [other], {}, {}),
         Company(3, [], {}, {}),
+        Company(6, [deal], {}, {}),
     ]
     sec.CORPORATE_ACTIONS[47217] = [("2025-06-01", "test split")]
     try:
@@ -826,9 +829,9 @@ def test_a_corporate_action_is_left_out_and_organic_growth_stays(tmp_path):
             ("2015-11-01", "HP split into HP Inc and Hewlett Packard Enterprise")
         ]
     for key in (sec.TOTAL_YOY_KEY, sec.MEDIAN_YOY_KEY):
-        assert value[key]["companies"] == [3, 1018724]
+        assert value[key]["companies"] == [3, 6, 1018724]
         assert value[key]["dropped"] == [5, 47217]
-    assert value[sec.TOTAL_YOY_KEY]["value"] == round(1_299_100 / 799_000 - 1, 4)
+    assert value[sec.TOTAL_YOY_KEY]["value"] == round(1_404_100 / 899_000 - 1, 4)
 
 
 def test_corporate_actions_cover_the_known_splits():
