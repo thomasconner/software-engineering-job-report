@@ -265,50 +265,6 @@ def test_features_build_is_idempotent(db):
     assert db.execute("SELECT count(*) FROM answers").fetchone() == first
 
 
-def test_export_follows_contract(db):
-    features.build(db)
-    aggregate.run(db, Namespace(month=None, dry_run=False, limit=None))
-    data = export.build(db, generated_at=datetime(2026, 11, 9, 12, tzinfo=UTC))
-
-    assert data["generated_at"] == "2026-11-09T12:00:00Z"
-    assert data["latest_month"] == "2024-07"
-    assert data["months"] == [f"{t:%Y-%m}" for t in MONTHS]
-    posts = data["metrics"]["posts.hiring"]
-    assert set(posts) == {
-        "label",
-        "unit",
-        "method",
-        "description",
-        "polarity",
-        "sources",
-        "series",
-    }
-    assert posts["unit"] == "count" and posts["method"] == "count"
-    assert posts["series"][0] == {"month": "2024-01", "value": 4, "n": 4}
-    assert "2024-04" not in [p["month"] for p in posts["series"]]
-    for metric in data["metrics"].values():
-        assert metric["unit"] in {"count", "share", "usd", "ratio", "score"}
-        assert metric["method"] in {"count", "regex", "join", "jev"}
-
-    work_mode = data["breakdowns"]["work_mode"]
-    assert set(work_mode) == {
-        "label",
-        "method",
-        "categories",
-        "polarity",
-        "sources",
-        "series",
-    }
-    assert work_mode["categories"] == ["remote", "hybrid", "onsite", "unclear"]
-    assert [p["month"] for p in work_mode["series"]] == [
-        "2024-01",
-        "2024-03",
-        "2024-06",
-    ]
-    assert set(work_mode["series"][0]) == {"month", "n", "values"}
-    assert data["breakdowns"]["stack"]["method"] == "vocab"
-
-
 def test_incomplete_threads_are_skipped_and_listed_as_pending(db):
     features.build(db)
     metrics = _metrics(aggregate.compute_month(db, PENDING))
@@ -341,33 +297,146 @@ def test_removed_share(db):
         )
 
 
-def test_samples_are_deterministic_and_complete_only(db):
+def _validation_file(tmp_path, sets: dict) -> Path:
+    path = tmp_path / "validation.json"
+    path.write_text(json.dumps({"model": JEV_MODEL, **sets}))
+    return path
+
+
+def _scores(accuracy: float) -> dict:
+    return {"questions": {"work_mode": {"overall": {"n": 40, "accuracy": accuracy}}}}
+
+
+def test_export_follows_contract(db, tmp_path, monkeypatch):
+    monkeypatch.setattr(export, "MIN_N_SHARE", 0)
+    features.build(db)
+    aggregate.run(db, Namespace(month=None, dry_run=False, limit=None))
+    path = _validation_file(
+        tmp_path, {"holdout": _scores(0.8), "reference": _scores(0.9)}
+    )
+    data = export.build(db, path)
+
+    (fetched,) = db.execute(
+        "SELECT max(fetched_at) FROM threads WHERE fetched_at >= snapshot_at"
+    ).fetchone()
+    assert data["generated_at"] == fetched.astimezone(UTC).strftime(
+        "%Y-%m-%dT%H:%M:%SZ"
+    )
+    assert data["generated_at"] == export.build(db, path)["generated_at"]
+    # The pending month is left out everywhere, even its complete hiring half.
+    assert data["pending"] == [f"{PENDING:%Y-%m}"]
+    assert data["months"] == [f"{t:%Y-%m}" for t in MONTHS if t != PENDING]
+    assert data["latest_month"] == data["months"][-1]
+
+    posts = data["metrics"]["posts.hiring"]
+    assert set(posts) == {
+        "label", "unit", "method", "description", "polarity", "sources",
+        "comparable_from", "validation", "series",
+    }  # fmt: skip
+    assert posts["unit"] == "count" and posts["method"] == "count"
+    assert posts["series"][0] == {"month": "2024-01", "value": 4, "n": 4}
+    months = [p["month"] for p in posts["series"]]
+    assert "2024-04" not in months and f"{PENDING:%Y-%m}" not in months
+    for metric in data["metrics"].values():
+        assert metric["unit"] in {"count", "share", "usd", "ratio", "score"}
+        assert metric["method"] in {"count", "regex", "join", "jev"}
+    assert data["metrics"]["new_company_share.hiring"]["polarity"] == 0
+
+    work_mode = data["breakdowns"]["work_mode"]
+    assert set(work_mode) == {
+        "label", "method", "categories", "polarity", "sources", "comparable_from",
+        "validation", "confidence", "series",
+    }  # fmt: skip
+    assert work_mode["categories"] == ["remote", "hybrid", "onsite", "unclear"]
+    assert [p["month"] for p in work_mode["series"]] == [
+        "2024-01",
+        "2024-03",
+        "2024-06",
+    ]
+    assert set(work_mode["series"][0]) == {"month", "n", "values"}
+    assert work_mode["validation"] == {"set": "holdout", "n": 40, "accuracy": 0.8}
+    assert work_mode["confidence"] is None
+    assert data["breakdowns"]["industry"]["confidence"] == "rough"
+    assert data["breakdowns"]["industry_known"]["confidence"] == "rough"
+    assert data["breakdowns"]["stack"]["method"] == "vocab"
+    assert data["breakdowns"]["stack"]["validation"] is None
+
+
+def test_validation_falls_back_to_reference_then_null(db, tmp_path):
+    reference = export.load_validation(
+        _validation_file(tmp_path, {"reference": _scores(0.9)})
+    )
+    assert reference["work_mode"] == {"set": "reference", "n": 40, "accuracy": 0.9}
+    assert export.load_validation(tmp_path / "missing.json") == {}
+    data = export.build(db, tmp_path / "missing.json")
+    assert data["breakdowns"]["work_mode"]["validation"] is None
+
+
+def _metric_db(tmp_path, rows: list[tuple]) -> duckdb.DuckDBPyConnection:
+    con = connect(tmp_path / "metrics.duckdb")
+    for row in rows:
+        con.execute("INSERT INTO monthly_metrics VALUES (?, 'hiring', ?, ?, ?, ?)", row)
+    return con
+
+
+def test_min_n_omits_small_months(tmp_path):
+    con = _metric_db(tmp_path, [
+        (date(2020, 1, 1), "visa_share", "", 0.1, 49),
+        (date(2020, 2, 1), "visa_share", "", 0.1, 50),
+        (date(2020, 1, 1), "salary_min_median_usd", "", 150_000, 29),
+        (date(2020, 2, 1), "salary_min_median_usd", "", 150_000, 30),
+        (date(2020, 1, 1), "work_mode", "remote", 0.5, 49),
+        (date(2020, 2, 1), "work_mode", "remote", 0.5, 50),
+        (date(2020, 1, 1), "posts", "", 3, 3),
+    ])  # fmt: skip
+    data = export.build(con, tmp_path / "missing.json")
+    assert [p["month"] for p in data["metrics"]["visa_share.hiring"]["series"]] == [
+        "2020-02"
+    ]
+    salary = data["metrics"]["salary_min_median_usd.hiring"]["series"]
+    assert [p["month"] for p in salary] == ["2020-02"]
+    assert [p["month"] for p in data["breakdowns"]["work_mode"]["series"]] == [
+        "2020-02"
+    ]
+    assert data["metrics"]["posts.hiring"]["series"][0]["value"] == 3
+
+
+def test_comparable_from_drops_earlier_points(tmp_path):
+    con = _metric_db(tmp_path, [
+        (date(2015, 6, 1), "remote_token_share", "", 0.2, 100),
+        (date(2015, 7, 1), "remote_token_share", "", 0.4, 100),
+        (date(2013, 3, 1), "new_company_share", "", 0.5, 100),
+        (date(2013, 4, 1), "new_company_share", "", 0.4, 100),
+    ])  # fmt: skip
+    data = export.build(con, tmp_path / "missing.json")
+    remote = data["metrics"]["remote_token_share.hiring"]
+    assert remote["comparable_from"] == "2015-07"
+    assert [p["month"] for p in remote["series"]] == ["2015-07"]
+    assert "July 2015" in remote["description"]
+    new = data["metrics"]["new_company_share.hiring"]
+    assert [p["month"] for p in new["series"]] == ["2013-04"]
+    assert data["metrics"]["visa_share.hiring"]["comparable_from"] is None
+
+
+def test_samples_are_hiring_only_deterministic_and_complete_only(db):
     features.build(db)
     samples = export.build_samples(db)
     assert samples == export.build_samples(db)
-    assert {p["kind"] for p in samples[f"{PENDING:%Y-%m}"]["posts"]} == {"hiring"}
+    assert all(p["kind"] == "hiring" for s in samples.values() for p in s["posts"])
     post = samples["2024-01"]["posts"][0]
     assert set(post) == {"id", "kind", "url", "header", "text", "answers"}
     assert post["url"] == f"https://news.ycombinator.com/item?id={post['id']}"
     assert len(post["text"]) <= 600
     assert post["answers"]["work_mode"] in {"remote", "hybrid", "onsite", "unclear"}
-    in_snapshot = {
+    assert isinstance(post["answers"]["stack"], list)
+    hiring_snapshot = {
         post_id
         for (post_id,) in db.execute(
-            "SELECT post_id FROM posts WHERE in_snapshot"
+            "SELECT post_id FROM posts JOIN threads USING (thread_id) "
+            "WHERE in_snapshot AND kind = 'hiring'"
         ).fetchall()
     }
-    assert all(p["id"] in in_snapshot for s in samples.values() for p in s["posts"])
-
-
-def test_seeking_samples_drop_contact_details():
-    text = (
-        "Email: jane.doe@example.com\nRésumé: https://jane.dev\nPhone +1 (415) 555-0100"
-    )
-    cleaned = export.CONTACT.sub("[removed]", text)
-    assert "@" not in cleaned
-    assert "jane.dev" not in cleaned
-    assert "555" not in cleaned
+    assert all(p["id"] in hiring_snapshot for s in samples.values() for p in s["posts"])
 
 
 def test_sources(db):
