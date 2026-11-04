@@ -18,10 +18,11 @@ import gzip
 import html
 import itertools
 import json
+import math
 import os
 import re
 import zipfile
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import UTC, date, datetime, time, timedelta
 from pathlib import Path
 
@@ -48,6 +49,8 @@ SOURCE = "sec"
 SEC_FIRST_MONTH = "2012-01"
 # SEC fair access allows 10 requests a second; stay well under it.
 MIN_INTERVAL = 0.15
+# SEC blocks a client that goes over the limit for about ten minutes, answering 403.
+THROTTLE_BACKOFF = 60
 
 DATA = "https://data.sec.gov"
 ARCHIVES = "https://www.sec.gov/Archives/edgar/data"
@@ -56,31 +59,29 @@ BULK_SUBMISSIONS = (
 )
 
 SOFTWARE_SIC = {"7370", "7371", "7372", "7373", "7374"}
-# Big tech filed under other SIC codes (hardware, retail, services). Predecessor CIKs are listed
-# too; a company is only ever eligible while it files 10-Ks.
+# Computer hardware (3570-3579) and semiconductors and components (3670-3679) compete for the
+# panel by the same revenue rule as software.
+CANDIDATE_SIC = SOFTWARE_SIC | {
+    str(c) for c in (*range(3570, 3580), *range(3670, 3680))
+}
+# Internet platforms that no SIC rule captures (retail, services, motion pictures). This list is
+# an editorial choice made with hindsight about which companies count as tech.
 NAMED = {
-    320193: "Apple",
     1018724: "Amazon",
-    1045810: "Nvidia",
-    50863: "Intel",
-    858877: "Cisco",
-    51143: "IBM",
-    1065280: "Netflix",
-    804328: "Qualcomm",
-    2488: "AMD",
-    1730168: "Broadcom",
-    1054374: "Broadcom Corp (to 2016)",
-    1571996: "Dell Technologies",
-    826083: "Dell Inc (to 2013)",
-    47217: "HP",
-    1645590: "Hewlett Packard Enterprise",
-    1633917: "PayPal",
-    1065088: "eBay",
     1543151: "Uber",
     1759509: "Lyft",
     1559720: "Airbnb",
     1792789: "DoorDash",
+    1633917: "PayPal",
+    1065088: "eBay",
+    1065280: "Netflix",
 }
+# Filers whose EDGAR code today is outside the candidate codes but whose filings once carried
+# a software code. They are candidates; the code in their own 10-K decides, as for everyone.
+# Other companies that left SIC 7370-7374 later are missed (see architecture.md).
+KNOWN_RECLASSIFIED = {1011006: "Yahoo (Altaba from 2017)", 1563190: "Compass"}
+# 10-K filers with a foreign business address but US headquarters.
+US_DESPITE_ADDRESS = {1649338: "Broadcom Ltd (Singapore address, 2016-2017)"}
 # Business address state, as EDGAR codes it (50 states and DC).
 US_STATES = {
     "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN",
@@ -91,7 +92,7 @@ US_STATES = {
 PANEL_SIZE = 50
 # Candidates are cut to this many by the restated revenue in SEC's frames API, then ranked by
 # revenue as first filed before the panel's cutoff.
-PREFILTER = 100
+PREFILTER = 120
 # A company is alive for a panel when its last 10-K was accepted within this window before Jan 1.
 TEN_K_WINDOW = timedelta(days=456)
 TEN_K = {"10-K", "10-K405", "10-KT"}
@@ -103,9 +104,25 @@ REVENUE_TAGS = (
     "RevenueFromContractWithCustomerExcludingAssessedTax",
     "RevenueFromContractWithCustomerIncludingAssessedTax",
     "SalesRevenueNet",
+    "SalesRevenueGoodsNet",
+    "SalesRevenueServicesNet",
 )
-# In order of preference: a company tagging both reports severance as part of restructuring.
-RESTRUCTURING_TAGS = ("RestructuringCharges", "SeveranceCosts1")
+# In order of preference. Each company-year uses the first tag it reported that year, so tags
+# that overlap (severance is part of restructuring) are never added together.
+RESTRUCTURING_TAGS = (
+    "RestructuringCharges",
+    "SeveranceCosts1",
+    "RestructuringAndRelatedCostIncurredCost",
+    "RestructuringSettlementAndImpairmentProvisions",
+    "RestructuringCosts",
+    "RestructuringCostsAndAssetImpairmentCharges",
+)
+# Companies that file their restructuring charges under their own XBRL element, which company
+# facts leave out (checked by hand: Meta's 2022-23 charges of $4.6 billion and more carry no
+# us-gaap restructuring tag). They are left out of the restructuring series, not read as zero.
+CUSTOM_RESTRUCTURING = {1326801: "Meta"}
+# Annual-length periods in these tags fix each company's fiscal calendar.
+CALENDAR_TAGS = (*REVENUE_TAGS, "NetIncomeLoss", *RESTRUCTURING_TAGS)
 
 # Earnings releases that state headcount (checked by hand, 2026-11-04). Google Inc filed under
 # its own CIK until Alphabet replaced it as the registrant in October 2015.
@@ -127,10 +144,13 @@ class Filing:
     items: tuple[str, ...] = ()
     primary_doc: str = ""
     report_date: str = ""
+    filing_date: str = ""
 
 
 def parse_accepted(text: str) -> datetime:
-    # EDGAR's acceptanceDateTime is UTC ("Z"): an 8-K accepted 16:03 Eastern reads 20:03Z.
+    """EDGAR's acceptanceDateTime. Since 2002 it is UTC (an 8-K accepted 16:03 Eastern reads
+    20:03Z, and the filing header says 160335); before that only the date was kept, as
+    midnight. Month counts use filingDate, EDGAR's official (Eastern) filing date."""
     return datetime.fromisoformat(text).astimezone(UTC)
 
 
@@ -149,6 +169,7 @@ def read_filings(block: dict, forms: set[str] | None = None) -> list[Filing]:
                 items=tuple(x.strip() for x in items.split(",") if x.strip()),
                 primary_doc=block.get("primaryDocument", [""] * len(block["form"]))[i],
                 report_date=block.get("reportDate", [""] * len(block["form"]))[i],
+                filing_date=block.get("filingDate", [""] * len(block["form"]))[i],
             )
         )
     return out
@@ -279,6 +300,23 @@ class Edgar:
             path.write_bytes(gzip.compress(page.encode(), mtime=0))
         return find_exhibit(gzip.decompress(path.read_bytes()).decode(), kind)
 
+    def filing_sic(self, cik: int, accn: str) -> str:
+        """SIC code in the filing's own header, as it stood when the filing was made."""
+        folder = accn.replace("-", "")
+        path = self.cache_dir / "headers" / str(cik) / f"{accn}.sic"
+        if not path.exists():
+            try:
+                header = self.client.get(
+                    f"{ARCHIVES}/{cik}/{folder}/{accn}-index-headers.html"
+                ).text
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code != 404:
+                    raise
+                header = ""
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(header_sic(html.unescape(header), cik))
+        return path.read_text()
+
     def bulk_submissions(self) -> Path:
         path = self.cache_dir / "submissions.zip"
         if not self._fresh(path):
@@ -305,72 +343,108 @@ def find_exhibit(index_page: str, kind: str) -> str | None:
     return None
 
 
-# ---------- every SIC 7370-7374 filer, from the nightly bulk file ----------
+# ---------- every filer, from the nightly bulk file ----------
 
-SIC_RE = re.compile(rb'"sic":"(\d*)"')
+SIC_RE = re.compile(rb'"sic":\s*"(\d*)"')
 
 
-def scan_bulk(zip_path: Path, extra_ciks: set[int]) -> dict[int, dict]:
-    """SIC 7370-7374 filers and the named companies: name, SIC, business state, original 10-Ks
-    and the acceptance times of their Item 2.05 8-Ks.
+def filer_record(main: dict, filings: list[Filing]) -> dict:
+    return {
+        "name": main.get("name", ""),
+        "sic": main.get("sic", ""),
+        "state": ((main.get("addresses") or {}).get("business") or {}).get(
+            "stateOrCountry"
+        ),
+        "ten_k": sorted(
+            [f.accn, f.accepted.isoformat()] for f in filings if f.form in TEN_K
+        ),
+        "reports": sorted(f.accepted.isoformat() for f in filings if f.form in REPORTS),
+        "deregistered": sorted(
+            f.accepted.isoformat() for f in filings if f.form in DEREGISTRATION
+        ),
+    }
 
-    SIC and address are as of the bulk file's date, not as of each month: EDGAR keeps no history
-    of either. Companies that stopped filing keep their last SIC, so dead filers still count.
+
+def scan_bulk(zip_path: Path, extra_ciks: set[int]) -> dict:
+    """Two things from submissions.zip:
+
+    - `filers`: panel candidates (today's SIC in CANDIDATE_SIC, or a CIK in `extra_ciks`) with
+      name, SIC, business state, original 10-Ks, periodic reports and Form 15s. Today's SIC
+      only finds candidates; the panel checks the code each 10-K was filed under.
+    - `layoffs`: every original 8-K that lists Item 2.05, from any filer, as
+      [cik, accession, filingDate, acceptanceDateTime]. The count checks each one's SIC in
+      its own filing header.
     """
-    keep = {}
+    filers: dict[int, dict] = {}
+    layoffs: list[list] = []
     with zipfile.ZipFile(zip_path) as z:
-        names = set(z.namelist())
-        for name in sorted(names):
-            if "-submissions-" in name or not name.startswith("CIK"):
+        names = sorted(n for n in z.namelist() if n.startswith("CIK"))
+        pages: dict[int, list[str]] = {}
+        for name in names:
+            if "-submissions-" in name:
+                pages.setdefault(int(name[3:13]), []).append(name)
+        for name in names:
+            if "-submissions-" in name:
                 continue
             body = z.read(name)
-            sic = SIC_RE.search(body[:4000])
             cik = int(name[3:13])
-            if not ((sic and sic[1].decode() in SOFTWARE_SIC) or cik in extra_ciks):
+            sic = SIC_RE.search(body[:4000])
+            candidate = (sic and sic[1].decode() in CANDIDATE_SIC) or cik in extra_ciks
+            older = [z.read(p) for p in pages.get(cik, [])]
+            if (
+                not candidate
+                and b"2.05" not in body
+                and not any(b"2.05" in page for page in older)
+            ):
                 continue
             main = json.loads(body)
             filings = read_filings(main["filings"]["recent"])
-            for page in main["filings"].get("files", []):
-                if page["name"] in names:
-                    filings += read_filings(json.loads(z.read(page["name"])))
-            keep[cik] = {
-                "name": main.get("name", ""),
-                "sic": main.get("sic", ""),
-                "state": ((main.get("addresses") or {}).get("business") or {}).get(
-                    "stateOrCountry"
-                ),
-                "ten_k": sorted(
-                    [f.accn, f.accepted.isoformat()] for f in filings if f.form in TEN_K
-                ),
-                "reports": sorted(
-                    f.accepted.isoformat() for f in filings if f.form in REPORTS
-                ),
-                "deregistered": sorted(
-                    f.accepted.isoformat() for f in filings if f.form in DEREGISTRATION
-                ),
-                "item_205": sorted(
-                    f.accepted.isoformat() for f in filings if is_layoff_8k(f)
-                ),
-            }
-    return keep
+            for page in older:
+                filings += read_filings(json.loads(page))
+            if candidate:
+                filers[cik] = filer_record(main, filings)
+            layoffs += [
+                [cik, f.accn, f.filing_date, f.accepted.isoformat()]
+                for f in filings
+                if is_layoff_8k(f)
+            ]
+    return {"filers": filers, "layoffs": sorted(layoffs, key=lambda r: (r[2], r[1]))}
 
 
-def software_filers(edgar: Edgar) -> dict[int, dict]:
+def bulk_index(edgar: Edgar) -> dict:
     """scan_bulk over the cached bulk file, itself cached until the zip changes."""
     zip_path = edgar.bulk_submissions()
-    index = zip_path.with_name("software_filers.json.gz")
+    index = zip_path.with_name("bulk_index.json.gz")
     stamp = int(zip_path.stat().st_mtime)
     if index.exists():
         stored = json.loads(gzip.decompress(index.read_bytes()))
         if stored["zip_mtime"] == stamp:
-            return {int(k): v for k, v in stored["filers"].items()}
-    filers = scan_bulk(zip_path, set(NAMED))
-    index.write_bytes(
-        gzip.compress(
-            json.dumps({"zip_mtime": stamp, "filers": filers}).encode(), mtime=0
-        )
+            stored["filers"] = {int(k): v for k, v in stored["filers"].items()}
+            return stored
+    scanned = scan_bulk(
+        zip_path, set(NAMED) | set(KNOWN_RECLASSIFIED) | set(US_DESPITE_ADDRESS)
     )
-    return filers
+    index.write_bytes(
+        gzip.compress(json.dumps({"zip_mtime": stamp, **scanned}).encode(), mtime=0)
+    )
+    return scanned
+
+
+def header_sic(header: str, cik: int) -> str:
+    """ASSIGNED-SIC for `cik` in a filing header (the SIC on file when it was filed). A
+    filing made for several companies lists each filer; the one asked for wins."""
+    blocks = re.split(r"<FILER>", header)[1:] or [header]
+    for block in blocks:
+        key = re.search(r"<CIK>\s*0*(\d+)", block) or re.search(
+            r"CENTRAL INDEX KEY:\s*0*(\d+)", block
+        )
+        sic = re.search(r"<ASSIGNED-SIC>\s*(\d+)", block) or re.search(
+            r"STANDARD INDUSTRIAL CLASSIFICATION:[^\[\n]*\[(\d+)\]", block
+        )
+        if sic and (key is None or int(key[1]) == cik):
+            return sic[1]
+    first = re.search(r"<ASSIGNED-SIC>\s*(\d+)", header)
+    return first[1] if first else ""
 
 
 # ---------- XBRL facts ----------
@@ -446,17 +520,77 @@ def calendar_quarter(start: str, end: str) -> str:
     return f"{mid.year}-Q{(mid.month - 1) // 3 + 1}"
 
 
-def restructuring_by_quarter(
-    facts: dict[str, list[dict]], accepted: dict[str, datetime], cut: datetime
-) -> dict[str, float]:
-    """Calendar quarter → restructuring charge, as first filed before `cut`. `facts` maps
-    each tag in RESTRUCTURING_TAGS to its USD facts."""
-    out: dict[str, float] = {}
+def fiscal_year_key(end: str, fy_ends: list[str]) -> str:
+    """The fiscal year a period ending `end` belongs to, named by its year end. Periods after
+    the last known year end share an open key."""
+    e = date.fromisoformat(end)
+    for f in fy_ends:
+        gap = (date.fromisoformat(f) - e).days
+        if 0 <= gap < 370:
+            return f
+    return f"after-{fy_ends[-1]}" if fy_ends else end[:4]
+
+
+def tag_quarters(
+    periods: dict[tuple[str, str], tuple[float, datetime]],
+    tag_accns: set[str],
+    filings: list[Filing],
+    cut: datetime,
+) -> dict[tuple[str, str], float]:
+    """Three-month values of one tag, plus a fourth quarter from a year with silent 10-Qs.
+
+    A company that reports a restructuring charge only in its 10-K (Salesforce's $828 million
+    in the quarter to January 2023) has no nine-month value to subtract. When the year's three
+    10-Qs were all accepted without the tag, the nine months count as zero and the fourth
+    quarter is the full year.
+    """
+    out = quarters(periods)
+    for (start, end), (value, _) in periods.items():
+        if not 350 <= days(start, end) <= 380 or any(e == end for _, e in out):
+            continue
+        ten_qs = [
+            f
+            for f in filings
+            if f.form in ("10-Q", "10-QT")
+            and f.accepted < cut
+            and start < f.report_date < end
+        ]
+        quarter_ends = sorted({f.report_date for f in ten_qs})
+        if len(quarter_ends) != 3 or any(f.accn in tag_accns for f in ten_qs):
+            continue
+        q4_start = (
+            date.fromisoformat(quarter_ends[-1]) + timedelta(days=1)
+        ).isoformat()
+        if is_quarter(q4_start, end):
+            out[(q4_start, end)] = value
+    return out
+
+
+def restructuring_by_quarter(company: "Company", cut: datetime) -> dict[str, float]:
+    """Calendar quarter → restructuring charge, as first filed before `cut`.
+
+    Each fiscal year uses one tag: the first in RESTRUCTURING_TAGS that the company reported
+    for that year by `cut`. Mixing tags within a year would add a total to its own part.
+    """
+    by_tag: dict[str, dict[tuple[str, str], float]] = {}
+    years_by_tag: dict[str, set[str]] = {}
     for tag in RESTRUCTURING_TAGS:
-        for (start, end), value in quarters(
-            first_filed(facts.get(tag, []), accepted, cut)
-        ).items():
-            out.setdefault(calendar_quarter(start, end), value)
+        facts = company.facts.get(tag, [])
+        periods = first_filed(facts, company.accepted, cut)
+        if not periods:
+            continue
+        accns = {f["accn"] for f in facts}
+        by_tag[tag] = tag_quarters(periods, accns, company.filings, cut)
+        years_by_tag[tag] = {fiscal_year_key(e, company.fy_ends) for _, e in periods}
+    out: dict[str, float] = {}
+    for tag, quarter_values in by_tag.items():
+        for (start, end), value in quarter_values.items():
+            year = fiscal_year_key(end, company.fy_ends)
+            chosen = next(
+                (t for t in RESTRUCTURING_TAGS if year in years_by_tag.get(t, ())), tag
+            )
+            if chosen == tag:
+                out.setdefault(calendar_quarter(start, end), value)
     return out
 
 
@@ -474,18 +608,29 @@ def ref_quarter(month: str) -> str:
     return f"{year}-Q{q}"
 
 
+# One tag a thousand times the others is a units slip (Tigo Energy tagged $54 million of 2024
+# revenue as $54 billion in one tag); such a value is dropped.
+SCALE_SLIP = 100
+
+
 def annual_revenue(
     companyfacts: dict, accepted: dict[str, datetime], cut: datetime
 ) -> tuple[float, str] | None:
-    """(revenue, fiscal year end) for the latest fiscal year in a 10-K accepted before `cut`."""
-    best: tuple[str, float] | None = None
+    """(revenue, fiscal year end) for the latest fiscal year in a 10-K accepted before `cut`:
+    the largest revenue tag for that year, ignoring a tag more than SCALE_SLIP times the
+    smallest."""
+    by_end: dict[str, list[float]] = {}
     for tag in REVENUE_TAGS:
         for (start, end), (value, _) in first_filed(
             usd_facts(companyfacts, tag), accepted, cut
         ).items():
-            if 350 <= days(start, end) <= 380 and (best is None or (end, value) > best):
-                best = (end, value)
-    return (best[1], best[0]) if best else None
+            if 350 <= days(start, end) <= 380 and value > 0:
+                by_end.setdefault(end, []).append(value)
+    if not by_end:
+        return None
+    end = max(by_end)
+    values = by_end[end]
+    return max(v for v in values if v <= min(values) * SCALE_SLIP), end
 
 
 # ---------- panel ----------
@@ -495,11 +640,11 @@ def panel_path(year: int, directory: Path = SEC_DIR) -> Path:
     return directory / "panel" / f"{year}.json"
 
 
-def eligible(filer: dict, cut: datetime) -> bool:
+def eligible(filer: dict, cut: datetime, cik: int = 0) -> bool:
     """A US-based filer with a 10-K in the year or so before `cut` that had not deregistered by
     then. A Form 15 for one class of securities (notes, say) is followed by more 10-Qs, so only
     a Form 15 after the last periodic report counts."""
-    if filer["state"] not in US_STATES:
+    if filer["state"] not in US_STATES and cik not in US_DESPITE_ADDRESS:
         return False
     if not any(
         cut - TEN_K_WINDOW <= parse_accepted(t) < cut for _, t in filer["ten_k"]
@@ -511,6 +656,10 @@ def eligible(filer: dict, cut: datetime) -> bool:
     )
 
 
+def last_ten_k(filer: dict, cut: datetime) -> str:
+    return max((t, accn) for accn, t in filer["ten_k"] if parse_accepted(t) < cut)[1]
+
+
 def frame_revenue(edgar: Edgar, year: int) -> dict[int, float]:
     out: dict[int, float] = {}
     for tag in REVENUE_TAGS:
@@ -520,36 +669,43 @@ def frame_revenue(edgar: Edgar, year: int) -> dict[int, float]:
 
 
 def rank_panel(
-    year: int, candidates: dict[int, dict], revenue: dict[int, tuple[float, str]]
+    year: int,
+    candidates: dict[int, dict],
+    revenue: dict[int, tuple[float, str]],
+    sics: dict[int, str],
 ) -> dict:
-    """The top PANEL_SIZE candidates by revenue as first filed before Jan 1 of `year`."""
+    """The top PANEL_SIZE candidates by revenue as first filed before Jan 1 of `year`. `sics`
+    holds each candidate's code as filed in its latest 10-K; a company is in by that code or by
+    name."""
     ranked = sorted(
-        (cik for cik in candidates if cik in revenue),
+        (
+            cik
+            for cik in candidates
+            if cik in revenue and (cik in NAMED or sics.get(cik) in CANDIDATE_SIC)
+        ),
         key=lambda c: (-revenue[c][0], c),
     )[:PANEL_SIZE]
-    companies = []
-    for rank, cik in enumerate(ranked, 1):
-        filer = candidates[cik]
-        companies.append(
-            {
-                "cik": cik,
-                "name": filer["name"],
-                "sic": filer["sic"],
-                "reason": f"sic_{filer['sic']}"
-                if filer["sic"] in SOFTWARE_SIC
-                else "named",
-                "rank": rank,
-                "revenue_usd": revenue[cik][0],
-                "revenue_fiscal_year_end": revenue[cik][1],
-            }
-        )
+    companies = [
+        {
+            "cik": cik,
+            "name": candidates[cik]["name"],
+            "sic": sics.get(cik, ""),
+            "reason": "named" if cik in NAMED else f"sic_{sics[cik]}",
+            "rank": rank,
+            "revenue_usd": revenue[cik][0],
+            "revenue_fiscal_year_end": revenue[cik][1],
+        }
+        for rank, cik in enumerate(ranked, 1)
+    ]
     return {
         "year": year,
         "cutoff": f"{year}-01-01T00:00:00Z",
         "rule": (
-            f"US-based 10-K filers in SIC 7370-7374 plus {len(NAMED)} named big-tech CIKs, "
-            f"with a 10-K accepted in the {TEN_K_WINDOW.days} days before the cutoff; top "
-            f"{PANEL_SIZE} by annual revenue in the latest 10-K accepted before the cutoff"
+            "US-based 10-K filers whose latest 10-K before the cutoff was filed under SIC "
+            f"3570-3579, 3670-3679 or 7370-7374, plus {len(NAMED)} named internet platforms, "
+            f"with a 10-K accepted in the {TEN_K_WINDOW.days} days before the cutoff and no "
+            f"Form 15 since; top {PANEL_SIZE} by annual revenue in the latest 10-K accepted "
+            "before the cutoff"
         ),
         "companies": companies,
     }
@@ -557,24 +713,23 @@ def rank_panel(
 
 def build_panel(year: int, filers: dict[int, dict], edgar: Edgar) -> dict:
     cut = datetime(year, 1, 1, tzinfo=UTC)
-    candidates = {cik: f for cik, f in filers.items() if eligible(f, cut)}
+    candidates = {cik: f for cik, f in filers.items() if eligible(f, cut, cik)}
     # The frames API holds the latest restated values, so it only shortlists; the ranking uses
     # each company's revenue as first filed before the cutoff.
     restated = frame_revenue(edgar, year - 2)
-    shortlist = sorted(
-        (c for c in candidates if c in restated or c in NAMED),
-        key=lambda c: (c not in NAMED, -restated.get(c, 0.0)),
+    others = sorted(
+        (c for c in candidates if c in restated and c not in NAMED),
+        key=lambda c: -restated[c],
     )
-    shortlist = [c for c in shortlist if c in NAMED] + [
-        c for c in shortlist if c not in NAMED
-    ][:PREFILTER]
-    revenue = {}
+    shortlist = [c for c in candidates if c in NAMED] + others[:PREFILTER]
+    revenue, sics = {}, {}
     for cik in shortlist:
         accepted = {accn: parse_accepted(t) for accn, t in candidates[cik]["ten_k"]}
         picked = annual_revenue(edgar.companyfacts(cik), accepted, cut)
         if picked:
             revenue[cik] = picked
-    return rank_panel(year, candidates, revenue)
+            sics[cik] = edgar.filing_sic(cik, last_ten_k(candidates[cik], cut))
+    return rank_panel(year, candidates, revenue, sics)
 
 
 def load_panel(year: int, directory: Path = SEC_DIR) -> dict | None:
@@ -595,7 +750,7 @@ SCALE = {"thousand": 1_000, "million": 1_000_000}
 # "employed: 29,187 employees".
 LEAD = (
     r"\b(?:had|employed|employ|employs|have|has|employing|of|was|were|totaled|totaling|"
-    r"comprised|consisted of|approximately|our|by)[:\s]+"
+    r"comprised|consisted of|approximately|our|by|with)[:\s]+"
 )
 NOUN = (
     r"(?:(?:full[- ]time[- ]equivalent|full[- ]time|part[- ]time|full|regular|permanent|"
@@ -617,6 +772,15 @@ STATED_LIST = re.compile(
     + r"(?:a total of\s+)?"
     + NUMBER
     + r"()(?:,\s+[\d,]+)*,?\s+and\s+[\d,]+\s+"
+    + NOUN,
+    re.IGNORECASE,
+)
+# "we employed 9,060 full-time and 240 part-time employees": the full-time count.
+FULL_AND_PART = re.compile(
+    LEAD
+    + r"(?:approximately\s+)?"
+    + NUMBER
+    + r"()\s+full[- ]time(?:\s+employees)?\s+and\s+(?:approximately\s+)?[\d,]+\s+part[- ]time\s+"
     + NOUN,
     re.IGNORECASE,
 )
@@ -681,6 +845,7 @@ def _number(digits: str, scale: str | None) -> float:
 
 
 PART_ONLY = re.compile(r"part[- ]time|temporary", re.IGNORECASE)
+MIN_SCORE = 1
 
 
 def headcount(text: str) -> tuple[int, str] | None:
@@ -691,15 +856,17 @@ def headcount(text: str) -> tuple[int, str] | None:
     stated at a date, +1 for "we had/employed", -5 when the words around the number say it is
     a part (part-time staff, one country, one function), a change (a layoff, growth) or
     someone else's (customers, a director's past employer). The best score wins, then the
-    earliest; a negative best means no count. When no sentence scores 1 or more, a table row
-    ("Total 73,700" under "Employees are summarized") is used.
+    earliest. A sentence needs a score of at least 1 (a date or "we had"): a bare "We have
+    9,639 employees working in game development" is not the company total. Without one, a
+    table row ("Total 73,700" under "Employees are summarized") is used, and failing that
+    there is no count.
     """
     best: tuple[int, int, int, str] | None = None  # (score, -order, value, sentence)
     order = 0
     for sentence in sentences(text):
         if not EMPLOYEE_WORDS.search(sentence):
             continue
-        for pattern in (STATED_LIST, STATED, HEADCOUNT_WAS, WORKFORCE):
+        for pattern in (FULL_AND_PART, STATED_LIST, STATED, HEADCOUNT_WAS, WORKFORCE):
             match = pattern.search(sentence)
             if not match:
                 continue
@@ -717,7 +884,11 @@ def headcount(text: str) -> tuple[int, str] | None:
                 )
             )
             # Part-time or temporary staff on their own are not the headline count.
-            part_only = PART_ONLY.search(match[0]) and "full" not in match[0].lower()
+            part_only = (
+                pattern is not FULL_AND_PART
+                and PART_ONLY.search(match[0])
+                and "full" not in match[0].lower()
+            )
             if (
                 part_only
                 or NOT_TOTAL.search(before)
@@ -729,13 +900,13 @@ def headcount(text: str) -> tuple[int, str] | None:
             if best is None or candidate[:2] > best[:2]:
                 best = candidate
             break
-    if (best is None or best[0] < 1) and (table := TABLE.search(text)):
+    if best is not None and best[0] >= MIN_SCORE:
+        return best[2], best[3]
+    if table := TABLE.search(text):
         # A geography table ends with the total column.
         total = table[1].split()[-1]
         return int(total.replace(",", "")), table.group(0)[-300:]
-    if best is None or best[0] < 0:
-        return None
-    return best[2], best[3]
+    return None
 
 
 COLUMNS = r"((?:\d{1,3}(?:,\d{3})+\s*)+)"
@@ -777,9 +948,22 @@ class Company:
     filings: list[Filing]
     accepted: dict[str, datetime]
     facts: dict[str, list[dict]]
+    fy_ends: list[str] = field(default_factory=list)
+    name: str = ""
 
 
-def load_company(edgar: Edgar, cik: int) -> Company:
+def fiscal_year_ends(companyfacts: dict) -> list[str]:
+    return sorted(
+        {
+            f["end"]
+            for tag in CALENDAR_TAGS
+            for f in usd_facts(companyfacts, tag)
+            if "start" in f and 350 <= days(f["start"], f["end"]) <= 380
+        }
+    )
+
+
+def load_company(edgar: Edgar, cik: int, name: str = "") -> Company:
     _, filings = edgar.submissions(cik)
     facts = edgar.companyfacts(cik)
     return Company(
@@ -787,6 +971,8 @@ def load_company(edgar: Edgar, cik: int) -> Company:
         filings=filings,
         accepted={f.accn: f.accepted for f in filings},
         facts={tag: usd_facts(facts, tag) for tag in RESTRUCTURING_TAGS},
+        fy_ends=fiscal_year_ends(facts),
+        name=name or NAMED.get(cik, ""),
     )
 
 
@@ -878,10 +1064,6 @@ def previous_month(month: str) -> str:
     return f"{year - 1}-12" if m == 1 else f"{year}-{m - 1:02d}"
 
 
-def in_month(accepted: datetime, month: str) -> bool:
-    return accepted.strftime("%Y-%m") == month
-
-
 def entry(
     value, ref_period: str, as_of: date, source_url: str, n: int | None = None
 ) -> dict:
@@ -896,24 +1078,35 @@ def entry(
     return out
 
 
-def restructuring_value(
+def restructuring_values(
     month: str, as_of: date, companies: list[Company]
-) -> dict | None:
+) -> dict[str, dict]:
+    """The panel's restructuring dollars and the number of companies with a charge, for the
+    reference quarter. Companies with their own restructuring element are left out of both."""
     cut, quarter = cutoff(as_of), ref_quarter(month)
-    reported = []
-    for c in companies:
-        by_quarter = restructuring_by_quarter(c.facts, c.accepted, cut)
-        if quarter in by_quarter:
-            reported.append(by_quarter[quarter])
-    if not reported:
-        return None
-    return entry(
-        round(sum(reported)),
-        quarter,
-        as_of,
-        f"{DATA}/api/xbrl/companyfacts/",
-        len(reported),
+    counted = [c for c in companies if c.cik not in CUSTOM_RESTRUCTURING]
+    charges = []
+    for c in counted:
+        value = restructuring_by_quarter(c, cut).get(quarter)
+        if value:
+            charges.append((value, c))
+    total = sum(v for v, _ in charges)
+    dollars = entry(
+        round(total), quarter, as_of, f"{DATA}/api/xbrl/companyfacts/", len(charges)
     )
+    if charges and total > 0:
+        value, top = max(charges, key=lambda x: (x[0], -x[1].cik))
+        dollars["top"] = {
+            "cik": top.cik,
+            "name": top.name,
+            "share": round(value / total, 4),
+        }
+    return {
+        RESTRUCTURING_KEY: dollars,
+        RESTRUCTURING_COUNT_KEY: entry(
+            len(charges), quarter, as_of, f"{DATA}/api/xbrl/companyfacts/", len(counted)
+        ),
+    }
 
 
 def panel_layoff_value(month: str, as_of: date, companies: list[Company]) -> dict:
@@ -922,29 +1115,36 @@ def panel_layoff_value(month: str, as_of: date, companies: list[Company]) -> dic
         1
         for c in companies
         for f in c.filings
-        if is_layoff_8k(f) and in_month(f.accepted, ref) and f.accepted < cut
+        if is_layoff_8k(f) and f.filing_date[:7] == ref and f.accepted < cut
     )
     return entry(count, ref, as_of, f"{DATA}/submissions/", len(companies))
 
 
-def software_layoff_value(month: str, as_of: date, filers: dict[int, dict]) -> dict:
+def software_layoff_value(month: str, as_of: date, layoffs: list[list], sic_of) -> dict:
+    """Item 2.05 8-Ks filed in the month before `month` by companies whose filing header
+    carried SIC 7370-7374. `sic_of(cik, accession)` reads that header."""
     cut, ref = cutoff(as_of), previous_month(month)
     count = sum(
         1
-        for filer in filers.values()
-        if filer["sic"] in SOFTWARE_SIC
-        for t in filer["item_205"]
-        if in_month(when := parse_accepted(t), ref) and when < cut
+        for cik, accn, filed, accepted in layoffs
+        if filed[:7] == ref
+        and parse_accepted(accepted) < cut
+        and sic_of(cik, accn) in SOFTWARE_SIC
     )
     return entry(count, ref, as_of, BULK_SUBMISSIONS)
 
 
+# A change bigger than this (a third up, or a quarter down) is a spin-off or a large
+# acquisition, not hiring or layoffs: HP's split, eBay without PayPal, Symantec without Veritas.
+MAX_LOG_CHANGE = 0.3
+
+
 def matched_headcounts(
     as_of: date, companies: list[Company], counts: Headcounts
-) -> list[tuple[int, int, str]]:
-    """(latest, previous, latest fiscal year end) for panel companies whose latest two 10-Ks
-    (accepted by the as-of date, the newer within a year or so) both state a count about a
-    year apart."""
+) -> list[tuple[int, int, int, str]]:
+    """(cik, latest, previous, latest fiscal year end) for panel companies whose latest two
+    10-Ks (accepted by the as-of date, the newer within a year or so) both state a count about
+    a year apart and moved by less than MAX_LOG_CHANGE in log terms."""
     cut = cutoff(as_of)
     out = []
     for c in companies:
@@ -956,7 +1156,9 @@ def matched_headcounts(
             continue
         if not 300 <= days(prior["period"], latest["period"]) <= 430:
             continue
-        out.append((latest["value"], prior["value"], latest["period"]))
+        if abs(math.log(latest["value"] / prior["value"])) > MAX_LOG_CHANGE:
+            continue
+        out.append((c.cik, latest["value"], prior["value"], latest["period"]))
     return out
 
 
@@ -964,19 +1166,22 @@ def headcount_change(
     as_of: date, companies: list[Company], counts: Headcounts
 ) -> dict[str, dict | None]:
     """Year-over-year change in panel headcount two ways: the total (Σ latest ÷ Σ previous,
-    which Amazon's warehouse staff dominate) and the median company's change."""
+    which Amazon's warehouse staff dominate) and the median company's change. Each point
+    lists the companies behind it, which change from month to month as 10-Ks arrive."""
     matched = matched_headcounts(as_of, companies, counts)
     if not matched:
         return {TOTAL_YOY_KEY: None, MEDIAN_YOY_KEY: None}
-    ref = max(period for _, _, period in matched)[:7]
-    total = sum(now for now, _, _ in matched) / sum(then for _, then, _ in matched) - 1
-    ratios = sorted(now / then - 1 for now, then, _ in matched)
+    ref = max(period for *_, period in matched)[:7]
+    total = sum(m[1] for m in matched) / sum(m[2] for m in matched) - 1
+    ratios = sorted(now / then - 1 for _, now, then, _ in matched)
     mid = len(ratios) // 2
     median = ratios[mid] if len(ratios) % 2 else (ratios[mid - 1] + ratios[mid]) / 2
-    return {
-        key: entry(round(value, 4), ref, as_of, f"{ARCHIVES}/", len(matched))
-        for key, value in ((TOTAL_YOY_KEY, total), (MEDIAN_YOY_KEY, median))
-    }
+    ciks = sorted(m[0] for m in matched)
+    out = {}
+    for key, value in ((TOTAL_YOY_KEY, total), (MEDIAN_YOY_KEY, median)):
+        out[key] = entry(round(value, 4), ref, as_of, f"{ARCHIVES}/", len(matched))
+        out[key]["companies"] = ciks
+    return out
 
 
 def quarterly_headcount(key: str, as_of: date, counts: Headcounts) -> dict | None:
@@ -994,10 +1199,13 @@ def quarterly_headcount(key: str, as_of: date, counts: Headcounts) -> dict | Non
     )
 
 
+RESTRUCTURING_KEY = "sec_restructuring_usd.US"
+RESTRUCTURING_COUNT_KEY = "sec_restructuring_companies.US"
 TOTAL_YOY_KEY = "sec_headcount_panel.US"
 MEDIAN_YOY_KEY = "sec_headcount_median_yoy.US"
 PANEL_KEYS = [
-    "sec_restructuring_usd.US",
+    RESTRUCTURING_KEY,
+    RESTRUCTURING_COUNT_KEY,
     "sec_item_205_filings_panel.US",
     TOTAL_YOY_KEY,
     MEDIAN_YOY_KEY,
@@ -1019,18 +1227,18 @@ class Sources:
         self.directory = directory
         self.counts = counts
         self.companies: dict[int, Company] = {}
-        self._filers: dict[int, dict] | None = None
+        self._bulk: dict | None = None
         self.quarterly_ready = False
         self.failed: set[str] = set()
 
-    def filers(self) -> dict[int, dict]:
-        if self._filers is None:
-            self._filers = software_filers(self.edgar)
-        return self._filers
+    def bulk(self) -> dict:
+        if self._bulk is None:
+            self._bulk = bulk_index(self.edgar)
+        return self._bulk
 
-    def company(self, cik: int) -> Company:
+    def company(self, cik: int, name: str = "") -> Company:
         if cik not in self.companies:
-            company = load_company(self.edgar, cik)
+            company = load_company(self.edgar, cik, name)
             self.counts.annual(self.edgar, company)
             self.companies[cik] = company
         return self.companies[cik]
@@ -1039,7 +1247,7 @@ class Sources:
         panel = load_panel(year, self.directory)
         if panel is None:
             print(f"sec: building the {year} panel", flush=True)
-            panel = build_panel(year, self.filers(), self.edgar)
+            panel = build_panel(year, self.bulk()["filers"], self.edgar)
             save_json(panel_path(year, self.directory), panel)
         return panel
 
@@ -1071,10 +1279,11 @@ def month_values(month: str, as_of: date, src: Sources) -> tuple[dict, list[str]
 
     def panel_group() -> dict:
         companies = [
-            src.company(c["cik"]) for c in src.panel(int(month[:4]))["companies"]
+            src.company(c["cik"], c["name"])
+            for c in src.panel(int(month[:4]))["companies"]
         ]
         return {
-            "sec_restructuring_usd.US": restructuring_value(month, as_of, companies),
+            **restructuring_values(month, as_of, companies),
             "sec_item_205_filings_panel.US": panel_layoff_value(
                 month, as_of, companies
             ),
@@ -1092,7 +1301,11 @@ def month_values(month: str, as_of: date, src: Sources) -> tuple[dict, list[str]
     attempt(
         "bulk",
         [SOFTWARE_KEY],
-        lambda: {SOFTWARE_KEY: software_layoff_value(month, as_of, src.filers())},
+        lambda: {
+            SOFTWARE_KEY: software_layoff_value(
+                month, as_of, src.bulk()["layoffs"], src.edgar.filing_sic
+            )
+        },
     )
     attempt("quarterly", QUARTERLY_KEYS, quarterly_group)
     return values, sorted(missing)
@@ -1135,7 +1348,12 @@ def run(con: duckdb.DuckDBPyConnection, args: argparse.Namespace) -> None:
         return
     if not todo:
         return
-    client = Client(min_interval=MIN_INTERVAL, user_agent=user_agent(), timeout=120)
+    client = Client(
+        min_interval=MIN_INTERVAL,
+        user_agent=user_agent(),
+        timeout=120,
+        throttle_backoff=THROTTLE_BACKOFF,
+    )
     newest = max(as_of_date(threads[m]) for m in todo)
     src = Sources(Edgar(client, fresh_after=newest), Headcounts())
     for month in todo:

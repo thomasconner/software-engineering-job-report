@@ -234,33 +234,63 @@ def _sec(name: str, label: str, unit: str, description: str, credit: str) -> Ser
 
 
 PANEL = "the SEC panel (about 50 US public tech companies, fixed each January)"
+LATE_FILERS = (
+    "The same quarter is shown for three HN months, and its value can change between them "
+    "as late filers arrive."
+)
+MATCHED = (
+    "Each point lists the companies behind it (CIKs); the set changes from month to month as "
+    "10-Ks arrive. Companies whose count moved by more than about a third (a spin-off or a "
+    "large acquisition, such as HP's split or eBay without PayPal) are left out, because "
+    "their change is not hiring or layoffs."
+)
 SERIES += [
     _sec(
         "sec_restructuring_usd",
-        "Restructuring charges, US public tech panel",
+        "Restructuring and other charges, US public tech panel",
         "usd",
-        f"Restructuring charges (XBRL RestructuringCharges, else SeveranceCosts1) for one "
-        f"calendar quarter, summed over {PANEL}; n is the number of companies that reported "
-        "one. The quarter is the latest that every company had to file by the as-of date, so "
-        "it trails the HN month by four to six months. Companies tag the charge only in "
-        "quarters they have one.",
+        "Restructuring and other charges for one calendar quarter, summed over "
+        f"{PANEL}. Each company-year uses the first of these XBRL tags it reported: "
+        "RestructuringCharges, SeveranceCosts1, RestructuringAndRelatedCostIncurredCost, "
+        "RestructuringSettlementAndImpairmentProvisions, RestructuringCosts, "
+        "RestructuringCostsAndAssetImpairmentCharges; some include impairments and other "
+        "exit costs. Meta files its charges under its own XBRL element and is left out. n is "
+        "the number of companies with a charge; top names the largest and its share of the "
+        "total. The quarter is the latest that every company had to file by the as-of date, "
+        f"so it trails the HN month by four to six months. {LATE_FILERS}",
         "panel and sums by this report",
+    ),
+    _sec(
+        "sec_restructuring_companies",
+        "Panel companies reporting restructuring charges",
+        "count",
+        "Number of companies in "
+        f"{PANEL} that reported a restructuring or similar charge for the quarter (tags as in "
+        "sec_restructuring_usd; Meta, which uses its own element, is left out). Sturdier than "
+        f"the dollar sum, which one large charge can dominate. n is the number of companies "
+        f"counted. {LATE_FILERS}",
+        "panel and counts by this report",
     ),
     _sec(
         "sec_item_205_filings_panel",
         "Layoff filings (8-K Item 2.05), US public tech panel",
         "count",
-        f"8-K filings (not amendments) that report Item 2.05, exit or disposal costs, filed "
-        f"in the calendar month before the HN month by {PANEL}; n is the panel size.",
+        "8-K filings (not amendments) that report Item 2.05, exit or disposal costs, with an "
+        f"EDGAR filing date in the calendar month before the HN month, by {PANEL}; n is the "
+        "panel size. Item 2.05 is required only for a committed plan with material costs, so "
+        "it rarely captures big tech layoffs: Meta's 11,000 job cuts in November 2022 came "
+        "with no Item 2.05 filing.",
         "panel and counts by this report",
     ),
     _sec(
         "sec_item_205_filings_software",
         "Layoff filings (8-K Item 2.05), all software and IT-services filers",
         "count",
-        "8-K filings (not amendments) that report Item 2.05, exit or disposal costs, filed in "
-        "the calendar month before the HN month by any company with SIC code 7370-7374 "
-        "(computer programming, software, systems design, data processing), as coded today.",
+        "8-K filings (not amendments) that report Item 2.05, exit or disposal costs, with an "
+        "EDGAR filing date in the calendar month before the HN month, by any company whose "
+        "filing header carried SIC code 7370-7374 (computer programming, software, systems "
+        "design, data processing) when it filed. Item 2.05 rarely captures big tech layoffs "
+        "(Meta filed none for its November 2022 cuts).",
         "counts by this report",
     ),
     _sec(
@@ -272,7 +302,7 @@ SERIES += [
         "n is that number of companies. 10-Ks come once a year, so the series moves as each "
         "company files. Amazon has about a third of the panel's employees, mostly warehouse "
         "and delivery staff, so it drives this total; sec_headcount_median_yoy shows the "
-        "typical company.",
+        f"typical company. {MATCHED}",
         "counts read from 10-K text and summed by this report",
     ),
     _sec(
@@ -282,7 +312,9 @@ SERIES += [
         f"Median company's year-over-year change in employees across {PANEL}, from each "
         "company's latest 10-K against its previous 10-K, over the companies that state both "
         "(the same companies as sec_headcount_panel); n is that number. Unlike the total, no "
-        "single company drives it.",
+        'single company drives it. Many companies round their count ("approximately '
+        '19,000") and some repeat it from year to year, so the median can sit at exactly '
+        f"zero for months at a time. {MATCHED}",
         "counts read from 10-K text; median by this report",
     ),
     *(
@@ -768,14 +800,10 @@ def build_section(months: list[str], directory: Path = EXTERNAL_DIR) -> dict:
             # Defensive: a value published after the month's as-of date never reaches the site.
             if not entry or entry["vintage_date"] > record["as_of"]:
                 continue
-            point = {
-                "month": month,
-                "value": entry["value"],
-                "ref_period": entry["ref_period"],
-                "vintage_date": entry["vintage_date"],
+            # Everything stored except the fetch URL; SEC points add n, top and companies.
+            point = {"month": month} | {
+                k: v for k, v in entry.items() if k != "source_url"
             }
-            if "n" in entry:
-                point["n"] = entry["n"]
             points.append(point)
         section[s.key] = {
             "id": s.key,
