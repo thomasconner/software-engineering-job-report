@@ -239,3 +239,25 @@ Real posts the article may quote, so the column never invents color. Export writ
 ```
 
 The writer may quote only from these files and must put the item id in the ledger. Quote job posts, not individual job seekers (seeking posts are used for paraphrase-free mood examples only when the person's name and contact details are removed).
+
+## Question ids in `answers`
+
+| question | method | stored as |
+|---|---|---|
+| `company` | regex | label: normalized company name |
+| `salary_min_usd`, `salary_max_usd` | regex | value |
+| `salary_currency` | regex | label: ISO code, `unknown` (bare k-range), or `none` (no salary found) |
+| `remote_token`, `onsite_token`, `mentions_visa`, `interns_token` | regex | value 0/1 |
+| `stack` | vocab | one row per post; `probabilities` holds the terms found |
+| `new_company`, `returned_from_last_month` | join | value 0/1; not emitted when no earlier (or previous-month) hiring thread exists |
+| `work_mode`, `seniority`, `industry`, `funding_stage` | jev | Choice: label, probabilities (category → p), confidence |
+| `industry_stated`, `industry_fits`, `ai_native`, `new_grad`, `eng_leadership` | jev | Noul: value |
+| `seeker_mood` | jev | Score: value, probabilities keyed "0"–"4", confidence |
+
+`salary_disclosed_share` counts any currency, including `unknown`; the salary medians use USD only.
+
+Extra breakdowns: `industry_known` (sector shares among posts whose sector is stated), `seniority_ai_native` and `seniority_not_ai_native` (seniority shares among posts with ai_native ≥ 0.5 and < 0.5). Stack categories use display names ("C++", "Next.js", "AI agents").
+
+Completeness is per thread: a month whose hiring thread is complete publishes hiring metrics even if its seeking thread is still pending; `seekers_per_post` needs both.
+
+Samples contain hiring posts only. Seeking posts are never exported.
