@@ -42,7 +42,7 @@ The retro behind this list is in `docs/lessons.md` under "Working with Thomas".
   2. A fresh agent reviews the diff adversarially. It gets the code, not the author's conclusions, and checks numbers against the data. Where labels matter, it draws its own sample.
   3. The author fixes the findings.
   4. The same reviewer re-reviews until nothing serious is left.
-  5. The lead opens a PR and runs the full test suite. Thomas merges; auto mode blocks agent merges to main. Small doc and data commits go straight to main.
+  5. The lead opens a PR and runs the full test suite. Once the review passes and tests are green, the lead may merge it with a standalone `gh pr merge <n> --merge -R thomasconner/software-engineering-job-report`, not chained with `cd` or `&&`, so the permission rule matches. The rule is in `.claude/settings.local.json`, set 2026-11-04 at Thomas's request. Small doc and data commits go straight to main.
 - **Learning loop:** after each review, any finding that reveals a class of mistake goes into `docs/lessons.md` in the same PR. Agents read it before starting.
 - **Column loop:** the routine's draft is the first commit of each `column/YYYY-MM` PR. Thomas edits it and merges. The next run reads the gap between draft and merge, plus his reasons, and records it in `docs/editor-notes.md`.
 - **Decisions:** any decision made in conversation lands in the `docs/spec.md` Decisions log, or in the relevant doc, in the same session.

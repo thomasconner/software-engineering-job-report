@@ -97,6 +97,6 @@ What cost rework on the first day, and what to do instead.
 - **Ask which measures matter most.** Stack, benefits and experience came late. Asking at kickoff shapes the first output.
 - **Red-team before publishing, not after.** The outside-data check that forced the October correction should have run before it went live.
 - **Sequence parallel branches that touch the same files.** Three branches editing the same docs, fetch client and export cost a round of conflict fixes and a strict merge order. Plan shared-file edits up front, or have each branch merge main before its PR.
-- **Ask about permissions up front.** Agent merges, agent pushes and secret writes were each blocked once. Ask at kickoff whether Thomas wants a permission rule (for example, merging reviewed PRs). Until he says so, he merges.
+- **Ask about permissions up front.** Agent merges, agent pushes and secret writes were each blocked once. Ask at kickoff whether Thomas wants a permission rule. Merging reviewed PRs is now allowed (`.claude/settings.local.json`, 2026-11-04); secrets are still his to set.
 - **What works well with Thomas:** short, direct answers to one question with a default ("yes", "public is fine"), and screenshots with "what's off?". Give him something concrete to react to rather than open questions.
 
