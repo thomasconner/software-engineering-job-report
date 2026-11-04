@@ -1,2 +1,3 @@
-def main() -> None:
-    print("Hello from sejr!")
+from sejr.cli import main
+
+__all__ = ["main"]
