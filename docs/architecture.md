@@ -205,11 +205,11 @@ Directive attributes:
 | `categories` | breakdown charts | comma list; a subset of the breakdown's categories |
 | `highlight` | multi-series charts | comma list of series drawn in the story color; the rest gray |
 | `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
-| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM` |
+| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM`; default 5y on slope, 1y on dot |
 | `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
 | `against` | ::compare | comma list of windows, default `3m,1y,5y` |
 | `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
-| `title` | all | the finding, stated |
+| `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
 
@@ -261,3 +261,5 @@ Extra breakdowns: `industry_known` (sector shares among posts whose sector is st
 Completeness is per thread: a month whose hiring thread is complete publishes hiring metrics even if its seeking thread is still pending; `seekers_per_post` needs both.
 
 Samples contain hiring posts only. Seeking posts are never exported.
+
+Authoring mode (`?mock=1`, localhost) shows directive errors in red; readers see "This chart is unavailable". Samples (`_name.md`) load only with `?mock=1&issue=_name`.
