@@ -15,7 +15,8 @@ src/sejr/
   export.py         monthly_metrics → site/data/*.json
 data/raw/           gzipped API responses, committed, never edited
 data/sejr.duckdb    rebuildable from data/raw, gitignored
-data/cache/jev/     cached Jev responses keyed by request hash, committed
+data/cache/jev/     cached Jev responses keyed by request hash, gitignored
+data/answers/       Jev answers as Parquet, committed (the durable record)
 site/               static GitHub Pages site (index.html + assets + data/)
 site/articles/      one Markdown article per month, YYYY-MM.md
 tests/
@@ -31,7 +32,7 @@ Run everything with `uv run sejr <command>`. Tests: `uv run pytest`.
 
 `month` is the month named in the title, not the creation date.
 
-A re-fetch writes a new file only when the content changed. The newest file wins in normalize.
+One file per thread; a re-fetch overwrites it only when content changed, and git history keeps earlier versions. The sidecar also records `checked_at` (last fetch, changed or not) and the thread's Firebase `kids` list, used to count removed posts.
 
 ## DuckDB schema
 
@@ -42,7 +43,10 @@ CREATE TABLE threads (
   month       DATE NOT NULL,             -- first day of the named month
   title       VARCHAR NOT NULL,
   created_at  TIMESTAMPTZ NOT NULL,
-  snapshot_at TIMESTAMPTZ NOT NULL       -- created_at + INTERVAL 7 DAY
+  snapshot_at TIMESTAMPTZ NOT NULL,      -- created_at + 168 hours (computed in UTC)
+  fetched_at  TIMESTAMPTZ NOT NULL,      -- last fetch whose content was stored or confirmed unchanged
+  removed_in_snapshot INTEGER,           -- top-level comments (Firebase kids) in the window that Algolia omits as deleted/dead
+  UNIQUE (kind, month)
 );
 
 CREATE TABLE posts (                      -- top-level comments only
@@ -71,7 +75,7 @@ CREATE TABLE answers (
   post_id       BIGINT NOT NULL,
   question      VARCHAR NOT NULL,        -- e.g. 'work_mode', 'salary_min_usd', 'mentions_visa'
   method        VARCHAR NOT NULL,        -- 'regex' | 'vocab' | 'join' | 'jev'
-  version       VARCHAR NOT NULL,        -- code version for deterministic, model id for jev (e.g. 'jev-1.13.0')
+  version       VARCHAR NOT NULL,        -- code version for deterministic, model id for jev (e.g. 'jev-1.14.0')
   value         DOUBLE,                  -- numeric answer, Noul probability, or Score position
   label         VARCHAR,                 -- categorical answer (top choice)
   probabilities JSON,                    -- full distribution for Choice/Score
@@ -99,6 +103,10 @@ Every metric for month *t* may read only:
 - posts and replies with `in_snapshot = true` from threads with `month <= t`;
 - answers for those posts.
 
+A month is complete only when its thread's `fetched_at >= snapshot_at`. Aggregate skips incomplete months (the export lists them as `pending`).
+
+Raw files freeze once complete: fetch re-fetches a thread only while its stored `fetched_at < snapshot_at`. Later edits and deletions never change a published month.
+
 `aggregate.compute_month(con, t)` must return the same rows whether the database holds all months or only months `<= t`. `tests/test_point_in_time.py` enforces this.
 
 ## Metric ids
@@ -108,6 +116,7 @@ Scalar metrics (`category = ''`). Shares are 0–1. Jev-based shares are expecte
 | metric | kind | method | meaning |
 |---|---|---|---|
 | `posts` | hiring, seeking | count | top-level posts in snapshot |
+| `removed_share` | hiring, seeking | count | removed_in_snapshot ÷ (posts + removed_in_snapshot); shown in methodology |
 | `seekers_per_post` | hiring | count | seeking posts ÷ hiring posts, same month |
 | `replies_per_post` | hiring | count | mean direct replies per post |
 | `salary_disclosed_share` | hiring | regex | share with a parseable salary |
@@ -118,18 +127,21 @@ Scalar metrics (`category = ''`). Shares are 0–1. Jev-based shares are expecte
 | `visa_share` | hiring | regex | mentions visa sponsorship |
 | `new_company_share` | hiring | join | company not seen in any earlier month |
 | `returning_company_share` | hiring | join | company also posted last month |
-| `ai_native_share` | hiring | jev | Noul: the product is built on AI/ML |
+| `ai_native_share` | hiring | jev | Noul: the post describes its product as built on AI/ML |
 | `new_grad_share` | hiring | jev | Noul: open to new grads / juniors |
 | `seeker_mood` | seeking | jev | Score mean, 0 (discouraged) – 4 (upbeat) |
+| `seeker_strained_share` | seeking | jev | mean of P(level 0) + P(level 1) of seeker_mood |
+| `eng_leadership_share` | hiring | jev | Noul: the post hires engineering managers or leads |
+| `interns_token_share` | hiring | regex | INTERN(S) keyword present |
 
 Breakdowns (`category` set, values sum to ~1 per month):
 
 | metric | method | categories |
 |---|---|---|
 | `work_mode` | jev | remote, hybrid, onsite, unclear |
-| `seniority` | jev | junior, mid, senior, staff_plus, unspecified |
-| `industry` | jev | ai_ml, devtools_infra, fintech, health, climate_energy, security, commerce, media_consumer, enterprise_saas, hardware_robotics, other |
-| `funding_stage` | jev | bootstrapped, seed, series_a, series_b, series_c_plus, public_or_large, unknown |
+| `seniority` | jev | junior, mid, senior, staff_plus, unspecified. The modal level of the individual-contributor engineering roles; management roles excluded; "all levels" = unspecified |
+| `industry` | jev | ai_ml, devtools_infra, fintech, health, climate_energy, security, commerce, media_consumer, enterprise_saas, hardware_robotics, other, unstated. `other` = described but no listed sector fits; `unstated` = the post doesn't say what the company does. Export also publishes shares renormalized over posts whose sector is known |
+| `funding_stage` | jev | bootstrapped, seed, series_a, series_b, series_c_plus, public_or_large, venture_unspecified, unknown. `seed` needs an explicitly named pre-seed/seed/angel round; an accelerator batch tag alone (e.g. "YC W12") is `unknown`; investors or amounts without a named round are `venture_unspecified` |
 | `stack` | vocab | one category per term in `features/vocab.py`; share of posts mentioning it (does not sum to 1) |
 
 ## Export contract: `site/data/metrics.json`
@@ -159,7 +171,7 @@ Breakdowns (`category` set, values sum to ~1 per month):
 }
 ```
 
-Scalar keys are `<metric>.<kind>`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
+Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`: `1` when a rise is good news for job seekers, `-1` when bad, `0` when neutral; the exporter owns it. `pending` lists months whose snapshot is not complete; the site never shows a pending month (series end at the last complete month, and the newest article is for that month). Each metric and breakdown also carries `sources`: the thread kinds it draws on (e.g. `["hiring","seeking"]` for `seekers_per_post`), used for the chart source line. `n` is the number of posts the value is computed from (for salary medians: posts with a parsed salary). The mock file adds `"mock": true` and `"note"`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
@@ -182,4 +194,48 @@ Body paragraphs…
 ::compare{metrics="posts.hiring,seekers_per_post.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
 ```
 
-Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category). Every directive accepts `title` and `note`.
+Chart types: `line`, `bar`, `stacked-area`, `small-multiples`, `slope` (two months compared), `dot` (now vs past per category).
+
+Directive attributes:
+
+| attribute | applies to | meaning |
+|---|---|---|
+| `metric` | all charts | one metric key, or a comma list for multi-series lines |
+| `breakdown` | stacked-area, small-multiples, slope, dot, bar | breakdown id |
+| `categories` | breakdown charts | comma list; a subset of the breakdown's categories |
+| `highlight` | multi-series charts | comma list of series drawn in the story color; the rest gray |
+| `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
+| `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM` |
+| `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
+| `against` | ::compare | comma list of windows, default `3m,1y,5y` |
+| `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
+| `title` | all | the finding, stated |
+| `subtitle` | all | optional; defaults to the metric label + date range |
+| `note` | all | text after the source line |
+
+`bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack` must not be drawn as `stacked-area` (its shares don't sum to 1).
+
+A back issue clips every series to its front-matter `month`, so older issues never show later data.
+
+Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest last. Files starting with `_` are samples and never listed.
+
+## Jev answers storage
+
+- `industry` rows store the folded distribution: P(sector) = P(fits) × P(sector | Choice); P(other) and P(unstated) come from the companion Nouls. `confidence` is that of the stored label, or NULL.
+- Noul rows have NULL `confidence`.
+- `answers` holds one Jev version per post; classify replaces a post's Jev rows.
+- Durable copy: `data/answers/<model>/<YYYY-MM>.parquet` (one file per thread month, both kinds). Classify loads these before calling the API, so a fresh checkout reclassifies nothing. The response cache under `data/cache/jev/` is a local accelerator, sharded by the first two hex characters of the hash, and gitignored.
+
+## Validation set
+
+`data/labels/reference.jsonl`: about 240 posts stratified by era (2011–14, 2015–19, 2020–22, 2023–26) and kind, labeled independently. Each Jev question reports accuracy and Brier score per era before its metric is published; the export carries those scores per metric as `validation`.
+
+## Sample posts: `site/data/samples/YYYY-MM.json`
+
+Real posts the article may quote, so the column never invents color. Export writes, for each complete month, a deterministic sample (seeded by month) of up to 30 in-snapshot hiring posts and 20 seeking posts:
+
+```json
+{"month": "2026-11", "posts": [{"id": 50340012, "kind": "hiring", "url": "https://news.ycombinator.com/item?id=50340012", "header": "first line", "text": "first 600 characters", "answers": {"work_mode": "remote", "new_grad": 0.91}}]}
+```
+
+The writer may quote only from these files and must put the item id in the ledger. Quote job posts, not individual job seekers (seeking posts are used for paraphrase-free mood examples only when the person's name and contact details are removed).
