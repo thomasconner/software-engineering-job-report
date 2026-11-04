@@ -94,6 +94,10 @@ jobs:
             echo "site/articles/$month.md already exists"
             exit 0
           fi
+          if ! jq -e --argjson m "$((10#${month#*-}))" '.publish_in | index($m)' site/articles/schedule.json > /dev/null; then
+            echo "no column scheduled for $month (site/articles/schedule.json)"
+            exit 0
+          fi
           title="Write the $(date -u -d "$month-01" '+%B %Y') column"
           # List instead of search: the search index lags, and a missed match would
           # open a duplicate on the next day's run.
