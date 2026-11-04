@@ -43,7 +43,7 @@ Monthly aggregates sum probabilities (expected counts) instead of counting top a
 
 ### Validation
 
-A hand-labeled reference set of about 200 posts, sampled across years. Each method is scored on accuracy and calibration (Brier score) before its output reaches the report.
+A reference set of 265 posts labeled by two AI annotators with adjudication, plus an 88-post held-out set, sampled across years. Each method is scored on accuracy and calibration (Brier score) before its output reaches the report. AI labels can share the classifier's blind spots; see docs/research.md for the planned human-labeled sample.
 
 ## Point-in-time rules (no look-ahead)
 
@@ -104,3 +104,4 @@ Articles are written by an agent from the exported numbers, then fact-checked by
 - 2026-11-04: Post counts are submitted posts (live + removed within the window), because live counts depend on fetch age: history was fetched years after the window, new months at day 8. This reverses the earlier choice to keep removed posts out of counts. removed_share is methodology-only.
 - 2026-11-04: The column is drafted by a scheduled Claude Code routine ("SEJR monthly column writer", trig_012tg7HejoUkmenRt2Q4sh3E, Opus) at 18:00 UTC on days 10–14. It exits unless the latest exported month has no article and no open PR. It writes, runs independent fact-check and reader-review subagents, and opens a PR on `column/<YYYY-MM>`; a human merges. The prompt lives in the routine (claude.ai/code/routines), not the repo.
 - 2026-11-04: Column cadence is a setting, not code: `site/articles/schedule.json` lists the calendar months that get a column (all twelve for now). Data refreshes monthly regardless; the routine still fires days 10–14 every month and exits in unscheduled months.
+- 2026-11-04: Adversarial research findings and the fix list live in docs/research.md. Columns describe HN's threads, not the US market, until outside benchmarks and a US-only ratio exist.
