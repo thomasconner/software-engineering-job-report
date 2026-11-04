@@ -269,9 +269,9 @@ def test_snapshot_board_records_failures():
     assert error["status"] == "error"
     assert not ats.is_failed(missing)
     assert ats.is_failed(unreachable) and ats.is_failed(error)
-    assert ats.is_failed({"status": "http_503"}) and not ats.is_failed(
-        {"status": "http_403"}
-    )
+    assert ats.is_failed({"status": "http_503"})
+    assert ats.is_failed({"status": "http_403"})
+    assert ats.is_failed({"status": "http_429"})
 
 
 def _setup_run(tmp_path, posts: str, panel: list[dict]):
@@ -444,16 +444,42 @@ def test_panel_file_is_valid():
         ("Technical Customer Support Engineer", "Engineering", False),
         ("Curriculum Developer", None, False),
         ("Senior Backend Engineer | Accounting", "Engineering", True),
+        ("Systems Engineer, DNS", "Engineering", True),
+        ("Systems Engineer", "Engineering", True),
+        ("Staff Systems Engineer", "Systems Engineering > Systems (78I)", False),
+        ("Senior System Engineer", "Engineering > Spacecraft Hardware", False),
+        ("Sr. Systems Engineer", "IT > IT", False),
+        ("Senior C++ Engineer - Satellite Real-Time Control Systems", None, True),
+        ("Operating Systems Engineer", None, True),
+        ("Rust Engineer", None, True),
+        ("Solutions Engineer, ML Platform", "Engineering", False),
+        ("Sales Engineer, Infrastructure", None, False),
+        ("Field Engineer, Platform", None, False),
+        ("Specialist Solutions Architect - AI&ML Engineer", None, False),
+        ("Senior Software Engineer, Customer Platform", None, True),
     ],
 )
 def test_is_engineering_rules(title, department, expected):
     assert ats.is_engineering(title, department) is expected
 
 
+def test_engineering_classifier_accuracy_on_held_out_titles():
+    """100 titles from the 2026-11-04 snapshot labeled independently by a reviewer, never
+    used to tune the rule. eng-2 scored 97/100."""
+    lines = (FIXTURES / "engineering_labels_heldout.jsonl").read_text().splitlines()
+    rows = [json.loads(line) for line in lines]
+    correct = sum(
+        ats.is_engineering(r["title"], r["department"]) == r["engineering"]
+        for r in rows
+    )
+    assert len(rows) == 100
+    assert correct / len(rows) >= 0.95
+
+
 def test_engineering_classifier_accuracy_on_labeled_titles():
     """150 titles from the first snapshot (2026-11-04), labeled by hand before tuning.
     The rule scored 0.967 untuned, 0.98 after adding GTM to the customer-facing words, and
-    0.98 again with eng-2's review fixes."""
+    0.98 again with eng-2 and eng-3."""
     lines = (FIXTURES / "engineering_labels.jsonl").read_text().splitlines()
     rows = [json.loads(line) for line in lines]
     correct = sum(
@@ -483,6 +509,14 @@ def test_engineering_classifier_accuracy_on_labeled_titles():
         ("Toronto, ON, CA", False),
         ("Bengaluru, India", False),
         ("LONDON OR PARIS", False),
+        ("CA-Ontario-Toronto", False),
+        ("IN-Bangalore-MSO", False),
+        ("DE-Berlin-Office", False),
+        ("IL-Israel-Remote", False),
+        ("CO-Colombia-Remote", False),
+        ("Toronto, CA", False),
+        ("San Francisco, CA; Toronto, Canada; Vancouver, Canada", True),
+        ("Atlantis", None),
         ("Remote, Global", None),
         ("North America", None),
         ("N/A", None),
@@ -494,5 +528,6 @@ def test_is_us_location(location, expected):
 
 
 def test_us_jobs_counts_by_location():
-    jobs = [{"location": loc} for loc in ["London, UK", "Austin, TX", "Remote", "N/A"]]
-    assert ats.us_jobs(jobs + [{}]) == {"us": 1, "non_us": 1, "unknown": 3}
+    locations = ["London, UK", "Austin, TX", "Remote", "N/A", "Atlantis"]
+    jobs = [{"location": loc} for loc in locations]
+    assert ats.us_jobs(jobs + [{}]) == {"us": 1, "non_us": 1, "unknown": 4}

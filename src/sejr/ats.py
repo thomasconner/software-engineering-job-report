@@ -33,7 +33,7 @@ HN_MONTHS = 3
 SMARTRECRUITERS_PAGE = 100
 # Bumped whenever is_engineering changes; jobs keep title and department, so old
 # snapshots can be reclassified.
-CLASSIFIER_VERSION = "eng-2"
+CLASSIFIER_VERSION = "eng-3"
 
 API = {
     "greenhouse": "https://boards-api.greenhouse.io/v1/boards/{slug}/departments",
@@ -158,19 +158,23 @@ def plan_boards(
 # engineers, IT support engineers, partner/deployment engineers in go-to-market teams
 # and manual testers are out; "Member of Technical Staff" is in unless the title names
 # hardware or a non-engineering area (policy, strategy). A "Systems Engineer" with no
-# software word (Fuel Systems, IT Systems, Business Systems) is out. A non-engineering
+# software word is in only when its department is a software, engineering or
+# infrastructure one and not systems engineering, hardware or vehicles; Fuel, IT,
+# Financial and Business Systems Engineers are out. A customer-facing role word before
+# the role (Sales, Solutions, Field, Support Engineer) is out even with software words
+# after it ("Solutions Engineer, ML Platform"). A non-engineering
 # word next to a software engineering title ("Backend Engineer | Accounting") names the
 # team, not the role, so the job is in.
 #
 # The rule reads the title first, the department only when the title is a bare
-# "Engineer": 1) other-discipline or customer-facing engineering titles are out;
+# "Engineer" or "Systems Engineer": 0) customer-facing roles are out; 1) other-discipline or customer-facing engineering titles are out;
 # 2) non-engineering roles are out; 3) titles that name software work are in; 4) a bare
 # engineer/architect title is in unless its department names a non-software function.
 
 NON_SOFTWARE_ENGINEERING = re.compile(
     r"\b(sales|gtm|go[- ]to[- ]market|solutions?|pre-?sales|customer|support|implementation|onboarding|field|"
     r"services?|deployment strategist|data cent(?:er|re)|mechanical|electrical|electronics?|civil|structural|"
-    r"chemical|manufacturing|process|industrial|mechatronics?|hardware|rf|analog|asic|fpga|"
+    r"chemical|fuel|manufacturing|process|industrial|mechatronics?|hardware|rf|analog|asic|fpga|"
     r"silicon|chip|pcb|optical|photonics?|nuclear|reactor|propulsion|thermal|materials?|"
     r"facilities|construction|environmental|aerospace|avionics|test technician|"
     r"technician|it support|helpdesk|help desk|desktop|validation)\b",
@@ -197,12 +201,35 @@ SOFTWARE_WORDS = (
     r"automation|sdet|database|kernel|compiler|graphics|game|gameplay|rendering|"
     r"analytics engineer|frontier|inference|training|gpu|performance|observability|"
     r"build|release|tooling|developer experience|member of technical staff|"
+    r"c\+\+|rust|golang|operating systems?|network(?:ing)?|dns|sdk|"
     r"technical staff|mts|cto|chief technology officer|tech lead|engineering manager|"
     r"(?:head|director|vp|vice president|manager)(?:,| of)? (?:software )?engineering|"
     r"engineering (?:lead|director|head)"
 )
-SOFTWARE_TITLE = re.compile(rf"\b({SOFTWARE_WORDS})\b", re.IGNORECASE)
+# Lookarounds instead of \b so "C++" matches.
+SOFTWARE_TITLE = re.compile(rf"(?<!\w)({SOFTWARE_WORDS})(?!\w)", re.IGNORECASE)
 SYSTEMS = re.compile(r"\bsystems?\b", re.IGNORECASE)
+# Enterprise IT, not software engineering.
+IT_SYSTEMS = re.compile(
+    r"\b(it|i\.t\.|financial|finance|business|enterprise|people|gtm|corporate)\s+systems?\b",
+    re.IGNORECASE,
+)
+SYSTEMS_DEPARTMENT_IN = re.compile(
+    r"\b(software|engineering|infrastructure)\b", re.IGNORECASE
+)
+SYSTEMS_DEPARTMENT_OUT = re.compile(
+    r"\b(systems? engineering|hardware|vehicle|avionics|mechanical|electrical|propulsion|"
+    r"manufacturing|production|spacecraft|satellite|aircraft|safety|it|i\.t\.)\b",
+    re.IGNORECASE,
+)
+# A customer-facing role word right before the role ("Sales Engineer, Infrastructure",
+# "Field Engineer, Platform"), or "specialist", rules a title out whatever software words
+# follow. "Software Engineer, Sales Platform" stays in: there "sales" names the product.
+CUSTOMER_FACING_ROLE = re.compile(
+    r"\b(sales|solutions?|pre-?sales|field|support|customer)\s+(engineer\w*|architect\w*)\b"
+    r"|\bspecialist\b",
+    re.IGNORECASE,
+)
 GENERIC_ENGINEERING = re.compile(
     r"\b(engineer\w*|architect|developer|programmer)\b", re.IGNORECASE
 )
@@ -227,6 +254,8 @@ ROLE_OVERRIDE = re.compile(
 
 def is_engineering(title: str, department: str | None = None) -> bool:
     title = title or ""
+    if CUSTOMER_FACING_ROLE.search(title):
+        return False
     software_override = bool(SOFTWARE_OVERRIDE.search(title))
     is_engineer = bool(GENERIC_ENGINEERING.search(title))
     if NON_SOFTWARE_ENGINEERING.search(title) and not software_override:
@@ -238,7 +267,13 @@ def is_engineering(title: str, department: str | None = None) -> bool:
         return False
     software_title = bool(SOFTWARE_TITLE.search(title))
     if SYSTEMS.search(title) and not software_title:
-        return False
+        # "Systems Engineer" means software at Cloudflare and spacecraft at ICEYE; the
+        # department tells them apart.
+        return (
+            not IT_SYSTEMS.search(title)
+            and bool(SYSTEMS_DEPARTMENT_IN.search(department or ""))
+            and not SYSTEMS_DEPARTMENT_OUT.search(department or "")
+        )
     if software_title and is_engineer:
         return True
     if re.search(
@@ -288,7 +323,9 @@ CA_PROVINCES = [
 ]
 # Two-letter codes are matched case-sensitively after a separator, so "or" and "in" in
 # "(ON, AB, or NS Only)" are words, not Oregon and Indiana.
-SEPARATOR = r"(?:^|[,;(\-–/|]\s*)"
+# No "^": a leading code is a country or region prefix ("CA-Ontario-Toronto",
+# "IN-Bangalore", "DE-Berlin"), not a state.
+SEPARATOR = r"(?:[,;(\-–/|]\s*)"
 US_STATE_CODE = re.compile(
     SEPARATOR + r"(?:" + "|".join(US_STATES) + r")(?=$|[\s,;)/|.-])"
 )
@@ -316,7 +353,37 @@ US_PLACE = re.compile(
     r"pasadena|long beach|hawthorne|cupertino|san bruno|foster city|emeryville)\b",
     re.IGNORECASE,
 )
-CANADA = re.compile(r"\bcanada\b|\bcanadian\b", re.IGNORECASE)
+CANADA = re.compile(
+    r"\b(canada|canadian|toronto|vancouver|montr[eé]al|ottawa|calgary|edmonton|waterloo|"
+    r"kitchener|winnipeg|halifax|qu[eé]bec|ontario|british columbia|alberta)\b",
+    re.IGNORECASE,
+)
+# Places outside the US that job boards name. A location matching nothing here or in the
+# US lists is unknown, not non-US.
+NON_US_PLACE = re.compile(
+    r"\b(uk|u\.k\.|united kingdom|england|scotland|wales|ireland|london|dublin|manchester|"
+    r"edinburgh|cambridge, uk|oxford|belfast|europe|eu|emea|apac|latam|asia|"
+    r"germany|berlin|munich|m[uü]nchen|hamburg|frankfurt|cologne|stuttgart|france|paris|"
+    r"spain|madrid|barcelona|valencia|portugal|lisbon|porto|italy|milan|rome|netherlands|"
+    r"amsterdam|rotterdam|belgium|brussels|switzerland|zurich|z[uü]rich|geneva|austria|"
+    r"vienna|poland|warsaw|krak[oó]w|wroc[lł]aw|czech|prague|hungary|budapest|romania|"
+    r"bucharest|bulgaria|sofia|serbia|belgrade|croatia|greece|athens|sweden|stockholm|"
+    r"norway|oslo|denmark|copenhagen|finland|helsinki|espoo|estonia|tallinn|latvia|riga|"
+    r"lithuania|vilnius|ukraine|kyiv|turkey|istanbul|israel|tel aviv|uae|dubai|abu dhabi|"
+    r"saudi arabia|riyadh|qatar|egypt|cairo|nigeria|lagos|kenya|nairobi|south africa|"
+    r"cape town|johannesburg|india|bengaluru|bangalore|hyderabad|pune|chennai|mumbai|"
+    r"delhi|new delhi|gurugram|gurgaon|noida|kolkata|ahmedabad|pakistan|bangladesh|"
+    r"sri lanka|singapore|malaysia|kuala lumpur|penang|petaling jaya|thailand|bangkok|"
+    r"vietnam|ho chi minh|hanoi|philippines|manila|indonesia|jakarta|japan|tokyo|osaka|"
+    r"korea|seoul|china|beijing|shanghai|shenzhen|hangzhou|guangzhou|hong kong|taiwan|"
+    r"taipei|australia|sydney|melbourne|brisbane|perth|new zealand|auckland|"
+    r"mexico|mexico city|guadalajara|monterrey|brazil|s[aã]o paulo|rio de janeiro|"
+    r"argentina|buenos aires|chile|santiago|colombia|bogot[aá]|medell[ií]n|peru|lima|"
+    r"costa rica|uruguay|montevideo|luxembourg|cyprus|malta|iceland|slovakia|slovenia|"
+    r"toulouse|lyon|lviv|united arab emirates|apj|wellington|rwanda|mozambique|drc|congo|"
+    r"ghana|accra|morocco|ethiopia|uganda|tanzania|freiburg)\b",
+    re.IGNORECASE,
+)
 NO_COUNTRY_WORDS = {
     "remote", "anywhere", "any", "global", "worldwide", "north", "america", "americas",
     "multiple", "location", "locations", "various", "hybrid", "in", "office", "onsite", "on",
@@ -325,20 +392,29 @@ NO_COUNTRY_WORDS = {
 
 
 def is_us_location(location: str | None) -> bool | None:
-    """True for a US location, False for a non-US one, None when it names no country.
+    """True for a US location, False for a recognized non-US one, None otherwise.
 
-    Order matters: a named US ("Remote - US or Canada") wins; then Canada, by name or by a
-    province code ("Toronto, ON, CA", where CA is Canada, not California); then US states
-    and cities."""
+    Order matters: any US name, state or city wins, so multi-city strings that include a
+    US office count as US ("San Francisco, CA; Toronto, Canada"); then Canada, by name, city
+    or province code ("Toronto, ON, CA" and "Toronto, CA" are Canada, not California);
+    then two-letter state codes; then known non-US places. Anything else is unknown."""
     location = (location or "").strip()
     words = re.findall(r"[a-z./]+", location.lower())
     if all(w.strip(".") in NO_COUNTRY_WORDS for w in words):
         return None
-    if US_NAMED.search(location) or US_NAMED_CI.search(location):
+    if (
+        US_NAMED.search(location)
+        or US_NAMED_CI.search(location)
+        or US_PLACE.search(location)
+    ):
         return True
     if CANADA.search(location) or CA_PROVINCE_CODE.search(location):
         return False
-    return bool(US_STATE_CODE.search(location) or US_PLACE.search(location))
+    if US_STATE_CODE.search(location):
+        return True
+    if NON_US_PLACE.search(location):
+        return False
+    return None
 
 
 def us_jobs(jobs: list[dict]) -> dict[str, int]:
@@ -574,8 +650,9 @@ def snapshot_board(client: Client, board: dict) -> dict:
 
 
 def is_failed(result: dict) -> bool:
-    """Our side or theirs broke: 5xx, no response, bad payload. A 404 is a real answer."""
-    return result["status"] in FAILED or result["status"].startswith("http_5")
+    """Our side or theirs broke: any HTTP error but 404/410 (stored as not_found), no
+    response, bad payload. A 404 is a real answer: the board is gone."""
+    return result["status"] in FAILED or result["status"].startswith("http_")
 
 
 def write_snapshot(path: Path, snapshot: dict) -> None:
