@@ -187,9 +187,13 @@ HIRING: dict[str, Question] = {
 }
 
 SEEKING: dict[str, Question] = {
+    # Every post here is a sales pitch, so a confident self-description is the baseline
+    # (Neutral), not a sign of mood. The levels key on what the seeker says about their
+    # situation. The first live check scored plain pitches near "Positive" before this.
     "seeker_mood": Score(
-        instructions="How does this job seeker sound about their job search, judging "
-        "only from the tone and content of their post?",
+        instructions="How does this job seeker say their job search is going? Judge "
+        "what they say about their situation, not how confidently they describe their "
+        "skills.",
         criteria=[
             {
                 "level": "Discouraged",
@@ -204,18 +208,20 @@ SEEKING: dict[str, Question] = {
             },
             {
                 "level": "Neutral",
-                "signals": "Lists facts only, such as location, remote preference, "
-                "skills and a résumé link, with no sign of how the search is going.",
+                "signals": "Describes location, skills, experience and the role they "
+                "want, however confidently, but says nothing about how the search is "
+                "going or how they feel about it.",
             },
             {
                 "level": "Positive",
-                "signals": "A confident, warm introduction: describes the work they "
-                "enjoy and want next, open and optimistic.",
+                "signals": "Says something hopeful about their situation: chose to "
+                "leave their last job, is looking forward to the next one, or is taking "
+                "time to find the right fit.",
             },
             {
                 "level": "Upbeat",
-                "signals": "Enthusiastic and in demand: excited about what comes "
-                "next, or employed and choosy, open only to the right role.",
+                "signals": "Says they are in a strong position: currently employed and "
+                "open only to exceptional offers, or openly excited and in demand.",
             },
         ],
     ),

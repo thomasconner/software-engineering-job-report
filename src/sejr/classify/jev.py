@@ -21,6 +21,7 @@ MAX_STATE_CHARS = 6000
 TRUNCATION_MARK = "\n\n[post truncated]"
 
 CONCURRENCY = 16
+CHARS_PER_TOKEN = 3
 
 # The SDK already retries 408, 429 and 5xx (including 529 Overloaded) with exponential
 # backoff and honors retry-after. Its defaults give up after 2 retries or 30 s, which a
@@ -79,8 +80,10 @@ def cache_path(cache_dir: Path, request: Request) -> Path:
 
 
 def estimate_tokens(request: Request) -> int:
-    # No public tokenizer; about 4 characters per token for English text and JSON.
-    return len(canonical_json(request)) // 4
+    # No public tokenizer. A live check of 20 posts on jev-1.14.0 billed one token per
+    # 3.4 request characters for hiring posts and per 2.6 for seeking posts; 3 is close
+    # for both and errs high on hiring, which dominates the total.
+    return len(canonical_json(request)) // CHARS_PER_TOKEN
 
 
 def make_client() -> AsyncTypeSafeClient:

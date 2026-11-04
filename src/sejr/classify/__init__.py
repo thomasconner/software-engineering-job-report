@@ -8,6 +8,7 @@ import duckdb
 from typesafe_sdk import AsyncTypeSafeClient
 
 from sejr.classify.jev import (
+    CHARS_PER_TOKEN,
     CONCURRENCY,
     Request,
     answer_rows,
@@ -47,7 +48,9 @@ def print_estimate(requests: list[tuple[int, Request]], cache_dir: Path) -> None
     print(
         f"requests: {len(requests)} ({len(requests) - len(todo)} cached, {len(todo)} to send)"
     )
-    print(f"estimated input tokens: {tokens:,} (about 4 characters per token)")
+    print(
+        f"estimated input tokens: {tokens:,} (~{CHARS_PER_TOKEN} characters per token)"
+    )
     cost = tokens / 1e6 * JEV_USD_PER_MTOK
     print(
         f"estimated cost: ${cost:.4f} at ${JEV_USD_PER_MTOK} per million input tokens"
