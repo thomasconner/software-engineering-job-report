@@ -367,6 +367,14 @@ def test_validation_falls_back_to_reference_then_null(db, tmp_path):
         _validation_file(tmp_path, {"reference": _scores(0.9)})
     )
     assert reference["work_mode"] == {"set": "reference", "n": 40, "accuracy": 0.9}
+    # A holdout section with no scored posts for a question falls back per question.
+    empty_holdout = {"questions": {"work_mode": {"overall": {"n": 0}}}}
+    mixed = export.load_validation(
+        _validation_file(
+            tmp_path, {"holdout": empty_holdout, "reference": _scores(0.9)}
+        )
+    )
+    assert mixed["work_mode"]["set"] == "reference"
     assert export.load_validation(tmp_path / "missing.json") == {}
     data = export.build(db, tmp_path / "missing.json")
     assert data["breakdowns"]["work_mode"]["validation"] is None

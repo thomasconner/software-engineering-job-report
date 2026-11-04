@@ -259,14 +259,13 @@ def load_validation(path: Path = VALIDATION_PATH) -> dict[str, dict]:
         report = json.loads(path.read_text())
     except FileNotFoundError:
         return {}
-    for name in ("holdout", "reference"):
-        if questions := (report.get(name) or {}).get("questions"):
-            return {
-                q: {"set": name, **scores["overall"]}
-                for q, scores in questions.items()
-                if scores.get("overall", {}).get("n")
-            }
-    return {}
+    scored: dict[str, dict] = {}
+    # Per question: the holdout score wins when it has any posts, else the reference one.
+    for name in ("reference", "holdout"):
+        for question, scores in (report.get(name) or {}).get("questions", {}).items():
+            if scores.get("overall", {}).get("n"):
+                scored[question] = {"set": name, **scores["overall"]}
+    return scored
 
 
 def _month(d) -> str:
