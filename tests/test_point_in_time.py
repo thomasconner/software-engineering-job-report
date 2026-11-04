@@ -41,6 +41,33 @@ def test_month_is_the_same_with_or_without_later_months(db, tmp_path):
         cut.close()
 
 
+def _bars(data: dict) -> dict[tuple[str, str], dict]:
+    bars = {}
+    for group in ("metrics", "breakdowns"):
+        for key, series in data[group].items():
+            for p in series["series"]:
+                if "bar" in p:
+                    bars[(key, p["month"])] = p["bar"]
+    return bars
+
+
+def test_noise_bars_are_the_same_with_or_without_later_months(db, tmp_path):
+    features.build(db)
+    aggregate.run(db, Namespace(month=None, dry_run=False))
+    full = _bars(export.build(db))
+    compared = 0
+    for t in MONTHS:
+        cut = truncated_copy(db, tmp_path / f"bars-{t}.duckdb", t)
+        features.build(cut)
+        aggregate.run(cut, Namespace(month=None, dry_run=False))
+        for (key, month), bars in _bars(export.build(cut)).items():
+            if month == t.strftime("%Y-%m"):
+                assert full[(key, month)] == bars, (key, month)
+                compared += 1
+        cut.close()
+    assert compared
+
+
 def test_later_months_exist_in_full_db(db):
     # Guard against a vacuous point-in-time test: the full DB must hold data after each t.
     (latest,) = db.execute("SELECT max(month) FROM threads").fetchone()

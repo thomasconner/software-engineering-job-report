@@ -13,6 +13,7 @@ src/sejr/
   classify/         Jev questions → answers table
   aggregate.py      answers → monthly_metrics, point-in-time
   export.py         monthly_metrics → site/data/*.json
+  noise.py          point-in-time noise bars attached to every exported point
 data/raw/           gzipped API responses, committed, never edited
 data/sejr.duckdb    rebuildable from data/raw, gitignored
 data/cache/jev/     cached Jev responses keyed by request hash, gitignored
@@ -157,7 +158,7 @@ Breakdowns (`category` set, values sum to ~1 per month):
       "unit": "count",
       "method": "count",
       "description": "Top-level posts in the first 7 days of the thread",
-      "series": [{"month": "2026-11", "value": 312, "n": 312}]
+      "series": [{"month": "2026-11", "value": 312, "n": 312, "bar": {"3m": 0.353, "1y": 0.333, "5y": 0.288}}]
     }
   },
   "breakdowns": {
@@ -165,13 +166,14 @@ Breakdowns (`category` set, values sum to ~1 per month):
       "label": "How companies want people to work",
       "method": "jev",
       "categories": ["remote", "hybrid", "onsite", "unclear"],
-      "series": [{"month": "2026-11", "n": 312, "values": {"remote": 0.41, "hybrid": 0.22, "onsite": 0.31, "unclear": 0.06}}]
+      "series": [{"month": "2026-11", "n": 312, "values": {"remote": 0.41, "hybrid": 0.22, "onsite": 0.31, "unclear": 0.06},
+                  "bar": {"1y": {"remote": 0.094, "hybrid": 0.062, "onsite": 0.081, "unclear": 0.038}}}]
     }
   }
 }
 ```
 
-Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`: `1` when a rise is good news for job seekers, `-1` when bad, `0` when neutral; the exporter owns it. `pending` lists months whose snapshot is not complete; the site never shows a pending month (series end at the last complete month, and the newest article is for that month). Each metric and breakdown also carries `sources`: the thread kinds it draws on (e.g. `["hiring","seeking"]` for `seekers_per_post`), used for the chart source line. `n` is the number of posts the value is computed from (for salary medians: posts with a parsed salary). The mock file adds `"mock": true` and `"note"`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
+Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`: `1` when a rise is good news for job seekers, `-1` when bad, `0` when neutral; the exporter owns it. `pending` lists months whose snapshot is not complete; the site never shows a pending month (series end at the last complete month, and the newest article is for that month). Each metric and breakdown also carries `sources`: the thread kinds it draws on (e.g. `["hiring","seeking"]` for `seekers_per_post`), used for the chart source line. `n` is the number of posts the value is computed from (for salary medians: posts with a parsed salary). `bar` is the noise bar for the change into that point from 3, 12 and 60 months earlier (keys `3m`, `1y`, `5y`; a key is missing when the earlier month isn't in the series or its bar can't be computed). For `share` and `score` it is an absolute difference; for `count`, `ratio` and `usd` a relative change. Breakdown points nest it by window, then category. It is computed in `noise.py` from the month's sampling variance widened by the series' own dispersion, using only months up to that point; `removed_share` has none. See docs/style-guide.md, "The noise bar". The mock file adds `"mock": true` and `"note"`. `unit` is one of `count`, `share`, `usd`, `ratio`, `score`. Months with no data are omitted from `series`, never null-filled.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
