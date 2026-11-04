@@ -1,6 +1,6 @@
 {
   "as_of": "2018-11-09",
-  "fetched_at": "2026-11-04T19:13:22Z",
+  "fetched_at": "2026-11-04T19:39:11Z",
   "month": "2018-11",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -35,6 +35,7 @@
         804328,
         804753,
         827054,
+        849399,
         867773,
         883241,
         896878,
@@ -62,14 +63,13 @@
       ],
       "dropped": [
         6281,
-        849399,
         877890,
         1018724
       ],
-      "n": 42,
+      "n": 43,
       "ref_period": "2018-09",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0488,
+      "value": 0.0473,
       "vintage_date": "2018-11-09"
     },
     "sec_headcount_meta.US": {
@@ -98,6 +98,7 @@
         804328,
         804753,
         827054,
+        849399,
         867773,
         883241,
         896878,
@@ -125,14 +126,13 @@
       ],
       "dropped": [
         6281,
-        849399,
         877890,
         1018724
       ],
-      "n": 42,
+      "n": 43,
       "ref_period": "2018-09",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0161,
+      "value": 0.0152,
       "vintage_date": "2018-11-09"
     },
     "sec_item_205_filings_panel.US": {

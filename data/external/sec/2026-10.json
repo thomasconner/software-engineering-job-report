@@ -1,6 +1,6 @@
 {
   "as_of": "2026-10-09",
-  "fetched_at": "2026-11-04T19:32:37Z",
+  "fetched_at": "2026-11-04T19:39:13Z",
   "month": "2026-10",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -17,6 +17,7 @@
     },
     "sec_headcount_median_yoy.US": {
       "companies": [
+        2488,
         6281,
         6951,
         8670,
@@ -43,6 +44,7 @@
         1341439,
         1352010,
         1373715,
+        1402436,
         1512673,
         1543151,
         1559720,
@@ -61,15 +63,13 @@
         1867072
       ],
       "dropped": [
-        2488,
         883241,
-        1402436,
         1563190
       ],
-      "n": 42,
+      "n": 44,
       "ref_period": "2026-09",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.028,
+      "value": 0.0293,
       "vintage_date": "2026-10-09"
     },
     "sec_headcount_meta.US": {
@@ -80,6 +80,7 @@
     },
     "sec_headcount_panel.US": {
       "companies": [
+        2488,
         6281,
         6951,
         8670,
@@ -106,6 +107,7 @@
         1341439,
         1352010,
         1373715,
+        1402436,
         1512673,
         1543151,
         1559720,
@@ -124,15 +126,13 @@
         1867072
       ],
       "dropped": [
-        2488,
         883241,
-        1402436,
         1563190
       ],
-      "n": 42,
+      "n": 44,
       "ref_period": "2026-09",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0174,
+      "value": 0.0186,
       "vintage_date": "2026-10-09"
     },
     "sec_item_205_filings_panel.US": {

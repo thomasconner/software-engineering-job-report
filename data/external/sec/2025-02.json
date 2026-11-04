@@ -1,6 +1,6 @@
 {
   "as_of": "2025-02-11",
-  "fetched_at": "2026-11-04T19:30:12Z",
+  "fetched_at": "2026-11-04T19:39:13Z",
   "month": "2025-02",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -19,12 +19,14 @@
       "companies": [
         2488,
         6281,
+        6951,
         8670,
         50863,
         97476,
         712515,
         723125,
         769397,
+        789019,
         796343,
         804328,
         883241,
@@ -61,14 +63,12 @@
         1867072
       ],
       "dropped": [
-        6951,
-        789019,
         1730168
       ],
-      "n": 42,
+      "n": 44,
       "ref_period": "2025-01",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0093,
+      "value": 0.015,
       "vintage_date": "2025-02-11"
     },
     "sec_headcount_meta.US": {
@@ -81,12 +81,14 @@
       "companies": [
         2488,
         6281,
+        6951,
         8670,
         50863,
         97476,
         712515,
         723125,
         769397,
+        789019,
         796343,
         804328,
         883241,
@@ -123,14 +125,12 @@
         1867072
       ],
       "dropped": [
-        6951,
-        789019,
         1730168
       ],
-      "n": 42,
+      "n": 44,
       "ref_period": "2025-01",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": -0.0021,
+      "value": 0.0004,
       "vintage_date": "2025-02-11"
     },
     "sec_item_205_filings_panel.US": {

@@ -1,6 +1,6 @@
 {
   "as_of": "2020-06-09",
-  "fetched_at": "2026-11-04T19:17:36Z",
+  "fetched_at": "2026-11-04T19:39:12Z",
   "month": "2020-06",
   "values": {
     "sec_headcount_alphabet.US": {
@@ -54,6 +54,7 @@
         1341439,
         1402436,
         1418091,
+        1512673,
         1556148,
         1597033,
         1604778,
@@ -66,13 +67,12 @@
       "dropped": [
         849399,
         1108524,
-        1512673,
         1730168
       ],
-      "n": 45,
+      "n": 46,
       "ref_period": "2020-03",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.038,
+      "value": 0.0383,
       "vintage_date": "2020-06-09"
     },
     "sec_headcount_meta.US": {
@@ -120,6 +120,7 @@
         1341439,
         1402436,
         1418091,
+        1512673,
         1556148,
         1597033,
         1604778,
@@ -132,13 +133,12 @@
       "dropped": [
         849399,
         1108524,
-        1512673,
         1730168
       ],
-      "n": 45,
+      "n": 46,
       "ref_period": "2020-03",
       "source_url": "https://www.sec.gov/Archives/edgar/data/",
-      "value": 0.0572,
+      "value": 0.0574,
       "vintage_date": "2020-06-09"
     },
     "sec_item_205_filings_panel.US": {
