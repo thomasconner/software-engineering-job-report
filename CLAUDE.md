@@ -22,6 +22,18 @@ Read these first, in this order. They hold the context this repo builds on, so d
 - Every claim names its source. No single source stands in for the market. When sources disagree, the column says so.
 - It covers what employers ask for: stack, databases, DevOps tools, benefits, experience, and how posts change. A UK vs US view is planned.
 
+## Before starting new work
+
+Ask these (one at a time, each with a default) unless the docs already answer them:
+
+1. What is the finished thing, and who is it for?
+2. For UI work: reference links. Show a mockup before building.
+3. Which measures or features matter most?
+4. Anything public-facing gets a red-team pass before it ships.
+5. Which permissions is Thomas comfortable granting (merges, pushes)?
+
+The retro behind this list is in `docs/lessons.md` under "Working with Thomas".
+
 ## How work runs here
 
 - **Delegation:** the lead session delegates to agents (Opus) and runs independent work in parallel, each agent in its own git worktree under `.claude/worktrees/<branch>`.

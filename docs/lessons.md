@@ -86,3 +86,17 @@ These are mistakes already made, approaches already tried, and traps found in ea
 - **Set the layout width before async data arrives.** A chart mounted at the text width and widened only after its breakdown file loaded, so it drew twice and the page jumped. Set `data-width` before the first `await` and give empty mounts a placeholder height.
 - **A rule about errored directives must cover render-time failures, not only parse errors.** The topline skip checked only the parser's flag, so a strip with an unknown metric took the top slot. Draw strips first and treat a mount that ends in an error box as failed.
 - **Prose selectors must not reach into charts.** `.article-body p` and `.article-body h3` restyled chart subtitles, notes and titles (a chart title came out serif). Scope prose rules to the article's direct children (`.article-body > p`).
+
+## Working with Thomas (retro, 2026-11-04)
+
+What cost rework on the first day, and what to do instead.
+
+- **Settle the framing before building.** "A Software Engineering Jobs Report with HN as one source" arrived mid-afternoon, after an HN-centered October column had been published. That forced a correction and a rewrite of the style guide. Before new product work, ask what the finished thing is and who it's about.
+- **Ask for reference examples first.** FiveThirtyEight plus NYT was the real design brief, but it came after two layout attempts (a 56 rem column, then charts with text wrapped around them). Before any UI work, ask for one or two reference links and show a quick mockup before building.
+- **Ask who reads it and what decision it informs.** That decides which measures lead and which are trivia.
+- **Ask which measures matter most.** Stack, benefits and experience came late. Asking at kickoff shapes the first output.
+- **Red-team before publishing, not after.** The outside-data check that forced the October correction should have run before it went live.
+- **Sequence parallel branches that touch the same files.** Three branches editing the same docs, fetch client and export cost a round of conflict fixes and a strict merge order. Plan shared-file edits up front, or have each branch merge main before its PR.
+- **Ask about permissions up front.** Agent merges, agent pushes and secret writes were each blocked once. Ask at kickoff whether Thomas wants a permission rule (for example, merging reviewed PRs). Until he says so, he merges.
+- **What works well with Thomas:** short, direct answers to one question with a default ("yes", "public is fine"), and screenshots with "what's off?". Give him something concrete to react to rather than open questions.
+
