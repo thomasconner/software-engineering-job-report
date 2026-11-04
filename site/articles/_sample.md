@@ -1,7 +1,7 @@
 ---
 month: 2026-10
-headline: "There are two job seekers for every company hiring, and the gap is still growing"
-dek: "Sample issue on mock data. Hiring posts have drifted down for three years while the line of people looking keeps getting longer."
+headline: "Software hiring has drifted down for three years while job seekers keep coming"
+dek: "Sample issue on mock data. On Hacker News, employer posts have drifted down for three years while the line of people looking keeps getting longer."
 byline: "Software Engineering Jobs Report"
 ---
 

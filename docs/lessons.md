@@ -25,6 +25,8 @@ These are mistakes already made, approaches already tried, and traps found in ea
 - **A missing value must not freeze a month.** Months missing an expected series stay open and are retried. An outside-source failure warns and never blocks the HN refresh.
 - **Values revise.** CES annual benchmarks show up as steps, and Indeed revised its history in November 2024. Values are as first published, and charts say so.
 - **Outside series have no noise bar.** Describe their moves plainly and never with "≈".
+- **Comparing values stored for two issues mixes vintages.** CES September 2026 against September 2025 read −2% across vintages but −1.3% within one, and a benchmark step read as a five-year gain; revisions looked like market moves. Store each value's same-vintage readings for t−3, t−12 and t−60 (`compare`) and compute changes from those.
+- **Twelve issues are not twelve months.** Releases slip, so issues repeat or skip reference months, and a 12-issue average counted some months twice. Average the distinct reference months in the 12 calendar months ending at the point's own reference period.
 
 ## Sources: legal and practical
 

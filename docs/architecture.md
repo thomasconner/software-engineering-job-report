@@ -169,11 +169,14 @@ Indeed comes from its GitHub repos, never FRED: FRED's copies of Indeed need Ind
 
 **One value per month.** Indeed's postings and remote series are daily 7-day trailing averages. Month *t* takes the reading dated on or before the thread's window end (`created_at` + 7 days); when the file reaches that day, the reading is exactly the mean over the thread's 7 days, so the benchmark covers the same week as the posts. Usually the file lags a few days (postings) or to the previous month end (remote), and `ref_period` says which day was used. Readings more than 31 days (postings) or 75 days (remote) older than the window end mean the file stopped updating, and the month gets no value. Pay transparency is monthly: the newest month on or before *t*. BLS: the newest month in the vintage, usually *t*−1 (CES) or *t*−2 (JOLTS). The value is plotted at HN month *t*, as known then.
 
+**Same-vintage comparisons.** Each stored value also carries `compare`: the same vintage's readings for the reference periods 3, 12 and 60 months before its `ref_period` (`{"3m": {"ref_period", "value"}, "1y": …, "5y": …}`). BLS takes them from the same ALFRED vintage CSV or BLS API pull (the API request covers six years), Indeed from the same file at the same commit. Monthly periods must match exactly; a daily Indeed period takes the latest reading on or before the same day, within a week. A window with no such reading is left out, never filled from another vintage. Comparing the values stored for two issues instead would mix vintages, so BLS revisions and benchmarks would read as market moves (CES September 2026 against September 2025 is −2.3% across vintages and −1.3% within one). Storing three extra numbers per value keeps to the rule for ALFRED and FRED: a few values per month, never an archived vintage. `sejr external --backfill` first gives frozen months without `compare` their readings by re-pulling them (deterministic: ALFRED at the as-of date, Indeed at the same commit) and attaches them only when the stored value comes back unchanged.
+
 **Storage.** `data/external/<source>/<YYYY-MM>.json`, `source` = `indeed` | `bls`:
 
 ```json
 {"month": "2026-10", "as_of": "2026-10-09", "fetched_at": "2026-11-04T15:19:31Z",
  "values": {"indeed_software_postings.US": {"value": 78.33, "ref_period": "2026-10-02",
+   "compare": {"3m": {"ref_period": "2026-07-02", "value": 72.9}, "1y": {"ref_period": "2025-10-02", "value": 63.6}, "5y": {…}},
    "vintage_date": "2026-10-06", "source_url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/<sha>/US/job_postings_by_sector_US.csv"}}}
 ```
 
@@ -257,7 +260,8 @@ Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`:
     "country": "US", "publisher": "Indeed Hiring Lab", "credit": "Indeed Hiring Lab, job postings tracker",
     "license": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/", "seasonally_adjusted": true,
     "unit": "index", "description": "…", "source_url": "https://github.com/hiring-lab/job_postings_tracker",
-    "series": [{"month": "2026-10", "value": 78.33, "ref_period": "2026-10-02", "vintage_date": "2026-10-06"}]
+    "series": [{"month": "2026-10", "value": 78.33, "ref_period": "2026-10-02", "vintage_date": "2026-10-06",
+                "compare": {"1y": {"ref_period": "2025-10-02", "value": 63.6}}}]
   }
 }
 ```
@@ -275,7 +279,7 @@ Scalar keys are `<metric>.<kind>`. Each metric and breakdown carries `polarity`:
 ]
 ```
 
-`coverage_start` and `coverage_end` are issue (HN) months: the first and last with a value in any of the source's series. `series` lists its `metrics` or `external` keys. `credit` is the series' own credit when they share one, else the publisher; `license` comes from the series.
+`coverage_start` and `coverage_end` are issue (HN) months: the first and last with a value in any of the source's series. `latest_ref_period` is the newest period any of its series describes in the `coverage_end` issue (the issue month for HN). The page shows back issues only the sources that existed by then, and the newest period each carried. `series` lists its `metrics` or `external` keys. `credit` is the series' own credit when they share one, else the publisher; `license` comes from the series.
 
 ## Articles: `site/articles/YYYY-MM.md`
 
@@ -287,6 +291,7 @@ month: 2026-11
 headline: "Remote work is losing, but not where you'd think"
 dek: "One-sentence standfirst under the headline."
 byline: "Software Engineering Jobs Report"
+ribbon: "external:indeed_software_postings.US"
 ---
 
 Body paragraphs…
@@ -315,11 +320,11 @@ Directive attributes:
 | `from`, `to` | time-series charts | YYYY-MM bounds of the default view |
 | `vs` | slope, dot | the past point: `3m`, `1y`, `5y`, or `YYYY-MM`; default 5y on slope, 1y on dot |
 | `months` | slope | two explicit months, `"2021-10,2026-10"`; overrides `vs` |
-| `metrics` | ::compare | comma list of rows, in order: metric keys (`posts.hiring`) and outside series written `external:<key>` (`external:indeed_software_postings.US`). An external row shows the published value (never smoothed or indexed), the period it describes ("Aug 2026 data"), "Not seasonally adjusted" when that applies, and its change against the values stored for the 3m/1y/5y issue months, each with its own reference period. External rows have no noise bar, so their change is a plain gray change with an arrow, never "≈" or better/worse. The source line credits each publisher with its license |
+| `metrics` | ::compare | comma list of rows, in order: metric keys (`posts.hiring`) and outside series written `external:<key>` (`external:indeed_software_postings.US`). An external row shows the published value (never smoothed or indexed), the period it describes ("Aug 2026 data"), "Not seasonally adjusted" when that applies, and its change against the same vintage's readings for the reference periods 3, 12 and 60 months earlier (`compare`), each with its reference period. A window without such a reading says "No same-month value". For a not seasonally adjusted series, a window whose two periods fall in different calendar months says "seasonal" instead of a change. External rows have no noise bar, so their change is a plain gray change with an arrow, never "≈" or better/worse. The source line credits each publisher with its license |
 | `against` | ::compare | comma list of windows, default `3m,1y,5y` |
 | `annotate` | time-series charts | `YYYY-MM:Label`, several separated by `;` |
 | `external` | line | one key from metrics.json `external`. With a single `metric` it needs `base` and both lines are indexed. Without `metric` (and without `base`) the chart draws the outside series alone in its own unit (`index`, `share`, or `thousands` printed as whole numbers with K/M ticks), subtitled "as published by each issue's date"; the tooltip and table name each value's reference period |
-| `base` | line with `external` and `metric` | `YYYY-MM`; both lines are indexed to 100 at this month. On any chart, a series with `smooth_12m: true` (JOLTS) is drawn as a 12-month trailing average (months without 12 consecutive values drop out), and the subtitle says so. The average runs over 12 HN months, not 12 reference months: each HN month carries the newest value published by its as-of date, so a reference month can appear twice or not at all (over JOLTS' 188 months, 33 repeat and 34 are skipped). The tooltip shows "12 months to <ref_period>" for a smoothed point. The source line adds the publisher's credit, a link to its license, and what this report changed ("indexed to Jan 2022 = 100 by this report") |
+| `base` | line with `external` and `metric` | `YYYY-MM`; both lines are indexed to 100 at this month. On any chart, a series with `smooth_12m: true` (JOLTS) is drawn as a 12-month average, and the subtitle says so. Each issue's point averages the distinct reference months in the 12 calendar months ending at its own `ref_period`, each at the newest value known by that issue (later issues never leak back). Issues repeat or skip reference months (over JOLTS' 188 issues, 33 repeat one and 34 are skipped), so averaging 12 issues would count some months twice; a window needs at least 10 of its 12 months, so a skipped release or two doesn't blank a year. The tooltip shows "average of N monthly readings, <first> to <last>". `from` before the outside series' first value is an authoring error. The source line adds the publisher's credit, a link to its license, and what this report changed ("indexed to Jan 2022 = 100 by this report") |
 | `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
@@ -327,6 +332,8 @@ Directive attributes:
 `bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack` must not be drawn as `stacked-area` (its shares don't sum to 1).
 
 A back issue clips every series to its front-matter `month`, so older issues never show later data.
+
+Front matter `ribbon` picks the masthead strip's series: a metric key or `external:<key>`, drawn as published. Without it, issues before November 2026 show `posts.hiring` (as they were published) and later issues show `external:indeed_software_postings.US`.
 
 Manifest: `site/articles/index.json` is `{"months": ["YYYY-MM", ...]}`, newest last. Files starting with `_` are samples and never listed.
 

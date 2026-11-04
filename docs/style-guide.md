@@ -193,7 +193,7 @@ Every headline measure is placed against three reference points, in this order:
 | 1 year ago | `1y` | The cleanest comparison: same month, so seasonal effects mostly cancel. | Lead with this one when only one comparison fits. |
 | 5 years ago | `5y` | Where the market sits in the long cycle. | From 2026, five years back lands in the 2021 boom. Name the base month's context so the drop isn't read as a collapse. |
 
-Windows are counted in issue months. For an outside series, each issue carries the newest value published by its date, so the 1y cell compares this issue's value with the one a year of issues back, and the two may describe different reference months (the October and November 2025 issues both carry August 2025 for CES, when BLS releases were delayed). The strip prints both reference periods; the prose names them when they differ. For a not seasonally adjusted series (JOLTS, Indeed's remote and pay shares), only the 1y and 5y windows compare like seasons; a 3m move there is seasonal until shown otherwise.
+For an outside series, the windows count back from the issue value's own reference period, and both values come from the same release (`compare` in `metrics.json`): "September 2026 against September 2025, both as published in October 2026". The strip prints both reference periods. When that release has no reading for the same month (a skipped or delayed release), the strip says "No same-month value", and the prose says so too rather than reaching for another month or another release. For a not seasonally adjusted series (JOLTS, Indeed's remote and pay shares), the strip shows "seasonal" for windows that compare different calendar months; the 1y and 5y windows compare like seasons.
 
 Skip a window, and say why in the chart note or a clause, when:
 
@@ -315,17 +315,20 @@ Rules:
 ### Reference periods and lags
 
 - **State the reference period whenever it differs from the issue month.** JOLTS runs about two months behind, CES about one, Indeed's pay share about two. "In August, employers in the information sector reported 128,000 openings", not "in October".
-- **No silent mixing.** A sentence that sets an August JOLTS figure against an October HN figure says both months. A year-on-year change compares the same reference month when the data allow it; when the strip's 1y cell compares different reference months (the issue a year back carried an older value), the prose uses the same-month pair and the ledger names both.
+- **No silent mixing.** A sentence that sets an August JOLTS figure against an October HN figure says both months.
+- **Changes come from one release.** Every outside change (3 months, a year, five years) compares two readings from the same vintage: the issue's value and its `compare` reading. Never subtract the values stored for two different issues: they come from different releases, so BLS revisions and benchmark steps would read as market moves (CES September 2026 against September 2025 is −2.3% across releases and −1.3% within one). If `compare` has no reading for the window, write that there is no same-month value in this release, and leave the change out.
+- **Levels across releases.** A chart line or a "peak" is a series of values as first published, so it does mix releases. Say "as first published" when a level claim spans a benchmark revision.
 - **Lagged sources describe the past.** A September CES count can't confirm or refute an October HN move; say they cover different months.
 
 ### Outside series have no noise bar
 
 HN series carry an exported noise bar (below). Outside series don't: their publishers' sampling errors aren't in `metrics.json`, and we don't estimate them.
 
-- Describe an outside change in plain language with its number: "Indeed's index rose 23%", "employment was 2% lower". Never call it "about the same" or "within the noise" (we haven't measured that), and never call it "clearing the bar".
+- Describe an outside change in plain language with its number, computed within one release (above): "Indeed's index rose 23%", "employment was 2% lower". Never call it "about the same" or "within the noise" (we haven't measured that), and never call it "clearing the bar".
 - Reserve the stronger size verbs (jumped, plunged) for large moves over a year or more, stated with the number. A one-month change in a single outside reading is a reading, not a trend.
 - **Unadjusted series swing with the seasons.** JOLTS and Indeed's remote and pay shares are not seasonally adjusted. Compare a month with the same month a year earlier, or use the 12-month average the charts draw, and don't describe a month-to-month move in them as a rise or fall. JOLTS for one industry swings widely even year on year; a single-month JOLTS change leads a section only when the 12-month average moves the same way.
-- Counting directions is still allowed ("the index rose in 10 of the last 12 months").
+- Counting directions is still allowed, as readings: "the index rose in 10 of the 12 monthly readings since October 2025". Those readings come from different releases, so count them only for series without big revisions (Indeed's postings index), and say "readings".
+- A JOLTS 12-month average is the mean of the distinct reference months published by the issue's date, at least 10 of the last 12; the tooltip says how many. Write "averaged over the 12 months to August" (or "over 11 monthly readings" when one is missing), never "12 readings" or "12 issues".
 
 ### No fabrication
 
@@ -430,7 +433,7 @@ rounding: shares to whole %, point gaps from printed shares, % change from unrou
 289 hiring posts            posts.hiring 2026-10 = 289
 about the same as a year ago posts.hiring 2025-10 = 351; ln(289/351) = -0.194; bar 1y = 0.338; inside
 685 people looking for work posts.seeking 2026-10 = 685
-Indeed rose 23%             external indeed_software_postings.US 2026-10 = 78.33 (ref 2026-10-02), 2025-10 = 63.57 (ref 2025-10-03); no bar
+Indeed rose 23%             external indeed_software_postings.US 2026-10 = 78.33 (ref 2026-10-02); compare.1y = 63.6 (ref 2025-10-02, same release); no bar
 128,000 openings in August  external jolts_openings_information.US 2026-10 = 128 (ref 2026-08)
 up 70% from a year ago      posts.seeking 2025-10 = 404; 685/404 = 1.696; ln = 0.528; bar 1y = 0.299; outside
 most on record              posts.seeking max(2014-05..2026-09) < 685
@@ -483,7 +486,7 @@ Clean but voiceless is its own tell. A month of flat numbers read out in order s
 
 ## 6. Worked example
 
-This example uses real numbers: the October 2026 export (`generated_at` 2026-11-04T12:07:47Z). It is saved as `site/articles/_sample-jobs-report.md`, which is a sample, not a published issue: files starting with `_` load only in authoring mode (`?issue=_sample-jobs-report` on a local server, or with `?mock=1`). The article below and that file must stay identical, except that the full ledger lives only in the file. It has four sections and runs about 790 words of prose.
+This example uses real numbers: the October 2026 export (`generated_at` 2026-11-04T12:07:47Z). It is saved as `site/articles/_sample-jobs-report.md`, which is a sample, not a published issue: files starting with `_` load only in authoring mode (`?issue=_sample-jobs-report` on a local server, or with `?mock=1`). The article below and that file must stay identical, except that the full ledger lives only in the file. It has four sections and runs about 800 words of prose.
 
 The published October 2026 column (`site/articles/2026-10.md`) was written before this framing, with Hacker News as its subject. It stays as an archived edition with its correction. Compare the two to see the difference: the same HN numbers appear here, but as one source in the third section, beside what Indeed and the BLS show.
 
@@ -492,32 +495,33 @@ The published October 2026 column (`site/articles/2026-10.md`) was written befor
 ```markdown
 ---
 month: 2026-10
-headline: "Software job postings rose this year, but employment slipped"
-dek: "Indeed's index of US software job postings rose 23% in a year, while the BLS counted 2% fewer people working at computer systems design firms."
+headline: "Software job ads rose, but computer systems design employment slipped"
+dek: "Indeed's index of US software job postings rose 22% in a year, while the BLS counted 1% fewer people working at computer systems design firms."
 byline: "Software Engineering Jobs Report"
+ribbon: "external:indeed_software_postings.US"
 ---
 
-Ads for software work are coming back. Indeed's index of US software development job postings rose 23% over the year to early October. The government's counts of people employed and hired have not followed. Employment at computer systems design firms was 2% lower in September than a year earlier, by the Bureau of Labor Statistics' count.
+Ads for software work rose this year. Indeed's index of US software development job postings rose 22% over the year to early October. Employment at computer systems design firms went the other way. The Bureau of Labor Statistics counted 1% fewer people working there in September than a year earlier.
 
-So far the rise is in ads. Payroll counts moved the other way. Indeed's index reached 78.3 in the week to October 2, up from 63.6 a year earlier, and it rose in 10 of the last 12 months. Over roughly the same year, BLS counted about 55,000 fewer people working at computer systems design firms, and the information sector reported fewer job openings. On Hacker News, people posting that they want work grew much faster than the companies posting that they are hiring.
+So far the rise is in ads. Indeed's index reached 78.3 in the week to October 2, up from 64.3 a year earlier, and it rose in 10 of the 12 monthly readings since October 2025. Over the year to September, the BLS counted about 32,000 fewer people at computer systems design firms, and employers in the information sector reported 9% fewer job openings in August than a year earlier. On Hacker News, employer posts in the monthly hiring thread held about steady, within ordinary swings for a thread this size.
 
 ::compare{title="Postings rose on Indeed while BLS employment and openings fell" metrics="external:indeed_software_postings.US,external:jolts_openings_information.US,external:ces_computer_systems_design.US,posts.hiring,seekers_per_post.hiring,seekers_per_post_us.hiring,salary_disclosed_share.hiring" against="3m,1y,5y"}
 
 ## Software job postings on Indeed rose for most of the year
 
-Indeed's index of US software development postings stood at 78.3 in the week to October 2, where February 2020 equals 100. A year earlier it was 63.6, so the index rose 23%. It went up in 10 of the 12 months since then.
+Indeed's index of US software development postings stood at 78.3 in the week to October 2, where February 2020 equals 100. In the same release, the index was 64.3 a year earlier, so it rose 22%. It went up in 10 of the 12 monthly readings since then.
 
-The longer view is less bright. In October 2021, during the pandemic-era hiring boom, the index was 178.0, and the latest reading is 56% below it. The index peaked at 231.6 in March 2022. Today's level is about a third of that.
+The longer view is less bright. In October 2021, during the pandemic-era hiring boom, the index was 179.4, and the latest reading is 56% below it. As first published, the index peaked at 231.6 in March 2022. Today's level is about a third of that.
 
-To be sure, the BLS count of job openings points the other way. Employers in the information sector reported 128,000 open jobs in August, against 169,000 in August 2025. The two sources count different things. Indeed counts ads for software development work at employers in every industry. JOLTS counts every opening, software or not, at publishers, broadcasters, telecom carriers and data processors. JOLTS is also not seasonally adjusted and swings a lot from month to month. Averaged over its last 12 readings, information-sector openings were 105,000, against 164,000 a year earlier. Indeed's rise held for most of the year, but it is a rise in ads for software work, and the industry count of openings has not confirmed it.
+To be sure, the BLS count of job openings points the other way. Employers in the information sector reported 128,000 open jobs in August, against 141,000 in August 2025 in the same release, 9% fewer. The two sources count different things. Indeed counts ads for software development work at employers in every industry. JOLTS counts every opening, software or not, at publishers, broadcasters, telecom carriers and data processors. JOLTS is also not seasonally adjusted, which is why this comparison sets August against August. Indeed's rise held for most of the year, but it is a rise in ads for software work, and the industry count of openings has not confirmed it.
 
-::chart{type="line" external="indeed_software_postings.US" from="2021-06" title="Indeed's US software postings rose 23% in a year but are a third of their 2022 peak"}
+::chart{type="line" external="indeed_software_postings.US" from="2021-06" title="Indeed's US software postings rose 22% in a year but are a third of their 2022 peak"}
 
 ## Employment at computer systems design firms slipped
 
-The BLS counted 2.36 million people working at computer systems design firms in September, 2% fewer than the 2.41 million of September 2025. Five years ago, in September 2021, the count was 2.28 million, so the industry is still 3% larger than it was during the boom.
+The BLS counted 2.36 million people working at computer systems design firms in September, 1% fewer than the 2.39 million it now estimates for September 2025. Five years ago, in September 2021, the count was 2.35 million, about the same as today.
 
-Hiring in the information sector was also lower. Averaged over 12 readings, JOLTS counted 78,000 hires a month in the information sector, 7% fewer than the 83,000 of a year earlier.
+Our chart strings together each month's first estimate, so it shows a larger fall since 2024 than that. Part of it is a step in early 2025, when the BLS revised the whole series. Compared within one release, the past year's drop is about 32,000 people.
 
 ::chart{type="line" external="ces_computer_systems_design.US" from="2019-01" title="Employment at computer systems design firms is below its 2024 level" note="Values as first published. BLS's yearly benchmark revision shows as a step in early-year months, including February 2025."}
 
@@ -525,21 +529,21 @@ Hiring in the information sector was also lower. Averaged over 12 readings, JOLT
 
 Employer posts in Hacker News's monthly hiring thread held about steady: 289 in October, against 351 a year earlier, a gap within ordinary swings for a thread this size. People posting in "Who wants to be hired?" rose 70%, to 685. That left 2.4 job seekers for every hiring post, up from 1.2.
 
-Most of that rise came from people outside the US. Counting only US job seekers against hiring posts open to US workers, the ratio went from 0.7 to 1.0, a change within ordinary swings. The thread leans toward startups, so it is a narrow view, but on it the job seekers' side did the moving while Indeed's postings rose.
+Most of that rise came from people outside the US. Counting only US job seekers against hiring posts open to US workers, the ratio went from 0.7 to 1.0, a change within ordinary swings. The thread leans toward startups, so it is a narrow view, and on it the job seekers' side did the moving.
 
 ::chart{type="line" metric="seekers_per_post.hiring" from="2014-05" title="Job seekers per hiring post on Hacker News doubled in a year, to 2.4" annotate="2020-03:COVID shutdowns;2023-01:Big Tech layoffs"}
 
 ## More software job ads state pay, on Indeed and on Hacker News
 
-Forty-nine percent of Indeed's US software postings stated pay in August, up 10 percentage points from 39% in August 2025. Hacker News agrees on direction. Thirty-one percent of October's hiring posts gave a yearly salary, against 22% a year earlier, a gap just past ordinary swings.
+Forty-nine percent of Indeed's US software postings stated pay in August, up 9 percentage points from 40% in August 2025 in the same release. Hacker News agrees on direction. Thirty-one percent of October's hiring posts gave a yearly salary, against 22% a year earlier, a gap just past ordinary swings.
 
-The two sources measure the same thing in different places. Indeed's share covers ads across the whole US market, and the Hacker News share covers startup posts written in free text.
+The two sources measure the same thing in different places. Indeed's share is taken across Indeed's US postings, and the Hacker News share covers startup posts written in free text.
 
-::chart{type="line" external="indeed_software_pay_transparency.US" title="Indeed's share of software postings that state pay rose 10 points in a year"}
+::chart{type="line" external="indeed_software_pay_transparency.US" title="Indeed's share of software postings that state pay rose 9 points in a year"}
 
 ## What this data can't tell us
 
-None of these sources counts software engineers directly. Indeed counts ads, not hires. The BLS series count industries, not occupations, so they include jobs that aren't software work and miss software engineers employed in other industries. They also run behind: September is the newest employment month here and August the newest for openings and hires. The employment figures are as first published, and BLS revises them. Hacker News posts aren't jobs, and the people who post there are not a sample of anyone in particular. Nor can any of these numbers say why ads rose while employment fell.
+None of these sources counts software engineers directly. Indeed counts ads, not hires. The BLS series count industries, not occupations, so they include jobs that aren't software work and miss software engineers employed in other industries. They also run behind: September is the newest employment month here and August the newest for openings. The BLS revises its figures, which is why every change here compares two numbers from the same release. Hacker News posts aren't jobs, and the people who post there are not a sample of anyone in particular. Nor can any of these numbers say why ads rose while employment fell.
 
 For now the recovery is in the ads. The BLS counts run one to two months behind, so they are the ones to watch next.
 ```
@@ -557,7 +561,16 @@ The draft went through the `humanizer` checklist and the rules in section 4 befo
 | "miss software engineers at banks, retailers and carmakers" | Examples from memory, no source | "miss software engineers employed in other industries" |
 | "BLS counts, which trail the ads by one to two months" | The lag is behind the issue month, not behind the ads | "The BLS counts run one to two months behind" |
 
-One check was built in from the start rather than caught: the strip's 1y cell for CES compares the October 2026 issue (September data) with the October 2025 issue, which still carried August 2025. The prose uses the same reference month instead, September 2025 from the December 2025 issue, and the ledger names both.
+An independent review of that draft then caught the errors below. The first was serious: the draft's outside changes subtracted values from two different releases.
+
+| Draft | Problem | Fix |
+|---|---|---|
+| "rose 23%" (Indeed), "2% fewer" (CES), "3% larger" than in 2021 (CES) | Each change set this release's value against a value first published a year or five years earlier, so BLS revisions and a benchmark step read as market moves | Same-release changes from `compare`: 22%, 1% fewer, and about the same as in 2021 |
+| "Averaged over its last 12 readings, openings were 105,000" | Averaged 12 issues, which repeat and skip reference months, across several releases | Cut. The August-against-August change from one release carries the point |
+| "people posting that they want work grew much faster than the companies posting that they are hiring" | Hiring posts moved within ordinary swings; only the job seekers' side moved | "employer posts in the monthly hiring thread held about steady, within ordinary swings" |
+| Headline "Software job postings rose this year, but employment slipped" | "Employment" read as all software employment; CES counts one industry | "Software job ads rose, but computer systems design employment slipped" |
+| "rose in 10 of the last 12 months" | Those are first-published readings from different releases | "rose in 10 of the 12 monthly readings" |
+| "Indeed's share covers ads across the whole US market" | Indeed is one job site, not the market | "Indeed's share is taken across Indeed's US postings" |
 
 ### The ledger, in part
 
@@ -566,15 +579,16 @@ Every line names an `external` key with its `ref_period`, or an HN metric with i
 ```markdown
 <!-- ledger (excerpt)
 rounding: shares to whole %, point gaps from printed shares, % change from unrounded values, ratios one decimal, outside thousands as whole numbers or millions to two decimals
-metrics.json generated_at 2026-11-04T12:07:47Z; outside values are as published by each HN month's as-of date; ref periods named below
-headline/dek postings rose 23%    external indeed_software_postings.US 2026-10 = 78.33 (ref 2026-10-02), 2025-10 = 63.57 (ref 2025-10-03); 78.33/63.57 = 1.232; no bar for outside series
-headline/dek employment slipped 2% external ces_computer_systems_design.US HN 2026-10 = 2355.4 (ref 2026-09); HN 2025-12 = 2410.6 (ref 2025-09, same reference month a year earlier); 2355.4/2410.6 = 0.977
-rose in 10 of last 12 months      indeed HN months 2025-10..2026-10: up 10, down 2 (2026-05 72.15 < 72.44; 2026-07 72.51 < 72.57)
-128,000 in August                 jolts_openings_information.US 2026-10 = 128 (ref 2026-08)
-12-reading average 105,000        trailing 12 HN months 2025-11..2026-10 mean = 105.08 (refs 2025-08..2026-08; some repeat)
-information sector examples     NAICS 51 definition, BLS Industries at a Glance https://www.bls.gov/iag/tgs/iag51.htm
-2.41 million September 2025       CES HN 2025-12 = 2410.6 (ref 2025-09); the strip's 1y cell compares HN 2025-10 = 2415.4 (ref 2025-08), also -2% (0.975); prose uses the same-month pair
-289 vs 351, within swings         posts.hiring 2026-10 = 289, 2025-10 = 351; ln -0.194 vs bar 1y 0.338; inside
+metrics.json generated_at 2026-11-04T12:07:47Z; outside values as published by each HN month's as-of date
+outside changes: issue value against its same-release `compare` reading (data/external, metrics.json external series[].compare); ref periods named
+headline/dek postings rose 22%    external indeed_software_postings.US 2026-10 = 78.33 (ref 2026-10-02, release 2026-10-06); compare.1y = 64.3 (ref 2025-10-02); 78.33/64.3 = 1.218; no bar
+headline/dek employment 1% fewer  external ces_computer_systems_design.US 2026-10 = 2355.4 (ref 2026-09, vintage 2026-10-09); compare.1y = 2387.6 (ref 2025-09); 2355.4/2387.6 = 0.9865
+10 of the 12 monthly readings     indeed issue values (as first published) 2025-10..2026-10: up 10, down 2 (2026-05 72.15 < 72.44; 2026-07 72.51 < 72.57); no large revisions in this series
+information sector 9% fewer       external jolts_openings_information.US 2026-10 = 128 (ref 2026-08); compare.1y = 141 (ref 2025-08); 128/141 = 0.908
+hiring posts held about steady    posts.hiring 2026-10 = 289, 2025-10 = 351; ln -0.194 vs bar 1y 0.338; inside
+peaked 231.6 March 2022, first published  indeed issue values max over 2021-06..2026-10 = 231.57 at HN month 2022-03 (ref 2022-03-04)
+information sector examples       NAICS 51 definition, BLS Industries at a Glance https://www.bls.gov/iag/tgs/iag51.htm
+2.35 million September 2021       CES compare.5y = 2348.9 (ref 2021-09); 2355.4/2348.9 = 1.003, about the same
 US-only 0.7 to 1.0, in swings     seekers_per_post_us.hiring 2025-10 = 0.7343, 2026-10 = 1.0363; ln 0.344 vs bar 1y 0.358; inside
 31% vs 22%, just past swings      salary_disclosed_share.hiring 2026-10 = 0.3133 (n 233), 2025-10 = 0.2166 (n 314); printed gap 9; unrounded 0.0967 vs bar 1y 0.095; just outside (hedged)
 -->
@@ -601,7 +615,8 @@ Sources
 - [ ] Every claim names its source, and the headline, dek and lede are about the software engineering job market, synthesized across sources. None is framed as "HN has..." or rests on Hacker News alone.
 - [ ] No single source stands in for the market. Market-level words ("demand", "hiring", "the market") name the sources behind them.
 - [ ] Where sources disagree, the text says so and says what each measures (postings, openings, hires, layoffs, employment, filings, self-posts).
-- [ ] Every outside value whose reference period differs from the issue month states it ("in August"). No sentence sets different reference periods against each other without naming both; year-on-year outside changes use the same reference month, or say they don't.
+- [ ] Every outside value whose reference period differs from the issue month states it ("in August"). No sentence sets different reference periods against each other without naming both.
+- [ ] Every outside change is computed from the issue value and its same-release `compare` reading, and the ledger shows both with their reference periods. Where `compare` has no reading, the text says there is no same-month value.
 - [ ] JOLTS and CES are described as industries ("the information sector", "computer systems design firms"), never as software jobs.
 
 Noise and claims
@@ -704,4 +719,4 @@ AI tells
 
 ## Changes within noise on the page
 
-The renderer reads the exported `bar` (section 4, "The noise bar"), so the page and the ledger use the same number. A move inside the bar is shown gray with "≈" and read as "about the same"; salary medians with fewer than 30 posts show "too few posts". The prose must agree with the page: never call a ≈ move a rise or fall. Outside rows in the strip have no bar: they show a plain gray change with an arrow, the reference period of each value, and "Not seasonally adjusted" when that applies.
+The renderer reads the exported `bar` (section 4, "The noise bar"), so the page and the ledger use the same number. A move inside the bar is shown gray with "≈" and read as "about the same"; salary medians with fewer than 30 posts show "too few posts". The prose must agree with the page: never call a ≈ move a rise or fall. Outside rows in the strip have no bar: they show a plain gray change with an arrow, computed within one release, the reference period of each value, "Not seasonally adjusted" when that applies, "seasonal" in place of a change between different calendar months of an unadjusted series, and "No same-month value" when the release has none.
