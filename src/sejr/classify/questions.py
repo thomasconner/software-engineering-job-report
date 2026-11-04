@@ -18,10 +18,11 @@ TEXT_ONLY = (
 INDUSTRIES = {
     "enterprise_saas": {
         "covers": "Business software for non-technical teams: CRM, HR and recruiting "
-        "software, sales, marketing and adtech, collaboration, analytics, vertical SaaS "
-        "(legal, construction).",
-        "excludes": "Tools for developers (devtools_infra). Education products and "
-        "staffing agencies that place candidates (neither is a listed sector).",
+        "software, sales and marketing software, collaboration, analytics, vertical "
+        "SaaS (legal, construction).",
+        "excludes": "Tools for developers (devtools_infra). Advertising technology, "
+        "education products and staffing agencies that place candidates (none is a "
+        "listed sector).",
     },
     "commerce": {
         "covers": "Buying, selling and moving goods: e-commerce, retail, marketplaces "
@@ -31,14 +32,16 @@ INDUSTRIES = {
     "fintech": {
         "covers": "Money: payments, banking, lending, insurance, trading, investing, "
         "accounting, crypto and blockchain.",
+        "excludes": "Gambling, betting and betting exchanges (not a listed sector).",
     },
     "health": {
-        "covers": "Healthcare, medical devices, biotech, pharma, health insurance, "
-        "mental health, fitness and wellness.",
+        "covers": "Healthcare, medical care and devices, biotech, pharma, health "
+        "insurance, clinical mental health care.",
+        "excludes": "Consumer fitness and wellness products (media_consumer).",
     },
     "media_consumer": {
         "covers": "Products for consumers: social apps, games, media, news, music, "
-        "video, dating, consumer subscriptions.",
+        "video, dating, consumer fitness and wellness, consumer subscriptions.",
         "excludes": "Education and learning products, even consumer ones (not a "
         "listed sector).",
     },
@@ -108,11 +111,13 @@ HIRING: dict[str, Question] = {
             },
             "mid": {
                 "covers": "Roles called mid-level or Engineer II, or asking for about "
-                "two to five years of experience.",
+                "two to four years of experience.",
             },
             "senior": {
-                "covers": "Senior, lead or tech lead engineers, founding or first "
-                "engineers, or asking for five or more years of experience.",
+                "covers": "Senior, lead or tech lead engineers, or asking for five or "
+                "more years of experience.",
+                "excludes": "A founding or first engineer with no stated level "
+                "(unspecified).",
             },
             "staff_plus": {
                 "covers": "Staff, principal, distinguished or architect engineers.",
@@ -122,7 +127,8 @@ HIRING: dict[str, Question] = {
             "unspecified": {
                 "covers": "No level is given: titles without a level, such as "
                 "'Software Engineer' or 'Backend Developer', and no years of "
-                "experience; or the post says it hires at all levels.",
+                "experience, including founding or first engineers with no stated "
+                "level; or the post says it hires at all levels.",
             },
         },
     ),
@@ -162,8 +168,9 @@ HIRING: dict[str, Question] = {
         criteria=NoulCriteria(
             true="The post describes the company, and it clearly fits one of `sectors`.",
             false="The company does something outside `sectors`, such as consulting, "
-            "agency or staffing work, education, government, research, nonprofit or "
-            "real estate; or the post does not say what the company does.",
+            "agency or staffing work, education, advertising technology, gambling or "
+            "betting, government, research, nonprofit or real estate; or the post does "
+            "not say what the company does.",
         ),
     ),
     "funding_stage": Choice(
@@ -206,11 +213,13 @@ HIRING: dict[str, Question] = {
         criteria=NoulCriteria(
             true="The post presents AI or ML as the core of the product: a model, an AI "
             "assistant or agent, an ML platform, or a product whose main feature is "
-            "computer vision, speech, recommendations or prediction.",
+            "computer vision, speech or prediction. Recommendations or personalization "
+            "count only when the post presents the product itself as AI-driven.",
             false="The post does not mention AI or ML, or uses it for a side feature or "
             "an internal tool, or hires one data scientist, or is hiring for an ML, "
             "research or data-science team at a company whose product the post does "
-            "not present as AI. Words like 'data-driven', 'analytics', 'big data' or "
+            "not present as AI, such as a large consumer company hiring for its "
+            "recommendations or personalization team. Words like 'data-driven', 'analytics', 'big data' or "
             "'automation' are not AI or ML on their own.",
         ),
     ),
@@ -256,14 +265,14 @@ SEEKING: dict[str, Question] = {
             },
             {
                 "level": "Positive",
-                "signals": "Says something hopeful about the search: chose to leave "
-                "their last job, is looking forward to the next one, or is taking time "
+                "signals": "Says the search is going fine: employed and selective, "
+                "casually looking, chose to leave their last job, or is taking time "
                 "to find the right fit.",
             },
             {
                 "level": "Upbeat",
-                "signals": "Says they are in a strong position: currently employed and "
-                "open only to exceptional offers, or openly excited and in demand.",
+                "signals": "Says they are clearly in demand: has multiple offers, or is "
+                "very choosy because companies are competing for them.",
             },
         ],
     ),
