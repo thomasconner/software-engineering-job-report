@@ -152,10 +152,17 @@ CODE_AFTER_TOWN = re.compile(
     r"(?P<code>[A-Z][A-Za-z])\b(?!['’])"
 )
 LEGAL_SUFFIXES = {"AB", "AG", "AS", "BV", "OY", "SA"}
-# State codes that are also words: "FULL-TIME, OR CONTRACT", "H1B OK", "Mi" but not "Or".
-WORD_CODES = {"OR", "IN", "ME", "OK", "HI", "OH"}
-TITLE_WORDS = {"Or", "In", "Me", "Ok", "Hi", "Oh", "Co", "De", "La", "Al", "Id"}
-WORD_AFTER = re.compile(r"\s+(?!USA?\b)[A-Za-z]")
+# Codes that are also words ("FULL-TIME, OR CONTRACT", "Amsterdam, ON-SITE", "REMOTE, NO
+# VISA") count only when no word follows. A code after them ("Hamilton, ON CA") or "or
+# remote" ("Bloomington, IN or REMOTE") doesn't count as a word.
+WORD_CODES = {"OR", "IN", "ME", "OK", "HI", "OH", "ON", "NO", "IS"}
+TITLE_WORDS = {"Or", "In", "Me", "Ok", "Hi", "Oh", "Co", "De", "La", "Al", "Id", "No", "On",
+               "Is", "So"}  # fmt: skip
+WORD_AFTER = re.compile(
+    r"(?:\s+|-\s*)(?!(?-i:[A-Z]{2,3})\b|(?:or|and|&|/)\s+(?:remote|onsite|on-site|hybrid)\b)"
+    r"[A-Za-z]",
+    re.IGNORECASE,
+)
 NOT_A_TOWN = re.compile(
     r"^(?:remote|onsite|on-site|hybrid|visa|relocation|interns?|time|full|part"
     r"|full-?time|part-?time|contract|contractors?|yes|no|only|and|or|ok|h-?1-?bs?"
@@ -272,7 +279,10 @@ def place_mentions(text: str) -> list[tuple[int, tuple[str, ...]]]:
         # A city takes the code after it ("Berlin, DE"). A country or region only swallows
         # a state code ("Europe, ME"), so "EU, UK" and "US, CA" stay two places.
         code = CITY_CODE.match(text, stop)
-        if code and _code_region(c := code.group(1)):
+        c = code.group(1) if code else None
+        if c in WORD_CODES and WORD_AFTER.match(text, code.end()):
+            c = None
+        if c and _code_region(c):
             if is_city:
                 end = code.end()
                 regions = (_city_region(regions[0], c),)
@@ -284,12 +294,13 @@ def place_mentions(text: str) -> list[tuple[int, tuple[str, ...]]]:
         code_at, code, comma = m.start("code"), m["code"], "," in m["sep"]
         if code in LEGAL_SUFFIXES or any(a <= code_at < b for a, b in taken):
             continue
+        job_word = NOT_A_TOWN.match(m["town"])
         if not code.isupper():
-            if not comma or code in TITLE_WORDS:
+            if not comma or code in TITLE_WORDS or job_word:
                 continue
             code = code.upper()
-        job_word = NOT_A_TOWN.match(m["town"])
-        if not comma and (code not in US_STATES or code in WORD_CODES or job_word):
+        # "H1B OK", "Horn OK": OK without a comma is never Oklahoma.
+        if not comma and (code not in US_STATES or code == "OK" or job_word):
             continue
         if code in WORD_CODES and (job_word or WORD_AFTER.match(text, m.end())):
             continue

@@ -37,6 +37,7 @@ def test_location_line(text, expected):
     [
         ("Hanford, CA", "us"),
         ("Royal Oak, Mi", "us"),
+        ("Beaverton OR", "us"),
         ("Santa Fe, In the mountains", "unknown"),
         ("Toronto, CA", "canada"),
         ("Valencia, CA", "us"),
@@ -107,6 +108,16 @@ def test_seeker_without_location_line_is_unknown():
         ("Acme | Ciudad de México | Onsite", ["latam"], False),
         ("Acme | Lima, Perú | Onsite", ["latam"], False),
         ("Acme | Remote, VA", ["us"], True),
+        ("Acme | Full-time, On-site", ["unknown"], None),
+        ("Doctrine.fr, On Site | Paris", ["europe"], False),
+        ("Acme | Amsterdam, ON-SITE", ["europe"], False),
+        ("JotPsych | New York, ON-SITE | Engineer", ["us"], True),
+        ("Acme | Berlin | No Remote, No H1B", ["europe"], False),
+        ("Acme | Full Time, No Visa | Onsite", ["unknown"], None),
+        ("Acme | REMOTE, NO VISA", ["unknown"], True),
+        ("Acme | Bloomington, IN or REMOTE", ["us"], True),
+        ("Intel (Hillsboro OR) | Onsite", ["us"], True),
+        ("Acme | Senior, Ga | Onsite", ["unknown"], None),
     ],
 )  # fmt: skip
 def test_hiring_regions(header, regions, open_to_us):
@@ -133,7 +144,8 @@ def _scores(pairs: list[tuple[set[str], set[str]]]) -> dict[str, tuple[float, fl
 # seeded and stratified by era (2011–26) and labeled blind to the regex, but rules were
 # then tuned against it, so it is in-sample. region_heldout is a reviewer's seeded draw
 # from 2015–26 (posts with no Location line dropped), labeled blind to the regex before
-# the second round of rules; only general patterns were fixed after it. Current scores:
+# the second round of rules. That round targeted its misses, so it is partly in-sample
+# too; a clean number needs a fresh draw. Current scores:
 # in-sample seekers 147/150, hiring and open_to_us 150/150; held-out seekers 188/190,
 # hiring 197/200, open_to_us 199/200. The US ratio scales by the US seeker share and the
 # open-to-US share, so a 5% error on either side moves it about 5%, well inside its noise
