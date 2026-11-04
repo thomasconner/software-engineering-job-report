@@ -110,9 +110,49 @@ def test_industry_known_renormalizes_without_unstated(db):
     industry = {c: v for (_, m, c), (v, _) in metrics.items() if m == "industry"}
     known = {c: v for (_, m, c), (v, _) in metrics.items() if m == "industry_known"}
     assert "unstated" not in known
-    assert sum(known.values()) == pytest.approx(1.0, abs=0.01)
+    assert sum(known.values()) == pytest.approx(1.0)
+    stated = sum(v for c, v in industry.items() if c != "unstated")
     for category, share in known.items():
-        assert share == pytest.approx(industry[category] / (1 - industry["unstated"]))
+        assert share == pytest.approx(industry[category] / stated)
+
+
+def test_industry_known_when_distributions_dont_sum_to_one(tmp_path):
+    con = connect(tmp_path / "industry.duckdb")
+    _thread(con, 1, date(2020, 1, 1))
+    for post_id, probabilities in [
+        (10, {"ai_ml": 0.3, "fintech": 0.3, "unstated": 0.2}),  # sums to 0.8
+        (11, {"ai_ml": 0.2, "health": 0.2, "unstated": 0.4}),
+    ]:
+        _post(con, post_id, 1, "Acme | Engineer")
+        con.execute(
+            "INSERT INTO answers VALUES (?, 'industry', 'jev', ?, NULL, 'ai_ml', ?, 0.5)",
+            [post_id, JEV_MODEL, json.dumps(probabilities)],
+        )
+    metrics = _metrics(aggregate.compute_month(con, date(2020, 1, 1)))
+    # Stated mass is 0.6 + 0.4 = 1.0; ai_ml holds 0.5 of it.
+    assert metrics[("hiring", "industry_known", "ai_ml")] == (pytest.approx(0.5), 1)
+    assert metrics[("hiring", "industry_known", "fintech")][0] == pytest.approx(0.3)
+    assert metrics[("hiring", "industry_known", "health")][0] == pytest.approx(0.2)
+    assert metrics[("hiring", "industry", "unstated")][0] == pytest.approx(0.3)
+
+
+def test_jev_metrics_need_98_percent_coverage(db):
+    month = date(2024, 3, 1)
+    assert ("hiring", "work_mode", "remote") in _metrics(
+        aggregate.compute_month(db, month)
+    )
+    db.execute(
+        """
+        DELETE FROM answers WHERE question = 'work_mode' AND post_id = (
+          SELECT min(p.post_id) FROM posts p JOIN threads t USING (thread_id)
+          WHERE t.month = $m AND t.kind = 'hiring' AND p.in_snapshot
+        )
+        """,
+        {"m": month},
+    )
+    metrics = _metrics(aggregate.compute_month(db, month))
+    assert ("hiring", "work_mode", "remote") not in metrics  # 3 of 4 answered
+    assert ("hiring", "ai_native_share", "") in metrics
 
 
 def test_seniority_split_by_ai_native(db):
@@ -340,3 +380,19 @@ def test_sources(db):
     ]
     assert data["metrics"]["seeker_mood.seeking"]["sources"] == ["seeking"]
     assert data["breakdowns"]["stack"]["sources"] == ["hiring"]
+
+
+def _answer_rows(con) -> list[tuple]:
+    return con.execute(
+        "SELECT * FROM answers WHERE method <> 'jev' ORDER BY post_id, question"
+    ).fetchall()
+
+
+def test_month_by_month_build_matches_full_build(db, tmp_path):
+    features.build(db)
+    full = _answer_rows(db)
+    db.execute("DELETE FROM answers WHERE method <> 'jev'")
+    # Newest first, so each earlier month's build has to refresh later months' joins.
+    for t in reversed(MONTHS):
+        features.build(db, t)
+    assert _answer_rows(db) == full

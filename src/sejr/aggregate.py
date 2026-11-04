@@ -13,6 +13,7 @@ from datetime import date
 import duckdb
 
 from sejr import config
+from sejr.db import insert_rows
 from sejr.features import VERSION as FEATURES_VERSION
 from sejr.features.vocab import TERMS
 
@@ -26,6 +27,7 @@ class AnswerMetric:
     question: str
     method: str
     expr: str = "avg(value)"
+    counted: str = "value"  # the column whose non-null rows make up n
 
 
 @dataclass(frozen=True)
@@ -41,7 +43,7 @@ class Breakdown:
 
 SCALARS = [
     AnswerMetric("salary_disclosed_share", "hiring", "salary_currency", "regex",
-                 "avg((label <> 'none')::DOUBLE)"),
+                 "avg((label <> 'none')::DOUBLE)", "label"),
     AnswerMetric("salary_min_median_usd", "hiring", "salary_min_usd", "regex", "median(value)"),
     AnswerMetric("salary_max_median_usd", "hiring", "salary_max_usd", "regex", "median(value)"),
     AnswerMetric("remote_token_share", "hiring", "remote_token", "regex"),
@@ -57,7 +59,8 @@ SCALARS = [
     # Score levels are keyed "0".."4"; 0 is Discouraged and 1 is Strained.
     AnswerMetric("seeker_strained_share", "seeking", "seeker_mood", "jev",
                  """avg(coalesce(json_extract(probabilities, '$."0"')::DOUBLE, 0)
-                      + coalesce(json_extract(probabilities, '$."1"')::DOUBLE, 0))"""),
+                      + coalesce(json_extract(probabilities, '$."1"')::DOUBLE, 0))""",
+                 "probabilities"),
 ]  # fmt: skip
 
 SENIORITY = ("junior", "mid", "senior", "staff_plus", "unspecified")
@@ -84,7 +87,12 @@ BREAKDOWNS = [
               AI_NATIVE_POSTS.format("<")),
 ]  # fmt: skip
 # Industry shares among posts that say what the company does, derived from `industry`.
-INDUSTRY_KNOWN = Breakdown("industry_known", "hiring", "jev", INDUSTRY[:-1])
+INDUSTRY_KNOWN = Breakdown(
+    "industry_known", "hiring", "jev", tuple(c for c in INDUSTRY if c != "unstated")
+)
+# Jev metrics publish a month only when nearly every post has an answer, so a half-run
+# classify can't pass for a trend.
+JEV_COVERAGE = 0.98
 
 # Metrics counted straight from posts and replies, with method 'count'.
 COUNT_METRICS = ("posts", "removed_share", "seekers_per_post", "replies_per_post")
@@ -168,11 +176,33 @@ def _count_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     return rows
 
 
+def _covered(
+    con: duckdb.DuckDBPyConnection, month: date, m: AnswerMetric | Breakdown
+) -> bool:
+    """Deterministic answers always cover the month; Jev ones need JEV_COVERAGE of posts."""
+    if m.method != "jev":
+        return True
+    answered, posts = con.execute(
+        SNAPSHOT
+        + """
+        SELECT count(DISTINCT a.post_id), (SELECT count(*) FROM snapshot WHERE kind = $kind)
+        FROM answers a JOIN snapshot s USING (post_id)
+        WHERE s.kind = $kind AND a.question = $question AND a.method = $method
+          AND a.version = $version
+        """,
+        _params(month, m),
+    ).fetchone()
+    return bool(posts) and answered >= JEV_COVERAGE * posts
+
+
 def _scalar_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     rows: list[Row] = []
     for m in SCALARS:
+        if not _covered(con, month, m):
+            continue
         value, n = con.execute(
-            SNAPSHOT + f"SELECT {m.expr}, count(*) {ANSWERS}", _params(month, m)
+            SNAPSHOT + f"SELECT {m.expr}, count({m.counted}) {ANSWERS}",
+            _params(month, m),
         ).fetchone()
         if n:
             rows.append((month, m.kind, m.metric, "", value, n))
@@ -188,6 +218,8 @@ def _distribution(probabilities: str | None, label: str | None) -> dict[str, flo
 def _breakdown_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
     rows: list[Row] = []
     for b in BREAKDOWNS:
+        if not _covered(con, month, b):
+            continue
         answers = con.execute(
             SNAPSHOT
             + f"SELECT a.probabilities, a.label {ANSWERS} AND {b.post_filter} ORDER BY a.post_id",
@@ -204,12 +236,16 @@ def _breakdown_rows(con: duckdb.DuckDBPyConnection, month: date) -> list[Row]:
         rows += [
             (month, b.kind, b.metric, c, total / n, n) for c, total in totals.items()
         ]
-        if b.metric == "industry" and (known := n - totals["unstated"]) > 0:
+        if b.metric == "industry":
+            # n here is an expected count: the summed probability that a post's sector is
+            # stated, rounded. Summing the known categories (not n - unstated) keeps the
+            # shares at 1 even when a distribution doesn't.
             k = INDUSTRY_KNOWN
-            rows += [
-                (month, k.kind, k.metric, c, totals[c] / known, round(known))
-                for c in k.categories
-            ]
+            if (known := sum(totals[c] for c in k.categories)) > 0:
+                rows += [
+                    (month, k.kind, k.metric, c, totals[c] / known, round(known))
+                    for c in k.categories
+                ]
     return rows
 
 
@@ -239,7 +275,6 @@ def run(con: duckdb.DuckDBPyConnection, args: argparse.Namespace) -> None:
         "DELETE FROM monthly_metrics WHERE $month IS NULL OR month = $month",
         {"month": only},
     )
-    if rows:
-        con.executemany("INSERT INTO monthly_metrics VALUES (?, ?, ?, ?, ?, ?)", rows)
+    insert_rows(con, "monthly_metrics", rows)
     con.commit()
     print(f"aggregate: {len(rows)} rows for {len(months)} months")
