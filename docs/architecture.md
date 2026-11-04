@@ -328,6 +328,7 @@ Directive attributes:
 | `title` | all, including ::compare | required; the finding, stated |
 | `subtitle` | all | optional; defaults to the metric label + date range |
 | `note` | all | text after the source line |
+| `layout` | line, bar, stacked-area, slope, dot | `float` (default) or `wide`. On screens 80rem (1280px) and wider a `float` chart sits beside its section's text, alternating right and left down the page, and is moved up to the start of the paragraphs it follows so that text wraps around it; on narrower screens it stays where it was written, at column width. `wide` spans the page instead. `::compare` and `small-multiples` are always wide and don't take `layout`. A chart with fewer than about 500 characters of paragraphs next to it stays in the column |
 
 `bar` with a breakdown draws horizontal bars at the issue month; with a scalar metric it draws monthly columns (default: the last 24 months). `stack` must not be drawn as `stacked-area` (its shares don't sum to 1).
 

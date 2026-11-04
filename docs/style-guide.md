@@ -284,6 +284,7 @@ Rules that follow from the data:
 - Bars start at zero. Lines can start above zero, but the renderer's y-axis rules decide that, not the writer.
 - Pick `from` to fit the claim, not to exaggerate it. A "lowest since" claim shows enough history to see the earlier low. A short-term claim can start in 2019, which keeps COVID and the 2021 peak in view. Starting a line in mid-2022 to make a drop look steeper is not allowed.
 - One chart per section. If a section needs two charts, it's two findings, so it's two sections.
+- On wide screens a chart floats beside its section's text, so a section needs enough prose to sit next to it: two or three paragraphs. Use `layout="wide"` for a chart that needs the full page width, such as a long history with annotations close together.
 - An outside chart's title states the same-release change its end badge shows (1y, else 5y, else 3m), never a change read off the drawn line, which mixes releases. The note says the change is computed within one release.
 - JOLTS is flagged `smooth_12m`, so every chart draws it as a 12-month trailing average, and the subtitle says so. A chart title about JOLTS describes the average, not the latest month; the prose can cite the latest month as long as it says which.
 - An outside series starts where its point-in-time history starts (Indeed postings June 2021). Don't set `from` earlier and imply the gap is zero.
