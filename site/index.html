@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Software Engineering Job Report</title>
-  <meta name="description" content="A monthly column on the US startup and software engineering job market, measured from Hacker News hiring threads since 2011.">
+  <meta name="description" content="A monthly report on the US software engineering job market, built from public sources: Indeed Hiring Lab job postings, BLS job openings and employment, and Hacker News hiring threads.">
   <meta name="color-scheme" content="light dark">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%232a78d6' d='M1 9h3v6H1zM6.5 4h3v11h-3zM12 7h3v8h-3z'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,14 @@
 
     <section class="methodology" aria-labelledby="method-title">
       <h2 id="method-title">How we measure this</h2>
-      <p>Every number here comes from two monthly Hacker News threads: “Ask HN: Who is hiring?”, where companies post openings, and “Ask HN: Who wants to be hired?”, where people post that they are looking. We read every hiring thread since April 2011 and every job-seeker thread since May 2014, when that thread began.</p>
+      <p>This report tracks the US software engineering job market each month by putting several public sources side by side. Each one sees a different part of the market: job postings, job openings, hires and layoffs, employment, and what companies and job seekers write in Hacker News's monthly threads. No single source stands in for the market, so every number names where it came from, and when sources disagree we say so.</p>
+
+      <h3 id="sources-title">Sources</h3>
+      <p>Outside sources are read as they were published by each issue's date, never revised later, so a back issue shows what was known then. Each value names the period it describes, which often trails the issue month.</p>
+      <dl id="sources" class="glossary sources"></dl>
+
+      <h3>The Hacker News threads</h3>
+      <p>Two threads open at the start of every month: “Ask HN: Who is hiring?”, where companies post openings, and “Ask HN: Who wants to be hired?”, where people post that they are looking. We read every hiring thread since April 2011 and every job-seeker thread since May 2014, when that thread began. The rest of this section explains how we measure them.</p>
 
       <h3>Each month is measured at the same age</h3>
       <p>Threads keep collecting posts for weeks. To compare months fairly we only count posts and replies written in the first 7 days after a thread opens, for every month, past or present. A thread from 2014 and last month's thread are both judged on their first week. A month appears here only once its first week is over, so the newest thread is left out until it is complete.</p>
@@ -71,12 +78,13 @@
       <p>When Jev answers, it gives a probability for each option rather than one guess. A post that is 70% likely remote and 30% likely hybrid adds 0.7 to remote and 0.3 to hybrid. Monthly shares are those probabilities added up and divided by the number of posts. This keeps uncertain posts from being forced into one bucket, so shares move smoothly instead of jumping when a borderline post flips.</p>
 
       <h3>Then and now</h3>
-      <p>Comparisons put this month next to the same month 3 months, 1 year and 5 years earlier. Shares change in percentage points. Counts and salaries change in percent. A change is marked better or worse when it is good or bad news for people looking for engineering work, and left unmarked when it is neither. A change smaller than ordinary month-to-month sampling noise is marked about the same (≈) and shown in gray, whichever way it went. Hollow circles inside the charts mark the same three earlier months.</p>
+      <p>Comparisons put this month next to the same month 3 months, 1 year and 5 years earlier. Shares change in percentage points. Counts, salaries and outside indexes change in percent. A change is marked better or worse when it is good or bad news for people looking for engineering work, and left unmarked when it is neither. For the Hacker News measures, a change smaller than ordinary month-to-month noise is marked about the same (≈) and shown in gray, whichever way it went. Outside sources have no noise allowance from us, so their changes are shown plainly and carry no verdict. Hollow circles inside the charts mark the same three earlier months.</p>
 
       <h3>What this data can't tell you</h3>
       <ul>
-        <li>One post can advertise many roles, so a count of posts is not a count of jobs.</li>
-        <li>Hacker News leans toward US startups, engineering roles and the Bay Area. It is a view of that world, not of the whole job market.</li>
+        <li>Each source counts something different. Indeed counts job ads, JOLTS counts openings, hires and layoffs across whole industries, CES counts people employed at computer systems design firms, and Hacker News counts posts. They can move apart, and that is information, not error.</li>
+        <li>The BLS series cover industries, not occupations, so they include jobs that aren't software work and miss software engineers employed in other industries. JOLTS is not seasonally adjusted and runs about two months behind; CES runs about one month behind.</li>
+        <li>One Hacker News post can advertise many roles, so a count of posts is not a count of jobs. The threads lean toward startups, engineering roles and the Bay Area, and many posters are outside the US.</li>
         <li>Edited posts show their text as of our snapshot. Deleted posts are missing. In the hiring thread deletions stayed under about a tenth of posts a month for most of its history and have risen since 2023; the job-seeker thread has always lost more, often a fifth or a quarter of its posts. Many are spam or posts that broke the thread's rules. We count them but don't add them back into post counts, and show the removed share below so you can judge the post-count trend for yourself.</li>
         <li>Salary figures come only from posts that state one, and the share that do has changed a lot as pay transparency laws spread.</li>
       </ul>
@@ -88,7 +96,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>Built from public Hacker News threads. Not affiliated with Hacker News or Y Combinator. Code and data on <a href="https://github.com/thomasconner/software-engineering-job-report">GitHub</a>.</p>
+    <p>Built from public sources: Indeed Hiring Lab (CC BY 4.0), the U.S. Bureau of Labor Statistics and Hacker News's monthly hiring threads. Not affiliated with Hacker News or Y Combinator, Indeed or the BLS. Code and data on <a href="https://github.com/thomasconner/software-engineering-job-report">GitHub</a>.</p>
   </footer>
 </body>
 </html>

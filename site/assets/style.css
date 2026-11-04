@@ -307,6 +307,10 @@ td.c-now { font: 680 1.375rem/1 var(--sans); letter-spacing: -0.01em; }
 .glossary dt { font-weight: 650; margin-top: 14px; }
 .glossary dd { margin: 2px 0 0; color: var(--ink-2); }
 .glossary .method { display: inline-block; margin-left: 2px; color: var(--muted); font-size: 0.8125rem; }
+.sources dd p { margin: 2px 0; }
+.sources .source-field { color: var(--muted); font-size: 0.8125rem; }
+.c-ref, .c-flag { display: block; font: 400 0.6875rem/1.3 var(--sans); color: var(--muted); }
+.c-flag { font-weight: 400; margin-top: 2px; }
 
 .site-footer { max-width: calc(var(--measure) + 32px); margin: 0 auto; padding: 24px 16px 48px; font: 400 0.8125rem/1.5 var(--sans); color: var(--muted); }
 
@@ -327,6 +331,7 @@ td.c-now { font: 680 1.375rem/1 var(--sans); letter-spacing: -0.01em; }
   .compare-table tbody th { font-size: 0.8125rem; line-height: 1.25; }
   .compare-table td.c-trend, .compare-table .d-was { display: none; }
   .compare-table td.c-now { font-size: 1.25rem; margin: 2px 0 4px; }
+  .compare-table .c-ref { display: none; }
   .compare-table td.c-now::after { content: " " attr(data-label); font: 400 0.6875rem var(--sans); color: var(--muted); letter-spacing: 0; }
   .compare-table td.c-delta { display: flex; gap: 6px; font-size: 0.8125rem; white-space: normal; }
   .compare-table td.c-delta::before { content: attr(data-label); flex: none; width: 1.5em; color: var(--muted); }

@@ -1,6 +1,6 @@
 // Turns an article file (front matter + Markdown + ::chart / ::compare directives) into HTML and a directive list.
 import { marked } from './vendor/marked-15.0.12.esm.js';
-import { AuthoringError, WINDOWS, isMonth } from './data.js';
+import { AuthoringError, EXTERNAL_PREFIX, WINDOWS, isMonth } from './data.js';
 
 const FRONT_MATTER = /^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/;
 const DIRECTIVE = /^::(chart|compare)\{(.*)\}\s*$/;
@@ -56,13 +56,20 @@ function checkDirective(name, attrs) {
   if (!attrs.title) throw new AuthoringError(`${type} needs a title that states the finding`);
   if (name === 'compare') {
     if (!attrs.metrics) throw new AuthoringError('compare needs metrics');
+    const ids = attrs.metrics.split(',').map((s) => s.trim());
+    const empty = ids.filter((id) => !id || id === EXTERNAL_PREFIX);
+    if (empty.length) throw new AuthoringError(`metrics="${attrs.metrics}" has an empty id; outside series are written external:<key>`);
     const bad = (attrs.against ?? '').split(',').map((s) => s.trim()).filter((a) => a && !WINDOWS[a]);
     if (bad.length) throw new AuthoringError(`against takes 3m, 1y, 5y, not ${bad.join(', ')}`);
     return;
   }
-  if (!attrs.metric === !attrs.breakdown) throw new AuthoringError(`${type} needs either metric or breakdown`);
-  if (attrs.external || attrs.base) {
-    if (!attrs.external || !isMonth(attrs.base)) throw new AuthoringError('external needs base="YYYY-MM", the month both lines are indexed to 100');
+  // A line can draw an outside series on its own (raw values) or paired with one HN metric (both indexed to base).
+  const externalOnly = attrs.external && !attrs.metric && !attrs.breakdown;
+  if (!externalOnly && !attrs.metric === !attrs.breakdown) throw new AuthoringError(`${type} needs either metric or breakdown`);
+  if (externalOnly) {
+    if (attrs.base) throw new AuthoringError('base indexes an external series against a metric; drop base to draw the external series on its own, in its own unit');
+  } else if (attrs.external || attrs.base) {
+    if (!attrs.external || !isMonth(attrs.base)) throw new AuthoringError('external with a metric needs base="YYYY-MM", the month both lines are indexed to 100');
     if (!attrs.metric || attrs.metric.includes(',')) throw new AuthoringError('external pairs with exactly one metric');
   }
   for (const key of ['from', 'to']) {

@@ -76,10 +76,15 @@ export function makeFormat(unit, { precise = false } = {}) {
       case 'share': return `${(v * 100).toFixed(precise ? 1 : 0)}%`;
       case 'usd': return `$${int.format(Math.round(v / 1000) * 1000)}`;
       case 'count': return int.format(v);
+      // BLS publishes these in thousands; readers get the whole number, as the prose writes it.
+      case 'thousands': return int.format(Math.round(v * 1000));
       default: return v.toFixed(precise ? 2 : 1);
     }
   };
 }
+
+// Units whose changes are printed in percent; shares change in points, scores and ratios in units.
+const RELATIVE = new Set(['count', 'usd', 'index', 'thousands']);
 
 // How a change is printed. Share gaps come from the printed (whole) percents so they match the prose.
 function deltaText(now, then, unit) {
@@ -88,7 +93,7 @@ function deltaText(now, then, unit) {
   if (unit === 'share') {
     diff = Math.round(now * 100) - Math.round(then * 100);
     text = `${Math.abs(diff)} pts`;
-  } else if (unit === 'count' || unit === 'usd') {
+  } else if (RELATIVE.has(unit)) {
     if (!then) return null;
     diff = ((now - then) / then) * 100;
     text = `${Math.abs(diff).toFixed(0)}%`;
@@ -162,6 +167,7 @@ export const tickFormat = (unit) => {
     case 'share': return (v) => `${Math.round(v * 100)}%`;
     case 'usd': return (v) => `$${Math.round(v / 1000)}K`;
     case 'count': return (v) => (v >= 1000 ? `${+(v / 1000).toFixed(1)}K` : int.format(v));
+    case 'thousands': return (v) => (v >= 1000 ? `${+(v / 1000).toFixed(2)}M` : `${int.format(v)}K`);
     default: return (v) => (Number.isInteger(v) ? String(v) : v.toFixed(1));
   }
 };
@@ -208,10 +214,11 @@ export const pointAt = (series, ym) => series.points.find((p) => p.month === ym)
 export const valueAt = (series, ym) => pointAt(series, ym)?.value ?? null;
 
 /**
- * An outside benchmark from metrics.json's `external` section, shaped like an HN series.
+ * An outside series from metrics.json's `external` section, shaped like an HN series.
  * `month` is the HN month; `ref_period` is the period the publisher's number describes.
+ * `smooth: false` keeps a smooth_12m series as published (the compare strip prints real values).
  */
-export function resolveExternal(data, key, until) {
+export function resolveExternal(data, key, until, { smooth = true } = {}) {
   const e = data.external?.[key];
   if (!e) throw new AuthoringError(`Unknown external series "${key}"`);
   const points = e.series.filter((p) => p.month <= until && !data.pending.has(p.month))
@@ -219,12 +226,38 @@ export function resolveExternal(data, key, until) {
   return {
     key, label: e.label, group: e.label, unit: e.unit, method: 'external', description: e.description,
     polarity: 0, sources: [], credit: e.credit, url: e.source_url, license: e.license, licenseUrl: e.license_url,
+    publisher: e.publisher, seasonallyAdjusted: e.seasonally_adjusted !== false,
+    // Outside series have no exported noise bar, so a change is printed as a plain change, never "≈".
     external: true, noise: () => 'clear',
-    // A series flagged smooth_12m (unadjusted JOLTS) would show its seasons as trend on an indexed
-    // line, so it is drawn as a 12-month trailing average instead.
-    smoothed: Boolean(e.smooth_12m),
-    points: e.smooth_12m ? trailingYear(points) : points,
+    // A series flagged smooth_12m (unadjusted JOLTS) would show its seasons as trend on a line,
+    // so charts draw it as a 12-month trailing average instead.
+    smoothed: smooth && Boolean(e.smooth_12m),
+    points: smooth && e.smooth_12m ? trailingYear(points) : points,
   };
+}
+
+export const EXTERNAL_PREFIX = 'external:';
+
+/**
+ * The rows of a ::compare strip: HN metric ids and `external:<key>` ids, in the order written.
+ * External rows keep their published values (no smoothing, no indexing).
+ */
+export function resolveCompareRows(data, metrics, until) {
+  return metrics.split(',').map((s) => s.trim()).filter(Boolean).map((key) => (key.startsWith(EXTERNAL_PREFIX)
+    ? resolveExternal(data, key.slice(EXTERNAL_PREFIX.length), until, { smooth: false })
+    : resolveSeries(data, { metric: key }, until)[0]));
+}
+
+/**
+ * The series a ::chart draws. A line with `external` and a metric indexes both to `base`;
+ * a line with only `external` draws the outside series in its own unit.
+ */
+export function resolveChartSeries(data, attrs, until) {
+  if (attrs.external && !attrs.metric) return [resolveExternal(data, attrs.external, until)];
+  const series = resolveSeries(data, attrs, until);
+  if (!attrs.external) return series;
+  if (attrs.base > until) throw new AuthoringError(`base="${attrs.base}" is after ${monthLabel(until)}`);
+  return [...series, resolveExternal(data, attrs.external, until)].map((s) => indexTo(s, attrs.base));
 }
 
 // Mean of each HN month and the 11 before it; months without 12 consecutive values are dropped.
@@ -254,11 +287,34 @@ const dayFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric'
 // A publisher's reference period: a month ("2026-09") or a day ("2026-10-02").
 export const periodLabel = (ref) => (ref.length > 7 ? dayFmt.format(new Date(`${ref}T00:00:00Z`)) : monthLabel(ref));
 
+// The Hacker News part of a source line; empty when no series comes from HN.
 export function sourceLine(series) {
   const kinds = ['hiring', 'seeking'].filter((k) => series.some((s) => s.sources.includes(k)));
+  if (!kinds.length) return '';
   return `Source: HN ${kinds.map((k) => THREAD_NAME[k]).join(' and ')} threads, first 7 days.`;
 }
 
 // Said once per chart, and only when the author's note doesn't already say it.
 export const MODEL_NOTE = 'Estimated by a language model reading each post; see How we measure this.';
 export const needsModelNote = (series, note) => series.some((s) => s.method === 'jev') && !/model/i.test(note ?? '');
+
+/**
+ * One row of a ::compare strip, ready to print. An outside series names the reference period
+ * behind each value ("Aug 2026 data"), since it usually trails the HN month it is filed under.
+ */
+export function compareCells(series, until, windows) {
+  const fmt = makeFormat(series.unit);
+  const ref = (p) => (series.external && p?.ref_period ? `${periodLabel(p.ref_period)} data` : null);
+  const now = pointAt(series, until);
+  return {
+    value: fmt(now?.value ?? null),
+    ref: ref(now),
+    deltas: windows.map((window) => {
+      const month = addMonths(until, -WINDOWS[window]);
+      const c = change(series, month, until);
+      const then = pointAt(series, month);
+      const was = c ? [`from ${fmt(then.value)}`, ref(then)].filter(Boolean).join(', ') : null;
+      return { window, month, change: c, was };
+    }),
+  };
+}

@@ -26,8 +26,8 @@ async function main() {
   if (!issues.length) throw new Error('The first issue has not been published yet.');
 
   const wanted = params.get('issue');
-  // Samples (files starting with _) are reachable by name only while previewing with mock data.
-  const issue = issues.includes(wanted) || (mock && wanted?.startsWith('_')) ? wanted : issues[0];
+  // Samples (files starting with _) are reachable by name only in authoring mode (mock data or a local server).
+  const issue = issues.includes(wanted) || (authoring && wanted?.startsWith('_')) ? wanted : issues[0];
   const res = await fetch(`articles/${issue}.md`);
   if (!res.ok) throw new Error(`The article for ${issue} could not be loaded.`);
   const article = parseArticle(await res.text());
@@ -56,6 +56,7 @@ function showError(message) {
   $('#headline').textContent = 'No issue to show yet';
   if (!$('#issue-picker').options.length) $('.picker').hidden = true;
   $('#glossary-title').hidden = true;
+  $('#sources-title').hidden = true;
   $('.ribbon-figure').hidden = true;
 }
 
@@ -114,7 +115,7 @@ function renderRibbon(data, until) {
   const pts = metric.series.filter((p) => p.month <= until && !data.pending.has(p.month));
   const marks = new Map(Object.entries(WINDOWS).map(([k, n]) => [addMonths(until, -n), k]));
   const fmt = makeFormat('count');
-  const defaultCaption = `${metric.label} each month since ${monthLabel(pts[0].month)}. Marked bars show 5 years, 1 year and 3 months before ${monthLabel(until)}.`;
+  const defaultCaption = `${metric.label} in Hacker News's "Who is hiring?" thread each month since ${monthLabel(pts[0].month)}. Marked bars show 5 years, 1 year and 3 months before ${monthLabel(until)}.`;
   caption.textContent = defaultCaption;
   wrap.setAttribute('aria-label', `${defaultCaption} Use the arrow keys to read each month.`);
   let idx = pts.length - 1;
@@ -122,7 +123,7 @@ function renderRibbon(data, until) {
 
   const read = (i, keyboard) => {
     idx = Math.max(0, Math.min(pts.length - 1, i));
-    const text = `${monthLabel(pts[idx].month, 'long')}: ${fmt(pts[idx].value)} companies hiring`;
+    const text = `${monthLabel(pts[idx].month, 'long')}: ${fmt(pts[idx].value)} hiring posts on Hacker News`;
     caption.textContent = text;
     wrap.querySelector('.cursor')?.setAttribute('x', x(pts[idx].month));
     wrap.querySelector('.cursor')?.removeAttribute('hidden');
@@ -278,7 +279,46 @@ async function renderValidation(data) {
   $('#validation').replaceChildren(table, notes);
 }
 
+// One entry per source from metrics.json `sources`: what it measures, coverage, lag, credit and caveat.
+function renderSources(data) {
+  const sources = data.sources ?? [];
+  $('#sources').replaceChildren(...sources.flatMap((s) => {
+    const dt = document.createElement('dt');
+    dt.textContent = s.name;
+    const dd = document.createElement('dd');
+    const line = (label, text) => {
+      const p = document.createElement('p');
+      const b = document.createElement('span');
+      b.className = 'source-field';
+      b.textContent = `${label}: `;
+      p.append(b, text);
+      return p;
+    };
+    const credit = document.createElement('span');
+    const link = document.createElement('a');
+    link.href = s.url;
+    link.textContent = s.credit || s.name;
+    credit.append(link);
+    if (s.license) {
+      const lic = document.createElement('a');
+      lic.href = s.license_url;
+      lic.textContent = s.license;
+      credit.append(' (', s.license_url ? lic : s.license, ')');
+    }
+    dd.append(
+      line('Measures', s.measures),
+      line('Coverage', `${monthLabel(s.coverage_start, 'long')} to ${monthLabel(s.coverage_end, 'long')} issues`),
+      line('Lag', s.lag),
+      line('Credit', credit),
+    );
+    if (s.caveat) dd.append(line('Caveat', s.caveat));
+    return [dt, dd];
+  }));
+  $('#sources-title').hidden = !sources.length;
+}
+
 function renderMethodology(data, until) {
+  renderSources(data);
   renderValidation(data).catch(() => { /* the table is optional; the prose still explains the checks */ });
   const removed = ['removed_share.hiring', 'removed_share.seeking'].filter((k) => data.metrics[k]);
   if (removed.length) {
