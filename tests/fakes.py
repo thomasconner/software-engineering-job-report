@@ -99,13 +99,14 @@ class FakeJev:
 def make_db(path: Path):
     con = connect(path)
     con.execute(
-        """INSERT INTO threads VALUES
+        """INSERT INTO threads (thread_id, kind, month, title, created_at, snapshot_at,
+            fetched_at) VALUES
         (1, 'hiring', DATE '2014-03-01', 'Ask HN: Who is hiring? (March 2014)',
-         TIMESTAMPTZ '2014-03-03 15:00:00Z', TIMESTAMPTZ '2014-03-10 15:00:00Z'),
+         TIMESTAMPTZ '2014-03-03 15:00:00Z', TIMESTAMPTZ '2014-03-10 15:00:00Z', now()),
         (2, 'seeking', DATE '2014-03-01', 'Ask HN: Who wants to be hired? (March 2014)',
-         TIMESTAMPTZ '2014-03-03 15:00:00Z', TIMESTAMPTZ '2014-03-10 15:00:00Z'),
+         TIMESTAMPTZ '2014-03-03 15:00:00Z', TIMESTAMPTZ '2014-03-10 15:00:00Z', now()),
         (3, 'hiring', DATE '2014-04-01', 'Ask HN: Who is hiring? (April 2014)',
-         TIMESTAMPTZ '2014-04-01 15:00:00Z', TIMESTAMPTZ '2014-04-08 15:00:00Z')"""
+         TIMESTAMPTZ '2014-04-01 15:00:00Z', TIMESTAMPTZ '2014-04-08 15:00:00Z', now())"""
     )
     con.executemany(
         "INSERT INTO posts VALUES (?, ?, 'a', TIMESTAMPTZ '2014-03-04 10:00:00Z', '', ?, ?)",
