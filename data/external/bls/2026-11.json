@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-10",
-  "fetched_at": "2026-11-06T22:00:41Z",
+  "fetched_at": "2026-11-07T20:44:44Z",
   "month": "2026-11",
   "values": {
     "ces_computer_systems_design.US": {
@@ -21,7 +21,7 @@
       "ref_period": "2026-10",
       "source_url": "https://data.bls.gov/timeseries/CES6054150001",
       "value": 2354.1,
-      "vintage_date": "2026-11-06"
+      "vintage_date": "2026-11-07"
     },
     "jolts_hires_information.US": {
       "compare": {
@@ -41,7 +41,7 @@
       "ref_period": "2026-09",
       "source_url": "https://data.bls.gov/timeseries/JTU510000000000000HIL",
       "value": 99.0,
-      "vintage_date": "2026-11-06"
+      "vintage_date": "2026-11-07"
     },
     "jolts_hires_professional.US": {
       "compare": {
@@ -61,7 +61,7 @@
       "ref_period": "2026-09",
       "source_url": "https://data.bls.gov/timeseries/JTU540099000000000HIL",
       "value": 874.0,
-      "vintage_date": "2026-11-06"
+      "vintage_date": "2026-11-07"
     },
     "jolts_layoffs_information.US": {
       "compare": {
@@ -81,7 +81,7 @@
       "ref_period": "2026-09",
       "source_url": "https://data.bls.gov/timeseries/JTU510000000000000LDL",
       "value": 50.0,
-      "vintage_date": "2026-11-06"
+      "vintage_date": "2026-11-07"
     },
     "jolts_layoffs_professional.US": {
       "compare": {
@@ -101,7 +101,7 @@
       "ref_period": "2026-09",
       "source_url": "https://data.bls.gov/timeseries/JTU540099000000000LDL",
       "value": 382.0,
-      "vintage_date": "2026-11-06"
+      "vintage_date": "2026-11-07"
     },
     "jolts_openings_information.US": {
       "compare": {
@@ -121,7 +121,7 @@
       "ref_period": "2026-09",
       "source_url": "https://data.bls.gov/timeseries/JTU510000000000000JOL",
       "value": 122.0,
-      "vintage_date": "2026-11-06"
+      "vintage_date": "2026-11-07"
     },
     "jolts_openings_professional.US": {
       "compare": {
@@ -141,7 +141,7 @@
       "ref_period": "2026-09",
       "source_url": "https://data.bls.gov/timeseries/JTU540099000000000JOL",
       "value": 1358.0,
-      "vintage_date": "2026-11-06"
+      "vintage_date": "2026-11-07"
     }
   }
 }
