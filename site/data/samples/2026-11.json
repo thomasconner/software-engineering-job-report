@@ -1,0 +1,1178 @@
+{
+  "month": "2026-11",
+  "posts": [
+    {
+      "id": 50396245,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50396245",
+      "header": "BuildQ | Founding Engineer | REMOTE (PT to ET overlap preferred) | $130K - $150K + equity | Full-time | Seed | https://buildq.ai/careers/founding-engineer",
+      "text": "BuildQ | Founding Engineer | REMOTE (PT to ET overlap preferred) | $130K - $150K + equity | Full-time | Seed | https://buildq.ai/careers/founding-engineer\n\nHey folks! I'm Dylan, CTO at BuildQ, and we're building out our founding eng team. Today, a $200M solar project sits for weeks while someone reads thousands of PDFs before it can be financed. We make that review fast: customers order diligence from us, our agents do the work, and an expert signs off. We've processed 200,000+ documents across 1,100+ projects so far. We're remote, and the benefits are great (a startup with a 401k match!).\n\nWe",
+      "answers": {
+        "ai_native": 0.97,
+        "benefits": [
+          "equity",
+          "retirement"
+        ],
+        "degree": "none",
+        "eng_leadership": 0.04,
+        "funding_stage": "seed",
+        "industry": "climate_energy",
+        "industry_fits": 0.81,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 965.0,
+        "region": [
+          "unknown"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 150000.0,
+        "salary_min_usd": 130000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AWS",
+          "Postgres",
+          "Python",
+          "Rails",
+          "React"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50338736,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50338736",
+      "header": "Synteq | Growth Lead & Systems Administrator | Austin, TX | REMOTE (US) | Full-time",
+      "text": "Synteq | Growth Lead & Systems Administrator | Austin, TX | REMOTE (US) | Full-time\n\nSynteq is a developer cloud running our own hardware and network. We do large-scale bare-metal, GPU, VPS, storage, and PaaS deployments across 5 US datacenters.\n\n- Growth Lead: own top of funnel for a developer cloud product, covering SEO, community, PLG, and partnerships. Open to people new to growth or with some experience. https://synteq.com/career/growth-lead\n\n- Systems Administrator: Proxmox hypervisors, networking, physical builds, Ceph, and bare metal. Ideally 2–15 YOE. https://synteq.com/career/systems",
+      "answers": {
+        "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.55,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 752.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote",
+        "years_required": "0_2"
+      }
+    },
+    {
+      "id": 50343258,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50343258",
+      "header": "Relevant Healthcare | Lead Engineer | Remote (US/Canada only) | Full-time",
+      "text": "Relevant Healthcare | Lead Engineer | Remote (US/Canada only) | Full-time\n\nRelevant builds a data platform that helps safety-net healthcare providers deliver better care using data from their electronic health records. Our customers are non-profit clinics called Community Health Centers. You can read more about them, us, and the role on our jobs page: https://relevant.healthcare/jobs/\n\nWe're a small team (~25 overall). We're bootstrapped (no external capital whatsoever, VC or otherwise) and profitable. We've got a modern tech stack (Rails, Typescript, Go, React, GraphQL, d3) and a healthy appr",
+      "answers": {
+        "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.82,
+        "funding_stage": "bootstrapped",
+        "industry": "health",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 790.0,
+        "region": [
+          "canada",
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [
+          "Go",
+          "GraphQL",
+          "Rails",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50355834,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50355834",
+      "header": "Tether | Product Engineering Lead, Keet | REMOTE (Worldwide)",
+      "text": "Tether | Product Engineering Lead, Keet | REMOTE (Worldwide)\nWe're looking for a Product Engineering Lead to help build and scale Keet, a fully peer-to-peer messaging and video calling app.\nYou'll lead API and frontend engineering teams, working closely with Product to turn the roadmap into high-quality features.\nWe're looking for someone with:\n- Experience leading engineering teams building consumer products.\n- Strong JavaScript and React skills.\n- Solid product sense and technical leadership.\n- Understanding of distributed, local-first or P2P systems.\nApply: https://tether.recruitee.com/o/pr",
+      "answers": {
+        "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.99,
+        "funding_stage": "unknown",
+        "industry": "media_consumer",
+        "industry_fits": 0.97,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 651.0,
+        "region": [
+          "unknown"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "JavaScript",
+          "React"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50352957,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50352957",
+      "header": "SEEKING FREELANCER | Devops Engineer | Remote - UK or EU",
+      "text": "SEEKING FREELANCER | Devops Engineer | Remote - UK or EU\n\ngetregistered is a better way to do event registration.\n\nWe're looking for an experienced devops freelancer to help manage and enhance our GCP + Terraform + GitLab based stack in our SOC2 / PCI environment. Candidates must be willing to undergo a background check.\n\nPlease email hn@getregistered.com with LinkedIn / CV / Samples of work.",
+      "answers": {
+        "ai_native": 0.01,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.88,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 0.0,
+        "post_length": 395.0,
+        "region": [
+          "europe",
+          "uk"
+        ],
+        "remote_token": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "GCP",
+          "Terraform"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50343929,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50343929",
+      "header": "Don't Use This Code: https://dutc.io | Training & Consulting | Full-Time (W-2) | Fully Remote (US-only)",
+      "text": "Don't Use This Code: https://dutc.io | Training & Consulting | Full-Time (W-2) | Fully Remote (US-only)\n\nDon't Use This Code's mission statement grew out of a joke… let's look at something amazing that will change the way you think about this programming language feature or this open source library… just DON'T USE THIS CODE.\n\nI (the poster of this) made a little of a name for myself in the Python community through this very approach. See: https://pyvideo.org/speaker/james-powell.html or https://www.youtube.com/@dutctv or https://www.youtube.com/@PyDataTV/search?query=james%20powell\n\nThe core p",
+      "answers": {
+        "ai_native": 0.03,
+        "benefits": [],
+        "degree": "optional",
+        "eng_leadership": 0.99,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.94,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 2157.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "LLM",
+          "Python"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50348423,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50348423",
+      "header": "Baton | San Francisco, CA (Hybrid) | Full-Time",
+      "text": "Baton | San Francisco, CA (Hybrid) | Full-Time\n\nBaton (baton.io) is Ryder's in-house product development group focused on harnessing emerging technologies to redefine transportation and logistics. With $10B in freight under management, our technology reaches every part of the U.S. economy. We design and ship category-defining software that enables Ryder and its 50,000+ customers—including some of the world's most well-known brands—to plan and execute freight intelligently, efficiently, and cost-effectively. Our work includes everything from customer-facing software to the data platform that wi",
+      "answers": {
+        "ai_native": 0.1,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.06,
+        "funding_stage": "public_or_large",
+        "industry": "commerce",
+        "industry_fits": 0.98,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 1720.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 216000.0,
+        "salary_min_usd": 162000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Machine learning"
+        ],
+        "work_mode": "hybrid",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50345770,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50345770",
+      "header": "Sendery (https://sendery.co) | iOS Engineer | Tokyo, Japan (no visa support, US/Canada remote available) | Contract",
+      "text": "Sendery (https://sendery.co) | iOS Engineer | Tokyo, Japan (no visa support, US/Canada remote available) | Contract\n\nSendery is a transactional email platform built for global teams. We provide developers, designers, and operations with the tools they need to manage their product emails without development overhead.\n\nWe're currently looking for a capable iOS Engineer to join our team on a contract basis to start as we build out our mobile stack. The ideal candidate has 5+ years experience building iOS apps from zero to production (Swift, SwiftUI, UIKit, and modern iOS frameworks), and has work",
+      "answers": {
+        "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.92,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 1013.0,
+        "region": [
+          "asia_pacific",
+          "canada",
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "Swift",
+          "iOS"
+        ],
+        "work_mode": "remote",
+        "years_required": "5_7"
+      }
+    },
+    {
+      "id": 50348566,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50348566",
+      "header": "Aloe | AI Research + AI Engineering roles | ONSITE Vancouver, BC, Canada | Full-time",
+      "text": "Aloe | AI Research + AI Engineering roles | ONSITE Vancouver, BC, Canada | Full-time\n\nAloe is the AI lab for justified belief. We work on research and products that bring epistemic intelligence to AI – compound systems that know why they believe what they do, and what would cause that belief to change. Aloe learns how humans come to answers we rely on: recognizing what's at stake in a decision, understanding evidence and unknowns, working through hard questions with rigor, and learning from the sparse data of experience.\n\nPlease read the job description and include in your outreach why you fit",
+      "answers": {
+        "ai_native": 0.93,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.06,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.47,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 1.0,
+        "open_to_us": 0.0,
+        "post_length": 1328.0,
+        "region": [
+          "canada"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50341026,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50341026",
+      "header": "Paradromics | Embedded Software Engineer | Austin, TX or Oakland, CA | Onsite | Full-time",
+      "text": "Paradromics | Embedded Software Engineer | Austin, TX or Oakland, CA | Onsite | Full-time\n\nParadromics is building a high bandwidth brain-machine interface for clinical use. The implant we built is restoring function to patients by streaming out neural data from specific brain regions in real time, which we convert to e.g. speech using machine learning. Check out our recent article in the NYT: https://archive.ph/C6CRb .\n\nWe're looking for help in further developing and hardening our embedded Linux components, which work in tandem with FPGAs and our custom ASICs to read out neural data. Some of",
+      "answers": {
+        "ai_native": 0.67,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.09,
+        "office_days": null,
+        "onsite_token": 1.0,
+        "open_to_us": 1.0,
+        "post_length": 1520.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [
+          "Linux",
+          "Machine learning",
+          "Rust",
+          "TypeScript"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50348055,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50348055",
+      "header": "Tech Mahindra’s Cloud Advisory division is hiring engineers (4+YoE) and cloud solution architects (8+YoE) to help enterprises modernize and operate at scale on AWS, Azure, and GCP. We value folks with",
+      "text": "Tech Mahindra’s Cloud Advisory division is hiring engineers (4+YoE) and cloud solution architects (8+YoE) to help enterprises modernize and operate at scale on AWS, Azure, and GCP. We value folks with a strong software development background who have grown into cloud and platform engineering roles. Our work spans cloud application modernization, platform engineering, DevOps, SRE, SecOps, and FinOps. Any experience with using AI to improve cloud platforms, DevOps or operations is a plus.\n\nWe’re hiring across geographies (India, Mexico, Canada, USA).\n\nRoles include: Cloud Engineers, Platform/Dev",
+      "answers": {
+        "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.99,
+        "funding_stage": "public_or_large",
+        "industry": "other",
+        "industry_fits": 0.09,
+        "industry_stated": 0.8,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "post_length": 760.0,
+        "region": [
+          "unknown"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "AWS",
+          "Azure",
+          "GCP"
+        ],
+        "work_mode": "unclear",
+        "years_required": "3_4"
+      }
+    },
+    {
+      "id": 50351346,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50351346",
+      "header": "ProphetX | Multiple Roles | REMOTE (US) | Full-time",
+      "text": "ProphetX | Multiple Roles | REMOTE (US) | Full-time\n\nProphetX is one of the fastest growing prediction markets in America. Fully CFTC regulated and particularly big in the sports area, we are looking to fill a number of roles across engineering and product.\n\nAmong others, we are looking for:\n\nEngineering Manager\n\nStaff Backend\n\nSenior Backend\n\nStaff DevOps (note this hasn't appeared on the job site yet, check in a day or so). This one should be open for EU timezones as well.\n\nIt's not terribly important which stack you are in, but we are building some low latency, high throughput distributed s",
+      "answers": {
+        "ai_native": 0.26,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.99,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.05,
+        "industry_stated": 0.97,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 760.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "staff_plus",
+        "stack": [],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50376253,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50376253",
+      "header": "ICEYE | Platform Software Engineers (Senior/Staff) | Espoo, Finland / Berlin, Germany | HYBRID | Full-time (relocation support)",
+      "text": "ICEYE | Platform Software Engineers (Senior/Staff) | Espoo, Finland / Berlin, Germany | HYBRID | Full-time (relocation support)\n\nICEYE builds and operates the world's largest SAR satellite constellation. I lead Platform: three teams (Core Platform, Developer Enablement, SRE) that run the foundation engineering teams ship on.\n\nWhy it is hard: we run Kubernetes in public cloud, in our own data centers, and inside customer sites that are air-gapped. Same platform, same tooling, no internet. Satellite tasking and image delivery run on it, so downtime is not an option. Stack: Go, Python, K8s, Terra",
+      "answers": {
+        "ai_native": 0.02,
+        "benefits": [
+          "relocation"
+        ],
+        "degree": "none",
+        "eng_leadership": 0.17,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.95,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 0.0,
+        "post_length": 1529.0,
+        "region": [
+          "europe"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "Go",
+          "Kubernetes",
+          "Python",
+          "Terraform"
+        ],
+        "work_mode": "hybrid",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50386884,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50386884",
+      "header": "Zefr | Los Angeles, CA (Marina del Rey) | Site Reliability Engineer | Full-time | On-site 2-3x per week | $100,000 - $130,000 | https://zefr.com",
+      "text": "Zefr | Los Angeles, CA (Marina del Rey) | Site Reliability Engineer | Full-time | On-site 2-3x per week | $100,000 - $130,000 | https://zefr.com\n\nCompany\n\nZefr is the leading global technology company enabling responsible marketing in walled garden social environments. Zefr’s solutions empower brands to manage their content adjacency on scaled platforms such as YouTube, Meta, TikTok, and Snap. Through its patented AI technology, Zefr offers brands and agencies more accurate and transparent solutions for social walled gardens.\n\nRole\n\nSite Reliability Engineer (1 - 3 years experience)\n\nYou\n\nAs a",
+      "answers": {
+        "ai_native": 0.89,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.1,
+        "office_days": 2.0,
+        "onsite_token": 1.0,
+        "open_to_us": 1.0,
+        "post_length": 1317.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 130000.0,
+        "salary_min_usd": 100000.0,
+        "seniority": "junior",
+        "stack": [
+          "AWS",
+          "ArgoCD",
+          "GCP",
+          "GitHub Actions",
+          "Grafana",
+          "Kubernetes",
+          "Node.js",
+          "Prometheus",
+          "Python",
+          "React"
+        ],
+        "work_mode": "hybrid",
+        "years_required": "0_2"
+      }
+    },
+    {
+      "id": 50351693,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50351693",
+      "header": "EggAI | AI tech leads, Software and Platform engineers | REMOTE (EU) | Full-time preferred. Contract possible. We are a small boutique consultancy and are quite experienced. A lot of us have extensive",
+      "text": "EggAI | AI tech leads, Software and Platform engineers | REMOTE (EU) | Full-time preferred. Contract possible. We are a small boutique consultancy and are quite experienced. A lot of us have extensive consultant experience. You will join a small, highly skilled remote team of engineers and transformation practitioners working at the forefront of enterprise AI.\nWe use AI for both development and in our solutions. We are looking for engineers that are critical thinkers, understand the limitations of AI but also where it can have a positive impact.\n\nApply at: https://grnh.se/wr97lgu2teu\n\nOur webs",
+      "answers": {
+        "ai_native": 0.19,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.91,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.03,
+        "industry_stated": 0.87,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 0.0,
+        "post_length": 624.0,
+        "region": [
+          "europe"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "senior",
+        "stack": [],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50349660,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50349660",
+      "header": "Perry | Founding Commercial Hire, Founding Account Executive (US), Product Designer, Legal Engineer | London (and New York for US AE) | ONSITE | Full-time",
+      "text": "Perry | Founding Commercial Hire, Founding Account Executive (US), Product Designer, Legal Engineer | London (and New York for US AE) | ONSITE | Full-time\n\nPerry is the legal OS for private capital. We build AI agents that turn a fund's legal documents into operational intelligence: reviewing term sheets and SPAs against the fund's own playbook, tracking rights and obligations across portfolio companies, and flagging MFN and regulatory risk. Founded by fund lawyers, backed by Antler, with paying VC and PE fund customers. New office near Euston.\n\nFounding Commercial Hire (London): our first com",
+      "answers": {
+        "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.02,
+        "funding_stage": "venture_unspecified",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.98,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 1.0,
+        "open_to_us": 1.0,
+        "post_length": 1036.0,
+        "region": [
+          "uk",
+          "us"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AI agents"
+        ],
+        "work_mode": "onsite",
+        "years_required": "0_2"
+      }
+    },
+    {
+      "id": 50339383,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50339383",
+      "header": "Tandem Health | Engineers, Designers, PMs | On-site in Stockholm, Sweden | Full time",
+      "text": "Tandem Health | Engineers, Designers, PMs | On-site in Stockholm, Sweden | Full time\n\nAt Tandem Health we're building the AI-native operating system for clinics, so clinicians can focus on care rather than administration. We're building, launching and iterating quickly, and already support more than 10,000 care organisations across 14 European markets, including most of the NHS. We recently raised a $100M Series B to go further, faster.\n\nIt started with our AI medical scribe, which listens in to the patient-clinician encounter to generate medical records and saves clinicians 5-10 minutes per p",
+      "answers": {
+        "ai_native": 1.0,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.05,
+        "funding_stage": "series_b",
+        "industry": "health",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 1.0,
+        "open_to_us": 0.0,
+        "post_length": 1102.0,
+        "region": [
+          "europe"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 1.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50339441,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50339441",
+      "header": "Lyra | Full-Time | Applied AI Engineer | REMOTE (US Citizenship Required) | Building the AI that builds satellites.",
+      "text": "Lyra | Full-Time | Applied AI Engineer | REMOTE (US Citizenship Required) | Building the AI that builds satellites.\n\nLyra is building an AI-native platform to solve the problem of mission integration that exists today: a slow, expensive, and manual process of information extraction and design for satellite missions. You will work on a small, fast-paced team that interfaces directly with government agencies and industry experts to build the initial version of our platform.\n\nWe are looking for a generalist that is comfortable building full-stack products, using AI tooling, and building data anal",
+      "answers": {
+        "ai_native": 0.99,
+        "benefits": [
+          "equity",
+          "health_insurance"
+        ],
+        "degree": "none",
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "hardware_robotics",
+        "industry_fits": 0.9,
+        "industry_stated": 0.98,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 751.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50344341,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50344341",
+      "header": "We are hiring for several roles at StudyTurtle, an edutainment brand building learning videos for Education. Our small, passionate team creates animated shows for kids (ages 4-10) and we create our ow",
+      "text": "We are hiring for several roles at StudyTurtle, an edutainment brand building learning videos for Education. Our small, passionate team creates animated shows for kids (ages 4-10) and we create our own tools to create the show faster. We want to help kids fall in love with curiosity and real-world learning. We use custom automation to speed up everything from story writing to animation. See what we’re making: https://www.youtube.com/watch?v=P5Iop5YUJmY\nOpen Roles (REMOTE, non US):\n* Animators (2D/3D or hybrid—experience with AI tools a plus)\n* Director/Writer - Writer and storyboarder, good at",
+      "answers": {
+        "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.02,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_grad": 0.03,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "post_length": 1194.0,
+        "region": [
+          "unknown"
+        ],
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50350981,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50350981",
+      "header": "Marker Learning | Senior Full-Stack Engineer (Frontend-Leaning) | Full-time | Remote, US only | $180k–$200k | https://www.markerlearning.com",
+      "text": "Marker Learning | Senior Full-Stack Engineer (Frontend-Leaning) | Full-time | Remote, US only | $180k–$200k | https://www.markerlearning.com\n\nWe’re building the Marker Method, a digital assessment platform that helps clinicians understand how students learn. It brings together interactive assessments, automated scoring, and tools for interpreting results. Our norming study is underway, and we’re building toward launch.\n\nWe’re looking for a frontend-leaning full-stack engineer to join our small engineering team. You’ll build student-facing assessment experiences and clinician tools, with owners",
+      "answers": {
+        "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.02,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.05,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 1187.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 200000.0,
+        "salary_min_usd": 180000.0,
+        "seniority": "senior",
+        "stack": [
+          "Next.js",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50363483,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50363483",
+      "header": "Bubblehouse | Fully REMOTE | Full-Time | $200–250k | Principal Engineer",
+      "text": "Bubblehouse | Fully REMOTE | Full-Time | $200–250k | Principal Engineer\n\nWe’re a small team across the US and Europe. We build the platform that household-name brands use to run their own loyalty programs.\n\nWe write Go and run our own database engine on top of local key-value stores. We keep storage and compute on the same dedicated machines and read straight from mmap’ed pages. Ever came across HN saying that one can run Twitter on a single machine these days? We’re doing that in production.\n\nWe write our JavaScript by hand, have zero lines of React, and render HTML server-side like it’s 2005",
+      "answers": {
+        "ai_native": 0.02,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.04,
+        "funding_stage": "unknown",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.73,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 1083.0,
+        "region": [
+          "unknown"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "salary_max_usd": 250000.0,
+        "salary_min_usd": 200000.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "Go",
+          "JavaScript",
+          "React"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50340101,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50340101",
+      "header": "River | Staff Engineers (Elixir) | NYC or REMOTE (US, Europe, South America) | Full-Time | $200K-$250K + equity | https://jobs.ashbyhq.com/river?utm_source=Zp9nJyqvd4",
+      "text": "River | Staff Engineers (Elixir) | NYC or REMOTE (US, Europe, South America) | Full-Time | $200K-$250K + equity | https://jobs.ashbyhq.com/river?utm_source=Zp9nJyqvd4\n\nI'm Alex, founder and CEO of River. I also wrote the first line of code and still ship PRs.\n\nRiver is a client-first Bitcoin-only financial institution building the financial app people use every day to save in bitcoin and spend in dollars. We custody over 33,000 BTC, serve individuals and businesses across the U.S., and are profitable. We publish cryptographic proof of reserves monthly and our company financials annually.\n\nHere",
+      "answers": {
+        "ai_native": 0.04,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "fintech",
+        "industry_fits": 0.99,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 1248.0,
+        "region": [
+          "europe",
+          "latam",
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 1.0,
+        "salary_max_usd": 250000.0,
+        "salary_min_usd": 200000.0,
+        "seniority": "staff_plus",
+        "stack": [
+          "Elixir",
+          "GraphQL",
+          "LLM",
+          "Machine learning",
+          "PyTorch",
+          "Python",
+          "React",
+          "React Native"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50347008,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50347008",
+      "header": "Certara | Sr. DevOps Engineer | REMOTE (US, Budapest) | Full Time",
+      "text": "Certara | Sr. DevOps Engineer | REMOTE (US, Budapest) | Full Time\n\nCertara makes software that life sciences companies use to develop drugs and get them approved. Our products model how drugs behave in the body (biosimulation) and validate clinical trial data for submission to regulators like the FDA.\n\nWe’re hiring a DevOps engineer to help grow the infrastructure behind our cloud products. You’ll work on:\n\nCI/CD pipelines: CircleCI, Jenkins\nCloud infra: AWS, Terraform, Chef\nSecurity/compliance: ISO 27001, GxP validation\n\nUS Listing: https://careers.certara.com/jobs/2614/job\n\nHungary: https://",
+      "answers": {
+        "ai_native": 0.04,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "health",
+        "industry_fits": 0.97,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 697.0,
+        "region": [
+          "europe",
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "Chef",
+          "CircleCI",
+          "Jenkins",
+          "Terraform"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50347501,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50347501",
+      "header": "Vohuman - Agentastic | San Francisco, Onsite | Full time | $200k+ USD + equity",
+      "text": "Vohuman - Agentastic | San Francisco, Onsite | Full time | $200k+ USD + equity\n\nHey folks, i'm the founder. Vohuman is an early stage startup focused on building aligned collective intelligence. I'm looking to hire MoTS roles, with specialization in Agentic (obviously) and RL (or both).\n\nYou can check out our product here: agentastic.dev and agentastic.com\n\nagentastic.ai/careers\n\nYou can email me at my-last-name@agentastic.ai",
+      "answers": {
+        "ai_native": 0.83,
+        "benefits": [
+          "equity"
+        ],
+        "degree": "none",
+        "eng_leadership": 0.07,
+        "funding_stage": "unknown",
+        "industry": "ai_ml",
+        "industry_fits": 0.8,
+        "industry_stated": 0.95,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 1.0,
+        "open_to_us": 1.0,
+        "post_length": 429.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "salary_min_usd": 200000.0,
+        "seniority": "unspecified",
+        "stack": [
+          "AI agents"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50339081,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50339081",
+      "header": "ORFF Maestra | Prototype Developer; Technical Product Lead | REMOTE (US only) | Contract, part-time | https://orffmaestra.com",
+      "text": "ORFF Maestra | Prototype Developer; Technical Product Lead | REMOTE (US only) | Contract, part-time | https://orffmaestra.com\n\nWe're preparing a U.S. Department of Education SBIR Phase IA proposal to build an assessment reasoning platform for school speech-language pathologists. It implements TTL-MSM, a fully specified decision framework for one of the hardest calls in school eligibility evaluations: whether a student's communication profile reflects a disorder or a difference. Clinicians code each source of evidence, and a fixed rule combines them. The rules are written; the software isn't. T",
+      "answers": {
+        "ai_native": 0.03,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.85,
+        "funding_stage": "unknown",
+        "industry": "other",
+        "industry_fits": 0.18,
+        "industry_stated": 0.93,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 1.0,
+        "post_length": 1414.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 1.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50352134,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50352134",
+      "header": "Avoca | Full-Stack Engineers + FDEs | ONSITE (NYC,US) | Full-time",
+      "text": "Avoca | Full-Stack Engineers + FDEs | ONSITE (NYC,US) | Full-time\n\nAvoca is transforming how home service companies engage with their customers. Our AI-powered conversational agents handle every high-value inbound call, from booking jobs, qualifying leads, and driving higher revenue, all at a speed and consistency unmatched by human call centers.\n\nWe're a Series B startup backed by Kleiner Perkins, Meritech Capital, General Catalyst, and other top-tier investors, with $125M raised and a $1B valuation. We grew 10x in 2025 and have scaled to 170+ employees in under two years across our NYC headq",
+      "answers": {
+        "ai_native": 0.99,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.03,
+        "funding_stage": "series_b",
+        "industry": "enterprise_saas",
+        "industry_fits": 0.95,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 1.0,
+        "new_grad": 0.02,
+        "office_days": null,
+        "onsite_token": 1.0,
+        "open_to_us": 1.0,
+        "post_length": 896.0,
+        "region": [
+          "us"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50388471,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50388471",
+      "header": "I'm Sushant Gangurde, A Software Engineer focused on Full-Stack Development and AI-powered applications. I work with React, Next.js, TypeScript, Node.js, Python, PostgreSQL and MongoDB, and enjoy buil",
+      "text": "I'm Sushant Gangurde, A Software Engineer focused on Full-Stack Development and AI-powered applications. I work with React, Next.js, TypeScript, Node.js, Python, PostgreSQL and MongoDB, and enjoy building practical products from frontend to backend.\n\nI've built projects involving AI integrations, authentication, APIs and database systems, and I'm also contributing to open-source software. I'm currently pursuing my Masters in Computer Science and actively looking for full-time Software Engineering opportunities where I can learn, take ownership and contribute to meaningful products.\n\nPortfolio:",
+      "answers": {
+        "ai_native": 0.12,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.06,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.02,
+        "industry_stated": 0.06,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_grad": 0.16,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "post_length": 776.0,
+        "region": [
+          "unknown"
+        ],
+        "remote_token": 0.0,
+        "seniority": "unspecified",
+        "stack": [
+          "MongoDB",
+          "Next.js",
+          "Node.js",
+          "Postgres",
+          "Python",
+          "React",
+          "TypeScript"
+        ],
+        "work_mode": "unclear",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50349443,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50349443",
+      "header": "telli (YF F24) - customer-facing agents - is hiring in Berlin (Eng, GTM, Design) - https://www.telli.com/careers",
+      "text": "telli (YF F24) - customer-facing agents - is hiring in Berlin (Eng, GTM, Design) - https://www.telli.com/careers",
+      "answers": {
+        "ai_native": 0.09,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.07,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.03,
+        "industry_stated": 0.07,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_company": 0.0,
+        "new_grad": 0.11,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 0.0,
+        "post_length": 112.0,
+        "region": [
+          "europe"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "unspecified",
+        "stack": [],
+        "work_mode": "onsite",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50349800,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50349800",
+      "header": "Location: Dorset, UK",
+      "text": "Location: Dorset, UK\n\nRemote: Yes (UK, US and EU time zones)\n\nWilling to relocate: No\n\nTechnologies: Ruby on Rails, Python (FastAPI), TypeScript/Node, Go, PostgreSQL, AWS, Hotwire\n\nRésumé/CV: https://wagnermatos.co.uk\n\nEmail: wm@wagnermatos.co.uk\n\nSenior engineer, 15 years. I build complete products on a fixed scope and fixed price: one senior engineer accountable end to end, AI-accelerated. Recent work includes a clinical alerting platform used by NHS trusts, an edge-to-cloud analytics platform for Johnson & Johnson Medical, and the cloud platform behind a fielded detection-hardware fleet. Al",
+      "answers": {
+        "ai_native": 0.09,
+        "benefits": [],
+        "degree": "none",
+        "eng_leadership": 0.05,
+        "funding_stage": "unknown",
+        "industry": "unstated",
+        "industry_fits": 0.06,
+        "industry_stated": 0.06,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 0.0,
+        "new_grad": 0.03,
+        "office_days": null,
+        "onsite_token": 0.0,
+        "open_to_us": 0.0,
+        "post_length": 690.0,
+        "region": [
+          "uk"
+        ],
+        "remote_token": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AWS",
+          "FastAPI",
+          "Go",
+          "Node.js",
+          "Postgres",
+          "Python",
+          "Rails",
+          "Ruby",
+          "TypeScript"
+        ],
+        "work_mode": "remote",
+        "years_required": null
+      }
+    },
+    {
+      "id": 50340449,
+      "kind": "hiring",
+      "url": "https://news.ycombinator.com/item?id=50340449",
+      "header": "Mesmer (YC P25) | Founding Engineer | Berlin | ONSITE | VISA + relocation | €100–140k + 0.5–1% equity",
+      "text": "Mesmer (YC P25) | Founding Engineer | Berlin | ONSITE | VISA + relocation | €100–140k + 0.5–1% equity\n\nMesmer builds software factories for engineering teams. Keeping a team at the state of the art with agents is a full-time job, so we do it for our customers: we're always finding the biggest bottleneck in how their team ships and fixing it in their factory.\n\nAs a founding engineer you'd do both halves. You'd work in customers' factories, at the frontier of how software gets built with agents, and you'd build the product that makes that work repeatable. We're seven people, repeat founders and ",
+      "answers": {
+        "ai_native": 0.9,
+        "benefits": [
+          "equity",
+          "visa"
+        ],
+        "degree": "none",
+        "eng_leadership": 0.03,
+        "funding_stage": "unknown",
+        "industry": "devtools_infra",
+        "industry_fits": 0.69,
+        "industry_stated": 0.99,
+        "interns_token": 0.0,
+        "interview_style": [],
+        "mentions_visa": 1.0,
+        "new_company": 1.0,
+        "new_grad": 0.01,
+        "office_days": null,
+        "onsite_token": 1.0,
+        "open_to_us": 0.0,
+        "post_length": 911.0,
+        "region": [
+          "europe"
+        ],
+        "remote_token": 0.0,
+        "returned_from_last_month": 0.0,
+        "seniority": "senior",
+        "stack": [
+          "AI agents"
+        ],
+        "work_mode": "onsite",
+        "years_required": null
+      }
+    }
+  ]
+}
