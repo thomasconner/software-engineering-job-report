@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-10",
-  "fetched_at": "2026-11-10T00:42:17Z",
+  "fetched_at": "2026-11-11T23:24:36Z",
   "month": "2026-11",
   "values": {
     "ces_computer_systems_design.US": {
@@ -19,7 +19,7 @@
         }
       },
       "ref_period": "2026-10",
-      "source_url": "https://data.bls.gov/timeseries/CES6054150001",
+      "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=CES6054150001&vintage_date=2026-11-10",
       "value": 2354.1,
       "vintage_date": "2026-11-10"
     },
@@ -39,7 +39,7 @@
         }
       },
       "ref_period": "2026-09",
-      "source_url": "https://data.bls.gov/timeseries/JTU510000000000000HIL",
+      "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU5100HIL&vintage_date=2026-11-10",
       "value": 99.0,
       "vintage_date": "2026-11-10"
     },
@@ -59,7 +59,7 @@
         }
       },
       "ref_period": "2026-09",
-      "source_url": "https://data.bls.gov/timeseries/JTU540099000000000HIL",
+      "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU540099HIL&vintage_date=2026-11-10",
       "value": 874.0,
       "vintage_date": "2026-11-10"
     },
@@ -79,7 +79,7 @@
         }
       },
       "ref_period": "2026-09",
-      "source_url": "https://data.bls.gov/timeseries/JTU510000000000000LDL",
+      "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU5100LDL&vintage_date=2026-11-10",
       "value": 50.0,
       "vintage_date": "2026-11-10"
     },
@@ -99,7 +99,7 @@
         }
       },
       "ref_period": "2026-09",
-      "source_url": "https://data.bls.gov/timeseries/JTU540099000000000LDL",
+      "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU540099LDL&vintage_date=2026-11-10",
       "value": 382.0,
       "vintage_date": "2026-11-10"
     },
@@ -119,7 +119,7 @@
         }
       },
       "ref_period": "2026-09",
-      "source_url": "https://data.bls.gov/timeseries/JTU510000000000000JOL",
+      "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU5100JOL&vintage_date=2026-11-10",
       "value": 122.0,
       "vintage_date": "2026-11-10"
     },
@@ -139,7 +139,7 @@
         }
       },
       "ref_period": "2026-09",
-      "source_url": "https://data.bls.gov/timeseries/JTU540099000000000JOL",
+      "source_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=JTU540099JOL&vintage_date=2026-11-10",
       "value": 1358.0,
       "vintage_date": "2026-11-10"
     }
